@@ -1,0 +1,1672 @@
+{
+  "fetched_at": 1779554848.221836,
+  "data": {
+    "ticker": "ETN",
+    "price": 391.37,
+    "ttm_revenue": 25311000000.0,
+    "net_income_ttm": 2566000000.0,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 388300000.0,
+    "revenue_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2012-03-31 00:00:00",
+      "2011-09-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2011-09-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001551182-19-000124",
+        "form": "10-Q",
+        "filed_date": "2019-04-30 00:00:00",
+        "revenue": 5305000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 5305000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 522000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 522000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Attributable to Eaton ordinary shareholders",
+            "value": 522000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 522000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less net loss for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Attributable to Eaton ordinary shareholders",
+            "value": 522000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Currency translation and related hedging instruments",
+            "value": 53000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Pensions and other postretirement benefits",
+            "value": -21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Cash flow hedges",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income attributable to Eaton ordinary shareholders",
+            "value": 589000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 5305000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Currency exchange contracts",
+            "value": 3573000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 917000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense - net",
+            "value": -66000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense - net",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 603000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 81000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted (usd per share)",
+            "value": 1.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (usd per share)",
+            "value": 1.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average number of ordinary shares outstanding - diluted (shares)",
+            "value": 425900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of ordinary shares outstanding - basic (shares)",
+            "value": 424000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per ordinary share (usd per share)",
+            "value": 0.71,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001551182-12-000004",
+        "form": "10-Q",
+        "filed_date": "2012-11-14 00:00:00",
+        "revenue": 0.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 0.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating expenses",
+            "value": 7690.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ForeignCurrencyTransactionGainLossUnrealized",
+            "label": "Unrealized foreign exchange loss-net",
+            "value": -67.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Loss before income taxes",
+            "value": -7757.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit) [Abstract]",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net loss",
+            "value": -7757.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000031277-12-000027",
+        "form": "10-Q",
+        "filed_date": "2012-10-31 00:00:00",
+        "revenue": 11978000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 11978000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1040000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1040000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less net income for noncontrolling interests",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income attributable to Eaton common shareholders",
+            "value": 1038000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign currency translation and related hedging instruments",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Pensions and other postretirement benefits",
+            "value": 93000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Cash flow hedges",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss) attributable to Eaton common shareholders",
+            "value": 156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income (loss) attributable to Eaton common shareholders",
+            "value": 1194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 11978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of products sold",
+            "value": 8316000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 2079000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense-net",
+            "value": -100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense-net",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 1163000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit) [Abstract]",
+            "value": 123000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 3.05,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 3.08,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 339700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 336700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 1.52,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000031277-12-000023",
+        "form": "10-Q",
+        "filed_date": "2012-07-24 00:00:00",
+        "revenue": 8028000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 8028000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 693000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 693000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less net income for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income attributable to Eaton common shareholders",
+            "value": 693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign currency translation and related hedging instruments",
+            "value": -99000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Pensions and other postretirement benefits",
+            "value": 71000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Cash flow hedges",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive loss",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Adjustment for other comprehensive income for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive (loss) income attributable to Eaton common shareholders",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 677000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 8028000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of products sold",
+            "value": 5569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 1392000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 211000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense-net",
+            "value": -58000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense (income)-net",
+            "value": -11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 787000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit) [Abstract]",
+            "value": 94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 2.04,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 2.06,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 339600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 336200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends paid per common share",
+            "value": 0.76,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0000031277-12-000017",
+        "form": "10-Q",
+        "filed_date": "2012-04-24 00:00:00",
+        "revenue": 3960000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 3960000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 311000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 311000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Adjustment for net loss for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income attributable to Eaton common shareholders",
+            "value": 311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation and related hedging instruments",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Pensions and other postretirement benefits",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Cash flow hedges",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive loss",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Adjustment for other comprehensive income for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income attributable to Eaton common shareholders",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 3960000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of products sold",
+            "value": 2754000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 105000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense-net",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense (income)-net",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 368000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 57000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 0.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 0.93,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 339800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 335400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends paid per common share",
+            "value": 0.38,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0000031277-11-000019",
+        "form": "10-Q",
+        "filed_date": "2011-10-26 00:00:00",
+        "revenue": 12016000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12016000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 991000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 991000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12016000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of products sold",
+            "value": 8444000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 2031000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 316000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense-net",
+            "value": -92000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income-net",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 1163000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 991000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less net income for noncontrolling interests",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income attributable to Eaton common shareholders",
+            "value": 988000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 2.86,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 2.9,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average number of common shares outstanding - diluted",
+            "value": 344400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of common shares outstanding - basic",
+            "value": 339700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends paid per common share",
+            "value": 1.02,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001551182-19-000124",
+        "form": "10-Q",
+        "filed_date": "2019-04-30 00:00:00",
+        "revenue": 5305000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 5305000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 522000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 522000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Attributable to Eaton ordinary shareholders",
+            "value": 522000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 522000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less net loss for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Attributable to Eaton ordinary shareholders",
+            "value": 522000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Currency translation and related hedging instruments",
+            "value": 53000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Pensions and other postretirement benefits",
+            "value": -21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Cash flow hedges",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income attributable to Eaton ordinary shareholders",
+            "value": 589000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 5305000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Currency exchange contracts",
+            "value": 3573000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 917000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense - net",
+            "value": -66000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense - net",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 603000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 81000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted (usd per share)",
+            "value": 1.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (usd per share)",
+            "value": 1.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average number of ordinary shares outstanding - diluted (shares)",
+            "value": 425900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of ordinary shares outstanding - basic (shares)",
+            "value": 424000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per ordinary share (usd per share)",
+            "value": 0.71,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000031277-12-000027",
+        "form": "10-Q",
+        "filed_date": "2012-10-31 00:00:00",
+        "revenue": 11978000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 11978000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1040000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1040000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less net income for noncontrolling interests",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income attributable to Eaton common shareholders",
+            "value": 1038000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign currency translation and related hedging instruments",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Pensions and other postretirement benefits",
+            "value": 93000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Cash flow hedges",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss) attributable to Eaton common shareholders",
+            "value": 156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income (loss) attributable to Eaton common shareholders",
+            "value": 1194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 11978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of products sold",
+            "value": 8316000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 2079000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense-net",
+            "value": -100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense-net",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 1163000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit) [Abstract]",
+            "value": 123000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 3.05,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 3.08,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 339700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 336700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 1.52,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000031277-12-000023",
+        "form": "10-Q",
+        "filed_date": "2012-07-24 00:00:00",
+        "revenue": 8028000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 8028000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 693000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 693000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less net income for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income attributable to Eaton common shareholders",
+            "value": 693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign currency translation and related hedging instruments",
+            "value": -99000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Pensions and other postretirement benefits",
+            "value": 71000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Cash flow hedges",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive loss",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Adjustment for other comprehensive income for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive (loss) income attributable to Eaton common shareholders",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 677000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 8028000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of products sold",
+            "value": 5569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 1392000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 211000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense-net",
+            "value": -58000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense (income)-net",
+            "value": -11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 787000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit) [Abstract]",
+            "value": 94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 2.04,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 2.06,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 339600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 336200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends paid per common share",
+            "value": 0.76,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0000031277-12-000017",
+        "form": "10-Q",
+        "filed_date": "2012-04-24 00:00:00",
+        "revenue": 3960000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 3960000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 311000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 311000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Adjustment for net loss for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income attributable to Eaton common shareholders",
+            "value": 311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation and related hedging instruments",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Pensions and other postretirement benefits",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Cash flow hedges",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive loss",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Adjustment for other comprehensive income for noncontrolling interests",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income attributable to Eaton common shareholders",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 3960000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of products sold",
+            "value": 2754000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 105000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense-net",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense (income)-net",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 368000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 57000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 0.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 0.93,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 339800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 335400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends paid per common share",
+            "value": 0.38,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0000031277-11-000019",
+        "form": "10-Q",
+        "filed_date": "2011-10-26 00:00:00",
+        "revenue": 12016000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12016000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 991000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 991000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12016000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of products sold",
+            "value": 8444000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling and administrative expense",
+            "value": 2031000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 316000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense-net",
+            "value": -92000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income-net",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 1163000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 991000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less net income for noncontrolling interests",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income attributable to Eaton common shareholders",
+            "value": 988000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 2.86,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 2.9,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average number of common shares outstanding - diluted",
+            "value": 344400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of common shares outstanding - basic",
+            "value": 339700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends paid per common share",
+            "value": 1.02,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

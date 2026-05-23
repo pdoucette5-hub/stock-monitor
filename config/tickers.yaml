@@ -1,0 +1,132 @@
+portfolio:
+  - ticker: AMD
+    shares: 943.29
+  - ticker: AMZN
+    shares: 660.94
+  - ticker: MSFT
+    shares: 297.50
+  - ticker: NVDA
+    shares: 697.74
+  - ticker: META
+    shares: 124.25
+  - ticker: TSLA
+    shares: 213.85
+  - ticker: CELH
+    shares: 1554.54
+  - ticker: SOFI
+    shares: 5343.352
+  - ticker: ADBE
+    shares: 142.08
+  - ticker: MU
+    shares: 63.45 
+  - ticker: HNST
+    shares: 10866.75
+  - ticker: VENU
+    shares: 5914.704  
+  - ticker: NKE
+    shares: 1
+  - ticker: pltr
+    shares: 275.44  
+  - ticker: ELF
+    shares: 716.52
+  - ticker: SOUN
+    shares: 9317.99
+  - ticker: GOOGL
+    shares: 202.50
+  - ticker: UNH
+    shares: 1
+  - ticker: PANW
+    shares: 254.00
+  - ticker: V
+    shares: 125.00
+  - ticker: CSCO
+    shares: 465.00
+  - ticker: LOW
+    shares: 150.00
+  - ticker: ACN
+    shares: 155.00
+  - ticker: WMT
+    shares: 240.00
+  - ticker: AAPL
+    shares: 105.50
+  - ticker: NEE
+    shares: 252.00
+  - ticker: JNJ
+    shares: 73.00
+  - ticker: RTX
+    shares: 83.50
+  - ticker: LMT
+    shares: 25.00
+  - ticker: HON
+    shares: 52.50
+  - ticker: TJX
+    shares: 75.00
+  - ticker: PYPL
+    shares: 255.60
+  - ticker: BSX
+    shares: 135.00
+  - ticker: LHX
+    shares: 21.50
+  - ticker: PG
+    shares: 40.00
+  - ticker: T
+    shares: 408.00
+  - ticker: PEP
+    shares: 30.00
+  - ticker: CB
+    shares: 12.50
+  - ticker: SRE
+    shares: 30.00
+  - ticker: CL
+    shares: 30.00
+  - ticker: UNP
+    shares: 10.00
+  - ticker: AMT
+    shares: 10.00
+  - ticker: SOLS
+    shares: 13.00
+  - ticker: ABT
+    shares: 50.00
+  - ticker: BDX
+    shares: 20.00
+  - ticker: CAKE
+    shares: 0.00
+  - ticker: LLY
+    shares: 41.50
+  - ticker: ORCL
+    shares: 140.77
+  - ticker: PH
+    shares: 20.00
+  - ticker: USB
+    shares: 100.00
+  - ticker: XOM
+    shares: 100.00
+  - ticker: JPM
+    shares: 219.00
+
+watchlist:
+  - TSM
+  - ETN
+  - VRT
+  - CRWD
+  - AVGO
+  - ANET
+  - AMAT
+  - KLAC
+  - MU
+  - ASML
+  - MRVL
+  - NOW
+  - PLTR
+  - SHOP
+  - UBER
+  - DE
+  - CAT
+  - TT
+  - CEG
+  - VST
+  - PWR
+  - URI
+  - GE
+  - MCK
+  - ISRG

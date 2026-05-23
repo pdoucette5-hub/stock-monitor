@@ -1,0 +1,1747 @@
+{
+  "fetched_at": 1779555869.363936,
+  "data": {
+    "ticker": "UBER",
+    "price": 71.84,
+    "ttm_revenue": 86571000000.0,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": 90326000000.0,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": -4.157164050218098,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 2035600000.0,
+    "revenue_quarter_dates_used": [
+      "2026-03-31 00:00:00",
+      "2025-09-30 00:00:00",
+      "2025-06-30 00:00:00",
+      "2025-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2024-09-30 00:00:00",
+      "2024-06-30 00:00:00",
+      "2024-03-31 00:00:00",
+      "2023-09-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2026-03-31 00:00:00",
+        "accession_number": "0001543151-26-000022",
+        "form": "10-Q",
+        "filed_date": "2026-05-06 00:00:00",
+        "revenue": 13203000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 13203000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 13203000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 7258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 763000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 1326000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 951000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 798000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 184000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 11280000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Income from operations",
+            "value": 1923000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 175000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -1494000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes and loss from equity method investments",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for (benefit from) income taxes",
+            "value": 194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Loss from equity method investments",
+            "value": -20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income including non-controlling interests",
+            "value": 282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: net income (loss) attributable to non-controlling interests, net of tax",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to Uber Technologies, Inc.",
+            "value": 263000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 0.13,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 0.13,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 2052187000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 2071391000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation adjustment",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Change in unrealized gain (loss) on investments in available-for-sale debt securities",
+            "value": -12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Change in unrealized gain (loss) on cash flow hedges",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax",
+            "value": 11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income including non-controlling interests",
+            "value": 293000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income (loss) attributable to non-controlling interests",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to Uber Technologies, Inc.",
+            "value": 274000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-09-30 00:00:00",
+        "accession_number": "0001543151-25-000033",
+        "form": "10-Q",
+        "filed_date": "2025-11-04 00:00:00",
+        "revenue": 37651000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 37651000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 37651000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 22657000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 2099000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 3544000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 2517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 2509000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 534000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 33860000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Income from operations",
+            "value": 3791000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 325000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 2043000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes and loss from equity method investments",
+            "value": 5509000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for (benefit from) income taxes",
+            "value": -4300000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Loss from equity method investments",
+            "value": -39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income including non-controlling interests",
+            "value": 9776000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: net income (loss) attributable to non-controlling interests, net of tax",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to Uber Technologies, Inc.",
+            "value": 9757000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 4.67,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 4.57,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 2089220000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 2124293000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation adjustment",
+            "value": 83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Change in unrealized gain (loss) on investments in available-for-sale debt securities",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 87000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income including non-controlling interests",
+            "value": 9863000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income (loss) attributable to non-controlling interests",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to Uber Technologies, Inc.",
+            "value": 9844000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-06-30 00:00:00",
+        "accession_number": "0001543151-25-000023",
+        "form": "10-Q",
+        "filed_date": "2025-08-06 00:00:00",
+        "revenue": 24184000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 24184000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 24184000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 14548000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 1364000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 2267000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 1655000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 1326000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 346000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 21506000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Income from operations",
+            "value": 2678000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 213000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 424000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes and loss from equity method investments",
+            "value": 2889000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for (benefit from) income taxes",
+            "value": -260000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Loss from equity method investments",
+            "value": -25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income including non-controlling interests",
+            "value": 3124000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: net loss attributable to non-controlling interests, net of tax",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to Uber Technologies, Inc.",
+            "value": 3131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 1.5,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 1.46,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 2091781000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 2124181000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation adjustment",
+            "value": 83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Change in unrealized loss on investments in available-for-sale debt securities",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 82000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income including non-controlling interests",
+            "value": 3206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive loss attributable to non-controlling interests",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to Uber Technologies, Inc.",
+            "value": 3213000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-03-31 00:00:00",
+        "accession_number": "0001543151-25-000015",
+        "form": "10-Q",
+        "filed_date": "2025-05-07 00:00:00",
+        "revenue": 11533000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 11533000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 11533000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 6937000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 668000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 1057000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 815000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 657000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 171000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 10305000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Income from operations",
+            "value": 1228000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 105000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 262000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) before income taxes and loss from equity method investments",
+            "value": 1385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for (benefit from) income taxes",
+            "value": -402000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Loss from equity method investments",
+            "value": -13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including non-controlling interests",
+            "value": 1774000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: net loss attributable to non-controlling interests, net of tax",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to Uber Technologies, Inc.",
+            "value": 1776000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 0.85,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 0.83,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 2092464000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 2122618000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation adjustment",
+            "value": 31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Change in unrealized gain (loss) on investments in available-for-sale debt securities",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 32000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including non-controlling interests",
+            "value": 1806000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income (loss) attributable to non-controlling interests",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to Uber Technologies, Inc.",
+            "value": 1808000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2024-09-30 00:00:00",
+        "accession_number": "0001543151-24-000036",
+        "form": "10-Q",
+        "filed_date": "2024-10-31 00:00:00",
+        "revenue": 32019000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 32019000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 32019000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 19417000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 2054000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 3128000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 2324000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 2525000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_DepreciationDepletionAndAmortizationExcludingOtherIncomeExpenses",
+            "label": "Depreciation and amortization",
+            "value": 542000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 29990000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Income from operations",
+            "value": 2029000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 406000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 1593000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes and income (loss) from equity method investments",
+            "value": 3216000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for (benefit from) income taxes",
+            "value": 244000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from equity method investments",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income including non-controlling interests",
+            "value": 2944000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: net loss attributable to non-controlling interests, net of tax",
+            "value": -29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to Uber Technologies, Inc.",
+            "value": 2973000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 1.42,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 1.36,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 2090809000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 2153183000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation adjustment",
+            "value": -22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Change in unrealized gain (loss) on investments in available-for-sale debt securities",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income including non-controlling interests",
+            "value": 2941000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive loss attributable to non-controlling interests",
+            "value": -29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to Uber Technologies, Inc.",
+            "value": 2970000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2024-06-30 00:00:00",
+        "accession_number": "0001543151-24-000027",
+        "form": "10-Q",
+        "filed_date": "2024-08-06 00:00:00",
+        "revenue": 20831000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 20831000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 20831000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 12656000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 1367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 2032000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 1550000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 1895000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_DepreciationDepletionAndAmortizationExcludingOtherIncomeExpenses",
+            "label": "Depreciation and amortization",
+            "value": 363000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 19863000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Income from operations",
+            "value": 968000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 263000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes and income (loss) from equity method investments",
+            "value": 447000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 86000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from equity method investments",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income including non-controlling interests",
+            "value": 345000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: net loss attributable to non-controlling interests, net of tax",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to Uber Technologies, Inc.",
+            "value": 361000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 0.17,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 0.15,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 2085324000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 2151647000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation adjustment",
+            "value": -49000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Change in unrealized loss on investments in available-for-sale debt securities",
+            "value": -9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": -58000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income including non-controlling interests",
+            "value": 287000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive loss attributable to non-controlling interests",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to Uber Technologies, Inc.",
+            "value": 303000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2024-03-31 00:00:00",
+        "accession_number": "0001543151-24-000020",
+        "form": "10-Q",
+        "filed_date": "2024-05-08 00:00:00",
+        "revenue": 10131000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 10131000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 10131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 6168000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 685000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 917000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 790000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 1209000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_DepreciationDepletionAndAmortizationExcludingOtherIncomeExpenses",
+            "label": "Depreciation and amortization",
+            "value": 190000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 9959000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Income (loss) from operations",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 124000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -678000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Loss before income taxes and income (loss) from equity method investments",
+            "value": -630000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from equity method investments",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net loss including non-controlling interests",
+            "value": -663000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: net loss attributable to non-controlling interests, net of tax",
+            "value": -9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net loss attributable to Uber Technologies, Inc.",
+            "value": -654000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": -0.31,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": -0.32,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 2078467000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 2080168000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation adjustment",
+            "value": -8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Change in unrealized loss on investments in available-for-sale debt securities",
+            "value": -8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive loss, net of tax",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive loss including non-controlling interests",
+            "value": -679000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive loss attributable to non-controlling interests",
+            "value": -9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive loss attributable to Uber Technologies, Inc.",
+            "value": -670000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2023-09-30 00:00:00",
+        "accession_number": "0001543151-23-000039",
+        "form": "10-Q",
+        "filed_date": "2023-11-07 00:00:00",
+        "revenue": 27345000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 27345000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenue",
+            "value": 27345000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 16400000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber_OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 1987000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 3421000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 2380000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 2079000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 620000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 26887000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Income (loss) from operations",
+            "value": 458000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 478000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 513000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) before income taxes and income from equity method investments",
+            "value": 493000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for (benefit from) income taxes",
+            "value": 80000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Income from equity method investments",
+            "value": 43000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including non-controlling interests",
+            "value": 456000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: net income (loss) attributable to non-controlling interests, net of tax",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to Uber Technologies, Inc.",
+            "value": 458000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 0.23,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 0.2,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 2027148000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 2080686000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation adjustment",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Change in unrealized gain (loss) on investments in available-for-sale debt securities",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": -37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including non-controlling interests",
+            "value": 419000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income (loss) attributable to non-controlling interests",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to Uber Technologies, Inc.",
+            "value": 421000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001628280-19-007524",
+        "form": "10-Q",
+        "filed_date": "2019-06-04 00:00:00",
+        "revenue": 3099000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 3099000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": -1016000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss) including redeemable non-controlling interest",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss) including redeemable non-controlling interest",
+            "value": -1016000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: net loss attributable to redeemable non-controlling interest, net of tax",
+            "value": -1012000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss) including redeemable non-controlling interest",
+            "value": -1016000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustment",
+            "value": -54000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Unrealized loss on available-for-sale securities, net of tax",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax:",
+            "value": -58000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including redeemable non-controlling interest",
+            "value": -1074000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: Comprehensive loss attributable to redeemable non-controlling interest",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) including redeemable non-controlling interest",
+            "value": -1070000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 3099000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization",
+            "label": "Cost of revenue, exclusive of depreciation and amortization shown separately below",
+            "value": 1681000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "uber:OperationsAndSupportExpense",
+            "label": "Operations and support",
+            "value": 434000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 1040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and developed expenses related to ATG and Other Technology Programs",
+            "value": 409000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 423000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 146000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Total costs and expenses",
+            "value": 4133000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Loss from operations",
+            "value": -1034000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Total interest expense from long-term debt",
+            "value": 217000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 260000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) before income taxes and loss from equity method investment",
+            "value": -991000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Loss from equity method investment",
+            "value": -6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less: net loss attributable to redeemable non-controlling interest, net of tax",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: net loss attributable to redeemable non-controlling interest, net of tax",
+            "value": -1012000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income (loss) per share:",
+            "value": -2.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income (loss) per share:",
+            "value": -2.26,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average common stock outstanding (in shares)",
+            "value": 453543000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Number of shares used in basic net income (loss) per share computation (in shares)",
+            "value": 453619000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing net_income_ttm",
+    "cache_source": "live"
+  }
+}

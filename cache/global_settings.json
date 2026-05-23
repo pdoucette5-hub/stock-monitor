@@ -1,0 +1,116 @@
+{
+  "target_cagr_threshold_pct": 12.0,
+  "strong_buy_base_premium_pct": 15.0,
+  "buy_base_premium_pct": 3.0,
+  "buy_bear_buffer_pct": 6.0,
+  "risk_base_shortfall_pct": 6.0,
+  "speculative_bull_premium_pct": 50.0,
+  "portfolio_table_height": 1400,
+  "watchlist_table_height": 650,
+  "growth_pe_table": [
+    {
+      "growth": 0.0,
+      "pe": 9.0
+    },
+    {
+      "growth": 3.0,
+      "pe": 11.0
+    },
+    {
+      "growth": 5.0,
+      "pe": 14.0
+    },
+    {
+      "growth": 8.0,
+      "pe": 18.0
+    },
+    {
+      "growth": 10.0,
+      "pe": 22.0
+    },
+    {
+      "growth": 12.0,
+      "pe": 26.0
+    },
+    {
+      "growth": 15.0,
+      "pe": 32.0
+    },
+    {
+      "growth": 18.0,
+      "pe": 38.0
+    },
+    {
+      "growth": 20.0,
+      "pe": 43.0
+    },
+    {
+      "growth": 25.0,
+      "pe": 55.0
+    },
+    {
+      "growth": 30.0,
+      "pe": 68.0
+    }
+  ],
+  "bottom_pinned_tickers": [
+    "AAPL",
+    "ABT",
+    "ACN",
+    "ADBE",
+    "AMT",
+    "ANET",
+    "ASML",
+    "AVGO",
+    "BDX",
+    "BSX",
+    "CAKE",
+    "CAT",
+    "CB",
+    "CEG",
+    "CL",
+    "CRWD",
+    "CSCO",
+    "DE",
+    "ETN",
+    "GE",
+    "HON",
+    "ISRG",
+    "JNJ",
+    "JPM",
+    "KLAC",
+    "LHX",
+    "LLY",
+    "LMT",
+    "LOW",
+    "MCK",
+    "NEE",
+    "NKE",
+    "NOW",
+    "PANW",
+    "PEP",
+    "PG",
+    "PH",
+    "PWR",
+    "PYPL",
+    "RTX",
+    "SHOP",
+    "SOLS",
+    "SRE",
+    "USB",
+    "XOM"
+  ],
+  "buy_hurdle_pct": 15.0,
+  "max_position_weight_pct": 10.0,
+  "min_position_weight_pct": 0.0,
+  "rebalance_band_pct": 0.75,
+  "min_trade_dollars": 1000.0,
+  "trim_hurdle_pct": 10.0,
+  "max_new_buy_weight_pct": 12.0,
+  "bottom_pinned_actions": [
+    "Needs Input"
+  ],
+  "cagr_threshold_pct": 12.0,
+  "buy_bear_within_threshold_pct": 6.0,
+  "risk_base_below_threshold_pct": 5.0
+}

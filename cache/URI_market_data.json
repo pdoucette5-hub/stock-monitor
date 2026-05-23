@@ -1,0 +1,3226 @@
+{
+  "fetched_at": 1779555871.1562922,
+  "data": {
+    "ticker": "URI",
+    "price": 938.64,
+    "ttm_revenue": 26769000000.0,
+    "net_income_ttm": 1659000000.0,
+    "prior_ttm_revenue": 15176000000.0,
+    "prior_net_income_ttm": 1839000000.0,
+    "revenue_growth_pct": 76.39035318924618,
+    "net_income_growth_pct": -9.78792822185971,
+    "shares_outstanding": 62650000.0,
+    "revenue_quarter_dates_used": [
+      "2023-09-30 00:00:00",
+      "2022-09-30 00:00:00",
+      "2022-06-30 00:00:00",
+      "2022-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2022-03-31 00:00:00",
+      "2021-06-30 00:00:00",
+      "2021-03-31 00:00:00",
+      "2020-09-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2022-03-31 00:00:00",
+      "2021-06-30 00:00:00",
+      "2021-03-31 00:00:00",
+      "2020-09-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2020-06-30 00:00:00",
+      "2020-03-31 00:00:00",
+      "2019-09-30 00:00:00",
+      "2019-06-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2023-09-30 00:00:00",
+        "accession_number": "0001067701-23-000041",
+        "form": "10-Q",
+        "filed_date": "2023-10-25 00:00:00",
+        "revenue": 10604000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 10604000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 10604000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 3664000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 1755000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of goods and services sold",
+            "value": 934000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 6353000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 4251000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 1134000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 329000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 2764000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -474000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 2309000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 564000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income",
+            "value": 1745000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 25.37,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 25.3,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive (loss) income (1)",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 1741000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2022-09-30 00:00:00",
+        "accession_number": "0001067701-22-000039",
+        "form": "10-Q",
+        "filed_date": "2022-10-26 00:00:00",
+        "revenue": 8346000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 8346000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 8346000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 2961000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 1362000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of goods and services sold",
+            "value": 515000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 4838000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 3508000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 1022000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 278000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 2208000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 1907000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 441000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income",
+            "value": 1466000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 20.61,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 20.56,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": -141000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive (loss) income",
+            "value": -141000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 1325000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2022-06-30 00:00:00",
+        "accession_number": "0001067701-22-000027",
+        "form": "10-Q",
+        "filed_date": "2022-07-27 00:00:00",
+        "revenue": 5295000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5295000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 1908000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 892000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of goods and services sold",
+            "value": 353000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 3153000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 2142000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 666000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 188000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 1287000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -207000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense, net",
+            "value": 11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 1091000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 231000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income",
+            "value": 860000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 11.97,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 11.93,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": -49000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive (loss) income",
+            "value": -46000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 814000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2022-03-31 00:00:00",
+        "accession_number": "0001067701-22-000018",
+        "form": "10-Q",
+        "filed_date": "2022-04-27 00:00:00",
+        "revenue": 2524000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 906000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 435000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 1532000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 992000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 97000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 572000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 5.07,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 5.05,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 387000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2022-03-31 00:00:00",
+        "accession_number": "0001067701-22-000018",
+        "form": "10-Q",
+        "filed_date": "2022-04-27 00:00:00",
+        "revenue": 2524000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 367000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 5.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 5.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 1532000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 5.05,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 5.05,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 906000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 435000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 97000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 97000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 992000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 572000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 387000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 17000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-06-30 00:00:00",
+        "accession_number": "0001067701-21-000028",
+        "form": "10-Q",
+        "filed_date": "2021-07-28 00:00:00",
+        "revenue": 4344000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 496000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 1530000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 551000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 551000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 6.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 6.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 6.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 6.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 2755000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 853000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 652000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 652000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 1589000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense (income), net",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense (income), net",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 760000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 525000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss)",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 1000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0001067701-21-000018",
+        "form": "10-Q",
+        "filed_date": "2021-04-28 00:00:00",
+        "revenue": 2057000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 2057000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 203000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 203000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 2057000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 715000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 375000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of revenues:",
+            "value": 1343000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 714000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 250000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 91000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 372000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -99000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 275000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 72000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 203000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic and diluted earnings (loss) per share [Abstract]",
+            "value": 2.81,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, by Common Class, Including Two Class Method [Line Items]",
+            "value": 2.8,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax:",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 209000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-09-30 00:00:00",
+        "accession_number": "0001067701-20-000046",
+        "form": "10-Q",
+        "filed_date": "2020-10-28 00:00:00",
+        "revenue": 6251000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 6251000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 593000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 593000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 6251000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 2083000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 1216000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of revenues:",
+            "value": 3937000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 2314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 721000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 292000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 1290000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -544000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 752000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 159000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 593000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic and diluted earnings (loss) per share [Abstract]",
+            "value": 8.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, by Common Class, Including Two Class Method [Line Items]",
+            "value": 8.12,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": -26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax:",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 565000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2022-03-31 00:00:00",
+        "accession_number": "0001067701-22-000018",
+        "form": "10-Q",
+        "filed_date": "2022-04-27 00:00:00",
+        "revenue": 2524000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 367000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 5.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 5.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 1532000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 5.05,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 5.05,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 906000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 435000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 97000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 97000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 992000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 572000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2524000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 387000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 17000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-06-30 00:00:00",
+        "accession_number": "0001067701-21-000028",
+        "form": "10-Q",
+        "filed_date": "2021-07-28 00:00:00",
+        "revenue": 4344000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 496000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 1530000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 551000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 551000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 6.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 6.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 6.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 6.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 2755000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 853000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 652000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 652000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 1589000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense (income), net",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense (income), net",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 760000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 525000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss)",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 1000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0001067701-21-000018",
+        "form": "10-Q",
+        "filed_date": "2021-04-28 00:00:00",
+        "revenue": 2057000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 2057000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 203000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 203000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 2057000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 715000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 375000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of revenues:",
+            "value": 1343000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 714000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 250000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 91000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 372000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -99000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 275000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 72000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 203000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic and diluted earnings (loss) per share [Abstract]",
+            "value": 2.81,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, by Common Class, Including Two Class Method [Line Items]",
+            "value": 2.8,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax:",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 209000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-09-30 00:00:00",
+        "accession_number": "0001067701-20-000046",
+        "form": "10-Q",
+        "filed_date": "2020-10-28 00:00:00",
+        "revenue": 6251000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 6251000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 593000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 593000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 6251000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 2083000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 1216000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of revenues:",
+            "value": 3937000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 2314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 721000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 292000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 1290000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -544000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 752000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 159000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 593000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic and diluted earnings (loss) per share [Abstract]",
+            "value": 8.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, by Common Class, Including Two Class Method [Line Items]",
+            "value": 8.12,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": -26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax:",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 565000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2020-06-30 00:00:00",
+        "accession_number": "0001067701-20-000034",
+        "form": "10-Q",
+        "filed_date": "2020-07-29 00:00:00",
+        "revenue": 4064000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4064000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 385000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 385000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4064000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 1394000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSoldDepreciationAndAmortization",
+            "label": "Depreciation of rental equipment",
+            "value": 821000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Total cost of revenues",
+            "value": 2636000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 1428000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 489000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 195000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 739000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -266000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 477000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 92000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic and diluted earnings (loss) per share [Abstract]",
+            "value": 5.26,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, by Common Class, Including Two Class Method [Line Items]",
+            "value": 5.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": -58000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax:",
+            "value": -61000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 324000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-03-31 00:00:00",
+        "accession_number": "0001067701-20-000019",
+        "form": "10-Q",
+        "filed_date": "2020-04-29 00:00:00",
+        "revenue": 2125000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2125000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 173000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 173000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 173000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": -103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax:",
+            "value": -106000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 2125000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 747000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingLeasesIncomeStatementDepreciationExpenseOnPropertySubjectToOrHeldForLease",
+            "label": "Depreciation of rental equipment",
+            "value": 426000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of revenues:",
+            "value": 1398000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Equipment rentals gross profit",
+            "value": 727000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 267000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 358000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -136000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 53000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 2.33,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 2.33,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-09-30 00:00:00",
+        "accession_number": "0001067701-19-000041",
+        "form": "10-Q",
+        "filed_date": "2019-10-16 00:00:00",
+        "revenue": 6895000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 6895000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 836000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 836000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 836000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss), net of tax:",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 856000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 6895000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 2324000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingLeasesIncomeStatementDepreciationExpenseOnPropertySubjectToOrHeldForLease",
+            "label": "Depreciation of rental equipment",
+            "value": 1211000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of revenues:",
+            "value": 4190000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 2705000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 824000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 1553000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest (income) expense, net",
+            "value": -478000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense, net",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 1081000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 245000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic and diluted earnings (loss) per share [Abstract]",
+            "value": 10.7,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, by Common Class, Including Two Class Method [Line Items]",
+            "value": 10.66,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-06-30 00:00:00",
+        "accession_number": "0001067701-19-000029",
+        "form": "10-Q",
+        "filed_date": "2019-07-17 00:00:00",
+        "revenue": 4407000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 4407000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 445000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 445000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 445000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation adjustments",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Fixed price diesel swaps",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income (loss)",
+            "value": 43000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 488000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 4407000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Cost of equipment rentals, excluding depreciation",
+            "value": 1511000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingLeasesIncomeStatementDepreciationExpenseOnPropertySubjectToOrHeldForLease",
+            "label": "Depreciation of rental equipment",
+            "value": 794000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of revenues:",
+            "value": 2735000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Equipment rentals gross profit",
+            "value": 1672000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 551000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Merger related costs",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charge",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Non-rental depreciation and amortization",
+            "value": 209000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 897000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest expense, net",
+            "value": -331000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 571000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision (benefit) for income taxes",
+            "value": 126000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic and diluted earnings (loss) per share [Abstract]",
+            "value": 5.65,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, by Common Class, Including Two Class Method [Line Items]",
+            "value": 5.62,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

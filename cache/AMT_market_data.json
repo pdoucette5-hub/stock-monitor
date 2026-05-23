@@ -1,0 +1,2988 @@
+{
+  "fetched_at": 1779554838.7982988,
+  "data": {
+    "ticker": "AMT",
+    "price": 183.87,
+    "ttm_revenue": 13280586000.0,
+    "net_income_ttm": 1337877000.0,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 465890000.0,
+    "revenue_quarter_dates_used": [
+      "2019-09-30 00:00:00",
+      "2019-06-30 00:00:00",
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00",
+      "2011-09-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2011-09-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-09-30 00:00:00",
+        "accession_number": "0001053507-19-000134",
+        "form": "10-Q",
+        "filed_date": "2019-10-31 00:00:00",
+        "revenue": 5656600000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5656600000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5656600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer",
+            "value": 402800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Property",
+            "value": 1630400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Services",
+            "value": 36200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationAmortizationAndAccretionNet",
+            "label": "Depreciation, amortization and accretion",
+            "value": 1328600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general, administrative and development expense",
+            "value": 550800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other operating expenses",
+            "value": 83500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 3629500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2027100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest income (expense), TV Azteca",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeOther",
+            "label": "Interest income",
+            "value": 36300000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 613300000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainsLossesOnExtinguishmentOfDebt",
+            "label": "Loss on retirement of long-term obligations",
+            "value": -22200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (including foreign currency (losses) gains of ($1.1), $2.2, $13.7 and ($14.9), respectively)",
+            "value": 19600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Total other expense",
+            "value": -579600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME FROM CONTINUING OPERATIONS BEFORE INCOME TAXES",
+            "value": 1447500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax (provision) benefit",
+            "value": 100300000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1347200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 22100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET INCOME ATTRIBUTABLE TO AMERICAN TOWER CORPORATION STOCKHOLDERS",
+            "value": 1325100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_PreferredStockDividendsIncomeStatementImpact",
+            "label": "Dividends on preferred stock",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "NET INCOME ATTRIBUTABLE TO AMERICAN TOWER CORPORATION COMMON STOCKHOLDERS",
+            "value": 1325100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic net income attributable to American Tower Corporation common stockholders (in dollars per share)",
+            "value": 3.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted net income attributable to American Tower Corporation common stockholders (in dollars per share)",
+            "value": 2.98,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "BASIC (in shares)",
+            "value": 442110000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "DILUTED (in shares)",
+            "value": 445352000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossBeforeReclassificationAfterTax",
+            "label": "Changes in fair value of cash flow hedges, each net of tax expense of $0",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges to net income, each net of tax expense of $0",
+            "value": -200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt_OtherComprehensiveIncomeLossRedeemableNoncontrollingInterestAdjustmentNetOfTax",
+            "label": "Adjustment to redeemable noncontrolling interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt_OtherComprehensiveIncomeLossPurchaseOfNoncontrollingInterestNetOfTax",
+            "label": "Purchase of noncontrolling interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments, net of tax (benefit) expense of ($0.0), $1.0, $0.4 and ($2.8), respectively",
+            "value": -320600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive loss",
+            "value": -320500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 1026700000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt_ComprehensiveIncomeLossNetOfTaxAttributableToRedeemableNoncontrollingInterest",
+            "label": "Allocation of accumulated other comprehensive income resulting from purchase of redeemable noncontrolling interest",
+            "value": 52400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive loss attributable to noncontrolling interests",
+            "value": -14700000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to American Tower Corporation stockholders",
+            "value": 989000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-06-30 00:00:00",
+        "accession_number": "0001053507-19-000105",
+        "form": "10-Q",
+        "filed_date": "2019-07-31 00:00:00",
+        "revenue": 3703000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 3703000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_OperatingLeaseLeaseIncome",
+            "label": "Property",
+            "value": 3634900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Services",
+            "value": 68100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 3703000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Property",
+            "value": 1082400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Services",
+            "value": 24300000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationAmortizationAndAccretionNet",
+            "label": "Depreciation, amortization and accretion",
+            "value": 885800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general, administrative and development expense",
+            "value": 362900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other operating expenses",
+            "value": 48800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 2404200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 1298800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNonoperatingNet",
+            "label": "Interest income, TV Azteca, net",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeOther",
+            "label": "Interest income",
+            "value": 24100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainsLossesOnExtinguishmentOfDebt",
+            "label": "Loss on retirement of long-term obligations",
+            "value": -22200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other (expense) income (including foreign currency (losses) gains of $(5.3), $(40.4), $14.8 and $(17.1), respectively)",
+            "value": 16800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Total other expense",
+            "value": -393300000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME FROM CONTINUING OPERATIONS BEFORE INCOME TAXES",
+            "value": 905500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax (provision) benefit",
+            "value": 63600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "NET INCOME",
+            "value": 841900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 15400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to American Tower Corporation stockholders",
+            "value": 826500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_PreferredStockDividendsIncomeStatementImpact",
+            "label": "Dividends on preferred stock",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "NET INCOME ATTRIBUTABLE TO AMERICAN TOWER CORPORATION COMMON STOCKHOLDERS",
+            "value": 826500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic net income attributable to American Tower Corporation common stockholders per common share (in dollars per share)",
+            "value": 1.87,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted net income attributable to American Tower Corporation common stockholders per common share (in dollars per share)",
+            "value": 1.86,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted average common shares outstanding (in shares)",
+            "value": 441778000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted average common shares outstanding (in shares)",
+            "value": 445040000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossBeforeReclassificationAfterTax",
+            "label": "Changes in fair value of cash flow hedges, each net of tax expense of $0",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges to net income, each net of tax expense of $0",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt_OtherComprehensiveIncomeLossRedeemableNoncontrollingInterestAdjustmentNetOfTax",
+            "label": "Adjustment to redeemable noncontrolling interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt_OtherComprehensiveIncomeLossPurchaseOfNoncontrollingInterestNetOfTax",
+            "label": "Purchase of noncontrolling interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments, net of tax expense (benefit) of ($0.5), ($5.4), $0.5 and ($3.8), respectively",
+            "value": 87000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 87000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss)",
+            "value": 928900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt_ComprehensiveIncomeLossNetOfTaxAttributableToRedeemableNoncontrollingInterest",
+            "label": "Allocation of accumulated other comprehensive income resulting from purchase of redeemable noncontrolling interest",
+            "value": 52400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive (income) loss attributable to noncontrolling interests",
+            "value": 13800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to American Tower Corporation stockholders",
+            "value": 862700000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001053507-19-000073",
+        "form": "10-Q",
+        "filed_date": "2019-05-03 00:00:00",
+        "revenue": 1813400000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "REVENUES:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 1813400000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 407600000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "NET INCOME",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 407600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net (income) loss attributable to noncontrolling interests",
+            "value": 397400000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 407600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossBeforeReclassificationAfterTax",
+            "label": "Changes in fair value of cash flow hedges, net of tax",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges to net income, net of tax",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:OtherComprehensiveIncomeLossRedeemableNoncontrollingInterestAdjustmentNetOfTax",
+            "label": "Adjustment to redeemable noncontrolling interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments, net of tax expense of $1.0 and $1.6, respectively",
+            "value": 12900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": 12900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 420500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:OtherComprehensiveIncomeLossPurchaseOfNoncontrollingInterestNetOfTax",
+            "label": "Allocation of accumulated other comprehensive income resulting from purchase of redeemable noncontrolling interest",
+            "value": -52400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive loss attributable to noncontrolling interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 368100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingLeaseLeaseIncome",
+            "label": "Property",
+            "value": 1786000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Services",
+            "value": 27400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 1813400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Property",
+            "value": 533000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Costs of operations (exclusive of items shown separately below):",
+            "value": 10400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "Depreciation, amortization and accretion",
+            "value": 436900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expenses",
+            "value": 198100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other operating expenses",
+            "value": 20100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "OPERATING EXPENSES:",
+            "value": 1198500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 614900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "Loss on retirement of long-term obligations",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (including foreign currency gains of $20.1 and $23.3, respectively)",
+            "value": 21900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "OTHER INCOME (EXPENSE):",
+            "value": -173300000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME FROM CONTINUING OPERATIONS BEFORE INCOME TAXES",
+            "value": 441600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax (provision) benefit",
+            "value": 34000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net (income) loss attributable to noncontrolling interests",
+            "value": 10200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net (income) loss attributable to noncontrolling interests",
+            "value": 397400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Dividends on preferred stock",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "NET INCOME ATTRIBUTABLE TO AMERICAN TOWER CORPORATION COMMON STOCKHOLDERS",
+            "value": 397430000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income attributable to American Tower Corporation common stockholders (in dollars per share)",
+            "value": 0.9,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income attributable to American Tower Corporation common stockholders (in dollars per share)",
+            "value": 0.89,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "BASIC (in shares)",
+            "value": 441351000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "DILUTED (in shares)",
+            "value": 444621000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001193125-12-443907",
+        "form": "10-Q",
+        "filed_date": "2012-10-31 00:00:00",
+        "revenue": 2107586000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 2107586000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 475872000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 475872000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 501604000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingLeasesIncomeStatementLeaseRevenue",
+            "label": "",
+            "value": 2063806000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "",
+            "value": 43780000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 2107586000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "",
+            "value": 506120000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "",
+            "value": 22153000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "",
+            "value": 465788000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 237891000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 35150000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 1267102000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 840484000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:NetInterestIncomeTVAzteca",
+            "label": "",
+            "value": 10715000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 6253000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 297622000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "",
+            "value": -398000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": -19468000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "",
+            "value": -300520000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 539964000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 64117000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 25000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 475872000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -25732000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 501604000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 1.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 1.26,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 394626000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 399084000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "",
+            "value": 0.66,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": -2483000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": -397000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForWriteDownOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": -495000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -36357000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -37948000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 437924000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -42216000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 480140000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001193125-12-332009",
+        "form": "10-Q",
+        "filed_date": "2012-08-02 00:00:00",
+        "revenue": 1394251000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 1394251000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 244047000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 244047000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 269515000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingLeasesIncomeStatementLeaseRevenue",
+            "label": "",
+            "value": 1366252000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "",
+            "value": 27999000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 1394251000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "",
+            "value": 328784000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "",
+            "value": 14585000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "",
+            "value": 321727000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 156432000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 27791000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 849319000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 544932000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:NetInterestIncomeTVAzteca",
+            "label": "",
+            "value": 7129000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 4536000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 195350000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "",
+            "value": -398000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": -65762000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "",
+            "value": -249845000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 295087000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 51063000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 23000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 244047000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -25468000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 269515000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 0.68,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 0.68,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 394314000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 398750000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "",
+            "value": 0.43,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": -1528000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": -198000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForWriteDownOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": -495000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -75139000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -75974000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 168073000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -40756000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 208829000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0001193125-12-208966",
+        "form": "10-Q",
+        "filed_date": "2012-05-03 00:00:00",
+        "revenue": 696517000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 696517000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 210358000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 210358000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 221306000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingLeasesIncomeStatementLeaseRevenue",
+            "label": "",
+            "value": 683990000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "",
+            "value": 12527000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 696517000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "",
+            "value": 163724000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "",
+            "value": 7261000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "",
+            "value": 149655000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 79584000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 21847000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 422071000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 274446000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:NetInterestIncomeTVAzteca",
+            "label": "",
+            "value": 3543000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 2253000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 95117000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "",
+            "value": -398000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 52861000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "",
+            "value": -36858000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 237588000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 27248000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 18000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 210358000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -10948000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 221306000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 0.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 0.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 393885000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 398453000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "",
+            "value": 0.21,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 383000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": 48000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForWriteDownOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": 495000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": 36909000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": 37069000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 247427000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -18814000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 266241000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001193125-11-291078",
+        "form": "10-Q",
+        "filed_date": "2011-11-02 00:00:00",
+        "revenue": 1790333000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 1790333000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 185406000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 185406000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 191352000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingLeasesIncomeStatementLeaseRevenue",
+            "label": "",
+            "value": 1745302000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "",
+            "value": 45031000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 1790333000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "",
+            "value": 432454000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "",
+            "value": 22884000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "",
+            "value": 411902000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 214929000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 35770000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 1117939000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 672394000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:OtherInterestIncome",
+            "label": "",
+            "value": 10587000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 6837000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 226735000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": -115710000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "",
+            "value": -325021000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 347373000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 161981000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 14000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 185406000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 185406000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -5946000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 191352000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "",
+            "value": 0.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 0.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "",
+            "value": 0.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 0.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 396507000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 400467000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001053507-19-000073",
+        "form": "10-Q",
+        "filed_date": "2019-05-03 00:00:00",
+        "revenue": 1813400000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "REVENUES:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 1813400000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 407600000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "NET INCOME",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 407600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net (income) loss attributable to noncontrolling interests",
+            "value": 397400000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 407600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossBeforeReclassificationAfterTax",
+            "label": "Changes in fair value of cash flow hedges, net of tax",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges to net income, net of tax",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:OtherComprehensiveIncomeLossRedeemableNoncontrollingInterestAdjustmentNetOfTax",
+            "label": "Adjustment to redeemable noncontrolling interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments, net of tax expense of $1.0 and $1.6, respectively",
+            "value": 12900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": 12900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 420500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:OtherComprehensiveIncomeLossPurchaseOfNoncontrollingInterestNetOfTax",
+            "label": "Allocation of accumulated other comprehensive income resulting from purchase of redeemable noncontrolling interest",
+            "value": -52400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive loss attributable to noncontrolling interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 368100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingLeaseLeaseIncome",
+            "label": "Property",
+            "value": 1786000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Services",
+            "value": 27400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 1813400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "Property",
+            "value": 533000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Costs of operations (exclusive of items shown separately below):",
+            "value": 10400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "Depreciation, amortization and accretion",
+            "value": 436900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expenses",
+            "value": 198100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other operating expenses",
+            "value": 20100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "OPERATING EXPENSES:",
+            "value": 1198500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 614900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "Loss on retirement of long-term obligations",
+            "value": -100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (including foreign currency gains of $20.1 and $23.3, respectively)",
+            "value": 21900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "OTHER INCOME (EXPENSE):",
+            "value": -173300000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME FROM CONTINUING OPERATIONS BEFORE INCOME TAXES",
+            "value": 441600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax (provision) benefit",
+            "value": 34000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net (income) loss attributable to noncontrolling interests",
+            "value": 10200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net (income) loss attributable to noncontrolling interests",
+            "value": 397400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Dividends on preferred stock",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "NET INCOME ATTRIBUTABLE TO AMERICAN TOWER CORPORATION COMMON STOCKHOLDERS",
+            "value": 397430000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income attributable to American Tower Corporation common stockholders (in dollars per share)",
+            "value": 0.9,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income attributable to American Tower Corporation common stockholders (in dollars per share)",
+            "value": 0.89,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "BASIC (in shares)",
+            "value": 441351000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "DILUTED (in shares)",
+            "value": 444621000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001193125-12-443907",
+        "form": "10-Q",
+        "filed_date": "2012-10-31 00:00:00",
+        "revenue": 2107586000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 2107586000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 475872000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 475872000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 501604000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingLeasesIncomeStatementLeaseRevenue",
+            "label": "",
+            "value": 2063806000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "",
+            "value": 43780000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 2107586000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "",
+            "value": 506120000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "",
+            "value": 22153000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "",
+            "value": 465788000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 237891000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 35150000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 1267102000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 840484000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:NetInterestIncomeTVAzteca",
+            "label": "",
+            "value": 10715000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 6253000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 297622000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "",
+            "value": -398000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": -19468000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "",
+            "value": -300520000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 539964000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 64117000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 25000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 475872000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -25732000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 501604000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 1.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 1.26,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 394626000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 399084000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "",
+            "value": 0.66,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": -2483000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": -397000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForWriteDownOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": -495000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -36357000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -37948000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 437924000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -42216000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 480140000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001193125-12-332009",
+        "form": "10-Q",
+        "filed_date": "2012-08-02 00:00:00",
+        "revenue": 1394251000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 1394251000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 244047000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 244047000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 269515000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingLeasesIncomeStatementLeaseRevenue",
+            "label": "",
+            "value": 1366252000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "",
+            "value": 27999000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 1394251000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "",
+            "value": 328784000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "",
+            "value": 14585000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "",
+            "value": 321727000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 156432000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 27791000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 849319000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 544932000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:NetInterestIncomeTVAzteca",
+            "label": "",
+            "value": 7129000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 4536000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 195350000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "",
+            "value": -398000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": -65762000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "",
+            "value": -249845000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 295087000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 51063000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 23000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 244047000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -25468000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 269515000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 0.68,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 0.68,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 394314000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 398750000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "",
+            "value": 0.43,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": -1528000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": -198000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForWriteDownOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": -495000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -75139000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -75974000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 168073000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -40756000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 208829000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0001193125-12-208966",
+        "form": "10-Q",
+        "filed_date": "2012-05-03 00:00:00",
+        "revenue": 696517000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 696517000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 210358000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 210358000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 221306000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingLeasesIncomeStatementLeaseRevenue",
+            "label": "",
+            "value": 683990000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "",
+            "value": 12527000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 696517000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "",
+            "value": 163724000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "",
+            "value": 7261000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "",
+            "value": 149655000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 79584000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 21847000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 422071000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 274446000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:NetInterestIncomeTVAzteca",
+            "label": "",
+            "value": 3543000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 2253000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 95117000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "",
+            "value": -398000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 52861000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "",
+            "value": -36858000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 237588000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 27248000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 18000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 210358000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -10948000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 221306000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 0.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 0.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 393885000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 398453000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "",
+            "value": 0.21,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 383000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": 48000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForWriteDownOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "",
+            "value": 495000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": 36909000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": 37069000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 247427000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -18814000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 266241000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001193125-11-291078",
+        "form": "10-Q",
+        "filed_date": "2011-11-02 00:00:00",
+        "revenue": 1790333000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 1790333000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 185406000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 185406000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 191352000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingLeasesIncomeStatementLeaseRevenue",
+            "label": "",
+            "value": 1745302000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "",
+            "value": 45031000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "",
+            "value": 1790333000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DirectCostsOfLeasedAndRentedPropertyOrEquipment",
+            "label": "",
+            "value": 432454000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "",
+            "value": 22884000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAmortizationAndAccretionNet",
+            "label": "",
+            "value": 411902000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 214929000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 35770000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 1117939000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 672394000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "amt:OtherInterestIncome",
+            "label": "",
+            "value": 10587000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 6837000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 226735000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": -115710000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "",
+            "value": -325021000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 347373000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 161981000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 14000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 185406000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 185406000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": -5946000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 191352000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "",
+            "value": 0.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 0.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "",
+            "value": 0.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 0.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 396507000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 400467000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

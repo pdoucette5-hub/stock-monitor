@@ -1,0 +1,3016 @@
+{
+  "fetched_at": 1779555706.034535,
+  "data": {
+    "ticker": "ORCL",
+    "price": 192.1,
+    "ttm_revenue": 82595000000.0,
+    "net_income_ttm": 21077000000.0,
+    "prior_ttm_revenue": 62758000000.0,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": 31.608719207113033,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 2876050000.0,
+    "revenue_quarter_dates_used": [
+      "2024-08-31 00:00:00",
+      "2023-11-30 00:00:00",
+      "2016-02-29 00:00:00",
+      "2015-11-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2015-08-31 00:00:00",
+      "2015-02-28 00:00:00",
+      "2014-11-30 00:00:00",
+      "2014-08-31 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2014-02-28 00:00:00",
+      "2013-02-28 00:00:00",
+      "2012-11-30 00:00:00",
+      "2012-08-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2024-08-31 00:00:00",
+        "accession_number": "0000950170-24-104905",
+        "form": "10-Q",
+        "filed_date": "2024-09-10 00:00:00",
+        "revenue": 13307000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "u_usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 13307000000.0,
+            "unit": "u_usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "orcl_CloudServicesAndLicenseSupportRevenue",
+            "label": "Cloud services and license support",
+            "value": 10519000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_CloudLicenseAndOnPremiseLicenseRevenue",
+            "label": "Cloud license and on-premise license",
+            "value": 870000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_HardwareRevenues",
+            "label": "Hardware",
+            "value": 655000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_SalesRevenueServicesNet1",
+            "label": "Services",
+            "value": 1263000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 13307000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_CloudServicesAndLicenseSupportExpenses",
+            "label": "Cloud services and license support expenses",
+            "value": 2597000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_HardwareExpenses",
+            "label": "Hardware",
+            "value": 162000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_ServicesExpense",
+            "label": "Services",
+            "value": 1147000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling and Marketing Expense, Total",
+            "value": 2036000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense, Total",
+            "value": 2306000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense, Total",
+            "value": 358000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization of intangible assets",
+            "value": 624000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Acquisition related and other",
+            "value": 13000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring Charges, Total",
+            "value": 73000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 9316000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Total margin for operating segments",
+            "value": 3991000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense, Total",
+            "value": 842000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_NonoperatingIncomeExpenseIncludingEliminationOfNetIncomeLossAttributableToNoncontrollingInterests",
+            "label": "Non-operating incom (expenses}, net",
+            "value": 20000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_IncomeLossFromContinuingOperationsIncludingNoncontrollingInterestBeforeIncomeTaxesExtraordinaryItems",
+            "label": "Income before income taxes",
+            "value": 3169000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "(Provision for) benefit from income taxes",
+            "value": 240000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Increase in net income",
+            "value": 2929000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic, Total",
+            "value": 1.06,
+            "unit": "u_unitedstatesofamericadollarsshare"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, Total",
+            "value": 1.03,
+            "unit": "u_unitedstatesofamericadollarsshare"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic, Total",
+            "value": 2761000000.0,
+            "unit": "u_shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Dilutive weighted average common shares outstanding",
+            "value": 2851000000.0,
+            "unit": "u_shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Net foreign currency translation gains (losses)",
+            "value": 220000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Net unrealized (losses) gains on cash flow hedges",
+            "value": -116000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeOtherNetOfTax",
+            "label": "Other, net",
+            "value": 0.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total other comprehensive income, net",
+            "value": 104000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 3033000000.0,
+            "unit": "u_usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2023-11-30 00:00:00",
+        "accession_number": "0000950170-23-069682",
+        "form": "10-Q",
+        "filed_date": "2023-12-12 00:00:00",
+        "revenue": 25394000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "u_usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 25394000000.0,
+            "unit": "u_usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "orcl_CloudServicesAndLicenseSupportRevenue",
+            "label": "Cloud services and license support",
+            "value": 19186000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_CloudLicenseAndOnPremiseLicenseRevenue",
+            "label": "Cloud license and on-premise license",
+            "value": 1987000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_HardwareRevenues",
+            "label": "Hardware",
+            "value": 1470000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_SalesRevenueServicesNet1",
+            "label": "Services",
+            "value": 2751000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 25394000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_CloudServicesAndLicenseSupportExpenses",
+            "label": "Cloud services and license support expenses",
+            "value": 4452000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_HardwareExpenses",
+            "label": "Hardware",
+            "value": 432000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_ServicesExpense",
+            "label": "Services",
+            "value": 2465000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling and Marketing Expense, Total",
+            "value": 4118000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense, Total",
+            "value": 4442000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense, Total",
+            "value": 769000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization of intangible assets",
+            "value": 1518000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Acquisition related and other",
+            "value": 58000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring Charges, Total",
+            "value": 222000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 18476000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Total margin for operating segments",
+            "value": 6918000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense, Total",
+            "value": 1760000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_NonoperatingIncomeExpenseIncludingEliminationOfNetIncomeLossAttributableToNoncontrollingInterests",
+            "label": "Total non-operating expenses, net",
+            "value": -63000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "orcl_IncomeLossFromContinuingOperationsIncludingNoncontrollingInterestBeforeIncomeTaxesExtraordinaryItems",
+            "label": "Income before income taxes",
+            "value": 5095000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 172000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income",
+            "value": 4923000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic, Total",
+            "value": 1.8,
+            "unit": "u_unitedstatesofamericadollarsshare"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted, Total",
+            "value": 1.75,
+            "unit": "u_unitedstatesofamericadollarsshare"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic, Total",
+            "value": 2737000000.0,
+            "unit": "u_shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Dilutive weighted average common shares outstanding",
+            "value": 2820000000.0,
+            "unit": "u_shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Net foreign currency translation gains (losses)",
+            "value": 42000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Net unrealized (losses) gains on cash flow hedges",
+            "value": 55000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeOtherNetOfTax",
+            "label": "Other, net",
+            "value": -2000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Net of Tax, Portion Attributable to Parent",
+            "value": 95000000.0,
+            "unit": "u_usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 5018000000.0,
+            "unit": "u_usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2016-02-29 00:00:00",
+        "accession_number": "0001193125-16-510333",
+        "form": "10-Q",
+        "filed_date": "2016-03-18 00:00:00",
+        "revenue": 26453000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 26453000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 6087000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net foreign currency translation losses",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized (losses) gains on defined benefit plans",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Net unrealized losses on marketable securities, net of tax",
+            "value": -47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Net unrealized gains on cash flow hedges",
+            "value": -37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": -50000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net Of Tax",
+            "value": 6037000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicensesRevenue",
+            "label": "Licenses Revenue",
+            "value": 4509000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSupportCost",
+            "label": "Hardware Support Cost",
+            "value": 526000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareRevenues",
+            "label": "Hardware Revenues",
+            "value": 3385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSupportRevenues",
+            "label": "Hardware Support Revenues",
+            "value": 1639000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareProductsRevenues",
+            "label": "Hardware Products Revenues",
+            "value": 1746000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_TotalCloudRevenues",
+            "label": "Total Cloud Revenues",
+            "value": 1994000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicenseAndMaintenanceRevenue",
+            "label": "License And Maintenance Revenue",
+            "value": 18557000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_TotalCloudOn-PremiseSoftwareRevenues",
+            "label": "Total Cloud And On-Premise Software Revenues",
+            "value": 20551000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructureAsAServiceCost",
+            "label": "Cloud Infrastructure As A Service Cost",
+            "value": 268000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 14048000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructure-As-A-Service",
+            "label": "Cloud Infrastructure-As-A-Service",
+            "value": 477000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptions",
+            "label": "Cloud software-as-a-service and platform-as-a-service revenues",
+            "value": 1517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4328000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4246000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 1.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 1.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 1623000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest",
+            "value": 7710000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Nonoperating Income Expense",
+            "value": 179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 1105000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 8636000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Costs And Expenses",
+            "value": 17817000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring Charges",
+            "value": 293000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 1283000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research And Development Expense",
+            "value": 4253000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServices",
+            "label": "Cost Of Services",
+            "value": 2058000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 877000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptionsCosts",
+            "label": "Cloud Software Subscriptions Costs",
+            "value": 847000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense",
+            "value": 5578000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 967000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 26453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 2517000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2015-11-30 00:00:00",
+        "accession_number": "0001193125-15-407703",
+        "form": "10-Q",
+        "filed_date": "2015-12-18 00:00:00",
+        "revenue": 17441000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 17441000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "orcl_CloudInfrastructureAsAServiceCost",
+            "label": "Cloud Infrastructure As A Service Cost",
+            "value": 180000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 9379000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructure-As-A-Service",
+            "label": "Cloud Infrastructure-As-A-Service",
+            "value": 325000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptions",
+            "label": "Cloud software-as-a-service and platform-as-a-service revenues",
+            "value": 934000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4364000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4278000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 3945000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 1033000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest",
+            "value": 4978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Nonoperating Income Expense",
+            "value": 114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 745000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 5609000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Costs And Expenses",
+            "value": 11832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring Charges",
+            "value": 178000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 875000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 542000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research And Development Expense",
+            "value": 2834000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServices",
+            "label": "Cost Of Services",
+            "value": 1401000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 584000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptionsCosts",
+            "label": "Cloud Software Subscriptions Costs",
+            "value": 555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense",
+            "value": 3675000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 628000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 17441000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 1724000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net Of Tax",
+            "value": 3702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": -243000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Net unrealized gains on cash flow hedges",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Net unrealized losses on marketable securities, net of tax",
+            "value": -116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized (losses) gains on defined benefit plans",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net foreign currency translation losses",
+            "value": -133000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicensesRevenue",
+            "label": "Licenses Revenue",
+            "value": 2829000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSupportCost",
+            "label": "Hardware Support Cost",
+            "value": 355000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareRevenues",
+            "label": "Hardware Revenues",
+            "value": 2250000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSupportRevenues",
+            "label": "Hardware Support Revenues",
+            "value": 1108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareProductsRevenues",
+            "label": "Hardware Products Revenues",
+            "value": 1142000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_TotalCloudRevenues",
+            "label": "Total Cloud Revenues",
+            "value": 1259000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicenseAndMaintenanceRevenue",
+            "label": "License And Maintenance Revenue",
+            "value": 12208000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_TotalCloudOn-PremiseSoftwareRevenues",
+            "label": "Total Cloud And On-Premise Software Revenues",
+            "value": 13467000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2015-08-31 00:00:00",
+        "accession_number": "0001193125-15-323532",
+        "form": "10-Q",
+        "filed_date": "2015-09-18 00:00:00",
+        "revenue": 8448000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 8448000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 374000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptionsCosts",
+            "label": "Cloud Software Subscriptions Costs",
+            "value": 276000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1747000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4412000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 4696000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Costs And Expenses",
+            "value": 5794000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 291000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServices",
+            "label": "Cost Of Services",
+            "value": 711000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Nonoperating Income Expense",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring Charges",
+            "value": 83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 2654000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense",
+            "value": 1731000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructureAsAServiceCost",
+            "label": "Cloud Infrastructure As A Service Cost",
+            "value": 89000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest",
+            "value": 2310000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 257000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 862000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 8448000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptions",
+            "label": "Cloud software-as-a-service and platform-as-a-service revenues",
+            "value": 451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicensesRevenue",
+            "label": "Licenses Revenue",
+            "value": 1151000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructure-As-A-Service",
+            "label": "Cloud Infrastructure-As-A-Service",
+            "value": 160000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 303000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 452000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 563000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": 31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research And Development Expense",
+            "value": 1390000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4317000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net Of Tax",
+            "value": 1604000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net foreign currency translation losses",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Net unrealized losses on marketable securities, net of tax",
+            "value": -126000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": -143000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Net unrealized gains on cash flow hedges",
+            "value": -29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized (losses) gains on defined benefit plans",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicenseAndMaintenanceRevenue",
+            "label": "License And Maintenance Revenue",
+            "value": 5847000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_TotalCloudOn-PremiseSoftwareRevenues",
+            "label": "Total Cloud And On-Premise Software Revenues",
+            "value": 6458000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareRevenues",
+            "label": "Hardware Revenues",
+            "value": 1128000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSupportRevenues",
+            "label": "Hardware Support Revenues",
+            "value": 558000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareProductsRevenues",
+            "label": "Hardware Products Revenues",
+            "value": 570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSupportCost",
+            "label": "Hardware Support Cost",
+            "value": 180000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_TotalCloudRevenues",
+            "label": "Total Cloud Revenues",
+            "value": 611000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2015-02-28 00:00:00",
+        "accession_number": "0001193125-15-098586",
+        "form": "10-Q",
+        "filed_date": "2015-03-19 00:00:00",
+        "revenue": 27520000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 27520000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net Of Tax",
+            "value": 6581000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": -600000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Other Comprehensive Income Loss Derivatives Qualifying As Hedges Net Of Tax",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Available For Sale Securities Adjustment Net Of Tax",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income Defined Benefit Plans Net Unamortized Gain Loss Arising During Period Net Of Tax",
+            "value": 8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Net Of Tax",
+            "value": -629000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 7181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructureAsAServiceCost",
+            "label": "Cloud Infrastructure As A Service Cost",
+            "value": 254000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4516000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4419000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 1.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 1.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 1956000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest",
+            "value": 9137000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Nonoperating Income Expense",
+            "value": 65000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 817000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 9889000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Costs And Expenses",
+            "value": 17631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring Charges",
+            "value": 168000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 1642000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research And Development Expense",
+            "value": 4088000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServices",
+            "label": "Cost Of Services",
+            "value": 2179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsSupportCost",
+            "label": "Hardware Systems Support Cost",
+            "value": 628000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 867000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptionsCosts",
+            "label": "Cloud Software Subscriptions Costs",
+            "value": 517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense",
+            "value": 5443000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 1034000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 27520000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 2647000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsRevenues",
+            "label": "Hardware Systems Revenues",
+            "value": 3798000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsSupportRevenues",
+            "label": "Hardware Systems Support Revenues",
+            "value": 1791000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsRevenues",
+            "label": "Hardware Systems Products Revenues",
+            "value": 2007000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_SoftwareAndCloudRevenues",
+            "label": "Software And Cloud Revenues",
+            "value": 21075000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 14161000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructure-As-A-Service",
+            "label": "Cloud Infrastructure-As-A-Service",
+            "value": 448000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptions",
+            "label": "Cloud software-as-a-service and platform-as-a-service revenues",
+            "value": 1069000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicensesRevenue",
+            "label": "Licenses Revenue",
+            "value": 5397000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2014-11-30 00:00:00",
+        "accession_number": "0001193125-14-448728",
+        "form": "10-Q",
+        "filed_date": "2014-12-19 00:00:00",
+        "revenue": 18194000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 18194000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net Of Tax",
+            "value": 4381000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": -304000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Other Comprehensive Income Loss Derivatives Qualifying As Hedges Net Of Tax",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Available For Sale Securities Adjustment Net Of Tax",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income Defined Benefit Plans Net Unamortized Gain Loss Arising During Period Net Of Tax",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Net Of Tax",
+            "value": -367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 4685000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4527000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4434000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 1.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 1.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 1302000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest",
+            "value": 5987000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Nonoperating Income Expense",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 544000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 6506000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Costs And Expenses",
+            "value": 11688000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring Charges",
+            "value": 120000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 1116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 547000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research And Development Expense",
+            "value": 2718000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServices",
+            "label": "Cost Of Services",
+            "value": 1455000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsSupportCost",
+            "label": "Hardware Systems Support Cost",
+            "value": 410000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 568000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructureAsAServiceCost",
+            "label": "Cloud Infrastructure As A Service Cost",
+            "value": 166000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptionsCosts",
+            "label": "Cloud Software Subscriptions Costs",
+            "value": 314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense",
+            "value": 3603000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 667000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 18194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 1790000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsRevenues",
+            "label": "Hardware Systems Revenues",
+            "value": 2499000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsSupportRevenues",
+            "label": "Hardware Systems Support Revenues",
+            "value": 1204000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsRevenues",
+            "label": "Hardware Systems Products Revenues",
+            "value": 1295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_SoftwareAndCloudRevenues",
+            "label": "Software And Cloud Revenues",
+            "value": 13905000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 9499000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructure-As-A-Service",
+            "label": "Cloud Infrastructure-As-A-Service",
+            "value": 293000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptions",
+            "label": "Cloud software-as-a-service and platform-as-a-service revenues",
+            "value": 698000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicensesRevenue",
+            "label": "Licenses Revenue",
+            "value": 3415000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2014-08-31 00:00:00",
+        "accession_number": "0001193125-14-350291",
+        "form": "10-Q",
+        "filed_date": "2014-09-23 00:00:00",
+        "revenue": 8596000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 8596000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 272000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructure-As-A-Service",
+            "label": "Cloud Infrastructure-As-A-Service",
+            "value": 138000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income Defined Benefit Plans Net Unamortized Gain Loss Arising During Period Net Of Tax",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 2184000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 534000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": -29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Net Of Tax",
+            "value": -83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 547000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LicensesRevenue",
+            "label": "Licenses Revenue",
+            "value": 1370000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsSupportRevenues",
+            "label": "Hardware Systems Support Revenues",
+            "value": 587000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsRevenues",
+            "label": "Hardware Systems Revenues",
+            "value": 1165000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_SoftwareAndCloudRevenues",
+            "label": "Software And Cloud Revenues",
+            "value": 6576000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudInfrastructureAsAServiceCost",
+            "label": "Cloud Infrastructure As A Service Cost",
+            "value": 79000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 855000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsSupportCost",
+            "label": "Hardware Systems Support Cost",
+            "value": 192000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Available For Sale Securities Adjustment Net Of Tax",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 261000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Costs And Expenses",
+            "value": 5633000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research And Development Expense",
+            "value": 1329000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptions",
+            "label": "Cloud software-as-a-service and platform-as-a-service revenues",
+            "value": 337000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4548000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "orcl_CloudSoftwareSubscriptionsCosts",
+            "label": "Cloud Software Subscriptions Costs",
+            "value": 149000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net Of Tax",
+            "value": 2155000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl_HardwareSystemsProductsRevenues",
+            "label": "Hardware Systems Products Revenues",
+            "value": 578000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfServices",
+            "label": "Cost Of Services",
+            "value": 691000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4451000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense",
+            "value": 1706000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Nonoperating Income Expense",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 0.0,
+            "unit": "eps"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest",
+            "value": 2718000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 276000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 2963000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 4731000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Other Comprehensive Income Loss Derivatives Qualifying As Hedges Net Of Tax",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Restructuring Charges",
+            "value": 69000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 8596000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.0,
+            "unit": "eps"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2014-02-28 00:00:00",
+        "accession_number": "0001193125-14-108126",
+        "form": "10-Q",
+        "filed_date": "2014-03-20 00:00:00",
+        "revenue": 26955000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues Abstract",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues Abstract",
+            "value": 26955000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 7309000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "NetIncomeLossAttributableToNoncontrollingInterest",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "value": 7309000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "orcl:NewSoftwareLicensesAndCloudSoftwareSubscriptions",
+            "label": "New Software Licenses And Cloud Software Subscriptions Member",
+            "value": 6447000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 13511000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LicenseAndMaintenanceRevenue",
+            "label": "License And Maintenance Revenue",
+            "value": 19958000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsProductsRevenues",
+            "label": "Hardware Systems Products Revenues",
+            "value": 2108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsSupportRevenues",
+            "label": "Hardware Systems Support Revenues Segment Not Recognized",
+            "value": 1800000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsRevenues",
+            "label": "Hardware Systems Revenues [Abstract]",
+            "value": 3908000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 3089000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues Abstract",
+            "value": 26955000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense Member",
+            "value": 5601000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 860000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 1078000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsSupportCost",
+            "label": "Hardware Systems Support Cost",
+            "value": 630000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 2461000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development and Software Development Costs [Abstract]",
+            "value": 3803000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expenses (Narrative) [Abstract]",
+            "value": 773000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 1732000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Total Restructuring Liabilities [Abstract]",
+            "value": 146000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating expenses [Abstract]",
+            "value": 17105000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 9850000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense [Member]",
+            "value": 674000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Non-Operating Expense, net [Abstract]",
+            "value": -60000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest",
+            "value": 9116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit Continuing Operations",
+            "value": 1807000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "value": 7309000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 1.61,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 1.58,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4546000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4616000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.36,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2013-02-28 00:00:00",
+        "accession_number": "0001193125-13-122271",
+        "form": "10-Q",
+        "filed_date": "2013-03-22 00:00:00",
+        "revenue": 26233000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues Abstract",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues Abstract",
+            "value": 26233000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 7119000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "NetIncomeLossAttributableToNoncontrollingInterest",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "value": 7119000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "orcl:NewSoftwareLicensesAndCloudSoftwareSubscriptions",
+            "label": "New Software Licenses And Cloud Software Subscriptions Member",
+            "value": 6295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 12740000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LicenseAndMaintenanceRevenue",
+            "label": "License And Maintenance Revenue",
+            "value": 19035000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsProductsRevenues",
+            "label": "Hardware Systems Products Revenues",
+            "value": 2185000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsSupportRevenues",
+            "label": "Hardware Systems Support Revenues Segment Not Recognized",
+            "value": 1730000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsRevenues",
+            "label": "Hardware Systems Revenues [Abstract]",
+            "value": 3915000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 3283000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues Abstract",
+            "value": 26233000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense Member",
+            "value": 5120000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 860000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 1087000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsSupportCost",
+            "label": "Hardware Systems Support Cost",
+            "value": 670000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 2668000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development [Abstract]",
+            "value": 3586000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expenses (Narrative) [Abstract]",
+            "value": 798000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 1789000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": -347000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Total Restructuring Liabilities [Abstract]",
+            "value": 318000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating expenses [Abstract]",
+            "value": 16549000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 9684000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense [Member]",
+            "value": 588000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Non-Operating (Expense) Income, net [Abstract]",
+            "value": -24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:TotalIncomeBeforeProvisionForIncomeTaxes",
+            "label": "Total Income Before Provision For Income Taxes",
+            "value": 9072000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefitContinuingOperations",
+            "label": "Income Tax Expense Benefit Continuing Operations",
+            "value": 1953000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "value": 7119000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 1.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 1.46,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4798000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4873000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.3,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Net Of Tax",
+            "value": 55000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income Defined Benefit Plans Net Unamortized Gain Loss Arising During Period Net Of Tax",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Available For Sale Securities Adjustment Net Of Tax",
+            "value": -19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income [Abstract]",
+            "value": 7161000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-11-30 00:00:00",
+        "accession_number": "0001193125-12-513009",
+        "form": "10-Q",
+        "filed_date": "2012-12-21 00:00:00",
+        "revenue": 17275000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues Abstract",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues Abstract",
+            "value": 17275000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 4615000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "NetIncomeLossAttributableToNoncontrollingInterest",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "value": 4615000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "orcl:NewSoftwareLicensesAndCloudSoftwareSubscriptions",
+            "label": "New Software Licenses And Cloud Software Subscriptions Member",
+            "value": 3963000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 8400000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LicenseAndMaintenanceRevenue",
+            "label": "License And Maintenance Revenue",
+            "value": 12363000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsProductsRevenues",
+            "label": "Hardware Systems Products Revenues",
+            "value": 1513000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsSupportRevenues",
+            "label": "Hardware Systems Support Revenues Segment Not Recognized",
+            "value": 1161000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsRevenues",
+            "label": "Hardware Systems Revenues [Abstract]",
+            "value": 2674000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 2238000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues Abstract",
+            "value": 17275000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense Member",
+            "value": 3319000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 553000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 751000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsSupportCost",
+            "label": "Hardware Systems Support Cost",
+            "value": 451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 1814000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development [Abstract]",
+            "value": 2400000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expenses (Narrative) [Abstract]",
+            "value": 538000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 1203000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": -380000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Total Restructuring Liabilities [Abstract]",
+            "value": 276000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating expenses [Abstract]",
+            "value": 10925000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 6350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense [Member]",
+            "value": 382000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Non-Operating Income, net [Abstract]",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:TotalIncomeBeforeProvisionForIncomeTaxes",
+            "label": "Total Income Before Provision For Income Taxes",
+            "value": 5982000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefitContinuingOperations",
+            "label": "Income Tax Expense Benefit Continuing Operations",
+            "value": 1367000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "value": 4615000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 0.96,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 0.94,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4829000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4904000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.12,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Net Of Tax",
+            "value": 77000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income Defined Benefit Plans Net Unamortized Gain Loss Arising During Period Net Of Tax",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Available For Sale Securities Adjustment Net Of Tax",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": 110000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income [Abstract]",
+            "value": 4725000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-08-31 00:00:00",
+        "accession_number": "0001193125-12-401697",
+        "form": "10-Q",
+        "filed_date": "2012-09-24 00:00:00",
+        "revenue": 8181000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues Abstract",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues Abstract",
+            "value": 8181000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2034000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "NetIncomeLossAttributableToNoncontrollingInterest",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "value": 2034000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "orcl:NewSoftwareLicensesAndCloudSoftwareSubscriptions",
+            "label": "New Software Licenses And Cloud Software Subscriptions Abstract",
+            "value": 1574000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MaintenanceRevenue",
+            "label": "Maintenance Revenue",
+            "value": 4140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LicenseAndMaintenanceRevenue",
+            "label": "License And Maintenance Revenue",
+            "value": 5714000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsProductsRevenues",
+            "label": "Hardware Systems Products Revenues Segment Detail",
+            "value": 779000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsSupportRevenues",
+            "label": "Hardware Systems Support Revenues Segment Detail",
+            "value": 574000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsRevenues",
+            "label": "Hardware Systems Revenues [Abstract]",
+            "value": 1353000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 1114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues Abstract",
+            "value": 8181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense Member",
+            "value": 1545000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServicesMaintenanceCosts",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 283000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsProductsCost",
+            "label": "Hardware Systems Products Cost",
+            "value": 384000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:HardwareSystemsSupportCost",
+            "label": "Hardware Systems Support Cost",
+            "value": 224000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "Cost Of Services Maintenance Costs",
+            "value": 884000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development [Abstract]",
+            "value": 1201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expenses (Narrative) [Abstract]",
+            "value": 275000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization Of Intangible Assets",
+            "value": 619000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationAcquisitionRelatedCosts",
+            "label": "Business Combination Acquisition Related Costs",
+            "value": -258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Total Restructuring Liabilities [Abstract]",
+            "value": 145000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating expenses [Abstract]",
+            "value": 5302000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 2879000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense [Member]",
+            "value": 188000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Non-Operating Income (Expense), net [Abstract]",
+            "value": 11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "orcl:TotalIncomeBeforeProvisionForIncomeTaxes",
+            "label": "Total Income Before Provision For Income Taxes",
+            "value": 2702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefitContinuingOperations",
+            "label": "Income Tax Expense Benefit Continuing Operations",
+            "value": 668000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "value": 2034000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 0.42,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 0.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 4867000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares outstanding",
+            "value": 4939000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Net Of Tax",
+            "value": 67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income Defined Benefit Plans Net Unamortized Gain Loss Arising During Period Net Of Tax",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Available For Sale Securities Adjustment Net Of Tax",
+            "value": 127000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income Loss Net Of Tax Portion Attributable To Parent",
+            "value": 199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income [Abstract]",
+            "value": 2233000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

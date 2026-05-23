@@ -1,0 +1,2186 @@
+{
+  "fetched_at": 1779554845.267458,
+  "data": {
+    "ticker": "CL",
+    "price": 90.63,
+    "ttm_revenue": 29350000000.0,
+    "net_income_ttm": 4526000000.0,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 800190000.0,
+    "revenue_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2011-09-30 00:00:00",
+      "2010-09-30 00:00:00",
+      "2010-06-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2011-09-30 00:00:00",
+      "2010-09-30 00:00:00",
+      "2010-06-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000021665-19-000007",
+        "form": "10-Q",
+        "filed_date": "2019-04-26 00:00:00",
+        "revenue": 3884000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Total Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Total Net sales",
+            "value": 3884000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 600000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 600000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 560000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 600000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Cumulative translation adjustments",
+            "value": 26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Retirement plans and other retiree benefit adjustments",
+            "value": -12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Gains (losses) on cash flow hedges",
+            "value": -5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 33000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 633000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Cumulative translation adjustments attributable to noncontrolling interests",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income attributable to noncontrolling interests",
+            "value": 45000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 588000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Total Net sales",
+            "value": 3884000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 1597000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 2287000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 1365000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": -43000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Total Operating profit",
+            "value": 879000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service related postretirement costs",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest (income) expense, net",
+            "value": 40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 814000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 214000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 560000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Per Share",
+            "value": 0.65,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 0.65,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001545547-12-000017",
+        "form": "10-Q",
+        "filed_date": "2012-10-25 00:00:00",
+        "revenue": 12799000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12799000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1995000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1995000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1874000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1995000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Cumulative translation adjustments",
+            "value": -23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Retirement Plan and other retiree benefit adjustments",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) on available-for-sale securities",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Unrealized gains (losses) on cash flow hedges",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax",
+            "value": 24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 2019000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Cumulative translation adjustments attributable to noncontrolling interests",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive Income attributable to noncontrolling interests",
+            "value": 125000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 1894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 5372000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 7427000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 4443000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:OtherIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": 37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Total Operating profit",
+            "value": 2947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest expense, net",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 2927000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 932000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1874000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic and Diluted [Abstract]",
+            "value": 3.93,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 3.89,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.82,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001545547-12-000014",
+        "form": "10-Q",
+        "filed_date": "2012-07-26 00:00:00",
+        "revenue": 8467000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 8467000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1298000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1220000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Cumulative translation adjustments",
+            "value": -112000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Retirement Plan and other retiree benefit adjustments",
+            "value": -10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) on available-for-sale securities",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Unrealized gains (losses) on cash flow hedges",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax",
+            "value": -83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 1215000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 78000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Cumulative translation adjustments attributable to noncontrolling interests",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive Income attributable to noncontrolling interests",
+            "value": 74000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 1141000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 8467000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 3569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 4898000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2942000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:OtherIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Total Operating profit",
+            "value": 1920000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest expense, net",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 1904000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 606000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1220000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic and Diluted [Abstract]",
+            "value": 2.55,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 2.53,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.2,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0001545547-12-000005",
+        "form": "10-Q",
+        "filed_date": "2012-04-26 00:00:00",
+        "revenue": 4200000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 4200000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 633000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 633000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 593000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 633000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Cumulative translation adjustment",
+            "value": 179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Retirement Plan and other retiree benefit adjustments",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) on available-for-sale securities",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized gains (losses) on cash flow hedges",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income, net of tax:",
+            "value": 208000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income including noncontrolling interest",
+            "value": 841000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Cumulative translation adjustments attributable to noncontrolling interests",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Noncontrolling Interest",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total Comprehensive income including noncontrolling interest",
+            "value": 799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 4200000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 1763000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 2437000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 1478000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:OtherIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 938000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest expense, net",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 928000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 593000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic EPS (in dollars per share)",
+            "value": 1.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 1.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.2,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001445305-11-003083",
+        "form": "10-Q",
+        "filed_date": "2011-10-27 00:00:00",
+        "revenue": 12562000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12562000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1929000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1929000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1841000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12562000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 5365000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 7197000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 4314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:OtherIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 2918000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest expense, net",
+            "value": 37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:IncomeBeforeIncomeTaxes",
+            "label": "Income before income taxes",
+            "value": 2881000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 952000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1929000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 88000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1841000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic EPS (in dollars per share)",
+            "value": 3.76,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 3.73,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.69,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-09-30 00:00:00",
+        "accession_number": "0001140361-10-042509",
+        "form": "10-Q",
+        "filed_date": "2010-10-28 00:00:00",
+        "revenue": 11586000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 11586000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1662000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1662000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 1579000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 11586000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 4732000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 6854000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 4038000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 2584000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 879000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1662000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 1579000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per common share, basic (in dollars per share)",
+            "value": 3.17,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings per common share, diluted (in dollars per share)",
+            "value": 3.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.5,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-06-30 00:00:00",
+        "accession_number": "0001140361-10-030757",
+        "form": "10-Q",
+        "filed_date": "2010-07-29 00:00:00",
+        "revenue": 7643000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 7643000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1017000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1017000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 960000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 7643000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 3133000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 4510000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2647000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 1626000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 579000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1017000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 57000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 960000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per common share, basic",
+            "value": 1.92,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings per common share, diluted",
+            "value": 1.86,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share",
+            "value": 0.97,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000021665-19-000007",
+        "form": "10-Q",
+        "filed_date": "2019-04-26 00:00:00",
+        "revenue": 3884000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Total Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Total Net sales",
+            "value": 3884000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 600000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 600000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 560000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 600000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Cumulative translation adjustments",
+            "value": 26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Retirement plans and other retiree benefit adjustments",
+            "value": -12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Gains (losses) on cash flow hedges",
+            "value": -5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 33000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 633000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Cumulative translation adjustments attributable to noncontrolling interests",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income attributable to noncontrolling interests",
+            "value": 45000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 588000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Total Net sales",
+            "value": 3884000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 1597000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 2287000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 1365000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": -43000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Total Operating profit",
+            "value": 879000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service related postretirement costs",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest (income) expense, net",
+            "value": 40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 814000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 214000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 560000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Per Share",
+            "value": 0.65,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 0.65,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001545547-12-000017",
+        "form": "10-Q",
+        "filed_date": "2012-10-25 00:00:00",
+        "revenue": 12799000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12799000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1995000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1995000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1874000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1995000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Cumulative translation adjustments",
+            "value": -23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Retirement Plan and other retiree benefit adjustments",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) on available-for-sale securities",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Unrealized gains (losses) on cash flow hedges",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax",
+            "value": 24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 2019000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Cumulative translation adjustments attributable to noncontrolling interests",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive Income attributable to noncontrolling interests",
+            "value": 125000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 1894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 5372000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 7427000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 4443000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:OtherIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": 37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Total Operating profit",
+            "value": 2947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest expense, net",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 2927000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 932000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1874000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic and Diluted [Abstract]",
+            "value": 3.93,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 3.89,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.82,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001545547-12-000014",
+        "form": "10-Q",
+        "filed_date": "2012-07-26 00:00:00",
+        "revenue": 8467000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 8467000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1298000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1220000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Cumulative translation adjustments",
+            "value": -112000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Retirement Plan and other retiree benefit adjustments",
+            "value": -10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) on available-for-sale securities",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Unrealized gains (losses) on cash flow hedges",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax",
+            "value": -83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 1215000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 78000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Cumulative translation adjustments attributable to noncontrolling interests",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive Income attributable to noncontrolling interests",
+            "value": 74000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total Comprehensive income including noncontrolling interests",
+            "value": 1141000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 8467000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 3569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 4898000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2942000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:OtherIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Total Operating profit",
+            "value": 1920000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest expense, net",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 1904000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 606000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1220000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic and Diluted [Abstract]",
+            "value": 2.55,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 2.53,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.2,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0001545547-12-000005",
+        "form": "10-Q",
+        "filed_date": "2012-04-26 00:00:00",
+        "revenue": 4200000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 4200000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 633000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 633000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 593000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 633000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Cumulative translation adjustment",
+            "value": 179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Retirement Plan and other retiree benefit adjustments",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) on available-for-sale securities",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized gains (losses) on cash flow hedges",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income, net of tax:",
+            "value": 208000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total Comprehensive income including noncontrolling interest",
+            "value": 841000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Cumulative translation adjustments attributable to noncontrolling interests",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Noncontrolling Interest",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total Comprehensive income including noncontrolling interest",
+            "value": 799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 4200000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 1763000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 2437000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 1478000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:OtherIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 938000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest expense, net",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 928000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 593000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic EPS (in dollars per share)",
+            "value": 1.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 1.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.2,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001445305-11-003083",
+        "form": "10-Q",
+        "filed_date": "2011-10-27 00:00:00",
+        "revenue": 12562000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12562000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1929000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1929000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1841000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 12562000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 5365000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 7197000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 4314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:OtherIncomeExpenseNet",
+            "label": "Other (income) expense, net",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 2918000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:InterestExpenseNet",
+            "label": "Interest expense, net",
+            "value": 37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cl:IncomeBeforeIncomeTaxes",
+            "label": "Income before income taxes",
+            "value": 2881000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 952000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1929000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 88000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (Loss) attributable to Colgate-Palmolive Company",
+            "value": 1841000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic EPS (in dollars per share)",
+            "value": 3.76,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS (in dollars per share)",
+            "value": 3.73,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.69,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-09-30 00:00:00",
+        "accession_number": "0001140361-10-042509",
+        "form": "10-Q",
+        "filed_date": "2010-10-28 00:00:00",
+        "revenue": 11586000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 11586000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1662000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1662000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 1579000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 11586000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 4732000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 6854000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 4038000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 2584000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 879000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1662000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 1579000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per common share, basic (in dollars per share)",
+            "value": 3.17,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings per common share, diluted (in dollars per share)",
+            "value": 3.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share (in dollars per share)",
+            "value": 1.5,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-06-30 00:00:00",
+        "accession_number": "0001140361-10-030757",
+        "form": "10-Q",
+        "filed_date": "2010-07-29 00:00:00",
+        "revenue": 7643000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 7643000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1017000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1017000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 960000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 7643000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 3133000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 4510000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2647000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 1626000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 579000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income including noncontrolling interests",
+            "value": 1017000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net income attributable to noncontrolling interests",
+            "value": 57000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 960000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per common share, basic",
+            "value": 1.92,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings per common share, diluted",
+            "value": 1.86,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share",
+            "value": 0.97,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

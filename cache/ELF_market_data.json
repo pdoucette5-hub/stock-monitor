@@ -1,0 +1,286 @@
+{
+  "fetched_at": 1779554847.691487,
+  "data": {
+    "ticker": "ELF",
+    "price": 52.92,
+    "ttm_revenue": null,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 59050000.0,
+    "revenue_quarter_dates_used": [
+      "2019-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001600033-19-000040",
+        "form": "10-Q",
+        "filed_date": "2019-05-09 00:00:00",
+        "revenue": 66141000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 66141000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": -17914000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": -17914000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 66141000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 25650000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 40491000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 37324000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring expenses",
+            "value": 22176000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": -19009000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense, net",
+            "value": -315000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense, net",
+            "value": -1849000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before provision for income taxes",
+            "value": -21173000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax benefit (provision)",
+            "value": -3259000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": -17914000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": -17914000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Net income (loss) per share:",
+            "value": -0.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": -0.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 48022926.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 48022926.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001600033-19-000040",
+        "form": "10-Q",
+        "filed_date": "2019-05-09 00:00:00",
+        "revenue": 66141000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 66141000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": -17914000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": -17914000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 66141000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 25650000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 40491000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 37324000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring expenses",
+            "value": 22176000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": -19009000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other expense, net",
+            "value": -315000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense, net",
+            "value": -1849000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before provision for income taxes",
+            "value": -21173000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax benefit (provision)",
+            "value": -3259000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": -17914000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": -17914000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Net income (loss) per share:",
+            "value": -0.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": -0.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 48022926.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 48022926.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing ttm_revenue, net_income_ttm",
+    "cache_source": "live"
+  }
+}

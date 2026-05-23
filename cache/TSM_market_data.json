@@ -1,0 +1,24 @@
+{
+  "fetched_at": 1779555868.295199,
+  "data": {
+    "ticker": "TSM",
+    "price": 404.54,
+    "ttm_revenue": null,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 25932520000.0,
+    "revenue_quarter_dates_used": [],
+    "prior_revenue_quarter_dates_used": [],
+    "ni_quarter_dates_used": [],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [],
+    "prior_revenue_quarters_used": [],
+    "ni_quarters_used": [],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing ttm_revenue, net_income_ttm",
+    "cache_source": "live"
+  }
+}

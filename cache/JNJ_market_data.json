@@ -1,0 +1,1970 @@
+{
+  "fetched_at": 1779554851.573515,
+  "data": {
+    "ticker": "JNJ",
+    "price": 234.36,
+    "ttm_revenue": null,
+    "net_income_ttm": 20924000000.0,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": 30574000000.0,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": -31.562765748675346,
+    "shares_outstanding": 2407220000.0,
+    "revenue_quarter_dates_used": [
+      "2019-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-07-01 00:00:00",
+      "2012-04-01 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2011-10-02 00:00:00",
+      "2011-07-03 00:00:00",
+      "2011-04-03 00:00:00",
+      "2010-10-03 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000200406-19-000033",
+        "form": "10-Q",
+        "filed_date": "2019-05-01 00:00:00",
+        "revenue": 20021000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Sales to customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Sales to customers",
+            "value": 20021000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3749000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 3749000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 3749000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossBeforeReclassificationAndTax",
+            "label": "Foreign currency translation",
+            "value": -258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Unrealized gains on equity investments",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassifications to earnings",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Net change",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherComprehensiveIncomeLossPensionandOtherPostretirementBenefitPlansNetPriorServiceCostCreditNetofAmortizationArisingDuringPeriodNetofTax",
+            "label": "Prior service cost amortization during period",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherComprehensiveIncomeLossReclassificationAdjustmentfromAOCIPensionandOtherPostretirementBenefitPlansforNetGainLossNetofAmortizationNetofTax",
+            "label": "Gain (loss) amortization during period",
+            "value": -176000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Net change",
+            "value": -169000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossBeforeReclassificationAfterTax",
+            "label": "Other Comprehensive Income (Loss), Cash Flow Hedge, Gain (Loss), before Reclassification, after Tax",
+            "value": -302000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "Gain/ (Loss) reclassified from Accumulated OCI into income",
+            "value": -96000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Net change",
+            "value": -206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Net change",
+            "value": -295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 3454000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Sales to customers",
+            "value": 20021000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SalesRevenueGoodsNetPercentToSales",
+            "label": "Sales to customers percent to sales",
+            "value": 1.0,
+            "unit": "pure"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of products sold",
+            "value": 6615000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:CostOfGoodsSoldPercentToSales",
+            "label": "Cost of products sold percent to sales",
+            "value": 0.33,
+            "unit": "pure"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 13406000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:GrossProfitPercentToSales",
+            "label": "Gross profit percent to sales",
+            "value": 0.67,
+            "unit": "pure"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, marketing and administrative expenses",
+            "value": 5219000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SellingGeneralAndAdministrativeExpensePercentToSales",
+            "label": "Selling marketing and administrative expenses percent to sales",
+            "value": 0.261,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and development expense",
+            "value": 2858000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCostPercentToSales",
+            "label": "Research and development expense percent to sales",
+            "value": 0.143,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentInProcess",
+            "label": "In-process research and development",
+            "value": 890000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentInProcessPercentToSales",
+            "label": "In-process research and development percent to sales",
+            "value": 0.044,
+            "unit": "pure"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 99000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InvestmentIncomeInterestPercentToSales",
+            "label": "Interest income percent to sales",
+            "value": -0.005,
+            "unit": "pure"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense, net of portion capitalized",
+            "value": 102000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InterestExpensePercentToSales",
+            "label": "Interest expense, net of portion capitalized percent to sales",
+            "value": 0.005,
+            "unit": "pure"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense, net",
+            "value": 22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherNonOperatingIncomeExpensePercentToSales",
+            "label": "Other (income) expense, net percent to sales",
+            "value": -0.001,
+            "unit": "pure"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charges",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:Restructuringchargepercenttosales",
+            "label": "Restructuring charge percent to sales",
+            "value": 0.002,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before provision for taxes on income",
+            "value": 4422000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestmentsPercentToSales",
+            "label": "Earnings before provision for taxes on income percent to sales",
+            "value": 0.221,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for taxes on income (Note 5)",
+            "value": 673000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeTaxExpenseBenefitPercentToSales",
+            "label": "Provision for taxes on income perent to sales",
+            "value": 0.034,
+            "unit": "pure"
+          },
+          {
+            "concept": "jnj:NetIncomeAttributableToParentPercentToSales",
+            "label": "Net earnings percent to sales",
+            "value": 0.187,
+            "unit": "pure"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per share",
+            "value": 1.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per share",
+            "value": 1.39,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Average shares outstanding u2014 basic",
+            "value": 2660800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average shares outstanding u2014 diluted",
+            "value": 2698800000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000200406-19-000033",
+        "form": "10-Q",
+        "filed_date": "2019-05-01 00:00:00",
+        "revenue": 20021000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Sales to customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Sales to customers",
+            "value": 20021000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3749000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 3749000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 3749000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossBeforeReclassificationAndTax",
+            "label": "Foreign currency translation",
+            "value": -258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Unrealized gains on equity investments",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassifications to earnings",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Net change",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherComprehensiveIncomeLossPensionandOtherPostretirementBenefitPlansNetPriorServiceCostCreditNetofAmortizationArisingDuringPeriodNetofTax",
+            "label": "Prior service cost amortization during period",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherComprehensiveIncomeLossReclassificationAdjustmentfromAOCIPensionandOtherPostretirementBenefitPlansforNetGainLossNetofAmortizationNetofTax",
+            "label": "Gain (loss) amortization during period",
+            "value": -176000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Net change",
+            "value": -169000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossBeforeReclassificationAfterTax",
+            "label": "Other Comprehensive Income (Loss), Cash Flow Hedge, Gain (Loss), before Reclassification, after Tax",
+            "value": -302000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "Gain/ (Loss) reclassified from Accumulated OCI into income",
+            "value": -96000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Net change",
+            "value": -206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Net change",
+            "value": -295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 3454000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Sales to customers",
+            "value": 20021000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SalesRevenueGoodsNetPercentToSales",
+            "label": "Sales to customers percent to sales",
+            "value": 1.0,
+            "unit": "pure"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of products sold",
+            "value": 6615000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:CostOfGoodsSoldPercentToSales",
+            "label": "Cost of products sold percent to sales",
+            "value": 0.33,
+            "unit": "pure"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 13406000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:GrossProfitPercentToSales",
+            "label": "Gross profit percent to sales",
+            "value": 0.67,
+            "unit": "pure"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, marketing and administrative expenses",
+            "value": 5219000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SellingGeneralAndAdministrativeExpensePercentToSales",
+            "label": "Selling marketing and administrative expenses percent to sales",
+            "value": 0.261,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and development expense",
+            "value": 2858000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCostPercentToSales",
+            "label": "Research and development expense percent to sales",
+            "value": 0.143,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentInProcess",
+            "label": "In-process research and development",
+            "value": 890000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentInProcessPercentToSales",
+            "label": "In-process research and development percent to sales",
+            "value": 0.044,
+            "unit": "pure"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 99000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InvestmentIncomeInterestPercentToSales",
+            "label": "Interest income percent to sales",
+            "value": -0.005,
+            "unit": "pure"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense, net of portion capitalized",
+            "value": 102000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InterestExpensePercentToSales",
+            "label": "Interest expense, net of portion capitalized percent to sales",
+            "value": 0.005,
+            "unit": "pure"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense, net",
+            "value": 22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherNonOperatingIncomeExpensePercentToSales",
+            "label": "Other (income) expense, net percent to sales",
+            "value": -0.001,
+            "unit": "pure"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring charges",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:Restructuringchargepercenttosales",
+            "label": "Restructuring charge percent to sales",
+            "value": 0.002,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before provision for taxes on income",
+            "value": 4422000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestmentsPercentToSales",
+            "label": "Earnings before provision for taxes on income percent to sales",
+            "value": 0.221,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for taxes on income (Note 5)",
+            "value": 673000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeTaxExpenseBenefitPercentToSales",
+            "label": "Provision for taxes on income perent to sales",
+            "value": 0.034,
+            "unit": "pure"
+          },
+          {
+            "concept": "jnj:NetIncomeAttributableToParentPercentToSales",
+            "label": "Net earnings percent to sales",
+            "value": 0.187,
+            "unit": "pure"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per share",
+            "value": 1.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per share",
+            "value": 1.39,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Average shares outstanding u2014 basic",
+            "value": 2660800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average shares outstanding u2014 diluted",
+            "value": 2698800000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000200406-12-000140",
+        "form": "10-Q",
+        "filed_date": "2012-11-09 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 7947000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "NET EARNINGS",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET EARNINGS",
+            "value": 7947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Loss Attributable to Noncontrolling Interest",
+            "value": 8286000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET EARNINGS",
+            "value": 7947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossBeforeReclassificationAndTax",
+            "label": "Net change",
+            "value": 689000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Unrealized holding gain (loss) arising during period",
+            "value": -194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Reclassification to earnings",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": -198000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Prior service cost amortization during period",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Gain (loss) amortization during period",
+            "value": 282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": 283000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Unrealized gain (loss) arising during period",
+            "value": -90000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "Reclassifications to earnings",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": -67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": 707000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 8654000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Loss Attributable To Noncontrolling Interest",
+            "value": -339000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 8993000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Sales to customers (Note 9)",
+            "value": 49666000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SalesRevenueGoodsNetPercentToSales",
+            "label": "Sales to customers (Note 9) Percent to Sales",
+            "value": 1.0,
+            "unit": "pure"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 15655000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:CostOfGoodsSoldPercentToSales",
+            "label": "Cost of products sold Percent to Sales",
+            "value": 0.315,
+            "unit": "pure"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 34011000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:GrossProfitPercentToSales",
+            "label": "Gross profit Percent to Sales",
+            "value": 0.685,
+            "unit": "pure"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, marketing and administrative expenses",
+            "value": 15208000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SellingGeneralAndAdministrativeExpensePercentToSales",
+            "label": "Selling, marketing and administrative expenses Percent to Sales",
+            "value": 0.306,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and development expense",
+            "value": 5334000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCostPercentToSales",
+            "label": "Research and development expense Percent to Sales",
+            "value": 0.107,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentInProcess",
+            "label": "Research and Development in process impairment charge",
+            "value": 1108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentInProcessPercentToSales",
+            "label": "In-process research and development Percent to sales",
+            "value": 0.022,
+            "unit": "pure"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 46000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InvestmentIncomeInterestPercentToSales",
+            "label": "Interest income Percent to Sales",
+            "value": 0.001,
+            "unit": "pure"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense, net of portion capitalized",
+            "value": 425000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InterestExpensePercentToSales",
+            "label": "Interest expense, net of portion capitalized Percent to Sales",
+            "value": 0.009,
+            "unit": "pure"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense, net",
+            "value": -1307000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherNonOperatingIncomeExpensePercentToSales",
+            "label": "Other (income) expense, net Percent to Sales",
+            "value": -0.027,
+            "unit": "pure"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring expense",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:RestructuringExpensesPercentToSales",
+            "label": "Restructuring expense Percent to Sales",
+            "value": 0.0,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Worldwide income before taxes",
+            "value": 10675000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestmentsPercentToSales",
+            "label": "Earnings before provision for taxes on income Percent to Sales",
+            "value": 0.215,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for taxes on income (Note 5)",
+            "value": 2728000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeTaxExpenseBenefitPercentToSales",
+            "label": "Provision for taxes on income (Note 5) Percent to Sales",
+            "value": 0.055,
+            "unit": "pure"
+          },
+          {
+            "concept": "jnj:ProfitLossPercentToSales",
+            "label": "NET EARNINGS Percent to Sales",
+            "value": 0.16,
+            "unit": "pure"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Loss Attributable to Noncontrolling Interest",
+            "value": -339000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:NetIncomeLossAttributableToNoncontrollingInterestPercentToSales",
+            "label": "Net loss attributable to noncontrolling interest percent to sales",
+            "value": 0.007,
+            "unit": "pure"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Loss Attributable to Noncontrolling Interest",
+            "value": 8286000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:NetIncomeAttributableToParentPercentToSales",
+            "label": "Net Income Attributable to Parent Percent to Sales",
+            "value": 0.167,
+            "unit": "pure"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 3.02,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 2.96,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "CASH DIVIDENDS PER SHARE",
+            "value": 1.79,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 2747100000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 2805000000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-07-01 00:00:00",
+        "accession_number": "0000200406-12-000119",
+        "form": "10-Q",
+        "filed_date": "2012-08-02 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 5318000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 5318000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 5318000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossBeforeReclassificationAndTax",
+            "label": "Foreign currency translation",
+            "value": -796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Unrealized holding gain (loss) arising during period",
+            "value": 69000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Reclassifications adjustment for gains included in earnings",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": 68000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Prior service cost amortization during period",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Gain (loss) amortization during period",
+            "value": 188000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": 189000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Unrealized gain (loss) arising during period",
+            "value": -85000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "Reclassifications to earnings",
+            "value": 52000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": -33000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), net of tax",
+            "value": -572000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income (Loss)",
+            "value": 4746000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Total",
+            "value": 32614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SalesRevenueGoodsNetPercentToSales",
+            "label": "Sales to customers (Note 9) Percent to Sales",
+            "value": 1.0,
+            "unit": "pure"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 10058000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:CostOfGoodsSoldPercentToSales",
+            "label": "Cost of products sold Percent to Sales",
+            "value": 0.308,
+            "unit": "pure"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 22556000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:GrossProfitPercentToSales",
+            "label": "Gross profit Percent to Sales",
+            "value": 0.692,
+            "unit": "pure"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, marketing and administrative expenses",
+            "value": 9980000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SellingGeneralAndAdministrativeExpensePercentToSales",
+            "label": "Selling, marketing and administrative expenses Percent to Sales",
+            "value": 0.306,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and development expense",
+            "value": 3411000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCostPercentToSales",
+            "label": "Research and development expense Percent to Sales",
+            "value": 0.105,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentInProcess",
+            "label": "Research and Development in process impairment charge",
+            "value": 429000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentInProcessPercentToSales",
+            "label": "In-process research and development Percent to sales",
+            "value": 0.013,
+            "unit": "pure"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InvestmentIncomeInterestPercentToSales",
+            "label": "Interest income Percent to Sales",
+            "value": 0.001,
+            "unit": "pure"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense, net of portion capitalized",
+            "value": 290000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InterestExpensePercentToSales",
+            "label": "Interest expense, net of portion capitalized Percent to Sales",
+            "value": 0.009,
+            "unit": "pure"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense, net",
+            "value": -1397000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherNonOperatingIncomeExpensePercentToSales",
+            "label": "Other (income) expense, net Percent to Sales",
+            "value": -0.043,
+            "unit": "pure"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "Restructuring expense",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:RestructuringExpensesPercentToSales",
+            "label": "Restructuring expense Percent to Sales",
+            "value": 0.0,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before provision for taxes on income",
+            "value": 7080000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestmentsPercentToSales",
+            "label": "Earnings before provision for taxes on income Percent to Sales",
+            "value": 0.217,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for taxes on income (Note 5)",
+            "value": 1762000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeTaxExpenseBenefitPercentToSales",
+            "label": "Provision for taxes on income (Note 5) Percent to Sales",
+            "value": 0.054,
+            "unit": "pure"
+          },
+          {
+            "concept": "jnj:ProfitLossPercentToSales",
+            "label": "NET EARNINGS Percent to Sales",
+            "value": 0.163,
+            "unit": "pure"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 1.94,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 1.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "CASH DIVIDENDS PER SHARE",
+            "value": 1.18,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 2741700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 2792400000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-04-01 00:00:00",
+        "accession_number": "0000200406-12-000081",
+        "form": "10-Q",
+        "filed_date": "2012-05-07 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 3910000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net Earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Earnings",
+            "value": 3910000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Earnings",
+            "value": 3910000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossBeforeReclassificationAndTax",
+            "label": "Foreign currency translation",
+            "value": 823000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Unrealized holding gain (loss) arising during period",
+            "value": 107000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Reclassifications adjustment for gains included in earnings",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": 106000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Prior service cost amortization during period",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Gain (loss) amortization during period",
+            "value": 93000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": 94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Unrealized gain (loss) arising during period",
+            "value": 26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "Reclassifications to earnings",
+            "value": 43000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change",
+            "value": 69000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), net of tax",
+            "value": 1092000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 5002000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Total",
+            "value": 16139000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SalesRevenueGoodsNetPercentToSales",
+            "label": "Sales to customers (Note 9) Percent to Sales",
+            "value": 1.0,
+            "unit": "pure"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 4915000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:CostOfGoodsSoldPercentToSales",
+            "label": "Cost of products sold Percent to Sales",
+            "value": 0.304,
+            "unit": "pure"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 11224000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:GrossProfitPercentToSales",
+            "label": "Gross profit Percent to Sales",
+            "value": 0.696,
+            "unit": "pure"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, marketing and administrative expenses",
+            "value": 5015000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:SellingGeneralAndAdministrativeExpensePercentToSales",
+            "label": "Selling, marketing and administrative expenses Percent to Sales",
+            "value": 0.311,
+            "unit": "pure"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and development expense",
+            "value": 1645000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCostPercentToSales",
+            "label": "Research and development expense Percent to Sales",
+            "value": 0.102,
+            "unit": "pure"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InvestmentIncomeInterestPercentToSales",
+            "label": "Interest income Percent to Sales",
+            "value": 0.001,
+            "unit": "pure"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense, net of portion capitalized",
+            "value": 147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:InterestExpensePercentToSales",
+            "label": "Interest expense, net of portion capitalized Percent to Sales",
+            "value": 0.009,
+            "unit": "pure"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense, net",
+            "value": 611000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:OtherNonOperatingIncomeExpensePercentToSales",
+            "label": "Other (income) expense, net Percent to Sales",
+            "value": 0.038,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before provision for taxes on income",
+            "value": 5045000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestmentsPercentToSales",
+            "label": "Earnings before provision for taxes on income Percent to Sales",
+            "value": 0.313,
+            "unit": "pure"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for taxes on income (Note 5)",
+            "value": 1135000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jnj:IncomeTaxExpenseBenefitPercentToSales",
+            "label": "Provision for taxes on income (Note 5) Percent to Sales",
+            "value": 0.071,
+            "unit": "pure"
+          },
+          {
+            "concept": "jnj:ProfitLossPercentToSales",
+            "label": "NET EARNINGS Percent to Sales",
+            "value": 0.242,
+            "unit": "pure"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per share",
+            "value": 1.43,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per share",
+            "value": 1.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "CASH DIVIDENDS PER SHARE",
+            "value": 0.57,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Average shares outstanding - basic",
+            "value": 2736900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average shares outstanding - diluted",
+            "value": 2774900000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2011-10-02 00:00:00",
+        "accession_number": "0000950123-11-096471",
+        "form": "10-Q",
+        "filed_date": "2011-11-08 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 9454000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 9454000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 1.68,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 9454000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 2589000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 12043000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 115000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 388000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "",
+            "value": 5393000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 15511000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "",
+            "value": 33753000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "",
+            "value": 15022000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "",
+            "value": 48775000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 3.45,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 3.4,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 2738500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 2777600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "",
+            "value": 589000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-07-03 00:00:00",
+        "accession_number": "0000950123-11-075098",
+        "form": "10-Q",
+        "filed_date": "2011-08-09 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 6252000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 6252000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 1.11,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 6252000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 1680000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 7932000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": -193000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 254000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "",
+            "value": 3620000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 10271000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "",
+            "value": 22820000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "",
+            "value": 9950000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "",
+            "value": 32770000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 2.28,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 2.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 2739600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 2778100000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "RestructuringCharges",
+            "label": "",
+            "value": 589000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-04-03 00:00:00",
+        "accession_number": "0000950123-11-048125",
+        "form": "10-Q",
+        "filed_date": "2011-05-10 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 3476000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 3476000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 0.54,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 3476000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 1034000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 4510000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 125000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "",
+            "value": 1738000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 5056000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "",
+            "value": 11395000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "",
+            "value": 4778000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "",
+            "value": 16173000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 1.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 1.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 2738400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 2772700000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-10-03 00:00:00",
+        "accession_number": "0000950123-10-103817",
+        "form": "10-Q",
+        "filed_date": "2010-11-10 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 11392000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 11392000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 4.08,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 4.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 2792000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 2754200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 1.57,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 11392000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 3327000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 14719000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 1868000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 317000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "",
+            "value": 83000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "",
+            "value": 4862000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 14244000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "",
+            "value": 32191000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "",
+            "value": 13752000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "",
+            "value": 45943000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "status": "PARTIAL: missing ttm_revenue",
+    "cache_source": "live"
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "fetched_at": 1779554845.7881138,
+  "data": {
+    "ticker": "CRWD",
+    "price": 663.48,
+    "ttm_revenue": null,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 254540000.0,
+    "revenue_quarter_dates_used": [
+      "2019-07-31 00:00:00",
+      "2019-04-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [],
+    "ni_quarter_dates_used": [
+      "2022-04-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-07-31 00:00:00",
+        "accession_number": "0001558370-19-008521",
+        "form": "10-Q",
+        "filed_date": "2019-09-06 00:00:00",
+        "revenue": 204185000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerIncludingAssessedTax",
+        "revenue_label": "Revenue",
+        "revenue_unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Revenue",
+            "value": 204185000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Revenue",
+            "value": 204185000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Total cost of revenue",
+            "value": 60856000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross Profit",
+            "value": 143329000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling and Marketing Expense",
+            "value": 122117000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense",
+            "value": 55505000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense",
+            "value": 42122000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Operating Expenses",
+            "value": 219744000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating Income (Loss)",
+            "value": -76415000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 165000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": -56000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+            "value": -76636000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 1200000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": -77866000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasicAndDiluted",
+            "label": "Earnings Per Share, Basic and Diluted",
+            "value": -0.87,
+            "unit": "unit_divide_usd_shares_jpt6_jzjreucmdpuiylppg"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfShareOutstandingBasicAndDiluted",
+            "label": "Weighted Average Number of Shares Outstanding, Basic and Diluted",
+            "value": 89335000.0,
+            "unit": "unit_standard_shares_lsfw5vkg2uiri--odovnbg"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Parent",
+            "value": -623000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Securities, Available-for-Sale, Unrealized Holding Gain (Loss) Arising During Period, after Tax",
+            "value": -5000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Net of Tax, Portion Attributable to Parent",
+            "value": -628000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent",
+            "value": -78494000.0,
+            "unit": "unit_standard_usd_j5hmowqwuk6o362wqeg8ca"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-04-30 00:00:00",
+        "accession_number": "0001558370-19-006161",
+        "form": "10-Q",
+        "filed_date": "2019-07-19 00:00:00",
+        "revenue": 96077000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerIncludingAssessedTax",
+        "revenue_label": "Revenue",
+        "revenue_unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Revenue",
+            "value": 96077000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Revenue",
+            "value": 96077000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Total cost of revenue",
+            "value": 29273000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross Profit",
+            "value": 66804000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Selling and Marketing Expense",
+            "value": 56843000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense",
+            "value": 23875000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense",
+            "value": 11861000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Operating Expenses",
+            "value": 92579000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating Income (Loss)",
+            "value": -25775000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 1000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": 394000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+            "value": -25382000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 600000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": -25977000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasicAndDiluted",
+            "label": "Earnings Per Share, Basic and Diluted",
+            "value": -0.55,
+            "unit": "unit_divide_usd_shares_gkpjeraor0c79nzsvi-nwa"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfShareOutstandingBasicAndDiluted",
+            "label": "Weighted Average Number of Shares Outstanding, Basic and Diluted",
+            "value": 47205000.0,
+            "unit": "unit_standard_shares_g9kpxrkjh0cw3nlgneqspw"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Parent",
+            "value": -280000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Securities, Available-for-Sale, Unrealized Holding Gain (Loss) Arising During Period, after Tax",
+            "value": -4000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Net of Tax, Portion Attributable to Parent",
+            "value": -284000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent",
+            "value": -26261000.0,
+            "unit": "unit_standard_usd_-r998u4f8uwfeoek93z3qw"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [],
+    "ni_quarters_used": [
+      {
+        "end_date": "2022-04-30 00:00:00",
+        "accession_number": "0001535527-22-000012",
+        "form": "10-Q",
+        "filed_date": "2022-06-03 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": -30409000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net loss attributable to CrowdStrike",
+            "value": -31523000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net loss attributable to CrowdStrike",
+            "value": -31523000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 193532000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 384885000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Total revenue",
+            "value": 487834000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Total revenue",
+            "value": 487834000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "label": "Total revenue",
+            "value": 487834000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Net loss per share attributable to Crowdstrike common stockholders, basic (in dollars per share)",
+            "value": -0.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Net loss per share attributable to Crowdstrike common stockholders, basic (in dollars per share)",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and administrative",
+            "value": 67954000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross profit",
+            "value": 361002000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Loss before provision for income taxes",
+            "value": -26969000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to non-controlling interest",
+            "value": 1114000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Total cost of revenue",
+            "value": 126832000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 3212000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 6298000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 3440000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 3400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development",
+            "value": 123399000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Loss from operations",
+            "value": -23883000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Net loss per share attributable to Crowdstrike common stockholders, diluted (in dollars per share)",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Net loss per share attributable to Crowdstrike common stockholders, diluted (in dollars per share)",
+            "value": -0.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net loss attributable to CrowdStrike",
+            "value": -31523000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net loss attributable to CrowdStrike",
+            "value": -31523000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average shares used in computing net loss per share attributable to Crowdstrike common stockholders, basic (in shares)",
+            "value": 231179000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average shares used in computing net loss per share attributable to Crowdstrike common stockholders, basic (in shares)",
+            "value": 231179000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average shares used in computing net loss per share attributable to Crowdstrike common stockholders, diluted (in shares)",
+            "value": null,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average shares used in computing net loss per share attributable to Crowdstrike common stockholders, diluted (in shares)",
+            "value": null,
+            "unit": "shares"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: Comprehensive income attributable to non-controlling interest",
+            "value": 1114000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive loss",
+            "value": -2948000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive loss",
+            "value": -2948000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive loss attributable to CrowdStrike",
+            "value": -34471000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": -2948000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net loss",
+            "value": -30409000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing ttm_revenue, net_income_ttm",
+    "cache_source": "live"
+  }
+}

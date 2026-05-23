@@ -1,0 +1,2604 @@
+{
+  "fetched_at": 1779555700.8436038,
+  "data": {
+    "ticker": "MCK",
+    "price": 766.1,
+    "ttm_revenue": 874167000000.0,
+    "net_income_ttm": 3132000000.0,
+    "prior_ttm_revenue": 538060000000.0,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": 62.466453555365575,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 120200000.0,
+    "revenue_quarter_dates_used": [
+      "2025-12-31 00:00:00",
+      "2025-09-30 00:00:00",
+      "2025-06-30 00:00:00",
+      "2024-12-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2024-06-30 00:00:00",
+      "2023-12-31 00:00:00",
+      "2023-09-30 00:00:00",
+      "2023-06-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2013-12-31 00:00:00",
+      "2012-12-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2011-12-31 00:00:00",
+      "2011-09-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2025-12-31 00:00:00",
+        "accession_number": "0000927653-26-000017",
+        "form": "10-Q",
+        "filed_date": "2026-02-04 00:00:00",
+        "revenue": 307135000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 307135000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 307135000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 296629000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 10506000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, distribution, general, and administrative expenses",
+            "value": 6300000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainLossRelatedToLitigationSettlement",
+            "label": "Claims and litigation charges, net",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCostsAndAssetImpairmentCharges",
+            "label": "Restructuring, impairment, and related charges, net",
+            "value": 146000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 6444000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 4062000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 200000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 186000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 4076000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 3244000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to McKesson Corporation",
+            "value": 3080000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 24.73,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 24.83,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 124500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 124000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Unrealized gain on cash flow and other hedges",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Changes in retirement-related benefit plans",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 3273000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to McKesson Corporation",
+            "value": 3109000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-09-30 00:00:00",
+        "accession_number": "0000927653-25-000140",
+        "form": "10-Q",
+        "filed_date": "2025-11-06 00:00:00",
+        "revenue": 200977000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 200977000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 200977000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 194156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 6821000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, distribution, general, and administrative expenses",
+            "value": 4270000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainLossRelatedToLitigationSettlement",
+            "label": "Claims and litigation charges, net",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCostsAndAssetImpairmentCharges",
+            "label": "Restructuring, impairment, and related charges, net",
+            "value": 110000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 4378000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 2443000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 126000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 123000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 2446000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 452000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 1994000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to McKesson Corporation",
+            "value": 1894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 15.16,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 15.22,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 124900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 124500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Unrealized gain (loss) on cash flow and other hedges",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Changes in retirement-related benefit plans",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive (loss) income, net of tax",
+            "value": 24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 2018000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to McKesson Corporation",
+            "value": 1918000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-06-30 00:00:00",
+        "accession_number": "0000927653-25-000107",
+        "form": "10-Q",
+        "filed_date": "2025-08-06 00:00:00",
+        "revenue": 97827000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 97827000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 97827000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 94548000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 3279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, distribution, general, and administrative expenses",
+            "value": 2196000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainLossRelatedToLitigationSettlement",
+            "label": "Claims and litigation charges, net",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCostsAndAssetImpairmentCharges",
+            "label": "Restructuring, impairment, and related charges, net",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 2243000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 1036000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 64000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 49000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 1051000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 220000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 831000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to McKesson Corporation",
+            "value": 784000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 6.25,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 6.28,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 125500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 124900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Unrealized gain on cash flow and other hedges",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Changes in retirement-related benefit plans",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 34000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 865000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to McKesson Corporation",
+            "value": 818000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2024-12-31 00:00:00",
+        "accession_number": "0000927653-25-000014",
+        "form": "10-Q",
+        "filed_date": "2025-02-06 00:00:00",
+        "revenue": 268228000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 268228000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 268228000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 258544000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 9684000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, distribution, general, and administrative expenses",
+            "value": 6532000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainLossRelatedToLitigationSettlement",
+            "label": "Claims and litigation charges, net",
+            "value": -108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCostsAndAssetImpairmentCharges",
+            "label": "Restructuring, impairment, and related charges, net",
+            "value": 213000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 6853000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 2831000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 233000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 220000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 2844000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax benefit (expense)",
+            "value": 669000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 2175000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to McKesson Corporation",
+            "value": 2035000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 15.8,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 15.88,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 128800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 128200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": -109000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Unrealized gain on cash flow and other hedges",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Changes in retirement-related benefit plans",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": -108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 2067000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to McKesson Corporation",
+            "value": 1927000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2024-06-30 00:00:00",
+        "accession_number": "0000927653-24-000098",
+        "form": "10-Q",
+        "filed_date": "2024-08-07 00:00:00",
+        "revenue": 79283000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 79283000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 79283000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 76131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 3152000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, distribution, general, and administrative expenses",
+            "value": 2001000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainLossRelatedToLitigationSettlement",
+            "label": "Claims and litigation charges, net",
+            "value": -112000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCostsAndAssetImpairmentCharges",
+            "label": "Restructuring, impairment, and related charges, net",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 2123000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 1029000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 130000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseNonoperating",
+            "label": "Interest expense",
+            "value": 75000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income taxes",
+            "value": 1084000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 124000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 960000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 45000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to McKesson Corporation",
+            "value": 915000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in usd per share)",
+            "value": 7.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in usd per share)",
+            "value": 7.04,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in usd per share)",
+            "value": 130700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 129800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": -31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Unrealized gains on cash flow and other hedges",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Changes in retirement-related benefit plans",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": -32000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 928000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 45000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to McKesson Corporation",
+            "value": 883000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2023-12-31 00:00:00",
+        "accession_number": "0000927653-24-000021",
+        "form": "10-Q",
+        "filed_date": "2024-02-08 00:00:00",
+        "revenue": 232596000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 232596000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 232596000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 223353000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 9243000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, distribution, general, and administrative expenses",
+            "value": 6468000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainLossRelatedToLitigationSettlement",
+            "label": "Claims and litigation charges, net",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCostsAndAssetImpairmentCharges",
+            "label": "Restructuring, impairment, and related charges, net",
+            "value": 84000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 6550000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 2693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 98000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income from continuing operations before income taxes",
+            "value": 2619000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax benefit (expense)",
+            "value": 289000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 2330000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income (loss) from discontinued operations, net of tax",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 2330000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 119000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to McKesson Corporation",
+            "value": 2211000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Continuing operations (in usd per share)",
+            "value": 16.39,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Discontinued operations (in usd per share)",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Total (in dollars per share)",
+            "value": 16.39,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Continuing operations (in usd per share)",
+            "value": 16.49,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Discontinued operations (in usd per share)",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Total (in dollars per share)",
+            "value": 16.49,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in usd per share)",
+            "value": 134900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 134000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 60000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Unrealized gains (losses) on cash flow and other hedges",
+            "value": 37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Changes in retirement-related benefit plans",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax",
+            "value": 93000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 2423000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 119000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to McKesson Corporation",
+            "value": 2304000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2023-09-30 00:00:00",
+        "accession_number": "0000927653-23-000083",
+        "form": "10-Q",
+        "filed_date": "2023-11-02 00:00:00",
+        "revenue": 151698000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 151698000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 151698000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 145607000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 6091000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, distribution, general, and administrative expenses",
+            "value": 3962000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainLossRelatedToLitigationSettlement",
+            "label": "Claims and litigation charges, net",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCostsAndAssetImpairmentCharges",
+            "label": "Restructuring, impairment, and related charges, net",
+            "value": 80000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 4040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 2051000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 64000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income from continuing operations before income taxes",
+            "value": 2007000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 307000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 1700000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Loss from discontinued operations, net of tax",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 1700000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 78000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to McKesson Corporation",
+            "value": 1622000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Continuing operations (in usd per share)",
+            "value": 11.95,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Discontinued operations (in usd per share)",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Total (in dollars per share)",
+            "value": 11.95,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Continuing operations (in usd per share)",
+            "value": 12.03,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Discontinued operations (in usd per share)",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Total (in dollars per share)",
+            "value": 12.03,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in usd per share)",
+            "value": 135700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 134800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": -12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Unrealized gains on cash flow and other hedges",
+            "value": 32000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Changes in retirement-related benefit plans",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 18000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 1718000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 78000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to McKesson Corporation",
+            "value": 1640000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2023-06-30 00:00:00",
+        "accession_number": "0000927653-23-000062",
+        "form": "10-Q",
+        "filed_date": "2023-08-02 00:00:00",
+        "revenue": 74483000000.0,
+        "revenue_concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 74483000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenues",
+            "value": 74483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 71461000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross profit",
+            "value": 3022000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, distribution, general, and administrative expenses",
+            "value": 1870000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GainLossRelatedToLitigationSettlement",
+            "label": "Claims and litigation charges, net",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "mck_RestructuringImpairmentAndOtherRelatedCharges",
+            "label": "Restructuring, impairment, and related charges, net",
+            "value": 52000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 1922000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 1100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income from continuing operations before income taxes",
+            "value": 1091000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 94000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 997000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income from discontinued operations, net of tax",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 997000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income attributable to McKesson Corporation",
+            "value": 958000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Continuing operations (in usd per share)",
+            "value": 7.02,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Discontinued operations (in usd per share)",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Total (in dollars per share)",
+            "value": 7.02,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Continuing operations (in usd per share)",
+            "value": 7.07,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Discontinued operations (in usd per share)",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Total (in dollars per share)",
+            "value": 7.07,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in usd per share)",
+            "value": 136600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 135500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 52000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Unrealized gains on cash flow and other hedges",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Changes in retirement-related benefit plans",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax",
+            "value": 57000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 1054000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to McKesson Corporation",
+            "value": 1015000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2013-12-31 00:00:00",
+        "accession_number": "0001445305-14-000159",
+        "form": "10-Q",
+        "filed_date": "2014-01-30 00:00:00",
+        "revenue": 99468000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Segment Reporting Revenue From External Customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Segment Reporting Revenue From External Customers",
+            "value": 99468000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 892000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 892000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 892000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation adjustments, net of income tax expense (benefit) of nil, ($4), $24 and ($2)",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Unrealized gains (losses) on cash flow hedges, net of income tax expense of nil, nil, nil and nil",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Retirement-related benefit plans, net of income tax expense of $4, $3, $11 and $8",
+            "value": -15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), net of tax",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 889000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Segment Reporting Revenue From External Customers",
+            "value": 99468000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Sales",
+            "value": 93699000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross Profit",
+            "value": 5769000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "mck:OperatingExpensesExcludingCertainOtherCharges",
+            "label": "Operating Expenses",
+            "value": 3890000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LossContingencyLossInPeriod",
+            "label": "Litigation charges",
+            "value": 68000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationStepAcquisitionEquityInterestInAcquireeRemeasurementGain",
+            "label": "Gain on business combination",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total Operating Expenses",
+            "value": 3958000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 1811000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Other Income (Loss), Net",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDebtExpense",
+            "label": "Interest Expense",
+            "value": 187000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Before Income Taxes from Continuing Operations",
+            "value": 1631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense",
+            "value": 639000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperations",
+            "label": "Income Before Income Taxes from Continuing Operations",
+            "value": 992000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxAttributableToReportingEntity",
+            "label": "Loss from discontinued operations, net of tax",
+            "value": -100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Continuing operations",
+            "value": 4.26,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Discontinued operations",
+            "value": -0.43,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 3.83,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Continuing operations",
+            "value": 4.34,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Discontinued operations",
+            "value": -0.44,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic, by Common Class, Including Two Class Method [Line Items]",
+            "value": 3.9,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends Declared Per Common Share",
+            "value": 0.68,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 233000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 229000000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-12-31 00:00:00",
+        "accession_number": "0001561787-13-000004",
+        "form": "10-Q",
+        "filed_date": "2013-01-31 00:00:00",
+        "revenue": 91835000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Segment Reporting Revenue From External Customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Segment Reporting Revenue From External Customers",
+            "value": 91835000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1079000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income",
+            "value": 1079000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income",
+            "value": 1079000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign Currency Translation Adjustments, Net of Income Tax Expense (Benefit) of ($4), ($6), ($2) and $2",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeOtherNetOfTax",
+            "label": "Other, Net of Income Tax Expense of $3, $3, $8 and $7",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total Other Comprehensive Income (Loss)",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 1109000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Segment Reporting Revenue From External Customers",
+            "value": 91835000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Sales",
+            "value": 86847000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross Profit",
+            "value": 4988000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "mck:OperatingExpensesExcludingCertainOtherCharges",
+            "label": "Operating Expenses",
+            "value": 3334000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LossContingencyLossInPeriod",
+            "label": "Litigation charges",
+            "value": 60000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationStepAcquisitionEquityInterestInAcquireeRemeasurementGain",
+            "label": "Gain on business combination",
+            "value": 81000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total Operating Expenses",
+            "value": 3313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 1675000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Other Income (Expense), Net",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDebtExpense",
+            "label": "Interest Expense",
+            "value": 170000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Before Income Taxes",
+            "value": 1533000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense",
+            "value": 454000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 4.49,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 4.58,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends Declared Per Common Share",
+            "value": 0.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 240000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 236000000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001558803-12-000004",
+        "form": "10-Q",
+        "filed_date": "2012-10-25 00:00:00",
+        "revenue": 60648000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenues",
+            "value": 60648000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 781000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income",
+            "value": 781000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income",
+            "value": 781000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign Currency Translation Adjustments, Net of Income Tax Expense (Benefit) of ($2), $1, $2 and $8",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeOtherNetOfTax",
+            "label": "Other, Net of Income Tax Expense of $2, $1, $5 and $4",
+            "value": 11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total Other Comprehensive Income (Loss)",
+            "value": 41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 822000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenues",
+            "value": 60648000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Sales",
+            "value": 57328000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross Profit",
+            "value": 3320000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "mck:OperatingExpensesExcludingCertainOtherCharges",
+            "label": "Operating Expenses",
+            "value": 2151000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LossContingencyLossInPeriod",
+            "label": "Litigation Charges",
+            "value": 60000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationStepAcquisitionEquityInterestInAcquireeRemeasurementGain",
+            "label": "Gain on Business Combination",
+            "value": 81000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total Operating Expenses",
+            "value": 2130000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 1190000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Other Income, Net",
+            "value": 18000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDebtExpense",
+            "label": "Interest Expense",
+            "value": 111000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Before Income Taxes",
+            "value": 1097000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense",
+            "value": 316000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 3.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 3.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends Declared Per Common Share",
+            "value": 0.4,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 240000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 236000000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001193125-12-316890",
+        "form": "10-Q",
+        "filed_date": "2012-07-26 00:00:00",
+        "revenue": 30798000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Segment Reporting Revenue From External Customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Segment Reporting Revenue From External Customers",
+            "value": 30798000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 380000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income",
+            "value": 380000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income",
+            "value": 380000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign Currency Translation Adjustments, Net of Income Tax Expense of $4 and $7",
+            "value": -41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeOtherNetOfTax",
+            "label": "Other, Net of Income Tax Expense of $3 and $3",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total Other Comprehensive Income (Loss)",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 345000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Segment Reporting Revenue From External Customers",
+            "value": 30798000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Sales",
+            "value": 29198000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross Profit",
+            "value": 1600000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "mck:OperatingExpensesExcludingCertainOtherCharges",
+            "label": "Operating Expenses",
+            "value": 1086000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LossContingencyLossInPeriod",
+            "label": "Charges incurred",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationStepAcquisitionEquityInterestInAcquireeRemeasurementGain",
+            "label": "Gain on Business Combination",
+            "value": 81000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total Operating Expenses",
+            "value": 1021000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 579000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Other Income, Net",
+            "value": 8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDebtExpense",
+            "label": "Interest Expense",
+            "value": 56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Before Income Taxes",
+            "value": 531000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense",
+            "value": 151000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 1.58,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 1.61,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends Declared Per Common Share",
+            "value": 0.2,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 240000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 236000000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2011-12-31 00:00:00",
+        "accession_number": "0001193125-12-029656",
+        "form": "10-Q",
+        "filed_date": "2012-01-30 00:00:00",
+        "revenue": 91035000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Revenue, Net",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 91035000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 882000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income (Loss) Attributable to Parent",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 882000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 91035000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Revenue",
+            "value": 86313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross Profit",
+            "value": 4722000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "mck:TotalOperatingExpensesExcludingLossContingencyLossInPeriod",
+            "label": "Generally recurring costs associated with normal operations except for the portion of these expenses which can be clearly related to production and included in cost of sales or services. Includes selling, general and administrative expense. Excludes the amount of loss pertaining to the specified contingency that was charged against earnings in the period.",
+            "value": 3135000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LossContingencyLossInPeriod",
+            "label": "Loss Contingency, Loss in Period",
+            "value": 145000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating Expenses",
+            "value": 3280000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 1442000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Nonoperating Income (Expense)",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDebtExpense",
+            "label": "Interest and Debt Expense",
+            "value": 192000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 1262000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 380000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperations",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 882000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 882000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Income (Loss) from Continuing Operations, Per Diluted Share",
+            "value": 3.51,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted [Abstract]",
+            "value": 3.51,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Income (Loss) from Continuing Operations, Per Basic Share",
+            "value": 3.57,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic [Abstract]",
+            "value": 3.57,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock, Dividends, Per Share, Declared",
+            "value": 0.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 252000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 247000000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001193125-11-280331",
+        "form": "10-Q",
+        "filed_date": "2011-10-25 00:00:00",
+        "revenue": 60196000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Revenue, Net",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 60196000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 582000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income (Loss) Attributable to Parent",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 582000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 60196000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Revenue",
+            "value": 57040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GrossProfit",
+            "label": "Gross Profit",
+            "value": 3156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "mck:TotalOperatingExpensesExcludingLossContingencyLossInPeriod",
+            "label": "Generally recurring costs associated with normal operations except for the portion of these expenses which can be clearly related to production and included in cost of sales or services. Includes selling, general and administrative expense. Excludes the amount of loss pertaining to the specified contingency that was charged against earnings in the period.",
+            "value": 2088000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LossContingencyLossInPeriod",
+            "label": "Loss Contingency, Loss in Period",
+            "value": 118000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating Expenses",
+            "value": 2206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 950000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Nonoperating Income (Expense)",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDebtExpense",
+            "label": "Interest and Debt Expense",
+            "value": 128000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 836000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 254000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperations",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 582000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 582000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Income (Loss) from Continuing Operations, Per Diluted Share",
+            "value": 2.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted [Abstract]",
+            "value": 2.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Income (Loss) from Continuing Operations, Per Basic Share",
+            "value": 2.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic [Abstract]",
+            "value": 2.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock, Dividends, Per Share, Declared",
+            "value": 0.4,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 252000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 247000000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

@@ -1,0 +1,3428 @@
+{
+  "fetched_at": 1779554843.562712,
+  "data": {
+    "ticker": "CB",
+    "price": 327.91,
+    "ttm_revenue": 29854000000.0,
+    "net_income_ttm": 4545000000.0,
+    "prior_ttm_revenue": 38388000000.0,
+    "prior_net_income_ttm": 5595000000.0,
+    "revenue_growth_pct": -22.230905491299367,
+    "net_income_growth_pct": -18.766756032171582,
+    "shares_outstanding": 387860000.0,
+    "revenue_quarter_dates_used": [
+      "2021-03-31 00:00:00",
+      "2020-03-31 00:00:00",
+      "2019-03-31 00:00:00",
+      "2013-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2012-09-30 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-06-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2021-03-31 00:00:00",
+      "2020-03-31 00:00:00",
+      "2019-03-31 00:00:00",
+      "2013-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2012-09-30 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-06-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000896159-21-000006",
+        "form": "10-Q",
+        "filed_date": "2021-04-30 00:00:00",
+        "revenue": 9971000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 9971000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2300000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 2300000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 8662000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncreaseDecreaseInUnearnedPremiumsNet",
+            "label": "Increase in unearned premiums",
+            "value": -441000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 8221000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetInvestmentIncome",
+            "label": "Net investment income",
+            "value": 863000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RealizedInvestmentGainsLosses",
+            "label": "Realized Investment Gains (Losses)",
+            "value": 887000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 9971000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 5053000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 167000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 1665000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative Expense",
+            "value": 744000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense",
+            "value": -122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other (income) expense",
+            "value": 490000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of purchased intangibles",
+            "value": 72000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Total expenses",
+            "value": 7333000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 2638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit) (includes $4 and $(40) on unrealized gains and losses reclassified from AOCI)",
+            "value": 338000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 2300000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized depreciation",
+            "value": -2293000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Reclassification adjustment for net realized (gains) losses included in net income",
+            "value": 24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentBeforeTax",
+            "label": "Unrealized appreciation (Depreciation) after reclassification adjustment",
+            "value": -2317000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative foreign currency translation adjustment",
+            "value": 22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Postretirement benefit liability adjustment",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive loss, before income tax",
+            "value": -2323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax benefit related to OCI items",
+            "value": -412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -1911000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 389000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 5.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 5.07,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-03-31 00:00:00",
+        "accession_number": "0000896159-20-000006",
+        "form": "10-Q",
+        "filed_date": "2020-04-29 00:00:00",
+        "revenue": 7697000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7697000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 252000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 252000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 7977000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncreaseDecreaseInUnearnedPremiumsNet",
+            "label": "Increase in unearned premiums",
+            "value": -183000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 7794000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetInvestmentIncome",
+            "label": "Net investment income",
+            "value": 861000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Other-than-temporary impairment (OTTI) losses gross",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParentAvailableforsaleSecurities",
+            "label": "Portion of OTTI losses recognized in other comprehensive income (OCI)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossDebtSecuritiesPortionRecognizedInEarnings",
+            "label": "Net OTTI losses recognized in income",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:NetrealizedgainslossesexcludingOTTI",
+            "label": "Net realized gains (losses) excluding OTTI losses",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:NetRealizedGainsLosses",
+            "label": "Net Realized Gains Losses",
+            "value": -958000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7697000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 4485000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 129000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 1615000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative expenses",
+            "value": 741000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest (income) expense",
+            "value": -132000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other (income) expense",
+            "value": -55000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of purchased intangibles",
+            "value": 73000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationIntegrationRelatedCosts",
+            "label": "Chubb integration expenses",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Expenses",
+            "value": 7230000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 467000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 215000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 252000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized appreciation (depreciation)",
+            "value": -2479000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Reclassification adjustment for net realized (gains) losses included in net income",
+            "value": -319000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentBeforeTax",
+            "label": "Unrealized appreciation (Depreciation) after reclassification adjustment",
+            "value": -2160000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative foreign currency translation adjustment",
+            "value": -859000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Postretirement benefit liability adjustment",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive income (loss), before income tax",
+            "value": -3033000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax (expense) benefit related to OCI items",
+            "value": -321000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -2712000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": -2460000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (US$ per share)",
+            "value": 0.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (US$ per share)",
+            "value": 0.55,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000896159-19-000009",
+        "form": "10-Q",
+        "filed_date": "2019-05-02 00:00:00",
+        "revenue": 7876000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7876000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1040000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1040000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 7313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncreaseDecreaseInUnearnedPremiumsNet",
+            "label": "Increase in unearned premiums",
+            "value": -176000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 7137000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetInvestmentIncome",
+            "label": "Net investment income",
+            "value": 836000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Other-than-temporary impairment (OTTI) losses gross",
+            "value": -13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParentAvailableforsaleSecurities",
+            "label": "Portion of OTTI losses recognized in other comprehensive income (OCI)",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossDebtSecuritiesPortionRecognizedInEarnings",
+            "label": "Net OTTI losses recognized in income",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DebtAndEquitySecuritiesRealizedGainLossExcludingOtherThanTemporaryImpairment",
+            "label": "Net realized gains (losses) excluding OTTI losses",
+            "value": -84000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:NetRealizedGainsLosses",
+            "label": "Net Realized Gains Losses",
+            "value": -97000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7876000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 4098000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 196000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 1464000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative expenses",
+            "value": 710000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense",
+            "value": -140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other (income) expense",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of purchased intangibles",
+            "value": 76000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationIntegrationRelatedCosts",
+            "label": "Chubb integration expenses",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Expenses",
+            "value": 6648000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 1228000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit) (includes $(6) and $(3) on reclassified unrealized losses)",
+            "value": 188000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized appreciation (depreciation)",
+            "value": 1845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Reclassification adjustment for net realized (gains) losses included in net income",
+            "value": -44000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentBeforeTax",
+            "label": "Unrealized appreciation (Depreciation) after reclassification adjustment",
+            "value": 1889000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative foreign currency translation adjustment",
+            "value": 147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Postretirement benefit liability adjustment",
+            "value": 27000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive income (loss), before income tax",
+            "value": 2009000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax (expense) benefit related to OCI items",
+            "value": 331000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 1678000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 2718000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 2.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 2.25,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2013-03-31 00:00:00",
+        "accession_number": "0000896159-13-000007",
+        "form": "10-Q",
+        "filed_date": "2013-05-01 00:00:00",
+        "revenue": 4310000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4310000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 953000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 953000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 3798000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:ChangeInUnearnedPremiumNet",
+            "label": "Change in unearned premiums",
+            "value": 225000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 3573000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeNet",
+            "label": "Net investment income",
+            "value": 531000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketableSecuritiesRealizedGainLossOtherThanTemporaryImpairmentsAmount",
+            "label": "Other-than-temporary impairment (OTTI) losses gross",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Portion of OTTI losses recognized in other comprehensive income (OCI)",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Net OTTI losses recognized in income",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RealizedGainLossOnMarketableSecuritiesAndCostMethodInvestmentsExcludingOtherThanTemporaryImpairmentsAndOtherInvestments",
+            "label": "Net realized gains (losses) excluding OTTI losses",
+            "value": 209000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:NetRealizedGainsLosses",
+            "label": "Net realized (gains) losses",
+            "value": 206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4310000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 1926000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative expenses",
+            "value": 514000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest (income) expense",
+            "value": 60000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Total expenses",
+            "value": 3235000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 1075000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 953000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized appreciation",
+            "value": -116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Reclassification adjustment for net realized gains (losses) included in net income",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:OtherComprehensiveIncomeLossSubtotal",
+            "label": "Other comprehensive income",
+            "value": -151000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative translation adjustment",
+            "value": -211000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Pension liability",
+            "value": -22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive income, before income tax",
+            "value": -340000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax expense related to OCI items",
+            "value": -103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -237000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 716000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (US$ per share)",
+            "value": 2.8,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (US$ per share)",
+            "value": 2.77,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001193125-12-460479",
+        "form": "10-Q",
+        "filed_date": "2012-11-08 00:00:00",
+        "revenue": 10195000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 10195000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1443000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1443000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 5.32,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 5.29,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock Dividends Per Share Declared",
+            "value": 1.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncurredClaimsPropertyCasualtyAndLiability",
+            "label": "Incurred Claims Property Casualty And Liability",
+            "value": 5164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Deferred Policy Acquisition Cost Amortization Expense",
+            "value": 1803000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherUnderwritingExpense",
+            "label": "Other Underwriting Expense",
+            "value": 1058000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInvestmentExpense",
+            "label": "Investment Income Investment Expense",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingExpense",
+            "label": "Other Nonoperating Expense",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:CorporateExpenses",
+            "label": "The total amount of expenses incurred by the entity related to corporate activities, including interest expense.",
+            "value": 198000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:LossesAndExpenses",
+            "label": "The amount of losses and expenses recognized during the period.",
+            "value": 8262000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Minority Interest And Income Loss From Equity Method Investments",
+            "value": 1933000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 490000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1443000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Impairment Of Investments",
+            "value": 40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterestAvailableforsaleSecurities",
+            "label": "Other Than Temporary Impairment Losses Investments Portion In Other Comprehensive Income Loss Before Tax Including Portion Attributable To Noncontrolling Interest Availableforsale Securities",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableforsaleSecuritiesGrossRealizedGainLossExcludingOtherThanTemporaryImpairments",
+            "label": "Availableforsale Securities Gross Realized Gain Loss Excluding Other Than Temporary Impairments",
+            "value": 147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gain Loss On Investments",
+            "value": 103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNetPropertyAndCasualty",
+            "label": "Premiums Earned Net Property And Casualty",
+            "value": 8911000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "Interest And Dividend Income Operating",
+            "value": 1174000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "Other Income",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 10195000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Available For Sale Securities Adjustment Net Of Tax",
+            "value": 350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:ChangeInUnrealizedOtherThanTemporaryImpairmentLossesOnInvestments",
+            "label": "This item represents the change in the non-credit impairment losses portion of other-than-temporary impairments on fixed maturity investments in which a credit loss was recognized in the Consolidated Statements of Income. This item includes the impact of subsequent changes to these securities such as appreciation or loss in value or subsequent sale of the security.",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Net Of Tax",
+            "value": -17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Pension And Other Postretirement Benefit Plans Adjustment Net Of Tax",
+            "value": -40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income Loss Net Of Tax",
+            "value": 375000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net Of Tax",
+            "value": 1818000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000896159-12-000007",
+        "form": "10-Q",
+        "filed_date": "2012-10-31 00:00:00",
+        "revenue": 13249000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 13249000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1941000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1941000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 12418000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:ChangeInUnearnedPremiumNet",
+            "label": "Change in unearned premiums",
+            "value": 589000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 11829000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeNet",
+            "label": "Net investment income",
+            "value": 1614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketableSecuritiesRealizedGainLossOtherThanTemporaryImpairmentsAmount",
+            "label": "Other-than-temporary impairment (OTTI) losses gross",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Net OTTI losses recognized in income",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RealizedGainLossOnMarketableSecuritiesAndCostMethodInvestmentsExcludingOtherThanTemporaryImpairmentsAndOtherInvestments",
+            "label": "Net realized gains (losses) excluding OTTI losses",
+            "value": -164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:NetRealizedGainsLosses",
+            "label": "Net realized gains (losses) including OTTI",
+            "value": -194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 13249000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 6970000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 379000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 1810000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative expenses",
+            "value": 1543000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 187000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Total expenses",
+            "value": 10903000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 2346000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 405000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1941000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized appreciation",
+            "value": 1369000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Reclassification adjustment for net realized gains included in net income",
+            "value": -147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:OtherComprehensiveIncomeLossSubtotal",
+            "label": "Other comprehensive income (loss)",
+            "value": 1222000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative translation adjustment",
+            "value": 162000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Pension liability",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive income, before income tax",
+            "value": 1379000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax expense related to OCI items",
+            "value": 276000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 1103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 3044000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (US$ per share)",
+            "value": 5.71,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (US$ per share)",
+            "value": 5.67,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001193125-12-343816",
+        "form": "10-Q",
+        "filed_date": "2012-08-08 00:00:00",
+        "revenue": 6833000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 6833000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 910000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 910000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsEarnedNetPropertyAndCasualty",
+            "label": "",
+            "value": 5934000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "",
+            "value": 791000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "Other Income",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 6833000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 296000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 910000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 3.33,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 3.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncurredClaimsPropertyCasualtyAndLiability",
+            "label": "",
+            "value": 3567000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "",
+            "value": 1183000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherUnderwritingExpense",
+            "label": "",
+            "value": 717000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInvestmentExpense",
+            "label": "Investment Income, Investment Expense",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingExpense",
+            "label": "",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:CorporateExpenses",
+            "label": "Corporate Expenses",
+            "value": 133000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 1206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gain (Loss) on Investments",
+            "value": 103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterestAvailableforsaleSecurities",
+            "label": "",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableforsaleSecuritiesGrossRealizedGainLossExcludingOtherThanTemporaryImpairments",
+            "label": "",
+            "value": 140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:LossesAndExpenses",
+            "label": "Losses and Expenses [Abstract]",
+            "value": 5627000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "",
+            "value": 0.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 1024000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "",
+            "value": 114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "",
+            "value": -37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:ChangeInUnrealizedOtherThanTemporaryImpairmentLossesOnInvestments",
+            "label": "Change in Unrealized Other than Temporary Impairment Losses on Investments",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "",
+            "value": 121000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001193125-12-328826",
+        "form": "10-Q",
+        "filed_date": "2012-08-01 00:00:00",
+        "revenue": 8111000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 8111000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1301000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1301000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Before Tax",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Other Comprehensive Income Loss Pension And Other Postretirement Benefit Plans Adjustment Before Tax",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other Comprehensive Income Loss Before Tax",
+            "value": 518000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Other Comprehensive Income Loss Tax",
+            "value": 91000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income Loss Net Of Tax",
+            "value": 427000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income Net Of Tax Including Portion Attributable To Noncontrolling Interest",
+            "value": 1728000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 3.83,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 3.8,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "MarketableSecuritiesRealizedGainLossOtherThanTemporaryImpairmentsAmount",
+            "label": "Marketable Securities Realized Gain Loss Other Than Temporary Impairments Amount",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Other Than Temporary Impairment Losses Investments Portion Recognized In Earnings Net",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RealizedGainLossOnMarketableSecuritiesAndCostMethodInvestmentsExcludingOtherThanTemporaryImpairmentsAndOtherInvestments",
+            "label": "Realized Gain Loss On Marketable Securities And Cost Method Investments Excluding Other Than Temporary Impairments And Other Investments",
+            "value": -114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:NetRealizedGainsLosses",
+            "label": "The net realized gains or losses on investments, derivative instruments, and foreign exchange recognized during the period.",
+            "value": -134000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Policyholder Benefits And Claims Incurred Net",
+            "value": 3923000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Liability For Future Policy Benefits Period Expense",
+            "value": 249000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Deferred Policy Acquisition Cost Amortization Expense",
+            "value": 1201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 1024000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense",
+            "value": 124000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income Expense",
+            "value": -31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Benefits Losses And Expenses",
+            "value": 6552000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Including Portion Attributable To Noncontrolling Interest",
+            "value": 1559000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1301000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Other Comprehensive Income Unrealized Holding Gain Loss On Securities Arising During Period Before Tax",
+            "value": 638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Other Comprehensive Income Loss Reclassification Adjustment For Sale Of Securities Included In Net Income Before Tax",
+            "value": -91000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:OtherComprehensiveIncomeLossSubtotal",
+            "label": "Other Comprehensive Income Loss subtotal of unrealized depreciation/appreciation and reclassification adjustment for net realized gains/losses included in net income.",
+            "value": 547000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Premiums Written Net",
+            "value": 7702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:ChangeInUnearnedPremiumNet",
+            "label": "Change during the period in the unearned portion of gross premiums written (direct and assumed) and ceded premiums written, excluding the portion amortized into income.",
+            "value": 538000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums Earned Net",
+            "value": 7164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeNet",
+            "label": "Investment Income Net",
+            "value": 1081000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 8111000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000896159-21-000006",
+        "form": "10-Q",
+        "filed_date": "2021-04-30 00:00:00",
+        "revenue": 9971000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 9971000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2300000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 2300000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 8662000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncreaseDecreaseInUnearnedPremiumsNet",
+            "label": "Increase in unearned premiums",
+            "value": -441000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 8221000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetInvestmentIncome",
+            "label": "Net investment income",
+            "value": 863000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RealizedInvestmentGainsLosses",
+            "label": "Realized Investment Gains (Losses)",
+            "value": 887000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 9971000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 5053000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 167000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 1665000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative Expense",
+            "value": 744000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense",
+            "value": -122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other (income) expense",
+            "value": 490000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of purchased intangibles",
+            "value": 72000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Total expenses",
+            "value": 7333000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 2638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit) (includes $4 and $(40) on unrealized gains and losses reclassified from AOCI)",
+            "value": 338000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 2300000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized depreciation",
+            "value": -2293000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Reclassification adjustment for net realized (gains) losses included in net income",
+            "value": 24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentBeforeTax",
+            "label": "Unrealized appreciation (Depreciation) after reclassification adjustment",
+            "value": -2317000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative foreign currency translation adjustment",
+            "value": 22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Postretirement benefit liability adjustment",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive loss, before income tax",
+            "value": -2323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax benefit related to OCI items",
+            "value": -412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -1911000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": 389000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 5.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 5.07,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-03-31 00:00:00",
+        "accession_number": "0000896159-20-000006",
+        "form": "10-Q",
+        "filed_date": "2020-04-29 00:00:00",
+        "revenue": 7697000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7697000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 252000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 252000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 7977000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncreaseDecreaseInUnearnedPremiumsNet",
+            "label": "Increase in unearned premiums",
+            "value": -183000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 7794000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetInvestmentIncome",
+            "label": "Net investment income",
+            "value": 861000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Other-than-temporary impairment (OTTI) losses gross",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParentAvailableforsaleSecurities",
+            "label": "Portion of OTTI losses recognized in other comprehensive income (OCI)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossDebtSecuritiesPortionRecognizedInEarnings",
+            "label": "Net OTTI losses recognized in income",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:NetrealizedgainslossesexcludingOTTI",
+            "label": "Net realized gains (losses) excluding OTTI losses",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:NetRealizedGainsLosses",
+            "label": "Net Realized Gains Losses",
+            "value": -958000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7697000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 4485000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 129000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 1615000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative expenses",
+            "value": 741000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest (income) expense",
+            "value": -132000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other (income) expense",
+            "value": -55000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of purchased intangibles",
+            "value": 73000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationIntegrationRelatedCosts",
+            "label": "Chubb integration expenses",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Expenses",
+            "value": 7230000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 467000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 215000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 252000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized appreciation (depreciation)",
+            "value": -2479000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Reclassification adjustment for net realized (gains) losses included in net income",
+            "value": -319000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentBeforeTax",
+            "label": "Unrealized appreciation (Depreciation) after reclassification adjustment",
+            "value": -2160000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative foreign currency translation adjustment",
+            "value": -859000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Postretirement benefit liability adjustment",
+            "value": 14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive income (loss), before income tax",
+            "value": -3033000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax (expense) benefit related to OCI items",
+            "value": -321000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -2712000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": -2460000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (US$ per share)",
+            "value": 0.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (US$ per share)",
+            "value": 0.55,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000896159-19-000009",
+        "form": "10-Q",
+        "filed_date": "2019-05-02 00:00:00",
+        "revenue": 7876000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7876000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1040000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1040000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 7313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncreaseDecreaseInUnearnedPremiumsNet",
+            "label": "Increase in unearned premiums",
+            "value": -176000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 7137000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetInvestmentIncome",
+            "label": "Net investment income",
+            "value": 836000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Other-than-temporary impairment (OTTI) losses gross",
+            "value": -13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxPortionAttributableToParentAvailableforsaleSecurities",
+            "label": "Portion of OTTI losses recognized in other comprehensive income (OCI)",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossDebtSecuritiesPortionRecognizedInEarnings",
+            "label": "Net OTTI losses recognized in income",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DebtAndEquitySecuritiesRealizedGainLossExcludingOtherThanTemporaryImpairment",
+            "label": "Net realized gains (losses) excluding OTTI losses",
+            "value": -84000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:NetRealizedGainsLosses",
+            "label": "Net Realized Gains Losses",
+            "value": -97000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7876000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 4098000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 196000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 1464000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative expenses",
+            "value": 710000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest expense",
+            "value": -140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other (income) expense",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of purchased intangibles",
+            "value": 76000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationIntegrationRelatedCosts",
+            "label": "Chubb integration expenses",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Expenses",
+            "value": 6648000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 1228000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit) (includes $(6) and $(3) on reclassified unrealized losses)",
+            "value": 188000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized appreciation (depreciation)",
+            "value": 1845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Reclassification adjustment for net realized (gains) losses included in net income",
+            "value": -44000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentBeforeTax",
+            "label": "Unrealized appreciation (Depreciation) after reclassification adjustment",
+            "value": 1889000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative foreign currency translation adjustment",
+            "value": 147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Postretirement benefit liability adjustment",
+            "value": 27000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive income (loss), before income tax",
+            "value": 2009000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax (expense) benefit related to OCI items",
+            "value": 331000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 1678000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 2718000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 2.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 2.25,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2013-03-31 00:00:00",
+        "accession_number": "0000896159-13-000007",
+        "form": "10-Q",
+        "filed_date": "2013-05-01 00:00:00",
+        "revenue": 4310000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4310000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 953000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 953000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 3798000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:ChangeInUnearnedPremiumNet",
+            "label": "Change in unearned premiums",
+            "value": 225000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 3573000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeNet",
+            "label": "Net investment income",
+            "value": 531000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketableSecuritiesRealizedGainLossOtherThanTemporaryImpairmentsAmount",
+            "label": "Other-than-temporary impairment (OTTI) losses gross",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Portion of OTTI losses recognized in other comprehensive income (OCI)",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Net OTTI losses recognized in income",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RealizedGainLossOnMarketableSecuritiesAndCostMethodInvestmentsExcludingOtherThanTemporaryImpairmentsAndOtherInvestments",
+            "label": "Net realized gains (losses) excluding OTTI losses",
+            "value": 209000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:NetRealizedGainsLosses",
+            "label": "Net realized (gains) losses",
+            "value": 206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 4310000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 1926000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative expenses",
+            "value": 514000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest (income) expense",
+            "value": 60000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Total expenses",
+            "value": 3235000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 1075000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 953000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized appreciation",
+            "value": -116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Reclassification adjustment for net realized gains (losses) included in net income",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:OtherComprehensiveIncomeLossSubtotal",
+            "label": "Other comprehensive income",
+            "value": -151000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative translation adjustment",
+            "value": -211000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Pension liability",
+            "value": -22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive income, before income tax",
+            "value": -340000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax expense related to OCI items",
+            "value": -103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -237000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 716000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (US$ per share)",
+            "value": 2.8,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (US$ per share)",
+            "value": 2.77,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001193125-12-460479",
+        "form": "10-Q",
+        "filed_date": "2012-11-08 00:00:00",
+        "revenue": 10195000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 10195000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1443000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1443000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 5.32,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 5.29,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock Dividends Per Share Declared",
+            "value": 1.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncurredClaimsPropertyCasualtyAndLiability",
+            "label": "Incurred Claims Property Casualty And Liability",
+            "value": 5164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Deferred Policy Acquisition Cost Amortization Expense",
+            "value": 1803000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherUnderwritingExpense",
+            "label": "Other Underwriting Expense",
+            "value": 1058000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInvestmentExpense",
+            "label": "Investment Income Investment Expense",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingExpense",
+            "label": "Other Nonoperating Expense",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:CorporateExpenses",
+            "label": "The total amount of expenses incurred by the entity related to corporate activities, including interest expense.",
+            "value": 198000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:LossesAndExpenses",
+            "label": "The amount of losses and expenses recognized during the period.",
+            "value": 8262000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Minority Interest And Income Loss From Equity Method Investments",
+            "value": 1933000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 490000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1443000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Impairment Of Investments",
+            "value": 40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterestAvailableforsaleSecurities",
+            "label": "Other Than Temporary Impairment Losses Investments Portion In Other Comprehensive Income Loss Before Tax Including Portion Attributable To Noncontrolling Interest Availableforsale Securities",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableforsaleSecuritiesGrossRealizedGainLossExcludingOtherThanTemporaryImpairments",
+            "label": "Availableforsale Securities Gross Realized Gain Loss Excluding Other Than Temporary Impairments",
+            "value": 147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gain Loss On Investments",
+            "value": 103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNetPropertyAndCasualty",
+            "label": "Premiums Earned Net Property And Casualty",
+            "value": 8911000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "Interest And Dividend Income Operating",
+            "value": 1174000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "Other Income",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 10195000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Available For Sale Securities Adjustment Net Of Tax",
+            "value": 350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:ChangeInUnrealizedOtherThanTemporaryImpairmentLossesOnInvestments",
+            "label": "This item represents the change in the non-credit impairment losses portion of other-than-temporary impairments on fixed maturity investments in which a credit loss was recognized in the Consolidated Statements of Income. This item includes the impact of subsequent changes to these securities such as appreciation or loss in value or subsequent sale of the security.",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Net Of Tax",
+            "value": -17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Other Comprehensive Income Loss Pension And Other Postretirement Benefit Plans Adjustment Net Of Tax",
+            "value": -40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income Loss Net Of Tax",
+            "value": 375000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net Of Tax",
+            "value": 1818000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000896159-12-000007",
+        "form": "10-Q",
+        "filed_date": "2012-10-31 00:00:00",
+        "revenue": 13249000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 13249000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1941000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1941000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Net premiums written",
+            "value": 12418000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:ChangeInUnearnedPremiumNet",
+            "label": "Change in unearned premiums",
+            "value": 589000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Net premiums earned",
+            "value": 11829000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeNet",
+            "label": "Net investment income",
+            "value": 1614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketableSecuritiesRealizedGainLossOtherThanTemporaryImpairmentsAmount",
+            "label": "Other-than-temporary impairment (OTTI) losses gross",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Net OTTI losses recognized in income",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RealizedGainLossOnMarketableSecuritiesAndCostMethodInvestmentsExcludingOtherThanTemporaryImpairmentsAndOtherInvestments",
+            "label": "Net realized gains (losses) excluding OTTI losses",
+            "value": -164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:NetRealizedGainsLosses",
+            "label": "Net realized gains (losses) including OTTI",
+            "value": -194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 13249000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Losses and loss expenses",
+            "value": 6970000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Policy benefits",
+            "value": 379000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Policy acquisition costs",
+            "value": 1810000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "Administrative expenses",
+            "value": 1543000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 187000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (income) expense",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Total expenses",
+            "value": 10903000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income before income tax",
+            "value": 2346000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 405000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1941000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized appreciation",
+            "value": 1369000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Reclassification adjustment for net realized gains included in net income",
+            "value": -147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:OtherComprehensiveIncomeLossSubtotal",
+            "label": "Other comprehensive income (loss)",
+            "value": 1222000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Cumulative translation adjustment",
+            "value": 162000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Pension liability",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other comprehensive income, before income tax",
+            "value": 1379000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Income tax expense related to OCI items",
+            "value": 276000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 1103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 3044000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (US$ per share)",
+            "value": 5.71,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (US$ per share)",
+            "value": 5.67,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001193125-12-343816",
+        "form": "10-Q",
+        "filed_date": "2012-08-08 00:00:00",
+        "revenue": 6833000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 6833000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 910000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 910000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsEarnedNetPropertyAndCasualty",
+            "label": "",
+            "value": 5934000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "",
+            "value": 791000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "Other Income",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 6833000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 296000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 910000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 3.33,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 3.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncurredClaimsPropertyCasualtyAndLiability",
+            "label": "",
+            "value": 3567000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "",
+            "value": 1183000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherUnderwritingExpense",
+            "label": "",
+            "value": 717000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInvestmentExpense",
+            "label": "Investment Income, Investment Expense",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingExpense",
+            "label": "",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:CorporateExpenses",
+            "label": "Corporate Expenses",
+            "value": 133000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 1206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gain (Loss) on Investments",
+            "value": 103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterestAvailableforsaleSecurities",
+            "label": "",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableforsaleSecuritiesGrossRealizedGainLossExcludingOtherThanTemporaryImpairments",
+            "label": "",
+            "value": 140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:LossesAndExpenses",
+            "label": "Losses and Expenses [Abstract]",
+            "value": 5627000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "",
+            "value": 0.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 1024000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "",
+            "value": 114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "",
+            "value": -37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cb:ChangeInUnrealizedOtherThanTemporaryImpairmentLossesOnInvestments",
+            "label": "Change in Unrealized Other than Temporary Impairment Losses on Investments",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "",
+            "value": 121000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001193125-12-328826",
+        "form": "10-Q",
+        "filed_date": "2012-08-01 00:00:00",
+        "revenue": 8111000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 8111000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1301000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1301000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Other Comprehensive Income Loss Foreign Currency Transaction And Translation Adjustment Before Tax",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Other Comprehensive Income Loss Pension And Other Postretirement Benefit Plans Adjustment Before Tax",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other Comprehensive Income Loss Before Tax",
+            "value": 518000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Other Comprehensive Income Loss Tax",
+            "value": 91000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income Loss Net Of Tax",
+            "value": 427000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income Net Of Tax Including Portion Attributable To Noncontrolling Interest",
+            "value": 1728000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 3.83,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 3.8,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "MarketableSecuritiesRealizedGainLossOtherThanTemporaryImpairmentsAmount",
+            "label": "Marketable Securities Realized Gain Loss Other Than Temporary Impairments Amount",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Other Than Temporary Impairment Losses Investments Portion Recognized In Earnings Net",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RealizedGainLossOnMarketableSecuritiesAndCostMethodInvestmentsExcludingOtherThanTemporaryImpairmentsAndOtherInvestments",
+            "label": "Realized Gain Loss On Marketable Securities And Cost Method Investments Excluding Other Than Temporary Impairments And Other Investments",
+            "value": -114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:NetRealizedGainsLosses",
+            "label": "The net realized gains or losses on investments, derivative instruments, and foreign exchange recognized during the period.",
+            "value": -134000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredNet",
+            "label": "Policyholder Benefits And Claims Incurred Net",
+            "value": 3923000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LiabilityForFuturePolicyBenefitsPeriodExpense",
+            "label": "Liability For Future Policy Benefits Period Expense",
+            "value": 249000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DeferredPolicyAcquisitionCostAmortizationExpense",
+            "label": "Deferred Policy Acquisition Cost Amortization Expense",
+            "value": 1201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 1024000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense",
+            "value": 124000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income Expense",
+            "value": -31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BenefitsLossesAndExpenses",
+            "label": "Benefits Losses And Expenses",
+            "value": 6552000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Including Portion Attributable To Noncontrolling Interest",
+            "value": 1559000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1301000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Other Comprehensive Income Unrealized Holding Gain Loss On Securities Arising During Period Before Tax",
+            "value": 638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Other Comprehensive Income Loss Reclassification Adjustment For Sale Of Securities Included In Net Income Before Tax",
+            "value": -91000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:OtherComprehensiveIncomeLossSubtotal",
+            "label": "Other Comprehensive Income Loss subtotal of unrealized depreciation/appreciation and reclassification adjustment for net realized gains/losses included in net income.",
+            "value": 547000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsWrittenNet",
+            "label": "Premiums Written Net",
+            "value": 7702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ace:ChangeInUnearnedPremiumNet",
+            "label": "Change during the period in the unearned portion of gross premiums written (direct and assumed) and ceded premiums written, excluding the portion amortized into income.",
+            "value": 538000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums Earned Net",
+            "value": 7164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeNet",
+            "label": "Investment Income Net",
+            "value": 1081000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 8111000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

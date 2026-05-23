@@ -1,0 +1,3423 @@
+{
+  "fetched_at": 1779554836.69614,
+  "data": {
+    "ticker": "ACN",
+    "price": 179.26,
+    "ttm_revenue": 141953879000.0,
+    "net_income_ttm": 7571267000.0,
+    "prior_ttm_revenue": 114428310000.0,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": 24.0548593263328,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 613940000.0,
+    "revenue_quarter_dates_used": [
+      "2026-02-28 00:00:00",
+      "2025-11-30 00:00:00",
+      "2025-05-31 00:00:00",
+      "2025-02-28 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2024-11-30 00:00:00",
+      "2024-05-31 00:00:00",
+      "2024-02-29 00:00:00",
+      "2023-11-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2019-05-31 00:00:00",
+      "2014-02-28 00:00:00",
+      "2013-02-28 00:00:00",
+      "2012-11-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2012-05-31 00:00:00",
+      "2012-02-29 00:00:00",
+      "2011-11-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2026-02-28 00:00:00",
+        "accession_number": "0001467373-26-000014",
+        "form": "10-Q",
+        "filed_date": "2026-03-19 00:00:00",
+        "revenue": 36786191000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 36786191000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 36786191000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 25129712000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 3623834000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 2357859000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringSettlementAndImpairmentProvisions",
+            "label": "Business optimization costs",
+            "value": 307541000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 31418946000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 5367245000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 184759000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 128931000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 1251000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 5424324000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 1323040000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 4101284000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Canada Holdings Inc.",
+            "value": 3797000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests \u2013 other",
+            "value": 60687000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET\u00a0INCOME\u00a0ATTRIBUTABLE\u00a0TO\u00a0ACCENTURE\u00a0PLC",
+            "value": 4036800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 618155993.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 624584101.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in USD per share)",
+            "value": 6.53,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": 6.47,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in USD per share)",
+            "value": 3.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": 165734000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -19865000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Cash flow hedges",
+            "value": -120706000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 64893000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 3471000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 4169648000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 4101693000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 68364000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-11-30 00:00:00",
+        "accession_number": "0001467373-25-000222",
+        "form": "10-Q",
+        "filed_date": "2025-12-18 00:00:00",
+        "revenue": 18742125000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 18742125000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 18742125000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 12545007000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 1874932000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 1140947000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringSettlementAndImpairmentProvisions",
+            "label": "Business optimization costs",
+            "value": 307541000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 15868427000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2873698000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 106223000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 65365000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 53114000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 2967670000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 725774000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 2241896000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Canada Holdings Inc.",
+            "value": 2083000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests \u2013 other",
+            "value": 28252000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET\u00a0INCOME\u00a0ATTRIBUTABLE\u00a0TO\u00a0ACCENTURE\u00a0PLC",
+            "value": 2211561000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 619307086.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 626043040.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in USD per share)",
+            "value": 3.57,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": 3.54,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in USD per share)",
+            "value": 1.63,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": -173173000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -66820000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Cash flow hedges",
+            "value": -24645000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": -130998000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": -2868000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 2108030000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 2080563000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -133866000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-05-31 00:00:00",
+        "accession_number": "0001467373-25-000169",
+        "form": "10-Q",
+        "filed_date": "2025-06-20 00:00:00",
+        "revenue": 52076717000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 52076717000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 52076717000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 35452250000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 5250389000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 3198105000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Business optimization costs",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 43900744000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 8175973000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 231127000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 162312000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -49630000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 8195158000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 1812564000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 6382594000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Canada Holdings Inc.",
+            "value": 5914000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests \u2013 other",
+            "value": 112210000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET\u00a0INCOME\u00a0ATTRIBUTABLE\u00a0TO\u00a0ACCENTURE\u00a0PLC",
+            "value": 6264470000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 625606104.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 633104104.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in USD per share)",
+            "value": 10.01,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": 9.9,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in USD per share)",
+            "value": 4.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": 96636000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": 8794000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Cash flow hedges",
+            "value": -18689000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 69153000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 1991000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 6453738000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 6333623000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 71144000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-02-28 00:00:00",
+        "accession_number": "0001467373-25-000100",
+        "form": "10-Q",
+        "filed_date": "2025-03-20 00:00:00",
+        "revenue": 34348846000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 34348846000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 34348846000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 23551029000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 3487890000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 2116736000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Business optimization costs",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 29155655000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 5193191000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 152140000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 94711000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -6601000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 5244019000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 1105388000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 4138631000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Canada Holdings Inc.",
+            "value": 3855000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests \u2013 other",
+            "value": 67807000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET\u00a0INCOME\u00a0ATTRIBUTABLE\u00a0TO\u00a0ACCENTURE\u00a0PLC",
+            "value": 4066969000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 626247762.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 634543212.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in USD per share)",
+            "value": 6.49,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": 6.42,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in USD per share)",
+            "value": 2.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": -641886000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": 12339000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Cash flow hedges",
+            "value": -99463000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": -753688000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": -12796000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 3372147000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 3313281000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -766484000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2024-11-30 00:00:00",
+        "accession_number": "0001467373-24-000352",
+        "form": "10-Q",
+        "filed_date": "2024-12-19 00:00:00",
+        "revenue": 17689545000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 17689545000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 17689545000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 11866716000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 1811109000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 1063243000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Business optimization costs",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 14741068000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2948477000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 76027000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 30042000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -39217000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 2955245000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 639055000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 2316190000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Canada Holdings Inc.",
+            "value": 2170000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests \u2013 other",
+            "value": 35126000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET\u00a0INCOME\u00a0ATTRIBUTABLE\u00a0TO\u00a0ACCENTURE\u00a0PLC",
+            "value": 2278894000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 625676922.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 634656410.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in USD per share)",
+            "value": 3.64,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": 3.59,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in USD per share)",
+            "value": 1.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": -474983000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": 15758000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Cash flow hedges",
+            "value": -3911000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": -494652000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": -10093000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 1811445000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 1784242000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -504745000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2024-05-31 00:00:00",
+        "accession_number": "0001467373-24-000196",
+        "form": "10-Q",
+        "filed_date": "2024-06-20 00:00:00",
+        "revenue": 48490645000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 48490645000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 48490645000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 32665784000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 5091442000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 3158747000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Business optimization costs",
+            "value": 332493000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 41248466000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 7242179000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 220939000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 36134000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -60222000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 7366762000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 1666231000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 5700531000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Canada Holdings Inc.",
+            "value": 5592000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests \u2013 other",
+            "value": 114453000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET\u00a0INCOME\u00a0ATTRIBUTABLE\u00a0TO\u00a0ACCENTURE\u00a0PLC",
+            "value": 5580486000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 628437255.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 636611310.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in USD per share)",
+            "value": 8.88,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": 8.77,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in USD per share)",
+            "value": 3.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": -79263000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -46506000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Cash flow hedges",
+            "value": 20614000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": -12143000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": -2645000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 5685743000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 5568343000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -14788000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2024-02-29 00:00:00",
+        "accession_number": "0001467373-24-000108",
+        "form": "10-Q",
+        "filed_date": "2024-03-21 00:00:00",
+        "revenue": 32023817000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 32023817000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 32023817000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 21697407000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 3341076000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 2118947000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Business optimization costs",
+            "value": 255073000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 27412503000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 4611314000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 167249000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 24800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -41371000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 4712392000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 993209000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 3719183000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Canada Holdings Inc.",
+            "value": 3691000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests \u2013 other",
+            "value": 67189000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET\u00a0INCOME\u00a0ATTRIBUTABLE\u00a0TO\u00a0ACCENTURE\u00a0PLC",
+            "value": 3648303000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 628488831.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 637069356.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in USD per share)",
+            "value": 5.8,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": 5.73,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in USD per share)",
+            "value": 2.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": -23581000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -41630000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Cash flow hedges",
+            "value": 67912000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 85961000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": -372000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 3804772000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 3734264000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 85589000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2023-11-30 00:00:00",
+        "accession_number": "0001467373-23-000403",
+        "form": "10-Q",
+        "filed_date": "2023-12-19 00:00:00",
+        "revenue": 16224303000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 16224303000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 16224303000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 10776362000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 1709891000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 1033499000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_RestructuringCharges",
+            "label": "Business optimization costs",
+            "value": 139664000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 13659416000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2564887000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 101980000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 14495000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -35719000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 2616653000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 606672000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 2009981000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Canada Holdings Inc.",
+            "value": 2016000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests \u2013 other",
+            "value": 34521000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "NET\u00a0INCOME\u00a0ATTRIBUTABLE\u00a0TO\u00a0ACCENTURE\u00a0PLC",
+            "value": 1973444000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 627996111.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 637398361.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic (in USD per share)",
+            "value": 3.14,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted (in USD per share)",
+            "value": 3.1,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in USD per share)",
+            "value": 1.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": 68192000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -36392000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTax",
+            "label": "Cash flow hedges",
+            "value": 11302000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 115886000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 1885000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 2127752000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 2089330000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 117771000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-05-31 00:00:00",
+        "accession_number": "0001467373-19-000217",
+        "form": "10-Q",
+        "filed_date": "2019-06-27 00:00:00",
+        "revenue": 32159363000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 32159363000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3648685000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income attributable to Accenture plc",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to Accenture plc",
+            "value": 3648685000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 32159363000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of services",
+            "value": 22279291000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 3274216000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 1872275000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "OPERATING EXPENSES:",
+            "value": 27425782000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 4733581000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 60114000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 15472000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -87178000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 4691045000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 990352000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Net income",
+            "value": 3700693000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture Holdings plc and Accenture Canada Holdings Inc.",
+            "value": 5213000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsNonredeemable",
+            "label": "Net income attributable to noncontrolling interests u2013 other",
+            "value": 46795000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to Accenture plc",
+            "value": 3648685000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted average Class A ordinary shares",
+            "value": 638439707.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted average Class A ordinary shares",
+            "value": 650144931.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 5.72,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 5.62,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividend Per Share",
+            "value": 2.92,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation, net of tax",
+            "value": -69592000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans, net of tax",
+            "value": -32881000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Cash flow hedges, net of tax",
+            "value": 148036000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Investments",
+            "value": -1663000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 109662000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive income (loss) attributable to noncontrolling interests",
+            "value": -4859000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 3805496000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 3758347000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 47149000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2014-02-28 00:00:00",
+        "accession_number": "0001467373-14-000163",
+        "form": "10-Q",
+        "filed_date": "2014-03-27 00:00:00",
+        "revenue": 15367179000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "REVENUES:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 15367179000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1423146000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income attributable to noncontrolling interests u2013 other",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to noncontrolling interests u2013 other",
+            "value": 1423146000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Revenues before reimbursements (u201cNet revenuesu201d)",
+            "value": 14489416000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ReimbursementRevenue",
+            "label": "Reimbursements",
+            "value": 877763000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 15367179000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "Cost of services:",
+            "value": 9809927000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfReimbursableExpense",
+            "label": "Reimbursable expenses",
+            "value": 877763000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of services",
+            "value": 10687690000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 1765465000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 889658000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:ReorganizationBenefitsCostsNet",
+            "label": "Reorganization benefits, net",
+            "value": -18015000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "OPERATING EXPENSES:",
+            "value": 13324798000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2042381000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 14716000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 8006000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (expense) income, net",
+            "value": -15386000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 2033705000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for (benefit from) income taxes",
+            "value": 499728000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "NET INCOME",
+            "value": 1533977000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoncontrollingInterestInNetIncomeLossOtherNoncontrollingInterestsRedeemable",
+            "label": "Net income attributable to noncontrolling interests in Accenture SCA and Accenture Canada Holdings Inc.",
+            "value": 91947000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests u2013 other",
+            "value": 18884000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to noncontrolling interests u2013 other",
+            "value": 1423146000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 636314554.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 695508819.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 2.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 2.18,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share",
+            "value": 0.93,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation",
+            "value": 80960000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -7968000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Cash flow hedges",
+            "value": 97317000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 186245000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other comprehensive (loss) income attributable to noncontrolling interests",
+            "value": -10993000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 1731215000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 1609391000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": -121824000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2013-02-28 00:00:00",
+        "accession_number": "0001467373-13-000192",
+        "form": "10-Q",
+        "filed_date": "2013-03-28 00:00:00",
+        "revenue": 15161356000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "REVENUES:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 15161356000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1800619000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "NET INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NET INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 1800619000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Revenues before reimbursements (Net revenues)",
+            "value": 14278003000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ReimbursementRevenue",
+            "label": "Reimbursements",
+            "value": 883353000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 15161356000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "Cost of services:",
+            "value": 9681447000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfReimbursableExpense",
+            "label": "Reimbursable expenses",
+            "value": 883353000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of services",
+            "value": 10564800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 1702249000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 904403000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:ReorganizationBenefitsCostsNet",
+            "label": "Reorganization (benefits) costs, net",
+            "value": -223302000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "OPERATING EXPENSES:",
+            "value": 12948150000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2213206000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 18626000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 8190000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 4163000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 2227805000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "(Benefit from) provision for income taxes",
+            "value": 274676000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Net income",
+            "value": 1953129000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:NetIncomeLossAttributableToNoncontrollingInterestRedeemableOrExchangeableShares",
+            "label": "Net income attributable to noncontrolling interests in Accenture SCA and Accenture Canada Holdings Inc.",
+            "value": 137318000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MinorityInterestInNetIncomeLossOtherMinorityInterests",
+            "label": "Net income attributable to noncontrolling interests - other",
+            "value": 15192000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NET INCOME ATTRIBUTABLE TO ACCENTURE PLC",
+            "value": 1800619000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 644608780.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in dollars per share)",
+            "value": 714977392.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 2.79,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted (in dollars per share)",
+            "value": 2.71,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in dollars per share)",
+            "value": 0.81,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Foreign currency translation adjustments, before tax",
+            "value": -22722000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansNetUnamortizedGainLossArisingDuringPeriodBeforeTax",
+            "label": "Actuarial gain arising during the period",
+            "value": 14839000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossFinalizationOfPensionAndNonPensionPostretirementPlanValuationBeforeTax",
+            "label": "Curtailment gain arising during the period",
+            "value": 2936000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostCreditArisingDuringPeriodBeforeTax",
+            "label": "Prior service cost arising during the period",
+            "value": 48774000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostBeforeTax",
+            "label": "Amortization of actuarial loss",
+            "value": 19624000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAmortizationPensionAndOtherPostretirementBenefitPlansNetPriorServiceCostRecognizedInNetPeriodicBenefitCostBeforeTax",
+            "label": "Amortization of prior service cost (credit)",
+            "value": -749000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Defined benefit plans, before tax",
+            "value": 10626000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized (losses) gains during the period",
+            "value": 10989000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentOnDerivativesIncludedInNetIncomeBeforeTax",
+            "label": "Reclassification adjustments included in net income",
+            "value": 17192000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesBeforeTax",
+            "label": "Unrealized gains (losses) on cash flow hedges, before of tax",
+            "value": 28181000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized gains during the period",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentBeforeTax",
+            "label": "Unrealized losses on marketable securities, before tax",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesTax",
+            "label": "Unrealized losses on marketable securities, income tax expense",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "TOTAL OTHER COMPREHENSIVE (LOSS) INCOME, BEFORE TAX",
+            "value": -5167000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Other comprehensive income (loss), income tax expense",
+            "value": 5089000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "TOTAL OTHER COMPREHENSIVE (LOSS) INCOME",
+            "value": -10256000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income:",
+            "value": 1942873000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 152699000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income:",
+            "value": 1790174000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-11-30 00:00:00",
+        "accession_number": "0001467373-12-000263",
+        "form": "10-Q",
+        "filed_date": "2012-12-20 00:00:00",
+        "revenue": 7668036000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "REVENUES:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 7668036000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 698817000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income attributable to Accenture plc",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to Accenture plc",
+            "value": 698817000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Revenues before reimbursements (Net revenues)",
+            "value": 7219961000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ReimbursementRevenue",
+            "label": "Reimbursements",
+            "value": 448075000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 7668036000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "Cost of services:",
+            "value": 4853768000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfReimbursableExpense",
+            "label": "Reimbursable expenses",
+            "value": 448075000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of services",
+            "value": 5301843000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 868202000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 448852000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:RestructuringAndReorganizationCostsBenefitsNet",
+            "label": "Reorganization costs, net",
+            "value": 465000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "OPERATING EXPENSES:",
+            "value": 6619362000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 1048674000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 8767000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 4549000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (expense) income , net",
+            "value": -6436000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 1046456000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 280425000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Net income",
+            "value": 766031000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:NetIncomeLossAttributableToNoncontrollingInterestRedeemableOrExchangeableShares",
+            "label": "Net income attributable to noncontrolling interests in Accenture SCA and Accenture Canada Holdings Inc.",
+            "value": 58955000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MinorityInterestInNetIncomeLossOtherMinorityInterests",
+            "label": "Net income attributable to noncontrolling interests - other",
+            "value": 8259000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to Accenture plc",
+            "value": 698817000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted average Class A ordinary shares",
+            "value": 639659238.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted average Class A ordinary shares",
+            "value": 716368102.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic Earnings per share",
+            "value": 1.09,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted Earnings per share",
+            "value": 1.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share (in dollars per share)",
+            "value": 0.81,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentBeforeTax",
+            "label": "Foreign currency translation adjustments, before tax",
+            "value": 23285000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostBeforeTax",
+            "label": "Amortization of actuarial losses",
+            "value": 14447000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAmortizationPensionAndOtherPostretirementBenefitPlansNetPriorServiceCostRecognizedInNetPeriodicBenefitCostBeforeTax",
+            "label": "Amortization of prior services credits",
+            "value": 1077000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeTax",
+            "label": "Defined benefit plans, before tax",
+            "value": -13370000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodBeforeTax",
+            "label": "Change in fair value",
+            "value": 59808000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentOnDerivativesIncludedInNetIncomeBeforeTax",
+            "label": "Reclassification adjustments into Cost of services",
+            "value": 10501000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesBeforeTax",
+            "label": "Unrealized gains (losses) on cash flow hedges, before of tax",
+            "value": 70309000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Unrealized losses during the period",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentBeforeTax",
+            "label": "Unrealized losses on marketable securities, before tax",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossBeforeTax",
+            "label": "TOTAL OTHER COMPREHENSIVE INCOME (LOSS), BEFORE TAX",
+            "value": 106964000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossTax",
+            "label": "Other comprehensive income (loss), income tax expense",
+            "value": 32528000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "TOTAL OTHER COMPREHENSIVE INCOME (LOSS)",
+            "value": 74436000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income:",
+            "value": 840467000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 73900000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income:",
+            "value": 766567000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2012-05-31 00:00:00",
+        "accession_number": "0001467373-12-000009",
+        "form": "10-Q",
+        "filed_date": "2012-06-29 00:00:00",
+        "revenue": 22489726000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "REVENUES:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 22489726000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1975228000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income attributable to Accenture plc",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to Accenture plc",
+            "value": 1975228000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Revenues before reimbursements (Net revenues)",
+            "value": 21026437000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ReimbursementRevenue",
+            "label": "Reimbursements",
+            "value": 1463289000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "REVENUES:",
+            "value": 22489726000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfServices",
+            "label": "Cost of services:",
+            "value": 14287626000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfReimbursableExpense",
+            "label": "Reimbursable expenses",
+            "value": 1463289000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of services",
+            "value": 15750915000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 2464291000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 1342064000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:RestructuringAndReorganizationCostsBenefitsNet",
+            "label": "Reorganization costs, net",
+            "value": 1258000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "OPERATING EXPENSES:",
+            "value": 19558528000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2931198000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gain (loss) on investments, net",
+            "value": 31000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 31062000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 11875000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (expense) income , net",
+            "value": 7604000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 2958020000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 769242000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Net income",
+            "value": 2188778000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:NetIncomeLossAttributableToNoncontrollingInterestRedeemableOrExchangeableShares",
+            "label": "Net income attributable to noncontrolling interests in Accenture SCA and Accenture Canada Holdings Inc.",
+            "value": 185747000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MinorityInterestInNetIncomeLossOtherMinorityInterests",
+            "label": "Net income attributable to noncontrolling interests - other",
+            "value": 27803000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to Accenture plc",
+            "value": 1975228000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted average Class A ordinary shares",
+            "value": 645507900.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted average Class A ordinary shares",
+            "value": 729183064.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic Earnings per share",
+            "value": 3.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted Earnings per share",
+            "value": 2.96,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share",
+            "value": 1.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized losses on cash flow hedges, net of tax and reclassification adjustments",
+            "value": -98513000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized gains on marketable securities, net of reclassification adjustments",
+            "value": 158000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation adjustments, net of tax",
+            "value": -418408000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Defined benefit plans, net of tax",
+            "value": 13623000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 1685638000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AdjustmentsToAdditionalPaidInCapitalTaxEffectFromShareBasedCompensation",
+            "label": "Income tax benefit on share-based compensation plans",
+            "value": 105448000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TreasuryStockValueAcquiredCostMethod",
+            "label": "Purchases of Class A ordinary shares",
+            "value": 1307905000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AdjustmentsToAdditionalPaidInCapitalSharebasedCompensationRequisiteServicePeriodRecognitionValue",
+            "label": "Share-based compensation expense",
+            "value": 412389000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:PurchasesRedemptionsOfNoncontrollingInterestsAndClassXSharesValue",
+            "label": "Purchases/redemptions of Accenture SCA Class I common shares, Accenture Canada Holdings Inc. exchangeable shares and Class X ordinary shares",
+            "value": 95195000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "StockIssuedDuringPeriodValueShareBasedCompensation",
+            "label": "Employee share programs",
+            "value": 397665000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DividendsCommonStock",
+            "label": "Dividends",
+            "value": 950857000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "StockholdersEquityOther",
+            "label": "Other, net",
+            "value": 9962000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-02-29 00:00:00",
+        "accession_number": "0001193125-12-129729",
+        "form": "10-Q",
+        "filed_date": "2012-03-23 00:00:00",
+        "revenue": 14848936000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 14848936000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1286009000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1286009000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CostOfServices",
+            "label": "Cost Of Services",
+            "value": 9503841000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfReimbursableExpense",
+            "label": "Cost Of Reimbursable Expense",
+            "value": 977189000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost Of Revenue",
+            "value": 10481030000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Selling And Marketing Expense",
+            "value": 1609815000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General And Administrative Expense",
+            "value": 886831000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:RestructuringAndReorganizationCostsBenefitsNet",
+            "label": "Net amount of costs charged or credited to earnings associated with restructuring and reorganization. Restructuring costs or benefits are related to severance costs, space abandonment and other restructuring charges. Reorganization costs were incurred when the company made the transition to a corporate structure in fiscal 2001.",
+            "value": 823000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Costs And Expenses",
+            "value": 12978499000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share Basic",
+            "value": 1.99,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share Diluted",
+            "value": 1.93,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Sales Revenue Services Net",
+            "value": 13871747000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ReimbursementRevenue",
+            "label": "Reimbursement Revenue",
+            "value": 977189000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 14848936000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income Loss",
+            "value": 1870437000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gain Loss On Investments",
+            "value": -8000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Investment Income Interest",
+            "value": 19758000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense",
+            "value": 8378000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income Expense",
+            "value": 9758000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income Loss From Continuing Operations Before Income Taxes Minority Interest And Income Loss From Equity Method Investments",
+            "value": 1891567000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense Benefit",
+            "value": 465620000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income Loss From Continuing Operations Including Portion Attributable To Noncontrolling Interest",
+            "value": 1425947000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:NetIncomeLossAttributableToNoncontrollingInterestRedeemableOrExchangeableShares",
+            "label": "Amount of net income or loss for the period allocated to noncontrolling shareholders of Accenture SCA and Accenture Canada Holdings Inc, entities that are consolidated into the reporting entity's financial statements. Accenture SCA and Accenture Canada Holdings Shares can be redeemed or exchanged for Accenture plc Class A Ordinary shares.",
+            "value": 122544000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MinorityInterestInNetIncomeLossOtherMinorityInterests",
+            "label": "Minority Interest In Net Income Loss Other Minority Interests",
+            "value": 17394000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss",
+            "value": 1286009000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Common Stock Dividends Per Share Cash Paid",
+            "value": 0.675,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number Of Shares Outstanding Basic",
+            "value": 645390718.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number Of Diluted Shares Outstanding",
+            "value": 729608665.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income Net Of Tax Including Portion Attributable To Noncontrolling Interest",
+            "value": 1262530000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "StockIssuedDuringPeriodValueShareBasedCompensation",
+            "label": "Stock Issued During Period Value Share Based Compensation",
+            "value": 228879000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income Derivatives Qualifying As Hedges Net Of Tax Period Increase Decrease",
+            "value": -4729000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income Available For Sale Securities Adjustment Net Of Tax Period Increase Decrease",
+            "value": 242000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income Foreign Currency Transaction And Translation Adjustment Net Of Tax Period Increase Decrease",
+            "value": -168523000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income Defined Benefit Plans Adjustment Net Of Tax Period Increase Decrease",
+            "value": 9593000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AdjustmentsToAdditionalPaidInCapitalTaxEffectFromShareBasedCompensation",
+            "label": "Adjustments To Additional Paid In Capital Tax Effect From Share Based Compensation",
+            "value": 113667000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TreasuryStockValueAcquiredCostMethod",
+            "label": "Treasury Stock Value Acquired Cost Method",
+            "value": 701620000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AdjustmentsToAdditionalPaidInCapitalSharebasedCompensationRequisiteServicePeriodRecognitionValue",
+            "label": "Adjustments To Additional Paid In Capital Sharebased Compensation Requisite Service Period Recognition Value",
+            "value": 261517000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:PurchasesRedemptionsOfNoncontrollingInterestsAndClassXSharesValue",
+            "label": "Purchases and redemptions of Class X shares and shares related to noncontrolling interests.",
+            "value": 48459000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DividendsCommonStock",
+            "label": "Dividends Common Stock",
+            "value": 474896000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "StockholdersEquityOther",
+            "label": "Stockholders Equity Other",
+            "value": -655000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-11-30 00:00:00",
+        "accession_number": "0001193125-11-347254",
+        "form": "10-Q",
+        "filed_date": "2011-12-20 00:00:00",
+        "revenue": 7589108000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7589108000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 642086000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income attributable to Accenture plc",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to Accenture plc",
+            "value": 642086000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CostOfServices",
+            "label": "Cost of services before reimbursable expenses",
+            "value": 4822957000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfReimbursableExpense",
+            "label": "Reimbursable expenses",
+            "value": 514611000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Revenue",
+            "value": 5337568000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingAndMarketingExpense",
+            "label": "Sales and marketing",
+            "value": 837477000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and administrative costs",
+            "value": 432517000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:RestructuringAndReorganizationCostsBenefitsNet",
+            "label": "Net amount of costs charged or credited to earnings associated with restructuring and reorganization. Restructuring costs or benefits are related to severance costs, space abandonment and other restructuring charges. Reorganization costs were incurred when the company made the transition to a corporate structure in fiscal 2001.",
+            "value": 408000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Total operating expenses",
+            "value": 6607970000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 1.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted",
+            "value": 0.96,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Net Revenues",
+            "value": 7074497000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ReimbursementRevenue",
+            "label": "Reimbursements",
+            "value": 514611000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 7589108000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 981138000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Loss on investments, net",
+            "value": -55000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 10512000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense",
+            "value": 4158000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 5590000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 993027000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 281270000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Net income",
+            "value": 711757000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:NetIncomeLossAttributableToNoncontrollingInterestRedeemableOrExchangeableShares",
+            "label": "Amount of net income or loss for the period allocated to noncontrolling shareholders of Accenture SCA and Accenture Canada Holdings Inc, entities that are consolidated into the reporting entity's financial statements. Accenture SCA and Accenture Canada Holdings Shares can be redeemed or exchanged for Accenture plc Class A Ordinary shares.",
+            "value": 61956000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MinorityInterestInNetIncomeLossOtherMinorityInterests",
+            "label": "Net income attributable to noncontrolling interests - other",
+            "value": 7715000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to Accenture plc",
+            "value": 642086000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends per share",
+            "value": 0.675,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted average Class A ordinary shares",
+            "value": 644285298.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted average Class A ordinary shares",
+            "value": 730114347.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 362874000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "StockIssuedDuringPeriodValueShareBasedCompensation",
+            "label": "Employee share programs",
+            "value": 139947000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized losses on cash flow hedges, net of tax and reclassification adjustments",
+            "value": -74216000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized losses on marketable securities, net of reclassification adjustments",
+            "value": -314000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation adjustments, net of tax",
+            "value": -279647000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Defined benefit plans, net of tax",
+            "value": 5294000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AdjustmentsToAdditionalPaidInCapitalTaxEffectFromShareBasedCompensation",
+            "label": "Income tax benefit on share-based compensation plans",
+            "value": 23189000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TreasuryStockValueAcquiredCostMethod",
+            "label": "Purchases of Class A ordinary shares",
+            "value": 254222000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AdjustmentsToAdditionalPaidInCapitalSharebasedCompensationRequisiteServicePeriodRecognitionValue",
+            "label": "Adjustments to Additional Paid in Capital, Share-based Compensation, Requisite Service Period Recognition",
+            "value": 100558000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "acn:PurchasesRedemptionsOfNoncontrollingInterestsAndClassXSharesValue",
+            "label": "Purchases and redemptions of Class X shares and shares related to noncontrolling interests.",
+            "value": 30883000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DividendsCommonStock",
+            "label": "Dividends",
+            "value": 474896000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "StockholdersEquityOther",
+            "label": "Stockholders' Equity, Other",
+            "value": -1745000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

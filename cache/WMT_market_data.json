@@ -1,0 +1,3368 @@
+{
+  "fetched_at": 1779555874.0857348,
+  "data": {
+    "ticker": "WMT",
+    "price": 120.29,
+    "ttm_revenue": 998657000000.0,
+    "net_income_ttm": 34809000000.0,
+    "prior_ttm_revenue": 825268000000.0,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": 21.010023410576917,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 7970990000.0,
+    "revenue_quarter_dates_used": [
+      "2012-10-31 00:00:00",
+      "2012-07-31 00:00:00",
+      "2012-04-30 00:00:00",
+      "2011-10-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2011-07-31 00:00:00",
+      "2011-04-30 00:00:00",
+      "2010-10-31 00:00:00",
+      "2010-07-31 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2012-10-31 00:00:00",
+      "2012-07-31 00:00:00",
+      "2012-04-30 00:00:00",
+      "2011-10-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2011-07-31 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2012-10-31 00:00:00",
+        "accession_number": "0000104169-12-000018",
+        "form": "10-Q",
+        "filed_date": "2012-12-04 00:00:00",
+        "revenue": 339010000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 339010000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 341243000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 11880000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 11880000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 11393000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 11880000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:NetIncomeLossAttributableToNoncontrollingInterestExcludingRedeemable",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 448000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 11393000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Currency translation and other",
+            "value": 1232000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Derivatives instruments",
+            "value": -135000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Minimum pension liabilities",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of income taxes",
+            "value": 1100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to noncontrolling interest",
+            "value": 196000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:OtherComprehensiveIncomeNetOfTaxPortionAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income attributable to Walmart",
+            "value": 848000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income, net of income taxes",
+            "value": 12980000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to noncontrolling interest",
+            "value": 644000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:ComprehensiveIncomeLossNetOfTaxAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 95000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income, net of income taxes",
+            "value": 12241000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 339010000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "Membership and other Income",
+            "value": 2233000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 341243000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 256360000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 65682000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 19201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "Debt",
+            "value": 1512000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest, net",
+            "value": -1587000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 17614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 5734000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 11880000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Loss from discontinued operations, net of income taxes",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 487000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic",
+            "value": 3.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 3.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted",
+            "value": 3.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 3.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding, basic",
+            "value": 3385000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding, diluted",
+            "value": 3400000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share",
+            "value": 1.59,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-07-31 00:00:00",
+        "accession_number": "0000104169-12-000014",
+        "form": "10-Q",
+        "filed_date": "2012-09-06 00:00:00",
+        "revenue": 225806000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 225806000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 227314000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 8055000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 8055000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 7758000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 8055000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:NetIncomeLossAttributableToNoncontrollingInterestExcludingRedeemable",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 272000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 7758000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": 356000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Derivatives",
+            "value": -385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Pension",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income, net of income taxes",
+            "value": -25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to noncontrolling interest",
+            "value": 74000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income attributable to Walmart",
+            "value": -121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income, net of income tax",
+            "value": 8030000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to noncontrolling interest",
+            "value": 346000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:ComprehensiveIncomeLossNetOfTaxAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income, net of income tax",
+            "value": 7637000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 225806000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:MembershipAndOtherIncome",
+            "label": "Membership and other income",
+            "value": 1508000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 227314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 170843000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 43386000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 13085000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "Debt",
+            "value": 990000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 138000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 88000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest, net",
+            "value": -1040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 12045000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 3990000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 8055000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Loss from discontinued operations, net of income taxes",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 297000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 2.28,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 2.28,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 2.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 2.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3396000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3411000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Annual dividend approved by Board of Directors",
+            "value": 1.59,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-04-30 00:00:00",
+        "accession_number": "0001445305-12-001926",
+        "form": "10-Q",
+        "filed_date": "2012-06-01 00:00:00",
+        "revenue": 112272000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 112272000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 113018000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3894000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 3894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 3742000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 3894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:NetIncomeLossAttributableToNoncontrollingInterestExcludingRedeemable",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 143000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 3742000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": 1472000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Derivatives",
+            "value": -63000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Pension",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income, net of income taxes",
+            "value": 1416000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to noncontrolling interest",
+            "value": 431000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income attributable to Walmart",
+            "value": 947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income, net of income tax",
+            "value": 5310000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to noncontrolling interest",
+            "value": 574000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:ComprehensiveIncomeLossNetOfTaxAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income, net of income tax",
+            "value": 4689000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 112272000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:MembershipAndOtherIncome",
+            "label": "Membership and other income",
+            "value": 746000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 113018000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 85186000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 21445000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 6387000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "Debt",
+            "value": 503000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 70000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest:",
+            "value": -535000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 5852000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1958000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 3894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Loss from discontinued operations, net of income taxes",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 152000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 1.09,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 1.09,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3409000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3425000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Annual dividend approved by Board of Directors",
+            "value": 1.59,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-10-31 00:00:00",
+        "accession_number": "0001193125-11-335177",
+        "form": "10-Q",
+        "filed_date": "2011-12-08 00:00:00",
+        "revenue": 321569000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 321569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 323781000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 10980000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 10980000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 10536000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 321569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:MembershipAndOtherIncome",
+            "label": "Membership and other income includes Membership revenue, tenant lease income and other miscellaneous income categories such as the gain or loss from the sale of real estate properties or other assets.",
+            "value": 2212000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 323781000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 242538000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 63086000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 18157000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "InterestExpenseDebt",
+            "value": 1544000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 218000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest:",
+            "value": -1631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 16526000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 5510000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 11016000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income (loss) from discontinued operations, net of tax",
+            "value": -36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 10980000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 444000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 10536000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 3.04,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": -0.01,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 3.03,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 3.03,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": -0.01,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 3.02,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3473000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3487000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared, per share",
+            "value": 1.46,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": -2646000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "value": -98000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total comprehensive income",
+            "value": 8236000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other Comprehensive Income, Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Noncontrolling Interest",
+            "value": -723000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to the noncontrolling interest:",
+            "value": -279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 8515000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2011-07-31 00:00:00",
+        "accession_number": "0001193125-11-238857",
+        "form": "10-Q",
+        "filed_date": "2011-09-01 00:00:00",
+        "revenue": 212053000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 212053000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 213555000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 7487000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 7487000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 7200000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 212053000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:MembershipAndOtherIncome",
+            "label": "Membership and other income includes Membership revenue, tenant lease income and other miscellaneous income categories such as the gain or loss from the sale of real estate properties or other assets.",
+            "value": 1502000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 213555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 159947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 41329000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 12279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "InterestExpenseDebt",
+            "value": 1016000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 146000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 66000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest:",
+            "value": -1096000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 11183000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 3668000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 7515000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income (loss) from discontinued operations, net of tax",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 7487000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 287000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 7200000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 2.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 2.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 2.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 2.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3486000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3501000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared, per share",
+            "value": 1.46,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": 900000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "value": -113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total comprehensive income",
+            "value": 8274000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other Comprehensive Income, Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Noncontrolling Interest",
+            "value": 147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to the noncontrolling interest:",
+            "value": 434000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 7840000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-04-30 00:00:00",
+        "accession_number": "0001193125-11-158587",
+        "form": "10-Q",
+        "filed_date": "2011-06-03 00:00:00",
+        "revenue": 104189000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 104189000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends, per share",
+            "value": 1.46,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income Net of Tax",
+            "value": 3631000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Amounts attributable to the noncontrolling interest",
+            "value": 236000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total comprehensive income",
+            "value": 3867000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 78177000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic net income per common share attributable to Walmart",
+            "value": 0.97,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted net income per common share attributable to Walmart",
+            "value": 0.97,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 5378000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 3578000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 0.98,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 0.98,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income (loss) from discontinued operations, net of tax",
+            "value": -28000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": -0.01,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": -0.01,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1800000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseDebt",
+            "label": "InterestExpenseDebt",
+            "value": 491000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 71000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNet",
+            "label": "Interest expense, net",
+            "value": -518000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 44000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Consolidated net income attributable to Walmart",
+            "value": 3399000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 151000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 5896000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "value": -178000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": 495000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other Comprehensive Income, Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Noncontrolling Interest",
+            "value": 85000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 3550000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 104189000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Net sales",
+            "value": 103415000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 20116000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3513000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3497000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "wmt_MembershipAndOtherIncome",
+            "label": "Membership and other income includes Membership revenue, tenant lease income and other miscellaneous income categories such as the gain or loss from the sale of real estate properties or other assets.",
+            "value": 774000000.0,
+            "unit": "unit12"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-10-31 00:00:00",
+        "accession_number": "0001193125-10-274171",
+        "form": "10-Q",
+        "filed_date": "2010-12-06 00:00:00",
+        "revenue": 305489000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 305489000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends, per share",
+            "value": 1.21,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to Walmart",
+            "value": 10508000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Amounts attributable to the noncontrolling interest",
+            "value": 640000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total comprehensive income",
+            "value": 11148000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 228129000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_DividendsCash",
+            "label": "Cash dividends ($1.21 per share)",
+            "value": 4552000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic net income per common share attributable to Walmart",
+            "value": 2.8,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted net income per common share attributable to Walmart",
+            "value": 2.79,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 16066000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 10781000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 2.8,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 2.79,
+            "unit": "unit16"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 5285000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseDebt",
+            "label": "InterestExpenseDebt",
+            "value": 1432000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 201000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNet",
+            "label": "Interest expense, net",
+            "value": -1472000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 161000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Consolidated net income attributable to Walmart",
+            "value": 10333000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 448000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 17538000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change in fair value of derivatives",
+            "value": -106000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": 473000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other Comprehensive Income, Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Noncontrolling Interest",
+            "value": 192000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income",
+            "value": 296000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 10781000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 305489000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Net sales",
+            "value": 303352000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 59822000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_StockholdersEquityOther",
+            "label": "Stockholders' Equity, Other",
+            "value": 120000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_StockRepurchasedDuringPeriodShares",
+            "label": "Purchase of Company stock (in shares)",
+            "value": -210000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_StockRepurchasedDuringPeriodValue",
+            "label": "Purchase of Company stock",
+            "value": 11027000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3706000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3692000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "wmt_ConsolidatedIncomeNetOfTaxExcludingPortionAttributableToRedeemableNoncontrollingInterest",
+            "label": "Comprehensive income net of tax (excluding portion attributable to redeemable noncontrolling interest)",
+            "value": 10775000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "wmt_MembershipAndOtherIncome",
+            "label": "Membership and other income includes Membership revenue, tenant lease income and other miscellaneous income categories such as the gain or loss from the sale of real estate properties or other assets.",
+            "value": 2137000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "wmt_NetIncomePriorToCurrencyTranslation",
+            "label": "Net income prior to currency translation",
+            "value": -448000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "wmt_OtherChangesDuringPeriodShares",
+            "label": "Number of shares of other changes in stock during the period.",
+            "value": 7000000.0,
+            "unit": "unit1"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-07-31 00:00:00",
+        "accession_number": "0001193125-10-202779",
+        "form": "10-Q",
+        "filed_date": "2010-09-01 00:00:00",
+        "revenue": 203537000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 203537000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends, per share",
+            "value": 1.21,
+            "unit": "unit13"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to Walmart",
+            "value": 5868000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Amounts attributable to the noncontrolling interest",
+            "value": 354000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total comprehensive income",
+            "value": 6222000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 152223000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_DividendsCash",
+            "label": "Cash dividends ($1.21 per share)",
+            "value": 4552000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic net income per common share attributable to Walmart",
+            "value": 1.85,
+            "unit": "unit13"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted net income per common share attributable to Walmart",
+            "value": 1.84,
+            "unit": "unit13"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 10971000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 7191000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 1.85,
+            "unit": "unit13"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 1.84,
+            "unit": "unit13"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 3780000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseDebt",
+            "label": "Debt",
+            "value": 932000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 132000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNet",
+            "label": "Interest expense, net",
+            "value": -956000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 108000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Consolidated net income attributable to Walmart",
+            "value": 6897000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 294000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 11927000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Net change in fair value of derivatives",
+            "value": -25000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": -944000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other Comprehensive Income, Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Noncontrolling Interest",
+            "value": 60000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income (loss)",
+            "value": -998000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 7191000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 203537000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Net sales",
+            "value": 202113000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 39387000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_StockholdersEquityOther",
+            "label": "Stockholders' Equity, Other",
+            "value": 215000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_StockRepurchasedDuringPeriodShares",
+            "label": "Purchase of Company stock (in shares)",
+            "value": -137000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_StockRepurchasedDuringPeriodValue",
+            "label": "Purchase of Company stock",
+            "value": 7176000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3744000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3730000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "wmt_ConsolidatedIncomeNetOfTaxExcludingPortionAttributableToRedeemableNoncontrollingInterest",
+            "label": "Comprehensive income net of tax (excluding portion attributable to redeemable noncontrolling interest)",
+            "value": 7189000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "wmt_MembershipAndOtherIncome",
+            "label": "Membership and other income includes Membership revenue, tenant lease income and other miscellaneous income categories such as the gain or loss from the sale of real estate properties or other assets.",
+            "value": 1424000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "wmt_NetIncomePriorToCurrencyTranslation",
+            "label": "Net income prior to currency translation",
+            "value": -294000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "wmt_OtherChangesDuringPeriodShares",
+            "label": "Number of shares of other changes in stock during the period.",
+            "value": 9000000.0,
+            "unit": "unit1"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2012-10-31 00:00:00",
+        "accession_number": "0000104169-12-000018",
+        "form": "10-Q",
+        "filed_date": "2012-12-04 00:00:00",
+        "revenue": 339010000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 339010000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 341243000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 11880000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 11880000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 11393000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 11880000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:NetIncomeLossAttributableToNoncontrollingInterestExcludingRedeemable",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 448000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 11393000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Currency translation and other",
+            "value": 1232000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Derivatives instruments",
+            "value": -135000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Minimum pension liabilities",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of income taxes",
+            "value": 1100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to noncontrolling interest",
+            "value": 196000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:OtherComprehensiveIncomeNetOfTaxPortionAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income attributable to Walmart",
+            "value": 848000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income, net of income taxes",
+            "value": 12980000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to noncontrolling interest",
+            "value": 644000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:ComprehensiveIncomeLossNetOfTaxAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 95000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income, net of income taxes",
+            "value": 12241000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 339010000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "Membership and other Income",
+            "value": 2233000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 341243000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 256360000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 65682000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 19201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "Debt",
+            "value": 1512000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 206000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest, net",
+            "value": -1587000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 17614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 5734000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 11880000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Loss from discontinued operations, net of income taxes",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 487000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic",
+            "value": 3.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 3.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted",
+            "value": 3.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 3.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding, basic",
+            "value": 3385000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding, diluted",
+            "value": 3400000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per common share",
+            "value": 1.59,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-07-31 00:00:00",
+        "accession_number": "0000104169-12-000014",
+        "form": "10-Q",
+        "filed_date": "2012-09-06 00:00:00",
+        "revenue": 225806000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 225806000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 227314000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 8055000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 8055000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 7758000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 8055000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:NetIncomeLossAttributableToNoncontrollingInterestExcludingRedeemable",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 272000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 7758000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": 356000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Derivatives",
+            "value": -385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Pension",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income, net of income taxes",
+            "value": -25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to noncontrolling interest",
+            "value": 74000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income attributable to Walmart",
+            "value": -121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income, net of income tax",
+            "value": 8030000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to noncontrolling interest",
+            "value": 346000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:ComprehensiveIncomeLossNetOfTaxAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income, net of income tax",
+            "value": 7637000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 225806000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:MembershipAndOtherIncome",
+            "label": "Membership and other income",
+            "value": 1508000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 227314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 170843000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 43386000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 13085000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "Debt",
+            "value": 990000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 138000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 88000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest, net",
+            "value": -1040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 12045000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 3990000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 8055000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Loss from discontinued operations, net of income taxes",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 297000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 2.28,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 2.28,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 2.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 2.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3396000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3411000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Annual dividend approved by Board of Directors",
+            "value": 1.59,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-04-30 00:00:00",
+        "accession_number": "0001445305-12-001926",
+        "form": "10-Q",
+        "filed_date": "2012-06-01 00:00:00",
+        "revenue": 112272000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 112272000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 113018000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3894000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 3894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 3742000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 3894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:NetIncomeLossAttributableToNoncontrollingInterestExcludingRedeemable",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 143000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to redeemable noncontrolling interest",
+            "value": 3742000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": 1472000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Derivatives",
+            "value": -63000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Pension",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income, net of income taxes",
+            "value": 1416000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to noncontrolling interest",
+            "value": 431000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less other comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income attributable to Walmart",
+            "value": 947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income, net of income tax",
+            "value": 5310000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to noncontrolling interest",
+            "value": 574000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:ComprehensiveIncomeLossNetOfTaxAttributableToRedeemableNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to redeemable noncontrolling interest",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income, net of income tax",
+            "value": 4689000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 112272000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:MembershipAndOtherIncome",
+            "label": "Membership and other income",
+            "value": 746000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 113018000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 85186000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 21445000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 6387000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "Debt",
+            "value": 503000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 70000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest:",
+            "value": -535000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 5852000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1958000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 3894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Loss from discontinued operations, net of income taxes",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 152000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 1.09,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 1.09,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3409000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3425000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Annual dividend approved by Board of Directors",
+            "value": 1.59,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-10-31 00:00:00",
+        "accession_number": "0001193125-11-335177",
+        "form": "10-Q",
+        "filed_date": "2011-12-08 00:00:00",
+        "revenue": 321569000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 321569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 323781000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 10980000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 10980000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 10536000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 321569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:MembershipAndOtherIncome",
+            "label": "Membership and other income includes Membership revenue, tenant lease income and other miscellaneous income categories such as the gain or loss from the sale of real estate properties or other assets.",
+            "value": 2212000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 323781000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 242538000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 63086000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 18157000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "InterestExpenseDebt",
+            "value": 1544000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 218000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest:",
+            "value": -1631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 16526000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 5510000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 11016000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income (loss) from discontinued operations, net of tax",
+            "value": -36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 10980000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 444000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 10536000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 3.04,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": -0.01,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 3.03,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 3.03,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": -0.01,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 3.02,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3473000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3487000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared, per share",
+            "value": 1.46,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": -2646000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "value": -98000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total comprehensive income",
+            "value": 8236000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other Comprehensive Income, Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Noncontrolling Interest",
+            "value": -723000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to the noncontrolling interest:",
+            "value": -279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 8515000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2011-07-31 00:00:00",
+        "accession_number": "0001193125-11-238857",
+        "form": "10-Q",
+        "filed_date": "2011-09-01 00:00:00",
+        "revenue": 212053000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 212053000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 213555000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 7487000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Consolidated net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 7487000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 7200000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Net sales",
+            "value": 212053000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "wmt:MembershipAndOtherIncome",
+            "label": "Membership and other income includes Membership revenue, tenant lease income and other miscellaneous income categories such as the gain or loss from the sale of real estate properties or other assets.",
+            "value": 1502000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 213555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales",
+            "value": 159947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating, selling, general and administrative expenses",
+            "value": 41329000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 12279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseDebt",
+            "label": "InterestExpenseDebt",
+            "value": 1016000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpenseLesseeAssetsUnderCapitalLease",
+            "label": "Capital leases",
+            "value": 146000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 66000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest:",
+            "value": -1096000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes",
+            "value": 11183000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 3668000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations",
+            "value": 7515000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income (loss) from discontinued operations, net of tax",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Consolidated net income",
+            "value": 7487000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 287000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less consolidated net income attributable to noncontrolling interest",
+            "value": 7200000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic income per common share from continuing operations attributable to Walmart",
+            "value": 2.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic loss per common share from discontinued operations attributable to Walmart",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net income per common share:",
+            "value": 2.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted income per common share from continuing operations attributable to Walmart",
+            "value": 2.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted loss per common share from discontinued operations attributable to Walmart",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net income per common share:",
+            "value": 2.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 3486000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted",
+            "value": 3501000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared, per share",
+            "value": 1.46,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Currency translation",
+            "value": 900000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "value": -113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Total comprehensive income",
+            "value": 8274000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Other Comprehensive Income, Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Noncontrolling Interest",
+            "value": 147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less comprehensive income attributable to the noncontrolling interest:",
+            "value": 434000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 7840000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

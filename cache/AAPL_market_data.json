@@ -1,0 +1,554 @@
+{
+  "fetched_at": 1779554835.669492,
+  "data": {
+    "ticker": "AAPL",
+    "price": 308.84,
+    "ttm_revenue": null,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 14687360000.0,
+    "revenue_quarter_dates_used": [
+      "2017-07-01 00:00:00",
+      "2017-04-01 00:00:00",
+      "2016-12-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [],
+    "ni_quarter_dates_used": [],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2017-07-01 00:00:00",
+        "accession_number": "0000320193-17-000009",
+        "form": "10-Q",
+        "filed_date": "2017-08-02 00:00:00",
+        "revenue": 176655000000.0,
+        "revenue_concept": "us-gaap_SalesRevenueNet",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Revenue",
+            "value": 176655000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareDeclared",
+            "label": "Dividends per share (in dollars per share)",
+            "value": 1.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 36458000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 108400000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 7.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 7.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross margin",
+            "value": 68255000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Total amounts reclassified from AOCI",
+            "value": 50172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 12535000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income",
+            "value": 37637000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Total other income/(expense), net",
+            "value": 1948000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 20031000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 48224000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Total change in unrealized gains/losses on marketable securities, net of tax",
+            "value": -1005000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Total change in unrealized gains/losses on derivative instruments, net of tax",
+            "value": -133000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation, net of tax effects of $(35), $2, $(3) and $2, respectively",
+            "value": -41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total other comprehensive income/(loss)",
+            "value": -1179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Adjustment for net (gains)/losses realized and included in net income, net of tax expense/(benefit) of $16, $8, $12 and $(45), respectively",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Adjustment for net (gains)/losses realized and included in net income, net of tax expense/(benefit) of $176, $46, $276 and $256, respectively",
+            "value": 1135000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Change in fair value of derivatives, net of tax benefit/(expense) of $(16), $27, $(269) and $(10), respectively",
+            "value": 1002000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Change in fair value of marketable securities, net of tax benefit/(expense) of $(197), $(641), $536 and $(663), respectively",
+            "value": -980000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 8584000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Revenue",
+            "value": 176655000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative",
+            "value": 11447000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares (in shares)",
+            "value": 5274394000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average shares outstanding (in shares)",
+            "value": 5239847000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2017-04-01 00:00:00",
+        "accession_number": "0001628280-17-004790",
+        "form": "10-Q",
+        "filed_date": "2017-05-03 00:00:00",
+        "revenue": 131247000000.0,
+        "revenue_concept": "us-gaap_SalesRevenueNet",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Revenue",
+            "value": 131247000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareDeclared",
+            "label": "Dividend per share (in dollars per share)",
+            "value": 1.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 27864000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 80480000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 5.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 5.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross margin",
+            "value": 50767000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 38864000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 9944000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income",
+            "value": 28920000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Other income/(expense), net",
+            "value": 1408000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 13311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 37456000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Total change in unrealized gains/losses on marketable securities, net of tax",
+            "value": -1337000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Total change in unrealized gains/losses on derivative instruments, net of tax",
+            "value": 442000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation, net of tax effects of $(44), $(19), $32 and $0, respectively",
+            "value": -161000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total other comprehensive income/(loss)",
+            "value": -1056000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Adjustment for net (gains)/losses realized and included in net income, net of tax expense/(benefit) of $7, $(27), $(4) and $(53), respectively",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Adjustment for net (gains)/losses realized and included in net income, net of tax expense/(benefit) of $311, $144, $100 and $210, respectively",
+            "value": 726000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Change in fair value of derivatives, net of tax benefit/(expense) of $(25), $1, $(253) and $(37), respectively",
+            "value": 1168000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Change in fair value of marketable securities, net of tax benefit/(expense) of $(256), $(530), $733 and $(22), respectively",
+            "value": -1344000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 5647000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Revenue",
+            "value": 131247000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative",
+            "value": 7664000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares (in shares)",
+            "value": 5294841000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average shares outstanding (in shares)",
+            "value": 5262226000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2016-12-31 00:00:00",
+        "accession_number": "0001628280-17-000717",
+        "form": "10-Q",
+        "filed_date": "2017-02-01 00:00:00",
+        "revenue": 78351000000.0,
+        "revenue_concept": "us-gaap_SalesRevenueNet",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Revenue",
+            "value": 78351000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per share (in dollars per share)",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Total comprehensive income",
+            "value": 17502000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 48175000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 3.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 3.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_GrossProfit",
+            "label": "Gross margin",
+            "value": 30176000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before provision for income taxes",
+            "value": 24180000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 6289000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income",
+            "value": 17891000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NonoperatingIncomeExpense",
+            "label": "Total other income/(expense), net",
+            "value": 821000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 6817000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 23359000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossAvailableForSaleSecuritiesAdjustmentNetOfTax",
+            "label": "Total change in unrealized gains/losses on marketable securities, net of tax",
+            "value": -1788000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossDerivativesQualifyingAsHedgesNetOfTax",
+            "label": "Total change in unrealized gains/losses on derivative instruments, net of tax",
+            "value": 1774000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Change in foreign currency translation, net of tax effects of $76 and $19, respectively",
+            "value": -375000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income/(loss)",
+            "value": -389000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Adjustment for net (gains)/losses realized and included in net income, net of tax expense/(benefit) of $(11) and $(26), respectively",
+            "value": -20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Adjustment for net (gains)/losses realized and included in net income, net of tax expense/(benefit) of $(211) and $66, respectively",
+            "value": -306000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Change in fair value of derivatives, net of tax benefit/(expense) of $(228) and $(38), respectively",
+            "value": 1468000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Change in fair value of marketable securities, net of tax benefit/(expense) of $989 and $508, respectively",
+            "value": -1808000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ResearchAndDevelopmentExpense",
+            "label": "Research and development expense",
+            "value": 2871000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueNet",
+            "label": "Revenue",
+            "value": 78351000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative",
+            "value": 3946000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares (in shares)",
+            "value": 5327995000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average shares outstanding (in shares)",
+            "value": 5298661000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [],
+    "ni_quarters_used": [],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing ttm_revenue, net_income_ttm",
+    "cache_source": "live"
+  }
+}

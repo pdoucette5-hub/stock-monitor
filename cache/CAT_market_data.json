@@ -1,0 +1,2390 @@
+{
+  "fetched_at": 1779554842.9974022,
+  "data": {
+    "ticker": "CAT",
+    "price": 879.91,
+    "ttm_revenue": 108437000000.0,
+    "net_income_ttm": 11837000000.0,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 460590000.0,
+    "revenue_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2011-09-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2011-09-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000018230-19-000153",
+        "form": "10-Q",
+        "filed_date": "2019-05-06 00:00:00",
+        "revenue": 13466000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total sales and revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 13466000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1884000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit of consolidated and affiliated companies",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affiliated companies",
+            "value": 1884000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affiliated companies",
+            "value": 1884000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation, net of tax",
+            "value": -22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Current year prior service credit (cost), net of tax (provision)/benefit of: Three months ended March 31: 2019-$0, 2018 - $1",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAmortizationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetPriorServiceCostCreditNetOfTax",
+            "label": "Amortization of prior service (credit) cost, net of tax (provision)/benefit of: Three months ended March 31: 2019-$3, 2018 - $2",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossBeforeReclassificationAfterTax",
+            "label": "Gains (losses) deferred, net of tax (provision)/benefit of : three months ended March 31: 2019 - $(3); 2018 - $2",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (provision)/benefit of: Three months ended March 31 2019- $0; 2018 - $0",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (provision)/benefit of: Three months ended March 31: 2019-$(6), 2018 - $2",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (provision)/benefit of: Three months ended March 31: 2019-$0, 2018 - $0",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 1872000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to the noncontrolling interests",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 1869000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 13466000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Revenue",
+            "value": 9003000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 1319000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expenses",
+            "value": 435000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseOfFinancialProducts",
+            "label": "Interest expense of Financial Products",
+            "value": 190000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other operating (income) expenses",
+            "value": -312000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating costs:",
+            "value": 11259000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 2207000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseExcludingFinancialProducts",
+            "label": "Interest Expense Excluding Financial Products",
+            "value": 103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense) [Member]",
+            "value": 160000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit before taxes",
+            "value": 2264000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Tax (provision) benefit",
+            "value": 387000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:ProfitOfConsolidatedCompanies",
+            "label": "Profit of consolidated companies",
+            "value": 1877000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Profit (loss) attributable to noncontrolling interests",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Reclassifications net of tax",
+            "value": 1881000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit (loss) per share of common stock:",
+            "value": 3.29,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming full dilution (A/C) (in dollars per share)",
+            "value": 3.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of common shares outstanding (B) (in shares)",
+            "value": 572400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average common shares outstanding for fully diluted computation (C) (in shares)",
+            "value": 578800000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000018230-12-000506",
+        "form": "10-Q",
+        "filed_date": "2012-11-02 00:00:00",
+        "revenue": 47711000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Sales of Machinery and Power Systems",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 47711000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "External sales and revenues",
+            "value": 49800000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 5022000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit of consolidated and affliated companies",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affliated companies",
+            "value": 5022000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affliated companies",
+            "value": 5022000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation, net of tax (expense)/benefit of: Three months ended: 2012-$11, 2011-($69); Nine months ended: 2012 - ($5), 2011 - $15",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Current year actuarial gain (loss), net of tax (expense)/benefit of: Three months ended: 2012-$91, 2011-$0; Nine months ended: 2012-$83, 2011-$0",
+            "value": -140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Amortization of acturial (gain) loss, net of tax (expense)/benefit of: Three months ended: 2012-$(61), 2011-$(46); Nine months ended: 2012-($181), 2011-($158)",
+            "value": 340000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Current year prior service credit (cost), net of tax (expense)/benefit of: Three months ended: 2012-($3), 2011- $0; Nine months ended: 2012-($1), 2011-$0",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAmortizationPensionAndOtherPostretirementBenefitPlansNetPriorServiceCostRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization of prior service (credit) cost, net of tax (expense)/benefit of: Three months ended: 2012-$4, 2011-$3; Nine months ended: 2012-$12, 2011-$9",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlanNetTransitionAssetObligationRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Amortization of transition (asset) obligation, net of tax (expense)/benefit of: Three months ended: 2012-$0, 2011-($1); Nine months ended: 2012-$0, 2011-($1)",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (expense)/benefit of: Three months ended: 2012-$5, 2011-($21); Nine months ended: 2012-$21, 2011-($15)",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: Three months ended: 2012-($5), 2011-$14; Nine months ended: 2012-($6), 2011-$14",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (expense)/benefit of: Three months ended: 2012-($8), 2011-$13; Nine months ended: 2012-($13), 2011-$8",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: Three months ended: 2012 - $0, 2011 - $0; Nine months ended: 2012-$0, 2011-$0",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Net of Tax:",
+            "value": 215000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 5237000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to the noncontrolling interests",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 5217000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 47711000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FinancialServicesRevenue",
+            "label": "Revenues of Financial Products",
+            "value": 2089000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "External sales and revenues",
+            "value": 49800000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of goods sold",
+            "value": 35156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 4328000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expenses",
+            "value": 1853000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseOfFinancialProducts",
+            "label": "Interest expense of Financial Products",
+            "value": 599000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other operating (income) expenses",
+            "value": 329000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating costs:",
+            "value": 42265000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Total profit from reportable segments",
+            "value": 7535000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseExcludingFinancialProducts",
+            "label": "Interest expense excluding Financial Products",
+            "value": 352000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense)",
+            "value": 141000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit before taxes",
+            "value": 7324000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 2314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:ProfitOfConsolidatedCompanies",
+            "label": "Profit of consolidated companies",
+            "value": 5010000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Profit attributable to noncontrolling interests",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Profit for the period (A) (in millions of dollars)",
+            "value": 4984000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit (loss) per share of common stock:",
+            "value": 7.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming full dilution (A/C) (in dollars per share)",
+            "value": 7.44,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of common shares outstanding (B) (in shares)",
+            "value": 652000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average common shares outstanding for fully diluted computation (C) (in shares)",
+            "value": 669700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share (in dollars per share)",
+            "value": 0.98,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000018230-12-000409",
+        "form": "10-Q",
+        "filed_date": "2012-08-06 00:00:00",
+        "revenue": 31972000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Sales of Machinery and Power Systems",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 31972000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Sales and revenues",
+            "value": 33355000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3320000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit of consolidated and affliated companies",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affliated companies",
+            "value": 3320000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affliated companies",
+            "value": 3320000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation, net of tax",
+            "value": -158000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Current year actuarial gain (loss), net of tax (expense)/benefit of: Three months ended: 2012-($2), 2011-$0; Six months ended: 2012-($8), 2011-$0",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Amortization of acturial (gain) loss, net of tax (expense)/benefit of: Three months ended: 2012-$(60), 2011-$(59); Six months ended: 2012-($120), 2011-($112)",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Current year prior service credit (cost), net of tax (expense)/benefit of: Six months ended: 2012-$2, 2011-$0",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAmortizationOfDefinedBenefitPlanNetPriorServiceCostRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization of prior service (credit) cost, net of tax (expense)/benefit of: Three months ended: 2012-$4, 2011-$3; Six months ended: 2012-$8, 2011-$6",
+            "value": -15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlanNetTransitionAssetObligationRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Amortization of transition (asset) obligation, net of tax (expense)/benefit of: Six months ended: 2012-$0, 2011-$0",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (expense)/benefit of: Three months ended: 2012-$0, 2011-$16; SIx months ended: 2012-$16, 2011-$6",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: Three months ended: 2012-($2), 2011-($5); Six months ended: 2012-($1), 2011-$0",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (expense)/benefit of: Three months ended: 2012-$4, 2011-$(2); Six months ended: 2012-($5), 2011-($5)",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: Three months ended: 2012 - $0, 2011 - $0; Six months ended: 2012-$0, 2011-$0",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax:",
+            "value": 53000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 3373000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to the noncontrolling interests",
+            "value": 17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 3356000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 31972000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FinancialServicesRevenue",
+            "label": "Revenues of Financial Products",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Sales and revenues",
+            "value": 33355000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of goods sold",
+            "value": 23517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2857000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expenses",
+            "value": 1219000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseOfFinancialProducts",
+            "label": "Interest expense of Financial Products",
+            "value": 402000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other operating (income) expenses",
+            "value": 421000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating costs:",
+            "value": 28416000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 4939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseExcludingFinancialProducts",
+            "label": "Interest expense excluding Financial Products",
+            "value": 223000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense)",
+            "value": 158000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit before taxes",
+            "value": 4874000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1561000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:ProfitOfConsolidatedCompanies",
+            "label": "Profit of consolidated companies",
+            "value": 3313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Profit attributable to noncontrolling interests",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Profit for the period (A) (in millions of dollars)",
+            "value": 3285000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit (loss) per share of common stock:",
+            "value": 5.04,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming full dilution (A/C) (in dollars per share)",
+            "value": 4.9,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of common shares outstanding (B) (in shares)",
+            "value": 651300000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average common shares outstanding for fully diluted computation (C) (in shares)",
+            "value": 669900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share (in dollars per share)",
+            "value": 0.98,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0000018230-12-000280",
+        "form": "10-Q",
+        "filed_date": "2012-05-07 00:00:00",
+        "revenue": 15288000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Sales of Machinery and Power Systems",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 15288000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 15981000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1611000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+            "value": 1611000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 15288000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FinancialServicesRevenue",
+            "label": "Revenues of Financial Products",
+            "value": 693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 15981000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of Goods Sold",
+            "value": 11237000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense",
+            "value": 1340000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense",
+            "value": 587000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other Cost and Expense, Operating",
+            "value": 290000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating costs",
+            "value": 13658000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 2323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": 88000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit before taxes",
+            "value": 2298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Current Income Tax Expense (Benefit)",
+            "value": 689000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+            "value": 1611000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Income (Loss) Attributable to Noncontrolling Interest",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit per common share (in dollars per share)",
+            "value": 2.44,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Profit per common share - diluted (in dollars per share)",
+            "value": 2.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 650000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 670200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share (in dollars per share)",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+            "value": 1586000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Unrealized Gain (Loss) on Derivatives Arising During Period, Net of Tax",
+            "value": -26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: 2012 - $1; 2011 - $5",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income (Loss), Net of Tax, Including Portion Attributable to Noncontrolling Interest",
+            "value": 1896000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Noncontrolling Interest",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent",
+            "value": 1881000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation, net of tax (expense)/benefit of: 2012 - $17; 2011 - $63",
+            "value": 181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Current year actuarial gain (loss), net of tax (expense)/benefit of: 2012 - $(6); 2011 - $0",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Current year prior service credit (cost), net of tax (expense)/benefit of: 2012 - $2; 2011 - $0",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Reclassification, Pension and Other Postretirement Benefit Plans, Net (Gain) Loss Recognized in Net Periodic Benefit Cost, Net of Tax",
+            "value": 113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAmortizationOfDefinedBenefitPlanNetPriorServiceCostRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Amortization, Pension and Other Postretirement Benefit Plans, Net Prior Service Cost Recognized in Net Periodic Pension Cost, Net of Tax",
+            "value": -8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlanNetTransitionAssetObligationRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Reclassification, Pension and Other Postretirement Benefit Plans, Net Transition Asset (Obligation), Recognized in Net Periodic Benefit Cost, Net of Tax",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassifed to earnings, net of tax (expense)/benefit of: 2012 - $0; 2011 - $0",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Unrealized Holding Gain (Loss) on Securities Arising During Period, Net of Tax",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax [Abstract]",
+            "value": 285000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001104659-11-060986",
+        "form": "10-Q",
+        "filed_date": "2011-11-04 00:00:00",
+        "revenue": 40835000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Sales of Machinery and Power Systems",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 40835000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 42895000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3419000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+            "value": 3419000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Profit (loss) attributable to noncontrolling interests",
+            "value": 3381000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 40835000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FinancialServicesRevenue",
+            "label": "Revenues of Financial Products",
+            "value": 2060000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 42895000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of Goods Sold",
+            "value": 30815000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense",
+            "value": 3716000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense",
+            "value": 1693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other Cost and Expense, Operating",
+            "value": 855000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating costs",
+            "value": 37702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit (loss)",
+            "value": 5193000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": -157000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit (loss) before taxes",
+            "value": 4747000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Current Income Tax Expense (Benefit)",
+            "value": 1304000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": -24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+            "value": 3419000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Income (Loss) Attributable to Noncontrolling Interest",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Profit (loss) attributable to noncontrolling interests",
+            "value": 3381000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit (loss) per common share (in dollars per share)",
+            "value": 5.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Profit (loss) per common share - diluted (in dollars per share)",
+            "value": 5.08,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 644300000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 666100000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share (in dollars per share)",
+            "value": 0.9,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000018230-19-000153",
+        "form": "10-Q",
+        "filed_date": "2019-05-06 00:00:00",
+        "revenue": 13466000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total sales and revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 13466000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1884000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit of consolidated and affiliated companies",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affiliated companies",
+            "value": 1884000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affiliated companies",
+            "value": 1884000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation, net of tax",
+            "value": -22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Current year prior service credit (cost), net of tax (provision)/benefit of: Three months ended March 31: 2019-$0, 2018 - $1",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAmortizationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetPriorServiceCostCreditNetOfTax",
+            "label": "Amortization of prior service (credit) cost, net of tax (provision)/benefit of: Three months ended March 31: 2019-$3, 2018 - $2",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossBeforeReclassificationAfterTax",
+            "label": "Gains (losses) deferred, net of tax (provision)/benefit of : three months ended March 31: 2019 - $(3); 2018 - $2",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (provision)/benefit of: Three months ended March 31 2019- $0; 2018 - $0",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (provision)/benefit of: Three months ended March 31: 2019-$(6), 2018 - $2",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (provision)/benefit of: Three months ended March 31: 2019-$0, 2018 - $0",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 1872000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to the noncontrolling interests",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 1869000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 13466000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of Revenue",
+            "value": 9003000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 1319000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expenses",
+            "value": 435000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseOfFinancialProducts",
+            "label": "Interest expense of Financial Products",
+            "value": 190000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherOperatingIncomeExpenseNet",
+            "label": "Other operating (income) expenses",
+            "value": -312000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating costs:",
+            "value": 11259000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 2207000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseExcludingFinancialProducts",
+            "label": "Interest Expense Excluding Financial Products",
+            "value": 103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense) [Member]",
+            "value": 160000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit before taxes",
+            "value": 2264000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Tax (provision) benefit",
+            "value": 387000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:ProfitOfConsolidatedCompanies",
+            "label": "Profit of consolidated companies",
+            "value": 1877000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Profit (loss) attributable to noncontrolling interests",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Reclassifications net of tax",
+            "value": 1881000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit (loss) per share of common stock:",
+            "value": 3.29,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming full dilution (A/C) (in dollars per share)",
+            "value": 3.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of common shares outstanding (B) (in shares)",
+            "value": 572400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average common shares outstanding for fully diluted computation (C) (in shares)",
+            "value": 578800000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000018230-12-000506",
+        "form": "10-Q",
+        "filed_date": "2012-11-02 00:00:00",
+        "revenue": 47711000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Sales of Machinery and Power Systems",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 47711000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "External sales and revenues",
+            "value": 49800000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 5022000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit of consolidated and affliated companies",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affliated companies",
+            "value": 5022000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affliated companies",
+            "value": 5022000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Foreign currency translation, net of tax (expense)/benefit of: Three months ended: 2012-$11, 2011-($69); Nine months ended: 2012 - ($5), 2011 - $15",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Current year actuarial gain (loss), net of tax (expense)/benefit of: Three months ended: 2012-$91, 2011-$0; Nine months ended: 2012-$83, 2011-$0",
+            "value": -140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Amortization of acturial (gain) loss, net of tax (expense)/benefit of: Three months ended: 2012-$(61), 2011-$(46); Nine months ended: 2012-($181), 2011-($158)",
+            "value": 340000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Current year prior service credit (cost), net of tax (expense)/benefit of: Three months ended: 2012-($3), 2011- $0; Nine months ended: 2012-($1), 2011-$0",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossAmortizationPensionAndOtherPostretirementBenefitPlansNetPriorServiceCostRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization of prior service (credit) cost, net of tax (expense)/benefit of: Three months ended: 2012-$4, 2011-$3; Nine months ended: 2012-$12, 2011-$9",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlanNetTransitionAssetObligationRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Amortization of transition (asset) obligation, net of tax (expense)/benefit of: Three months ended: 2012-$0, 2011-($1); Nine months ended: 2012-$0, 2011-($1)",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (expense)/benefit of: Three months ended: 2012-$5, 2011-($21); Nine months ended: 2012-$21, 2011-($15)",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: Three months ended: 2012-($5), 2011-$14; Nine months ended: 2012-($6), 2011-$14",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (expense)/benefit of: Three months ended: 2012-($8), 2011-$13; Nine months ended: 2012-($13), 2011-$8",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: Three months ended: 2012 - $0, 2011 - $0; Nine months ended: 2012-$0, 2011-$0",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Net of Tax:",
+            "value": 215000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 5237000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to the noncontrolling interests",
+            "value": 20000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 5217000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 47711000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FinancialServicesRevenue",
+            "label": "Revenues of Financial Products",
+            "value": 2089000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "External sales and revenues",
+            "value": 49800000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of goods sold",
+            "value": 35156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 4328000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expenses",
+            "value": 1853000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseOfFinancialProducts",
+            "label": "Interest expense of Financial Products",
+            "value": 599000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other operating (income) expenses",
+            "value": 329000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating costs:",
+            "value": 42265000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Total profit from reportable segments",
+            "value": 7535000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseExcludingFinancialProducts",
+            "label": "Interest expense excluding Financial Products",
+            "value": 352000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense)",
+            "value": 141000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit before taxes",
+            "value": 7324000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 2314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:ProfitOfConsolidatedCompanies",
+            "label": "Profit of consolidated companies",
+            "value": 5010000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Profit attributable to noncontrolling interests",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Profit for the period (A) (in millions of dollars)",
+            "value": 4984000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit (loss) per share of common stock:",
+            "value": 7.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming full dilution (A/C) (in dollars per share)",
+            "value": 7.44,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of common shares outstanding (B) (in shares)",
+            "value": 652000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average common shares outstanding for fully diluted computation (C) (in shares)",
+            "value": 669700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share (in dollars per share)",
+            "value": 0.98,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000018230-12-000409",
+        "form": "10-Q",
+        "filed_date": "2012-08-06 00:00:00",
+        "revenue": 31972000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Sales of Machinery and Power Systems",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 31972000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Sales and revenues",
+            "value": 33355000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3320000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit of consolidated and affliated companies",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affliated companies",
+            "value": 3320000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit of consolidated and affliated companies",
+            "value": 3320000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation, net of tax",
+            "value": -158000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Current year actuarial gain (loss), net of tax (expense)/benefit of: Three months ended: 2012-($2), 2011-$0; Six months ended: 2012-($8), 2011-$0",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Amortization of acturial (gain) loss, net of tax (expense)/benefit of: Three months ended: 2012-$(60), 2011-$(59); Six months ended: 2012-($120), 2011-($112)",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Current year prior service credit (cost), net of tax (expense)/benefit of: Six months ended: 2012-$2, 2011-$0",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAmortizationOfDefinedBenefitPlanNetPriorServiceCostRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization of prior service (credit) cost, net of tax (expense)/benefit of: Three months ended: 2012-$4, 2011-$3; Six months ended: 2012-$8, 2011-$6",
+            "value": -15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlanNetTransitionAssetObligationRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Amortization of transition (asset) obligation, net of tax (expense)/benefit of: Six months ended: 2012-$0, 2011-$0",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (expense)/benefit of: Three months ended: 2012-$0, 2011-$16; SIx months ended: 2012-$16, 2011-$6",
+            "value": -28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: Three months ended: 2012-($2), 2011-($5); Six months ended: 2012-($1), 2011-$0",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Gains (losses) deferred, net of tax (expense)/benefit of: Three months ended: 2012-$4, 2011-$(2); Six months ended: 2012-($5), 2011-($5)",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: Three months ended: 2012 - $0, 2011 - $0; Six months ended: 2012-$0, 2011-$0",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax:",
+            "value": 53000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 3373000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to the noncontrolling interests",
+            "value": 17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income",
+            "value": 3356000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 31972000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FinancialServicesRevenue",
+            "label": "Revenues of Financial Products",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Sales and revenues",
+            "value": 33355000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of goods sold",
+            "value": 23517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2857000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and development expenses",
+            "value": 1219000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseOfFinancialProducts",
+            "label": "Interest expense of Financial Products",
+            "value": 402000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other operating (income) expenses",
+            "value": 421000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating costs:",
+            "value": 28416000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 4939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:InterestExpenseExcludingFinancialProducts",
+            "label": "Interest expense excluding Financial Products",
+            "value": 223000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense)",
+            "value": 158000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit before taxes",
+            "value": 4874000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1561000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "cat:ProfitOfConsolidatedCompanies",
+            "label": "Profit of consolidated companies",
+            "value": 3313000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Profit attributable to noncontrolling interests",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Profit for the period (A) (in millions of dollars)",
+            "value": 3285000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit (loss) per share of common stock:",
+            "value": 5.04,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming full dilution (A/C) (in dollars per share)",
+            "value": 4.9,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of common shares outstanding (B) (in shares)",
+            "value": 651300000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Average common shares outstanding for fully diluted computation (C) (in shares)",
+            "value": 669900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share (in dollars per share)",
+            "value": 0.98,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0000018230-12-000280",
+        "form": "10-Q",
+        "filed_date": "2012-05-07 00:00:00",
+        "revenue": 15288000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Sales of Machinery and Power Systems",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 15288000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 15981000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1611000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+            "value": 1611000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 15288000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FinancialServicesRevenue",
+            "label": "Revenues of Financial Products",
+            "value": 693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 15981000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of Goods Sold",
+            "value": 11237000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense",
+            "value": 1340000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense",
+            "value": 587000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other Cost and Expense, Operating",
+            "value": 290000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating costs",
+            "value": 13658000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit",
+            "value": 2323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": 88000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit before taxes",
+            "value": 2298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Current Income Tax Expense (Benefit)",
+            "value": 689000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+            "value": 1611000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Income (Loss) Attributable to Noncontrolling Interest",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit per common share (in dollars per share)",
+            "value": 2.44,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Profit per common share - diluted (in dollars per share)",
+            "value": 2.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 650000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 670200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share (in dollars per share)",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+            "value": 1586000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedGainLossOnDerivativesArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Unrealized Gain (Loss) on Derivatives Arising During Period, Net of Tax",
+            "value": -26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentOnDerivativesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassified to earnings, net of tax (expense)/benefit of: 2012 - $1; 2011 - $5",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income (Loss), Net of Tax, Including Portion Attributable to Noncontrolling Interest",
+            "value": 1896000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Noncontrolling Interest",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent",
+            "value": 1881000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation, net of tax (expense)/benefit of: 2012 - $17; 2011 - $63",
+            "value": 181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansNetUnamortizedGainLossArisingDuringPeriodNetOfTax",
+            "label": "Current year actuarial gain (loss), net of tax (expense)/benefit of: 2012 - $(6); 2011 - $0",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlanNetPriorServiceCostsCreditArisingDuringPeriodNetOfTax",
+            "label": "Current year prior service credit (cost), net of tax (expense)/benefit of: 2012 - $2; 2011 - $0",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlansNetGainLossRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Reclassification, Pension and Other Postretirement Benefit Plans, Net (Gain) Loss Recognized in Net Periodic Benefit Cost, Net of Tax",
+            "value": 113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAmortizationOfDefinedBenefitPlanNetPriorServiceCostRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Amortization, Pension and Other Postretirement Benefit Plans, Net Prior Service Cost Recognized in Net Periodic Pension Cost, Net of Tax",
+            "value": -8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationOfDefinedBenefitPlanNetTransitionAssetObligationRecognizedInNetPeriodicBenefitCostNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Reclassification, Pension and Other Postretirement Benefit Plans, Net Transition Asset (Obligation), Recognized in Net Periodic Benefit Cost, Net of Tax",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "(Gains) losses reclassifed to earnings, net of tax (expense)/benefit of: 2012 - $0; 2011 - $0",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Unrealized Holding Gain (Loss) on Securities Arising During Period, Net of Tax",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax [Abstract]",
+            "value": 285000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001104659-11-060986",
+        "form": "10-Q",
+        "filed_date": "2011-11-04 00:00:00",
+        "revenue": 40835000000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Sales of Machinery and Power Systems",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 40835000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 42895000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3419000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+            "value": 3419000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Profit (loss) attributable to noncontrolling interests",
+            "value": 3381000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Sales of Machinery and Power Systems",
+            "value": 40835000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FinancialServicesRevenue",
+            "label": "Revenues of Financial Products",
+            "value": 2060000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total sales and revenues",
+            "value": 42895000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of Goods Sold",
+            "value": 30815000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense",
+            "value": 3716000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense",
+            "value": 1693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Other Cost and Expense, Operating",
+            "value": 855000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating costs",
+            "value": 37702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating profit (loss)",
+            "value": 5193000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": -157000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Consolidated profit (loss) before taxes",
+            "value": 4747000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Current Income Tax Expense (Benefit)",
+            "value": 1304000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in profit (loss) of unconsolidated affiliated companies",
+            "value": -24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Reconciliation of Operating Profit (Loss) from Segments to Consolidated [Table Text Block]",
+            "value": 3419000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Income (Loss) Attributable to Noncontrolling Interest",
+            "value": 38000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Profit (loss) attributable to noncontrolling interests",
+            "value": 3381000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Profit (loss) per common share (in dollars per share)",
+            "value": 5.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Profit (loss) per common share - diluted (in dollars per share)",
+            "value": 5.08,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 644300000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 666100000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share (in dollars per share)",
+            "value": 0.9,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

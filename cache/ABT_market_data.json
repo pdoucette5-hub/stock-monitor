@@ -1,0 +1,1142 @@
+{
+  "fetched_at": 1779554836.169577,
+  "data": {
+    "ticker": "ABT",
+    "price": 87.43,
+    "ttm_revenue": 65292340000.0,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 1741810000.0,
+    "revenue_quarter_dates_used": [
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2011-09-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001104659-19-026018",
+        "form": "10-Q",
+        "filed_date": "2019-05-01 00:00:00",
+        "revenue": 7535000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+            "value": 7535000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 672000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income (Loss) Attributable to Parent",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 672000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+            "value": 7535000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of Goods Sold",
+            "value": 3160000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "abt:AmortizationOfIntangibleAssetsExcludingDiscontinuedOperations",
+            "label": "The aggregate expense (excluding discontinued operations) charged against earnings to allocate the cost of intangible assets (nonphysical assets not used in production) in a systematic and rational manner to the periods expected to benefit from such assets. As a noncash expense, this element is added back to net income when calculating cash provided by or used in operations using the indirect method.",
+            "value": 486000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense",
+            "value": 672000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense.",
+            "value": 2478000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Costs and Expenses",
+            "value": 6796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income (Loss)",
+            "value": 739000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense.",
+            "value": 171000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Investment Income, Interest",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ForeignCurrencyTransactionGainLossBeforeTax",
+            "label": "Foreign Currency Transaction Gain (Loss), before Tax",
+            "value": -6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 632000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": -40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations, Including Portion Attributable to Noncontrolling Interest",
+            "value": 672000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 672000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Income (Loss) from Continuing Operations, Per Basic Share",
+            "value": 0.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic [Abstract]",
+            "value": 0.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Income (Loss) from Continuing Operations, Per Diluted Share",
+            "value": 0.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted [Abstract]",
+            "value": 0.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 1763278000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncrementalCommonSharesAttributableToShareBasedPaymentArrangements",
+            "label": "Incremental Common Shares Attributable to Dilutive Effect of Share-based Payment Arrangements",
+            "value": 13295000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 1776573000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Antidilutive Securities Excluded from Computation of Earnings Per Share, Amount",
+            "value": 4011000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Parent",
+            "value": 122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive (Income) Loss, Pension and Other Postretirement Benefit Plans, Adjustment, Net of Tax, Portion Attributable to Parent",
+            "value": -23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Derivatives Qualifying as Hedges, Net of Tax, Portion Attributable to Parent",
+            "value": -29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Net of Tax, Portion Attributable to Parent",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Including Portion Attributable to Noncontrolling Interest",
+            "value": 788000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001104659-12-075249",
+        "form": "10-Q",
+        "filed_date": "2012-11-07 00:00:00",
+        "revenue": 29036974000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Revenue, Net",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 29036974000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 29036974000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Restructuring Charges Recorded to Cost of Goods Sold",
+            "value": 11060308000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and Development Expense (Excluding Acquired in Process Cost)",
+            "value": 3180751000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentAssetAcquiredOtherThanThroughBusinessCombinationWrittenOff",
+            "label": "The cash flow impact of purchased research and development assets that are acquired in a business combination have no alternative future use and are therefore written off in the period of acquisition.",
+            "value": 260000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense",
+            "value": 8866723000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Costs and Expenses",
+            "value": 23367782000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income (Loss)",
+            "value": 5669192000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense.",
+            "value": 406091000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Investment Income, Interest",
+            "value": 56153000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ForeignCurrencyTransactionGainLossBeforeTax",
+            "label": "Foreign Currency Transaction Gain (Loss), before Tax Devaluation Bolivar Currency",
+            "value": -4349000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": 73822000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 5388727000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Schedule of Components of Income Tax Expense (Benefit) Continuing Operations [Table Text Block]",
+            "value": 479188000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+            "value": 4909539000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic",
+            "value": 3.09,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted",
+            "value": 3.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock, Dividends, Per Share, Declared",
+            "value": 1.53,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 1574466000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncrementalCommonSharesAttributableToShareBasedPaymentArrangements",
+            "label": "Incremental Common Shares Attributable to Share-based Payment Arrangements",
+            "value": 16500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 1590966000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Antidilutive Securities Excluded from Computation of Earnings Per Share, Amount",
+            "value": 1166000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Foreign currency translation gain (loss) adjustments",
+            "value": -174668000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Pension and Other Postretirement Benefit Plans, Adjustment, Net of Tax",
+            "value": 112357000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized (losses) gains on marketable equity securities, net of taxes of $(9,918) and $(4,013) in 2012 and $(4,484) and $1,612 in 2011",
+            "value": -6952000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Derivatives Qualifying as Hedges, Net of Tax",
+            "value": -89467000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax",
+            "value": -158730000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income (Loss)",
+            "value": 4750809000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001104659-12-055154",
+        "form": "10-Q",
+        "filed_date": "2012-08-07 00:00:00",
+        "revenue": 19263733000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Revenue, Net",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 19263733000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 19263733000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Restructuring Charges Recorded to Cost of Goods Sold",
+            "value": 7362226000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and Development Expense (Excluding Acquired in Process Cost)",
+            "value": 2016564000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentAssetAcquiredOtherThanThroughBusinessCombinationWrittenOff",
+            "label": "The cash flow impact of purchased research and development assets that are acquired in a business combination have no alternative future use and are therefore written off in the period of acquisition.",
+            "value": 260000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense",
+            "value": 5944800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Costs and Expenses",
+            "value": 15583590000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income (Loss)",
+            "value": 3680143000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense.",
+            "value": 254057000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Investment Income, Interest",
+            "value": 37898000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ForeignCurrencyTransactionGainLossBeforeTax",
+            "label": "Foreign Currency Transaction Gain (Loss), before Tax Devaluation Bolivar Currency",
+            "value": -10608000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": 62970000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 3516346000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Schedule of Components of Income Tax Expense (Benefit) Continuing Operations [Table Text Block]",
+            "value": 549610000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+            "value": 2966736000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic",
+            "value": 1.87,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted",
+            "value": 1.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock, Dividends, Per Share, Declared",
+            "value": 1.02,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 1572681000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncrementalCommonSharesAttributableToShareBasedPaymentArrangements",
+            "label": "Incremental Common Shares Attributable to Share-based Payment Arrangements",
+            "value": 15996000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 1588677000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Antidilutive Securities Excluded from Computation of Earnings Per Share, Amount",
+            "value": 1166000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Adjustment, Net of Tax",
+            "value": -995237000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Pension and Other Postretirement Benefit Plans, Adjustment, Net of Tax",
+            "value": 79672000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized gain on marketable equity securities, net of taxes of $6,123 and $6,010 in 2012 and $5,506 and $6,097 in 2011",
+            "value": 10401000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Derivatives Qualifying as Hedges, Net of Tax",
+            "value": -41182000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax",
+            "value": -946346000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 2020390000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0001104659-12-034444",
+        "form": "10-Q",
+        "filed_date": "2012-05-08 00:00:00",
+        "revenue": 9456633000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Revenue, Net",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 9456633000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 9456633000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of Goods Sold",
+            "value": 3724921000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and Development Expense (Excluding Acquired in Process Cost)",
+            "value": 1005682000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentAssetAcquiredOtherThanThroughBusinessCombinationWrittenOff",
+            "label": "Research and Development Asset Acquired Other than Through Business Combination, Written-off",
+            "value": 150000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense",
+            "value": 3000308000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Costs and Expenses",
+            "value": 7880911000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income (Loss)",
+            "value": 1575722000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense.",
+            "value": 126866000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Investment Income, Interest",
+            "value": 17437000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ForeignCurrencyTransactionGainLossBeforeTax",
+            "label": "Foreign Currency Transaction Gain (Loss), before Tax",
+            "value": -24762000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": 71498000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Current Income Tax Expense (Benefit), Continuing Operations [Abstract]",
+            "value": 270905000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic",
+            "value": 0.79,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted",
+            "value": 0.78,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 1573921000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncrementalCommonSharesAttributableToShareBasedPaymentArrangements",
+            "label": "Incremental Common Shares Attributable to Share-based Payment Arrangements",
+            "value": 15589000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 1589510000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Antidilutive Securities Excluded from Computation of Earnings Per Share, Amount",
+            "value": 3066000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+            "value": 1242124000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 1513029000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock, Dividends, Per Share, Declared",
+            "value": 0.51,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Adjustment, Net of Tax",
+            "value": 659017000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Pension and Other Postretirement Benefit Plans, Adjustment, Net of Tax",
+            "value": 39855000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Derivatives Qualifying as Hedges, Net of Tax",
+            "value": -42610000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax",
+            "value": 656066000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive Income",
+            "value": 1898190000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableForSaleSecuritiesAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Unrealized (loss) gain on marketable equity securities, net of taxes of $(113) in 2012 and $591 in 2011",
+            "value": -196000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001104659-11-061064",
+        "form": "10-Q",
+        "filed_date": "2011-11-04 00:00:00",
+        "revenue": 28473806000.0,
+        "revenue_concept": "SalesRevenueNet",
+        "revenue_label": "Revenue, Net",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 28473806000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "SalesRevenueNet",
+            "label": "Revenue, Net",
+            "value": 28473806000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of Goods Sold",
+            "value": 11702705000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+            "label": "Research and Development Expense (Excluding Acquired in Process Cost)",
+            "value": 2977807000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentAssetAcquiredOtherThanThroughBusinessCombinationWrittenOff",
+            "label": "Research and Development Asset Acquired Other than Through Business Combination, Written-off",
+            "value": 272500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense",
+            "value": 9851314000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Costs and Expenses",
+            "value": 24804326000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income (Loss)",
+            "value": 3669480000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense.",
+            "value": 404055000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Investment Income, Interest",
+            "value": 61400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ForeignCurrencyTransactionGainLossBeforeTax",
+            "label": "Foreign Currency Transaction Gain (Loss), before Tax",
+            "value": 48180000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": -130068000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Current Income Tax Expense (Benefit), Continuing Operations [Abstract]",
+            "value": 135156000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic",
+            "value": 1.99,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted",
+            "value": 1.98,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock, Dividends, Per Share, Declared",
+            "value": 1.44,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 1555482000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncrementalCommonSharesAttributableToShareBasedPaymentArrangements",
+            "label": "Incremental Common Shares Attributable to Share-based Payment Arrangements",
+            "value": 8617000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 1564099000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Antidilutive Securities Excluded from Computation of Earnings Per Share, Amount",
+            "value": 60653000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net Income (Loss) Available to Common Stockholders, Basic",
+            "value": 3109781000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001104659-19-026018",
+        "form": "10-Q",
+        "filed_date": "2019-05-01 00:00:00",
+        "revenue": 7535000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+            "value": 7535000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 672000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income (Loss) Attributable to Parent",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 672000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+            "value": 7535000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of Goods Sold",
+            "value": 3160000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "abt:AmortizationOfIntangibleAssetsExcludingDiscontinuedOperations",
+            "label": "The aggregate expense (excluding discontinued operations) charged against earnings to allocate the cost of intangible assets (nonphysical assets not used in production) in a systematic and rational manner to the periods expected to benefit from such assets. As a noncash expense, this element is added back to net income when calculating cash provided by or used in operations using the indirect method.",
+            "value": 486000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ResearchAndDevelopmentExpense",
+            "label": "Research and Development Expense",
+            "value": 672000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, General and Administrative Expense.",
+            "value": 2478000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Costs and Expenses",
+            "value": 6796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income (Loss)",
+            "value": 739000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense.",
+            "value": 171000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Investment Income, Interest",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ForeignCurrencyTransactionGainLossBeforeTax",
+            "label": "Foreign Currency Transaction Gain (Loss), before Tax",
+            "value": -6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Nonoperating Income (Expense)",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Extraordinary Items, Noncontrolling Interest",
+            "value": 632000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": -40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations, Including Portion Attributable to Noncontrolling Interest",
+            "value": 672000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 672000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Income (Loss) from Continuing Operations, Per Basic Share",
+            "value": 0.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic [Abstract]",
+            "value": 0.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Income (Loss) from Continuing Operations, Per Diluted Share",
+            "value": 0.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted [Abstract]",
+            "value": 0.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 1763278000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncrementalCommonSharesAttributableToShareBasedPaymentArrangements",
+            "label": "Incremental Common Shares Attributable to Dilutive Effect of Share-based Payment Arrangements",
+            "value": 13295000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 1776573000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Antidilutive Securities Excluded from Computation of Earnings Per Share, Amount",
+            "value": 4011000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Adjustment, Net of Tax, Portion Attributable to Parent",
+            "value": 122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive (Income) Loss, Pension and Other Postretirement Benefit Plans, Adjustment, Net of Tax, Portion Attributable to Parent",
+            "value": -23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDerivativesQualifyingAsHedgesNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Derivatives Qualifying as Hedges, Net of Tax, Portion Attributable to Parent",
+            "value": -29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other Comprehensive Income (Loss), Net of Tax, Portion Attributable to Parent",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Including Portion Attributable to Noncontrolling Interest",
+            "value": 788000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing net_income_ttm",
+    "cache_source": "live"
+  }
+}

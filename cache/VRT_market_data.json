@@ -1,0 +1,770 @@
+{
+  "fetched_at": 1779555873.118739,
+  "data": {
+    "ticker": "VRT",
+    "price": 327.48,
+    "ttm_revenue": 1903000000.0,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 384110000.0,
+    "revenue_quarter_dates_used": [
+      "2020-06-30 00:00:00",
+      "2019-09-30 00:00:00",
+      "2019-06-30 00:00:00",
+      "2019-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2018-09-30 00:00:00",
+      "2018-06-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2020-06-30 00:00:00",
+      "2019-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2020-06-30 00:00:00",
+        "accession_number": "0001628280-20-011825",
+        "form": "10-Q",
+        "filed_date": "2020-08-05 00:00:00",
+        "revenue": 1903000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 1903000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": -242700000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": -242700000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 1903000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 1269600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 491200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "Loss on extinguishment of debt",
+            "value": -174000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherGeneralExpense",
+            "label": "Other deductions, net",
+            "value": 83800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense, net",
+            "value": 99100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": -214700000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": -242700000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (USD per share)",
+            "value": -0.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted (USD per share)",
+            "value": -0.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 284534285.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 284534285.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation",
+            "value": -42400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Interest rate swaps",
+            "value": -35500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossFinancialLiabilityFairValueOptionBeforeTaxAfterReclassificationAdjustmentAttributableToParent",
+            "label": "Tax receivable agreement",
+            "value": 16200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Pension",
+            "value": 200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": -304600000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-09-30 00:00:00",
+        "accession_number": "0001193125-19-284707",
+        "form": "10-Q",
+        "filed_date": "2019-11-05 00:00:00",
+        "revenue": 0.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit_usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "unit_usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeDividend",
+            "label": "Investment Income, Dividend",
+            "value": 11311397.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense",
+            "value": 1733276.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+            "value": 9578121.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 2012008.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 7566113.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfShareOutstandingBasicAndDiluted",
+            "label": "Weighted Average Number of Shares Outstanding, Basic and Diluted",
+            "value": 86250000.0,
+            "unit": "unit_shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasicAndDiluted",
+            "label": "Earnings Per Share, Basic and Diluted",
+            "value": 0.09,
+            "unit": "unit_usd_/_share"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-06-30 00:00:00",
+        "accession_number": "0001193125-19-214077",
+        "form": "10-Q",
+        "filed_date": "2019-08-06 00:00:00",
+        "revenue": 0.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit_usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "unit_usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_InvestmentIncomeDividend",
+            "label": "Investment Income, Dividend",
+            "value": 7772242.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense",
+            "value": 882701.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+            "value": 6889541.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 1447407.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 5442134.0,
+            "unit": "unit_usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfShareOutstandingBasicAndDiluted",
+            "label": "Weighted Average Number of Shares Outstanding, Basic and Diluted",
+            "value": 86250000.0,
+            "unit": "unit_shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasicAndDiluted",
+            "label": "Earnings Per Share, Basic and Diluted",
+            "value": 0.06,
+            "unit": "unit_usd_/_share"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "unit_usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001193125-19-141423",
+        "form": "10-Q",
+        "filed_date": "2019-05-08 00:00:00",
+        "revenue": 0.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2694579.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income (Loss) Attributable to Parent",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 2694579.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeDividend",
+            "label": "Investment Income, Dividend",
+            "value": 3860055.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense",
+            "value": 448988.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+            "value": 3411067.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 716488.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 2694579.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "gsah:AdjustmentsToAdditionalPaidInCapitalAccretionInRedemptionAmount",
+            "label": "Adjustments to additional paid in capital accretion in redemption amount.",
+            "value": 3575816.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "gsah:TemporaryEquityIssuedDuringPeriodValueNewIssues",
+            "label": "Temporary equity issued during period value new issues.",
+            "value": 881240.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2018-09-30 00:00:00",
+        "accession_number": "0001193125-18-319562",
+        "form": "10-Q",
+        "filed_date": "2018-11-06 00:00:00",
+        "revenue": 0.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "_usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "_usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense",
+            "value": 376095.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+            "value": 3393514.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 711635.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeDividend",
+            "label": "Investment Income, Dividend",
+            "value": 3769609.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 2681879.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasicAndDiluted",
+            "label": "Earnings Per Share, Basic and Diluted",
+            "value": 0.03,
+            "unit": "_usd_/_shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfShareOutstandingBasicAndDiluted",
+            "label": "Weighted Average Number of Shares Outstanding, Basic and Diluted",
+            "value": 86250000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2018-06-30 00:00:00",
+        "accession_number": "0001193125-18-241168",
+        "form": "10-Q",
+        "filed_date": "2018-08-07 00:00:00",
+        "revenue": 0.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "_usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "_usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense",
+            "value": 123688.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+            "value": 489998.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 104212.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeDividend",
+            "label": "Investment Income, Dividend",
+            "value": 613686.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 385786.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "_usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasicAndDiluted",
+            "label": "Earnings Per Share, Basic and Diluted",
+            "value": 0.0,
+            "unit": "_usd_/_shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfShareOutstandingBasicAndDiluted",
+            "label": "Weighted Average Number of Shares Outstanding, Basic and Diluted",
+            "value": 86250000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2020-06-30 00:00:00",
+        "accession_number": "0001628280-20-011825",
+        "form": "10-Q",
+        "filed_date": "2020-08-05 00:00:00",
+        "revenue": 1903000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Net sales",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 1903000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": -242700000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": -242700000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Net sales",
+            "value": 1903000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of sales",
+            "value": 1269600000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 491200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnExtinguishmentOfDebt",
+            "label": "Loss on extinguishment of debt",
+            "value": -174000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherGeneralExpense",
+            "label": "Other deductions, net",
+            "value": 83800000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense, net",
+            "value": 99100000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": -214700000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 28000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": -242700000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (USD per share)",
+            "value": -0.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted (USD per share)",
+            "value": -0.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 284534285.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted (in shares)",
+            "value": 284534285.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Foreign currency translation",
+            "value": -42400000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Interest rate swaps",
+            "value": -35500000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossFinancialLiabilityFairValueOptionBeforeTaxAfterReclassificationAdjustmentAttributableToParent",
+            "label": "Tax receivable agreement",
+            "value": 16200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Pension",
+            "value": 200000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss)",
+            "value": -304600000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001193125-19-141423",
+        "form": "10-Q",
+        "filed_date": "2019-05-08 00:00:00",
+        "revenue": 0.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2694579.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income (Loss) Attributable to Parent",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 2694579.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeDividend",
+            "label": "Investment Income, Dividend",
+            "value": 3860055.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GeneralAndAdministrativeExpense",
+            "label": "General and Administrative Expense",
+            "value": 448988.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+            "value": 3411067.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 716488.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 2694579.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "gsah:AdjustmentsToAdditionalPaidInCapitalAccretionInRedemptionAmount",
+            "label": "Adjustments to additional paid in capital accretion in redemption amount.",
+            "value": 3575816.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "gsah:TemporaryEquityIssuedDuringPeriodValueNewIssues",
+            "label": "Temporary equity issued during period value new issues.",
+            "value": 881240.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing net_income_ttm",
+    "cache_source": "live"
+  }
+}

@@ -1,0 +1,808 @@
+{
+  "fetched_at": 1779555713.6681411,
+  "data": {
+    "ticker": "T",
+    "price": 25.27,
+    "ttm_revenue": null,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 6948340000.0,
+    "revenue_quarter_dates_used": [
+      "2010-09-30 00:00:00",
+      "2010-06-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [],
+    "ni_quarter_dates_used": [
+      "2010-09-30 00:00:00",
+      "2010-06-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2010-09-30 00:00:00",
+        "accession_number": "0000732717-10-000091",
+        "form": "10-Q",
+        "filed_date": "2010-11-05 00:00:00",
+        "revenue": 92919000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total operating revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total operating revenues",
+            "value": 92919000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 19080000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit Loss",
+            "value": 19080000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income attributable to AT&T",
+            "value": 18837000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 17585000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income tax expense",
+            "value": -1512000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit Loss",
+            "value": 19080000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Income Loss Attributable To Noncontrolling Interest",
+            "value": -243000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income attributable to AT&T",
+            "value": 18837000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic Earnings Per Share",
+            "value": 3.19,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesIssuedBasic",
+            "label": "Shares Outstanding - Basic (in millions)",
+            "value": 5908.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "Other",
+            "value": 8121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total operating revenues",
+            "value": 92919000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of services and sales (exclusive of depreciation and amortization shown separately below)",
+            "value": 38235000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative",
+            "value": 22570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Less: accumulated depreciation and amortization",
+            "value": 14529000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 75334000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 2248000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in net income of affiliates",
+            "value": 629000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense) - net",
+            "value": 825000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total other income (expense)",
+            "value": -794000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from Continuing Operations",
+            "value": 18303000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic earnings per share from continuing operations attributable to AT&T (in dollars per share)",
+            "value": 3.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic earnings per share from discontinued operations attributable to AT&T (in dollars per share)",
+            "value": 0.13,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Basic earnings per share from discontinued operations attributable to AT&T (in dollars per share)",
+            "value": 777000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted earnings per share from continuing operations attributable to AT&T (in dollars per share)",
+            "value": 3.04,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted earnings per share from discontinued operations attributable to AT&T (in dollars per share)",
+            "value": 0.13,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Net income attributable to AT&T, per share (in dollars per share)",
+            "value": 3.17,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Denominator for diluted earnings per share (in shares)",
+            "value": 5937.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Weighted Average Number of Common Dividends Declared Per Common Share",
+            "value": 1.26,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-06-30 00:00:00",
+        "accession_number": "0000732717-10-000074",
+        "form": "10-Q",
+        "filed_date": "2010-08-06 00:00:00",
+        "revenue": 61338000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total operating revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total operating revenues",
+            "value": 61338000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 6663000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit Loss",
+            "value": 6663000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income attributable to AT&T",
+            "value": 6498000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 12121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income tax expense",
+            "value": 5048000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit Loss",
+            "value": 6663000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Income Loss Attributable To Noncontrolling Interest",
+            "value": -165000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income attributable to AT&T",
+            "value": 6498000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic Earnings Per Share",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted Earnings Per Share Attributable to AT&T",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesIssuedBasic",
+            "label": "Shares Outstanding - Basic (in millions)",
+            "value": 5907.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Weighted Average Number of Common Dividends Declared Per Common Share",
+            "value": 0.84,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "Other",
+            "value": 5077000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total operating revenues",
+            "value": 61338000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales (exclusive of depreciation and amortization shown separately below)",
+            "value": 24716000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative",
+            "value": 14863000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Less: accumulated depreciation and amortization",
+            "value": 9638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 49217000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 1519000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in net income of affiliates",
+            "value": 412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense) - net",
+            "value": 700000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total other income (expense)",
+            "value": -407000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from Continuing Operations",
+            "value": 6666000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationDuringPhaseOutPeriodNetOfTax",
+            "label": "Income (Loss) from Discontinued Operations, net of tax",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic Earnings Per Share from Continuing Operations Attributable to AT&T",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic Earnings Per Share from Discontinued Operations Attributable to AT&T",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted Earnings Per Share from Continuing Operations Attributable to AT&T",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted Earnings Per Share from Discontinued Operations Attributable to AT&T",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Denominator for diluted earnings per share",
+            "value": 5936.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [],
+    "ni_quarters_used": [
+      {
+        "end_date": "2010-09-30 00:00:00",
+        "accession_number": "0000732717-10-000091",
+        "form": "10-Q",
+        "filed_date": "2010-11-05 00:00:00",
+        "revenue": 92919000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total operating revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total operating revenues",
+            "value": 92919000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 19080000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit Loss",
+            "value": 19080000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income attributable to AT&T",
+            "value": 18837000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 17585000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income tax expense",
+            "value": -1512000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit Loss",
+            "value": 19080000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Income Loss Attributable To Noncontrolling Interest",
+            "value": -243000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income attributable to AT&T",
+            "value": 18837000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic Earnings Per Share",
+            "value": 3.19,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesIssuedBasic",
+            "label": "Shares Outstanding - Basic (in millions)",
+            "value": 5908.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "Other",
+            "value": 8121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total operating revenues",
+            "value": 92919000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of services and sales (exclusive of depreciation and amortization shown separately below)",
+            "value": 38235000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative",
+            "value": 22570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Less: accumulated depreciation and amortization",
+            "value": 14529000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 75334000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 2248000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in net income of affiliates",
+            "value": 629000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense) - net",
+            "value": 825000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total other income (expense)",
+            "value": -794000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from Continuing Operations",
+            "value": 18303000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic earnings per share from continuing operations attributable to AT&T (in dollars per share)",
+            "value": 3.06,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic earnings per share from discontinued operations attributable to AT&T (in dollars per share)",
+            "value": 0.13,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Basic earnings per share from discontinued operations attributable to AT&T (in dollars per share)",
+            "value": 777000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted earnings per share from continuing operations attributable to AT&T (in dollars per share)",
+            "value": 3.04,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted earnings per share from discontinued operations attributable to AT&T (in dollars per share)",
+            "value": 0.13,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Net income attributable to AT&T, per share (in dollars per share)",
+            "value": 3.17,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Denominator for diluted earnings per share (in shares)",
+            "value": 5937.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Weighted Average Number of Common Dividends Declared Per Common Share",
+            "value": 1.26,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-06-30 00:00:00",
+        "accession_number": "0000732717-10-000074",
+        "form": "10-Q",
+        "filed_date": "2010-08-06 00:00:00",
+        "revenue": 61338000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total operating revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total operating revenues",
+            "value": 61338000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 6663000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Profit Loss",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit Loss",
+            "value": 6663000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income attributable to AT&T",
+            "value": 6498000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 12121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income tax expense",
+            "value": 5048000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Profit Loss",
+            "value": 6663000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net Income Loss Attributable To Noncontrolling Interest",
+            "value": -165000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income attributable to AT&T",
+            "value": 6498000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic Earnings Per Share",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted Earnings Per Share Attributable to AT&T",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesIssuedBasic",
+            "label": "Shares Outstanding - Basic (in millions)",
+            "value": 5907.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Weighted Average Number of Common Dividends Declared Per Common Share",
+            "value": 0.84,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "Other",
+            "value": 5077000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total operating revenues",
+            "value": 61338000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfRevenue",
+            "label": "Cost of sales (exclusive of depreciation and amortization shown separately below)",
+            "value": 24716000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative",
+            "value": 14863000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Less: accumulated depreciation and amortization",
+            "value": 9638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 49217000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 1519000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in net income of affiliates",
+            "value": 412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense) - net",
+            "value": 700000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total other income (expense)",
+            "value": -407000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from Continuing Operations",
+            "value": 6666000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationDuringPhaseOutPeriodNetOfTax",
+            "label": "Income (Loss) from Discontinued Operations, net of tax",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Basic Earnings Per Share from Continuing Operations Attributable to AT&T",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerBasicShare",
+            "label": "Basic Earnings Per Share from Discontinued Operations Attributable to AT&T",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Diluted Earnings Per Share from Continuing Operations Attributable to AT&T",
+            "value": 1.1,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTaxPerDilutedShare",
+            "label": "Diluted Earnings Per Share from Discontinued Operations Attributable to AT&T",
+            "value": 0.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Denominator for diluted earnings per share",
+            "value": 5936.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing ttm_revenue, net_income_ttm",
+    "cache_source": "live"
+  }
+}

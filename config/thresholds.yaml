@@ -1,0 +1,5 @@
+valuation:
+  pe_low: 20
+  pe_high: 35
+  forward_pe_low: 18
+  forward_pe_high: 30

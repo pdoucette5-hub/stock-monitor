@@ -1,0 +1,2825 @@
+{
+  "fetched_at": 1779555874.628413,
+  "data": {
+    "ticker": "XOM",
+    "price": 154.94,
+    "ttm_revenue": 582834000000.0,
+    "net_income_ttm": 52342000000.0,
+    "prior_ttm_revenue": 582937000000.0,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": -0.01766914778097428,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 4144950000.0,
+    "revenue_quarter_dates_used": [
+      "2026-03-31 00:00:00",
+      "2025-09-30 00:00:00",
+      "2025-06-30 00:00:00",
+      "2025-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2024-09-30 00:00:00",
+      "2024-06-30 00:00:00",
+      "2024-03-31 00:00:00",
+      "2021-03-31 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2021-03-31 00:00:00",
+      "2019-03-31 00:00:00",
+      "2013-03-31 00:00:00",
+      "2012-09-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00",
+      "2011-09-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2026-03-31 00:00:00",
+        "accession_number": "0000034088-26-000067",
+        "form": "10-Q",
+        "filed_date": "2026-05-04 00:00:00",
+        "revenue": 85138000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 85138000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 85138000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 51802000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 10695000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2684000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion (includes impairments)",
+            "value": 6771000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 126000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 62000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 5736000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 78171000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": 6967000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 2495000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 4472000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 289000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to ExxonMobil",
+            "value": 4183000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings (loss) per common share, basic (in dollars per share)",
+            "value": 1.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings (loss) per common share, diluted (in dollars per share)",
+            "value": 1.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": -263000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationReclassificationAdjustmentFromAOCIRealizedUponSaleOrLiquidationNetOfTax",
+            "label": "Adjustment for foreign exchange translation (gain)/loss included in net income",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": -27000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss)",
+            "value": -330000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 4142000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to ExxonMobil",
+            "value": 3948000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-09-30 00:00:00",
+        "accession_number": "0000034088-25-000061",
+        "form": "10-Q",
+        "filed_date": "2025-11-03 00:00:00",
+        "revenue": 249930000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 249930000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 249930000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 140043000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 30279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 8100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion (includes impairments)",
+            "value": 18278000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 464000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 322000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 440000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 18767000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 216693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": 33237000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 10082000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 23155000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 812000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to ExxonMobil",
+            "value": 22343000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings (loss) per common share, basic (in dollars per share)",
+            "value": 5.16,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings (loss) per common share, diluted (in dollars per share)",
+            "value": 5.16,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": 2047000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": 47000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss)",
+            "value": 2036000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 25191000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 1011000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to ExxonMobil",
+            "value": 24180000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-06-30 00:00:00",
+        "accession_number": "0000034088-25-000042",
+        "form": "10-Q",
+        "filed_date": "2025-08-04 00:00:00",
+        "revenue": 164636000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 164636000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 164636000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 92115000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 20185000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 5068000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion (includes impairments)",
+            "value": 11803000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 315000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 203000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 12292000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 142331000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": 22305000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 6918000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 15387000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 592000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to ExxonMobil",
+            "value": 14795000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings (loss) per common share, basic (in dollars per share)",
+            "value": 3.4,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings (loss) per common share, diluted (in dollars per share)",
+            "value": 3.4,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": 2508000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": 46000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss)",
+            "value": 2492000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 17879000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 901000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to ExxonMobil",
+            "value": 16978000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2025-03-31 00:00:00",
+        "accession_number": "0000034088-25-000024",
+        "form": "10-Q",
+        "filed_date": "2025-05-05 00:00:00",
+        "revenue": 83130000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 83130000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 83130000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 46788000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 10083000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2540000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion (includes impairments)",
+            "value": 5702000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 64000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 205000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 6035000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 71530000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": 11600000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 3567000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 8033000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 320000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to ExxonMobil",
+            "value": 7713000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings (loss) per common share, basic (in dollars per share)",
+            "value": 1.76,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings (loss) per common share, diluted (in dollars per share)",
+            "value": 1.76,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": 302000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": 34000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss)",
+            "value": 291000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 8324000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 330000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to ExxonMobil",
+            "value": 7994000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2024-09-30 00:00:00",
+        "accession_number": "0000034088-24-000068",
+        "form": "10-Q",
+        "filed_date": "2024-11-04 00:00:00",
+        "revenue": 266159000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 266159000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 266159000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 153061000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 28776000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 7359000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion (includes impairments)",
+            "value": 16857000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 640000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 90000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 699000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 19617000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 227099000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": 39060000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 11952000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 27108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 1038000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to ExxonMobil",
+            "value": 26070000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings (loss) per common share, basic (in dollars per share)",
+            "value": 6.12,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings (loss) per common share, diluted (in dollars per share)",
+            "value": 6.12,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": -67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationReclassificationAdjustmentFromAOCIRealizedUponSaleOrLiquidationNetOfTax",
+            "label": "Amounts reclassified from accumulated other comprehensive income",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss)",
+            "value": -55000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 27053000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 953000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to ExxonMobil",
+            "value": 26100000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2024-06-30 00:00:00",
+        "accession_number": "0000034088-24-000050",
+        "form": "10-Q",
+        "filed_date": "2024-08-05 00:00:00",
+        "revenue": 176143000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 176143000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 176143000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 101800000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 18895000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 5063000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion (includes impairments)",
+            "value": 10599000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 301000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 57000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 492000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 12902000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 150109000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": 26034000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 7897000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 18137000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 677000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to ExxonMobil",
+            "value": 17460000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings (loss) per common share, basic (in dollars per share)",
+            "value": 4.2,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings (loss) per common share, diluted (in dollars per share)",
+            "value": 4.2,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": -1382000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": 26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss)",
+            "value": -1369000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 16768000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 506000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to ExxonMobil",
+            "value": 16262000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2024-03-31 00:00:00",
+        "accession_number": "0000034088-24-000029",
+        "form": "10-Q",
+        "filed_date": "2024-04-29 00:00:00",
+        "revenue": 83083000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 83083000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 83083000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 47601000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 9091000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2495000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion (includes impairments)",
+            "value": 4812000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 148000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 221000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 6323000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 70714000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (loss) before income taxes",
+            "value": 12369000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 3803000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 8566000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 346000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss) attributable to ExxonMobil",
+            "value": 8220000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings (loss) per common share, basic (in dollars per share)",
+            "value": 2.06,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings (loss) per common share, diluted (in dollars per share)",
+            "value": 2.06,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": -1267000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom_OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss)",
+            "value": -1300000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 7266000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income (loss) attributable to ExxonMobil",
+            "value": 7040000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000034088-21-000024",
+        "form": "10-Q",
+        "filed_date": "2021-05-05 00:00:00",
+        "revenue": 57552000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Sales and other operating revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Sales and other operating revenue",
+            "value": 57552000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues and other income",
+            "value": 59147000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2796000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss) including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 2796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 2730000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Sales and other operating revenue",
+            "value": 57552000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Income from equity affiliates",
+            "value": 1473000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income",
+            "value": 122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues and other income",
+            "value": 59147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 32601000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 8062000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2428000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion",
+            "value": 5004000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 378000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 6660000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 55555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) before income taxes",
+            "value": 3592000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income taxes",
+            "value": 796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 2796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 66000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 2730000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings (Loss) per common share (dollars)",
+            "value": 0.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings (Loss) per common share - assuming dilution (dollars)",
+            "value": 0.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": 149000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": -168000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": 378000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss) (net of income taxes)",
+            "value": 695000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 3491000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 146000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent [Abstract]",
+            "value": 3345000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000034088-21-000024",
+        "form": "10-Q",
+        "filed_date": "2021-05-05 00:00:00",
+        "revenue": 57552000000.0,
+        "revenue_concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "revenue_label": "Sales and other operating revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Sales and other operating revenue",
+            "value": 57552000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues and other income",
+            "value": 59147000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2796000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss) including noncontrolling interests",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 2796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 2730000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Sales and other operating revenue",
+            "value": 57552000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Income from equity affiliates",
+            "value": 1473000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income",
+            "value": 122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues and other income",
+            "value": 59147000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:CrudeOilAndProductPurchases",
+            "label": "Crude oil and product purchases",
+            "value": 32601000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:ProductionAndManufacturingExpenses",
+            "label": "Production and manufacturing expenses",
+            "value": 8062000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 2428000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion",
+            "value": 5004000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 164000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetPeriodicDefinedBenefitsExpenseReversalOfExpenseExcludingServiceCostComponent",
+            "label": "Non-service pension and postretirement benefit expense",
+            "value": 378000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Other taxes and duties",
+            "value": 6660000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Total costs and other deductions",
+            "value": 55555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income (Loss) before income taxes",
+            "value": 3592000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income taxes",
+            "value": 796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss) including noncontrolling interests",
+            "value": 2796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 66000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to noncontrolling interests",
+            "value": 2730000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings (Loss) per common share (dollars)",
+            "value": 0.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings (Loss) per common share - assuming dilution (dollars)",
+            "value": 0.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign exchange translation adjustment",
+            "value": 149000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": -168000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "Amortization and settlement of postretirement benefits reserves adjustment included in net periodic benefit costs",
+            "value": 378000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss) (net of income taxes)",
+            "value": 695000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) including noncontrolling interests",
+            "value": 3491000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss) attributable to noncontrolling interests",
+            "value": 146000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent [Abstract]",
+            "value": 3345000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000034088-19-000017",
+        "form": "10-Q",
+        "filed_date": "2019-05-02 00:00:00",
+        "revenue": 61646000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 61646000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2406000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 2406000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 2350000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 61646000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 1709000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "",
+            "value": 270000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:TotalRevenuesAndOtherIncome",
+            "label": "",
+            "value": 63625000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:CrudeOilAndProductPurchases",
+            "label": "",
+            "value": 34801000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:ProductionAndManufacturingExpenses",
+            "label": "",
+            "value": 8970000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 2770000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "",
+            "value": 4571000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExplorationExpense",
+            "label": "",
+            "value": 280000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:NonServicePensionAndPostretirementExpense",
+            "label": "",
+            "value": 358000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "",
+            "value": 7405000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 59336000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "",
+            "value": 4289000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 1883000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 2406000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 2350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 0.55,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 0.55,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 749000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "",
+            "value": 26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "",
+            "value": 185000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "",
+            "value": 908000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 3314000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 182000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 3132000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2013-03-31 00:00:00",
+        "accession_number": "0000034088-13-000019",
+        "form": "10-Q",
+        "filed_date": "2013-05-02 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 9761000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 9761000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 9500000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "xom:SalesAndOtherOperatingRevenueIncludingSalesBasedTaxes",
+            "label": "",
+            "value": 103828000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 4418000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "",
+            "value": 561000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:TotalRevenuesAndOtherIncome",
+            "label": "",
+            "value": 108807000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:CrudeOilAndProductPurchases",
+            "label": "",
+            "value": 59899000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:ProductionAndManufacturingExpenses",
+            "label": "",
+            "value": 9736000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 3118000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "",
+            "value": 4110000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExplorationExpense",
+            "label": "",
+            "value": 445000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExciseAndSalesTaxes",
+            "label": "",
+            "value": 7492000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "",
+            "value": 7945000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 92769000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "",
+            "value": 16038000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 6277000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 9761000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 261000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 9500000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 2.12,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 2.12,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 0.57,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": -1209000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "",
+            "value": -65000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "",
+            "value": 444000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "",
+            "value": -700000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 9061000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 144000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 8917000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000034088-12-000050",
+        "form": "10-Q",
+        "filed_date": "2012-11-06 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 37379000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 37379000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 34930000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "xom:SalesAndOtherOperatingRevenueIncludingSalesBasedTaxes",
+            "label": "",
+            "value": 343488000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 11247000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "",
+            "value": 12387000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:TotalRevenuesAndOtherIncome",
+            "label": "",
+            "value": 367122000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:CrudeOilAndProductPurchases",
+            "label": "",
+            "value": 201349000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:ProductionAndManufacturingExpenses",
+            "label": "",
+            "value": 28765000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 10555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "",
+            "value": 11778000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExplorationExpense",
+            "label": "",
+            "value": 1388000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 216000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExciseAndSalesTaxes",
+            "label": "",
+            "value": 24657000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "",
+            "value": 27388000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 306096000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "",
+            "value": 61026000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 23647000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 37379000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 2449000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 34930000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 7.5,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 7.5,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 1.61,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": 1298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationReclassificationAdjustmentRealizedUponSaleOrLiquidationNetOfTax",
+            "label": "",
+            "value": -4354000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "",
+            "value": 404000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "",
+            "value": 2083000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "",
+            "value": -1377000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 36002000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 1062000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 34940000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000034088-12-000036",
+        "form": "10-Q",
+        "filed_date": "2012-08-02 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 27453000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 27453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 25360000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "xom:SalesAndOtherOperatingRevenueIncludingSalesBasedTaxes",
+            "label": "",
+            "value": 231934000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 7861000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "",
+            "value": 11621000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:TotalRevenuesAndOtherIncome",
+            "label": "",
+            "value": 251416000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:CrudeOilAndProductPurchases",
+            "label": "",
+            "value": 136169000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:ProductionAndManufacturingExpenses",
+            "label": "",
+            "value": 19637000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "",
+            "value": 7087000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "",
+            "value": 7741000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExplorationExpense",
+            "label": "",
+            "value": 894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 157000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExciseAndSalesTaxes",
+            "label": "",
+            "value": 16520000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "",
+            "value": 19505000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "",
+            "value": 207710000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "",
+            "value": 43706000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 16253000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "",
+            "value": 27453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 2093000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 25360000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 5.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 5.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 1.04,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "",
+            "value": -322000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationReclassificationAdjustmentRealizedUponSaleOrLiquidationNetOfTax",
+            "label": "",
+            "value": -4235000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -180000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "",
+            "value": 1629000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -3108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 24345000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 521000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "",
+            "value": 23824000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0001193125-12-208076",
+        "form": "10-Q",
+        "filed_date": "2012-05-03 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 9799000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income for the period",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income for the period",
+            "value": 9799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 9450000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "xom:SalesAndOtherOperatingRevenueIncludingSalesBasedTaxes",
+            "label": "Total revenue from sale of goods and services during the reporting period, reduced by sales returns and allowances, and sales discounts. Also includes sales-based taxes (e.g. excise and sales taxes) which are then deducted as sales-based tax expense.",
+            "value": 119189000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Income from equity affiliates",
+            "value": 4210000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "Other income (2)",
+            "value": 654000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:TotalRevenuesAndOtherIncome",
+            "label": "Total revenues and income from equity affiliates and other income.",
+            "value": 124053000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:CrudeOilAndProductPurchases",
+            "label": "Purchase cost of crude oil, products and other raw materials, feedstocks, semi finished products, finished products and other merchandise that become part of salable products for oil and gas, refining and marketing and chemical operations.",
+            "value": 69825000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:ProductionAndManufacturingExpenses",
+            "label": "Costs, excluding deprecation, incurred to operate and maintain - 1) oil and gas wells, production, transportation and support equipment and facilities; 2) refining manufacturing facilities; and 3) chemical manufacturing facilities.",
+            "value": 9850000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 3601000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion",
+            "value": 3842000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 522000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 107000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExciseAndSalesTaxes",
+            "label": "Sales and other operating revenue, sales-based taxes",
+            "value": 8493000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Taxes other",
+            "value": 10298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "COSTS AND OTHER DEDUCTIONS",
+            "value": 106538000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Including Equity Affiliate Earnings Before Income Taxes",
+            "value": 17515000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income taxes",
+            "value": 7716000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income for the period",
+            "value": 9799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 349000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 9450000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per common share (dollars)",
+            "value": 2.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings per common share - assuming dilution (dollars)",
+            "value": 2.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividends per common share (dollars)",
+            "value": 0.47,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income, Foreign Currency Transaction and Translation Gain (Loss) Arising During Period, Net of Tax",
+            "value": 1045000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationReclassificationAdjustmentRealizedUponSaleOrLiquidationNetOfTax",
+            "label": "Adjustment for foreign exchange translation loss included in net income",
+            "value": 67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "Postretirement benefits reserves adjustment (excluding amortization)",
+            "value": -404000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:OtherComprehensiveIncomePostretirementBenefitsRecognizedInNetPeriodicPensionCostNetOfTax",
+            "label": "The adjustment out of other comprehensive income for prior service costs, actuarial gains and losses and other previously recorded other comprehensive income recognized as a component of net period benefit cost during the period, after tax.",
+            "value": 393000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other comprehensive income (net of income taxes)",
+            "value": 1101000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income including noncontrolling interests",
+            "value": 10900000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 325000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income including noncontrolling interests",
+            "value": 10575000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001193125-11-294424",
+        "form": "10-Q",
+        "filed_date": "2011-11-03 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 32482000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income for the period",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income for the period",
+            "value": 32482000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 31660000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "xom:SalesAndOtherOperatingRevenueIncludingSalesBasedTaxes",
+            "label": "Total revenue from sale of goods and services during the reporting period, reduced by sales returns and allowances, and sales discounts. Also includes sales-based taxes (e.g. excise and sales taxes) which are then deducted as sales-based tax expense.",
+            "value": 351120000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Income from equity affiliates",
+            "value": 11462000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherIncome",
+            "label": "Other income (2)",
+            "value": 2238000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:TotalRevenuesAndOtherIncome",
+            "label": "Total revenues and income from equity affiliates and other income.",
+            "value": 364820000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:CrudeOilAndProductPurchases",
+            "label": "Purchase cost of crude oil, products and other raw materials, feedstocks, semi finished products, finished products and other merchandise that become part of salable products for oil and gas, refining and marketing and chemical operations.",
+            "value": 199233000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "xom:ProductionAndManufacturingExpenses",
+            "label": "Costs, excluding deprecation, incurred to operate and maintain - 1) oil and gas wells, production, transportation and support equipment and facilities; 2) refining manufacturing facilities; and 3) chemical manufacturing facilities.",
+            "value": 30041000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 11072000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Depreciation and depletion",
+            "value": 11508000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExplorationExpense",
+            "label": "Exploration expenses, including dry holes",
+            "value": 1654000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ExciseAndSalesTaxes",
+            "label": "Sales and other operating revenue, sales-based taxes",
+            "value": 25013000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Taxes other",
+            "value": 29911000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "COSTS AND OTHER DEDUCTIONS",
+            "value": 308604000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income Including Equity Affiliate Earnings Before Income Taxes",
+            "value": 56216000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income taxes",
+            "value": 23734000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income for the period",
+            "value": 32482000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 822000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income attributable to noncontrolling interests",
+            "value": 31660000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per common share (dollars)",
+            "value": 6.46,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings per common share - assuming dilution (dollars)",
+            "value": 6.45,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividends per common share (dollars)",
+            "value": 1.38,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

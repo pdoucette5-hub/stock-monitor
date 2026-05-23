@@ -1,0 +1,3190 @@
+{
+  "fetched_at": 1779555697.1025522,
+  "data": {
+    "ticker": "JPM",
+    "price": 306.4,
+    "ttm_revenue": 224085000000.0,
+    "net_income_ttm": 42937000000.0,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 2679510000.0,
+    "revenue_quarter_dates_used": [
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00",
+      "2011-09-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2011-03-31 00:00:00",
+      "2010-09-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2022-03-31 00:00:00",
+      "2019-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2012-03-31 00:00:00",
+      "2011-09-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000019617-12-000308",
+        "form": "10-Q",
+        "filed_date": "2012-11-08 00:00:00",
+        "revenue": 73378000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 73378000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 15592000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 15592000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 15592000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 19074000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 4081000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 4342000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending-and deposit-related fees",
+            "value": 4625000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 10189000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableForSaleSecuritiesGrossRealizedGainLossNet",
+            "label": "Securities gains and losses",
+            "value": 2008000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 6652000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FeesAndCommissionsCreditAndDebitCards",
+            "label": "Credit card income",
+            "value": 4156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Pre-tax gain on WAMU Global Settlement",
+            "value": 3537000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Pre-tax gain on WAMU Global Settlement",
+            "value": 39590000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeOperating",
+            "label": "Total interest income",
+            "value": 42429000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 8641000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 33788000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 73378000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for credit losses",
+            "value": 2729000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 23543000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 3014000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommunicationsAndInformationTechnology",
+            "label": "Technology, Communications and Equipment Expense",
+            "value": 3865000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 5411000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 1929000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 10354000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of Intangible Assets",
+            "value": 566000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Noninterest Expense [Abstract]",
+            "value": 48682000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income tax expense",
+            "value": 21967000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 6375000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 14556000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Per common share data - Basic earnings per share",
+            "value": 3.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Per common share data - Diluted earnings per share",
+            "value": 3.81,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average basic shares",
+            "value": 3810400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares",
+            "value": 3822600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 0.9,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Total other-than-temporary impairment losses",
+            "value": 113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Losses recorded in/(reclassified from) other comprehensive income",
+            "value": 85000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNetAvailableforsaleSecurities",
+            "label": "OTTI losses recognized in income",
+            "value": 42000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000019617-12-000264",
+        "form": "10-Q",
+        "filed_date": "2012-08-09 00:00:00",
+        "revenue": 48232000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 48232000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 9884000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 9884000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 9884000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 11212000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 2638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 2295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending-and deposit-related fees",
+            "value": 3063000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 6853000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableForSaleSecuritiesGrossRealizedGainLossNet",
+            "label": "Securities gains and losses",
+            "value": 1550000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 4275000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:CreditCardIncome",
+            "label": "Credit card income",
+            "value": 2728000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Noninterest Income, Other [Abstract]",
+            "value": 2018000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Noninterest Income, Other [Abstract]",
+            "value": 25420000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "Interest income",
+            "value": 28800000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 5988000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest Income (Expense), Net [Abstract]",
+            "value": 22812000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 48232000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:ProvisionForLoanLeaseAndOtherLossesExcludingAccountingPolicyConformity",
+            "label": "Provision for credit losses",
+            "value": 940000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 16040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 2041000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:TechnologyCommunicationsAndEquipmentExpense",
+            "label": "Technology, communications and equipment expense",
+            "value": 2553000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 3652000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 1322000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other Noninterest Expense",
+            "value": 7319000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of Intangible Assets",
+            "value": 384000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Noninterest Expense [Abstract]",
+            "value": 33311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income tax expense",
+            "value": 13981000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense/(benefit)",
+            "value": 4097000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 9210000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 2.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 2.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Total weighted-average basic shares outstanding",
+            "value": 3813900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Total weighted-average diluted shares outstanding",
+            "value": 3827000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 0.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Total other-than-temporary impairment losses",
+            "value": 113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Losses recorded in/(reclassified from) other comprehensive income",
+            "value": 87000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNetAvailableforsaleSecurities",
+            "label": "Other than Temporary Impairment Losses, Investments, Portion Recognized in Earnings, Net, Available-for-sale Securities",
+            "value": 63000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0000019617-12-000213",
+        "form": "10-Q",
+        "filed_date": "2012-05-10 00:00:00",
+        "revenue": 26712000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 26712000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 5383000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 5383000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 5383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 7084000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 1381000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 3382000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending-and deposit-related fees",
+            "value": 1517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 3392000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableForSaleSecuritiesGrossRealizedGainLossNet",
+            "label": "Securities gains",
+            "value": 536000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 2010000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:CreditCardIncome",
+            "label": "Credit card income",
+            "value": 1316000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Other income",
+            "value": 1512000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Other income",
+            "value": 15046000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "Interest income",
+            "value": 14701000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 3035000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 11666000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 26712000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:ProvisionForLoanLeaseAndOtherLossesExcludingAccountingPolicyConformity",
+            "label": "Provision for credit losses",
+            "value": 726000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 8613000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 961000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:TechnologyCommunicationsAndEquipmentExpense",
+            "label": "Technology, communications and equipment expense",
+            "value": 1271000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 1795000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 680000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 4832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization expense",
+            "value": 193000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Total noninterest expense",
+            "value": 18345000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income tax expense",
+            "value": 7641000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 2258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 5017000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 1.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 1.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Total weighted-average basic shares outstanding",
+            "value": 3818800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Total weighted-average diluted shares outstanding",
+            "value": 3833400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 0.3,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Total other-than-temporary impairment losses",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Losses recorded in/(reclassified from) other comprehensive income",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Total credit losses recognized in income",
+            "value": 7000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0000019617-11-000264",
+        "form": "10-Q",
+        "filed_date": "2011-11-04 00:00:00",
+        "revenue": 75763000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 75763000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 15248000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 15248000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 4778000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 9255000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending-and deposit-related fees",
+            "value": 4838000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 10757000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableForSaleSecuritiesGrossRealizedGainLossNet",
+            "label": "Securities gains and losses",
+            "value": 1546000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 1996000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:CreditCardIncome",
+            "label": "Credit card income",
+            "value": 4799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Noninterest Income, Other [Abstract]",
+            "value": 2236000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Noninterest Income, Other [Abstract]",
+            "value": 40205000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "Interest income",
+            "value": 46239000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 10681000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 35558000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 75763000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:ProvisionForLoanLeaseAndOtherLossesExcludingAccountingPolicyConformity",
+            "label": "Provision for credit losses",
+            "value": 5390000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 22740000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 2848000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:TechnologyCommunicationsAndEquipmentExpense",
+            "label": "Technology, communications and equipment expense",
+            "value": 3665000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 5461000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 2329000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 10687000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of intangibles",
+            "value": 641000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Noninterest Expense [Abstract]",
+            "value": 48371000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax expense",
+            "value": 22002000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 6754000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 15248000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 14141000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 3.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 3.57,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average basic shares",
+            "value": 3933200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares",
+            "value": 3956500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 0.75,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Total other-than-temporary impairment losses",
+            "value": 27000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Losses recorded in/(reclassified from) other comprehensive income",
+            "value": -31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Credit losses recognized in income",
+            "value": 58000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2011-03-31 00:00:00",
+        "accession_number": "0000950123-11-045948",
+        "form": "10-Q",
+        "filed_date": "2011-05-06 00:00:00",
+        "revenue": 25221000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 25221000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "jpm_AssetManagementAdministrationAndCommissions",
+            "label": "Asset management, administration and commissions",
+            "value": 3606000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_CreditCardIncome",
+            "label": "Credit card income",
+            "value": 1437000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_LendingAndDepositRelatedFees",
+            "label": "Lending And Deposit Related Fees",
+            "value": 1546000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_MortgageFeesAndRelatedIncome",
+            "label": "Mortgage Fees And Related Income",
+            "value": -487000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_OccupancyExpense",
+            "label": "Occupancy expense",
+            "value": 978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_OtherNoninterestIncome",
+            "label": "Other Noninterest income",
+            "value": 574000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_ProfessionalAndOutsideServices",
+            "label": "Professional And Outside Services",
+            "value": 1735000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_SecuritiesGains",
+            "label": "Securities gains",
+            "value": 102000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_TechnologyCommunicationsAndEquipmentExpense",
+            "label": "Technology, communications and equipment expense",
+            "value": 1200000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization of Intangible Assets",
+            "value": 217000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Common stock dividend",
+            "value": 0.25,
+            "unit": "usdeps"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic",
+            "value": 1.29,
+            "unit": "usdeps"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted",
+            "value": 1.28,
+            "unit": "usdeps"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Minority Interest, and Income (Loss) from Equity Method Investments",
+            "value": 8057000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 2502000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestAndDividendIncomeOperating",
+            "label": "Interest and Dividend Income, Operating",
+            "value": 15447000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 3542000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNet",
+            "label": "Interest Income (Expense), Net",
+            "value": 11905000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentBankingRevenue",
+            "label": "Investment banking fees",
+            "value": 1793000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and Related Expense",
+            "value": 8263000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_MarketingAndAdvertisingExpense",
+            "label": "Marketing and Advertising Expense",
+            "value": 659000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 5555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 5136000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoninterestExpense",
+            "label": "Noninterest Expense",
+            "value": 15995000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoninterestIncome",
+            "label": "Noninterest Income",
+            "value": 13316000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNoninterestExpense",
+            "label": "Other Noninterest Expense",
+            "value": 2943000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_PrincipalTransactionsRevenue",
+            "label": "Principal transactions",
+            "value": 4745000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for Loan, Lease, and Other Losses",
+            "value": 1169000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 25221000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 4014100000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 3981600000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-09-30 00:00:00",
+        "accession_number": "0000950123-10-102689",
+        "form": "10-Q",
+        "filed_date": "2010-11-09 00:00:00",
+        "revenue": 76596000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 76596000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "jpm_AssetManagementAdministrationAndCommissions",
+            "label": "Asset management, administration and commissions",
+            "value": 9802000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_CreditCardIncome",
+            "label": "Credit card income",
+            "value": 4333000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_LendingAndDepositRelatedFees",
+            "label": "Lending And Deposit Related Fees",
+            "value": 4795000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_MergerAndAcquisitionCost",
+            "label": "Merger And Acquisition Cost",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_MortgageFeesAndRelatedIncome",
+            "label": "Mortgage Fees And Related Income",
+            "value": 2253000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_OccupancyExpense",
+            "label": "Occupancy expense",
+            "value": 2636000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_OtherNoninterestIncome",
+            "label": "Other Noninterest income",
+            "value": 1465000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_ProfessionalAndOutsideServices",
+            "label": "Professional And Outside Services",
+            "value": 4978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_SecuritiesGains",
+            "label": "Securities gains",
+            "value": 1712000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm_TechnologyCommunicationsAndEquipmentExpense",
+            "label": "Technology, communications and equipment expense",
+            "value": 3486000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_AmortizationOfIntangibleAssets",
+            "label": "Amortization of Intangible Assets",
+            "value": 696000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareCashPaid",
+            "label": "Common stock dividend",
+            "value": 0.15,
+            "unit": "usdeps"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings Per Share, Basic",
+            "value": 2.86,
+            "unit": "usdeps"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings Per Share, Diluted",
+            "value": 2.84,
+            "unit": "usdeps"
+          },
+          {
+            "concept": "us-gaap_ExtraordinaryItemNetOfTax",
+            "label": "Extraordinary Item, Gain or Loss, Net of Tax, Including Portion Attributable to Noncontrolling Interest",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossBeforeExtraordinaryItemsAndCumulativeEffectOfChangeInAccountingPrinciple",
+            "label": "Income (Loss) before Extraordinary Items and Cumulative Effect of Change in Accounting Principle",
+            "value": 12539000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossBeforeExtraordinaryItemsAndCumulativeEffectOfChangeInAccountingPrinciplePerBasicShare",
+            "label": "Income before extraordinary gain",
+            "value": 2.86,
+            "unit": "usdeps"
+          },
+          {
+            "concept": "us-gaap_IncomeLossBeforeExtraordinaryItemsAndCumulativeEffectOfChangeInAccountingPrinciplePerDilutedShare",
+            "label": "Income (Loss) before Extraordinary Items and Cumulative Effect of Change in Accounting Principle, Per Diluted Share",
+            "value": 2.84,
+            "unit": "usdeps"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (Loss) from Continuing Operations before Income Taxes, Minority Interest, and Income (Loss) from Equity Method Investments",
+            "value": 17847000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": 5308000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestAndDividendIncomeOperating",
+            "label": "Interest income",
+            "value": 48170000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest Expense",
+            "value": 9271000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNet",
+            "label": "Interest Income (Expense), Net",
+            "value": 38899000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentBankingRevenue",
+            "label": "Investment banking fees",
+            "value": 4358000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 21553000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 1862000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 12539000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 11353000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoninterestExpense",
+            "label": "Noninterest Expense",
+            "value": 45153000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NoninterestIncome",
+            "label": "Noninterest Income",
+            "value": 37697000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 9942000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_PrincipalTransactionsRevenue",
+            "label": "Principal transactions",
+            "value": 8979000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for Loan, Lease, and Other Losses",
+            "value": 13596000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 76596000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted Average Number of Shares Outstanding, Diluted",
+            "value": 3990700000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted Average Number of Shares Outstanding, Basic",
+            "value": 3969400000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2022-03-31 00:00:00",
+        "accession_number": "0000019617-22-000319",
+        "form": "10-Q",
+        "filed_date": "2022-05-03 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 8282000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax expense",
+            "value": 10063000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax expense",
+            "value": 10063000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 2.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share (in dollars per share)",
+            "value": 2.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "InterestIncomeOperating",
+            "label": "Interest income",
+            "value": 15496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeOperating",
+            "label": "Interest income",
+            "value": 15496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending- and deposit-related fees",
+            "value": 1839000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending- and deposit-related fees",
+            "value": 1839000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 1134000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 1781000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 1781000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average basic shares (in shares)",
+            "value": 2977000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average basic shares (in shares)",
+            "value": 2977000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average basic shares (in shares)",
+            "value": 2977000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Noninterest revenue",
+            "value": 16845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Noninterest revenue",
+            "value": 16845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 2.63,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 2.63,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Investment banking fees",
+            "value": 2008000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Investment banking fees",
+            "value": 2008000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Asset management, administration and commissions",
+            "value": 5362000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Asset management, administration and commissions",
+            "value": 5362000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+            "label": "Investment securities gains/(losses)",
+            "value": -394000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+            "label": "Investment securities gains/(losses)",
+            "value": -394000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 7845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 7845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 7845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Total noninterest expense",
+            "value": 19191000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Total noninterest expense",
+            "value": 19191000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 10787000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommunicationsAndInformationTechnology",
+            "label": "Technology, communications and equipment expense",
+            "value": 2360000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 1624000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 1624000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 920000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 1418000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenuesNetOfInterestExpense",
+            "label": "Total net revenue",
+            "value": 30717000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenuesNetOfInterestExpense",
+            "label": "Total net revenue",
+            "value": 30717000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Other income",
+            "value": 1490000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:FeesAndCommissionsCreditAndDebitCards1",
+            "label": "Card income",
+            "value": 975000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:FeesAndCommissionsCreditAndDebitCards1",
+            "label": "Card income",
+            "value": 975000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for credit losses",
+            "value": 1463000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for credit losses",
+            "value": 1463000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for credit losses",
+            "value": 1463000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for credit losses",
+            "value": 1463000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions",
+            "value": 5105000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions",
+            "value": 5105000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 2572000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares (in shares)",
+            "value": 2981000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares (in shares)",
+            "value": 2981000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 13872000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 13872000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 13872000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 460000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 460000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossFinancialLiabilityFairValueOptionAfterTaxAndReclassificationAdjustmentAttributableToParent",
+            "label": "DVA on fair value option elected liabilities",
+            "value": 646000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Defined benefit pension and OPEB plans",
+            "value": -67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Cash flow hedges",
+            "value": -2791000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Translation adjustments, net of hedges",
+            "value": -62000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total other comprehensive income/(loss), afteru2013tax",
+            "value": -9483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total other comprehensive income/(loss), afteru2013tax",
+            "value": -9483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Total other comprehensive income/(loss), afteru2013tax",
+            "value": -9483000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableforsaleSecuritiesAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Unrealized gains/(losses) on investment securities",
+            "value": -7453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": -1201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativeExcludedComponentIncreaseDecreaseAfterAdjustmentsAndTaxParent",
+            "label": "Fair value hedges",
+            "value": 110000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 8282000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000019617-19-000067",
+        "form": "10-Q",
+        "filed_date": "2019-05-02 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 9179000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 9179000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 9179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeAvailableforsaleSecuritiesAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Unrealized gains/(losses) on investment securities",
+            "value": 1414000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Translation adjustments, net of hedges",
+            "value": -24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossDerivativeExcludedComponentIncreaseDecreaseAfterAdjustmentsAndTaxParent",
+            "label": "Fair value hedges",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossAfterReclassificationAndTaxParent",
+            "label": "Cash flow hedges",
+            "value": 138000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPortionAttributableToParent",
+            "label": "Defined benefit pension and OPEB plans",
+            "value": -36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossFinancialLiabilityFairValueOptionAfterTaxAndReclassificationAdjustmentAttributableToParent",
+            "label": "DVA on fair value option elected liabilities",
+            "value": -617000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Other comprehensive income/(loss), after-tax",
+            "value": 949000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 10128000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 1840000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 4076000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Total lending- and deposit-related fees",
+            "value": 1482000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 4114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DebtSecuritiesAvailableForSaleRealizedGainLoss",
+            "label": "Net investment securities gains/(losses)",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 396000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:FeesAndCommissionsCreditAndDebitCards1",
+            "label": "Total card income",
+            "value": 1274000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Other income",
+            "value": 1475000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Noninterest revenue",
+            "value": 14670000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeOperating",
+            "label": "Total interest income",
+            "value": 21894000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 7441000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 14453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RevenuesNetOfInterestExpense",
+            "label": "Total net revenue",
+            "value": 29123000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for credit losses",
+            "value": 1495000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 8937000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 1068000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommunicationsAndInformationTechnology",
+            "label": "Technology, communications and equipment expense",
+            "value": 2364000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 2039000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 879000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 1108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Noninterest expense",
+            "value": 16395000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax expense",
+            "value": 11233000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense/(benefit)",
+            "value": 2054000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 8753000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Net income per common share data",
+            "value": 2.65,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share (in dollars per share)",
+            "value": 2.65,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average basic shares (in shares)",
+            "value": 3298000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares (in shares)",
+            "value": 3308200000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000019617-12-000308",
+        "form": "10-Q",
+        "filed_date": "2012-11-08 00:00:00",
+        "revenue": 73378000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 73378000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 15592000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 15592000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 15592000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 19074000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 4081000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 4342000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending-and deposit-related fees",
+            "value": 4625000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 10189000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableForSaleSecuritiesGrossRealizedGainLossNet",
+            "label": "Securities gains and losses",
+            "value": 2008000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 6652000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FeesAndCommissionsCreditAndDebitCards",
+            "label": "Credit card income",
+            "value": 4156000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Pre-tax gain on WAMU Global Settlement",
+            "value": 3537000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Pre-tax gain on WAMU Global Settlement",
+            "value": 39590000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeOperating",
+            "label": "Total interest income",
+            "value": 42429000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 8641000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 33788000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 73378000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProvisionForLoanLeaseAndOtherLosses",
+            "label": "Provision for credit losses",
+            "value": 2729000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 23543000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 3014000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommunicationsAndInformationTechnology",
+            "label": "Technology, Communications and Equipment Expense",
+            "value": 3865000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 5411000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 1929000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 10354000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of Intangible Assets",
+            "value": 566000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Noninterest Expense [Abstract]",
+            "value": 48682000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income tax expense",
+            "value": 21967000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 6375000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 14556000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Per common share data - Basic earnings per share",
+            "value": 3.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Per common share data - Diluted earnings per share",
+            "value": 3.81,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average basic shares",
+            "value": 3810400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares",
+            "value": 3822600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 0.9,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Total other-than-temporary impairment losses",
+            "value": 113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Losses recorded in/(reclassified from) other comprehensive income",
+            "value": 85000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNetAvailableforsaleSecurities",
+            "label": "OTTI losses recognized in income",
+            "value": 42000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000019617-12-000264",
+        "form": "10-Q",
+        "filed_date": "2012-08-09 00:00:00",
+        "revenue": 48232000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 48232000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 9884000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 9884000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 9884000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 11212000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 2638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 2295000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending-and deposit-related fees",
+            "value": 3063000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 6853000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableForSaleSecuritiesGrossRealizedGainLossNet",
+            "label": "Securities gains and losses",
+            "value": 1550000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 4275000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:CreditCardIncome",
+            "label": "Credit card income",
+            "value": 2728000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Noninterest Income, Other [Abstract]",
+            "value": 2018000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Noninterest Income, Other [Abstract]",
+            "value": 25420000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "Interest income",
+            "value": 28800000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 5988000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Interest Income (Expense), Net [Abstract]",
+            "value": 22812000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 48232000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:ProvisionForLoanLeaseAndOtherLossesExcludingAccountingPolicyConformity",
+            "label": "Provision for credit losses",
+            "value": 940000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 16040000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 2041000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:TechnologyCommunicationsAndEquipmentExpense",
+            "label": "Technology, communications and equipment expense",
+            "value": 2553000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 3652000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 1322000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other Noninterest Expense",
+            "value": 7319000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of Intangible Assets",
+            "value": 384000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Noninterest Expense [Abstract]",
+            "value": 33311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income tax expense",
+            "value": 13981000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense/(benefit)",
+            "value": 4097000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 9210000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 2.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 2.41,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Total weighted-average basic shares outstanding",
+            "value": 3813900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Total weighted-average diluted shares outstanding",
+            "value": 3827000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 0.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Total other-than-temporary impairment losses",
+            "value": 113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Losses recorded in/(reclassified from) other comprehensive income",
+            "value": 87000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNetAvailableforsaleSecurities",
+            "label": "Other than Temporary Impairment Losses, Investments, Portion Recognized in Earnings, Net, Available-for-sale Securities",
+            "value": 63000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0000019617-12-000213",
+        "form": "10-Q",
+        "filed_date": "2012-05-10 00:00:00",
+        "revenue": 26712000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 26712000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 5383000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 5383000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 5383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 7084000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 1381000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 3382000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending-and deposit-related fees",
+            "value": 1517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 3392000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableForSaleSecuritiesGrossRealizedGainLossNet",
+            "label": "Securities gains",
+            "value": 536000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 2010000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:CreditCardIncome",
+            "label": "Credit card income",
+            "value": 1316000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Other income",
+            "value": 1512000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Other income",
+            "value": 15046000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "Interest income",
+            "value": 14701000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 3035000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 11666000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 26712000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:ProvisionForLoanLeaseAndOtherLossesExcludingAccountingPolicyConformity",
+            "label": "Provision for credit losses",
+            "value": 726000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 8613000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 961000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:TechnologyCommunicationsAndEquipmentExpense",
+            "label": "Technology, communications and equipment expense",
+            "value": 1271000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 1795000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 680000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 4832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization expense",
+            "value": 193000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Total noninterest expense",
+            "value": 18345000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income tax expense",
+            "value": 7641000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 2258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 5017000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 1.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 1.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Total weighted-average basic shares outstanding",
+            "value": 3818800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Total weighted-average diluted shares outstanding",
+            "value": 3833400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 0.3,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Total other-than-temporary impairment losses",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Losses recorded in/(reclassified from) other comprehensive income",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Total credit losses recognized in income",
+            "value": 7000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0000019617-11-000264",
+        "form": "10-Q",
+        "filed_date": "2011-11-04 00:00:00",
+        "revenue": 75763000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenue",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 75763000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 15248000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 15248000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "InvestmentBankingRevenue",
+            "label": "Total investment banking fees",
+            "value": 4778000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PrincipalTransactionsRevenue",
+            "label": "Principal transactions revenue",
+            "value": 9255000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:LendingAndDepositRelatedFees",
+            "label": "Lending-and deposit-related fees",
+            "value": 4838000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:AssetManagementAdministrationAndCommissions",
+            "label": "Total asset management, administration and commissions",
+            "value": 10757000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AvailableForSaleSecuritiesGrossRealizedGainLossNet",
+            "label": "Securities gains and losses",
+            "value": 1546000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:MortgageFeesAndRelatedIncome",
+            "label": "Mortgage fees and related income",
+            "value": 1996000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:CreditCardIncome",
+            "label": "Credit card income",
+            "value": 4799000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncomeOther",
+            "label": "Noninterest Income, Other [Abstract]",
+            "value": 2236000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestIncome",
+            "label": "Noninterest Income, Other [Abstract]",
+            "value": 40205000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestAndDividendIncomeOperating",
+            "label": "Interest income",
+            "value": 46239000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 10681000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestIncomeExpenseNet",
+            "label": "Net interest income",
+            "value": 35558000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenue",
+            "value": 75763000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:ProvisionForLoanLeaseAndOtherLossesExcludingAccountingPolicyConformity",
+            "label": "Provision for credit losses",
+            "value": 5390000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "Compensation expense",
+            "value": 22740000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OccupancyNet",
+            "label": "Occupancy expense",
+            "value": 2848000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "jpm:TechnologyCommunicationsAndEquipmentExpense",
+            "label": "Technology, communications and equipment expense",
+            "value": 3665000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfessionalAndContractServicesExpense",
+            "label": "Professional and outside services",
+            "value": 5461000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "MarketingAndAdvertisingExpense",
+            "label": "Marketing",
+            "value": 2329000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNoninterestExpense",
+            "label": "Other expense",
+            "value": 10687000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmortizationOfIntangibleAssets",
+            "label": "Amortization of intangibles",
+            "value": 641000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NoninterestExpense",
+            "label": "Noninterest Expense [Abstract]",
+            "value": 48371000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "Income before income tax expense",
+            "value": 22002000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 6754000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income",
+            "value": 15248000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Net income applicable to common stockholders",
+            "value": 14141000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per share",
+            "value": 3.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per share",
+            "value": 3.57,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average basic shares",
+            "value": 3933200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average diluted shares",
+            "value": 3956500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividends declared per common share",
+            "value": 0.75,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "ImpairmentOfInvestments",
+            "label": "Total other-than-temporary impairment losses",
+            "value": 27000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionInOtherComprehensiveIncomeLossBeforeTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Losses recorded in/(reclassified from) other comprehensive income",
+            "value": -31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherThanTemporaryImpairmentLossesInvestmentsPortionRecognizedInEarningsNet",
+            "label": "Credit losses recognized in income",
+            "value": 58000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

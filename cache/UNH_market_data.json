@@ -1,0 +1,3429 @@
+{
+  "fetched_at": 1779555869.9325,
+  "data": {
+    "ticker": "UNH",
+    "price": 388.49,
+    "ttm_revenue": 282624000000.0,
+    "net_income_ttm": 14057000000.0,
+    "prior_ttm_revenue": 194018000000.0,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": 45.668958550237605,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 908140000.0,
+    "revenue_quarter_dates_used": [
+      "2021-03-31 00:00:00",
+      "2019-03-31 00:00:00",
+      "2013-09-30 00:00:00",
+      "2013-06-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2013-03-31 00:00:00",
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2021-03-31 00:00:00",
+      "2019-03-31 00:00:00",
+      "2013-03-31 00:00:00",
+      "2012-09-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00",
+      "2011-09-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000731766-21-000021",
+        "form": "10-Q",
+        "filed_date": "2021-05-05 00:00:00",
+        "revenue": 70196000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 70196000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 4978000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 4978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 4862000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums",
+            "value": 55486000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 452000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 70196000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 44904000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 10223000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of products sold",
+            "value": 7572000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 758000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Total operating costs",
+            "value": 63457000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 6739000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 397000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 6342000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1364000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 4978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 4862000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 5.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 5.08,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 945000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common share equivalents",
+            "value": 12000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 957000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common share equivalents",
+            "value": 3000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized losses on investment securities during the period",
+            "value": -764000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax effect",
+            "value": -174000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized losses, net of tax",
+            "value": -590000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesTax",
+            "label": "Income tax effect",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Total foreign currency translation losses",
+            "value": -417000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive loss:",
+            "value": -1012000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 3966000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 3850000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000731766-19-000013",
+        "form": "10-Q",
+        "filed_date": "2019-05-07 00:00:00",
+        "revenue": 60308000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues",
+            "value": 60308000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3557000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 3557000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 3467000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 3557000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized gains (losses) on investment securities during the period",
+            "value": 520000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax effect",
+            "value": 119000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized gains (losses), net of tax",
+            "value": 401000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Gross reclassification adjustment for net realized losses (gains) included in net earnings",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesTax",
+            "label": "Income tax effect",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Total foreign currency translation losses",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": 402000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 3959000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 90000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 3869000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - unaffiliated customers",
+            "value": 47513000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unh:SalesRevenueProductsNet",
+            "label": "Products, revenues - unaffiliated customers",
+            "value": 8072000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unh:SalesRevenuesServicesNet",
+            "label": "Services, revenues - unaffiliated customers",
+            "value": 4318000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 405000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues",
+            "value": 60308000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 38939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 8517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of products sold",
+            "value": 7381000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 639000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 55476000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 4832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 400000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 4432000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 875000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 90000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 3467000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 3.62,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 3.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 958000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common share equivalents",
+            "value": 17000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 975000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common share equivalents",
+            "value": 8000000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2013-09-30 00:00:00",
+        "accession_number": "0000731766-13-000034",
+        "form": "10-Q",
+        "filed_date": "2013-11-07 00:00:00",
+        "revenue": 91372000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 91372000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 11000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to UnitedHealth Group common shareholders",
+            "value": 3173000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 3221000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 2082000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating costs",
+            "value": 84201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 1025000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic net earnings per common share attributable to UnitedHealth Group common shareholders",
+            "value": 4.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share attributable to UnitedHealth Group common shareholders",
+            "value": 4.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 6639000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 2393000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 532000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 561000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 4198000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interest",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 7171000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Total foreign currency translation (losses) gains",
+            "value": -635000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive (loss) income",
+            "value": -1025000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": 137000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": 87000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesTax",
+            "label": "Income tax effect",
+            "value": 50000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding gains (losses) on investment securities during the period",
+            "value": -475000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized gains (losses), net of tax",
+            "value": -303000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax effect",
+            "value": -172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 66786000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 81850000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net earnings",
+            "value": 4246000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 91372000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 2325000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 6636000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 14308000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 17000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1026000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1009000000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2013-06-30 00:00:00",
+        "accession_number": "0000731766-13-000026",
+        "form": "10-Q",
+        "filed_date": "2013-08-05 00:00:00",
+        "revenue": 60748000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 60748000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 13000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income attributable to UnitedHealth Group common shareholders",
+            "value": 1655000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to noncontrolling interests",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 1703000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 1351000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_CostsAndExpenses",
+            "label": "Total operating costs",
+            "value": 56208000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 676000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Basic net earnings per common share attributable to UnitedHealth Group common shareholders",
+            "value": 2.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share attributable to UnitedHealth Group common shareholders",
+            "value": 2.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 4186000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax effect (included in Provision for Income Taxes on the Condensed Consolidated Statements of Operations)",
+            "value": 1510000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 354000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 398000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 2628000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less earnings attributable to noncontrolling interest",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 4540000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Total foreign currency translation losses",
+            "value": -586000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive (loss) income",
+            "value": -973000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": 106000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": 67000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesTax",
+            "label": "Income tax effect",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding (losses) gains on investment securities during the period",
+            "value": -501000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized (losses) gains, net of tax",
+            "value": -320000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax effect",
+            "value": -181000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 44742000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 54494000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net earnings",
+            "value": 2676000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 60748000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 1500000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 4356000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 9439000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 15000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1027000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1012000000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2013-03-31 00:00:00",
+        "accession_number": "0000731766-13-000014",
+        "form": "10-Q",
+        "filed_date": "2013-05-06 00:00:00",
+        "revenue": 30340000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues - external customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 30340000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1240000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 1240000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 1192000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 1240000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding (losses) gains on investment securities during the period",
+            "value": -48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax effect",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized (losses) gains, net of tax",
+            "value": -32000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": -57000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeTax",
+            "label": "Income tax effect",
+            "value": -21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Total foreign currency translation gains",
+            "value": 18000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive (loss) income:",
+            "value": -50000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 1190000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to noncontrolling interests",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 1142000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 27274000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 2112000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 751000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 203000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 30340000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 22569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 4614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 682000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 336000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 28201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 2139000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 178000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 1961000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 721000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less earnings attributable to noncontrolling interest",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 1192000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share attributable to UnitedHealth Group common shareholders",
+            "value": 1.17,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share attributable to UnitedHealth Group common shareholders",
+            "value": 1.16,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1016000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 13000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1029000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 16000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock, Dividends, Per Share, Declared",
+            "value": 0.2125,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000731766-12-000038",
+        "form": "10-Q",
+        "filed_date": "2012-10-30 00:00:00",
+        "revenue": 81849000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues - external customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 81849000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 4282000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income (Loss) Attributable to Parent",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 4282000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding gains on investment securities during the period",
+            "value": 277000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax expense",
+            "value": 100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized gains, net of tax",
+            "value": 177000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": -109000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeTax",
+            "label": "Income tax effect",
+            "value": -40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -69000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Net of Tax [Abstract]",
+            "value": 114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 4396000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 73880000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 5415000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 2059000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 495000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 81849000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 59423000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 12453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 1881000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 74696000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 7153000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 459000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 6694000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 2412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 4282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share",
+            "value": 4.16,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share",
+            "value": 4.08,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1030000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 19000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1049000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 19000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share",
+            "value": 0.5875,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000731766-12-000028",
+        "form": "10-Q",
+        "filed_date": "2012-08-07 00:00:00",
+        "revenue": 54547000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues - external customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 54547000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2725000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 2725000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding gains on investment securities during the period",
+            "value": 111000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax expense",
+            "value": 46000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Unrealized Holding Gain (Loss) on Securities Arising During Period, Net of Tax",
+            "value": 65000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": -89000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeTax",
+            "label": "Income tax effect",
+            "value": -33000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Gain (Loss) Arising During Period, Net of Tax",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Net of Tax",
+            "value": 8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 2733000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 49240000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 3591000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 1366000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 54547000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 39952000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 8176000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 1254000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 622000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 50004000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 4543000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 301000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 4242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 2725000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share",
+            "value": 2.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share",
+            "value": 2.59,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1034000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 20000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1054000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 17000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share",
+            "value": 0.375,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0000731766-12-000015",
+        "form": "10-Q",
+        "filed_date": "2012-05-03 00:00:00",
+        "revenue": 27282000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 27282000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1388000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 1388000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding gains (losses) on investment securities during the period",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax (expense) benefit",
+            "value": 11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized gains (losses), net of tax",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": -39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeTax",
+            "label": "Income tax benefit",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax [Abstract]",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 1385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums",
+            "value": 24631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services",
+            "value": 1791000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products",
+            "value": 688000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 27282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 19939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 4096000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 634000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 296000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 24965000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 2317000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 148000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 2169000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 781000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 1388000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share",
+            "value": 1.34,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share",
+            "value": 1.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1039000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 21000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1060000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 24000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share",
+            "value": 0.1625,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000731766-21-000021",
+        "form": "10-Q",
+        "filed_date": "2021-05-05 00:00:00",
+        "revenue": 70196000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 70196000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 4978000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 4978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 4862000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums",
+            "value": 55486000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 452000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 70196000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 44904000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 10223000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of products sold",
+            "value": 7572000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 758000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Total operating costs",
+            "value": 63457000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 6739000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 397000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 6342000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1364000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 4978000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 4862000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 5.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 5.08,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 945000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common share equivalents",
+            "value": 12000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 957000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common share equivalents",
+            "value": 3000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized losses on investment securities during the period",
+            "value": -764000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax effect",
+            "value": -174000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized losses, net of tax",
+            "value": -590000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesTax",
+            "label": "Income tax effect",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Total foreign currency translation losses",
+            "value": -417000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive loss:",
+            "value": -1012000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 3966000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 116000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 3850000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000731766-19-000013",
+        "form": "10-Q",
+        "filed_date": "2019-05-07 00:00:00",
+        "revenue": 60308000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues",
+            "value": 60308000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3557000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 3557000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 3467000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 3557000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized gains (losses) on investment securities during the period",
+            "value": 520000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax effect",
+            "value": 119000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized gains (losses), net of tax",
+            "value": 401000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesBeforeTax",
+            "label": "Gross reclassification adjustment for net realized losses (gains) included in net earnings",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesTax",
+            "label": "Income tax effect",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Total foreign currency translation losses",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": 402000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 3959000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income attributable to noncontrolling interests",
+            "value": 90000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 3869000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - unaffiliated customers",
+            "value": 47513000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unh:SalesRevenueProductsNet",
+            "label": "Products, revenues - unaffiliated customers",
+            "value": 8072000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unh:SalesRevenuesServicesNet",
+            "label": "Services, revenues - unaffiliated customers",
+            "value": 4318000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 405000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues",
+            "value": 60308000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 38939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 8517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsAndServicesSold",
+            "label": "Cost of products sold",
+            "value": 7381000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 639000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 55476000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 4832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 400000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 4432000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 875000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 90000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 3467000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 3.62,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted",
+            "value": 3.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 958000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common share equivalents",
+            "value": 17000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 975000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common share equivalents",
+            "value": 8000000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2013-03-31 00:00:00",
+        "accession_number": "0000731766-13-000014",
+        "form": "10-Q",
+        "filed_date": "2013-05-06 00:00:00",
+        "revenue": 30340000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues - external customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 30340000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1240000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 1240000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 1192000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net earnings",
+            "value": 1240000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding (losses) gains on investment securities during the period",
+            "value": -48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax effect",
+            "value": -16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized (losses) gains, net of tax",
+            "value": -32000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": -57000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeTax",
+            "label": "Income tax effect",
+            "value": -21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Total foreign currency translation gains",
+            "value": 18000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive (loss) income:",
+            "value": -50000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 1190000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "Less: comprehensive income attributable to noncontrolling interests",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 1142000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 27274000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 2112000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 751000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 203000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 30340000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 22569000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 4614000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 682000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 336000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 28201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 2139000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 178000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 1961000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 721000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less earnings attributable to noncontrolling interest",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings attributable to UnitedHealth Group common shareholders",
+            "value": 1192000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share attributable to UnitedHealth Group common shareholders",
+            "value": 1.17,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share attributable to UnitedHealth Group common shareholders",
+            "value": 1.16,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1016000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 13000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1029000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 16000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Common Stock, Dividends, Per Share, Declared",
+            "value": 0.2125,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0000731766-12-000038",
+        "form": "10-Q",
+        "filed_date": "2012-10-30 00:00:00",
+        "revenue": 81849000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues - external customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 81849000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 4282000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income (Loss) Attributable to Parent",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 4282000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding gains on investment securities during the period",
+            "value": 277000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax expense",
+            "value": 100000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized gains, net of tax",
+            "value": 177000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": -109000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeTax",
+            "label": "Income tax effect",
+            "value": -40000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -69000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Net of Tax [Abstract]",
+            "value": 114000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 4396000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 73880000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 5415000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 2059000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 495000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 81849000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 59423000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 12453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 1881000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 74696000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 7153000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 459000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 6694000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 2412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income (Loss) Attributable to Parent",
+            "value": 4282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share",
+            "value": 4.16,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share",
+            "value": 4.08,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1030000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 19000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1049000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 19000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share",
+            "value": 0.5875,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0000731766-12-000028",
+        "form": "10-Q",
+        "filed_date": "2012-08-07 00:00:00",
+        "revenue": 54547000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues - external customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 54547000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2725000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 2725000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding gains on investment securities during the period",
+            "value": 111000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax expense",
+            "value": 46000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Unrealized Holding Gain (Loss) on Securities Arising During Period, Net of Tax",
+            "value": 65000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": -89000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeTax",
+            "label": "Income tax effect",
+            "value": -33000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Foreign Currency Transaction and Translation Gain (Loss) Arising During Period, Net of Tax",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other Comprehensive Income (Loss), Net of Tax",
+            "value": 8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 2733000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 49240000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 3591000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 1366000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 54547000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 39952000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 8176000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 1254000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 622000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 50004000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 4543000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 301000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 4242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 1517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 2725000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share",
+            "value": 2.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share",
+            "value": 2.59,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1034000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 20000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1054000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 17000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share",
+            "value": 0.375,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0000731766-12-000015",
+        "form": "10-Q",
+        "filed_date": "2012-05-03 00:00:00",
+        "revenue": 27282000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Revenues:",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 27282000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1388000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 1388000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodBeforeTax",
+            "label": "Gross unrealized holding gains (losses) on investment securities during the period",
+            "value": 30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodTax",
+            "label": "Income tax (expense) benefit",
+            "value": 11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Total unrealized gains (losses), net of tax",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeBeforeTax",
+            "label": "Gross reclassification adjustment for net realized gains included in net earnings",
+            "value": -39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeTax",
+            "label": "Income tax benefit",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeReclassificationAdjustmentForSaleOfSecuritiesIncludedInNetIncomeNetOfTax",
+            "label": "Total reclassification adjustment, net of tax",
+            "value": -25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationGainLossArisingDuringPeriodNetOfTax",
+            "label": "Foreign currency translation adjustments",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "Other Comprehensive Income (Loss), Net of Tax [Abstract]",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive income",
+            "value": 1385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums",
+            "value": 24631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services",
+            "value": 1791000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products",
+            "value": 688000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Revenues:",
+            "value": 27282000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 19939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 4096000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 634000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 296000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 24965000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 2317000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 148000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 2169000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 781000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 1388000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share",
+            "value": 1.34,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share",
+            "value": 1.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1039000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 21000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1060000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 24000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Cash dividends declared per common share",
+            "value": 0.1625,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0000731766-11-000012",
+        "form": "10-Q",
+        "filed_date": "2011-11-04 00:00:00",
+        "revenue": 75946000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Total revenues - external customers",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 75946000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3884000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net earnings",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 3884000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "PremiumsEarnedNet",
+            "label": "Premiums, revenues - external customers",
+            "value": 68622000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueServicesNet",
+            "label": "Services, revenues - external customers",
+            "value": 4891000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SalesRevenueGoodsNet",
+            "label": "Products, revenues - external customers",
+            "value": 1921000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterestAndDividend",
+            "label": "Investment and other income",
+            "value": 512000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Total revenues - external customers",
+            "value": 75946000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PolicyholderBenefitsAndClaimsIncurredHealthCare",
+            "label": "Medical costs",
+            "value": 55711000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Operating costs",
+            "value": 11249000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfGoodsSold",
+            "label": "Cost of products sold",
+            "value": 1762000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 834000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostsAndExpenses",
+            "label": "Operating costs:",
+            "value": 69556000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Earnings from operations",
+            "value": 6390000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 366000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Earnings before income taxes",
+            "value": 6024000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Provision for income taxes",
+            "value": 2140000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net earnings",
+            "value": 3884000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic net earnings per common share",
+            "value": 3.62,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted net earnings per common share",
+            "value": 3.56,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic weighted-average number of common shares outstanding",
+            "value": 1074000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberDilutedSharesOutstandingAdjustment",
+            "label": "Dilutive effect of common stock equivalents",
+            "value": 17000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Diluted weighted-average number of common shares outstanding",
+            "value": 1091000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "AntidilutiveSecuritiesExcludedFromComputationOfEarningsPerShareAmount",
+            "label": "Anti-dilutive shares excluded from the calculation of dilutive effect of common stock equivalents",
+            "value": 49000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Cash dividend paid per share",
+            "value": 0.45,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

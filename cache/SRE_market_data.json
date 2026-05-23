@@ -1,0 +1,3516 @@
+{
+  "fetched_at": 1779555713.166661,
+  "data": {
+    "ticker": "SRE",
+    "price": 92.82,
+    "ttm_revenue": 20042000000.0,
+    "net_income_ttm": 9236000000.0,
+    "prior_ttm_revenue": 21795000000.0,
+    "prior_net_income_ttm": 4280000000.0,
+    "revenue_growth_pct": -8.043129158063778,
+    "net_income_growth_pct": 115.79439252336448,
+    "shares_outstanding": 653690000.0,
+    "revenue_quarter_dates_used": [
+      "2021-03-31 00:00:00",
+      "2020-09-30 00:00:00",
+      "2020-06-30 00:00:00",
+      "2020-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2019-06-30 00:00:00",
+      "2019-03-31 00:00:00",
+      "2018-06-30 00:00:00",
+      "2017-09-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2021-06-30 00:00:00",
+      "2021-03-31 00:00:00",
+      "2020-09-30 00:00:00",
+      "2020-06-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2020-03-31 00:00:00",
+      "2019-09-30 00:00:00",
+      "2019-06-30 00:00:00",
+      "2019-03-31 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0001032208-21-000016",
+        "form": "10-Q",
+        "filed_date": "2021-05-05 00:00:00",
+        "revenue": 3259000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 3259000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 928000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 928000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Utilities operating revenue",
+            "value": 2845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 414000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 3259000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 1001000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LitigationSettlementExpense",
+            "label": "Aliso Canyon litigation and regulatory matters",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 442000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 153000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 259000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 768000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax (expense) benefit",
+            "value": 158000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 318000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 928000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Earnings from discontinued operations attributable to Sempra Energy",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 928000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 33000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 874000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings from continuing operations",
+            "value": 2.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "(Losses) earnings from discontinued operations",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in dollars per share)",
+            "value": 2.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 300905000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings from continuing operations",
+            "value": 2.87,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "(Losses) earnings from discontinued operations",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS:",
+            "value": 2.87,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common share outstanding, diluted",
+            "value": 308458000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": 115000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-09-30 00:00:00",
+        "accession_number": "0001032208-20-000047",
+        "form": "10-Q",
+        "filed_date": "2020-11-05 00:00:00",
+        "revenue": 8199000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 8199000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3673000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 3673000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Utilities operating revenue",
+            "value": 7199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 1000000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 8199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 2893000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 1242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 397000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherAssetImpairmentCharges",
+            "label": "Impairment losses",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnDispositionOfAssets1",
+            "label": "(Loss) gain on sale of assets",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -163000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 76000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 818000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 1061000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 60000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 822000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 1823000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "(Losses) earnings from discontinued operations attributable to common shares",
+            "value": 1850000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 3673000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherPreferredStockDividendsAndAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 3350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings from continuing operations",
+            "value": 5.17,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "(Losses) earnings from discontinued operations",
+            "value": 6.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in usd per share)",
+            "value": 11.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 291771000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings from continuing operations",
+            "value": 5.15,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "(Losses) earnings from discontinued operations",
+            "value": 6.28,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS:",
+            "value": 11.43,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common share outstanding, diluted",
+            "value": 292935000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": 406000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-06-30 00:00:00",
+        "accession_number": "0001032208-20-000039",
+        "form": "10-Q",
+        "filed_date": "2020-08-05 00:00:00",
+        "revenue": 5555000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5555000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3252000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 3252000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 3252000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive (loss) income",
+            "value": 368000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Operating revenues",
+            "value": 4898000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 657000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 1849000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 824000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnDispositionOfAssets1",
+            "label": "Gain on sale of assets",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Income (Expense), Net",
+            "value": -192000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "INTEREST INCOME",
+            "value": 49000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense [Member]",
+            "value": 554000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 860000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit) from continuing operations",
+            "value": -39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 1395000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Less: Income from discontinued operations, net of income tax",
+            "value": 1857000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interest",
+            "value": 179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 73000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherPreferredStockDividendsAndAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares for basic EPS",
+            "value": 2999000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 3.93,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 6.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in usd per share)",
+            "value": 10.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding for basic EPS",
+            "value": 292925000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 3.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 6.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings from continuing operations attributable to common shares (in usd per share)",
+            "value": 9.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding for diluted EPS (in shares)",
+            "value": 307962000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-03-31 00:00:00",
+        "accession_number": "0001032208-20-000022",
+        "form": "10-Q",
+        "filed_date": "2020-05-04 00:00:00",
+        "revenue": 3029000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 3029000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 947000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+            "value": 947000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+            "value": 947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": -283000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Electric",
+            "value": 2665000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 364000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 3029000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 951000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 137000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (expense) income, net",
+            "value": -254000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 27000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense [Member]",
+            "value": 280000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 397000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax benefit (expense)",
+            "value": -207000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 263000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 867000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Less: (Income) loss from discontinued operations, net of income tax",
+            "value": 80000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 151000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Mandatory convertible preferred stock dividends",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 760000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 2.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic EPS:",
+            "value": 2.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 292790000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 2.3,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS:",
+            "value": 2.53,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common share outstanding, diluted",
+            "value": 313925000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2019-06-30 00:00:00",
+        "accession_number": "0001032208-19-000016",
+        "form": "10-Q",
+        "filed_date": "2019-08-02 00:00:00",
+        "revenue": 5128000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5128000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 953000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 953000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 953000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Net OCI",
+            "value": -48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Electric",
+            "value": 4410000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 718000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5128000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 1670000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 772000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherAssetImpairmentCharges",
+            "label": "Impairment losses",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnDispositionOfAssets1",
+            "label": "Gain on sale of assets",
+            "value": 66000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total",
+            "value": 110000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "INTEREST INCOME",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 518000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before income taxes and equity earnings (losses)",
+            "value": 787000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 89000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings (losses)",
+            "value": 219000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income (loss) from continuing operations, net of income tax",
+            "value": 917000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income from discontinued operations, net of income tax",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "(Earnings) losses attributable to noncontrolling interests",
+            "value": 86000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Mandatory convertible preferred stock dividends",
+            "value": 71000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsAndOtherAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings (losses) attributable to common shares",
+            "value": 795000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 2.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings (losses) attributable to common shares (in usd per share)",
+            "value": 2.89,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding for basic EPS",
+            "value": 274831000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 2.78,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (n usd per share)",
+            "value": 2.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding for diluted EPS (in shares)",
+            "value": 278424000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000086521-19-000035",
+        "form": "10-Q",
+        "filed_date": "2019-05-07 00:00:00",
+        "revenue": 2898000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 2898000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 518000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 518000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 518000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Net OCI",
+            "value": -11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Electric",
+            "value": 2515000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 2898000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 130000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 82000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 260000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings (losses) of unconsolidated entities",
+            "value": 501000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings (losses)",
+            "value": 101000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 560000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "(Loss) income from discontinued operations, net of income tax",
+            "value": -42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "(Earnings) losses attributable to noncontrolling interest",
+            "value": 41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Mandatory convertible preferred stock dividends",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 441000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings from continuing operations attributable to common shares (in usd per share)",
+            "value": 1.79,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "(Losses) earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": -0.19,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in usd per share)",
+            "value": 1.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding for basic EPS",
+            "value": 274674000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings from continuing operations attributable to common shares (in usd per share)",
+            "value": 1.78,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "(Losses) earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": -0.19,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings from continuing operations attributable to common shares (n usd per share)",
+            "value": 1.59,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding for diluted EPS (in shares)",
+            "value": 277228000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2018-06-30 00:00:00",
+        "accession_number": "0000086521-18-000059",
+        "form": "10-Q",
+        "filed_date": "2018-08-06 00:00:00",
+        "revenue": 5526000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5526000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": -172000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net (loss) income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net (loss) income",
+            "value": -172000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net (loss) income",
+            "value": -172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:TotalComprehensiveIncomeBeforePreferredStockDividendRequirements",
+            "label": "Comprehensive (loss) income",
+            "value": -131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:PreferredDividendsPaidbySubsidiaries",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Mandatory convertible preferred stock dividends",
+            "value": 53000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Electric",
+            "value": 4788000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 738000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5526000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 1564000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 778000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 221000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherAssetImpairmentCharges",
+            "label": "Impairment losses",
+            "value": 1300000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Other (expense) income, net",
+            "value": 99000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "INTEREST INCOME",
+            "value": 54000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "INTEREST EXPENSE",
+            "value": 453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "(Loss) income before income taxes and equity (losses) earnings of unconsolidated subsidiaries",
+            "value": -442000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income Tax Expense (Benefit)",
+            "value": -294000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity (losses) earnings",
+            "value": -24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DividendsPreferredStock",
+            "label": "Preferred dividend requirements",
+            "value": 53000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "(Earnings) losses attributable to noncontrolling interest",
+            "value": -12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "(Losses) earnings attributable to common shares",
+            "value": -214000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (losses) earnings per common share",
+            "value": -0.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average number of shares outstanding, basic",
+            "value": 261906000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted (losses) earnings per common share",
+            "value": -0.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average number of shares outstanding, diluted (thousands)",
+            "value": 261906000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per share of common stock (in dollars per share)",
+            "value": 1.79,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2017-09-30 00:00:00",
+        "accession_number": "0000086521-17-000081",
+        "form": "10-Q",
+        "filed_date": "2017-10-30 00:00:00",
+        "revenue": 8243000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 8243000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 802000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Income (loss) before income taxes/Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Income (loss) before income taxes/Net income (loss)",
+            "value": 802000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Earnings attributable to common shares",
+            "value": 757000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Income (loss) before income taxes/Net income (loss)",
+            "value": 802000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:TotalComprehensiveIncomeBeforePreferredStockDividendRequirements",
+            "label": "Comprehensive income",
+            "value": 888000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Utilities",
+            "value": 7172000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 1071000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 8243000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfDomesticRegulatedElectric",
+            "label": "Cost of electric fuel and purchased power",
+            "value": 1730000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CostOfNaturalGasPurchases",
+            "label": "Cost of natural gas",
+            "value": 903000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:CostOfNaturalGasElectricFuelAndPurchasedPower",
+            "label": "Cost of natural gas, electric fuel and purchased power",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:GasGatheringTransportationMarketingandProcessingCostsIncome",
+            "label": "Other cost of sales",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 2207000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 1106000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 325000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LossContingencyAccrualProvision",
+            "label": "Impairment of wildfire regulatory asset",
+            "value": 351000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherAssetImpairmentCharges",
+            "label": "Other impairment losses",
+            "value": 72000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnDispositionOfAssets1",
+            "label": "Gain on sale of assets",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity earnings, before income tax",
+            "value": 31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "BusinessCombinationStepAcquisitionEquityInterestInAcquireeRemeasurementGainOrLoss",
+            "label": "Remeasurement of equity method investment",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total",
+            "value": 301000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "INTEREST INCOME",
+            "value": 26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 493000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 1185000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax benefit (expense)",
+            "value": 378000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityMethodInvestmentsNetOfTax",
+            "label": "Equity earnings (losses), net of income tax",
+            "value": -5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "(Earnings) losses attributable to noncontrolling interest",
+            "value": 44000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:PreferredDividendsPaidbySubsidiaries",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Earnings attributable to common shares",
+            "value": 757000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings per common share (in dollars per share)",
+            "value": 3.01,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding for basic EPS (in shares)",
+            "value": 251425000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings per common share (in dollars per share)",
+            "value": 2.99,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding for diluted EPS (in shares)",
+            "value": 252987000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareDeclared",
+            "label": "Dividends declared per share of common stock (in dollars per share)",
+            "value": 2.47,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2021-06-30 00:00:00",
+        "accession_number": "0001032208-21-000032",
+        "form": "10-Q",
+        "filed_date": "2021-08-05 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 1383000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 721000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LitigationSettlementExpense",
+            "label": "Aliso Canyon litigation and regulatory matters",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 43000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations (in dollars per share)",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations (in dollars per share)",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income from discontinued operations, net of income tax",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income from discontinued operations, net of income tax",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income from discontinued operations, net of income tax",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings from continuing operations attributable to common shares (in dollars per share)",
+            "value": 4.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings from continuing operations attributable to common shares (in dollars per share)",
+            "value": 4.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 107000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 107000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 1049000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 1049000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherPreferredStockDividendsAndAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherPreferredStockDividendsAndAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 34000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 34000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings from continuing operations (in dollars per share)",
+            "value": 4.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings from continuing operations (in dollars per share)",
+            "value": 4.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax (expense) benefit",
+            "value": 297000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax (expense) benefit",
+            "value": 297000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax (expense) benefit",
+            "value": 297000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "Total revenues",
+            "value": 6000000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "Total revenues",
+            "value": 6000000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 291000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations (in dollars per share)",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations (in dollars per share)",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 517000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 304372000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 304372000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in dollars per share)",
+            "value": 4.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in dollars per share)",
+            "value": 4.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding, diluted (in shares)",
+            "value": 306284000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding, diluted (in shares)",
+            "value": 306284000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Utilities operating revenue",
+            "value": 5279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 1298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 1298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 1298000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 905000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 905000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 2025000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 631000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings from continuing operations (in dollars per share)",
+            "value": 4.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings from continuing operations (in dollars per share)",
+            "value": 4.27,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive (loss) income",
+            "value": 103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1383000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0001032208-21-000016",
+        "form": "10-Q",
+        "filed_date": "2021-05-05 00:00:00",
+        "revenue": 3259000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 3259000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 928000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 928000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Utilities operating revenue",
+            "value": 2845000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 414000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 3259000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 1001000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LitigationSettlementExpense",
+            "label": "Aliso Canyon litigation and regulatory matters",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 442000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 153000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": 35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 259000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 768000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax (expense) benefit",
+            "value": 158000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 318000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 928000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Earnings from discontinued operations attributable to Sempra Energy",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 928000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 33000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 874000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings from continuing operations",
+            "value": 2.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "(Losses) earnings from discontinued operations",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in dollars per share)",
+            "value": 2.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 300905000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings from continuing operations",
+            "value": 2.87,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "(Losses) earnings from discontinued operations",
+            "value": null,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS:",
+            "value": 2.87,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common share outstanding, diluted",
+            "value": 308458000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": 115000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-09-30 00:00:00",
+        "accession_number": "0001032208-20-000047",
+        "form": "10-Q",
+        "filed_date": "2020-11-05 00:00:00",
+        "revenue": 8199000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 8199000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3673000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 3673000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Utilities operating revenue",
+            "value": 7199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 1000000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 8199000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 2893000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 1242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 397000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherAssetImpairmentCharges",
+            "label": "Impairment losses",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnDispositionOfAssets1",
+            "label": "(Loss) gain on sale of assets",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other income (expense), net",
+            "value": -163000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 76000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 818000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 1061000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 60000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 822000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 1823000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "(Losses) earnings from discontinued operations attributable to common shares",
+            "value": 1850000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 3673000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 201000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 121000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherPreferredStockDividendsAndAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 3350000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings from continuing operations",
+            "value": 5.17,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "(Losses) earnings from discontinued operations",
+            "value": 6.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in usd per share)",
+            "value": 11.48,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 291771000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings from continuing operations",
+            "value": 5.15,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "(Losses) earnings from discontinued operations",
+            "value": 6.28,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS:",
+            "value": 11.43,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common share outstanding, diluted",
+            "value": 292935000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": 406000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-06-30 00:00:00",
+        "accession_number": "0001032208-20-000039",
+        "form": "10-Q",
+        "filed_date": "2020-08-05 00:00:00",
+        "revenue": 5555000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5555000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 3252000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 3252000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 3252000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive (loss) income",
+            "value": 368000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Operating revenues",
+            "value": 4898000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 657000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5555000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 1849000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 824000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 258000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnDispositionOfAssets1",
+            "label": "Gain on sale of assets",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other Income (Expense), Net",
+            "value": -192000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "INTEREST INCOME",
+            "value": 49000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense [Member]",
+            "value": 554000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 860000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit) from continuing operations",
+            "value": -39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 1395000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Less: Income from discontinued operations, net of income tax",
+            "value": 1857000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interest",
+            "value": 179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Preferred dividends",
+            "value": 73000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherPreferredStockDividendsAndAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares for basic EPS",
+            "value": 2999000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 3.93,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 6.31,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in usd per share)",
+            "value": 10.24,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding for basic EPS",
+            "value": 292925000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 3.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 6.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings from continuing operations attributable to common shares (in usd per share)",
+            "value": 9.91,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding for diluted EPS (in shares)",
+            "value": 307962000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2020-03-31 00:00:00",
+        "accession_number": "0001032208-20-000022",
+        "form": "10-Q",
+        "filed_date": "2020-05-04 00:00:00",
+        "revenue": 3029000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 3029000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 947000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+            "value": 947000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+            "value": 947000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": -283000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Electric",
+            "value": 2665000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 364000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 3029000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 951000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 412000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 137000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other (expense) income, net",
+            "value": -254000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 27000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense [Member]",
+            "value": 280000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings",
+            "value": 397000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax benefit (expense)",
+            "value": -207000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 263000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 867000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Less: (Income) loss from discontinued operations, net of income tax",
+            "value": 80000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interests",
+            "value": 151000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Mandatory convertible preferred stock dividends",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 760000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 2.35,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.25,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic EPS:",
+            "value": 2.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 292790000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 2.3,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted EPS:",
+            "value": 2.53,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common share outstanding, diluted",
+            "value": 313925000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-09-30 00:00:00",
+        "accession_number": "0001032208-19-000035",
+        "form": "10-Q",
+        "filed_date": "2019-11-01 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 1862000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1862000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 1862000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss):",
+            "value": -190000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Electric",
+            "value": 6808000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 1078000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "Total revenues",
+            "value": 7886000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 2515000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 1174000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 369000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherAssetImpairmentCharges",
+            "label": "Impairment losses",
+            "value": 43000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnDispositionOfAssets1",
+            "label": "(Loss) gain on sale of assets",
+            "value": 63000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total",
+            "value": 103000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 64000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest Expense [Member]",
+            "value": 797000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before income taxes and equity earnings",
+            "value": 1235000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit) from continuing operations",
+            "value": 150000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings",
+            "value": 485000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income from discontinued operations, net of income tax",
+            "value": 292000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Earnings attributable to noncontrolling interest",
+            "value": 146000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Mandatory convertible preferred stock dividends",
+            "value": 107000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsAndOtherAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 1608000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 4.86,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.97,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic earnings (losses) per common share:",
+            "value": 5.83,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding",
+            "value": 275684000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 4.79,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.95,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Diluted earnings (losses) per common share:",
+            "value": 5.74,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common share outstanding, diluted",
+            "value": 279809000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-06-30 00:00:00",
+        "accession_number": "0001032208-19-000016",
+        "form": "10-Q",
+        "filed_date": "2019-08-02 00:00:00",
+        "revenue": 5128000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5128000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 953000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 953000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 953000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Net OCI",
+            "value": -48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Electric",
+            "value": 4410000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 718000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 5128000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 1670000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 772000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherAssetImpairmentCharges",
+            "label": "Impairment losses",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnDispositionOfAssets1",
+            "label": "Gain on sale of assets",
+            "value": 66000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total",
+            "value": 110000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "INTEREST INCOME",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 518000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before income taxes and equity earnings (losses)",
+            "value": 787000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 89000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings (losses)",
+            "value": 219000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income (loss) from continuing operations, net of income tax",
+            "value": 917000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "Income from discontinued operations, net of income tax",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "(Earnings) losses attributable to noncontrolling interests",
+            "value": 86000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Mandatory convertible preferred stock dividends",
+            "value": 71000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsAndOtherAdjustments",
+            "label": "Preferred dividends of subsidiary",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings (losses) attributable to common shares",
+            "value": 795000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 2.82,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings (losses) attributable to common shares (in usd per share)",
+            "value": 2.89,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding for basic EPS",
+            "value": 274831000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (in usd per share)",
+            "value": 2.78,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "Earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": 0.07,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings (losses) from continuing operations attributable to common shares (n usd per share)",
+            "value": 2.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding for diluted EPS (in shares)",
+            "value": 278424000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0000086521-19-000035",
+        "form": "10-Q",
+        "filed_date": "2019-05-07 00:00:00",
+        "revenue": 2898000000.0,
+        "revenue_concept": "RegulatedAndUnregulatedOperatingRevenue",
+        "revenue_label": "REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 2898000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 518000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 518000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income",
+            "value": 518000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Net OCI",
+            "value": -11000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedOperatingRevenue",
+            "label": "Electric",
+            "value": 2515000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UnregulatedOperatingRevenue",
+            "label": "Energy-related businesses",
+            "value": 383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "REVENUES",
+            "value": 2898000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operation and maintenance",
+            "value": 832000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 383000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesOther",
+            "label": "Franchise fees and other taxes",
+            "value": 130000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Other income, net",
+            "value": 82000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InvestmentIncomeInterest",
+            "label": "Interest income",
+            "value": 21000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Interest expense",
+            "value": 260000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income from continuing operations before income taxes and equity earnings (losses) of unconsolidated entities",
+            "value": 501000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "sre:IncomeLossFromEquityInvestments",
+            "label": "Equity earnings (losses)",
+            "value": 101000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Income from continuing operations, net of income tax",
+            "value": 560000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromDiscontinuedOperationsNetOfTax",
+            "label": "(Loss) income from discontinued operations, net of income tax",
+            "value": -42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "(Earnings) losses attributable to noncontrolling interest",
+            "value": 41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PreferredStockDividendsIncomeStatementImpact",
+            "label": "Mandatory convertible preferred stock dividends",
+            "value": 36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
+            "label": "Earnings attributable to common shares",
+            "value": 441000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerBasicShare",
+            "label": "Earnings from continuing operations attributable to common shares (in usd per share)",
+            "value": 1.79,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerBasicShare",
+            "label": "(Losses) earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": -0.19,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings attributable to common shares (in usd per share)",
+            "value": 1.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted-average common shares outstanding for basic EPS",
+            "value": 274674000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsPerDilutedShare",
+            "label": "Earnings from continuing operations attributable to common shares (in usd per share)",
+            "value": 1.78,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DiscontinuedOperationIncomeLossFromDiscontinuedOperationNetOfTaxPerDilutedShare",
+            "label": "(Losses) earnings from discontinued operations attributable to common shares (in usd per share)",
+            "value": -0.19,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Earnings from continuing operations attributable to common shares (n usd per share)",
+            "value": 1.59,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted-average common shares outstanding for diluted EPS (in shares)",
+            "value": 277228000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

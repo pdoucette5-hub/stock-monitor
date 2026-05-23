@@ -1,0 +1,4402 @@
+{
+  "AAPL": {
+    "shares_outstanding": 14702700000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 105.5
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "ABT": {
+    "shares_outstanding": 1737680000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 16323084999.999998,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 50.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "ACN": {
+    "shares_outstanding": 615000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "notes": "Next batch added; fundamentals left blank for manual entry or preservation; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 155.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "ADBE": {
+    "shares_outstanding": 438000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 6400000000.0,
+    "latest_quarter_net_income": 1889000000.0,
+    "notes": "Next batch added; Q1 FY26 revenue and net income included, shares left blank; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 142.08
+    }
+  },
+  "AMAT": {
+    "shares_outstanding": 793610000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 6809500000.0,
+    "latest_quarter_net_income": 1013749999.9999999,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 0.0
+    }
+  },
+  "AMD": {
+    "shares_outstanding": 1630000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        55.0,
+        45.0,
+        35.0
+      ],
+      "net_income_growth_rates": [
+        80.0,
+        60.0,
+        40.0
+      ],
+      "durable_growth_view": 30.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        46.0,
+        38.0,
+        30.0
+      ],
+      "net_income_growth_rates": [
+        65.0,
+        50.0,
+        35.0
+      ],
+      "durable_growth_view": 25.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        35.0,
+        30.0,
+        25.0
+      ],
+      "net_income_growth_rates": [
+        50.0,
+        40.0,
+        30.0
+      ],
+      "durable_growth_view": 20.0,
+      "growth_weight_pct": 60.0
+    },
+    "latest_quarter_revenue": 10253000000.0,
+    "latest_quarter_net_income": 1383000000.0,
+    "notes": "Guidance-based starter assumptions; latest quarter values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 943.29
+    }
+  },
+  "AMT": {
+    "shares_outstanding": 466080000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 3320146500.0,
+    "latest_quarter_net_income": 334469250.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 10.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "AMZN": {
+    "shares_outstanding": 10735000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        20.0,
+        18.0,
+        16.0
+      ],
+      "net_income_growth_rates": [
+        30.0,
+        27.0,
+        24.0
+      ],
+      "durable_growth_view": 18.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        16.0,
+        15.0,
+        13.0
+      ],
+      "net_income_growth_rates": [
+        22.0,
+        20.0,
+        18.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        12.0,
+        11.0,
+        10.0
+      ],
+      "net_income_growth_rates": [
+        15.0,
+        14.0,
+        12.0
+      ],
+      "durable_growth_view": 8.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 181500000000.0,
+    "latest_quarter_net_income": 30300000000.0,
+    "notes": "Anthropic gain distortions toned down; latest quarter values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 660.94
+    }
+  },
+  "ANET": {
+    "shares_outstanding": 1256540000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 1162415750.0,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 0.0
+    }
+  },
+  "ASML": {
+    "shares_outstanding": 388150000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 0.0
+    }
+  },
+  "AVGO": {
+    "shares_outstanding": 4741270000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 9438500000.0,
+    "latest_quarter_net_income": 2416750000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 0.0
+    }
+  },
+  "BDX": {
+    "shares_outstanding": 284740000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 10210250000.0,
+    "latest_quarter_net_income": 669834750.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 20.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "BSX": {
+    "shares_outstanding": 1483890000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 2387250000.0,
+    "latest_quarter_net_income": 105500000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 135.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "CAKE": {
+    "shares_outstanding": 49860000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 785248500.0,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 0.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "CAT": {
+    "shares_outstanding": 465290000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 27109250000.0,
+    "latest_quarter_net_income": 2959250000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 0.0
+    }
+  },
+  "CB": {
+    "shares_outstanding": 390160000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 7463500000.0,
+    "latest_quarter_net_income": 1136250000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 12.5
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "CEG": {
+    "shares_outstanding": 361990000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 7026725000.0,
+    "latest_quarter_net_income": 193625000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 0.0
+    }
+  },
+  "CELH": {
+    "shares_outstanding": 239000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        38.0,
+        34.0,
+        30.0
+      ],
+      "net_income_growth_rates": [
+        42.0,
+        36.0,
+        30.0
+      ],
+      "durable_growth_view": 18.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        28.0,
+        25.0,
+        22.0
+      ],
+      "net_income_growth_rates": [
+        30.0,
+        25.0,
+        22.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        20.0,
+        18.0,
+        16.0
+      ],
+      "net_income_growth_rates": [
+        18.0,
+        16.0,
+        14.0
+      ],
+      "durable_growth_view": 8.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 783000000.0,
+    "latest_quarter_net_income": 85000000.0,
+    "notes": "No clean numeric guidance; Q1 values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 1554.54
+    }
+  },
+  "CL": {
+    "shares_outstanding": 801550000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 7337500000.0,
+    "latest_quarter_net_income": 1131500000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 30.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "CRWD": {
+    "shares_outstanding": 252100000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "CSCO": {
+    "shares_outstanding": 3984000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        9.0,
+        9.0,
+        9.0
+      ],
+      "durable_growth_view": 14.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "net_income_growth_rates": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "net_income_growth_rates": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "durable_growth_view": 6.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 15300000000.0,
+    "latest_quarter_net_income": 3200000000.0,
+    "notes": "Next batch added; FQ2-26 revenue and net income included, shares left blank; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 465.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "DE": {
+    "shares_outstanding": 270110000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 18170250000.0,
+    "latest_quarter_net_income": 1047700000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "ELF": {
+    "shares_outstanding": 60000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        18.0,
+        15.0,
+        12.0
+      ],
+      "net_income_growth_rates": [
+        18.0,
+        15.0,
+        12.0
+      ],
+      "durable_growth_view": 16.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        12.0,
+        10.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        10.0,
+        8.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        8.0,
+        7.0,
+        6.0
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        7.0,
+        6.0
+      ],
+      "durable_growth_view": 8.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 353700000.0,
+    "latest_quarter_net_income": 1000000.0,
+    "notes": "Next batch added; Q1 FY26 revenue included, net income and shares left blank; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 716.52
+    }
+  },
+  "ETN": {
+    "shares_outstanding": 387900000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 6327750000.0,
+    "latest_quarter_net_income": 641500000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "GE": {
+    "shares_outstanding": 1048810000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 30654500000.0,
+    "latest_quarter_net_income": 3519000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "GOOGL": {
+    "shares_outstanding": 12116000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        24.0,
+        20.0,
+        16.0
+      ],
+      "net_income_growth_rates": [
+        22.0,
+        18.0,
+        14.0
+      ],
+      "durable_growth_view": 18.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        18.0,
+        15.0,
+        12.0
+      ],
+      "net_income_growth_rates": [
+        15.0,
+        12.0,
+        10.0
+      ],
+      "durable_growth_view": 14.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        12.0,
+        10.0,
+        9.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        8.0,
+        7.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 109900000000.0,
+    "latest_quarter_net_income": 62600000000.0,
+    "notes": "Next batch added; Q1 2026 revenue and net income included, shares left blank; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 202.5
+    }
+  },
+  "HNST": {
+    "shares_outstanding": 112470000.0,
+    "bull": {
+      "rev_growth_rates": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "net_income_growth_rates": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "durable_growth_view": 6.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "net_income_growth_rates": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "net_income_growth_rates": [
+        2.0,
+        2.0,
+        2.0
+      ],
+      "durable_growth_view": 2.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 78000000.0,
+    "latest_quarter_net_income": 10000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 10866.75
+    }
+  },
+  "HON": {
+    "shares_outstanding": 635680000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 14194000000.0,
+    "latest_quarter_net_income": 1632250000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 52.5
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "ISRG": {
+    "shares_outstanding": 355130000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 1071575000.0,
+    "latest_quarter_net_income": 317900000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "JNJ": {
+    "shares_outstanding": 2409900000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": 5231000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 73.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "JPM": {
+    "shares_outstanding": 2697030000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 56021250000.0,
+    "latest_quarter_net_income": 10734250000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 219.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "KLAC": {
+    "shares_outstanding": 131080000.00000001,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 4742652500.0,
+    "latest_quarter_net_income": 765201500.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "LHX": {
+    "shares_outstanding": 186780000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 11927250000.0,
+    "latest_quarter_net_income": 203900000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 21.5
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "LLY": {
+    "shares_outstanding": 943360000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 11555100000.0,
+    "latest_quarter_net_income": 2601550000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 41.5
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "LMT": {
+    "shares_outstanding": 230080000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 14328750000.0,
+    "latest_quarter_net_income": 1504750000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 25.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "LOW": {
+    "shares_outstanding": 561000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        7.0,
+        6.0,
+        6.0
+      ],
+      "net_income_growth_rates": [
+        7.0,
+        6.0,
+        6.0
+      ],
+      "durable_growth_view": 14.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        4.0,
+        4.0,
+        5.0
+      ],
+      "net_income_growth_rates": [
+        4.0,
+        4.0,
+        5.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        2.0,
+        2.0,
+        3.0
+      ],
+      "net_income_growth_rates": [
+        2.0,
+        2.0,
+        3.0
+      ],
+      "durable_growth_view": 6.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "notes": "Next batch added; fundamentals left blank for manual entry or preservation; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 150.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "MCK": {
+    "shares_outstanding": 122490000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 218541750000.0,
+    "latest_quarter_net_income": 783000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "META": {
+    "shares_outstanding": 2616000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        35.0,
+        29.0,
+        24.0
+      ],
+      "net_income_growth_rates": [
+        32.0,
+        28.0,
+        24.0
+      ],
+      "durable_growth_view": 18.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        29.0,
+        24.0,
+        20.0
+      ],
+      "net_income_growth_rates": [
+        25.0,
+        22.0,
+        18.0
+      ],
+      "durable_growth_view": 14.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        22.0,
+        18.0,
+        15.0
+      ],
+      "net_income_growth_rates": [
+        18.0,
+        16.0,
+        14.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 48390000000.0,
+    "latest_quarter_net_income": 20838000000.0,
+    "notes": "Tax-benefit distortion toned down; latest quarter values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 124.25
+    }
+  },
+  "MRVL": {
+    "shares_outstanding": 871190000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 1366148500.0,
+    "latest_quarter_net_income": 122535750.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "MSFT": {
+    "shares_outstanding": 7434000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        18.0,
+        17.0,
+        16.0
+      ],
+      "net_income_growth_rates": [
+        28.0,
+        25.0,
+        22.0
+      ],
+      "durable_growth_view": 18.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        15.0,
+        14.0,
+        13.0
+      ],
+      "net_income_growth_rates": [
+        22.0,
+        20.0,
+        18.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        12.0,
+        11.0,
+        10.0
+      ],
+      "net_income_growth_rates": [
+        16.0,
+        15.0,
+        14.0
+      ],
+      "durable_growth_view": 8.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 82900000000.0,
+    "latest_quarter_net_income": 31800000000.0,
+    "notes": "Guidance-based starter assumptions; latest quarter values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 297.5
+    }
+  },
+  "MU": {
+    "shares_outstanding": 1110000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        60.0,
+        42.0,
+        30.0
+      ],
+      "net_income_growth_rates": [
+        75.0,
+        50.0,
+        35.0
+      ],
+      "durable_growth_view": 20.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        45.0,
+        32.0,
+        22.0
+      ],
+      "net_income_growth_rates": [
+        55.0,
+        38.0,
+        26.0
+      ],
+      "durable_growth_view": 14.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        35.0,
+        25.0,
+        18.0
+      ],
+      "net_income_growth_rates": [
+        40.0,
+        30.0,
+        22.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 23860000000.0,
+    "latest_quarter_net_income": 13790000000.0,
+    "notes": "Trough rebound toned down; latest quarter values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 63.45
+    }
+  },
+  "NEE": {
+    "shares_outstanding": 2083520000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 8538750000.0,
+    "latest_quarter_net_income": 420500000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 252.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "NKE": {
+    "shares_outstanding": 1480380000.0,
+    "bull": {
+      "rev_growth_rates": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "net_income_growth_rates": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "durable_growth_view": 5.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "net_income_growth_rates": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "durable_growth_view": 3.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "net_income_growth_rates": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "durable_growth_view": 0.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 26626250000.0,
+    "latest_quarter_net_income": 2598000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 1.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "NOW": {
+    "shares_outstanding": 1046000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 870212750.0,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "NVDA": {
+    "shares_outstanding": 24300000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        60.0,
+        45.0,
+        34.0
+      ],
+      "net_income_growth_rates": [
+        80.0,
+        55.0,
+        40.0
+      ],
+      "durable_growth_view": 24.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        50.0,
+        38.0,
+        28.0
+      ],
+      "net_income_growth_rates": [
+        65.0,
+        45.0,
+        32.0
+      ],
+      "durable_growth_view": 18.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        40.0,
+        30.0,
+        22.0
+      ],
+      "net_income_growth_rates": [
+        50.0,
+        35.0,
+        25.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 68099999999.99999,
+    "latest_quarter_net_income": 43000000000.0,
+    "notes": "Guidance-based starter assumptions; latest quarter values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 697.74
+    }
+  },
+  "ORCL": {
+    "shares_outstanding": 2873130000.0,
+    "bull": {
+      "rev_growth_rates": [
+        20.0,
+        20.0,
+        20.0
+      ],
+      "net_income_growth_rates": [
+        35.0,
+        35.0,
+        35.0
+      ],
+      "durable_growth_view": 30.0,
+      "growth_weight_pct": 50.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        18.0,
+        18.0,
+        18.0
+      ],
+      "net_income_growth_rates": [
+        30.0,
+        30.0,
+        30.0
+      ],
+      "durable_growth_view": 25.0,
+      "growth_weight_pct": 50.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "net_income_growth_rates": [
+        25.0,
+        25.0,
+        25.0
+      ],
+      "durable_growth_view": 20.0,
+      "growth_weight_pct": 50.0
+    },
+    "latest_quarter_revenue": 17200000000.0,
+    "latest_quarter_net_income": 3720000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 140.77
+    }
+  },
+  "PANW": {
+    "shares_outstanding": 770000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        20.0,
+        17.0,
+        14.0
+      ],
+      "net_income_growth_rates": [
+        25.0,
+        20.0,
+        16.0
+      ],
+      "durable_growth_view": 16.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        15.0,
+        13.0,
+        11.0
+      ],
+      "net_income_growth_rates": [
+        18.0,
+        15.0,
+        12.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        10.0,
+        9.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        10.0,
+        9.0
+      ],
+      "durable_growth_view": 8.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 2600000000.0,
+    "latest_quarter_net_income": NaN,
+    "notes": "Next batch added; FQ2-26 revenue included, net income and shares left blank; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 254.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "PEP": {
+    "shares_outstanding": 1366650000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 28371500000.0,
+    "latest_quarter_net_income": 2194250000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 30.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "PG": {
+    "shares_outstanding": 2324000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 50.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 50.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 50.0
+    },
+    "latest_quarter_revenue": 21000000000.0,
+    "latest_quarter_net_income": 3900000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 40.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "PH": {
+    "shares_outstanding": 126220000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 9236812250.0,
+    "latest_quarter_net_income": 878879500.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 20.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "PLTR": {
+    "shares_outstanding": 2369000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        85.0,
+        65.0,
+        50.0
+      ],
+      "net_income_growth_rates": [
+        110.0,
+        82.0,
+        60.0
+      ],
+      "durable_growth_view": 28.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        71.0,
+        55.0,
+        42.0
+      ],
+      "net_income_growth_rates": [
+        85.0,
+        65.0,
+        48.0
+      ],
+      "durable_growth_view": 22.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        55.0,
+        42.0,
+        32.0
+      ],
+      "net_income_growth_rates": [
+        65.0,
+        50.0,
+        38.0
+      ],
+      "durable_growth_view": 16.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 1633000000.0,
+    "latest_quarter_net_income": 871000000.0,
+    "notes": "Very strong guidance, but NI growth toned down; latest quarter values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 275.44
+    }
+  },
+  "PWR": {
+    "shares_outstanding": 149620000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 11938052750.0,
+    "latest_quarter_net_income": 85420500.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "PYPL": {
+    "shares_outstanding": 920660000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 255.6
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "RTX": {
+    "shares_outstanding": 1342290000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 33017250000.0,
+    "latest_quarter_net_income": 2382000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 83.5
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "SHOP": {
+    "shares_outstanding": 1304110000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 4613500000.0,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "SOFI": {
+    "shares_outstanding": 1116000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        38.0,
+        34.0,
+        30.0
+      ],
+      "net_income_growth_rates": [
+        42.0,
+        36.0,
+        30.0
+      ],
+      "durable_growth_view": 18.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        30.0,
+        27.0,
+        24.0
+      ],
+      "net_income_growth_rates": [
+        30.0,
+        26.0,
+        22.0
+      ],
+      "durable_growth_view": 14.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        24.0,
+        22.0,
+        20.0
+      ],
+      "net_income_growth_rates": [
+        20.0,
+        18.0,
+        16.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 1100000000.0,
+    "latest_quarter_net_income": 166700000.0,
+    "notes": "Management guidance-based starter assumptions; latest quarter values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 5343.352
+    }
+  },
+  "SOLS": {
+    "shares_outstanding": 158750000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 1970462.25,
+    "latest_quarter_net_income": -78001.25,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 13.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "SOUN": {
+    "shares_outstanding": 430000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        45.0,
+        38.0,
+        32.0
+      ],
+      "net_income_growth_rates": [
+        40.0,
+        32.0,
+        26.0
+      ],
+      "durable_growth_view": 24.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        35.0,
+        30.0,
+        26.0
+      ],
+      "net_income_growth_rates": [
+        30.0,
+        24.0,
+        20.0
+      ],
+      "durable_growth_view": 18.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        25.0,
+        22.0,
+        20.0
+      ],
+      "net_income_growth_rates": [
+        20.0,
+        18.0,
+        15.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 44200000.0,
+    "latest_quarter_net_income": -25000000.0,
+    "notes": "Next batch added; Q1 2026 revenue and GAAP net loss included, shares left blank; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 9317.99
+    }
+  },
+  "SRE": {
+    "shares_outstanding": 653280000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 50.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 50.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 50.0
+    },
+    "latest_quarter_revenue": 3660000000.0,
+    "latest_quarter_net_income": 1000000000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 30.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "T": {
+    "shares_outstanding": 7000580000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 408.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "TJX": {
+    "shares_outstanding": 1110470000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 13819461750.0,
+    "latest_quarter_net_income": 857446500.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 75.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "TSLA": {
+    "shares_outstanding": 3224000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        18.0,
+        18.0,
+        20.0
+      ],
+      "net_income_growth_rates": [
+        20.0,
+        25.0,
+        28.0
+      ],
+      "durable_growth_view": 15.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        12.0,
+        12.0,
+        14.0
+      ],
+      "net_income_growth_rates": [
+        5.0,
+        10.0,
+        15.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        10.0
+      ],
+      "net_income_growth_rates": [
+        -10.0,
+        0.0,
+        8.0
+      ],
+      "durable_growth_view": 5.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 23350000000.0,
+    "latest_quarter_net_income": 477000000.0,
+    "notes": "Qualitative guidance; Q1 values and shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 213.85
+    }
+  },
+  "TSM": {
+    "shares_outstanding": 25932520000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "TT": {
+    "shares_outstanding": 221330000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 6065825000.0,
+    "latest_quarter_net_income": 395800000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "UBER": {
+    "shares_outstanding": 2058120000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 21642750000.0,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "UNH": {
+    "shares_outstanding": 910000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        10.0,
+        9.0,
+        9.0
+      ],
+      "net_income_growth_rates": [
+        9.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 14.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        6.0,
+        6.0,
+        7.0
+      ],
+      "net_income_growth_rates": [
+        5.0,
+        5.0,
+        6.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "net_income_growth_rates": [
+        2.0,
+        2.0,
+        3.0
+      ],
+      "durable_growth_view": 6.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "notes": "Next batch added; fundamentals left blank for manual entry or preservation; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 1.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "UNP": {
+    "shares_outstanding": 593390000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 11492250000.0,
+    "latest_quarter_net_income": 1990750000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 10.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "URI": {
+    "shares_outstanding": 63000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 6692250000.0,
+    "latest_quarter_net_income": 414750000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "USB": {
+    "shares_outstanding": 1553700000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": 1734250000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 100.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "V": {
+    "shares_outstanding": 1920000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        18.0,
+        15.0,
+        12.0
+      ],
+      "net_income_growth_rates": [
+        20.0,
+        17.0,
+        14.0
+      ],
+      "durable_growth_view": 16.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        14.0,
+        12.0,
+        10.0
+      ],
+      "net_income_growth_rates": [
+        16.0,
+        14.0,
+        12.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        10.0,
+        9.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        10.0,
+        9.0
+      ],
+      "durable_growth_view": 8.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 11200000000.0,
+    "latest_quarter_net_income": 6000000000.0,
+    "notes": "Next batch added; FQ2-26 revenue and net income included, shares left blank; shares included",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 125.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "VRT": {
+    "shares_outstanding": 382600000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 475750000.0,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "VST": {
+    "shares_outstanding": 336950000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 4598000000.0,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": null
+    }
+  },
+  "WMT": {
+    "shares_outstanding": 7970170000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 249664250000.0,
+    "latest_quarter_net_income": 8702250000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 240.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "XOM": {
+    "shares_outstanding": 4166760000.0,
+    "bull": {
+      "rev_growth_rates": [
+        9.6,
+        9.6,
+        9.6
+      ],
+      "net_income_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "durable_growth_view": 10.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "net_income_growth_rates": [
+        10.0,
+        10.0,
+        10.0
+      ],
+      "durable_growth_view": 7.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        6.4,
+        6.4,
+        6.4
+      ],
+      "net_income_growth_rates": [
+        8.0,
+        8.0,
+        8.0
+      ],
+      "durable_growth_view": 4.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": 145708500000.0,
+    "latest_quarter_net_income": 13085500000.0,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 100.0
+    },
+    "display_rules": {
+      "show_in_holdings": false
+    }
+  },
+  "VENU": {
+    "shares_outstanding": 60040000.0,
+    "bull": {
+      "rev_growth_rates": [
+        NaN,
+        NaN,
+        NaN
+      ],
+      "net_income_growth_rates": [
+        NaN,
+        NaN,
+        NaN
+      ],
+      "durable_growth_view": 20.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        NaN,
+        NaN,
+        NaN
+      ],
+      "net_income_growth_rates": [
+        NaN,
+        NaN,
+        NaN
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        NaN,
+        NaN,
+        NaN
+      ],
+      "net_income_growth_rates": [
+        NaN,
+        NaN,
+        NaN
+      ],
+      "durable_growth_view": 5.0,
+      "growth_weight_pct": 35.0
+    },
+    "latest_quarter_revenue": NaN,
+    "latest_quarter_net_income": NaN,
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": true,
+      "eligible_redistribution_shares": 5914.704
+    }
+  }
+}

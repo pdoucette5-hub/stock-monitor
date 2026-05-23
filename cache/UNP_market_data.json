@@ -1,0 +1,2211 @@
+{
+  "fetched_at": 1779555870.522719,
+  "data": {
+    "ticker": "UNP",
+    "price": 265.9,
+    "ttm_revenue": 45969000000.0,
+    "net_income_ttm": 7963000000.0,
+    "prior_ttm_revenue": 42178000000.0,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": 8.988098060600302,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 593710000.0,
+    "revenue_quarter_dates_used": [
+      "2021-09-30 00:00:00",
+      "2021-06-30 00:00:00",
+      "2021-03-31 00:00:00",
+      "2020-09-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2020-06-30 00:00:00",
+      "2020-03-31 00:00:00",
+      "2019-09-30 00:00:00",
+      "2019-06-30 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2012-09-30 00:00:00",
+      "2012-06-30 00:00:00",
+      "2012-03-31 00:00:00",
+      "2011-09-30 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2011-06-30 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2021-09-30 00:00:00",
+        "accession_number": "0000100885-21-000353",
+        "form": "10-Q",
+        "filed_date": "2021-10-21 00:00:00",
+        "revenue": 16071000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 16071000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer excluding assessed tax",
+            "value": 14947000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 16071000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and related expense",
+            "value": 3088000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Depreciation",
+            "label": "Depreciation",
+            "value": 1652000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_PurchasedServicesAndMaterial",
+            "label": "Materials and contracted services to maintain infrastructure and equipment and terminal services at intermodal and automotive facilities.",
+            "value": 1478000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_FuelCosts",
+            "label": "Fuel costs",
+            "value": 1452000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_EquipmentAndOtherRents",
+            "label": "Rent paid for freight cars owned by other railroads or private companies, net of rents received, including lease expenses primarily for locomotives, railcars, containers and trailers, office and other rentals.",
+            "value": 629000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other cost and expense operating",
+            "value": 874000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 9173000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income loss",
+            "value": 6898000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other nonoperating income expense",
+            "value": 214000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 862000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before equity method investments, income taxes, extraordinary items, noncontrolling interest",
+            "value": 6250000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 1438000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 4812000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings per share - basic",
+            "value": 7.31,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings per share - diluted",
+            "value": 7.29,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average number of shares - basic",
+            "value": 658300000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average number of shares - diluted",
+            "value": 659900000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -73000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other comprehensive income (loss) foreign currency transaction and transaction adjustment, net of tax",
+            "value": -13000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 60000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss), net of tax,including portion attributable to noncontrolling interest",
+            "value": 4872000000.0,
+            "unit": "unit12"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-06-30 00:00:00",
+        "accession_number": "0000100885-21-000250",
+        "form": "10-Q",
+        "filed_date": "2021-07-22 00:00:00",
+        "revenue": 10505000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 10505000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer excluding assessed tax",
+            "value": 9781000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 10505000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and related expense",
+            "value": 2048000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Depreciation",
+            "label": "Depreciation",
+            "value": 1099000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_PurchasedServicesAndMaterial",
+            "label": "Materials and contracted services to maintain infrastructure and equipment and terminal services at intermodal and automotive facilities.",
+            "value": 968000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_FuelCosts",
+            "label": "Fuel costs",
+            "value": 908000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_EquipmentAndOtherRents",
+            "label": "Rent paid for freight cars owned by other railroads or private companies, net of rents received, including lease expenses primarily for locomotives, railcars, containers and trailers, office and other rentals.",
+            "value": 412000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other cost and expense operating",
+            "value": 604000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 6039000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income loss",
+            "value": 4466000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other nonoperating income expense",
+            "value": 176000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 572000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before equity method investments, income taxes, extraordinary items, noncontrolling interest",
+            "value": 4070000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 931000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 3139000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings per share - basic",
+            "value": 4.73,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings per share - diluted",
+            "value": 4.72,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average number of shares - basic",
+            "value": 663100000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average number of shares - diluted",
+            "value": 664700000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -49000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other comprehensive income (loss) foreign currency transaction and transaction adjustment, net of tax",
+            "value": -7000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 42000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss), net of tax,including portion attributable to noncontrolling interest",
+            "value": 3181000000.0,
+            "unit": "unit12"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000100885-21-000162",
+        "form": "10-Q",
+        "filed_date": "2021-04-22 00:00:00",
+        "revenue": 5001000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5001000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer excluding assessed tax",
+            "value": 4649000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5001000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and related expense",
+            "value": 1026000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Depreciation",
+            "label": "Depreciation",
+            "value": 549000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_PurchasedServicesAndMaterial",
+            "label": "Materials and contracted services to maintain infrastructure and equipment and terminal services at intermodal and automotive facilities.",
+            "value": 490000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_FuelCosts",
+            "label": "Fuel costs",
+            "value": 411000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_EquipmentAndOtherRents",
+            "label": "Rent paid for freight cars owned by other railroads or private companies, net of rents received, including lease expenses primarily for locomotives, railcars, containers and trailers, office and other rentals.",
+            "value": 212000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other cost and expense operating",
+            "value": 320000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 3008000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income loss",
+            "value": 1993000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other nonoperating income expense",
+            "value": 51000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 290000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before equity method investments, income taxes, extraordinary items, noncontrolling interest",
+            "value": 1754000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 413000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1341000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings per share - basic",
+            "value": 2.01,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings per share - diluted",
+            "value": 2.0,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average number of shares - basic",
+            "value": 667600000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average number of shares - diluted",
+            "value": 669200000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -25000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other comprehensive income (loss) foreign currency transaction and transaction adjustment, net of tax",
+            "value": -26000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": -1000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss), net of tax,including portion attributable to noncontrolling interest",
+            "value": 1340000000.0,
+            "unit": "unit12"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-09-30 00:00:00",
+        "accession_number": "0000100885-20-000304",
+        "form": "10-Q",
+        "filed_date": "2020-10-22 00:00:00",
+        "revenue": 14392000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 14392000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer excluding assessed tax",
+            "value": 13448000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 14392000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and related expense",
+            "value": 2972000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Depreciation",
+            "label": "Depreciation",
+            "value": 1653000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_PurchasedServicesAndMaterial",
+            "label": "Materials and contracted services to maintain infrastructure and equipment and terminal services at intermodal and automotive facilities.",
+            "value": 1470000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_FuelCosts",
+            "label": "Fuel costs",
+            "value": 982000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_EquipmentAndOtherRents",
+            "label": "Rent paid for freight cars owned by other railroads or private companies, net of rents received, including lease expenses primarily for locomotives, railcars, containers and trailers, office and other rentals.",
+            "value": 655000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other cost and expense operating",
+            "value": 832000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 8564000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income loss",
+            "value": 5828000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other nonoperating income expense",
+            "value": 221000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 862000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before equity method investments, income taxes, extraordinary items, noncontrolling interest",
+            "value": 5187000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 1218000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 3969000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings per share - basic",
+            "value": 5.85,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings per share - diluted",
+            "value": 5.83,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average number of shares - basic",
+            "value": 679000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average number of shares - diluted",
+            "value": 680700000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -58000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other comprehensive income (loss) foreign currency transaction and transaction adjustment, net of tax",
+            "value": -53000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 5000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss), net of tax,including portion attributable to noncontrolling interest",
+            "value": 3974000000.0,
+            "unit": "unit12"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2020-06-30 00:00:00",
+        "accession_number": "0000100885-20-000221",
+        "form": "10-Q",
+        "filed_date": "2020-07-23 00:00:00",
+        "revenue": 9473000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 9473000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer excluding assessed tax",
+            "value": 8852000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 9473000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and related expense",
+            "value": 1964000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Depreciation",
+            "label": "Depreciation",
+            "value": 1098000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_PurchasedServicesAndMaterial",
+            "label": "Materials and contracted services to maintain infrastructure and equipment and terminal services at intermodal and automotive facilities.",
+            "value": 962000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_FuelCosts",
+            "label": "Fuel costs",
+            "value": 681000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_EquipmentAndOtherRents",
+            "label": "Rent paid for freight cars owned by other railroads or private companies, net of rents received, including lease expenses primarily for locomotives, railcars, containers and trailers, office and other rentals.",
+            "value": 438000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other cost and expense operating",
+            "value": 533000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 5676000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income loss",
+            "value": 3797000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other nonoperating income expense",
+            "value": 184000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 567000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before equity method investments, income taxes, extraordinary items, noncontrolling interest",
+            "value": 3414000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 808000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 2606000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings per share - basic",
+            "value": 3.83,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings per share - diluted",
+            "value": 3.82,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average number of shares - basic",
+            "value": 681000000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average number of shares - diluted",
+            "value": 682700000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -40000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other comprehensive income (loss) foreign currency transaction and transaction adjustment, net of tax",
+            "value": -56000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": -16000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss), net of tax,including portion attributable to noncontrolling interest",
+            "value": 2590000000.0,
+            "unit": "unit12"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-03-31 00:00:00",
+        "accession_number": "0000100885-20-000143",
+        "form": "10-Q",
+        "filed_date": "2020-04-23 00:00:00",
+        "revenue": 5229000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5229000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer excluding assessed tax",
+            "value": 4880000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5229000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and related expense",
+            "value": 1059000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Depreciation",
+            "label": "Depreciation",
+            "value": 547000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_PurchasedServicesAndMaterial",
+            "label": "Materials and contracted services to maintain infrastructure and equipment and terminal services at intermodal and automotive facilities.",
+            "value": 521000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_FuelCosts",
+            "label": "Fuel costs",
+            "value": 434000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_EquipmentAndOtherRents",
+            "label": "Rent paid for freight cars owned by other railroads or private companies, net of rents received, including lease expenses primarily for locomotives, railcars, containers and trailers, office and other rentals.",
+            "value": 227000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other cost and expense operating",
+            "value": 298000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 3086000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income loss",
+            "value": 2143000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other nonoperating income expense",
+            "value": 53000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 278000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before equity method investments, income taxes, extraordinary items, noncontrolling interest",
+            "value": 1918000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 444000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 1474000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings per share - basic",
+            "value": 2.15,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings per share - diluted",
+            "value": 2.15,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average number of shares - basic",
+            "value": 684300000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average number of shares - diluted",
+            "value": 686200000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -22000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other comprehensive income (loss) foreign currency transaction and transaction adjustment, net of tax",
+            "value": 5000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 27000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss), net of tax,including portion attributable to noncontrolling interest",
+            "value": 1501000000.0,
+            "unit": "unit12"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-09-30 00:00:00",
+        "accession_number": "0000100885-19-000256",
+        "form": "10-Q",
+        "filed_date": "2019-10-17 00:00:00",
+        "revenue": 16496000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 16496000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer excluding assessed tax",
+            "value": 15392000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 16496000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and related expense",
+            "value": 3484000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_PurchasedServicesAndMaterial",
+            "label": "Materials and contracted services to maintain infrastructure and equipment and terminal services at intermodal and automotive facilities.",
+            "value": 1723000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Depreciation",
+            "label": "Depreciation",
+            "value": 1657000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_FuelCosts",
+            "label": "Fuel costs",
+            "value": 1595000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_EquipmentAndOtherRents",
+            "label": "Rent paid for freight cars owned by other railroads or private companies, net of rents received, including lease expenses primarily for locomotives, railcars, containers and trailers, office and other rentals.",
+            "value": 754000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other cost and expense operating",
+            "value": 829000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 10042000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income loss",
+            "value": 6454000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other nonoperating income expense",
+            "value": 187000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 772000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before equity method investments, income taxes, extraordinary items, noncontrolling interest",
+            "value": 5869000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 1353000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 4516000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings per share - basic",
+            "value": 6.39,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings per share - diluted",
+            "value": 6.36,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average number of shares - basic",
+            "value": 707200000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average number of shares - diluted",
+            "value": 709800000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -103000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other comprehensive income (loss) foreign currency transaction and transaction adjustment, net of tax",
+            "value": 7000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 110000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss), net of tax,including portion attributable to noncontrolling interest",
+            "value": 4626000000.0,
+            "unit": "unit12"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-06-30 00:00:00",
+        "accession_number": "0000100885-19-000196",
+        "form": "10-Q",
+        "filed_date": "2019-07-18 00:00:00",
+        "revenue": 10980000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "unit12",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 10980000000.0,
+            "unit": "unit12"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax",
+            "label": "Revenue from contract with customer excluding assessed tax",
+            "value": 10246000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 10980000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_LaborAndRelatedExpense",
+            "label": "Labor and related expense",
+            "value": 2350000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_PurchasedServicesAndMaterial",
+            "label": "Materials and contracted services to maintain infrastructure and equipment and terminal services at intermodal and automotive facilities.",
+            "value": 1149000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_Depreciation",
+            "label": "Depreciation",
+            "value": 1100000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_FuelCosts",
+            "label": "Fuel costs",
+            "value": 1091000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "unp_EquipmentAndOtherRents",
+            "label": "Rent paid for freight cars owned by other railroads or private companies, net of rents received, including lease expenses primarily for locomotives, railcars, containers and trailers, office and other rentals.",
+            "value": 518000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Other cost and expense operating",
+            "value": 552000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingExpenses",
+            "label": "Total operating expenses",
+            "value": 6760000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income loss",
+            "value": 4220000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncomeExpense",
+            "label": "Other nonoperating income expense",
+            "value": 134000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense",
+            "value": 506000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) from continuing operations before equity method investments, income taxes, extraordinary items, noncontrolling interest",
+            "value": 3848000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense (benefit)",
+            "value": 887000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 2961000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Earnings per share - basic",
+            "value": 4.16,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Earnings per share - diluted",
+            "value": 4.15,
+            "unit": "unit14"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average number of shares - basic",
+            "value": 711200000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average number of shares - diluted",
+            "value": 713800000.0,
+            "unit": "unit1"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "Defined benefit plans",
+            "value": -92000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Other comprehensive income (loss) foreign currency transaction and transaction adjustment, net of tax",
+            "value": 25000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss), net of tax",
+            "value": 117000000.0,
+            "unit": "unit12"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss), net of tax,including portion attributable to noncontrolling interest",
+            "value": 3078000000.0,
+            "unit": "unit12"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2012-09-30 00:00:00",
+        "accession_number": "0001193125-12-427139",
+        "form": "10-Q",
+        "filed_date": "2012-10-18 00:00:00",
+        "revenue": 15676000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 15676000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2907000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 2907000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CargoAndFreightRevenue",
+            "label": "",
+            "value": 14755000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "",
+            "value": 921000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 15676000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "",
+            "value": 3550000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FuelCosts",
+            "label": "",
+            "value": 2688000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:PurchasedServicesAndMaterial",
+            "label": "",
+            "value": 1610000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Depreciation",
+            "label": "",
+            "value": 1307000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:EquipmentAndOtherRents",
+            "label": "",
+            "value": 895000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 606000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "",
+            "value": 10656000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 5020000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 65000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 407000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 4678000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 1771000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 2907000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 6.13,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 6.08,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 474500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 477900000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 1.8,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "",
+            "value": -31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "",
+            "value": 8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 2946000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-06-30 00:00:00",
+        "accession_number": "0001193125-12-308749",
+        "form": "10-Q",
+        "filed_date": "2012-07-20 00:00:00",
+        "revenue": 10333000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 10333000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1865000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 1865000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CargoAndFreightRevenue",
+            "label": "",
+            "value": 9736000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "",
+            "value": 597000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 10333000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "",
+            "value": 2362000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FuelCosts",
+            "label": "",
+            "value": 1808000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:PurchasedServicesAndMaterial",
+            "label": "",
+            "value": 1068000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Depreciation",
+            "label": "",
+            "value": 860000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:EquipmentAndOtherRents",
+            "label": "",
+            "value": 595000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 406000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "",
+            "value": 7099000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 3234000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 270000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 3001000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 1136000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 1865000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 3.92,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 3.89,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 475800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 479300000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 1.2,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentNetOfTax",
+            "label": "",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "",
+            "value": 0.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 1858000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2012-03-31 00:00:00",
+        "accession_number": "0001193125-12-170664",
+        "form": "10-Q",
+        "filed_date": "2012-04-19 00:00:00",
+        "revenue": 5112000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 5112000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 863000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 863000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CargoAndFreightRevenue",
+            "label": "",
+            "value": 4823000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "",
+            "value": 289000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 5112000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "",
+            "value": 1211000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FuelCosts",
+            "label": "",
+            "value": 926000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:PurchasedServicesAndMaterial",
+            "label": "",
+            "value": 526000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Depreciation",
+            "label": "",
+            "value": 427000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:EquipmentAndOtherRents",
+            "label": "",
+            "value": 296000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 216000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "",
+            "value": 3602000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 1510000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 16000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 135000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 1391000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 528000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 863000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 1.81,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 1.79,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 477800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 481400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 0.6,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeDefinedBenefitPlansAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeForeignCurrencyTransactionAndTranslationAdjustmentNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPeriodIncreaseDecrease",
+            "label": "",
+            "value": 8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "",
+            "value": 871000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2011-09-30 00:00:00",
+        "accession_number": "0001193125-11-277040",
+        "form": "10-Q",
+        "filed_date": "2011-10-21 00:00:00",
+        "revenue": 14449000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 14449000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 2328000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 2328000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CargoAndFreightRevenue",
+            "label": "",
+            "value": 13679000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "",
+            "value": 770000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 14449000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "",
+            "value": 3526000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FuelCosts",
+            "label": "",
+            "value": 2646000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:PurchasedServicesAndMaterial",
+            "label": "",
+            "value": 1497000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Depreciation",
+            "label": "",
+            "value": 1204000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:EquipmentAndOtherRents",
+            "label": "",
+            "value": 878000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 591000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "",
+            "value": 10342000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 4107000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 58000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 431000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 3734000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 1406000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 2328000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 4.78,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 4.74,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 487400000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 491500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 1.33,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2011-06-30 00:00:00",
+        "accession_number": "0001193125-11-194677",
+        "form": "10-Q",
+        "filed_date": "2011-07-22 00:00:00",
+        "revenue": 9348000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 9348000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1424000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 1424000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "CargoAndFreightRevenue",
+            "label": "",
+            "value": 8843000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherSalesRevenueNet",
+            "label": "",
+            "value": 505000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "",
+            "value": 9348000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "LaborAndRelatedExpense",
+            "label": "",
+            "value": 2333000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "FuelCosts",
+            "label": "",
+            "value": 1730000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:PurchasedServicesAndMaterial",
+            "label": "",
+            "value": 991000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Depreciation",
+            "label": "",
+            "value": 796000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "unp:EquipmentAndOtherRents",
+            "label": "",
+            "value": 585000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "",
+            "value": 384000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "",
+            "value": 6819000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "",
+            "value": 2529000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "",
+            "value": 41000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "",
+            "value": 289000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "",
+            "value": 2281000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "",
+            "value": 857000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "",
+            "value": 1424000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "",
+            "value": 2.91,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "",
+            "value": 2.89,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "",
+            "value": 489000000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "",
+            "value": 493300000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "",
+            "value": 0.855,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

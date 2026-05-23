@@ -1,0 +1,2973 @@
+{
+  "fetched_at": 1779555703.744249,
+  "data": {
+    "ticker": "NEE",
+    "price": 88.57,
+    "ttm_revenue": 34155000000.0,
+    "net_income_ttm": 1682000000.0,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": 5801000000.0,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": -71.00499913807965,
+    "shares_outstanding": 2085610000.0000002,
+    "revenue_quarter_dates_used": [
+      "2011-03-31 00:00:00",
+      "2010-09-30 00:00:00",
+      "2010-09-30 00:00:00",
+      "2010-06-30 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [
+      "2010-06-30 00:00:00",
+      "2010-03-31 00:00:00"
+    ],
+    "ni_quarter_dates_used": [
+      "2022-03-31 00:00:00",
+      "2022-03-31 00:00:00",
+      "2021-06-30 00:00:00",
+      "2021-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [
+      "2021-03-31 00:00:00",
+      "2020-09-30 00:00:00",
+      "2020-06-30 00:00:00",
+      "2020-03-31 00:00:00"
+    ],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2011-03-31 00:00:00",
+        "accession_number": "0000753308-11-000034",
+        "form": "10-Q",
+        "filed_date": "2011-05-04 00:00:00",
+        "revenue": 3134000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "OPERATING REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 3134000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 268000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "NET INCOME",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NET INCOME",
+            "value": 268000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 3134000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "OPERATING EXPENSES",
+            "value": 2706000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 428000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of equity method investees",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnSalesOfAssets",
+            "label": "Gains on disposal of assets - net",
+            "value": 17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 236000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income taxes",
+            "value": -32000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NET INCOME",
+            "value": 268000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 0.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 0.64,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividends per share of common stock (in dollars per share)",
+            "value": 0.55,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 415800000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Assuming dilution (in shares)",
+            "value": 418400000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-09-30 00:00:00",
+        "accession_number": "0000753308-10-000116",
+        "form": "10-Q",
+        "filed_date": "2010-11-03 00:00:00",
+        "revenue": 11904000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "OPERATING REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 11904000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1694000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income Loss Consolidated Profit",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss Consolidated Profit",
+            "value": 1694000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 4.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 4.11,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 11904000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "OPERATING EXPENSES",
+            "value": 9131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 1330000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2773000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of equity method investees",
+            "value": 56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnSalesOfAssets",
+            "label": "Gains on disposal of assets - net",
+            "value": 61000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": -10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income taxes",
+            "value": 532000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividends per share of common stock (in dollars per share)",
+            "value": 1.5,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 409100000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Assuming dilution (in shares)",
+            "value": 411600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
+            "label": "Income (loss) before income taxes",
+            "value": 2226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss Consolidated Profit",
+            "value": 1694000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-09-30 00:00:00",
+        "accession_number": "0000753308-10-000116",
+        "form": "10-Q",
+        "filed_date": "2010-11-03 00:00:00",
+        "revenue": 11904000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "OPERATING REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 11904000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 1694000000.0,
+        "net_income_concept": "NetIncomeLoss",
+        "net_income_label": "Net Income Loss Consolidated Profit",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss Consolidated Profit",
+            "value": 1694000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 4.14,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 4.11,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 11904000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "OPERATING EXPENSES",
+            "value": 9131000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 1330000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 2773000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of equity method investees",
+            "value": 56000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnSalesOfAssets",
+            "label": "Gains on disposal of assets - net",
+            "value": 61000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": -10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income taxes",
+            "value": 532000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividends per share of common stock (in dollars per share)",
+            "value": 1.5,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic (in shares)",
+            "value": 409100000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Assuming dilution (in shares)",
+            "value": 411600000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
+            "label": "Income (loss) before income taxes",
+            "value": 2226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net Income Loss Consolidated Profit",
+            "value": 1694000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-06-30 00:00:00",
+        "accession_number": "0000753308-10-000096",
+        "form": "10-Q",
+        "filed_date": "2010-08-06 00:00:00",
+        "revenue": 7213000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "OPERATING REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 7213000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 2.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution",
+            "value": 2.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 7213000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "OPERATING EXPENSES",
+            "value": 5565000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 800000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 1648000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of equity method investees",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnSalesOfAssets",
+            "label": "Gains on disposal of assets - net",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": -17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income taxes",
+            "value": 291000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividends per share of common stock",
+            "value": 1.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 408200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Assuming dilution",
+            "value": 410700000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [
+      {
+        "end_date": "2010-06-30 00:00:00",
+        "accession_number": "0000753308-10-000096",
+        "form": "10-Q",
+        "filed_date": "2010-08-06 00:00:00",
+        "revenue": 7213000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "OPERATING REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 7213000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 2.38,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution",
+            "value": 2.37,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 7213000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "OPERATING EXPENSES",
+            "value": 5565000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 800000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 1648000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of equity method investees",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnSalesOfAssets",
+            "label": "Gains on disposal of assets - net",
+            "value": 48000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": -17000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income taxes",
+            "value": 291000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividends per share of common stock",
+            "value": 1.0,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 408200000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Assuming dilution",
+            "value": 410700000.0,
+            "unit": "shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2010-03-31 00:00:00",
+        "accession_number": "0000753308-10-000051",
+        "form": "10-Q",
+        "filed_date": "2010-05-03 00:00:00",
+        "revenue": 3622000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "OPERATING REVENUES",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 3622000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "Revenues",
+            "label": "OPERATING REVENUES",
+            "value": 3622000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "OPERATING EXPENSES",
+            "value": 2683000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 414000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 939000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of equity method investees",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainsLossesOnSalesOfAssets",
+            "label": "Gains on disposal of assets - net",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Deferred income taxes",
+            "value": 214000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "CommonStockDividendsPerShareCashPaid",
+            "label": "Dividends per share of common stock",
+            "value": 0.5,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic",
+            "value": 1.36,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution",
+            "value": 1.36,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Basic",
+            "value": 407500000.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Assuming dilution",
+            "value": 410100000.0,
+            "unit": "shares"
+          }
+        ]
+      }
+    ],
+    "ni_quarters_used": [
+      {
+        "end_date": "2022-03-31 00:00:00",
+        "accession_number": "0000753308-22-000033",
+        "form": "10-Q",
+        "filed_date": "2022-04-22 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": -693000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "NET INCOME (LOSS)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "INCOME TAX EXPENSE (BENEFIT)",
+            "value": -359000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmountRecognizedInNetPeriodicBenefitCostAndOtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other net periodic benefit income",
+            "value": -70000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total other income (deductions) u2013 net",
+            "value": -277000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DepreciationAndAmortizationExcludingNuclearFuel",
+            "label": "Depreciation and amortization",
+            "value": 885000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "GAINS ON DISPOSAL OF BUSINESSES/ASSETS u2013 NET",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "GAINS ON DISPOSAL OF BUSINESSES/ASSETS u2013 NET",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other u2013 net",
+            "value": 45000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses u2013 net",
+            "value": 3688000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses u2013 net",
+            "value": 3688000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 2890000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 2890000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PublicUtilitiesAllowanceForFundsUsedDuringConstructionCapitalizedCostOfEquity",
+            "label": "Allowance for equity funds used during construction",
+            "value": 37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherThanTemporaryImpairmentGainLossOnSecuritiesHeldInNuclearDecommissioningFunds",
+            "label": "Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds u2013 net",
+            "value": -136000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": -0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": -0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "nee:FuelPurchasedPowerAndInterchangeExpense",
+            "label": "Fuel, purchased power and interchange",
+            "value": 1366000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings (losses) of equity method investees",
+            "value": -453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings (losses) of equity method investees",
+            "value": -453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": -0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": -0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gains on disposal of investments and other property u2013 net",
+            "value": 18000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME (LOSS)",
+            "value": -775000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UtilitiesOperatingExpenseMaintenanceAndOperations",
+            "label": "Other operations and maintenance",
+            "value": 959000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME (LOSS) BEFORE INCOME TAXES",
+            "value": -1052000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "Taxes other than income taxes and other u2013 net",
+            "value": 478000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestExpenseAggregateExpenses",
+            "label": "Interest expense",
+            "value": -142000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNonredeemableNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNonredeemableNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized gains (losses) on securities still held",
+            "value": -30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges from accumulated other comprehensive income (loss) to net income (loss)",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive loss, net of tax",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income (loss)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -236000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net unrealized gains (losses) on foreign currency translation",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income (loss)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO NEE",
+            "value": -471000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:ComprehensiveIncomeLossNetofTaxandDeconsolidationIncludingPortionAttributabletoNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME (LOSS)",
+            "value": -707000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2022-03-31 00:00:00",
+        "accession_number": "0000753308-22-000033",
+        "form": "10-Q",
+        "filed_date": "2022-04-22 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": -693000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "NET INCOME (LOSS)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "INCOME TAX EXPENSE (BENEFIT)",
+            "value": -359000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmountRecognizedInNetPeriodicBenefitCostAndOtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other net periodic benefit income",
+            "value": -70000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total other income (deductions) u2013 net",
+            "value": -277000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DepreciationAndAmortizationExcludingNuclearFuel",
+            "label": "Depreciation and amortization",
+            "value": 885000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "GAINS ON DISPOSAL OF BUSINESSES/ASSETS u2013 NET",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "GAINS ON DISPOSAL OF BUSINESSES/ASSETS u2013 NET",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other u2013 net",
+            "value": 45000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses u2013 net",
+            "value": 3688000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses u2013 net",
+            "value": 3688000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 2890000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 2890000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PublicUtilitiesAllowanceForFundsUsedDuringConstructionCapitalizedCostOfEquity",
+            "label": "Allowance for equity funds used during construction",
+            "value": 37000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherThanTemporaryImpairmentGainLossOnSecuritiesHeldInNuclearDecommissioningFunds",
+            "label": "Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds u2013 net",
+            "value": -136000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": -0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": -0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "nee:FuelPurchasedPowerAndInterchangeExpense",
+            "label": "Fuel, purchased power and interchange",
+            "value": 1366000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings (losses) of equity method investees",
+            "value": -453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings (losses) of equity method investees",
+            "value": -453000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": -0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": -0.23,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gains on disposal of investments and other property u2013 net",
+            "value": 18000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME (LOSS)",
+            "value": -775000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UtilitiesOperatingExpenseMaintenanceAndOperations",
+            "label": "Other operations and maintenance",
+            "value": 959000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME (LOSS) BEFORE INCOME TAXES",
+            "value": -1052000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "Taxes other than income taxes and other u2013 net",
+            "value": 478000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestExpenseAggregateExpenses",
+            "label": "Interest expense",
+            "value": -142000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNonredeemableNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNonredeemableNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -242000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": -451000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized gains (losses) on securities still held",
+            "value": -30000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossCashFlowHedgeGainLossReclassificationAfterTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges from accumulated other comprehensive income (loss) to net income (loss)",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive loss, net of tax",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income (loss)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -236000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net unrealized gains (losses) on foreign currency translation",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income (loss)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME (LOSS) ATTRIBUTABLE TO NEE",
+            "value": -471000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME (LOSS)",
+            "value": -693000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:ComprehensiveIncomeLossNetofTaxandDeconsolidationIncludingPortionAttributabletoNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME (LOSS)",
+            "value": -707000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-06-30 00:00:00",
+        "accession_number": "0000753308-21-000148",
+        "form": "10-Q",
+        "filed_date": "2021-07-26 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 1570000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "NET INCOME",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 1922000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 1922000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 1922000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "nee:FuelPurchasedPowerAndInterchangeExpense",
+            "label": "Fuel, purchased power and interchange",
+            "value": 2009000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DepreciationAndAmortizationExcludingNuclearFuel",
+            "label": "Depreciation and amortization",
+            "value": 1730000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "Taxes other than income taxes and other u2013 net",
+            "value": 888000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses u2013 net",
+            "value": 6481000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses u2013 net",
+            "value": 6481000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings (losses) of equity method investees",
+            "value": 356000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings (losses) of equity method investees",
+            "value": 356000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PublicUtilitiesAllowanceForFundsUsedDuringConstructionCapitalizedCostOfEquity",
+            "label": "Allowance for equity funds used during construction",
+            "value": 63000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gains on disposal of investments and other property u2013 net",
+            "value": 52000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestIncome",
+            "label": "Interest income",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestExpenseAggregateExpenses",
+            "label": "Interest expense",
+            "value": 336000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "Total other income (deductions) u2013 net",
+            "value": 502000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 0.98,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 0.98,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 1179000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME (LOSS) BEFORE INCOME TAXES",
+            "value": 1681000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmountRecognizedInNetPeriodicBenefitCostAndOtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other net periodic benefit income",
+            "value": -128000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UtilitiesOperatingExpenseMaintenanceAndOperations",
+            "label": "Other operations and maintenance",
+            "value": 1854000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "INCOME TAX EXPENSE (BENEFIT)",
+            "value": 111000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 0.98,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 0.98,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "GAINS (LOSSES) ON DISPOSAL OF BUSINESSES/ASSETS u2013 NET",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 7653000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 7653000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -352000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherThanTemporaryImpairmentLossesOnSecuritiesHeldInNuclearDecommissioningFunds",
+            "label": "Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds u2013 net",
+            "value": 162000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 1922000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 1922000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 1922000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other u2013 net",
+            "value": 52000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -347000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges from accumulated other comprehensive income (loss) to net income",
+            "value": -4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "COMPREHENSIVE INCOME ATTRIBUTABLE TO NEE",
+            "value": 1929000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net unrealized gains (losses) on foreign currency translation",
+            "value": 15000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss), net of tax",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DisposalGroupNotDiscontinuedOperationImpactonDisposal",
+            "label": "IMPACT OF DISPOSAL OF A BUSINESS (NET OF $19 TAX BENEFIT)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1570000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:ComprehensiveIncomeLossNetofTaxandDeconsolidationIncludingPortionAttributabletoNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 1582000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized gains (losses) on securities still held",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 2000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000753308-21-000108",
+        "form": "10-Q",
+        "filed_date": "2021-04-23 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 1498000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "NET INCOME",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1498000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Numerator - net income attributable to NEE(a)",
+            "value": 1666000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 3726000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:FuelPurchasedPowerAndInterchangeExpense",
+            "label": "Fuel, purchased power and interchange",
+            "value": 906000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UtilitiesOperatingExpenseMaintenanceAndOperations",
+            "label": "Other operations and maintenance",
+            "value": 989000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DepreciationAndAmortizationExcludingNuclearFuel",
+            "label": "Depreciation and amortization",
+            "value": 749000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "Taxes other than income taxes and other u2013 net",
+            "value": 427000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses - net",
+            "value": 3071000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "GAINS ON DISPOSAL OF BUSINESSES/ASSETS - NET",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 669000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestExpenseAggregateExpenses",
+            "label": "Interest expense",
+            "value": -421000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings (losses) of equity method investees",
+            "value": 440000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PublicUtilitiesAllowanceForFundsUsedDuringConstructionCapitalizedCostOfEquity",
+            "label": "Allowance for equity funds used during construction",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestIncome",
+            "label": "Interest income",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gains on disposal of investments and other property u2013 net",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherThanTemporaryImpairmentLossesOnSecuritiesHeldInNuclearDecommissioningFunds",
+            "label": "Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds u2013 net",
+            "value": 58000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmountRecognizedInNetPeriodicBenefitCostAndOtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other net periodic benefit income",
+            "value": -64000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other u2013 net",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "OTHER INCOME (DEDUCTIONS)",
+            "value": 1079000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 1748000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "INCOME TAX EXPENSE (BENEFIT)",
+            "value": 250000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1498000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -168000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Numerator - net income attributable to NEE(a)",
+            "value": 1666000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per share of common stock:",
+            "value": 0.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 0.84,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges from accumulated other comprehensive income (loss) to net income",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized gains (losses) on securities still held",
+            "value": -8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net unrealized gains (losses) on foreign currency translation",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS), NET OF TAX",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DisposalGroupNotDiscontinuedOperationImpactonDisposal",
+            "label": "IMPACT OF DISPOSAL OF A BUSINESS (NET OF $19 TAX BENEFIT)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:ComprehensiveIncomeLossNetofTaxandDeconsolidationIncludingPortionAttributabletoNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 1496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -166000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent [Abstract]",
+            "value": 1662000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [
+      {
+        "end_date": "2021-03-31 00:00:00",
+        "accession_number": "0000753308-21-000108",
+        "form": "10-Q",
+        "filed_date": "2021-04-23 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 1498000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "NET INCOME",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1498000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Numerator - net income attributable to NEE(a)",
+            "value": 1666000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 3726000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:FuelPurchasedPowerAndInterchangeExpense",
+            "label": "Fuel, purchased power and interchange",
+            "value": 906000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UtilitiesOperatingExpenseMaintenanceAndOperations",
+            "label": "Other operations and maintenance",
+            "value": 989000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DepreciationAndAmortizationExcludingNuclearFuel",
+            "label": "Depreciation and amortization",
+            "value": 749000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "Taxes other than income taxes and other u2013 net",
+            "value": 427000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Total operating expenses - net",
+            "value": 3071000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "GAINS ON DISPOSAL OF BUSINESSES/ASSETS - NET",
+            "value": -14000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 669000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestExpenseAggregateExpenses",
+            "label": "Interest expense",
+            "value": -421000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings (losses) of equity method investees",
+            "value": 440000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PublicUtilitiesAllowanceForFundsUsedDuringConstructionCapitalizedCostOfEquity",
+            "label": "Allowance for equity funds used during construction",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestIncome",
+            "label": "Interest income",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gains on disposal of investments and other property u2013 net",
+            "value": 29000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherThanTemporaryImpairmentLossesOnSecuritiesHeldInNuclearDecommissioningFunds",
+            "label": "Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds u2013 net",
+            "value": 58000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmountRecognizedInNetPeriodicBenefitCostAndOtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other net periodic benefit income",
+            "value": -64000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other u2013 net",
+            "value": 19000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "OTHER INCOME (DEDUCTIONS)",
+            "value": 1079000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 1748000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "INCOME TAX EXPENSE (BENEFIT)",
+            "value": 250000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ProfitLoss",
+            "label": "NET INCOME",
+            "value": 1498000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -168000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Numerator - net income attributable to NEE(a)",
+            "value": 1666000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per share of common stock:",
+            "value": 0.85,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 0.84,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges from accumulated other comprehensive income (loss) to net income",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized gains (losses) on securities still held",
+            "value": -8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net unrealized gains (losses) on foreign currency translation",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "OTHER COMPREHENSIVE INCOME (LOSS), NET OF TAX",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DisposalGroupNotDiscontinuedOperationImpactonDisposal",
+            "label": "IMPACT OF DISPOSAL OF A BUSINESS (NET OF $19 TAX BENEFIT)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:ComprehensiveIncomeLossNetofTaxandDeconsolidationIncludingPortionAttributabletoNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 1496000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -166000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent [Abstract]",
+            "value": 1662000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-09-30 00:00:00",
+        "accession_number": "0000753308-20-000186",
+        "form": "10-Q",
+        "filed_date": "2020-10-23 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 2559000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net Income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income",
+            "value": 2559000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": 2924000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income",
+            "value": 2559000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges from accumulated other comprehensive income (loss) to net income",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized gains (losses) on securities still held",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeReclassificationAdjustmentsNetOfTax",
+            "label": "Net unrealized gain (loss) and unrecognized prior service benefit (cost)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net unrealized gains (losses) on foreign currency translation",
+            "value": -10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherComprehensiveIncomeLossRelatedToEquityMethodInvesteeNetOfTax",
+            "label": "Other comprehensive income (loss) related to equity method investees",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DisposalGroupNotDiscontinuedOperationImpactonDisposal",
+            "label": "Tax benefit of disposal of a business",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:ComprehensiveIncomeLossNetofTaxandDeconsolidationIncludingPortionAttributabletoNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 2575000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -366000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent [Abstract]",
+            "value": 2941000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "OPERATING REVENUES",
+            "value": 13602000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:FuelPurchasedPowerAndInterchangeExpense",
+            "label": "Fuel, purchased power and interchange",
+            "value": 2663000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UtilitiesOperatingExpenseMaintenanceAndOperations",
+            "label": "Other operations and maintenance",
+            "value": 2656000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DepreciationAndAmortizationExcludingNuclearFuel",
+            "label": "Depreciation and amortization",
+            "value": 3108000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "Gain in connection with sale",
+            "value": 279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "Taxes other than income taxes and other - net",
+            "value": 1278000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "OPERATING EXPENSES (INCOME)",
+            "value": 9426000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "OPERATING INCOME",
+            "value": 4176000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestExpenseAggregateExpenses",
+            "label": "Interest expense",
+            "value": 1839000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in losses (earnings) of equity method investees",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PublicUtilitiesAllowanceForFundsUsedDuringConstructionCapitalizedCostOfEquity",
+            "label": "Allowance for equity funds used during construction",
+            "value": 64000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestIncome",
+            "label": "Interest income",
+            "value": 31000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gains on disposal of investments and other property - net",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherThanTemporaryImpairmentLossesOnSecuritiesHeldInNuclearDecommissioningFunds",
+            "label": "Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds - net",
+            "value": -23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmountRecognizedInNetPeriodicBenefitCostAndOtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other net periodic benefit income",
+            "value": -149000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "OTHER INCOME (DEDUCTIONS)",
+            "value": -1538000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 2638000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "INCOME TAXES",
+            "value": 79000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -365000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": 2924000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per share of common stock:",
+            "value": 5.97,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 5.94,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-06-30 00:00:00",
+        "accession_number": "0000753308-20-000150",
+        "form": "10-Q",
+        "filed_date": "2020-07-24 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 1436000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net Income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income",
+            "value": 1436000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 1695000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income",
+            "value": 1436000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges from accumulated other comprehensive income (loss) to net income",
+            "value": -5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized gains (losses) on securities still held",
+            "value": 6000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeReclassificationAdjustmentsNetOfTax",
+            "label": "Net unrealized gain (loss) and unrecognized prior service benefit (cost)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net unrealized gains (losses) on foreign currency translation",
+            "value": -18000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherComprehensiveIncomeLossRelatedToEquityMethodInvesteeNetOfTax",
+            "label": "Other comprehensive income (loss) related to equity method investees",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income (loss)",
+            "value": -7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DisposalGroupNotDiscontinuedOperationImpactonDisposal",
+            "label": "Tax benefit of disposal of a business",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:ComprehensiveIncomeLossNetofTaxandDeconsolidationIncludingPortionAttributabletoNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 1439000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -262000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent [Abstract]",
+            "value": 1701000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "Operating revenues",
+            "value": 8817000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:FuelPurchasedPowerAndInterchangeExpense",
+            "label": "Fuel, purchased power and interchange",
+            "value": 1552000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UtilitiesOperatingExpenseMaintenanceAndOperations",
+            "label": "Other operations and maintenance",
+            "value": 1734000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DepreciationAndAmortizationExcludingNuclearFuel",
+            "label": "Depreciation and amortization",
+            "value": 1829000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "Gain in connection with sale",
+            "value": 290000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "Taxes other than income taxes and other - net",
+            "value": 825000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "OPERATING EXPENSES (INCOME)",
+            "value": 5650000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 3167000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestExpenseAggregateExpenses",
+            "label": "Interest expense",
+            "value": 1630000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in losses (earnings) of equity method investees",
+            "value": -236000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PublicUtilitiesAllowanceForFundsUsedDuringConstructionCapitalizedCostOfEquity",
+            "label": "Allowance for equity funds used during construction",
+            "value": 42000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestIncome",
+            "label": "Interest income",
+            "value": 23000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gains on disposal of investments and other property - net",
+            "value": 26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherThanTemporaryImpairmentLossesOnSecuritiesHeldInNuclearDecommissioningFunds",
+            "label": "Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds - net",
+            "value": -110000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmountRecognizedInNetPeriodicBenefitCostAndOtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other net periodic benefit income",
+            "value": -99000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": 4000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "OTHER INCOME (DEDUCTIONS)",
+            "value": -1782000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 1385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "INCOME TAX EXPENSE (BENEFIT)",
+            "value": -51000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -259000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 1695000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Earnings per share of common stock:",
+            "value": 3.46,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 3.45,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2020-03-31 00:00:00",
+        "accession_number": "0000753308-20-000113",
+        "form": "10-Q",
+        "filed_date": "2020-04-23 00:00:00",
+        "revenue": null,
+        "revenue_concept": null,
+        "revenue_label": null,
+        "revenue_unit": null,
+        "revenue_candidates": [],
+        "net_income": 308000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net Income",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income",
+            "value": 308000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 421000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net Income",
+            "value": 308000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIOnDerivativesNetOfTax",
+            "label": "Reclassification of unrealized losses on cash flow hedges from accumulated other comprehensive income (loss) to net income",
+            "value": -2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeUnrealizedHoldingGainLossOnSecuritiesArisingDuringPeriodNetOfTax",
+            "label": "Net unrealized gains (losses) on securities still held",
+            "value": -8000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIForSaleOfSecuritiesNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossPensionAndOtherPostretirementBenefitPlansAdjustmentBeforeReclassificationAdjustmentsNetOfTax",
+            "label": "Net unrealized gain (loss) and unrecognized prior service benefit (cost)",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansNetOfTax",
+            "label": "Reclassification from accumulated other comprehensive income (loss) to net income",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossForeignCurrencyTransactionAndTranslationAdjustmentNetOfTax",
+            "label": "Net unrealized gains (losses) on foreign currency translation",
+            "value": -35000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherComprehensiveIncomeLossRelatedToEquityMethodInvesteeNetOfTax",
+            "label": "Other comprehensive income (loss) related to equity method investees",
+            "value": null,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive loss, net of tax",
+            "value": -39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DisposalGroupNotDiscontinuedOperationImpactonDisposal",
+            "label": "Tax benefit of disposal of a business",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:ComprehensiveIncomeLossNetofTaxandDeconsolidationIncludingPortionAttributabletoNoncontrollingInterest",
+            "label": "COMPREHENSIVE INCOME",
+            "value": 279000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxAttributableToNoncontrollingInterest",
+            "label": "COMPREHENSIVE LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -119000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTax",
+            "label": "Comprehensive Income (Loss), Net of Tax, Attributable to Parent [Abstract]",
+            "value": 398000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "RegulatedAndUnregulatedOperatingRevenue",
+            "label": "Operating revenues",
+            "value": 4613000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:FuelPurchasedPowerAndInterchangeExpense",
+            "label": "Fuel, purchased power and interchange",
+            "value": 821000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "UtilitiesOperatingExpenseMaintenanceAndOperations",
+            "label": "Other operations and maintenance",
+            "value": 830000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:DepreciationAndAmortizationExcludingNuclearFuel",
+            "label": "Depreciation and amortization",
+            "value": 848000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DisposalGroupNotDiscontinuedOperationGainLossOnDisposal",
+            "label": "Gains on disposal of businesses/assets",
+            "value": 273000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "TaxesExcludingIncomeAndExciseTaxes",
+            "label": "Taxes other than income taxes and other - net",
+            "value": 406000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingExpenses",
+            "label": "Operating expenses - net",
+            "value": 2632000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating Income",
+            "value": 1981000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestExpenseAggregateExpenses",
+            "label": "Interest expense",
+            "value": 1311000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of equity method investees",
+            "value": -390000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "PublicUtilitiesAllowanceForFundsUsedDuringConstructionCapitalizedCostOfEquity",
+            "label": "Allowance for equity funds used during construction",
+            "value": 22000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:InterestIncome",
+            "label": "Interest income",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "GainLossOnInvestments",
+            "label": "Gains on disposal of investments and other property - net",
+            "value": 24000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "nee:OtherThanTemporaryImpairmentLossesOnSecuritiesHeldInNuclearDecommissioningFunds",
+            "label": "Change in unrealized gains (losses) on equity securities held in NEER's nuclear decommissioning funds - net",
+            "value": -328000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "AmountRecognizedInNetPeriodicBenefitCostAndOtherComprehensiveIncomeLossBeforeTax",
+            "label": "Other net periodic benefit income",
+            "value": -52000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncomeExpense",
+            "label": "Other - net",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NonoperatingIncomeExpense",
+            "label": "OTHER INCOME (DEDUCTIONS)",
+            "value": -1908000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+            "label": "INCOME BEFORE INCOME TAXES",
+            "value": 73000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "INCOME TAX EXPENSE (BENEFIT)",
+            "value": -235000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "NET LOSS ATTRIBUTABLE TO NONCONTROLLING INTERESTS",
+            "value": -113000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Net income (loss) attributable to NEE",
+            "value": 421000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Basic (in dollars per share)",
+            "value": 0.86,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Assuming dilution (in dollars per share)",
+            "value": 0.86,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "status": "OK",
+    "cache_source": "live"
+  }
+}

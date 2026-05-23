@@ -1,0 +1,904 @@
+{
+  "fetched_at": 1779555873.611418,
+  "data": {
+    "ticker": "VST",
+    "price": 156.29,
+    "ttm_revenue": 18392000000.0,
+    "net_income_ttm": null,
+    "prior_ttm_revenue": null,
+    "prior_net_income_ttm": null,
+    "revenue_growth_pct": null,
+    "net_income_growth_pct": null,
+    "shares_outstanding": 337180000.0,
+    "revenue_quarter_dates_used": [
+      "2019-09-30 00:00:00",
+      "2019-06-30 00:00:00",
+      "2019-03-31 00:00:00",
+      "2018-03-31 00:00:00"
+    ],
+    "prior_revenue_quarter_dates_used": [],
+    "ni_quarter_dates_used": [
+      "2019-03-31 00:00:00"
+    ],
+    "prior_ni_quarter_dates_used": [],
+    "revenue_quarters_used": [
+      {
+        "end_date": "2019-09-30 00:00:00",
+        "accession_number": "0001692819-19-000018",
+        "form": "10-Q",
+        "filed_date": "2019-11-05 00:00:00",
+        "revenue": 8949000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 8949000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 8949000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra_CostOfFuelPurchasedPowerAndDelivery",
+            "label": "Fuel, purchased power costs and delivery fees",
+            "value": 4287000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Operating costs",
+            "value": 1153000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 1213000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 637000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income",
+            "value": 1659000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncome",
+            "label": "Total other income",
+            "value": 45000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingExpense",
+            "label": "Total other deductions",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Interest expense and related charges",
+            "value": 720000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra_ImpactsOfTaxReceivableAgreement",
+            "label": "Impacts of Tax Receivable Agreement",
+            "value": 26000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of unconsolidated investments",
+            "value": 13000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income before income taxes",
+            "value": 962000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax expense",
+            "value": 270000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income",
+            "value": 692000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net (income) loss attributable to noncontrolling interest",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 694000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average shares of common stock outstanding - basic",
+            "value": 486215356.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average shares of common stock outstanding - diluted",
+            "value": 490226743.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Net income per weighted average share of common stock outstanding - basic",
+            "value": 1.43,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Net income per weighted average share of common stock outstanding - diluted",
+            "value": 1.42,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetGainLossNetOfTax",
+            "label": "Effects related to pension and other retirement benefit obligations (net of tax benefit of $4, $\u2014, $4 and $\u2014)",
+            "value": 12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income (loss)",
+            "value": -12000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income",
+            "value": 680000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive (income) loss attributable to noncontrolling interest",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Comprehensive income attributable to Vistra Energy",
+            "value": 682000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-06-30 00:00:00",
+        "accession_number": "0001692819-19-000015",
+        "form": "10-Q",
+        "filed_date": "2019-08-02 00:00:00",
+        "revenue": 5755000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5755000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 5755000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra_CostOfFuelPurchasedPowerAndDelivery",
+            "label": "Fuel, purchased power costs and delivery fees",
+            "value": 2600000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Operating costs",
+            "value": 755000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 790000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 392000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 1218000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncome",
+            "label": "Total other income",
+            "value": 39000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingExpense",
+            "label": "Total other deductions",
+            "value": 5000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestExpense",
+            "label": "Total interest expense and related charges",
+            "value": 495000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra_ImpactsOfTaxReceivableAgreement",
+            "label": "Impacts of Tax Receivable Agreement",
+            "value": -36000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of unconsolidated investments",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) before income taxes",
+            "value": 803000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax (expense) benefit",
+            "value": 225000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 578000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Net (income) loss attributable to noncontrolling interest",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_NetIncomeLoss",
+            "label": "Net income (loss)",
+            "value": 581000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average shares of common stock outstanding - basic",
+            "value": 499213522.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average shares of common stock outstanding - diluted",
+            "value": 507248920.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Net income (loss) per weighted average share of common stock outstanding - basic",
+            "value": 1.16,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Net income (loss) per weighted average share of common stock outstanding - diluted",
+            "value": 1.15,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetGainLossNetOfTax",
+            "label": "Effects related to pension and other retirement benefit obligations (net of tax benefit of $\u2014 in all periods)",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss)",
+            "value": 579000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive loss attributable to noncontrolling interest",
+            "value": 3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Comprehensive income (loss) attributable to Vistra Energy",
+            "value": 582000000.0,
+            "unit": "usd"
+          }
+        ]
+      },
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001692819-19-000008",
+        "form": "10-Q",
+        "filed_date": "2019-05-03 00:00:00",
+        "revenue": 2923000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Operating revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Operating revenues",
+            "value": 2923000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 224000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 224000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Net loss attributable to noncontrolling interest",
+            "value": 225000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 224000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetGainLossNetOfTax",
+            "label": "Effects related to pension and other retirement benefit obligations (net of tax benefit of $u2014 in all periods)",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax effects:",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss)",
+            "value": 225000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Comprehensive loss attributable to noncontrolling interest",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Comprehensive income (loss) attributable to Vistra Energy",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Operating revenues",
+            "value": 2923000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra:CostOfFuelPurchasedPowerAndDelivery",
+            "label": "Fuel, purchased power costs and delivery fees",
+            "value": 1461000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operating costs",
+            "value": 385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 405000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 182000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 490000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncome",
+            "label": "Total other income",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingExpense",
+            "label": "Total other deductions",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Other",
+            "value": 222000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra:ImpactsOfTaxReceivableAgreement",
+            "label": "Impacts of Tax Receivable Agreement",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of unconsolidated investments",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) before income taxes",
+            "value": 301000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Effective Income Tax Rate Reconciliation, Amount [Abstract]",
+            "value": 77000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net loss attributable to noncontrolling interest",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Net loss attributable to noncontrolling interest",
+            "value": 225000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average shares of common stock outstanding - basic",
+            "value": 502367299.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average shares of common stock outstanding - diluted",
+            "value": 509139988.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Net income (loss) per weighted average share of common stock outstanding - basic",
+            "value": 0.45,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Net income (loss) per weighted average share of common stock outstanding - diluted",
+            "value": 0.44,
+            "unit": "usd/shares"
+          }
+        ]
+      },
+      {
+        "end_date": "2018-03-31 00:00:00",
+        "accession_number": "0001692819-18-000022",
+        "form": "10-Q",
+        "filed_date": "2018-05-04 00:00:00",
+        "revenue": 765000000.0,
+        "revenue_concept": "us-gaap_Revenues",
+        "revenue_label": "Revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 765000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": null,
+        "net_income_concept": null,
+        "net_income_label": null,
+        "net_income_unit": null,
+        "net_income_candidates": [],
+        "income_statement_items": [
+          {
+            "concept": "us-gaap_ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss)",
+            "value": -305000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 153000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareBasic",
+            "label": "Net income per weighted average share of common stock outstanding - basic",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_EarningsPerShareDiluted",
+            "label": "Net income per weighted average share of common stock outstanding - diluted",
+            "value": 0.0,
+            "unit": "usd/share"
+          },
+          {
+            "concept": "us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) before income taxes",
+            "value": -395000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_IncomeTaxExpenseBenefit",
+            "label": "Income tax (expense) benefit",
+            "value": -89000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_InterestIncomeExpenseNet",
+            "label": "Interest expense and related charges",
+            "value": 9000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": -394000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Total other comprehensive income",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetGainLossNetOfTax",
+            "label": "Effects related to pension and other retirement benefit obligations (net of tax benefit of $\u2014 in all periods)",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherCostAndExpenseOperating",
+            "label": "Operating costs",
+            "value": 194000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingExpense",
+            "label": "Other deductions",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_OtherNonoperatingIncome",
+            "label": "Other income",
+            "value": 10000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_ProfitLoss",
+            "label": "Net income (loss)",
+            "value": -306000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_Revenues",
+            "label": "Revenues",
+            "value": 765000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 162000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average shares of common stock outstanding - diluted",
+            "value": 428450384.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "us-gaap_WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average shares of common stock outstanding - basic",
+            "value": 428450384.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "vistra_CostOfFuelPurchasedPowerAndDelivery",
+            "label": "Fuel, purchased power costs and delivery fees",
+            "value": 650000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra_ImpactsOfTaxReceivableAgreement",
+            "label": "Impacts of tax receivable agreement",
+            "value": 18000000.0,
+            "unit": "usd"
+          }
+        ]
+      }
+    ],
+    "prior_revenue_quarters_used": [],
+    "ni_quarters_used": [
+      {
+        "end_date": "2019-03-31 00:00:00",
+        "accession_number": "0001692819-19-000008",
+        "form": "10-Q",
+        "filed_date": "2019-05-03 00:00:00",
+        "revenue": 2923000000.0,
+        "revenue_concept": "Revenues",
+        "revenue_label": "Operating revenues",
+        "revenue_unit": "usd",
+        "revenue_candidates": [
+          {
+            "concept": "Revenues",
+            "label": "Operating revenues",
+            "value": 2923000000.0,
+            "unit": "usd"
+          }
+        ],
+        "net_income": 224000000.0,
+        "net_income_concept": "ProfitLoss",
+        "net_income_label": "Net income (loss)",
+        "net_income_unit": "usd",
+        "net_income_candidates": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 224000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Net loss attributable to noncontrolling interest",
+            "value": 225000000.0,
+            "unit": "usd"
+          }
+        ],
+        "income_statement_items": [
+          {
+            "concept": "ProfitLoss",
+            "label": "Net income (loss)",
+            "value": 224000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossReclassificationAdjustmentFromAOCIPensionAndOtherPostretirementBenefitPlansForNetGainLossNetOfTax",
+            "label": "Effects related to pension and other retirement benefit obligations (net of tax benefit of $u2014 in all periods)",
+            "value": -1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTax",
+            "label": "Other comprehensive income, net of tax effects:",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "ComprehensiveIncomeNetOfTaxIncludingPortionAttributableToNoncontrollingInterest",
+            "label": "Comprehensive income (loss)",
+            "value": 225000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToNoncontrollingInterest",
+            "label": "Less: Comprehensive loss attributable to noncontrolling interest",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherComprehensiveIncomeLossNetOfTaxPortionAttributableToParent",
+            "label": "Comprehensive income (loss) attributable to Vistra Energy",
+            "value": 226000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "Revenues",
+            "label": "Operating revenues",
+            "value": 2923000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra:CostOfFuelPurchasedPowerAndDelivery",
+            "label": "Fuel, purchased power costs and delivery fees",
+            "value": 1461000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherCostAndExpenseOperating",
+            "label": "Operating costs",
+            "value": 385000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "DepreciationDepletionAndAmortization",
+            "label": "Depreciation and amortization",
+            "value": 405000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "SellingGeneralAndAdministrativeExpense",
+            "label": "Selling, general and administrative expenses",
+            "value": 182000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OperatingIncomeLoss",
+            "label": "Operating income (loss)",
+            "value": 490000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingIncome",
+            "label": "Total other income",
+            "value": 25000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "OtherNonoperatingExpense",
+            "label": "Total other deductions",
+            "value": 2000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "InterestExpense",
+            "label": "Other",
+            "value": 222000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "vistra:ImpactsOfTaxReceivableAgreement",
+            "label": "Impacts of Tax Receivable Agreement",
+            "value": -3000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromEquityMethodInvestments",
+            "label": "Equity in earnings of unconsolidated investments",
+            "value": 7000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+            "label": "Income (loss) before income taxes",
+            "value": 301000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "IncomeTaxExpenseBenefit",
+            "label": "Effective Income Tax Rate Reconciliation, Amount [Abstract]",
+            "value": 77000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
+            "label": "Less: Net loss attributable to noncontrolling interest",
+            "value": 1000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "NetIncomeLoss",
+            "label": "Less: Net loss attributable to noncontrolling interest",
+            "value": 225000000.0,
+            "unit": "usd"
+          },
+          {
+            "concept": "WeightedAverageNumberOfSharesOutstandingBasic",
+            "label": "Weighted average shares of common stock outstanding - basic",
+            "value": 502367299.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "WeightedAverageNumberOfDilutedSharesOutstanding",
+            "label": "Weighted average shares of common stock outstanding - diluted",
+            "value": 509139988.0,
+            "unit": "shares"
+          },
+          {
+            "concept": "EarningsPerShareBasic",
+            "label": "Net income (loss) per weighted average share of common stock outstanding - basic",
+            "value": 0.45,
+            "unit": "usd/shares"
+          },
+          {
+            "concept": "EarningsPerShareDiluted",
+            "label": "Net income (loss) per weighted average share of common stock outstanding - diluted",
+            "value": 0.44,
+            "unit": "usd/shares"
+          }
+        ]
+      }
+    ],
+    "prior_ni_quarters_used": [],
+    "status": "PARTIAL: missing net_income_ttm",
+    "cache_source": "live"
+  }
+}
