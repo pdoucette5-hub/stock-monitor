@@ -1,0 +1,55 @@
+const API_BASE = 'http://127.0.0.1:8000'
+
+async function request(path, options = {}) {
+  const response = await fetch(`${API_BASE}${path}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    },
+    ...options,
+  })
+  if (!response.ok) {
+    const detail = await response.text()
+    throw new Error(detail || `Request failed: ${response.status}`)
+  }
+  if (response.status === 204) return null
+  return response.json()
+}
+
+export function fetchPortfolioScenarios() {
+  return request('/api/portfolio')
+}
+
+export function fetchPortfolioView(forceRefresh = false) {
+  const query = forceRefresh ? '?force_refresh=true' : ''
+  return request(`/api/portfolio/view${query}`)
+}
+
+export function savePortfolioControls(updates, forceRefresh = false) {
+  const query = forceRefresh ? '?force_refresh=true' : ''
+  return request(`/api/portfolio/controls${query}`, {
+    method: 'PUT',
+    body: JSON.stringify({ updates }),
+  })
+}
+
+export function fetchTickersConfig() {
+  return request('/api/config/tickers')
+}
+
+export function fetchGlobalSettings() {
+  return request('/api/settings')
+}
+
+export function fetchStockScenario(ticker) {
+  const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
+  return request(`/api/stock/${normalized}`)
+}
+
+export function saveStockScenario(ticker, payload) {
+  const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
+  return request(`/api/stock/${normalized}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+  })
+}
