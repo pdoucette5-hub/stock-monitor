@@ -8,10 +8,12 @@ async function request(path, options = {}) {
     },
     ...options,
   })
+
   if (!response.ok) {
     const detail = await response.text()
     throw new Error(detail || `Request failed: ${response.status}`)
   }
+
   if (response.status === 204) return null
   return response.json()
 }
@@ -43,6 +45,44 @@ export function savePortfolioShares(ticker, shares, forceRefresh = false) {
 
 export function fetchTickersConfig() {
   return request('/api/config/tickers')
+}
+
+export function fetchTickerRegistry() {
+  return request('/api/tickers')
+}
+
+export function addPortfolioTicker(ticker, shares) {
+  return request('/api/tickers/portfolio', {
+    method: 'PUT',
+    body: JSON.stringify({ ticker, shares }),
+  })
+}
+
+export function addWatchlistTicker(ticker) {
+  return request('/api/tickers/watchlist', {
+    method: 'PUT',
+    body: JSON.stringify({ ticker }),
+  })
+}
+
+export function archiveTicker(ticker) {
+  return request('/api/tickers/archive', {
+    method: 'PUT',
+    body: JSON.stringify({ ticker }),
+  })
+}
+
+export function restoreTicker(ticker, list) {
+  return request('/api/tickers/restore', {
+    method: 'PUT',
+    body: JSON.stringify({ ticker, list }),
+  })
+}
+
+export function removeTicker(ticker) {
+  return request(`/api/tickers/${encodeURIComponent(String(ticker).trim().toUpperCase())}`, {
+    method: 'DELETE',
+  })
 }
 
 export function fetchGlobalSettings() {
