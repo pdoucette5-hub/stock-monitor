@@ -24,6 +24,7 @@ from backend.models import (
     StockScenarioResponse,
     TickerScenarioInputs,
 )
+from backend.performance_service import build_portfolio_performance
 from backend.portfolio_service import (
     apply_portfolio_controls,
     build_portfolio_views,
@@ -469,6 +470,24 @@ def get_portfolio_events(
         "count": len(events),
         "events": events,
     }
+
+
+@app.get("/api/performance/portfolio")
+def get_portfolio_performance(
+    range: str = "1y",
+) -> dict[str, Any]:
+    try:
+        transactions = load_transactions()
+        tickers_config = get_effective_tickers_config()
+        return build_portfolio_performance(
+            transactions_by_ticker=transactions,
+            tickers_config=tickers_config,
+            range_key=range,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
 @app.put("/api/tickers/portfolio", response_model=PortfolioConfig)
