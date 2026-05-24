@@ -5,6 +5,7 @@ import {
   deleteTransaction,
   fetchPortfolioScenarios,
   fetchPositionSummary,
+  fetchPriceHistory,
   fetchStockScenario,
   fetchTickersConfig,
   fetchTransactions,
@@ -45,6 +46,8 @@ const TRANSACTION_TYPE_OPTIONS = [
   'transfer_out',
   'adjustment',
 ]
+
+const PRICE_RANGES = ['1m', '3m', '6m', '1y', '3y', '5y']
 
 function collectTickers(tickersPayload, scenariosPayload) {
   const fromConfig = [
@@ -94,18 +97,169 @@ function formatNumber(value, digits = 2) {
   })
 }
 
+function formatShortDate(dateString) {
+  if (!dateString) return ''
+  const d = new Date(dateString)
+  if (Number.isNaN(d.getTime())) return dateString
+  return d.toLocaleDateString(undefined, {
+    month: 'short',
+    day: 'numeric',
+    year: '2-digit',
+  })
+}
+
+function PriceChart({ points }) {
+  if (!points || points.length === 0) {
+    return (
+      <div className="flex h-64 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-sm text-slate-500">
+        No chart data available.
+      </div>
+    )
+  }
+
+  const width = 900
+  const height = 280
+  const padding = 36
+
+  const validPoints = points.filter((p) => p?.close !== null && p?.close !== undefined && !Number.isNaN(Number(p.close)))
+  if (validPoints.length === 0) {
+    return (
+      <div className="flex h-64 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-sm text-slate-500">
+        No chart data available.
+      </div>
+    )
+  }
+
+  const closes = validPoints.map((p) => Number(p.close))
+  const minPrice = Math.min(...closes)
+  const maxPrice = Math.max(...closes)
+  const priceRange = maxPrice - minPrice || 1
+
+  const xFor = (idx) => {
+    if (validPoints.length === 1) return padding
+    return padding + (idx / (validPoints.length - 1)) * (width - padding * 2)
+  }
+
+  const yFor = (price) => {
+    return height - padding - ((price - minPrice) / priceRange) * (height - padding * 2)
+  }
+
+  const linePath = validPoints
+    .map((point, idx) => `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.close))}`)
+    .join(' ')
+
+  const firstPoint = validPoints[0]
+  const lastPoint = validPoints[validPoints.length - 1]
+  const change = Number(lastPoint.close) - Number(firstPoint.close)
+  const changePct = firstPoint.close ? (change / Number(firstPoint.close)) * 100 : 0
+  const positive = change >= 0
+
+  const ticks = 4
+  const priceTicks = Array.from({ length: ticks + 1 }, (_, i) => {
+    const value = minPrice + ((maxPrice - minPrice) * i) / ticks
+    return {
+      value,
+      y: yFor(value),
+    }
+  })
+
+  return (
+    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <div className="text-sm font-medium text-slate-500">Price Trend</div>
+          <div className="text-lg font-semibold text-slate-900">
+            {formatMoney(lastPoint.close)}
+          </div>
+        </div>
+        <div
+          className={`rounded-full px-3 py-1 text-sm font-medium ${
+            positive
+              ? 'bg-emerald-50 text-emerald-700'
+              : 'bg-red-50 text-red-700'
+          }`}
+        >
+          {positive ? '+' : ''}
+          {formatMoney(change)} ({positive ? '+' : ''}
+          {changePct.toFixed(2)}%)
+        </div>
+      </div>
+
+      <div className="overflow-x-auto">
+        <svg viewBox={`0 0 ${width} ${height}`} className="h-72 w-full min-w-[700px]">
+          {priceTicks.map((tick) => (
+            <g key={tick.value}>
+              <line
+                x1={padding}
+                x2={width - padding}
+                y1={tick.y}
+                y2={tick.y}
+                stroke="#e2e8f0"
+                strokeDasharray="4 4"
+              />
+              <text
+                x={8}
+                y={tick.y + 4}
+                fontSize="11"
+                fill="#64748b"
+              >
+                {Number(tick.value).toFixed(2)}
+              </text>
+            </g>
+          ))}
+
+          <path
+            d={linePath}
+            fill="none"
+            stroke={positive ? '#059669' : '#dc2626'}
+            strokeWidth="3"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          />
+
+          {validPoints.map((point, idx) => {
+            if (idx !== 0 && idx !== validPoints.length - 1) return null
+            return (
+              <g key={`${point.date}-${idx}`}>
+                <circle
+                  cx={xFor(idx)}
+                  cy={yFor(Number(point.close))}
+                  r="4"
+                  fill={positive ? '#059669' : '#dc2626'}
+                />
+                <text
+                  x={xFor(idx)}
+                  y={height - 8}
+                  textAnchor={idx === 0 ? 'start' : 'end'}
+                  fontSize="11"
+                  fill="#64748b"
+                >
+                  {formatShortDate(point.date)}
+                </text>
+              </g>
+            )
+          })}
+        </svg>
+      </div>
+    </div>
+  )
+}
+
 export default function StockDetail() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [tickers, setTickers] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
+  const [priceRange, setPriceRange] = useState('1y')
   const [form, setForm] = useState(defaultFormState)
   const [transactions, setTransactions] = useState([])
   const [positionSummary, setPositionSummary] = useState(null)
+  const [priceHistory, setPriceHistory] = useState([])
   const [transactionForm, setTransactionForm] = useState(emptyTransactionForm())
   const [loadingTickers, setLoadingTickers] = useState(true)
   const [loadingForm, setLoadingForm] = useState(false)
   const [loadingTransactions, setLoadingTransactions] = useState(false)
   const [loadingPosition, setLoadingPosition] = useState(false)
+  const [loadingPriceHistory, setLoadingPriceHistory] = useState(false)
   const [saving, setSaving] = useState(false)
   const [savingTransaction, setSavingTransaction] = useState(false)
   const [error, setError] = useState(null)
@@ -232,6 +386,24 @@ export default function StockDetail() {
     }
   }, [])
 
+  const loadPriceHistory = useCallback(async (ticker, range) => {
+    if (!ticker) {
+      setPriceHistory([])
+      return
+    }
+
+    setLoadingPriceHistory(true)
+    try {
+      const payload = await fetchPriceHistory(ticker, range)
+      setPriceHistory(Array.isArray(payload?.points) ? payload.points : [])
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load price history')
+      setPriceHistory([])
+    } finally {
+      setLoadingPriceHistory(false)
+    }
+  }, [])
+
   useEffect(() => {
     if (!selectedTicker) return
     loadScenario(selectedTicker)
@@ -239,6 +411,11 @@ export default function StockDetail() {
     loadPosition(selectedTicker)
     setTransactionForm(emptyTransactionForm())
   }, [selectedTicker, loadScenario, loadTickerTransactions, loadPosition])
+
+  useEffect(() => {
+    if (!selectedTicker) return
+    loadPriceHistory(selectedTicker, priceRange)
+  }, [selectedTicker, priceRange, loadPriceHistory])
 
   const handleTickerChange = (event) => {
     const nextTicker = event.target.value
@@ -446,6 +623,42 @@ export default function StockDetail() {
         <p className="text-sm text-slate-500">Select a ticker to edit assumptions.</p>
       ) : (
         <div className="space-y-6">
+          <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 className="text-lg font-semibold text-slate-900">Price History</h2>
+                <p className="mt-1 text-sm text-slate-500">
+                  Historical close prices for {selectedTicker}.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {PRICE_RANGES.map((range) => (
+                  <button
+                    key={range}
+                    type="button"
+                    onClick={() => setPriceRange(range)}
+                    className={[
+                      'rounded-full px-3 py-1 text-sm font-medium transition',
+                      priceRange === range
+                        ? 'bg-slate-900 text-white'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200',
+                    ].join(' ')}
+                  >
+                    {range.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {loadingPriceHistory ? (
+              <div className="flex h-64 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-sm text-slate-500">
+                Loading price history…
+              </div>
+            ) : (
+              <PriceChart points={priceHistory} />
+            )}
+          </section>
+
           <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="mb-4">
               <h2 className="text-lg font-semibold text-slate-900">Position Summary</h2>

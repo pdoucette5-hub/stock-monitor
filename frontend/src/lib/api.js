@@ -134,3 +134,13 @@ export function fetchPositionSummary(ticker) {
   const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
   return request(`/api/position/${normalized}`)
 }
+
+export function fetchPriceHistory(ticker, range = '1y', forceRefresh = false) {
+  const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
+  const query = new URLSearchParams({
+    ticker: normalized,
+    range,
+    force_refresh: forceRefresh ? 'true' : 'false',
+  })
+  return request(`/api/prices/history?${query.toString()}`)
+}
