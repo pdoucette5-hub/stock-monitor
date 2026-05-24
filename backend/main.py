@@ -799,6 +799,93 @@ def get_price_history_endpoint(
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
+@app.get("/api/prices/compare")
+def get_price_comparison(
+    tickers: str,
+    range: str = "1y",
+    force_refresh: bool = False,
+) -> dict[str, Any]:
+    raw_tickers = [
+        normalize_ticker(ticker)
+        for ticker in str(tickers).split(",")
+        if str(ticker).strip()
+    ]
+    unique_tickers = []
+    seen = set()
+    for ticker in raw_tickers:
+        if ticker and ticker not in seen:
+            unique_tickers.append(ticker)
+            seen.add(ticker)
+
+    if not unique_tickers:
+        raise HTTPException(status_code=400, detail="At least one ticker is required")
+
+    try:
+        results: dict[str, Any] = {}
+        common_dates: set[str] | None = None
+
+        for ticker in unique_tickers:
+            payload = get_price_history(
+                ticker,
+                range_key=range,
+                force_refresh=force_refresh,
+                max_age_hours=24,
+            )
+            points = payload.get("points", []) or []
+            valid_points = [
+                {
+                    "date": str(point.get("date")),
+                    "close": float(point.get("close")),
+                }
+                for point in points
+                if point.get("date") and point.get("close") is not None
+            ]
+
+            if not valid_points:
+                results[ticker] = []
+                common_dates = set() if common_dates is None else common_dates.intersection(set())
+                continue
+
+            date_set = {point["date"] for point in valid_points}
+            common_dates = date_set if common_dates is None else common_dates.intersection(date_set)
+            results[ticker] = valid_points
+
+        common_dates = common_dates or set()
+
+        normalized_series: dict[str, list[dict[str, float | str]]] = {}
+        for ticker, points in results.items():
+            filtered = [point for point in points if point["date"] in common_dates]
+            filtered = sorted(filtered, key=lambda point: point["date"])
+
+            if not filtered:
+                normalized_series[ticker] = []
+                continue
+
+            base_close = filtered[0]["close"]
+            if base_close == 0:
+                normalized_series[ticker] = []
+                continue
+
+            normalized_series[ticker] = [
+                {
+                    "date": point["date"],
+                    "close": round(point["close"], 8),
+                    "normalized": round((point["close"] / base_close) * 100.0, 8),
+                }
+                for point in filtered
+            ]
+
+        return {
+            "range": range,
+            "tickers": unique_tickers,
+            "series": normalized_series,
+        }
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
 @app.put("/api/portfolio/shares", response_model=PortfolioViewResponse)
 def update_portfolio_shares(
     body: PortfolioSharesUpdate,
