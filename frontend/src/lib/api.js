@@ -129,3 +129,8 @@ export function deleteTransaction(ticker, transactionId) {
     method: 'DELETE',
   })
 }
+
+export function fetchPositionSummary(ticker) {
+  const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
+  return request(`/api/position/${normalized}`)
+}

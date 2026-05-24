@@ -4,6 +4,7 @@ import {
   createTransaction,
   deleteTransaction,
   fetchPortfolioScenarios,
+  fetchPositionSummary,
   fetchStockScenario,
   fetchTickersConfig,
   fetchTransactions,
@@ -75,16 +76,36 @@ function emptyTransactionForm() {
   }
 }
 
+function formatMoney(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return '—'
+  return Number(value).toLocaleString(undefined, {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })
+}
+
+function formatNumber(value, digits = 2) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return '—'
+  return Number(value).toLocaleString(undefined, {
+    minimumFractionDigits: digits,
+    maximumFractionDigits: digits,
+  })
+}
+
 export default function StockDetail() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [tickers, setTickers] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
   const [form, setForm] = useState(defaultFormState)
   const [transactions, setTransactions] = useState([])
+  const [positionSummary, setPositionSummary] = useState(null)
   const [transactionForm, setTransactionForm] = useState(emptyTransactionForm())
   const [loadingTickers, setLoadingTickers] = useState(true)
   const [loadingForm, setLoadingForm] = useState(false)
   const [loadingTransactions, setLoadingTransactions] = useState(false)
+  const [loadingPosition, setLoadingPosition] = useState(false)
   const [saving, setSaving] = useState(false)
   const [savingTransaction, setSavingTransaction] = useState(false)
   const [error, setError] = useState(null)
@@ -194,12 +215,30 @@ export default function StockDetail() {
     }
   }, [])
 
+  const loadPosition = useCallback(async (ticker) => {
+    if (!ticker) {
+      setPositionSummary(null)
+      return
+    }
+
+    setLoadingPosition(true)
+    try {
+      const payload = await fetchPositionSummary(ticker)
+      setPositionSummary(payload?.summary ?? null)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load position summary')
+    } finally {
+      setLoadingPosition(false)
+    }
+  }, [])
+
   useEffect(() => {
     if (!selectedTicker) return
     loadScenario(selectedTicker)
     loadTickerTransactions(selectedTicker)
+    loadPosition(selectedTicker)
     setTransactionForm(emptyTransactionForm())
-  }, [selectedTicker, loadScenario, loadTickerTransactions])
+  }, [selectedTicker, loadScenario, loadTickerTransactions, loadPosition])
 
   const handleTickerChange = (event) => {
     const nextTicker = event.target.value
@@ -300,6 +339,7 @@ export default function StockDetail() {
 
       resetTransactionForm()
       await loadTickerTransactions(selectedTicker)
+      await loadPosition(selectedTicker)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to save transaction')
     } finally {
@@ -322,6 +362,7 @@ export default function StockDetail() {
         resetTransactionForm()
       }
       await loadTickerTransactions(selectedTicker)
+      await loadPosition(selectedTicker)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to delete transaction')
     } finally {
@@ -405,6 +446,56 @@ export default function StockDetail() {
         <p className="text-sm text-slate-500">Select a ticker to edit assumptions.</p>
       ) : (
         <div className="space-y-6">
+          <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="mb-4">
+              <h2 className="text-lg font-semibold text-slate-900">Position Summary</h2>
+              <p className="mt-1 text-sm text-slate-500">
+                Derived from the transaction ledger for this ticker.
+              </p>
+            </div>
+
+            {loadingPosition ? (
+              <p className="text-sm text-slate-500">Loading position summary…</p>
+            ) : (
+              <>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                  <SummaryCard
+                    label="Current Shares"
+                    value={formatNumber(positionSummary?.current_shares, 4)}
+                  />
+                  <SummaryCard
+                    label="Cost Basis"
+                    value={formatMoney(positionSummary?.total_cost_basis)}
+                  />
+                  <SummaryCard
+                    label="Avg Cost / Share"
+                    value={formatMoney(positionSummary?.average_cost_per_share)}
+                  />
+                  <SummaryCard
+                    label="Realized Gain/Loss"
+                    value={formatMoney(positionSummary?.realized_gain_loss)}
+                  />
+                  <SummaryCard
+                    label="Dividend Cash"
+                    value={formatMoney(positionSummary?.dividend_cash)}
+                  />
+                </div>
+
+                {Array.isArray(positionSummary?.warnings) &&
+                  positionSummary.warnings.length > 0 && (
+                    <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+                      <div className="font-medium">Warnings</div>
+                      <ul className="mt-2 list-disc space-y-1 pl-5">
+                        {positionSummary.warnings.map((warning, idx) => (
+                          <li key={`${warning}-${idx}`}>{warning}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+              </>
+            )}
+          </section>
+
           <form onSubmit={handleSave} className="space-y-6">
             <fieldset disabled={disableForm} className="space-y-6">
               <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -675,6 +766,17 @@ export default function StockDetail() {
           </section>
         </div>
       )}
+    </div>
+  )
+}
+
+function SummaryCard({ label, value }) {
+  return (
+    <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
+      <div className="text-xs font-medium uppercase tracking-wide text-slate-500">
+        {label}
+      </div>
+      <div className="mt-1 text-lg font-semibold text-slate-900">{value}</div>
     </div>
   )
 }
