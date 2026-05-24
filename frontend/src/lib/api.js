@@ -149,3 +149,17 @@ export function fetchPortfolioPerformance(range = '1y') {
   const query = new URLSearchParams({ range })
   return request(`/api/performance/portfolio?${query.toString()}`)
 }
+
+export function fetchPriceComparison(tickers, range = '1y', forceRefresh = false) {
+  const cleaned = (tickers || [])
+    .map((ticker) => String(ticker).trim().toUpperCase())
+    .filter(Boolean)
+
+  const query = new URLSearchParams({
+    tickers: cleaned.join(','),
+    range,
+    force_refresh: forceRefresh ? 'true' : 'false',
+  })
+
+  return request(`/api/prices/compare?${query.toString()}`)
+}

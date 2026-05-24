@@ -2,6 +2,7 @@ import os
 import time
 import json
 from pathlib import Path
+from datetime import datetime, timedelta, timezone
 
 import pandas as pd
 import requests
@@ -14,6 +15,9 @@ load_dotenv(BASE_DIR / ".env")
 CACHE_DIR = BASE_DIR / "cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
+PRICE_HISTORY_CACHE_DIR = CACHE_DIR / "price_history"
+PRICE_HISTORY_CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
 FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY")
 FINNHUB_BASE = "https://finnhub.io/api/v1"
 
@@ -23,6 +27,16 @@ DEBUG_FIELDS = {
     "prior_revenue_quarters_used": None,
     "ni_quarters_used": None,
     "prior_ni_quarters_used": None,
+}
+
+
+PRICE_RANGE_CONFIG = {
+    "1m": {"days": 31, "resolution": "D"},
+    "3m": {"days": 92, "resolution": "D"},
+    "6m": {"days": 183, "resolution": "D"},
+    "1y": {"days": 366, "resolution": "W"},
+    "3y": {"days": 365 * 3 + 1, "resolution": "W"},
+    "5y": {"days": 365 * 5 + 2, "resolution": "M"},
 }
 
 
@@ -37,6 +51,10 @@ def safe_float(value, default=None):
 
 def _cache_path(ticker: str) -> Path:
     return CACHE_DIR / f"{ticker.upper()}_market_data.json"
+
+
+def _history_cache_path(ticker: str, range_key: str) -> Path:
+    return PRICE_HISTORY_CACHE_DIR / f"{ticker.upper()}_{range_key.lower()}_history.json"
 
 
 def _read_cache(ticker: str, max_age_hours: int):
@@ -78,6 +96,42 @@ def _write_cache(ticker: str, data: dict):
         )
 
 
+def _read_history_cache(ticker: str, range_key: str, max_age_hours: int):
+    path = _history_cache_path(ticker, range_key)
+    if not path.exists():
+        return None
+
+    try:
+        with open(path, "r") as f:
+            payload = json.load(f)
+    except Exception:
+        return None
+
+    fetched_at = payload.get("fetched_at")
+    if fetched_at is None:
+        return None
+
+    age_seconds = time.time() - fetched_at
+    if age_seconds > max_age_hours * 3600:
+        return None
+
+    data = payload.get("data")
+    return data if isinstance(data, dict) else None
+
+
+def _write_history_cache(ticker: str, range_key: str, data: dict):
+    path = _history_cache_path(ticker, range_key)
+    with open(path, "w") as f:
+        json.dump(
+            {
+                "fetched_at": time.time(),
+                "data": data,
+            },
+            f,
+            indent=2,
+        )
+
+
 def _finnhub_get(endpoint: str, params: dict):
     if not FINNHUB_API_KEY:
         raise ValueError("Missing FINNHUB_API_KEY environment variable")
@@ -92,10 +146,6 @@ def _finnhub_get(endpoint: str, params: dict):
 
 
 def _simplify_statement_item(item: dict) -> dict:
-    """
-    Keep enough raw detail to debug line-item selection without dumping the entire
-    Finnhub response into the cache.
-    """
     return {
         "concept": item.get("concept"),
         "label": item.get("label"),
@@ -105,18 +155,6 @@ def _simplify_statement_item(item: dict) -> dict:
 
 
 def _extract_quarter_value(report_items, concepts):
-    """
-    Pull the first matching concept/label from a quarterly income statement.
-
-    Returns:
-    {
-        "value": selected value,
-        "concept": selected concept,
-        "label": selected label,
-        "unit": selected unit,
-        "candidates": all matching line items
-    }
-    """
     concept_set = {c.lower() for c in concepts}
     candidates = []
 
@@ -139,12 +177,6 @@ def _extract_quarter_value(report_items, concepts):
 
 
 def _get_quarterly_financials(symbol: str):
-    """
-    Returns quarterly revenue / net income rows sorted newest -> oldest.
-
-    The returned rows include the selected concepts/labels and matching
-    candidates so the dashboard can show exactly what Finnhub data was used.
-    """
     resp = _finnhub_get("stock/financials-reported", {"symbol": symbol, "freq": "quarterly"})
     filings = resp.get("data", []) if isinstance(resp, dict) else []
 
@@ -180,20 +212,16 @@ def _get_quarterly_financials(symbol: str):
                 "accession_number": filing.get("accessNumber"),
                 "form": filing.get("form"),
                 "filed_date": filing.get("filedDate"),
-
                 "revenue": revenue_match["value"],
                 "revenue_concept": revenue_match["concept"],
                 "revenue_label": revenue_match["label"],
                 "revenue_unit": revenue_match["unit"],
                 "revenue_candidates": revenue_match["candidates"],
-
                 "net_income": net_income_match["value"],
                 "net_income_concept": net_income_match["concept"],
                 "net_income_label": net_income_match["label"],
                 "net_income_unit": net_income_match["unit"],
                 "net_income_candidates": net_income_match["candidates"],
-
-                # Raw-ish compact line items for deeper debugging.
                 "income_statement_items": [_simplify_statement_item(item) for item in ic or []],
             }
         )
@@ -217,14 +245,6 @@ def _growth_pct(current_value, prior_value):
 
 
 def _get_ttm_financials(symbol: str):
-    """
-    Uses:
-    - current TTM = latest 4 valid quarters
-    - prior TTM   = next 4 valid quarters
-
-    Revenue and net income are handled separately so a missing quarter in one
-    does not corrupt the other.
-    """
     quarters = _get_quarterly_financials(symbol)
 
     revenue_quarters = [q for q in quarters if safe_float(q.get("revenue")) is not None]
@@ -263,13 +283,10 @@ def _get_ttm_financials(symbol: str):
         "net_income_ttm": current_ttm_net_income,
         "prior_ttm_revenue": prior_ttm_revenue,
         "prior_net_income_ttm": prior_ttm_net_income,
-
         "revenue_quarter_dates_used": [q["end_date"] for q in current_revenue_quarters],
         "prior_revenue_quarter_dates_used": [q["end_date"] for q in prior_revenue_quarters],
         "ni_quarter_dates_used": [q["end_date"] for q in current_ni_quarters],
         "prior_ni_quarter_dates_used": [q["end_date"] for q in prior_ni_quarters],
-
-        # Debug details displayed by the dashboard.
         "revenue_quarters_used": current_revenue_quarters,
         "prior_revenue_quarters_used": prior_revenue_quarters,
         "ni_quarters_used": current_ni_quarters,
@@ -321,17 +338,14 @@ def _get_market_data_for_ticker(symbol: str):
         "revenue_growth_pct": revenue_growth_pct,
         "net_income_growth_pct": net_income_growth_pct,
         "shares_outstanding": shares_outstanding,
-
         "revenue_quarter_dates_used": financials.get("revenue_quarter_dates_used"),
         "prior_revenue_quarter_dates_used": financials.get("prior_revenue_quarter_dates_used"),
         "ni_quarter_dates_used": financials.get("ni_quarter_dates_used"),
         "prior_ni_quarter_dates_used": financials.get("prior_ni_quarter_dates_used"),
-
         "revenue_quarters_used": financials.get("revenue_quarters_used"),
         "prior_revenue_quarters_used": financials.get("prior_revenue_quarters_used"),
         "ni_quarters_used": financials.get("ni_quarters_used"),
         "prior_ni_quarters_used": financials.get("prior_ni_quarters_used"),
-
         "status": status,
         "cache_source": "live",
     }
@@ -400,3 +414,71 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
                 rows.append(_empty_row(ticker, f"ERROR: {e}", cache_source="none"))
 
     return pd.DataFrame(rows)
+
+
+def get_price_history(ticker: str, range_key: str = "1y", force_refresh: bool = False, max_age_hours: int = 24):
+    ticker = str(ticker).strip().upper()
+    range_key = str(range_key).strip().lower()
+
+    if range_key not in PRICE_RANGE_CONFIG:
+        raise ValueError(f"Unsupported range '{range_key}'. Use one of: {', '.join(sorted(PRICE_RANGE_CONFIG))}")
+
+    if not FINNHUB_API_KEY:
+        raise ValueError("Missing FINNHUB_API_KEY environment variable")
+
+    if not force_refresh:
+        cached = _read_history_cache(ticker, range_key, max_age_hours=max_age_hours)
+        if cached is not None:
+            cached["cache_source"] = "cache"
+            return cached
+
+    cfg = PRICE_RANGE_CONFIG[range_key]
+    now = datetime.now(timezone.utc)
+    start = now - timedelta(days=cfg["days"])
+
+    response = _finnhub_get(
+        "stock/candle",
+        {
+            "symbol": ticker,
+            "resolution": cfg["resolution"],
+            "from": int(start.timestamp()),
+            "to": int(now.timestamp()),
+        },
+    )
+
+    status = response.get("s")
+    if status != "ok":
+        raise ValueError(f"Failed to fetch price history for {ticker}: {response}")
+
+    closes = response.get("c", []) or []
+    timestamps = response.get("t", []) or []
+    opens = response.get("o", []) or []
+    highs = response.get("h", []) or []
+    lows = response.get("l", []) or []
+    volumes = response.get("v", []) or []
+
+    points = []
+    for idx, ts in enumerate(timestamps):
+        dt = datetime.fromtimestamp(ts, tz=timezone.utc)
+        points.append(
+            {
+                "date": dt.date().isoformat(),
+                "timestamp": int(ts),
+                "open": safe_float(opens[idx]) if idx < len(opens) else None,
+                "high": safe_float(highs[idx]) if idx < len(highs) else None,
+                "low": safe_float(lows[idx]) if idx < len(lows) else None,
+                "close": safe_float(closes[idx]) if idx < len(closes) else None,
+                "volume": safe_float(volumes[idx]) if idx < len(volumes) else None,
+            }
+        )
+
+    payload = {
+        "ticker": ticker,
+        "range": range_key,
+        "resolution": cfg["resolution"],
+        "points": points,
+        "cache_source": "live",
+    }
+
+    _write_history_cache(ticker, range_key, payload)
+    return payload

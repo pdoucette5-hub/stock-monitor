@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
 import PageToolbar from '../components/PageToolbar'
-import { fetchPortfolioPerformance } from '../lib/api'
+import { fetchPortfolioPerformance, fetchPriceComparison } from '../lib/api'
 
 const RANGES = ['1m', '3m', '6m', '1y', '3y', '5y']
+const BENCHMARK_OPTIONS = ['', 'SPY', 'QQQ', 'ONEQ']
 
 function formatMoney(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return '—'
@@ -23,6 +24,11 @@ function formatShortDate(dateString) {
     day: 'numeric',
     year: '2-digit',
   })
+}
+
+function displayTickerLabel(ticker) {
+  if (ticker === 'ONEQ') return 'Nasdaq Composite (ONEQ)'
+  return ticker
 }
 
 function MetricCard({ label, value }) {
@@ -164,11 +170,132 @@ function PerformanceChart({ series }) {
   )
 }
 
+function ComparisonChart({ seriesByTicker }) {
+  const tickers = Object.keys(seriesByTicker || {}).filter(
+    (ticker) => Array.isArray(seriesByTicker[ticker]) && seriesByTicker[ticker].length > 0,
+  )
+
+  if (tickers.length === 0) {
+    return (
+      <div className="flex h-80 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
+        No comparison data available.
+      </div>
+    )
+  }
+
+  const width = 1000
+  const height = 320
+  const padding = 48
+  const palette = ['#2563eb', '#16a34a', '#9333ea', '#ea580c', '#dc2626', '#0891b2']
+
+  const firstSeries = seriesByTicker[tickers[0]]
+  const allValues = []
+  tickers.forEach((ticker) => {
+    seriesByTicker[ticker].forEach((point) => {
+      allValues.push(Number(point.normalized ?? 0))
+    })
+  })
+
+  const minValue = Math.min(...allValues)
+  const maxValue = Math.max(...allValues)
+  const valueRange = maxValue - minValue || 1
+
+  const xFor = (idx) => {
+    if (firstSeries.length === 1) return padding
+    return padding + (idx / (firstSeries.length - 1)) * (width - padding * 2)
+  }
+
+  const yFor = (value) => {
+    return height - padding - ((value - minValue) / valueRange) * (height - padding * 2)
+  }
+
+  const ticks = 4
+  const yTicks = Array.from({ length: ticks + 1 }, (_, i) => {
+    const value = minValue + ((maxValue - minValue) * i) / ticks
+    return { value, y: yFor(value) }
+  })
+
+  return (
+    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="mb-4">
+        <div className="text-sm font-medium text-slate-500">Normalized Comparison</div>
+        <div className="text-lg font-semibold text-slate-900">
+          All series start at 100
+        </div>
+      </div>
+
+      <div className="mb-3 flex flex-wrap items-center gap-4 text-xs text-slate-600">
+        {tickers.map((ticker, idx) => (
+          <div key={ticker} className="flex items-center gap-2">
+            <span
+              className="inline-block h-0.5 w-6"
+              style={{ backgroundColor: palette[idx % palette.length] }}
+            />
+            {displayTickerLabel(ticker)}
+          </div>
+        ))}
+      </div>
+
+      <div className="overflow-x-auto">
+        <svg viewBox={`0 0 ${width} ${height}`} className="h-80 w-full min-w-[800px]">
+          {yTicks.map((tick) => (
+            <g key={tick.value}>
+              <line
+                x1={padding}
+                x2={width - padding}
+                y1={tick.y}
+                y2={tick.y}
+                stroke="#e2e8f0"
+                strokeDasharray="4 4"
+              />
+              <text x={6} y={tick.y + 4} fontSize="11" fill="#64748b">
+                {tick.value.toFixed(1)}
+              </text>
+            </g>
+          ))}
+
+          {tickers.map((ticker, idx) => {
+            const series = seriesByTicker[ticker]
+            const path = series
+              .map((point, pointIdx) => `${pointIdx === 0 ? 'M' : 'L'} ${xFor(pointIdx)} ${yFor(Number(point.normalized ?? 0))}`)
+              .join(' ')
+
+            return (
+              <path
+                key={ticker}
+                d={path}
+                fill="none"
+                stroke={palette[idx % palette.length]}
+                strokeWidth="3"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
+            )
+          })}
+
+          <text x={padding} y={height - 10} fontSize="11" fill="#64748b">
+            {formatShortDate(firstSeries[0]?.date)}
+          </text>
+          <text x={width - padding} y={height - 10} textAnchor="end" fontSize="11" fill="#64748b">
+            {formatShortDate(firstSeries[firstSeries.length - 1]?.date)}
+          </text>
+        </svg>
+      </div>
+    </div>
+  )
+}
+
 export default function Performance() {
   const [range, setRange] = useState('1y')
+  const [benchmark, setBenchmark] = useState('SPY')
+  const [compareInput, setCompareInput] = useState('')
+  const [compareTickers, setCompareTickers] = useState([])
   const [loading, setLoading] = useState(true)
+  const [loadingCompare, setLoadingCompare] = useState(false)
   const [error, setError] = useState(null)
+  const [compareError, setCompareError] = useState(null)
   const [data, setData] = useState(null)
+  const [comparisonData, setComparisonData] = useState({})
   const [lastUpdated, setLastUpdated] = useState(null)
 
   async function loadPerformance(nextRange = range) {
@@ -185,10 +312,41 @@ export default function Performance() {
     }
   }
 
+  async function loadComparison(nextRange = range, nextBenchmark = benchmark, extraTickers = compareTickers) {
+    const tickers = [
+      ...(nextBenchmark ? [nextBenchmark] : []),
+      ...extraTickers,
+    ]
+      .map((ticker) => String(ticker).trim().toUpperCase())
+      .filter(Boolean)
+
+    if (tickers.length === 0) {
+      setComparisonData({})
+      return
+    }
+
+    setLoadingCompare(true)
+    setCompareError(null)
+    try {
+      const payload = await fetchPriceComparison(tickers, nextRange)
+      setComparisonData(payload?.series ?? {})
+    } catch (err) {
+      setCompareError(err instanceof Error ? err.message : 'Failed to load comparison data')
+      setComparisonData({})
+    } finally {
+      setLoadingCompare(false)
+    }
+  }
+
   useEffect(() => {
     loadPerformance(range)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [range])
+
+  useEffect(() => {
+    loadComparison(range, benchmark, compareTickers)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [range, benchmark, compareTickers])
 
   const latest = data?.latest ?? {}
   const series = data?.series ?? []
@@ -207,6 +365,17 @@ export default function Performance() {
     [positions],
   )
 
+  const handleAddCompareTicker = () => {
+    const ticker = String(compareInput).trim().toUpperCase()
+    if (!ticker) return
+    setCompareTickers((current) => (current.includes(ticker) ? current : [...current, ticker]))
+    setCompareInput('')
+  }
+
+  const handleRemoveCompareTicker = (ticker) => {
+    setCompareTickers((current) => current.filter((item) => item !== ticker))
+  }
+
   return (
     <div className="mx-auto w-[98vw] px-4 py-8">
       <PageToolbar
@@ -223,6 +392,15 @@ export default function Performance() {
           className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
         >
           {error}
+        </div>
+      )}
+
+      {compareError && (
+        <div
+          role="alert"
+          className="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900"
+        >
+          {compareError}
         </div>
       )}
 
@@ -262,6 +440,82 @@ export default function Performance() {
           <PerformanceChart series={series} />
         )}
       </div>
+
+      <section className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="mb-4">
+          <h2 className="text-sm font-semibold text-slate-900">Comparison</h2>
+          <p className="mt-1 text-xs text-slate-500">
+            Compare benchmarks and selected tickers on a normalized basis.
+          </p>
+        </div>
+
+        <div className="mb-4 flex flex-wrap items-end gap-3">
+          <div>
+            <label className="mb-1 block text-xs font-medium text-slate-600">
+              Benchmark
+            </label>
+            <select
+              value={benchmark}
+              onChange={(e) => setBenchmark(e.target.value)}
+              className="rounded border border-slate-300 px-3 py-2 text-sm text-slate-900"
+            >
+              {BENCHMARK_OPTIONS.map((option) => (
+                <option key={option || 'none'} value={option}>
+                  {option === ''
+                    ? 'None'
+                    : option === 'ONEQ'
+                      ? 'Nasdaq Composite (ONEQ)'
+                      : option}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="mb-1 block text-xs font-medium text-slate-600">
+              Add Ticker
+            </label>
+            <input
+              type="text"
+              value={compareInput}
+              onChange={(e) => setCompareInput(e.target.value.toUpperCase())}
+              placeholder="e.g. NVDA"
+              className="rounded border border-slate-300 px-3 py-2 text-sm text-slate-900"
+            />
+          </div>
+
+          <button
+            type="button"
+            onClick={handleAddCompareTicker}
+            className="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+          >
+            Add Compare Ticker
+          </button>
+        </div>
+
+        {compareTickers.length > 0 && (
+          <div className="mb-4 flex flex-wrap gap-2">
+            {compareTickers.map((ticker) => (
+              <button
+                key={ticker}
+                type="button"
+                onClick={() => handleRemoveCompareTicker(ticker)}
+                className="rounded-full border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
+              >
+                {ticker} ×
+              </button>
+            ))}
+          </div>
+        )}
+
+        {loadingCompare ? (
+          <div className="flex h-80 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
+            Loading comparison…
+          </div>
+        ) : (
+          <ComparisonChart seriesByTicker={comparisonData} />
+        )}
+      </section>
 
       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
         <div className="border-b border-slate-200 px-4 py-3">
