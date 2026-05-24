@@ -12,6 +12,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
+from backend.data_ingest import get_price_history
 from backend.logic import merge_global_settings
 from backend.models import (
     GlobalSettings,
@@ -639,6 +640,29 @@ def get_position_summary(ticker: str) -> dict[str, Any]:
         "summary": summary,
         "transactions": entries,
     }
+
+
+@app.get("/api/prices/history")
+def get_price_history_endpoint(
+    ticker: str,
+    range: str = "1y",
+    force_refresh: bool = False,
+) -> dict[str, Any]:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+
+    try:
+        return get_price_history(
+            normalized,
+            range_key=range,
+            force_refresh=force_refresh,
+            max_age_hours=24,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
 @app.put("/api/portfolio/shares", response_model=PortfolioViewResponse)
