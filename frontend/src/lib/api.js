@@ -33,6 +33,14 @@ export function savePortfolioControls(updates, forceRefresh = false) {
   })
 }
 
+export function savePortfolioShares(ticker, shares, forceRefresh = false) {
+  const query = forceRefresh ? '?force_refresh=true' : ''
+  return request(`/api/portfolio/shares${query}`, {
+    method: 'PUT',
+    body: JSON.stringify({ ticker, shares }),
+  })
+}
+
 export function fetchTickersConfig() {
   return request('/api/config/tickers')
 }
