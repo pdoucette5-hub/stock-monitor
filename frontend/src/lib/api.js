@@ -101,3 +101,31 @@ export function saveStockScenario(ticker, payload) {
     body: JSON.stringify(payload),
   })
 }
+
+export function fetchTransactions(ticker) {
+  const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
+  return request(`/api/transactions/${normalized}`)
+}
+
+export function createTransaction(ticker, payload) {
+  const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
+  return request(`/api/transactions/${normalized}`, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  })
+}
+
+export function updateTransaction(ticker, transactionId, payload) {
+  const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
+  return request(`/api/transactions/${normalized}/${encodeURIComponent(transactionId)}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+  })
+}
+
+export function deleteTransaction(ticker, transactionId) {
+  const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
+  return request(`/api/transactions/${normalized}/${encodeURIComponent(transactionId)}`, {
+    method: 'DELETE',
+  })
+}

@@ -1,10 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import {
+  createTransaction,
+  deleteTransaction,
   fetchPortfolioScenarios,
   fetchStockScenario,
   fetchTickersConfig,
+  fetchTransactions,
   saveStockScenario,
+  updateTransaction,
 } from '../lib/api'
 import {
   apiToForm,
@@ -31,6 +35,16 @@ const SCENARIO_BLOCKS = [
   },
 ]
 
+const TRANSACTION_TYPE_OPTIONS = [
+  'buy',
+  'sell',
+  'dividend',
+  'split',
+  'transfer_in',
+  'transfer_out',
+  'adjustment',
+]
+
 function collectTickers(tickersPayload, scenariosPayload) {
   const fromConfig = [
     ...(tickersPayload?.portfolio ?? []).map((p) =>
@@ -49,16 +63,33 @@ const inputClass =
 
 const labelClass = 'block text-sm font-medium text-slate-700'
 
+function emptyTransactionForm() {
+  return {
+    id: null,
+    date: '',
+    type: 'buy',
+    shares: '',
+    price_per_share: '',
+    fees: '0',
+    notes: '',
+  }
+}
+
 export default function StockDetail() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [tickers, setTickers] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
   const [form, setForm] = useState(defaultFormState)
+  const [transactions, setTransactions] = useState([])
+  const [transactionForm, setTransactionForm] = useState(emptyTransactionForm())
   const [loadingTickers, setLoadingTickers] = useState(true)
   const [loadingForm, setLoadingForm] = useState(false)
+  const [loadingTransactions, setLoadingTransactions] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [savingTransaction, setSavingTransaction] = useState(false)
   const [error, setError] = useState(null)
   const [saveMessage, setSaveMessage] = useState(null)
+  const [transactionMessage, setTransactionMessage] = useState(null)
   const [isNewTicker, setIsNewTicker] = useState(false)
 
   useEffect(() => {
@@ -144,10 +175,31 @@ export default function StockDetail() {
     }
   }, [])
 
+  const loadTickerTransactions = useCallback(async (ticker) => {
+    if (!ticker) {
+      setTransactions([])
+      return
+    }
+
+    setLoadingTransactions(true)
+    try {
+      const payload = await fetchTransactions(ticker)
+      const rows = Array.isArray(payload?.transactions) ? payload.transactions : []
+      const sorted = [...rows].sort((a, b) => String(b.date).localeCompare(String(a.date)))
+      setTransactions(sorted)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load transactions')
+    } finally {
+      setLoadingTransactions(false)
+    }
+  }, [])
+
   useEffect(() => {
     if (!selectedTicker) return
     loadScenario(selectedTicker)
-  }, [selectedTicker, loadScenario])
+    loadTickerTransactions(selectedTicker)
+    setTransactionForm(emptyTransactionForm())
+  }, [selectedTicker, loadScenario, loadTickerTransactions])
 
   const handleTickerChange = (event) => {
     const nextTicker = event.target.value
@@ -189,6 +241,94 @@ export default function StockDetail() {
     }
   }
 
+  const handleTransactionFieldChange = (field, value) => {
+    setTransactionForm((prev) => ({
+      ...prev,
+      [field]: value,
+    }))
+    setTransactionMessage(null)
+  }
+
+  const handleEditTransaction = (tx) => {
+    setTransactionForm({
+      id: tx.id,
+      date: tx.date ?? '',
+      type: tx.type ?? 'buy',
+      shares: tx.shares ?? '',
+      price_per_share: tx.price_per_share ?? '',
+      fees: tx.fees ?? '0',
+      notes: tx.notes ?? '',
+    })
+    setTransactionMessage(null)
+  }
+
+  const resetTransactionForm = () => {
+    setTransactionForm(emptyTransactionForm())
+  }
+
+  const handleSaveTransaction = async (event) => {
+    event.preventDefault()
+    if (!selectedTicker) return
+
+    setSavingTransaction(true)
+    setError(null)
+    setTransactionMessage(null)
+
+    const payload = {
+      date: transactionForm.date,
+      type: transactionForm.type,
+      shares: Number(transactionForm.shares),
+      price_per_share:
+        transactionForm.price_per_share === ''
+          ? null
+          : Number(transactionForm.price_per_share),
+      fees:
+        transactionForm.fees === ''
+          ? 0
+          : Number(transactionForm.fees),
+      notes: transactionForm.notes ?? '',
+    }
+
+    try {
+      if (transactionForm.id) {
+        await updateTransaction(selectedTicker, transactionForm.id, payload)
+        setTransactionMessage('Transaction updated.')
+      } else {
+        await createTransaction(selectedTicker, payload)
+        setTransactionMessage('Transaction added.')
+      }
+
+      resetTransactionForm()
+      await loadTickerTransactions(selectedTicker)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to save transaction')
+    } finally {
+      setSavingTransaction(false)
+    }
+  }
+
+  const handleDeleteTransaction = async (transactionId) => {
+    if (!selectedTicker) return
+    const confirmed = window.confirm('Delete this transaction?')
+    if (!confirmed) return
+
+    setSavingTransaction(true)
+    setError(null)
+    setTransactionMessage(null)
+    try {
+      await deleteTransaction(selectedTicker, transactionId)
+      setTransactionMessage('Transaction deleted.')
+      if (transactionForm.id === transactionId) {
+        resetTransactionForm()
+      }
+      await loadTickerTransactions(selectedTicker)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to delete transaction')
+    } finally {
+      setSavingTransaction(false)
+    }
+  }
+
   const disableForm = loadingForm || saving || !selectedTicker
 
   const pageSubtitle = useMemo(() => {
@@ -198,7 +338,7 @@ export default function StockDetail() {
   }, [loadingForm, isNewTicker])
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
       <header className="mb-8">
         <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
           Stock Detail
@@ -221,6 +361,15 @@ export default function StockDetail() {
           className="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"
         >
           {saveMessage}
+        </div>
+      )}
+
+      {transactionMessage && (
+        <div
+          role="status"
+          className="mb-6 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-900"
+        >
+          {transactionMessage}
         </div>
       )}
 
@@ -255,114 +404,279 @@ export default function StockDetail() {
       {!selectedTicker ? (
         <p className="text-sm text-slate-500">Select a ticker to edit assumptions.</p>
       ) : (
-        <form onSubmit={handleSave} className="space-y-6">
-          <fieldset disabled={disableForm} className="space-y-6">
-            <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-slate-900">
-                Base Inputs
-              </h2>
-              <p className="mt-1 text-sm text-slate-500">
-                Latest-quarter starting point (stored as raw dollars/shares;
-                enter values in billions).
-              </p>
-              <div className="mt-5 grid gap-5 sm:grid-cols-3">
-                <div>
-                  <label htmlFor="latest-q-rev" className={labelClass}>
-                    Latest Quarter Revenue ($B)
-                  </label>
-                  <input
-                    id="latest-q-rev"
-                    type="number"
-                    step="0.01"
-                    value={form.latestQuarterRevenueB}
-                    onChange={(e) =>
-                      updateBase('latestQuarterRevenueB', e.target.value)
-                    }
-                    className={inputClass}
-                    placeholder="e.g. 95.00"
-                  />
+        <div className="space-y-6">
+          <form onSubmit={handleSave} className="space-y-6">
+            <fieldset disabled={disableForm} className="space-y-6">
+              <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 className="text-lg font-semibold text-slate-900">
+                  Base Inputs
+                </h2>
+                <p className="mt-1 text-sm text-slate-500">
+                  Latest-quarter starting point (stored as raw dollars/shares;
+                  enter values in billions).
+                </p>
+                <div className="mt-5 grid gap-5 sm:grid-cols-3">
+                  <div>
+                    <label htmlFor="latest-q-rev" className={labelClass}>
+                      Latest Quarter Revenue ($B)
+                    </label>
+                    <input
+                      id="latest-q-rev"
+                      type="number"
+                      step="0.01"
+                      value={form.latestQuarterRevenueB}
+                      onChange={(e) =>
+                        updateBase('latestQuarterRevenueB', e.target.value)
+                      }
+                      className={inputClass}
+                      placeholder="e.g. 95.00"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="latest-q-ni" className={labelClass}>
+                      Latest Quarter Net Income ($B)
+                    </label>
+                    <input
+                      id="latest-q-ni"
+                      type="number"
+                      step="0.01"
+                      value={form.latestQuarterNetIncomeB}
+                      onChange={(e) =>
+                        updateBase('latestQuarterNetIncomeB', e.target.value)
+                      }
+                      className={inputClass}
+                      placeholder="e.g. 24.00"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="shares-out" className={labelClass}>
+                      Shares Outstanding (B)
+                    </label>
+                    <input
+                      id="shares-out"
+                      type="number"
+                      step="0.01"
+                      value={form.sharesOutstandingB}
+                      onChange={(e) =>
+                        updateBase('sharesOutstandingB', e.target.value)
+                      }
+                      className={inputClass}
+                      placeholder="e.g. 15.00"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="latest-q-ni" className={labelClass}>
-                    Latest Quarter Net Income ($B)
-                  </label>
-                  <input
-                    id="latest-q-ni"
-                    type="number"
-                    step="0.01"
-                    value={form.latestQuarterNetIncomeB}
-                    onChange={(e) =>
-                      updateBase('latestQuarterNetIncomeB', e.target.value)
-                    }
-                    className={inputClass}
-                    placeholder="e.g. 24.00"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="shares-out" className={labelClass}>
-                    Shares Outstanding (B)
-                  </label>
-                  <input
-                    id="shares-out"
-                    type="number"
-                    step="0.01"
-                    value={form.sharesOutstandingB}
-                    onChange={(e) =>
-                      updateBase('sharesOutstandingB', e.target.value)
-                    }
-                    className={inputClass}
-                    placeholder="e.g. 15.00"
-                  />
-                </div>
-              </div>
 
-              <div className="mt-5">
-                <label htmlFor="notes" className={labelClass}>
-                  Notes (optional)
-                </label>
-                <textarea
-                  id="notes"
-                  rows={2}
-                  value={form.notes}
-                  onChange={(e) => updateBase('notes', e.target.value)}
+                <div className="mt-5">
+                  <label htmlFor="notes" className={labelClass}>
+                    Notes (optional)
+                  </label>
+                  <textarea
+                    id="notes"
+                    rows={2}
+                    value={form.notes}
+                    onChange={(e) => updateBase('notes', e.target.value)}
+                    className={inputClass}
+                    placeholder="Assumption notes…"
+                  />
+                </div>
+              </section>
+
+              {SCENARIO_BLOCKS.map(({ key, title, headerClass }) => (
+                <ScenarioBlock
+                  key={key}
+                  scenarioKey={key}
+                  title={title}
+                  headerClass={headerClass}
+                  values={form[key]}
+                  onChange={(field, value) => updateScenario(key, field, value)}
+                />
+              ))}
+            </fieldset>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                type="submit"
+                disabled={disableForm}
+                className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {saving ? 'Saving…' : 'Save Assumptions'}
+              </button>
+              {loadingForm && (
+                <span className="text-sm text-slate-500">Loading form…</span>
+              )}
+            </div>
+          </form>
+
+          <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="mb-5">
+              <h2 className="text-lg font-semibold text-slate-900">Transactions</h2>
+              <p className="mt-1 text-sm text-slate-500">
+                Record buys, sells, dividends, splits, transfers, and adjustments.
+              </p>
+            </div>
+
+            <form onSubmit={handleSaveTransaction} className="mb-6 grid gap-4 lg:grid-cols-6">
+              <div>
+                <label className={labelClass}>Date</label>
+                <input
+                  type="date"
+                  value={transactionForm.date}
+                  onChange={(e) => handleTransactionFieldChange('date', e.target.value)}
                   className={inputClass}
-                  placeholder="Assumption notes…"
                 />
               </div>
-            </section>
 
-            {SCENARIO_BLOCKS.map(({ key, title, headerClass }) => (
-              <ScenarioBlock
-                key={key}
-                scenarioKey={key}
-                title={title}
-                headerClass={headerClass}
-                values={form[key]}
-                onChange={(field, value) => onChangeScenario(key, field, value)}
-              />
-            ))}
-          </fieldset>
+              <div>
+                <label className={labelClass}>Type</label>
+                <select
+                  value={transactionForm.type}
+                  onChange={(e) => handleTransactionFieldChange('type', e.target.value)}
+                  className={inputClass}
+                >
+                  {TRANSACTION_TYPE_OPTIONS.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <button
-              type="submit"
-              disabled={disableForm}
-              className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {saving ? 'Saving…' : 'Save Assumptions'}
-            </button>
-            {loadingForm && (
-              <span className="text-sm text-slate-500">Loading form…</span>
-            )}
-          </div>
-        </form>
+              <div>
+                <label className={labelClass}>Shares</label>
+                <input
+                  type="number"
+                  step="0.0001"
+                  value={transactionForm.shares}
+                  onChange={(e) => handleTransactionFieldChange('shares', e.target.value)}
+                  className={inputClass}
+                />
+              </div>
+
+              <div>
+                <label className={labelClass}>Price / Share</label>
+                <input
+                  type="number"
+                  step="0.0001"
+                  value={transactionForm.price_per_share}
+                  onChange={(e) =>
+                    handleTransactionFieldChange('price_per_share', e.target.value)
+                  }
+                  className={inputClass}
+                />
+              </div>
+
+              <div>
+                <label className={labelClass}>Fees</label>
+                <input
+                  type="number"
+                  step="0.01"
+                  value={transactionForm.fees}
+                  onChange={(e) => handleTransactionFieldChange('fees', e.target.value)}
+                  className={inputClass}
+                />
+              </div>
+
+              <div>
+                <label className={labelClass}>Notes</label>
+                <input
+                  type="text"
+                  value={transactionForm.notes}
+                  onChange={(e) => handleTransactionFieldChange('notes', e.target.value)}
+                  className={inputClass}
+                />
+              </div>
+
+              <div className="lg:col-span-6 flex flex-wrap items-center gap-3">
+                <button
+                  type="submit"
+                  disabled={savingTransaction}
+                  className="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 disabled:opacity-60"
+                >
+                  {savingTransaction
+                    ? 'Saving…'
+                    : transactionForm.id
+                      ? 'Update Transaction'
+                      : 'Add Transaction'}
+                </button>
+
+                {transactionForm.id && (
+                  <button
+                    type="button"
+                    onClick={resetTransactionForm}
+                    className="rounded border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                  >
+                    Cancel Edit
+                  </button>
+                )}
+              </div>
+            </form>
+
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
+                <thead className="bg-slate-50">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold text-slate-700">Date</th>
+                    <th className="px-4 py-3 font-semibold text-slate-700">Type</th>
+                    <th className="px-4 py-3 font-semibold text-slate-700">Shares</th>
+                    <th className="px-4 py-3 font-semibold text-slate-700">Price / Share</th>
+                    <th className="px-4 py-3 font-semibold text-slate-700">Fees</th>
+                    <th className="px-4 py-3 font-semibold text-slate-700">Notes</th>
+                    <th className="px-4 py-3 font-semibold text-slate-700">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {loadingTransactions ? (
+                    <tr>
+                      <td colSpan={7} className="px-4 py-10 text-center text-slate-500">
+                        Loading transactions…
+                      </td>
+                    </tr>
+                  ) : transactions.length === 0 ? (
+                    <tr>
+                      <td colSpan={7} className="px-4 py-10 text-center text-slate-500">
+                        No transactions recorded for this ticker yet.
+                      </td>
+                    </tr>
+                  ) : (
+                    transactions.map((tx) => (
+                      <tr key={tx.id} className="hover:bg-slate-50/80">
+                        <td className="px-4 py-3 text-slate-700">{tx.date ?? '—'}</td>
+                        <td className="px-4 py-3 text-slate-700">{tx.type ?? '—'}</td>
+                        <td className="px-4 py-3 text-slate-700">{tx.shares ?? '—'}</td>
+                        <td className="px-4 py-3 text-slate-700">
+                          {tx.price_per_share ?? '—'}
+                        </td>
+                        <td className="px-4 py-3 text-slate-700">{tx.fees ?? '—'}</td>
+                        <td className="px-4 py-3 text-slate-700">{tx.notes ?? '—'}</td>
+                        <td className="px-4 py-3">
+                          <div className="flex items-center gap-2">
+                            <button
+                              type="button"
+                              onClick={() => handleEditTransaction(tx)}
+                              className="rounded border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteTransaction(tx.id)}
+                              className="rounded border border-red-300 px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
       )}
     </div>
   )
-
-  function onChangeScenario(scenarioKey, field, value) {
-    updateScenario(scenarioKey, field, value)
-  }
 }
 
 function ScenarioBlock({ scenarioKey, title, headerClass, values, onChange }) {
