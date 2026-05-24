@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import uuid
 from pathlib import Path
 from typing import Any
 
@@ -33,12 +34,14 @@ SCENARIO_STATE_FILE = BASE_DIR / "cache" / "scenario_inputs.json"
 GLOBAL_SETTINGS_FILE = BASE_DIR / "cache" / "global_settings.json"
 HOLDINGS_OVERRIDES_FILE = BASE_DIR / "cache" / "holdings_overrides.json"
 TICKERS_OVERRIDES_FILE = BASE_DIR / "cache" / "tickers_overrides.json"
+TRANSACTIONS_FILE = BASE_DIR / "cache" / "transactions.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 SCENARIO_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 GLOBAL_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
 HOLDINGS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 TICKERS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
+TRANSACTIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="Stock Monitor API", version="0.1.0")
 
@@ -77,6 +80,35 @@ class ArchiveTickerRequest(BaseModel):
 class RestoreTickerRequest(BaseModel):
     ticker: str
     list: str
+
+
+class TransactionCreate(BaseModel):
+    date: str
+    type: str
+    shares: float
+    price_per_share: float | None = None
+    fees: float | None = 0.0
+    notes: str | None = ""
+
+
+class TransactionUpdate(BaseModel):
+    date: str
+    type: str
+    shares: float
+    price_per_share: float | None = None
+    fees: float | None = 0.0
+    notes: str | None = ""
+
+
+VALID_TRANSACTION_TYPES = {
+    "buy",
+    "sell",
+    "dividend",
+    "split",
+    "transfer_in",
+    "transfer_out",
+    "adjustment",
+}
 
 
 def load_json_file(path: Path, default_data: Any) -> Any:
@@ -196,8 +228,61 @@ def save_tickers_overrides(data: dict[str, Any]) -> None:
     save_json_file(TICKERS_OVERRIDES_FILE, {"tickers": cleaned})
 
 
+def load_transactions() -> dict[str, list[dict[str, Any]]]:
+    raw = load_json_file(TRANSACTIONS_FILE, {})
+    if not isinstance(raw, dict):
+        return {}
+
+    cleaned: dict[str, list[dict[str, Any]]] = {}
+    for ticker, entries in raw.items():
+        normalized = normalize_ticker(ticker)
+        if not normalized or not isinstance(entries, list):
+            continue
+        cleaned[normalized] = [entry for entry in entries if isinstance(entry, dict)]
+    return cleaned
+
+
+def save_transactions(data: dict[str, list[dict[str, Any]]]) -> None:
+    cleaned: dict[str, list[dict[str, Any]]] = {}
+    for ticker, entries in data.items():
+        normalized = normalize_ticker(ticker)
+        if not normalized or not isinstance(entries, list):
+            continue
+        cleaned[normalized] = [entry for entry in entries if isinstance(entry, dict)]
+    save_json_file(TRANSACTIONS_FILE, cleaned)
+
+
 def normalize_ticker(ticker: str) -> str:
     return str(ticker).strip().upper()
+
+
+def validate_transaction_payload(payload: TransactionCreate | TransactionUpdate) -> dict[str, Any]:
+    tx_type = str(payload.type).strip().lower()
+    if tx_type not in VALID_TRANSACTION_TYPES:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid transaction type. Must be one of: {', '.join(sorted(VALID_TRANSACTION_TYPES))}",
+        )
+
+    if payload.shares < 0:
+        raise HTTPException(status_code=400, detail="Shares must be non-negative")
+
+    price_per_share = payload.price_per_share
+    if price_per_share is not None and price_per_share < 0:
+        raise HTTPException(status_code=400, detail="Price per share must be non-negative")
+
+    fees = payload.fees if payload.fees is not None else 0.0
+    if fees < 0:
+        raise HTTPException(status_code=400, detail="Fees must be non-negative")
+
+    return {
+        "date": str(payload.date).strip(),
+        "type": tx_type,
+        "shares": float(payload.shares),
+        "price_per_share": None if price_per_share is None else float(price_per_share),
+        "fees": float(fees),
+        "notes": str(payload.notes or "").strip(),
+    }
 
 
 def load_tickers_config() -> dict[str, Any]:
@@ -453,6 +538,88 @@ def remove_ticker(ticker: str) -> PortfolioConfig:
         save_holdings_overrides(holdings)
 
     return PortfolioConfig.model_validate(get_effective_tickers_config())
+
+
+@app.get("/api/transactions/{ticker}")
+def get_transactions_for_ticker(ticker: str) -> dict[str, Any]:
+    normalized = normalize_ticker(ticker)
+    transactions = load_transactions()
+    return {
+        "ticker": normalized,
+        "transactions": transactions.get(normalized, []),
+    }
+
+
+@app.post("/api/transactions/{ticker}")
+def create_transaction_for_ticker(ticker: str, body: TransactionCreate) -> dict[str, Any]:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+
+    tx = validate_transaction_payload(body)
+    tx["id"] = uuid.uuid4().hex
+
+    transactions = load_transactions()
+    entries = transactions.setdefault(normalized, [])
+    entries.append(tx)
+    save_transactions(transactions)
+
+    return {
+        "ticker": normalized,
+        "transaction": tx,
+        "transactions": entries,
+    }
+
+
+@app.put("/api/transactions/{ticker}/{transaction_id}")
+def update_transaction_for_ticker(
+    ticker: str,
+    transaction_id: str,
+    body: TransactionUpdate,
+) -> dict[str, Any]:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+
+    transactions = load_transactions()
+    entries = transactions.get(normalized, [])
+
+    for idx, entry in enumerate(entries):
+        if str(entry.get("id")) == str(transaction_id):
+            updated = validate_transaction_payload(body)
+            updated["id"] = str(transaction_id)
+            entries[idx] = updated
+            transactions[normalized] = entries
+            save_transactions(transactions)
+            return {
+                "ticker": normalized,
+                "transaction": updated,
+                "transactions": entries,
+            }
+
+    raise HTTPException(status_code=404, detail="Transaction not found")
+
+
+@app.delete("/api/transactions/{ticker}/{transaction_id}")
+def delete_transaction_for_ticker(ticker: str, transaction_id: str) -> dict[str, Any]:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+
+    transactions = load_transactions()
+    entries = transactions.get(normalized, [])
+    filtered = [entry for entry in entries if str(entry.get("id")) != str(transaction_id)]
+
+    if len(filtered) == len(entries):
+        raise HTTPException(status_code=404, detail="Transaction not found")
+
+    transactions[normalized] = filtered
+    save_transactions(transactions)
+
+    return {
+        "ticker": normalized,
+        "transactions": filtered,
+    }
 
 
 @app.put("/api/portfolio/shares", response_model=PortfolioViewResponse)
