@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import uuid
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -37,6 +38,7 @@ GLOBAL_SETTINGS_FILE = BASE_DIR / "cache" / "global_settings.json"
 HOLDINGS_OVERRIDES_FILE = BASE_DIR / "cache" / "holdings_overrides.json"
 TICKERS_OVERRIDES_FILE = BASE_DIR / "cache" / "tickers_overrides.json"
 TRANSACTIONS_FILE = BASE_DIR / "cache" / "transactions.json"
+PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 SCENARIO_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -44,6 +46,7 @@ GLOBAL_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
 HOLDINGS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 TICKERS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 TRANSACTIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
+PORTFOLIO_EVENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="Stock Monitor API", version="0.1.0")
 
@@ -254,6 +257,31 @@ def save_transactions(data: dict[str, list[dict[str, Any]]]) -> None:
     save_json_file(TRANSACTIONS_FILE, cleaned)
 
 
+def load_portfolio_events() -> list[dict[str, Any]]:
+    raw = load_json_file(PORTFOLIO_EVENTS_FILE, [])
+    if not isinstance(raw, list):
+        return []
+    return [item for item in raw if isinstance(item, dict)]
+
+
+def save_portfolio_events(events: list[dict[str, Any]]) -> None:
+    cleaned = [item for item in events if isinstance(item, dict)]
+    save_json_file(PORTFOLIO_EVENTS_FILE, cleaned)
+
+
+def append_portfolio_event(event_type: str, ticker: str, payload: dict[str, Any] | None = None) -> None:
+    events = load_portfolio_events()
+    entry = {
+        "id": uuid.uuid4().hex,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "type": str(event_type).strip(),
+        "ticker": normalize_ticker(ticker),
+        "payload": payload or {},
+    }
+    events.append(entry)
+    save_portfolio_events(events)
+
+
 def normalize_ticker(ticker: str) -> str:
     return str(ticker).strip().upper()
 
@@ -417,6 +445,32 @@ def get_ticker_registry() -> dict[str, Any]:
     }
 
 
+@app.get("/api/events")
+def get_portfolio_events(
+    ticker: str | None = None,
+    limit: int = 500,
+) -> dict[str, Any]:
+    events = load_portfolio_events()
+
+    if ticker:
+        normalized = normalize_ticker(ticker)
+        events = [event for event in events if event.get("ticker") == normalized]
+
+    events = sorted(
+        events,
+        key=lambda event: str(event.get("timestamp", "")),
+        reverse=True,
+    )
+
+    limit = max(1, min(int(limit), 5000))
+    events = events[:limit]
+
+    return {
+        "count": len(events),
+        "events": events,
+    }
+
+
 @app.put("/api/tickers/portfolio", response_model=PortfolioConfig)
 def add_portfolio_ticker(body: PortfolioTickerUpsert) -> PortfolioConfig:
     ticker = normalize_ticker(body.ticker)
@@ -439,6 +493,12 @@ def add_portfolio_ticker(body: PortfolioTickerUpsert) -> PortfolioConfig:
     holdings[ticker] = float(body.shares)
     save_holdings_overrides(holdings)
 
+    append_portfolio_event(
+        "add_portfolio",
+        ticker,
+        {"shares": float(body.shares)},
+    )
+
     return PortfolioConfig.model_validate(get_effective_tickers_config())
 
 
@@ -457,6 +517,12 @@ def add_watchlist_ticker(body: WatchlistTickerUpsert) -> PortfolioConfig:
         "removed": False,
     }
     save_tickers_overrides(overrides)
+
+    append_portfolio_event(
+        "add_watchlist",
+        ticker,
+        {},
+    )
 
     return PortfolioConfig.model_validate(get_effective_tickers_config())
 
@@ -488,6 +554,12 @@ def archive_ticker(body: ArchiveTickerRequest) -> PortfolioConfig:
     }
     save_tickers_overrides(overrides)
 
+    append_portfolio_event(
+        "archive_ticker",
+        ticker,
+        {"previous_list": previous_list},
+    )
+
     return PortfolioConfig.model_validate(get_effective_tickers_config())
 
 
@@ -512,6 +584,12 @@ def restore_ticker(body: RestoreTickerRequest) -> PortfolioConfig:
         "removed": False,
     }
     save_tickers_overrides(overrides)
+
+    append_portfolio_event(
+        "restore_ticker",
+        ticker,
+        {"target_list": target_list},
+    )
 
     return PortfolioConfig.model_validate(get_effective_tickers_config())
 
@@ -538,6 +616,12 @@ def remove_ticker(ticker: str) -> PortfolioConfig:
     if normalized in holdings:
         del holdings[normalized]
         save_holdings_overrides(holdings)
+
+    append_portfolio_event(
+        "remove_ticker",
+        normalized,
+        {},
+    )
 
     return PortfolioConfig.model_validate(get_effective_tickers_config())
 
@@ -566,6 +650,17 @@ def create_transaction_for_ticker(ticker: str, body: TransactionCreate) -> dict[
     entries.append(tx)
     save_transactions(transactions)
 
+    append_portfolio_event(
+        "create_transaction",
+        normalized,
+        {
+            "transaction_id": tx["id"],
+            "transaction_type": tx["type"],
+            "shares": tx["shares"],
+            "date": tx["date"],
+        },
+    )
+
     return {
         "ticker": normalized,
         "transaction": tx,
@@ -593,6 +688,18 @@ def update_transaction_for_ticker(
             entries[idx] = updated
             transactions[normalized] = entries
             save_transactions(transactions)
+
+            append_portfolio_event(
+                "update_transaction",
+                normalized,
+                {
+                    "transaction_id": str(transaction_id),
+                    "transaction_type": updated["type"],
+                    "shares": updated["shares"],
+                    "date": updated["date"],
+                },
+            )
+
             return {
                 "ticker": normalized,
                 "transaction": updated,
@@ -617,6 +724,14 @@ def delete_transaction_for_ticker(ticker: str, transaction_id: str) -> dict[str,
 
     transactions[normalized] = filtered
     save_transactions(transactions)
+
+    append_portfolio_event(
+        "delete_transaction",
+        normalized,
+        {
+            "transaction_id": str(transaction_id),
+        },
+    )
 
     return {
         "ticker": normalized,
@@ -692,6 +807,12 @@ def update_portfolio_shares(
         existing["shares"] = float(body.shares)
         tickers_map[ticker] = existing
         save_tickers_overrides(ticker_overrides)
+
+    append_portfolio_event(
+        "update_shares",
+        ticker,
+        {"shares": float(body.shares)},
+    )
 
     payload = build_portfolio_views(
         get_effective_tickers_config(),
