@@ -75,11 +75,17 @@ function PerformanceChart({ series }) {
   }
 
   const marketPath = series
-    .map((point, idx) => `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.market_value ?? 0))}`)
+    .map(
+      (point, idx) =>
+        `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.market_value ?? 0))}`,
+    )
     .join(' ')
 
   const costPath = series
-    .map((point, idx) => `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.cost_basis ?? 0))}`)
+    .map(
+      (point, idx) =>
+        `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.cost_basis ?? 0))}`,
+    )
     .join(' ')
 
   const ticks = 4
@@ -90,14 +96,17 @@ function PerformanceChart({ series }) {
 
   const first = series[0]
   const last = series[series.length - 1]
-  const marketChange = Number(last.market_value ?? 0) - Number(first.market_value ?? 0)
+  const marketChange =
+    Number(last.market_value ?? 0) - Number(first.market_value ?? 0)
   const positive = marketChange >= 0
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <div className="text-sm font-medium text-slate-500">Portfolio Value Over Time</div>
+          <div className="text-sm font-medium text-slate-500">
+            Portfolio Value Over Time
+          </div>
           <div className="text-lg font-semibold text-slate-900">
             {formatMoney(last.market_value)}
           </div>
@@ -124,7 +133,10 @@ function PerformanceChart({ series }) {
       </div>
 
       <div className="overflow-x-auto">
-        <svg viewBox={`0 0 ${width} ${height}`} className="h-80 w-full min-w-[800px]">
+        <svg
+          viewBox={`0 0 ${width} ${height}`}
+          className="h-80 w-full min-w-[800px]"
+        >
           {yTicks.map((tick) => (
             <g key={tick.value}>
               <line
@@ -161,7 +173,13 @@ function PerformanceChart({ series }) {
           <text x={padding} y={height - 10} fontSize="11" fill="#64748b">
             {formatShortDate(first.date)}
           </text>
-          <text x={width - padding} y={height - 10} textAnchor="end" fontSize="11" fill="#64748b">
+          <text
+            x={width - padding}
+            y={height - 10}
+            textAnchor="end"
+            fontSize="11"
+            fill="#64748b"
+          >
             {formatShortDate(last.date)}
           </text>
         </svg>
@@ -172,7 +190,8 @@ function PerformanceChart({ series }) {
 
 function ComparisonChart({ seriesByTicker }) {
   const tickers = Object.keys(seriesByTicker || {}).filter(
-    (ticker) => Array.isArray(seriesByTicker[ticker]) && seriesByTicker[ticker].length > 0,
+    (ticker) =>
+      Array.isArray(seriesByTicker[ticker]) && seriesByTicker[ticker].length > 0,
   )
 
   if (tickers.length === 0) {
@@ -218,7 +237,9 @@ function ComparisonChart({ seriesByTicker }) {
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
       <div className="mb-4">
-        <div className="text-sm font-medium text-slate-500">Normalized Comparison</div>
+        <div className="text-sm font-medium text-slate-500">
+          Normalized Comparison
+        </div>
         <div className="text-lg font-semibold text-slate-900">
           All series start at 100
         </div>
@@ -237,7 +258,10 @@ function ComparisonChart({ seriesByTicker }) {
       </div>
 
       <div className="overflow-x-auto">
-        <svg viewBox={`0 0 ${width} ${height}`} className="h-80 w-full min-w-[800px]">
+        <svg
+          viewBox={`0 0 ${width} ${height}`}
+          className="h-80 w-full min-w-[800px]"
+        >
           {yTicks.map((tick) => (
             <g key={tick.value}>
               <line
@@ -257,7 +281,10 @@ function ComparisonChart({ seriesByTicker }) {
           {tickers.map((ticker, idx) => {
             const series = seriesByTicker[ticker]
             const path = series
-              .map((point, pointIdx) => `${pointIdx === 0 ? 'M' : 'L'} ${xFor(pointIdx)} ${yFor(Number(point.normalized ?? 0))}`)
+              .map(
+                (point, pointIdx) =>
+                  `${pointIdx === 0 ? 'M' : 'L'} ${xFor(pointIdx)} ${yFor(Number(point.normalized ?? 0))}`,
+              )
               .join(' ')
 
             return (
@@ -276,7 +303,13 @@ function ComparisonChart({ seriesByTicker }) {
           <text x={padding} y={height - 10} fontSize="11" fill="#64748b">
             {formatShortDate(firstSeries[0]?.date)}
           </text>
-          <text x={width - padding} y={height - 10} textAnchor="end" fontSize="11" fill="#64748b">
+          <text
+            x={width - padding}
+            y={height - 10}
+            textAnchor="end"
+            fontSize="11"
+            fill="#64748b"
+          >
             {formatShortDate(firstSeries[firstSeries.length - 1]?.date)}
           </text>
         </svg>
@@ -287,7 +320,7 @@ function ComparisonChart({ seriesByTicker }) {
 
 export default function Performance() {
   const [range, setRange] = useState('1y')
-  const [benchmark, setBenchmark] = useState('SPY')
+  const [benchmark, setBenchmark] = useState('')
   const [compareInput, setCompareInput] = useState('')
   const [compareTickers, setCompareTickers] = useState([])
   const [loading, setLoading] = useState(true)
@@ -306,13 +339,21 @@ export default function Performance() {
       setData(payload)
       setLastUpdated(new Date())
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load portfolio performance')
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Failed to load portfolio performance',
+      )
     } finally {
       setLoading(false)
     }
   }
 
-  async function loadComparison(nextRange = range, nextBenchmark = benchmark, extraTickers = compareTickers) {
+  async function loadComparison(
+    nextRange = range,
+    nextBenchmark = benchmark,
+    extraTickers = compareTickers,
+  ) {
     const tickers = [
       ...(nextBenchmark ? [nextBenchmark] : []),
       ...extraTickers,
@@ -322,6 +363,7 @@ export default function Performance() {
 
     if (tickers.length === 0) {
       setComparisonData({})
+      setCompareError(null)
       return
     }
 
@@ -331,7 +373,9 @@ export default function Performance() {
       const payload = await fetchPriceComparison(tickers, nextRange)
       setComparisonData(payload?.series ?? {})
     } catch (err) {
-      setCompareError(err instanceof Error ? err.message : 'Failed to load comparison data')
+      setCompareError(
+        err instanceof Error ? err.message : 'Failed to load comparison data',
+      )
       setComparisonData({})
     } finally {
       setLoadingCompare(false)
@@ -368,7 +412,9 @@ export default function Performance() {
   const handleAddCompareTicker = () => {
     const ticker = String(compareInput).trim().toUpperCase()
     if (!ticker) return
-    setCompareTickers((current) => (current.includes(ticker) ? current : [...current, ticker]))
+    setCompareTickers((current) =>
+      current.includes(ticker) ? current : [...current, ticker],
+    )
     setCompareInput('')
   }
 
@@ -392,15 +438,6 @@ export default function Performance() {
           className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
         >
           {error}
-        </div>
-      )}
-
-      {compareError && (
-        <div
-          role="alert"
-          className="mb-6 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900"
-        >
-          {compareError}
         </div>
       )}
 
@@ -508,6 +545,15 @@ export default function Performance() {
           </div>
         )}
 
+        {compareError && (
+          <div
+            role="alert"
+            className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900"
+          >
+            {compareError}
+          </div>
+        )}
+
         {loadingCompare ? (
           <div className="flex h-80 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
             Loading comparison…
@@ -519,7 +565,9 @@ export default function Performance() {
 
       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
         <div className="border-b border-slate-200 px-4 py-3">
-          <h2 className="text-sm font-semibold text-slate-900">Latest Position Summaries</h2>
+          <h2 className="text-sm font-semibold text-slate-900">
+            Latest Position Summaries
+          </h2>
           {lastUpdated && (
             <p className="mt-1 text-xs text-slate-500">
               Last updated {lastUpdated.toLocaleTimeString()}
