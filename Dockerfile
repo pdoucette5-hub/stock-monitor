@@ -1,8 +1,10 @@
 # Stage 1: Build the React frontend
 FROM node:20 AS frontend-build
 WORKDIR /app/frontend
+
 COPY frontend/package*.json ./
 RUN npm install
+
 COPY frontend/ ./
 RUN npm run build
 
@@ -14,11 +16,12 @@ WORKDIR /app
 COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend code
+# Copy backend and app data/config needed at runtime
 COPY backend/ ./backend/
+COPY config/ ./config/
+COPY cache/ ./cache/
 
 # Copy the built React files into the backend's static directory
-# (This allows FastAPI to serve your React app!)
 COPY --from=frontend-build /app/frontend/dist ./backend/static
 
 # Expose the port
