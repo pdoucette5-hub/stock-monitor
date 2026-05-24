@@ -144,3 +144,8 @@ export function fetchPriceHistory(ticker, range = '1y', forceRefresh = false) {
   })
   return request(`/api/prices/history?${query.toString()}`)
 }
+
+export function fetchPortfolioPerformance(range = '1y') {
+  const query = new URLSearchParams({ range })
+  return request(`/api/performance/portfolio?${query.toString()}`)
+}

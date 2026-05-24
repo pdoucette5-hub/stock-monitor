@@ -4,6 +4,7 @@ import Watchlist from './pages/Watchlist'
 import Redistribution from './pages/Redistribution'
 import StockDetail from './pages/StockDetail'
 import Archived from './pages/Archived'
+import Performance from './pages/Performance'
 
 function navClass({ isActive }) {
   return [
@@ -34,6 +35,9 @@ export default function App() {
               <NavLink to="/redistribution" className={navClass}>
                 Redistribution
               </NavLink>
+              <NavLink to="/performance" className={navClass}>
+                Performance
+              </NavLink>
               <NavLink to="/archived" className={navClass}>
                 Archived
               </NavLink>
@@ -49,6 +53,7 @@ export default function App() {
             <Route path="/" element={<Holdings />} />
             <Route path="/watchlist" element={<Watchlist />} />
             <Route path="/redistribution" element={<Redistribution />} />
+            <Route path="/performance" element={<Performance />} />
             <Route path="/archived" element={<Archived />} />
             <Route path="/stock" element={<StockDetail />} />
           </Routes>
