@@ -7,11 +7,11 @@ from typing import Any
 import yaml
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
-from logic import merge_global_settings
-from models import (
+from backend.logic import merge_global_settings
+from backend.models import (
     GlobalSettings,
     PortfolioConfig,
     PortfolioControlsUpdate,
@@ -20,7 +20,7 @@ from models import (
     StockScenarioResponse,
     TickerScenarioInputs,
 )
-from portfolio_service import (
+from backend.portfolio_service import (
     apply_portfolio_controls,
     build_portfolio_views,
     normalize_portfolio,
@@ -63,9 +63,6 @@ def load_json_file(path: Path, default_data: Any) -> Any:
 
 
 def save_json_file(path: Path, data: Any) -> None:
-    save_json_file_internal(path, data)
-
-def save_json_file_internal(path: Path, data: Any) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
@@ -75,7 +72,7 @@ def load_scenario_inputs() -> dict[str, Any]:
 
 
 def save_scenario_inputs(data: dict[str, Any]) -> None:
-    save_json_file_internal(SCENARIO_STATE_FILE, data)
+    save_json_file(SCENARIO_STATE_FILE, data)
 
 
 def load_settings_dict() -> dict[str, Any]:
@@ -84,7 +81,7 @@ def load_settings_dict() -> dict[str, Any]:
 
 
 def save_settings_dict(data: dict[str, Any]) -> None:
-    save_json_file_internal(GLOBAL_SETTINGS_FILE, data)
+    save_json_file(GLOBAL_SETTINGS_FILE, data)
 
 
 def normalize_ticker(ticker: str) -> str:
@@ -113,7 +110,6 @@ def update_portfolio_controls(
     body: PortfolioControlsUpdate,
     force_refresh: bool = False,
 ) -> PortfolioViewResponse:
-    """Update show/hide and redistribution participation per ticker."""
     tickers_config = load_tickers_config()
     portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
     portfolio_shares_map = {row["ticker"]: row["shares"] for row in portfolio_rows}
@@ -138,7 +134,6 @@ def update_portfolio_controls(
 
 @app.get("/api/portfolio/view", response_model=PortfolioViewResponse)
 def get_portfolio_view(force_refresh: bool = False) -> PortfolioViewResponse:
-    """Computed portfolio/watchlist tables."""
     payload = build_portfolio_views(
         load_tickers_config(),
         load_scenario_inputs(),
@@ -150,7 +145,6 @@ def get_portfolio_view(force_refresh: bool = False) -> PortfolioViewResponse:
 
 @app.get("/api/portfolio", response_model=ScenarioInputsResponse)
 def get_portfolio_scenarios() -> ScenarioInputsResponse:
-    """All persisted scenario inputs."""
     raw = load_scenario_inputs()
     scenarios = {
         ticker: serialize_ticker_scenario(state)
@@ -218,11 +212,17 @@ def update_global_settings(body: GlobalSettings) -> GlobalSettings:
     save_settings_dict(payload)
     return GlobalSettings.model_validate(merge_global_settings(payload))
 
-# --- Static File Serving for React Frontend ---
-# This mounts the built frontend files from the Docker container
-if (BASE_DIR / "static").exists():
-    app.mount("/assets", StaticFiles(directory="backend/static/assets"), name="assets")
+
+static_dir = BASE_DIR / "backend" / "static"
+assets_dir = static_dir / "assets"
+index_file = static_dir / "index.html"
+
+if static_dir.exists():
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
 
     @app.get("/{rest_of_path:path}")
     async def serve_spa(rest_of_path: str):
-        return FileResponse("backend/static/index.html")
+        if index_file.exists():
+            return FileResponse(str(index_file))
+        raise HTTPException(status_code=404, detail="Frontend not built")
