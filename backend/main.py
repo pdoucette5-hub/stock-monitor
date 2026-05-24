@@ -27,6 +27,7 @@ from backend.portfolio_service import (
     build_portfolio_views,
     normalize_portfolio,
 )
+from backend.transactions_service import compute_position_summary
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -619,6 +620,24 @@ def delete_transaction_for_ticker(ticker: str, transaction_id: str) -> dict[str,
     return {
         "ticker": normalized,
         "transactions": filtered,
+    }
+
+
+@app.get("/api/position/{ticker}")
+def get_position_summary(ticker: str) -> dict[str, Any]:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+
+    transactions = load_transactions()
+    entries = transactions.get(normalized, [])
+
+    summary = compute_position_summary(entries)
+
+    return {
+        "ticker": normalized,
+        "summary": summary,
+        "transactions": entries,
     }
 
 
