@@ -111,6 +111,10 @@ export default function ValuationTable({
 }
 
 function Cell({ row, column }) {
+  if (column.render) {
+    return column.render(row)
+  }
+
   const value = row[column.key]
 
   if (column.key === 'ticker') {
