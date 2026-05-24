@@ -61,6 +61,24 @@ class PortfolioSharesUpdate(BaseModel):
     shares: float
 
 
+class PortfolioTickerUpsert(BaseModel):
+    ticker: str
+    shares: float
+
+
+class WatchlistTickerUpsert(BaseModel):
+    ticker: str
+
+
+class ArchiveTickerRequest(BaseModel):
+    ticker: str
+
+
+class RestoreTickerRequest(BaseModel):
+    ticker: str
+    list: str
+
+
 def load_json_file(path: Path, default_data: Any) -> Any:
     if not path.exists():
         return default_data
@@ -303,6 +321,140 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
+@app.get("/api/tickers")
+def get_ticker_registry() -> dict[str, Any]:
+    return {
+        "base": load_tickers_config(),
+        "overrides": load_tickers_overrides(),
+        "effective": get_effective_tickers_config(),
+    }
+
+
+@app.put("/api/tickers/portfolio", response_model=PortfolioConfig)
+def add_portfolio_ticker(body: PortfolioTickerUpsert) -> PortfolioConfig:
+    ticker = normalize_ticker(body.ticker)
+    if not ticker:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+    if body.shares < 0:
+        raise HTTPException(status_code=400, detail="Shares must be non-negative")
+
+    overrides = load_tickers_overrides()
+    tickers_map = overrides.setdefault("tickers", {})
+    tickers_map[ticker] = {
+        "list": "portfolio",
+        "shares": float(body.shares),
+        "archived": False,
+        "removed": False,
+    }
+    save_tickers_overrides(overrides)
+
+    holdings = load_holdings_overrides()
+    holdings[ticker] = float(body.shares)
+    save_holdings_overrides(holdings)
+
+    return PortfolioConfig.model_validate(get_effective_tickers_config())
+
+
+@app.put("/api/tickers/watchlist", response_model=PortfolioConfig)
+def add_watchlist_ticker(body: WatchlistTickerUpsert) -> PortfolioConfig:
+    ticker = normalize_ticker(body.ticker)
+    if not ticker:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+
+    overrides = load_tickers_overrides()
+    tickers_map = overrides.setdefault("tickers", {})
+    tickers_map[ticker] = {
+        "list": "watchlist",
+        "shares": None,
+        "archived": False,
+        "removed": False,
+    }
+    save_tickers_overrides(overrides)
+
+    return PortfolioConfig.model_validate(get_effective_tickers_config())
+
+
+@app.put("/api/tickers/archive", response_model=PortfolioConfig)
+def archive_ticker(body: ArchiveTickerRequest) -> PortfolioConfig:
+    ticker = normalize_ticker(body.ticker)
+    if not ticker:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+
+    effective = get_effective_tickers_config()
+    portfolio_rows = normalize_portfolio(effective.get("portfolio", []))
+    portfolio_set = {row["ticker"] for row in portfolio_rows}
+    watchlist_set = {normalize_ticker(t) for t in effective.get("watchlist", [])}
+
+    if ticker not in portfolio_set and ticker not in watchlist_set:
+        raise HTTPException(status_code=404, detail=f"{ticker} not found in active tracking")
+
+    previous_list = "portfolio" if ticker in portfolio_set else "watchlist"
+
+    overrides = load_tickers_overrides()
+    tickers_map = overrides.setdefault("tickers", {})
+    current = tickers_map.get(ticker, {})
+    tickers_map[ticker] = {
+        "list": current.get("list") or previous_list,
+        "shares": current.get("shares"),
+        "archived": True,
+        "removed": False,
+    }
+    save_tickers_overrides(overrides)
+
+    return PortfolioConfig.model_validate(get_effective_tickers_config())
+
+
+@app.put("/api/tickers/restore", response_model=PortfolioConfig)
+def restore_ticker(body: RestoreTickerRequest) -> PortfolioConfig:
+    ticker = normalize_ticker(body.ticker)
+    target_list = str(body.list).strip().lower()
+
+    if not ticker:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+    if target_list not in {"portfolio", "watchlist"}:
+        raise HTTPException(status_code=400, detail="Restore list must be portfolio or watchlist")
+
+    overrides = load_tickers_overrides()
+    tickers_map = overrides.setdefault("tickers", {})
+    current = tickers_map.get(ticker, {})
+
+    tickers_map[ticker] = {
+        "list": target_list,
+        "shares": current.get("shares"),
+        "archived": False,
+        "removed": False,
+    }
+    save_tickers_overrides(overrides)
+
+    return PortfolioConfig.model_validate(get_effective_tickers_config())
+
+
+@app.delete("/api/tickers/{ticker}", response_model=PortfolioConfig)
+def remove_ticker(ticker: str) -> PortfolioConfig:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+
+    overrides = load_tickers_overrides()
+    tickers_map = overrides.setdefault("tickers", {})
+    current = tickers_map.get(normalized, {})
+
+    tickers_map[normalized] = {
+        "list": current.get("list"),
+        "shares": current.get("shares"),
+        "archived": False,
+        "removed": True,
+    }
+    save_tickers_overrides(overrides)
+
+    holdings = load_holdings_overrides()
+    if normalized in holdings:
+        del holdings[normalized]
+        save_holdings_overrides(holdings)
+
+    return PortfolioConfig.model_validate(get_effective_tickers_config())
+
+
 @app.put("/api/portfolio/shares", response_model=PortfolioViewResponse)
 def update_portfolio_shares(
     body: PortfolioSharesUpdate,
@@ -322,6 +474,14 @@ def update_portfolio_shares(
     overrides = load_holdings_overrides()
     overrides[ticker] = float(body.shares)
     save_holdings_overrides(overrides)
+
+    ticker_overrides = load_tickers_overrides()
+    tickers_map = ticker_overrides.setdefault("tickers", {})
+    existing = tickers_map.get(ticker)
+    if isinstance(existing, dict) and existing.get("list") == "portfolio":
+        existing["shares"] = float(body.shares)
+        tickers_map[ticker] = existing
+        save_tickers_overrides(ticker_overrides)
 
     payload = build_portfolio_views(
         get_effective_tickers_config(),
