@@ -3,7 +3,7 @@ import MetricCard from '../components/MetricCard'
 import PageToolbar from '../components/PageToolbar'
 import ValuationTable, { getValuationColumns } from '../components/ValuationTable'
 import { usePortfolioView } from '../hooks/usePortfolioView'
-import { savePortfolioControls } from '../lib/api'
+import { savePortfolioControls, savePortfolioShares } from '../lib/api'
 
 const SUB_TABS = [
   { id: 'portfolio', label: 'Portfolio' },
@@ -15,6 +15,7 @@ export default function Holdings() {
   const [activeTab, setActiveTab] = useState('portfolio')
   const [showHidden, setShowHidden] = useState(false)
   const [savingTicker, setSavingTicker] = useState(null)
+  const [shareDrafts, setShareDrafts] = useState({})
 
   const metrics = view?.metrics ?? {}
   const portfolioRows = view?.portfolio ?? []
@@ -37,6 +38,73 @@ export default function Holdings() {
       setSavingTicker(null)
     }
   }
+
+  const saveShares = async (ticker) => {
+    const rawValue = shareDrafts[ticker]
+    if (rawValue === undefined) return
+
+    const numeric = Number(rawValue)
+    if (Number.isNaN(numeric) || numeric < 0) {
+      return
+    }
+
+    setSavingTicker(ticker)
+    try {
+      await savePortfolioShares(ticker, numeric)
+      await load(false)
+      setShareDrafts((current) => {
+        const next = { ...current }
+        delete next[ticker]
+        return next
+      })
+    } finally {
+      setSavingTicker(null)
+    }
+  }
+
+  const columns = useMemo(() => {
+    const baseColumns = getValuationColumns(activeTab)
+
+    if (activeTab !== 'portfolio') {
+      return baseColumns
+    }
+
+    return baseColumns.map((column) => {
+      if (column.key !== 'shares') return column
+
+      return {
+        ...column,
+        render: (row) => {
+          const draftValue = shareDrafts[row.ticker]
+          const inputValue = draftValue ?? row.shares ?? ''
+
+          return (
+            <input
+              type="number"
+              step="0.01"
+              min="0"
+              value={inputValue}
+              disabled={savingTicker === row.ticker}
+              onChange={(e) =>
+                setShareDrafts((current) => ({
+                  ...current,
+                  [row.ticker]: e.target.value,
+                }))
+              }
+              onBlur={() => saveShares(row.ticker)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.currentTarget.blur()
+                }
+              }}
+              className="w-24 rounded border border-slate-300 px-2 py-1 text-sm text-slate-900 focus:border-slate-500 focus:outline-none"
+              title="Edit shares and click away to save"
+            />
+          )
+        },
+      }
+    })
+  }, [activeTab, shareDrafts, savingTicker])
 
   return (
     <div className="mx-auto w-[98vw] px-4 py-8">
@@ -112,7 +180,7 @@ export default function Holdings() {
       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
         <ValuationTable
           rows={visibleRows}
-          columns={getValuationColumns(activeTab)}
+          columns={columns}
           loading={loading}
           emptyMessage={
             activeTab === 'portfolio'
