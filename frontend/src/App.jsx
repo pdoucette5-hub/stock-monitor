@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
+import { NavLink, Route, Routes } from 'react-router-dom'
 import Holdings from './pages/Holdings'
 import Watchlist from './pages/Watchlist'
 import Redistribution from './pages/Redistribution'
@@ -17,48 +17,48 @@ function navClass({ isActive }) {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-slate-50">
-        <header className="border-b border-slate-200 bg-white">
-          <div className="mx-auto flex w-[98vw] items-center justify-between px-4 py-4">
-            <div>
-              <h1 className="text-lg font-semibold text-slate-900">Stock Monitor</h1>
-              <p className="text-xs text-slate-500">Portfolio, watchlist, and valuation workflow</p>
-            </div>
-            <nav className="flex flex-wrap items-center gap-2">
-              <NavLink to="/" end className={navClass}>
-                Holdings
-              </NavLink>
-              <NavLink to="/watchlist" className={navClass}>
-                Watchlist
-              </NavLink>
-              <NavLink to="/redistribution" className={navClass}>
-                Redistribution
-              </NavLink>
-              <NavLink to="/performance" className={navClass}>
-                Performance
-              </NavLink>
-              <NavLink to="/archived" className={navClass}>
-                Archived
-              </NavLink>
-              <NavLink to="/stock" className={navClass}>
-                Stock Detail
-              </NavLink>
-            </nav>
+    <div className="min-h-screen bg-slate-50">
+      <header className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex w-[98vw] items-center justify-between px-4 py-4">
+          <div>
+            <h1 className="text-lg font-semibold text-slate-900">Stock Monitor</h1>
+            <p className="text-xs text-slate-500">
+              Portfolio, watchlist, and valuation workflow
+            </p>
           </div>
-        </header>
+          <nav className="flex flex-wrap items-center gap-2">
+            <NavLink to="/" end className={navClass}>
+              Holdings
+            </NavLink>
+            <NavLink to="/watchlist" className={navClass}>
+              Watchlist
+            </NavLink>
+            <NavLink to="/redistribution" className={navClass}>
+              Redistribution
+            </NavLink>
+            <NavLink to="/performance" className={navClass}>
+              Performance
+            </NavLink>
+            <NavLink to="/archived" className={navClass}>
+              Archived
+            </NavLink>
+            <NavLink to="/stock" className={navClass}>
+              Stock Detail
+            </NavLink>
+          </nav>
+        </div>
+      </header>
 
-        <main>
-          <Routes>
-            <Route path="/" element={<Holdings />} />
-            <Route path="/watchlist" element={<Watchlist />} />
-            <Route path="/redistribution" element={<Redistribution />} />
-            <Route path="/performance" element={<Performance />} />
-            <Route path="/archived" element={<Archived />} />
-            <Route path="/stock" element={<StockDetail />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+      <main>
+        <Routes>
+          <Route path="/" element={<Holdings />} />
+          <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/redistribution" element={<Redistribution />} />
+          <Route path="/performance" element={<Performance />} />
+          <Route path="/archived" element={<Archived />} />
+          <Route path="/stock" element={<StockDetail />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
