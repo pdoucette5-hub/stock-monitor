@@ -9,6 +9,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 
 from backend.logic import merge_global_settings
 from backend.models import (
@@ -30,10 +31,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SCENARIO_STATE_FILE = BASE_DIR / "cache" / "scenario_inputs.json"
 GLOBAL_SETTINGS_FILE = BASE_DIR / "cache" / "global_settings.json"
+HOLDINGS_OVERRIDES_FILE = BASE_DIR / "cache" / "holdings_overrides.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 SCENARIO_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 GLOBAL_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
+HOLDINGS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="Stock Monitor API", version="0.1.0")
 
@@ -49,6 +52,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+class PortfolioSharesUpdate(BaseModel):
+    ticker: str
+    shares: float
 
 
 def load_json_file(path: Path, default_data: Any) -> Any:
@@ -84,6 +92,25 @@ def save_settings_dict(data: dict[str, Any]) -> None:
     save_json_file(GLOBAL_SETTINGS_FILE, data)
 
 
+def load_holdings_overrides() -> dict[str, float]:
+    raw = load_json_file(HOLDINGS_OVERRIDES_FILE, {})
+    cleaned: dict[str, float] = {}
+    if not isinstance(raw, dict):
+        return cleaned
+
+    for ticker, shares in raw.items():
+        try:
+            cleaned[str(ticker).strip().upper()] = float(shares)
+        except (TypeError, ValueError):
+            continue
+    return cleaned
+
+
+def save_holdings_overrides(data: dict[str, float]) -> None:
+    cleaned = {str(k).strip().upper(): float(v) for k, v in data.items()}
+    save_json_file(HOLDINGS_OVERRIDES_FILE, cleaned)
+
+
 def normalize_ticker(ticker: str) -> str:
     return str(ticker).strip().upper()
 
@@ -96,6 +123,45 @@ def load_tickers_config() -> dict[str, Any]:
     return data if isinstance(data, dict) else {"portfolio": [], "watchlist": []}
 
 
+def apply_holdings_overrides_to_config(
+    tickers_config: dict[str, Any],
+    overrides: dict[str, float],
+) -> dict[str, Any]:
+    portfolio = tickers_config.get("portfolio", []) or []
+    updated_portfolio: list[dict[str, Any]] = []
+
+    for item in portfolio:
+        if isinstance(item, str):
+            ticker = normalize_ticker(item)
+            updated_portfolio.append(
+                {
+                    "ticker": ticker,
+                    "shares": overrides.get(ticker),
+                }
+            )
+            continue
+
+        if isinstance(item, dict):
+            ticker = normalize_ticker(item.get("ticker", ""))
+            if not ticker:
+                continue
+            updated_item = dict(item)
+            if ticker in overrides:
+                updated_item["shares"] = overrides[ticker]
+            updated_portfolio.append(updated_item)
+
+    return {
+        "portfolio": updated_portfolio,
+        "watchlist": tickers_config.get("watchlist", []) or [],
+    }
+
+
+def get_effective_tickers_config() -> dict[str, Any]:
+    base = load_tickers_config()
+    overrides = load_holdings_overrides()
+    return apply_holdings_overrides_to_config(base, overrides)
+
+
 def serialize_ticker_scenario(raw: dict[str, Any]) -> TickerScenarioInputs:
     return TickerScenarioInputs.model_validate(raw)
 
@@ -105,12 +171,41 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
+@app.put("/api/portfolio/shares", response_model=PortfolioViewResponse)
+def update_portfolio_shares(
+    body: PortfolioSharesUpdate,
+    force_refresh: bool = False,
+) -> PortfolioViewResponse:
+    ticker = normalize_ticker(body.ticker)
+    if body.shares < 0:
+        raise HTTPException(status_code=400, detail="Shares must be non-negative")
+
+    tickers_config = get_effective_tickers_config()
+    portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
+    portfolio_tickers = {row["ticker"] for row in portfolio_rows}
+
+    if ticker not in portfolio_tickers:
+        raise HTTPException(status_code=404, detail=f"{ticker} not found in portfolio")
+
+    overrides = load_holdings_overrides()
+    overrides[ticker] = float(body.shares)
+    save_holdings_overrides(overrides)
+
+    payload = build_portfolio_views(
+        get_effective_tickers_config(),
+        load_scenario_inputs(),
+        load_settings_dict(),
+        force_refresh=force_refresh,
+    )
+    return PortfolioViewResponse.model_validate(payload)
+
+
 @app.put("/api/portfolio/controls", response_model=PortfolioViewResponse)
 def update_portfolio_controls(
     body: PortfolioControlsUpdate,
     force_refresh: bool = False,
 ) -> PortfolioViewResponse:
-    tickers_config = load_tickers_config()
+    tickers_config = get_effective_tickers_config()
     portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
     portfolio_shares_map = {row["ticker"]: row["shares"] for row in portfolio_rows}
 
@@ -135,7 +230,7 @@ def update_portfolio_controls(
 @app.get("/api/portfolio/view", response_model=PortfolioViewResponse)
 def get_portfolio_view(force_refresh: bool = False) -> PortfolioViewResponse:
     payload = build_portfolio_views(
-        load_tickers_config(),
+        get_effective_tickers_config(),
         load_scenario_inputs(),
         load_settings_dict(),
         force_refresh=force_refresh,
@@ -166,7 +261,7 @@ def replace_portfolio_scenarios(body: ScenarioInputsResponse) -> ScenarioInputsR
 
 @app.get("/api/config/tickers", response_model=PortfolioConfig)
 def get_tickers_config() -> PortfolioConfig:
-    return PortfolioConfig.model_validate(load_tickers_config())
+    return PortfolioConfig.model_validate(get_effective_tickers_config())
 
 
 @app.get("/api/stock/{ticker}", response_model=StockScenarioResponse)

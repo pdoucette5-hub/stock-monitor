@@ -63,6 +63,7 @@ export default function StockDetail() {
 
   useEffect(() => {
     let cancelled = false
+
     async function loadTickers() {
       setLoadingTickers(true)
       setError(null)
@@ -72,6 +73,7 @@ export default function StockDetail() {
           fetchPortfolioScenarios(),
         ])
         if (cancelled) return
+
         const list = collectTickers(tickersPayload, scenariosPayload)
         setTickers(list)
 
@@ -80,7 +82,12 @@ export default function StockDetail() {
           queryTicker && list.includes(queryTicker)
             ? queryTicker
             : list[0] ?? ''
+
         setSelectedTicker(initial)
+
+        if (initial) {
+          setSearchParams({ ticker: initial }, { replace: true })
+        }
       } catch (err) {
         if (!cancelled) {
           setError(
@@ -91,11 +98,12 @@ export default function StockDetail() {
         if (!cancelled) setLoadingTickers(false)
       }
     }
+
     loadTickers()
     return () => {
       cancelled = true
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- initial ticker list only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -114,10 +122,12 @@ export default function StockDetail() {
       setForm(defaultFormState())
       return
     }
+
     setLoadingForm(true)
     setError(null)
     setSaveMessage(null)
     setIsNewTicker(false)
+
     try {
       const data = await fetchStockScenario(ticker)
       setForm(apiToForm(data.scenario))
@@ -136,12 +146,13 @@ export default function StockDetail() {
 
   useEffect(() => {
     if (!selectedTicker) return
-    setSearchParams({ ticker: selectedTicker }, { replace: true })
     loadScenario(selectedTicker)
-  }, [selectedTicker, loadScenario, setSearchParams])
+  }, [selectedTicker, loadScenario])
 
   const handleTickerChange = (event) => {
-    setSelectedTicker(event.target.value)
+    const nextTicker = event.target.value
+    setSelectedTicker(nextTicker)
+    setSearchParams({ ticker: nextTicker }, { replace: true })
   }
 
   const updateBase = (field, value) => {
@@ -164,6 +175,7 @@ export default function StockDetail() {
     setSaving(true)
     setError(null)
     setSaveMessage(null)
+
     try {
       const payload = formToApi(form)
       await saveStockScenario(selectedTicker, payload)
@@ -326,7 +338,7 @@ export default function StockDetail() {
                 title={title}
                 headerClass={headerClass}
                 values={form[key]}
-                onChange={(field, value) => updateScenario(key, field, value)}
+                onChange={(field, value) => onChangeScenario(key, field, value)}
               />
             ))}
           </fieldset>
@@ -347,6 +359,10 @@ export default function StockDetail() {
       )}
     </div>
   )
+
+  function onChangeScenario(scenarioKey, field, value) {
+    updateScenario(scenarioKey, field, value)
+  }
 }
 
 function ScenarioBlock({ scenarioKey, title, headerClass, values, onChange }) {
