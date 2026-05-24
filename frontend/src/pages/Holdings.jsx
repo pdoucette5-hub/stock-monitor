@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import MetricCard from '../components/MetricCard'
 import PageToolbar from '../components/PageToolbar'
 import ValuationTable, { getValuationColumns } from '../components/ValuationTable'
 import { usePortfolioView } from '../hooks/usePortfolioView'
@@ -17,7 +16,6 @@ export default function Holdings() {
   const [savingTicker, setSavingTicker] = useState(null)
   const [shareDrafts, setShareDrafts] = useState({})
 
-  const metrics = view?.metrics ?? {}
   const portfolioRows = view?.portfolio ?? []
   const watchlistRows = view?.watchlist ?? []
 
@@ -26,8 +24,6 @@ export default function Holdings() {
     if (showHidden) return sourceRows
     return sourceRows.filter((row) => row.show_in_holdings !== false)
   }, [sourceRows, showHidden])
-
-  const hiddenCount = sourceRows.filter((row) => row.show_in_holdings === false).length
 
   const toggleVisibility = async (ticker, showInHoldings) => {
     setSavingTicker(ticker)
@@ -44,9 +40,7 @@ export default function Holdings() {
     if (rawValue === undefined) return
 
     const numeric = Number(rawValue)
-    if (Number.isNaN(numeric) || numeric < 0) {
-      return
-    }
+    if (Number.isNaN(numeric) || numeric < 0) return
 
     setSavingTicker(ticker)
     try {
@@ -124,28 +118,6 @@ export default function Holdings() {
           {error}
         </div>
       )}
-
-      <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <MetricCard
-          label="Portfolio positions"
-          value={metrics.portfolio_positions ?? '—'}
-        />
-        <MetricCard label="Watchlist names" value={metrics.watchlist_names ?? '—'} />
-        <MetricCard
-          label="Hidden from view"
-          value={hiddenCount}
-          hint="Still tracked; toggle Show to reveal"
-        />
-        <MetricCard
-          label="Data issues"
-          value={metrics.data_issues ?? '—'}
-          hint={
-            (metrics.data_issues ?? 0) > 0
-              ? 'Tickers with missing or stale market data'
-              : undefined
-          }
-        />
-      </div>
 
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div className="flex gap-1 rounded-lg border border-slate-200 bg-white p-1 shadow-sm">
