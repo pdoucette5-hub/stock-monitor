@@ -32,11 +32,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SCENARIO_STATE_FILE = BASE_DIR / "cache" / "scenario_inputs.json"
 GLOBAL_SETTINGS_FILE = BASE_DIR / "cache" / "global_settings.json"
 HOLDINGS_OVERRIDES_FILE = BASE_DIR / "cache" / "holdings_overrides.json"
+TICKERS_OVERRIDES_FILE = BASE_DIR / "cache" / "tickers_overrides.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 SCENARIO_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 GLOBAL_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
 HOLDINGS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
+TICKERS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="Stock Monitor API", version="0.1.0")
 
@@ -111,6 +113,71 @@ def save_holdings_overrides(data: dict[str, float]) -> None:
     save_json_file(HOLDINGS_OVERRIDES_FILE, cleaned)
 
 
+def load_tickers_overrides() -> dict[str, Any]:
+    raw = load_json_file(TICKERS_OVERRIDES_FILE, {"tickers": {}})
+    if not isinstance(raw, dict):
+        return {"tickers": {}}
+
+    tickers = raw.get("tickers", {})
+    if not isinstance(tickers, dict):
+        tickers = {}
+
+    cleaned: dict[str, Any] = {}
+    for ticker, payload in tickers.items():
+        normalized = str(ticker).strip().upper()
+        if not normalized or not isinstance(payload, dict):
+            continue
+
+        list_value = payload.get("list")
+        if list_value not in {"portfolio", "watchlist"}:
+            list_value = None
+
+        shares = payload.get("shares")
+        try:
+            shares = None if shares is None else float(shares)
+        except (TypeError, ValueError):
+            shares = None
+
+        cleaned[normalized] = {
+            "list": list_value,
+            "shares": shares,
+            "archived": bool(payload.get("archived", False)),
+            "removed": bool(payload.get("removed", False)),
+        }
+
+    return {"tickers": cleaned}
+
+
+def save_tickers_overrides(data: dict[str, Any]) -> None:
+    tickers = data.get("tickers", {}) if isinstance(data, dict) else {}
+    cleaned: dict[str, Any] = {}
+
+    if isinstance(tickers, dict):
+        for ticker, payload in tickers.items():
+            normalized = str(ticker).strip().upper()
+            if not normalized or not isinstance(payload, dict):
+                continue
+
+            list_value = payload.get("list")
+            if list_value not in {"portfolio", "watchlist"}:
+                list_value = None
+
+            shares = payload.get("shares")
+            try:
+                shares = None if shares is None else float(shares)
+            except (TypeError, ValueError):
+                shares = None
+
+            cleaned[normalized] = {
+                "list": list_value,
+                "shares": shares,
+                "archived": bool(payload.get("archived", False)),
+                "removed": bool(payload.get("removed", False)),
+            }
+
+    save_json_file(TICKERS_OVERRIDES_FILE, {"tickers": cleaned})
+
+
 def normalize_ticker(ticker: str) -> str:
     return str(ticker).strip().upper()
 
@@ -121,6 +188,69 @@ def load_tickers_config() -> dict[str, Any]:
     with open(TICKERS_FILE, "r", encoding="utf-8") as f:
         data = yaml.safe_load(f)
     return data if isinstance(data, dict) else {"portfolio": [], "watchlist": []}
+
+
+def apply_tickers_overrides_to_config(
+    tickers_config: dict[str, Any],
+    overrides: dict[str, Any],
+) -> dict[str, Any]:
+    base_portfolio = tickers_config.get("portfolio", []) or []
+    base_watchlist = tickers_config.get("watchlist", []) or []
+
+    portfolio_map: dict[str, dict[str, Any]] = {}
+    watchlist_set: set[str] = set()
+
+    for item in base_portfolio:
+        if isinstance(item, str):
+            ticker = normalize_ticker(item)
+            if ticker:
+                portfolio_map[ticker] = {"ticker": ticker, "shares": None}
+        elif isinstance(item, dict):
+            ticker = normalize_ticker(item.get("ticker", ""))
+            if ticker:
+                portfolio_map[ticker] = {
+                    "ticker": ticker,
+                    "shares": item.get("shares"),
+                }
+
+    for item in base_watchlist:
+        ticker = normalize_ticker(item)
+        if ticker:
+            watchlist_set.add(ticker)
+
+    tickers_payload = overrides.get("tickers", {}) if isinstance(overrides, dict) else {}
+    if isinstance(tickers_payload, dict):
+        for ticker, payload in tickers_payload.items():
+            if not isinstance(payload, dict):
+                continue
+
+            if payload.get("removed"):
+                portfolio_map.pop(ticker, None)
+                watchlist_set.discard(ticker)
+                continue
+
+            if payload.get("archived"):
+                portfolio_map.pop(ticker, None)
+                watchlist_set.discard(ticker)
+                continue
+
+            list_value = payload.get("list")
+            shares = payload.get("shares")
+
+            if list_value == "portfolio":
+                portfolio_map[ticker] = {
+                    "ticker": ticker,
+                    "shares": shares,
+                }
+                watchlist_set.discard(ticker)
+            elif list_value == "watchlist":
+                portfolio_map.pop(ticker, None)
+                watchlist_set.add(ticker)
+
+    return {
+        "portfolio": list(portfolio_map.values()),
+        "watchlist": sorted(watchlist_set),
+    }
 
 
 def apply_holdings_overrides_to_config(
@@ -158,8 +288,10 @@ def apply_holdings_overrides_to_config(
 
 def get_effective_tickers_config() -> dict[str, Any]:
     base = load_tickers_config()
-    overrides = load_holdings_overrides()
-    return apply_holdings_overrides_to_config(base, overrides)
+    tickers_overrides = load_tickers_overrides()
+    with_ticker_overrides = apply_tickers_overrides_to_config(base, tickers_overrides)
+    holdings_overrides = load_holdings_overrides()
+    return apply_holdings_overrides_to_config(with_ticker_overrides, holdings_overrides)
 
 
 def serialize_ticker_scenario(raw: dict[str, Any]) -> TickerScenarioInputs:
