@@ -322,9 +322,13 @@ def build_portfolio_views(
         )
 
     summary_df = pd.DataFrame(summary_rows)
-    failed_df = summary_df[
-        ~summary_df["status"].astype(str).str.startswith("OK")
-    ].copy()
+
+    if summary_df.empty:
+        failed_df = pd.DataFrame(columns=["ticker", "status", "cache_source"])
+    else:
+        failed_df = summary_df[
+            ~summary_df["status"].astype(str).str.startswith("OK")
+        ].copy()
 
     portfolio_summary_rows = [
         row
