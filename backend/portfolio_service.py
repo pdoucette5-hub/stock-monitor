@@ -1,18 +1,11 @@
 from __future__ import annotations
 
-import sys
-from pathlib import Path
 from typing import Any, Optional
 
 import pandas as pd
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-if str(BASE_DIR / "app") not in sys.path:
-    sys.path.insert(0, str(BASE_DIR / "app"))
-
-from data_ingest import get_live_market_data  # noqa: E402
-
-from logic import (  # noqa: E402
+from backend.data_ingest import get_live_market_data
+from backend.logic import (
     DEFAULT_GROWTH_PE_TABLE,
     SCENARIO_NAMES,
     action_sort_rank,
