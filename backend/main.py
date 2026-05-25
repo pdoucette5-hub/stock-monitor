@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+import requests
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -35,6 +36,7 @@ from backend.price_store import (
     get_price_history_response,
     upsert_price_rows,
 )
+from backend.sheets_service import push_tickers_to_sheet
 from backend.transactions_service import compute_position_summary
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -467,6 +469,21 @@ def get_ticker_registry() -> dict[str, Any]:
         "overrides": load_tickers_overrides(),
         "effective": get_effective_tickers_config(),
     }
+
+
+@app.post("/api/sheets/tickers/sync")
+def sync_tickers_to_sheet() -> dict[str, Any]:
+    try:
+        return push_tickers_to_sheet(get_effective_tickers_config())
+    except requests.HTTPError as exc:
+        detail = str(exc)
+        if exc.response is not None:
+            detail = exc.response.text or detail
+        raise HTTPException(status_code=502, detail=detail) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
 @app.get("/api/events")

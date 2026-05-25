@@ -8,6 +8,7 @@ import {
   archiveTicker,
   removeTicker,
   savePortfolioControls,
+  syncSheetTickers,
 } from '../lib/api'
 
 export default function Watchlist() {
@@ -18,6 +19,7 @@ export default function Watchlist() {
   const [moveShares, setMoveShares] = useState({})
   const [formError, setFormError] = useState(null)
   const [formMessage, setFormMessage] = useState(null)
+  const [syncingTickers, setSyncingTickers] = useState(false)
 
   const watchlistRows = view?.watchlist ?? []
 
@@ -124,6 +126,20 @@ export default function Watchlist() {
     }
   }
 
+  const handleSyncTickers = async () => {
+    setSyncingTickers(true)
+    setFormError(null)
+    setFormMessage(null)
+    try {
+      const result = await syncSheetTickers()
+      setFormMessage(`Synced ${result.ticker_count ?? 0} tickers to Google Sheets.`)
+    } catch (err) {
+      setFormError(err instanceof Error ? err.message : 'Failed to sync tickers')
+    } finally {
+      setSyncingTickers(false)
+    }
+  }
+
   const columns = useMemo(() => {
     const baseColumns = getValuationColumns('watchlist')
 
@@ -194,6 +210,8 @@ export default function Watchlist() {
         loading={loading}
         onReload={load}
         onUpdatePrices={load}
+        onSyncTickers={handleSyncTickers}
+        syncingTickers={syncingTickers}
       />
 
       {error && (

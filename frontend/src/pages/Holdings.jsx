@@ -8,6 +8,7 @@ import {
   removeTicker,
   savePortfolioControls,
   savePortfolioShares,
+  syncSheetTickers,
 } from '../lib/api'
 
 const SUB_TABS = [
@@ -25,6 +26,7 @@ export default function Holdings() {
   const [newShares, setNewShares] = useState('')
   const [formError, setFormError] = useState(null)
   const [formMessage, setFormMessage] = useState(null)
+  const [syncingTickers, setSyncingTickers] = useState(false)
 
   const portfolioRows = view?.portfolio ?? []
   const watchlistRows = view?.watchlist ?? []
@@ -135,6 +137,20 @@ export default function Holdings() {
     }
   }
 
+  const handleSyncTickers = async () => {
+    setSyncingTickers(true)
+    setFormError(null)
+    setFormMessage(null)
+    try {
+      const result = await syncSheetTickers()
+      setFormMessage(`Synced ${result.ticker_count ?? 0} tickers to Google Sheets.`)
+    } catch (err) {
+      setFormError(err instanceof Error ? err.message : 'Failed to sync tickers')
+    } finally {
+      setSyncingTickers(false)
+    }
+  }
+
   const columns = useMemo(() => {
     const baseColumns = getValuationColumns(activeTab)
 
@@ -215,6 +231,8 @@ export default function Holdings() {
         loading={loading}
         onReload={load}
         onUpdatePrices={load}
+        onSyncTickers={handleSyncTickers}
+        syncingTickers={syncingTickers}
       />
 
       {error && (

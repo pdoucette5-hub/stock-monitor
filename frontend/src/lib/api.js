@@ -1,4 +1,5 @@
-const API_BASE = import.meta.env.PROD ? '' : 'http://127.0.0.1:8000'
+const API_BASE =
+  import.meta.env.VITE_API_BASE ?? (import.meta.env.PROD ? '' : 'http://127.0.0.1:8000')
 
 async function request(path, options = {}) {
   const response = await fetch(`${API_BASE}${path}`, {
@@ -49,6 +50,12 @@ export function fetchTickersConfig() {
 
 export function fetchTickerRegistry() {
   return request('/api/tickers')
+}
+
+export function syncSheetTickers() {
+  return request('/api/sheets/tickers/sync', {
+    method: 'POST',
+  })
 }
 
 export function addPortfolioTicker(ticker, shares) {

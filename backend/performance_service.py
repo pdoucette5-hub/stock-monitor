@@ -1,10 +1,9 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from datetime import date, datetime
 from typing import Any
 
-from backend.data_ingest import get_price_history
+from backend.price_store import get_price_points_for_ticker
 from backend.transactions_service import compute_position_summary
 
 
@@ -15,10 +14,6 @@ def _safe_float(value: Any, default: float = 0.0) -> float:
         return float(value)
     except (TypeError, ValueError):
         return default
-
-
-def _parse_date(value: str) -> date:
-    return datetime.fromisoformat(str(value)).date()
 
 
 def _sorted_transaction_rows(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -39,7 +34,9 @@ def _apply_transaction_to_position(
     tx_type = str(tx.get("type", "")).strip().lower()
     shares = _safe_float(tx.get("shares"), 0.0)
     price_per_share = tx.get("price_per_share")
-    price_per_share = None if price_per_share in (None, "") else _safe_float(price_per_share, 0.0)
+    price_per_share = (
+        None if price_per_share in (None, "") else _safe_float(price_per_share, 0.0)
+    )
     fees = _safe_float(tx.get("fees"), 0.0)
 
     current_shares = position["shares"]
@@ -139,50 +136,48 @@ def _latest_snapshot_on_or_before(
     return snapshots[latest]
 
 
+def _portfolio_tickers(tickers_config: dict[str, Any]) -> list[str]:
+    portfolio_items = tickers_config.get("portfolio", []) or []
+    tickers: list[str] = []
+
+    for item in portfolio_items:
+        if isinstance(item, dict):
+            ticker = str(item.get("ticker", "")).strip().upper()
+        else:
+            ticker = str(item).strip().upper()
+        if ticker:
+            tickers.append(ticker)
+
+    return sorted(set(tickers))
+
+
 def build_portfolio_performance(
     transactions_by_ticker: dict[str, list[dict[str, Any]]],
     tickers_config: dict[str, Any],
     range_key: str = "1y",
 ) -> dict[str, Any]:
-    portfolio_items = tickers_config.get("portfolio", []) or []
-    portfolio_tickers: list[str] = []
+    tickers = [
+        ticker
+        for ticker in _portfolio_tickers(tickers_config)
+        if ticker in transactions_by_ticker
+    ]
 
-    for item in portfolio_items:
-        if isinstance(item, dict):
-            ticker = str(item.get("ticker", "")).strip().upper()
-            if ticker:
-                portfolio_tickers.append(ticker)
-        elif isinstance(item, str):
-            ticker = str(item).strip().upper()
-            if ticker:
-                portfolio_tickers.append(ticker)
-
-    portfolio_tickers = sorted(set(portfolio_tickers))
-
-    # Use only tickers that are actively in portfolio and have transaction history.
-    tickers = [ticker for ticker in portfolio_tickers if ticker in transactions_by_ticker]
-
-    history_by_ticker: dict[str, dict[str, Any]] = {}
+    history_by_ticker: dict[str, list[dict[str, Any]]] = {}
     position_history_by_ticker: dict[str, dict[str, dict[str, float]]] = {}
-
     all_dates: set[str] = set()
 
     for ticker in tickers:
-        price_payload = get_price_history(ticker, range_key=range_key, force_refresh=False, max_age_hours=24)
-        points = price_payload.get("points", []) or []
+        points = get_price_points_for_ticker(ticker, range_key=range_key)
         if not points:
             continue
 
-        history_by_ticker[ticker] = {
-            "ticker": ticker,
-            "points": points,
-        }
+        history_by_ticker[ticker] = points
         for point in points:
             if point.get("date"):
                 all_dates.add(str(point["date"]))
 
         position_history_by_ticker[ticker] = _build_position_history(
-            transactions_by_ticker.get(ticker, [])
+            transactions_by_ticker.get(ticker, []),
         )
 
     ordered_dates = sorted(all_dates)
@@ -196,11 +191,15 @@ def build_portfolio_performance(
                 "cost_basis": 0.0,
                 "unrealized_gain_loss": 0.0,
             },
+            "positions": {
+                ticker: compute_position_summary(transactions_by_ticker.get(ticker, []))
+                for ticker in tickers
+            },
         }
 
     close_lookup: dict[str, dict[str, float]] = defaultdict(dict)
-    for ticker, payload in history_by_ticker.items():
-        for point in payload["points"]:
+    for ticker, points in history_by_ticker.items():
+        for point in points:
             if point.get("date") and point.get("close") is not None:
                 close_lookup[ticker][str(point["date"])] = _safe_float(point["close"], 0.0)
 
@@ -259,11 +258,6 @@ def build_portfolio_performance(
         "unrealized_gain_loss": 0.0,
     }
 
-    per_ticker_latest = {}
-    for ticker in tickers:
-        summary = compute_position_summary(transactions_by_ticker.get(ticker, []))
-        per_ticker_latest[ticker] = summary
-
     return {
         "range": range_key,
         "tickers": tickers,
@@ -273,5 +267,8 @@ def build_portfolio_performance(
             "cost_basis": latest.get("cost_basis", 0.0),
             "unrealized_gain_loss": latest.get("unrealized_gain_loss", 0.0),
         },
-        "positions": per_ticker_latest,
+        "positions": {
+            ticker: compute_position_summary(transactions_by_ticker.get(ticker, []))
+            for ticker in tickers
+        },
     }
