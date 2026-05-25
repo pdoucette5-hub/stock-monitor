@@ -198,6 +198,26 @@ def get_price_points_for_ticker(ticker: str, range_key: str = "1y") -> list[dict
     return _filter_rows_for_range(rows, range_key)
 
 
+def get_latest_price_for_ticker(ticker: str) -> dict[str, Any] | None:
+    store = load_price_history_store()
+    rows = store.get(normalize_ticker(ticker), [])
+    if not rows:
+        return None
+
+    latest = rows[-1]
+    try:
+        close = float(latest["close"])
+    except (KeyError, TypeError, ValueError):
+        return None
+
+    return {
+        "date": latest.get("date"),
+        "price": close,
+        "source": latest.get("source") or "local-store",
+        "fetched_at": latest.get("fetched_at") or "",
+    }
+
+
 def get_price_history_response(ticker: str, range_key: str = "1y") -> dict[str, Any]:
     normalized = normalize_ticker(ticker)
     points = get_price_points_for_ticker(normalized, range_key)

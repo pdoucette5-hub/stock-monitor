@@ -22,6 +22,27 @@ from backend.logic import (
     safe_float,
     weighted_cagr,
 )
+from backend.price_store import get_latest_price_for_ticker
+
+
+def _apply_price_store_fallback(market_row: dict[str, Any], ticker: str) -> dict[str, Any]:
+    if safe_float(market_row.get("price")) is not None:
+        return market_row
+
+    latest_price = get_latest_price_for_ticker(ticker)
+    if not latest_price:
+        return market_row
+
+    updated = dict(market_row)
+    updated["price"] = latest_price["price"]
+    updated["price_date"] = latest_price.get("date")
+    updated["cache_source"] = latest_price.get("source") or "local-store"
+
+    status = str(updated.get("status") or "")
+    if not status or status.startswith("ERROR") or "price" in status.lower():
+        updated["status"] = "OK: price from imported sheet data"
+
+    return updated
 
 
 def normalize_portfolio(portfolio_raw: Any) -> list[dict[str, Any]]:
@@ -305,6 +326,7 @@ def build_portfolio_views(
     for ticker in all_tickers:
         row_match = market_df[market_df["ticker"] == ticker]
         market_row = row_match.iloc[0].to_dict() if not row_match.empty else {"ticker": ticker}
+        market_row = _apply_price_store_fallback(market_row, ticker)
         raw_state = scenario_inputs.get(ticker)
         state = prepare_ticker_state(
             raw_state if isinstance(raw_state, dict) else None,
