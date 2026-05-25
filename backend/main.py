@@ -1,19 +1,19 @@
 from __future__ import annotations
 
 import json
+import os
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import yaml
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from backend.data_ingest import get_price_history
 from backend.logic import merge_global_settings
 from backend.models import (
     GlobalSettings,
@@ -30,6 +30,11 @@ from backend.portfolio_service import (
     build_portfolio_views,
     normalize_portfolio,
 )
+from backend.price_store import (
+    get_price_comparison_response,
+    get_price_history_response,
+    upsert_price_rows,
+)
 from backend.transactions_service import compute_position_summary
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +46,8 @@ TICKERS_OVERRIDES_FILE = BASE_DIR / "cache" / "tickers_overrides.json"
 TRANSACTIONS_FILE = BASE_DIR / "cache" / "transactions.json"
 PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
+
+PRICE_IMPORT_SECRET = os.getenv("PRICE_IMPORT_SECRET", "")
 
 SCENARIO_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 GLOBAL_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -104,6 +111,18 @@ class TransactionUpdate(BaseModel):
     price_per_share: float | None = None
     fees: float | None = 0.0
     notes: str | None = ""
+
+
+class ImportedPriceRow(BaseModel):
+    ticker: str
+    date: str
+    close: float
+    source: str | None = "googlefinance"
+    fetched_at: str | None = None
+
+
+class PriceImportRequest(BaseModel):
+    rows: list[ImportedPriceRow]
 
 
 VALID_TRANSACTION_TYPES = {
@@ -270,7 +289,11 @@ def save_portfolio_events(events: list[dict[str, Any]]) -> None:
     save_json_file(PORTFOLIO_EVENTS_FILE, cleaned)
 
 
-def append_portfolio_event(event_type: str, ticker: str, payload: dict[str, Any] | None = None) -> None:
+def append_portfolio_event(
+    event_type: str,
+    ticker: str,
+    payload: dict[str, Any] | None = None,
+) -> None:
     events = load_portfolio_events()
     entry = {
         "id": uuid.uuid4().hex,
@@ -484,6 +507,35 @@ def get_portfolio_performance(
             tickers_config=tickers_config,
             range_key=range,
         )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/prices/import")
+def import_price_history(
+    body: PriceImportRequest,
+    x_import_secret: str | None = Header(default=None),
+) -> dict[str, Any]:
+    if not PRICE_IMPORT_SECRET:
+        raise HTTPException(
+            status_code=500,
+            detail="PRICE_IMPORT_SECRET is not configured on the server",
+        )
+
+    if x_import_secret != PRICE_IMPORT_SECRET:
+        raise HTTPException(status_code=403, detail="Invalid import secret")
+
+    try:
+        result = upsert_price_rows(
+            [row.model_dump(mode="json") for row in body.rows],
+            default_source="googlefinance",
+        )
+        return {
+            "status": "ok",
+            **result,
+        }
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
@@ -780,19 +832,13 @@ def get_position_summary(ticker: str) -> dict[str, Any]:
 def get_price_history_endpoint(
     ticker: str,
     range: str = "1y",
-    force_refresh: bool = False,
 ) -> dict[str, Any]:
     normalized = normalize_ticker(ticker)
     if not normalized:
         raise HTTPException(status_code=400, detail="Ticker is required")
 
     try:
-        return get_price_history(
-            normalized,
-            range_key=range,
-            force_refresh=force_refresh,
-            max_age_hours=24,
-        )
+        return get_price_history_response(normalized, range_key=range)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
@@ -803,83 +849,15 @@ def get_price_history_endpoint(
 def get_price_comparison(
     tickers: str,
     range: str = "1y",
-    force_refresh: bool = False,
 ) -> dict[str, Any]:
     raw_tickers = [
         normalize_ticker(ticker)
         for ticker in str(tickers).split(",")
         if str(ticker).strip()
     ]
-    unique_tickers = []
-    seen = set()
-    for ticker in raw_tickers:
-        if ticker and ticker not in seen:
-            unique_tickers.append(ticker)
-            seen.add(ticker)
-
-    if not unique_tickers:
-        raise HTTPException(status_code=400, detail="At least one ticker is required")
 
     try:
-        results: dict[str, Any] = {}
-        common_dates: set[str] | None = None
-
-        for ticker in unique_tickers:
-            payload = get_price_history(
-                ticker,
-                range_key=range,
-                force_refresh=force_refresh,
-                max_age_hours=24,
-            )
-            points = payload.get("points", []) or []
-            valid_points = [
-                {
-                    "date": str(point.get("date")),
-                    "close": float(point.get("close")),
-                }
-                for point in points
-                if point.get("date") and point.get("close") is not None
-            ]
-
-            if not valid_points:
-                results[ticker] = []
-                common_dates = set() if common_dates is None else common_dates.intersection(set())
-                continue
-
-            date_set = {point["date"] for point in valid_points}
-            common_dates = date_set if common_dates is None else common_dates.intersection(date_set)
-            results[ticker] = valid_points
-
-        common_dates = common_dates or set()
-
-        normalized_series: dict[str, list[dict[str, float | str]]] = {}
-        for ticker, points in results.items():
-            filtered = [point for point in points if point["date"] in common_dates]
-            filtered = sorted(filtered, key=lambda point: point["date"])
-
-            if not filtered:
-                normalized_series[ticker] = []
-                continue
-
-            base_close = filtered[0]["close"]
-            if base_close == 0:
-                normalized_series[ticker] = []
-                continue
-
-            normalized_series[ticker] = [
-                {
-                    "date": point["date"],
-                    "close": round(point["close"], 8),
-                    "normalized": round((point["close"] / base_close) * 100.0, 8),
-                }
-                for point in filtered
-            ]
-
-        return {
-            "range": range,
-            "tickers": unique_tickers,
-            "series": normalized_series,
-        }
+        return get_price_comparison_response(raw_tickers, range_key=range)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
