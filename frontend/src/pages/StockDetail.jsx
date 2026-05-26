@@ -7,7 +7,7 @@ import {
   fetchPositionSummary,
   fetchPriceHistory,
   fetchStockScenario,
-  fetchTickersConfig,
+  fetchTickerRegistry,
   fetchTransactions,
   saveStockScenario,
   updateTransaction,
@@ -50,11 +50,12 @@ const TRANSACTION_TYPE_OPTIONS = [
 const PRICE_RANGES = ['1m', '3m', '6m', '1y', '3y', '5y']
 
 function collectTickers(tickersPayload, scenariosPayload) {
+  const tickersConfig = tickersPayload?.effective ?? tickersPayload
   const fromConfig = [
-    ...(tickersPayload?.portfolio ?? []).map((p) =>
+    ...(tickersConfig?.portfolio ?? []).map((p) =>
       String(p.ticker).trim().toUpperCase(),
     ),
-    ...(tickersPayload?.watchlist ?? []).map((t) =>
+    ...(tickersConfig?.watchlist ?? []).map((t) =>
       String(t).trim().toUpperCase(),
     ),
   ]
@@ -275,7 +276,7 @@ export default function StockDetail() {
       setError(null)
       try {
         const [tickersPayload, scenariosPayload] = await Promise.all([
-          fetchTickersConfig(),
+          fetchTickerRegistry(),
           fetchPortfolioScenarios(),
         ])
         if (cancelled) return
