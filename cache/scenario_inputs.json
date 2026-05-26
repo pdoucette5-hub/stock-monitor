@@ -1290,7 +1290,7 @@
     }
   },
   "ELF": {
-    "shares_outstanding": 60000000.0,
+    "shares_outstanding": 59089708.0,
     "bull": {
       "rev_growth_rates": [
         18.0,
@@ -1333,9 +1333,9 @@
       "durable_growth_view": 8.0,
       "growth_weight_pct": 35.0
     },
-    "latest_quarter_revenue": 353700000.0,
-    "latest_quarter_net_income": 1000000.0,
-    "notes": "Next batch added; Q1 FY26 revenue included, net income and shares left blank; shares included",
+    "latest_quarter_revenue": 449292000.0,
+    "latest_quarter_net_income": 46474500.0,
+    "notes": "FY2026 Q4 revenue included; normalized quarterly net income uses FY2026 adjusted net income divided by four",
     "trade_rules": {
       "adjustments_enabled": true,
       "min_shares_to_keep": 0.0,
