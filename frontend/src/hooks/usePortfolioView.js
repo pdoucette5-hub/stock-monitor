@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { fetchPortfolioView } from '../lib/api'
 
-const CACHE_TTL_MS = 5 * 60 * 1000
+const CACHE_TTL_MS = 30 * 1000
 
 let cachedView = null
 let cachedAt = null
@@ -18,12 +18,15 @@ export function usePortfolioView() {
   const [lastUpdated, setLastUpdated] = useState(cachedAt)
 
   const load = useCallback(async (forceRefresh = false, options = {}) => {
-    if (options.preferCache && !forceRefresh && isCacheFresh()) {
+    if (options.preferCache && !forceRefresh && cachedView) {
       setView(cachedView)
       setLastUpdated(cachedAt)
       setLoading(false)
       setError(null)
-      return cachedView
+
+      if (isCacheFresh()) {
+        return cachedView
+      }
     }
 
     if (!forceRefresh && inFlightLoad) {
