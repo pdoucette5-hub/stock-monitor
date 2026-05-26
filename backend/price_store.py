@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -9,6 +10,11 @@ from typing import Any
 BASE_DIR = Path(__file__).resolve().parent.parent
 PRICE_HISTORY_FILE = BASE_DIR / "cache" / "price_history.json"
 PRICE_HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+PRICE_HISTORY_GCS_BUCKET = os.getenv("PRICE_HISTORY_GCS_BUCKET", "")
+PRICE_HISTORY_GCS_BLOB = os.getenv(
+    "PRICE_HISTORY_GCS_BLOB",
+    "stock-monitor/price_history.json",
+)
 
 RANGE_DAYS = {
     "1m": 31,
@@ -47,15 +53,47 @@ def _safe_float(value: Any) -> float:
     return float(value)
 
 
-def load_price_history_store() -> dict[str, list[dict[str, Any]]]:
-    if not PRICE_HISTORY_FILE.exists():
-        return {}
+def _load_price_history_raw() -> Any:
+    if PRICE_HISTORY_GCS_BUCKET:
+        try:
+            from google.cloud import storage
 
-    try:
-        with open(PRICE_HISTORY_FILE, "r", encoding="utf-8") as f:
-            raw = json.load(f)
-    except (json.JSONDecodeError, OSError):
-        return {}
+            client = storage.Client()
+            blob = client.bucket(PRICE_HISTORY_GCS_BUCKET).blob(PRICE_HISTORY_GCS_BLOB)
+            if blob.exists():
+                return json.loads(blob.download_as_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    if PRICE_HISTORY_FILE.exists():
+        try:
+            with open(PRICE_HISTORY_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, OSError):
+            return {}
+
+    return {}
+
+
+def _save_price_history_raw(data: dict[str, list[dict[str, Any]]]) -> None:
+    with open(PRICE_HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+
+    if not PRICE_HISTORY_GCS_BUCKET:
+        return
+
+    from google.cloud import storage
+
+    client = storage.Client()
+    blob = client.bucket(PRICE_HISTORY_GCS_BUCKET).blob(PRICE_HISTORY_GCS_BLOB)
+    blob.upload_from_string(
+        json.dumps(data, indent=2),
+        content_type="application/json",
+    )
+
+
+def load_price_history_store() -> dict[str, list[dict[str, Any]]]:
+    raw = _load_price_history_raw()
 
     if not isinstance(raw, dict):
         return {}
@@ -121,8 +159,7 @@ def save_price_history_store(data: dict[str, list[dict[str, Any]]]) -> None:
         normalized_rows.sort(key=lambda item: item["date"])
         cleaned[normalized] = normalized_rows
 
-    with open(PRICE_HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(cleaned, f, indent=2)
+    _save_price_history_raw(cleaned)
 
 
 def upsert_price_rows(rows: list[dict[str, Any]], default_source: str = "googlefinance") -> dict[str, Any]:
