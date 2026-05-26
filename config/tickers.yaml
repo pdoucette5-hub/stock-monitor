@@ -103,6 +103,8 @@ portfolio:
     shares: 100.00
   - ticker: JPM
     shares: 219.00
+  - ticker: DELL
+    shares: 1.00
 
 watchlist:
   - TSM

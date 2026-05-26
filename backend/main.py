@@ -50,6 +50,11 @@ PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 PRICE_IMPORT_SECRET = os.getenv("PRICE_IMPORT_SECRET", "")
+STATE_GCS_BUCKET = os.getenv(
+    "STOCK_MONITOR_STATE_GCS_BUCKET",
+    os.getenv("PRICE_HISTORY_GCS_BUCKET", ""),
+)
+STATE_GCS_PREFIX = os.getenv("STOCK_MONITOR_STATE_GCS_PREFIX", "stock-monitor/state")
 
 SCENARIO_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 GLOBAL_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -139,6 +144,20 @@ VALID_TRANSACTION_TYPES = {
 
 
 def load_json_file(path: Path, default_data: Any) -> Any:
+    if STATE_GCS_BUCKET:
+        try:
+            from google.cloud import storage
+
+            client = storage.Client()
+            blob = client.bucket(STATE_GCS_BUCKET).blob(
+                f"{STATE_GCS_PREFIX.rstrip('/')}/{path.name}",
+            )
+            if blob.exists():
+                data = json.loads(blob.download_as_text(encoding="utf-8"))
+                return data if isinstance(data, type(default_data)) else default_data
+        except Exception:
+            pass
+
     if not path.exists():
         return default_data
     try:
@@ -152,6 +171,20 @@ def load_json_file(path: Path, default_data: Any) -> Any:
 def save_json_file(path: Path, data: Any) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
+
+    if not STATE_GCS_BUCKET:
+        return
+
+    from google.cloud import storage
+
+    client = storage.Client()
+    blob = client.bucket(STATE_GCS_BUCKET).blob(
+        f"{STATE_GCS_PREFIX.rstrip('/')}/{path.name}",
+    )
+    blob.upload_from_string(
+        json.dumps(data, indent=2),
+        content_type="application/json",
+    )
 
 
 def load_scenario_inputs() -> dict[str, Any]:
