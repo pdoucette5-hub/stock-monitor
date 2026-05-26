@@ -131,6 +131,23 @@ function PriceChart({ points }) {
     )
   }
 
+  if (validPoints.length === 1) {
+    const point = validPoints[0]
+    return (
+      <div className="flex h-64 flex-col items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-center text-sm text-slate-500">
+        <div className="text-lg font-semibold text-slate-900">
+          {formatMoney(point.close)}
+        </div>
+        <div className="mt-2">
+          Only one close has been imported for this ticker.
+        </div>
+        <div className="mt-1 text-xs text-slate-400">
+          Last imported: {formatShortDate(point.date)}
+        </div>
+      </div>
+    )
+  }
+
   const closes = validPoints.map((p) => Number(p.close))
   const minPrice = Math.min(...closes)
   const maxPrice = Math.max(...closes)
