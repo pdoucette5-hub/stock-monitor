@@ -340,7 +340,13 @@ export default function StockDetail() {
       setForm(apiToForm(data.scenario))
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to load stock'
-      if (message.includes('404') || message.toLowerCase().includes('not found')) {
+      const lowerMessage = message.toLowerCase()
+      if (
+        message.includes('404') ||
+        lowerMessage.includes('not found') ||
+        lowerMessage.includes('no scenario found')
+      ) {
+        setError(null)
         setForm(defaultFormState())
         setIsNewTicker(true)
       } else {

@@ -1054,6 +1054,67 @@
       "eligible_redistribution_shares": 1554.54
     }
   },
+  "DELL": {
+    "shares_outstanding": 650000000.0,
+    "bull": {
+      "rev_growth_rates": [
+        19.0,
+        19.0,
+        19.0
+      ],
+      "net_income_growth_rates": [
+        30.0,
+        25.0,
+        20.0
+      ],
+      "durable_growth_view": 15.0,
+      "growth_weight_pct": 75.0
+    },
+    "base": {
+      "rev_growth_rates": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "net_income_growth_rates": [
+        25.0,
+        20.0,
+        15.0
+      ],
+      "durable_growth_view": 12.0,
+      "growth_weight_pct": 60.0
+    },
+    "bear": {
+      "rev_growth_rates": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "net_income_growth_rates": [
+        20.0,
+        15.0,
+        10.0
+      ],
+      "durable_growth_view": 8.0,
+      "growth_weight_pct": 50.0
+    },
+    "latest_quarter_revenue": 33400000000.0,
+    "latest_quarter_net_income": 2259000000.0,
+    "notes": "Starter assumptions for Dell Technologies; review before relying on action output",
+    "trade_rules": {
+      "adjustments_enabled": true,
+      "min_shares_to_keep": 0.0,
+      "max_shares_to_own": null,
+      "max_shares_to_trade": null
+    },
+    "redistribution_rules": {
+      "include_in_redistribution": false,
+      "eligible_redistribution_shares": 1.0
+    },
+    "display_rules": {
+      "show_in_holdings": true
+    }
+  },
   "CL": {
     "shares_outstanding": 801550000.0,
     "bull": {
