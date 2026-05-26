@@ -10,9 +10,18 @@ import requests
 SHEETS_TICKER_PUSH_URL = os.getenv("SHEETS_TICKER_PUSH_URL", "")
 SHEETS_TICKER_PUSH_SECRET = os.getenv("SHEETS_TICKER_PUSH_SECRET", "")
 
+GOOGLEFINANCE_SYMBOL_OVERRIDES = {
+    "DELL": "NYSE:DELL",
+}
+
 
 def _normalize_ticker(value: Any) -> str:
     return str(value).strip().upper()
+
+
+def _googlefinance_symbol(ticker: str) -> str:
+    normalized = _normalize_ticker(ticker)
+    return GOOGLEFINANCE_SYMBOL_OVERRIDES.get(normalized, normalized)
 
 
 def build_ticker_push_payload(tickers_config: dict[str, Any]) -> dict[str, Any]:
@@ -42,11 +51,24 @@ def build_ticker_push_payload(tickers_config: dict[str, Any]) -> dict[str, Any]:
             watchlist.append(ticker)
 
     active_tickers = sorted(portfolio_tickers.union(watchlist))
+    ticker_rows = [
+        {
+            "ticker": ticker,
+            "googlefinance_symbol": _googlefinance_symbol(ticker),
+            "list": "portfolio" if ticker in portfolio_tickers else "watchlist",
+            "shares": next(
+                (row.get("shares") for row in portfolio_rows if row.get("ticker") == ticker),
+                None,
+            ),
+        }
+        for ticker in active_tickers
+    ]
 
     return {
         "source": "stock-monitor",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "tickers": active_tickers,
+        "ticker_rows": ticker_rows,
         "portfolio": sorted(portfolio_rows, key=lambda row: row["ticker"]),
         "watchlist": sorted(set(watchlist)),
     }
