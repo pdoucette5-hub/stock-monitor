@@ -97,7 +97,12 @@ export default function Holdings() {
       await addPortfolioTicker(ticker, shares)
       setNewTicker('')
       setNewShares('')
-      setFormMessage(`Added ${ticker} to portfolio.`)
+      try {
+        await syncSheetTickers()
+        setFormMessage(`Added ${ticker} to portfolio and synced Google Sheets.`)
+      } catch {
+        setFormMessage(`Added ${ticker} to portfolio. Sheet sync did not complete.`)
+      }
       await load(false)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to add portfolio ticker')

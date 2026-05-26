@@ -56,7 +56,12 @@ export default function Watchlist() {
     try {
       await addWatchlistTicker(ticker)
       setNewTicker('')
-      setFormMessage(`Added ${ticker} to watchlist.`)
+      try {
+        await syncSheetTickers()
+        setFormMessage(`Added ${ticker} to watchlist and synced Google Sheets.`)
+      } catch {
+        setFormMessage(`Added ${ticker} to watchlist. Sheet sync did not complete.`)
+      }
       await load(false)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to add watchlist ticker')
@@ -79,7 +84,12 @@ export default function Watchlist() {
 
     try {
       await addPortfolioTicker(ticker, shares)
-      setFormMessage(`Moved ${ticker} to portfolio.`)
+      try {
+        await syncSheetTickers()
+        setFormMessage(`Moved ${ticker} to portfolio and synced Google Sheets.`)
+      } catch {
+        setFormMessage(`Moved ${ticker} to portfolio. Sheet sync did not complete.`)
+      }
       setMoveShares((current) => {
         const next = { ...current }
         delete next[ticker]
