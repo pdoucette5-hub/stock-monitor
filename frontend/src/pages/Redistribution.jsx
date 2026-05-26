@@ -1,51 +1,43 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { fetchPortfolioView, savePortfolioControls } from '../lib/api'
+import { savePortfolioControls } from '../lib/api'
+import { usePortfolioView } from '../hooks/usePortfolioView'
 
 export default function Redistribution() {
+  const {
+    view,
+    loading,
+    error: loadError,
+    lastUpdated,
+    load,
+  } = usePortfolioView()
   const [rows, setRows] = useState([])
-  const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
-  const [error, setError] = useState(null)
-  const [lastUpdated, setLastUpdated] = useState(null)
+  const [saveError, setSaveError] = useState(null)
 
   useEffect(() => {
-    loadView()
-  }, [])
+    const portfolioRows = view?.portfolio ?? []
 
-  async function loadView(forceRefresh = false) {
-    setLoading(true)
-    setError(null)
-    try {
-      const payload = await fetchPortfolioView(forceRefresh)
-      const portfolioRows = payload?.portfolio ?? []
+    const normalized = portfolioRows.map((row) => {
+      const sharesOwned = Number(row.shares ?? 0)
+      const eligibleShares = Number(
+        row.eligible_redistribution_shares ?? row.shares ?? 0,
+      )
+      const locked = Math.max(sharesOwned - eligibleShares, 0)
 
-      const normalized = portfolioRows.map((row) => {
-        const sharesOwned = Number(row.shares ?? 0)
-        const eligibleShares = Number(
-          row.eligible_redistribution_shares ?? row.shares ?? 0,
-        )
-        const locked = Math.max(sharesOwned - eligibleShares, 0)
+      return {
+        ticker: row.ticker,
+        include: row.include_in_redistribution !== false,
+        sharesOwned,
+        eligibleShares,
+        locked,
+        cagr: row.weighted_cagr_y3,
+        action: row.action,
+        confidence: row.confidence,
+      }
+    })
 
-        return {
-          ticker: row.ticker,
-          include: row.include_in_redistribution !== false,
-          sharesOwned,
-          eligibleShares,
-          locked,
-          cagr: row.weighted_cagr_y3,
-          action: row.action,
-          confidence: row.confidence,
-        }
-      })
-
-      setRows(normalized)
-      setLastUpdated(new Date())
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load redistribution view')
-    } finally {
-      setLoading(false)
-    }
-  }
+    setRows(normalized)
+  }, [view])
 
   function updateRow(ticker, patch) {
     setRows((current) =>
@@ -108,7 +100,7 @@ export default function Redistribution() {
 
   const handleSave = async () => {
     setSaving(true)
-    setError(null)
+    setSaveError(null)
     try {
       const updates = rows.map((row) => ({
         ticker: row.ticker,
@@ -117,9 +109,9 @@ export default function Redistribution() {
       }))
 
       await savePortfolioControls(updates)
-      await loadView(false)
+      await load(true)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to save redistribution settings')
+      setSaveError(err instanceof Error ? err.message : 'Failed to save redistribution settings')
     } finally {
       setSaving(false)
     }
@@ -208,9 +200,9 @@ export default function Redistribution() {
         </div>
       </div>
 
-      {error && (
+      {(loadError || saveError) && (
         <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
-          {error}
+          {loadError || saveError}
         </div>
       )}
 
