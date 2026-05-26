@@ -2,6 +2,7 @@ import { NavLink, Route, Routes } from 'react-router-dom'
 import Holdings from './pages/Holdings'
 import Watchlist from './pages/Watchlist'
 import Redistribution from './pages/Redistribution'
+import Actions from './pages/Actions'
 import StockDetail from './pages/StockDetail'
 import Archived from './pages/Archived'
 import Performance from './pages/Performance'
@@ -36,6 +37,9 @@ export default function App() {
             <NavLink to="/redistribution" className={navClass}>
               Redistribution
             </NavLink>
+            <NavLink to="/actions" className={navClass}>
+              Actions
+            </NavLink>
             <NavLink to="/performance" className={navClass}>
               Performance
             </NavLink>
@@ -54,6 +58,7 @@ export default function App() {
           <Route path="/" element={<Holdings />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route path="/redistribution" element={<Redistribution />} />
+          <Route path="/actions" element={<Actions />} />
           <Route path="/performance" element={<Performance />} />
           <Route path="/archived" element={<Archived />} />
           <Route path="/stock" element={<StockDetail />} />
