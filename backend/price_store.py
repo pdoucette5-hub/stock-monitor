@@ -268,6 +268,26 @@ def get_price_history_response(ticker: str, range_key: str = "1y") -> dict[str, 
     }
 
 
+def get_price_history_status(tickers: list[str] | None = None) -> dict[str, Any]:
+    store = load_price_history_store()
+    requested = [normalize_ticker(ticker) for ticker in tickers or [] if normalize_ticker(ticker)]
+    selected = requested or sorted(store)
+
+    ticker_status: dict[str, dict[str, Any]] = {}
+    for ticker in selected:
+        rows = store.get(ticker, [])
+        ticker_status[ticker] = {
+            "row_count": len(rows),
+            "first_date": rows[0]["date"] if rows else None,
+            "latest_date": rows[-1]["date"] if rows else None,
+        }
+
+    return {
+        "ticker_count": len(ticker_status),
+        "tickers": ticker_status,
+    }
+
+
 def get_price_comparison_response(tickers: list[str], range_key: str = "1y") -> dict[str, Any]:
     normalized_tickers: list[str] = []
     seen: set[str] = set()

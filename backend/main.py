@@ -34,6 +34,7 @@ from backend.portfolio_service import (
 from backend.price_store import (
     get_price_comparison_response,
     get_price_history_response,
+    get_price_history_status,
     upsert_price_rows,
 )
 from backend.sheets_service import push_tickers_to_sheet
@@ -590,6 +591,16 @@ def import_price_history(
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/prices/status")
+def get_price_import_status(tickers: str = "") -> dict[str, Any]:
+    ticker_list = [
+        normalize_ticker(ticker)
+        for ticker in str(tickers).split(",")
+        if str(ticker).strip()
+    ]
+    return get_price_history_status(ticker_list or None)
 
 
 @app.put("/api/tickers/portfolio", response_model=PortfolioConfig)
