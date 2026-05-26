@@ -1,14 +1,34 @@
 const API_BASE =
   import.meta.env.VITE_API_BASE ?? (import.meta.env.PROD ? '' : 'http://127.0.0.1:8000')
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 async function request(path, options = {}) {
-  const response = await fetch(`${API_BASE}${path}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-    ...options,
-  })
+  let response
+
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      response = await fetch(`${API_BASE}${path}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          ...options.headers,
+        },
+        ...options,
+      })
+      break
+    } catch (err) {
+      if (attempt === 1) {
+        throw new Error(
+          'Could not reach the stock-monitor server. Refresh the page and try again.',
+          { cause: err },
+        )
+      }
+
+      await sleep(500)
+    }
+  }
 
   if (!response.ok) {
     const detail = await response.text()
