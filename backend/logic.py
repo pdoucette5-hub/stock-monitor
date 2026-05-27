@@ -145,14 +145,6 @@ def confidence_flag(
     if any(v is None for v in rev_rates + ni_rates):
         return "Missing assumptions"
 
-    aggressive_years = 0
-    for rev_g, ni_g in zip(rev_rates, ni_rates):
-        if (ni_g - rev_g) > 15.0:
-            aggressive_years += 1
-
-    if aggressive_years >= 2:
-        return "Aggressive earnings vs revenue"
-
     return "OK"
 
 
