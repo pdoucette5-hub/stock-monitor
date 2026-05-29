@@ -190,3 +190,15 @@ export function fetchPriceComparison(tickers, range = '1y', forceRefresh = false
 
   return request(`/api/prices/compare?${query.toString()}`)
 }
+
+export function fetchChangeLog({ ticker = '', limit = 250 } = {}) {
+  const query = new URLSearchParams({
+    limit: String(limit),
+  })
+
+  if (ticker) {
+    query.set('ticker', String(ticker).trim().toUpperCase())
+  }
+
+  return request(`/api/events?${query.toString()}`)
+}

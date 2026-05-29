@@ -144,6 +144,45 @@ VALID_TRANSACTION_TYPES = {
 }
 
 
+SCENARIO_CHANGE_LABELS = {
+    "latest_quarter_revenue": "Latest quarter revenue",
+    "latest_quarter_net_income": "Latest quarter net income",
+    "shares_outstanding": "Shares outstanding",
+    "notes": "Notes",
+    "bear.rev_growth_rates.0": "Bear revenue growth Y1",
+    "bear.rev_growth_rates.1": "Bear revenue growth Y2",
+    "bear.rev_growth_rates.2": "Bear revenue growth Y3",
+    "bear.net_income_growth_rates.0": "Bear net income growth Y1",
+    "bear.net_income_growth_rates.1": "Bear net income growth Y2",
+    "bear.net_income_growth_rates.2": "Bear net income growth Y3",
+    "bear.durable_growth_view": "Bear durable growth",
+    "bear.growth_weight_pct": "Bear growth weight",
+    "base.rev_growth_rates.0": "Base revenue growth Y1",
+    "base.rev_growth_rates.1": "Base revenue growth Y2",
+    "base.rev_growth_rates.2": "Base revenue growth Y3",
+    "base.net_income_growth_rates.0": "Base net income growth Y1",
+    "base.net_income_growth_rates.1": "Base net income growth Y2",
+    "base.net_income_growth_rates.2": "Base net income growth Y3",
+    "base.durable_growth_view": "Base durable growth",
+    "base.growth_weight_pct": "Base growth weight",
+    "bull.rev_growth_rates.0": "Bull revenue growth Y1",
+    "bull.rev_growth_rates.1": "Bull revenue growth Y2",
+    "bull.rev_growth_rates.2": "Bull revenue growth Y3",
+    "bull.net_income_growth_rates.0": "Bull net income growth Y1",
+    "bull.net_income_growth_rates.1": "Bull net income growth Y2",
+    "bull.net_income_growth_rates.2": "Bull net income growth Y3",
+    "bull.durable_growth_view": "Bull durable growth",
+    "bull.growth_weight_pct": "Bull growth weight",
+}
+
+
+CONTROL_CHANGE_LABELS = {
+    "show_in_holdings": "Show in holdings",
+    "include_in_redistribution": "Include in redistribution",
+    "eligible_redistribution_shares": "Eligible redistribution shares",
+}
+
+
 def load_json_file(path: Path, default_data: Any) -> Any:
     if STATE_GCS_BUCKET:
         try:
@@ -321,7 +360,7 @@ def load_portfolio_events() -> list[dict[str, Any]]:
 
 
 def save_portfolio_events(events: list[dict[str, Any]]) -> None:
-    cleaned = [item for item in events if isinstance(item, dict)]
+    cleaned = [item for item in events if isinstance(item, dict)][-5000:]
     save_json_file(PORTFOLIO_EVENTS_FILE, cleaned)
 
 
@@ -340,6 +379,62 @@ def append_portfolio_event(
     }
     events.append(entry)
     save_portfolio_events(events)
+
+
+def values_are_equal(previous: Any, current: Any) -> bool:
+    if previous is None and current in ("", None):
+        return True
+    if current is None and previous in ("", None):
+        return True
+
+    try:
+        return abs(float(previous) - float(current)) < 0.000001
+    except (TypeError, ValueError):
+        return previous == current
+
+
+def flatten_change_values(value: Any, prefix: str = "") -> dict[str, Any]:
+    if isinstance(value, dict):
+        flattened: dict[str, Any] = {}
+        for key, nested_value in value.items():
+            nested_prefix = f"{prefix}.{key}" if prefix else str(key)
+            flattened.update(flatten_change_values(nested_value, nested_prefix))
+        return flattened
+
+    if isinstance(value, list):
+        flattened = {}
+        for idx, nested_value in enumerate(value):
+            nested_prefix = f"{prefix}.{idx}" if prefix else str(idx)
+            flattened.update(flatten_change_values(nested_value, nested_prefix))
+        return flattened
+
+    return {prefix: value}
+
+
+def build_change_set(
+    previous: dict[str, Any] | None,
+    current: dict[str, Any],
+    labels: dict[str, str],
+) -> list[dict[str, Any]]:
+    previous_values = flatten_change_values(previous or {})
+    current_values = flatten_change_values(current)
+    changes: list[dict[str, Any]] = []
+
+    for field in labels:
+        old_value = previous_values.get(field)
+        new_value = current_values.get(field)
+        if values_are_equal(old_value, new_value):
+            continue
+        changes.append(
+            {
+                "field": field,
+                "label": labels[field],
+                "old": old_value,
+                "new": new_value,
+            },
+        )
+
+    return changes
 
 
 def normalize_ticker(ticker: str) -> str:
@@ -978,6 +1073,10 @@ def update_portfolio_controls(
     portfolio_shares_map = {row["ticker"]: row["shares"] for row in portfolio_rows}
 
     scenario_inputs = load_scenario_inputs()
+    previous_by_ticker = {
+        str(item.ticker).strip().upper(): scenario_inputs.get(str(item.ticker).strip().upper(), {})
+        for item in body.updates
+    }
     updates = [item.model_dump(exclude_unset=True) for item in body.updates]
     scenario_inputs = apply_portfolio_controls(
         scenario_inputs,
@@ -985,6 +1084,43 @@ def update_portfolio_controls(
         portfolio_shares_map,
     )
     save_scenario_inputs(scenario_inputs)
+
+    for item in updates:
+        ticker = normalize_ticker(item.get("ticker", ""))
+        if not ticker:
+            continue
+
+        current = scenario_inputs.get(ticker, {})
+        previous = previous_by_ticker.get(ticker, {})
+        old_control_values = {
+            "show_in_holdings": (previous.get("display_rules") or {}).get("show_in_holdings"),
+            "include_in_redistribution": (previous.get("redistribution_rules") or {}).get(
+                "include_in_redistribution",
+            ),
+            "eligible_redistribution_shares": (previous.get("redistribution_rules") or {}).get(
+                "eligible_redistribution_shares",
+            ),
+        }
+        new_control_values = {
+            "show_in_holdings": (current.get("display_rules") or {}).get("show_in_holdings"),
+            "include_in_redistribution": (current.get("redistribution_rules") or {}).get(
+                "include_in_redistribution",
+            ),
+            "eligible_redistribution_shares": (current.get("redistribution_rules") or {}).get(
+                "eligible_redistribution_shares",
+            ),
+        }
+        changes = build_change_set(
+            old_control_values,
+            new_control_values,
+            CONTROL_CHANGE_LABELS,
+        )
+        if changes:
+            append_portfolio_event(
+                "update_controls",
+                ticker,
+                {"changes": changes},
+            )
 
     payload = build_portfolio_views(
         tickers_config,
@@ -1058,6 +1194,19 @@ def upsert_stock_scenario(ticker: str, body: TickerScenarioInputs) -> StockScena
 
     raw[normalized] = payload
     save_scenario_inputs(raw)
+
+    changes = build_change_set(
+        existing if isinstance(existing, dict) else None,
+        payload,
+        SCENARIO_CHANGE_LABELS,
+    )
+    if changes:
+        append_portfolio_event(
+            "update_assumptions",
+            normalized,
+            {"changes": changes},
+        )
+
     return StockScenarioResponse(
         ticker=normalized,
         scenario=serialize_ticker_scenario(payload),
