@@ -7,6 +7,12 @@ let cachedView = null
 let cachedAt = null
 let inFlightLoad = null
 
+export function clearPortfolioViewCache() {
+  cachedView = null
+  cachedAt = null
+  inFlightLoad = null
+}
+
 function isCacheFresh() {
   return cachedView && cachedAt && Date.now() - cachedAt.getTime() < CACHE_TTL_MS
 }

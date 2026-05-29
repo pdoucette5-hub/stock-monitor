@@ -1048,9 +1048,20 @@ def get_stock_scenario(ticker: str) -> StockScenarioResponse:
 def upsert_stock_scenario(ticker: str, body: TickerScenarioInputs) -> StockScenarioResponse:
     normalized = normalize_ticker(ticker)
     raw = load_scenario_inputs()
-    raw[normalized] = body.model_dump(mode="json")
+    existing = raw.get(normalized)
+    payload = body.model_dump(mode="json")
+
+    if isinstance(existing, dict):
+        for key in ("redistribution_rules", "display_rules", "trade_rules"):
+            if isinstance(existing.get(key), dict):
+                payload[key] = existing[key]
+
+    raw[normalized] = payload
     save_scenario_inputs(raw)
-    return StockScenarioResponse(ticker=normalized, scenario=body)
+    return StockScenarioResponse(
+        ticker=normalized,
+        scenario=serialize_ticker_scenario(payload),
+    )
 
 
 @app.delete("/api/stock/{ticker}")

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import {
   createTransaction,
@@ -17,6 +17,7 @@ import {
   defaultFormState,
   formToApi,
 } from '../lib/scenarioForm'
+import { clearPortfolioViewCache } from '../hooks/usePortfolioView'
 
 const SCENARIO_BLOCKS = [
   {
@@ -284,6 +285,10 @@ export default function StockDetail() {
   const [saveMessage, setSaveMessage] = useState(null)
   const [transactionMessage, setTransactionMessage] = useState(null)
   const [isNewTicker, setIsNewTicker] = useState(false)
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+  const [autosaveState, setAutosaveState] = useState('idle')
+  const lastSavedPayloadRef = useRef('')
+  const saveSequenceRef = useRef(0)
 
   useEffect(() => {
     let cancelled = false
@@ -354,7 +359,11 @@ export default function StockDetail() {
 
     try {
       const data = await fetchStockScenario(ticker)
-      setForm(apiToForm(data.scenario))
+      const loadedForm = apiToForm(data.scenario)
+      setForm(loadedForm)
+      lastSavedPayloadRef.current = JSON.stringify(formToApi(loadedForm))
+      setHasUnsavedChanges(false)
+      setAutosaveState('idle')
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to load stock'
       const lowerMessage = message.toLowerCase()
@@ -364,7 +373,11 @@ export default function StockDetail() {
         lowerMessage.includes('no scenario found')
       ) {
         setError(null)
-        setForm(defaultFormState())
+        const fallbackForm = defaultFormState()
+        setForm(fallbackForm)
+        lastSavedPayloadRef.current = ''
+        setHasUnsavedChanges(false)
+        setAutosaveState('idle')
         setIsNewTicker(true)
       } else {
         setError(message)
@@ -443,6 +456,9 @@ export default function StockDetail() {
 
   const handleTickerChange = (event) => {
     const nextTicker = event.target.value
+    if (hasUnsavedChanges) {
+      persistScenario({ manual: false })
+    }
     setSelectedTicker(nextTicker)
     setSearchParams({ ticker: nextTicker }, { replace: true })
   }
@@ -450,6 +466,8 @@ export default function StockDetail() {
   const updateBase = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }))
     setSaveMessage(null)
+    setHasUnsavedChanges(true)
+    setAutosaveState('pending')
   }
 
   const updateScenario = (scenarioKey, field, value) => {
@@ -458,27 +476,73 @@ export default function StockDetail() {
       [scenarioKey]: { ...prev[scenarioKey], [field]: value },
     }))
     setSaveMessage(null)
+    setHasUnsavedChanges(true)
+    setAutosaveState('pending')
   }
+
+  const persistScenario = useCallback(async ({ manual = false } = {}) => {
+    if (!selectedTicker) return
+
+    const payload = formToApi(form)
+    const signature = JSON.stringify(payload)
+
+    if (!manual && signature === lastSavedPayloadRef.current) {
+      setHasUnsavedChanges(false)
+      setAutosaveState('idle')
+      return
+    }
+
+    const saveId = saveSequenceRef.current + 1
+    saveSequenceRef.current = saveId
+
+    if (manual) {
+      setSaving(true)
+      setSaveMessage(null)
+    } else {
+      setAutosaveState('saving')
+    }
+
+    setError(null)
+
+    try {
+      await saveStockScenario(selectedTicker, payload)
+
+      if (saveId !== saveSequenceRef.current) return
+
+      lastSavedPayloadRef.current = signature
+      setHasUnsavedChanges(false)
+      setIsNewTicker(false)
+      clearPortfolioViewCache()
+
+      if (manual) {
+        await loadScenario(selectedTicker)
+        setSaveMessage(`Saved assumptions for ${selectedTicker}.`)
+      } else {
+        setAutosaveState('saved')
+        setSaveMessage(`Autosaved assumptions for ${selectedTicker}.`)
+      }
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to save assumptions'
+      setError(message)
+      if (!manual) setAutosaveState('error')
+    } finally {
+      if (manual) setSaving(false)
+    }
+  }, [form, loadScenario, selectedTicker])
+
+  useEffect(() => {
+    if (!selectedTicker || loadingForm || !hasUnsavedChanges) return
+
+    const timeout = window.setTimeout(() => {
+      persistScenario({ manual: false })
+    }, 900)
+
+    return () => window.clearTimeout(timeout)
+  }, [form, hasUnsavedChanges, loadingForm, persistScenario, selectedTicker])
 
   const handleSave = async (event) => {
     event.preventDefault()
-    if (!selectedTicker) return
-
-    setSaving(true)
-    setError(null)
-    setSaveMessage(null)
-
-    try {
-      const payload = formToApi(form)
-      await saveStockScenario(selectedTicker, payload)
-      setIsNewTicker(false)
-      setSaveMessage(`Saved assumptions for ${selectedTicker}.`)
-      await loadScenario(selectedTicker)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to save assumptions')
-    } finally {
-      setSaving(false)
-    }
+    persistScenario({ manual: true })
   }
 
   const handleTransactionFieldChange = (field, value) => {
@@ -576,8 +640,16 @@ export default function StockDetail() {
   const pageSubtitle = useMemo(() => {
     if (loadingForm) return 'Loading assumptions…'
     if (isNewTicker) return 'No saved assumptions yet — defaults shown below.'
-    return 'Edit assumptions and save to update the cache.'
+    return 'Edit assumptions. Changes autosave after you pause typing.'
   }, [loadingForm, isNewTicker])
+
+  const autosaveLabel = useMemo(() => {
+    if (autosaveState === 'saving') return 'Autosaving…'
+    if (autosaveState === 'saved') return 'Autosaved'
+    if (autosaveState === 'error') return 'Autosave failed'
+    if (hasUnsavedChanges) return 'Unsaved changes'
+    return 'Saved'
+  }, [autosaveState, hasUnsavedChanges])
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
@@ -829,6 +901,18 @@ export default function StockDetail() {
               >
                 {saving ? 'Saving…' : 'Save Assumptions'}
               </button>
+              <span
+                className={[
+                  'text-sm',
+                  autosaveState === 'error'
+                    ? 'text-red-600'
+                    : autosaveState === 'saving' || hasUnsavedChanges
+                      ? 'text-amber-600'
+                      : 'text-slate-500',
+                ].join(' ')}
+              >
+                {autosaveLabel}
+              </span>
               {loadingForm && (
                 <span className="text-sm text-slate-500">Loading form…</span>
               )}
