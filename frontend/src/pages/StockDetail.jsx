@@ -269,7 +269,7 @@ export default function StockDetail() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [tickers, setTickers] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
-  const [priceRange, setPriceRange] = useState('1y')
+  const [priceRange, setPriceRange] = useState('3y')
   const [form, setForm] = useState(defaultFormState)
   const [transactions, setTransactions] = useState([])
   const [positionSummary, setPositionSummary] = useState(null)

@@ -646,7 +646,7 @@ def get_portfolio_events(
 
 @app.get("/api/performance/portfolio")
 def get_portfolio_performance(
-    range: str = "1y",
+    range: str = "3y",
     accounts: str = "",
 ) -> dict[str, Any]:
     try:
@@ -999,7 +999,7 @@ def get_position_summary(ticker: str) -> dict[str, Any]:
 @app.get("/api/prices/history")
 def get_price_history_endpoint(
     ticker: str,
-    range: str = "1y",
+    range: str = "3y",
 ) -> dict[str, Any]:
     normalized = normalize_ticker(ticker)
     if not normalized:
@@ -1016,7 +1016,7 @@ def get_price_history_endpoint(
 @app.get("/api/prices/compare")
 def get_price_comparison(
     tickers: str,
-    range: str = "1y",
+    range: str = "3y",
 ) -> dict[str, Any]:
     raw_tickers = [
         normalize_ticker(ticker)

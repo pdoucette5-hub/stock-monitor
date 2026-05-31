@@ -162,7 +162,7 @@ export function fetchPositionSummary(ticker) {
   return request(`/api/position/${normalized}`)
 }
 
-export function fetchPriceHistory(ticker, range = '1y', forceRefresh = false) {
+export function fetchPriceHistory(ticker, range = '3y', forceRefresh = false) {
   const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
   const query = new URLSearchParams({
     ticker: normalized,
@@ -172,7 +172,7 @@ export function fetchPriceHistory(ticker, range = '1y', forceRefresh = false) {
   return request(`/api/prices/history?${query.toString()}`)
 }
 
-export function fetchPortfolioPerformance(range = '1y', accounts = []) {
+export function fetchPortfolioPerformance(range = '3y', accounts = []) {
   const query = new URLSearchParams({ range })
   const selectedAccounts = (accounts || [])
     .map((account) => String(account).trim())
@@ -185,7 +185,7 @@ export function fetchPortfolioPerformance(range = '1y', accounts = []) {
   return request(`/api/performance/portfolio?${query.toString()}`)
 }
 
-export function fetchPriceComparison(tickers, range = '1y', forceRefresh = false) {
+export function fetchPriceComparison(tickers, range = '3y', forceRefresh = false) {
   const cleaned = (tickers || [])
     .map((ticker) => String(ticker).trim().toUpperCase())
     .filter(Boolean)

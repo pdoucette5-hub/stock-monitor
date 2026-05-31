@@ -229,7 +229,7 @@ def _filter_rows_for_range(rows: list[dict[str, Any]], range_key: str) -> list[d
     return [row for row in rows if _parse_date(row["date"]) >= cutoff]
 
 
-def get_price_points_for_ticker(ticker: str, range_key: str = "1y") -> list[dict[str, Any]]:
+def get_price_points_for_ticker(ticker: str, range_key: str = "3y") -> list[dict[str, Any]]:
     store = load_price_history_store()
     rows = store.get(normalize_ticker(ticker), [])
     return _filter_rows_for_range(rows, range_key)
@@ -255,7 +255,7 @@ def get_latest_price_for_ticker(ticker: str) -> dict[str, Any] | None:
     }
 
 
-def get_price_history_response(ticker: str, range_key: str = "1y") -> dict[str, Any]:
+def get_price_history_response(ticker: str, range_key: str = "3y") -> dict[str, Any]:
     normalized = normalize_ticker(ticker)
     points = get_price_points_for_ticker(normalized, range_key)
 
@@ -288,7 +288,7 @@ def get_price_history_status(tickers: list[str] | None = None) -> dict[str, Any]
     }
 
 
-def get_price_comparison_response(tickers: list[str], range_key: str = "1y") -> dict[str, Any]:
+def get_price_comparison_response(tickers: list[str], range_key: str = "3y") -> dict[str, Any]:
     normalized_tickers: list[str] = []
     seen: set[str] = set()
     for ticker in tickers:

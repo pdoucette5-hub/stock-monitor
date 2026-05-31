@@ -319,7 +319,7 @@ function ComparisonChart({ seriesByTicker }) {
 }
 
 export default function Performance() {
-  const [range, setRange] = useState('1y')
+  const [range, setRange] = useState('3y')
   const [benchmark, setBenchmark] = useState('')
   const [compareInput, setCompareInput] = useState('')
   const [compareTickers, setCompareTickers] = useState([])

@@ -228,7 +228,7 @@ def _fallback_position_summary(shares: float) -> dict[str, Any]:
 def build_portfolio_performance(
     transactions_by_ticker: dict[str, list[dict[str, Any]]],
     tickers_config: dict[str, Any],
-    range_key: str = "1y",
+    range_key: str = "3y",
     accounts: list[str] | None = None,
 ) -> dict[str, Any]:
     account_rows = _account_summary(transactions_by_ticker, accounts)
