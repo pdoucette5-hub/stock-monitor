@@ -196,19 +196,33 @@ def _latest_snapshot_on_or_before(
     return snapshots[latest]
 
 
-def _portfolio_tickers(tickers_config: dict[str, Any]) -> list[str]:
+def _portfolio_positions(tickers_config: dict[str, Any]) -> dict[str, float]:
     portfolio_items = tickers_config.get("portfolio", []) or []
-    tickers: list[str] = []
+    positions: dict[str, float] = {}
 
     for item in portfolio_items:
         if isinstance(item, dict):
             ticker = str(item.get("ticker", "")).strip().upper()
+            shares = _safe_float(item.get("shares"), 0.0)
         else:
             ticker = str(item).strip().upper()
+            shares = 0.0
         if ticker:
-            tickers.append(ticker)
+            positions[ticker] = shares
 
-    return sorted(set(tickers))
+    return positions
+
+
+def _fallback_position_summary(shares: float) -> dict[str, Any]:
+    return {
+        "current_shares": round(shares, 8),
+        "total_cost_basis": 0.0,
+        "average_cost_per_share": 0.0,
+        "realized_gain_loss": 0.0,
+        "dividend_cash": 0.0,
+        "transaction_count": 0,
+        "warnings": ["Using current portfolio shares because no transactions are recorded"],
+    }
 
 
 def build_portfolio_performance(
@@ -222,11 +236,21 @@ def build_portfolio_performance(
         transactions_by_ticker,
         accounts,
     )
-    tickers = [
-        ticker
-        for ticker in _portfolio_tickers(tickers_config)
-        if ticker in filtered_transactions
-    ]
+    portfolio_positions = _portfolio_positions(tickers_config)
+    account_filter_active = bool(_normalize_account_filter(accounts))
+
+    if account_filter_active:
+        tickers = [
+            ticker
+            for ticker in sorted(portfolio_positions)
+            if ticker in filtered_transactions
+        ]
+    else:
+        tickers = sorted(
+            ticker
+            for ticker, shares in portfolio_positions.items()
+            if shares > 0 or ticker in filtered_transactions
+        )
 
     history_by_ticker: dict[str, list[dict[str, Any]]] = {}
     position_history_by_ticker: dict[str, dict[str, dict[str, float]]] = {}
@@ -242,9 +266,19 @@ def build_portfolio_performance(
             if point.get("date"):
                 all_dates.add(str(point["date"]))
 
-        position_history_by_ticker[ticker] = _build_position_history(
-            filtered_transactions.get(ticker, []),
-        )
+        transaction_rows = filtered_transactions.get(ticker, [])
+        if transaction_rows:
+            position_history_by_ticker[ticker] = _build_position_history(transaction_rows)
+        else:
+            shares = _safe_float(portfolio_positions.get(ticker), 0.0)
+            position_history_by_ticker[ticker] = {
+                str(points[0]["date"]): {
+                    "shares": shares,
+                    "cost_basis": 0.0,
+                    "realized_gain_loss": 0.0,
+                    "dividend_cash": 0.0,
+                },
+            }
 
     ordered_dates = sorted(all_dates)
     if not ordered_dates:
@@ -258,7 +292,13 @@ def build_portfolio_performance(
                 "unrealized_gain_loss": 0.0,
             },
             "positions": {
-                ticker: compute_position_summary(filtered_transactions.get(ticker, []))
+                ticker: (
+                    compute_position_summary(filtered_transactions.get(ticker, []))
+                    if filtered_transactions.get(ticker)
+                    else _fallback_position_summary(
+                        _safe_float(portfolio_positions.get(ticker), 0.0),
+                    )
+                )
                 for ticker in tickers
             },
             "accounts": account_rows,
@@ -335,7 +375,13 @@ def build_portfolio_performance(
             "unrealized_gain_loss": latest.get("unrealized_gain_loss", 0.0),
         },
         "positions": {
-            ticker: compute_position_summary(filtered_transactions.get(ticker, []))
+            ticker: (
+                compute_position_summary(filtered_transactions.get(ticker, []))
+                if filtered_transactions.get(ticker)
+                else _fallback_position_summary(
+                    _safe_float(portfolio_positions.get(ticker), 0.0),
+                )
+            )
             for ticker in tickers
         },
         "accounts": account_rows,
