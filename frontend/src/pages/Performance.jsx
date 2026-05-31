@@ -323,6 +323,7 @@ export default function Performance() {
   const [benchmark, setBenchmark] = useState('')
   const [compareInput, setCompareInput] = useState('')
   const [compareTickers, setCompareTickers] = useState([])
+  const [selectedAccounts, setSelectedAccounts] = useState([])
   const [loading, setLoading] = useState(true)
   const [loadingCompare, setLoadingCompare] = useState(false)
   const [error, setError] = useState(null)
@@ -331,11 +332,14 @@ export default function Performance() {
   const [comparisonData, setComparisonData] = useState({})
   const [lastUpdated, setLastUpdated] = useState(null)
 
-  async function loadPerformance(nextRange = range) {
+  async function loadPerformance(
+    nextRange = range,
+    nextAccounts = selectedAccounts,
+  ) {
     setLoading(true)
     setError(null)
     try {
-      const payload = await fetchPortfolioPerformance(nextRange)
+      const payload = await fetchPortfolioPerformance(nextRange, nextAccounts)
       setData(payload)
       setLastUpdated(new Date())
     } catch (err) {
@@ -383,9 +387,9 @@ export default function Performance() {
   }
 
   useEffect(() => {
-    loadPerformance(range)
+    loadPerformance(range, selectedAccounts)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [range])
+  }, [range, selectedAccounts])
 
   useEffect(() => {
     loadComparison(range, benchmark, compareTickers)
@@ -395,6 +399,8 @@ export default function Performance() {
   const latest = data?.latest ?? {}
   const series = data?.series ?? []
   const positions = data?.positions ?? {}
+  const accounts = data?.accounts ?? []
+  const accountFilterActive = selectedAccounts.length > 0
   const positionRows = useMemo(
     () =>
       Object.entries(positions)
@@ -422,14 +428,35 @@ export default function Performance() {
     setCompareTickers((current) => current.filter((item) => item !== ticker))
   }
 
+  const handleToggleAccount = (account) => {
+    setSelectedAccounts((current) => {
+      if (current.length === 0) {
+        return accounts
+          .map((row) => row.account)
+          .filter((name) => name && name !== account)
+      }
+
+      if (current.includes(account)) {
+        const next = current.filter((item) => item !== account)
+        return next.length === 0 ? current : next
+      }
+
+      return [...current, account].sort()
+    })
+  }
+
+  const handleSelectAllAccounts = () => {
+    setSelectedAccounts([])
+  }
+
   return (
     <div className="mx-auto w-[98vw] px-4 py-8">
       <PageToolbar
         title="Performance"
         description="Portfolio performance over time based on your transaction ledger and historical price data."
         loading={loading}
-        onReload={() => loadPerformance(range)}
-        onUpdatePrices={() => loadPerformance(range)}
+        onReload={() => loadPerformance(range, selectedAccounts)}
+        onUpdatePrices={() => loadPerformance(range, selectedAccounts)}
       />
 
       {error && (
@@ -458,6 +485,56 @@ export default function Performance() {
           </button>
         ))}
       </div>
+
+      {accounts.length > 0 && (
+        <section className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h2 className="text-sm font-semibold text-slate-900">Accounts</h2>
+              <p className="mt-1 text-xs text-slate-500">
+                Filter the portfolio graph to accounts you actively manage.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={handleSelectAllAccounts}
+                className="rounded border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50"
+              >
+                Clear filter
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {accounts.map((row) => {
+              const checked = !accountFilterActive || selectedAccounts.includes(row.account)
+              return (
+                <label
+                  key={row.account}
+                  className={[
+                    'inline-flex cursor-pointer items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition',
+                    checked
+                      ? 'border-blue-200 bg-blue-50 text-blue-800'
+                      : 'border-slate-200 bg-white text-slate-500',
+                  ].join(' ')}
+                >
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => handleToggleAccount(row.account)}
+                    className="h-3.5 w-3.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                  />
+                  {row.account}
+                  <span className="text-slate-400">
+                    {Number(row.transaction_count ?? 0).toLocaleString()}
+                  </span>
+                </label>
+              )
+            })}
+          </div>
+        </section>
+      )}
 
       <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <MetricCard label="Market Value" value={formatMoney(latest.market_value)} />

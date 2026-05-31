@@ -6,6 +6,8 @@ from typing import Any
 from backend.price_store import get_price_points_for_ticker
 from backend.transactions_service import compute_position_summary
 
+UNASSIGNED_ACCOUNT = "Unassigned"
+
 
 def _safe_float(value: Any, default: float = 0.0) -> float:
     try:
@@ -14,6 +16,64 @@ def _safe_float(value: Any, default: float = 0.0) -> float:
         return float(value)
     except (TypeError, ValueError):
         return default
+
+
+def _transaction_account(tx: dict[str, Any]) -> str:
+    account = str(tx.get("account") or "").strip()
+    return account or UNASSIGNED_ACCOUNT
+
+
+def _normalize_account_filter(accounts: list[str] | None) -> set[str]:
+    return {
+        str(account).strip().lower()
+        for account in (accounts or [])
+        if str(account).strip()
+    }
+
+
+def _filter_transactions_by_accounts(
+    transactions_by_ticker: dict[str, list[dict[str, Any]]],
+    accounts: list[str] | None,
+) -> dict[str, list[dict[str, Any]]]:
+    selected = _normalize_account_filter(accounts)
+    if not selected:
+        return transactions_by_ticker
+
+    filtered: dict[str, list[dict[str, Any]]] = {}
+    for ticker, entries in transactions_by_ticker.items():
+        rows = [
+            entry
+            for entry in entries
+            if isinstance(entry, dict) and _transaction_account(entry).lower() in selected
+        ]
+        if rows:
+            filtered[ticker] = rows
+
+    return filtered
+
+
+def _account_summary(
+    transactions_by_ticker: dict[str, list[dict[str, Any]]],
+    selected_accounts: list[str] | None,
+) -> list[dict[str, Any]]:
+    selected = _normalize_account_filter(selected_accounts)
+    counts: dict[str, int] = {}
+
+    for entries in transactions_by_ticker.values():
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            account = _transaction_account(entry)
+            counts[account] = counts.get(account, 0) + 1
+
+    return [
+        {
+            "account": account,
+            "transaction_count": counts[account],
+            "selected": not selected or account.lower() in selected,
+        }
+        for account in sorted(counts)
+    ]
 
 
 def _sorted_transaction_rows(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -155,11 +215,17 @@ def build_portfolio_performance(
     transactions_by_ticker: dict[str, list[dict[str, Any]]],
     tickers_config: dict[str, Any],
     range_key: str = "1y",
+    accounts: list[str] | None = None,
 ) -> dict[str, Any]:
+    account_rows = _account_summary(transactions_by_ticker, accounts)
+    filtered_transactions = _filter_transactions_by_accounts(
+        transactions_by_ticker,
+        accounts,
+    )
     tickers = [
         ticker
         for ticker in _portfolio_tickers(tickers_config)
-        if ticker in transactions_by_ticker
+        if ticker in filtered_transactions
     ]
 
     history_by_ticker: dict[str, list[dict[str, Any]]] = {}
@@ -177,7 +243,7 @@ def build_portfolio_performance(
                 all_dates.add(str(point["date"]))
 
         position_history_by_ticker[ticker] = _build_position_history(
-            transactions_by_ticker.get(ticker, []),
+            filtered_transactions.get(ticker, []),
         )
 
     ordered_dates = sorted(all_dates)
@@ -192,9 +258,10 @@ def build_portfolio_performance(
                 "unrealized_gain_loss": 0.0,
             },
             "positions": {
-                ticker: compute_position_summary(transactions_by_ticker.get(ticker, []))
+                ticker: compute_position_summary(filtered_transactions.get(ticker, []))
                 for ticker in tickers
             },
+            "accounts": account_rows,
         }
 
     close_lookup: dict[str, dict[str, float]] = defaultdict(dict)
@@ -268,7 +335,8 @@ def build_portfolio_performance(
             "unrealized_gain_loss": latest.get("unrealized_gain_loss", 0.0),
         },
         "positions": {
-            ticker: compute_position_summary(transactions_by_ticker.get(ticker, []))
+            ticker: compute_position_summary(filtered_transactions.get(ticker, []))
             for ticker in tickers
         },
+        "accounts": account_rows,
     }

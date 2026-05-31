@@ -109,6 +109,7 @@ class TransactionCreate(BaseModel):
     shares: float
     price_per_share: float | None = None
     fees: float | None = 0.0
+    account: str | None = ""
     notes: str | None = ""
 
 
@@ -118,6 +119,7 @@ class TransactionUpdate(BaseModel):
     shares: float
     price_per_share: float | None = None
     fees: float | None = 0.0
+    account: str | None = ""
     notes: str | None = ""
 
 
@@ -466,6 +468,7 @@ def validate_transaction_payload(payload: TransactionCreate | TransactionUpdate)
         "shares": float(payload.shares),
         "price_per_share": None if price_per_share is None else float(price_per_share),
         "fees": float(fees),
+        "account": str(payload.account or "").strip(),
         "notes": str(payload.notes or "").strip(),
     }
 
@@ -644,14 +647,21 @@ def get_portfolio_events(
 @app.get("/api/performance/portfolio")
 def get_portfolio_performance(
     range: str = "1y",
+    accounts: str = "",
 ) -> dict[str, Any]:
     try:
         transactions = load_transactions()
         tickers_config = get_effective_tickers_config()
+        account_filter = [
+            account.strip()
+            for account in str(accounts).split(",")
+            if account.strip()
+        ]
         return build_portfolio_performance(
             transactions_by_ticker=transactions,
             tickers_config=tickers_config,
             range_key=range,
+            accounts=account_filter or None,
         )
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
@@ -885,6 +895,7 @@ def create_transaction_for_ticker(ticker: str, body: TransactionCreate) -> dict[
             "transaction_type": tx["type"],
             "shares": tx["shares"],
             "date": tx["date"],
+            "account": tx.get("account") or "",
         },
     )
 
@@ -924,6 +935,7 @@ def update_transaction_for_ticker(
                     "transaction_type": updated["type"],
                     "shares": updated["shares"],
                     "date": updated["date"],
+                    "account": updated.get("account") or "",
                 },
             )
 

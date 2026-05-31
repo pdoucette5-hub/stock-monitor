@@ -172,8 +172,16 @@ export function fetchPriceHistory(ticker, range = '1y', forceRefresh = false) {
   return request(`/api/prices/history?${query.toString()}`)
 }
 
-export function fetchPortfolioPerformance(range = '1y') {
+export function fetchPortfolioPerformance(range = '1y', accounts = []) {
   const query = new URLSearchParams({ range })
+  const selectedAccounts = (accounts || [])
+    .map((account) => String(account).trim())
+    .filter(Boolean)
+
+  if (selectedAccounts.length > 0) {
+    query.set('accounts', selectedAccounts.join(','))
+  }
+
   return request(`/api/performance/portfolio?${query.toString()}`)
 }
 

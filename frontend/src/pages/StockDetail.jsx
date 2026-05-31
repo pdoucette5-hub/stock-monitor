@@ -77,6 +77,7 @@ function emptyTransactionForm() {
     shares: '',
     price_per_share: '',
     fees: '0',
+    account: '',
     notes: '',
   }
 }
@@ -561,6 +562,7 @@ export default function StockDetail() {
       shares: tx.shares ?? '',
       price_per_share: tx.price_per_share ?? '',
       fees: tx.fees ?? '0',
+      account: tx.account ?? '',
       notes: tx.notes ?? '',
     })
     setTransactionMessage(null)
@@ -590,6 +592,7 @@ export default function StockDetail() {
         transactionForm.fees === ''
           ? 0
           : Number(transactionForm.fees),
+      account: transactionForm.account ?? '',
       notes: transactionForm.notes ?? '',
     }
 
@@ -927,7 +930,7 @@ export default function StockDetail() {
               </p>
             </div>
 
-            <form onSubmit={handleSaveTransaction} className="mb-6 grid gap-4 lg:grid-cols-6">
+            <form onSubmit={handleSaveTransaction} className="mb-6 grid gap-4 lg:grid-cols-7">
               <div>
                 <label className={labelClass}>Date</label>
                 <input
@@ -989,6 +992,17 @@ export default function StockDetail() {
               </div>
 
               <div>
+                <label className={labelClass}>Account</label>
+                <input
+                  type="text"
+                  value={transactionForm.account}
+                  onChange={(e) => handleTransactionFieldChange('account', e.target.value)}
+                  placeholder="e.g. Schwab IRA"
+                  className={inputClass}
+                />
+              </div>
+
+              <div>
                 <label className={labelClass}>Notes</label>
                 <input
                   type="text"
@@ -998,7 +1012,7 @@ export default function StockDetail() {
                 />
               </div>
 
-              <div className="lg:col-span-6 flex flex-wrap items-center gap-3">
+              <div className="lg:col-span-7 flex flex-wrap items-center gap-3">
                 <button
                   type="submit"
                   disabled={savingTransaction}
@@ -1032,6 +1046,7 @@ export default function StockDetail() {
                     <th className="px-4 py-3 font-semibold text-slate-700">Shares</th>
                     <th className="px-4 py-3 font-semibold text-slate-700">Price / Share</th>
                     <th className="px-4 py-3 font-semibold text-slate-700">Fees</th>
+                    <th className="px-4 py-3 font-semibold text-slate-700">Account</th>
                     <th className="px-4 py-3 font-semibold text-slate-700">Notes</th>
                     <th className="px-4 py-3 font-semibold text-slate-700">Actions</th>
                   </tr>
@@ -1039,13 +1054,13 @@ export default function StockDetail() {
                 <tbody className="divide-y divide-slate-100">
                   {loadingTransactions ? (
                     <tr>
-                      <td colSpan={7} className="px-4 py-10 text-center text-slate-500">
+                      <td colSpan={8} className="px-4 py-10 text-center text-slate-500">
                         Loading transactions…
                       </td>
                     </tr>
                   ) : transactions.length === 0 ? (
                     <tr>
-                      <td colSpan={7} className="px-4 py-10 text-center text-slate-500">
+                      <td colSpan={8} className="px-4 py-10 text-center text-slate-500">
                         No transactions recorded for this ticker yet.
                       </td>
                     </tr>
@@ -1059,6 +1074,9 @@ export default function StockDetail() {
                           {tx.price_per_share ?? '—'}
                         </td>
                         <td className="px-4 py-3 text-slate-700">{tx.fees ?? '—'}</td>
+                        <td className="px-4 py-3 text-slate-700">
+                          {tx.account || 'Unassigned'}
+                        </td>
                         <td className="px-4 py-3 text-slate-700">{tx.notes ?? '—'}</td>
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-2">
