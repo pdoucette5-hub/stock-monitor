@@ -1,7 +1,7 @@
 import MetricCard from '../components/MetricCard'
 import PageToolbar from '../components/PageToolbar'
 import { usePortfolioView } from '../hooks/usePortfolioView'
-import { queueActionBadgeClass } from '../lib/actions'
+import { actionBadgeClass, queueActionBadgeClass } from '../lib/actions'
 import { formatMoney, formatNum, formatWeightDecimal } from '../lib/format'
 
 export default function Actions() {
@@ -48,7 +48,10 @@ export default function Actions() {
                 <tr>
                   <th className="px-4 py-3 font-semibold text-slate-700">Ticker</th>
                   <th className="px-4 py-3 font-semibold text-slate-700">
-                    Recommended
+                    Rating
+                  </th>
+                  <th className="px-4 py-3 font-semibold text-slate-700">
+                    Trade
                   </th>
                   <th className="px-4 py-3 font-semibold text-slate-700">Reason</th>
                   <th className="px-4 py-3 font-semibold text-slate-700">
@@ -63,13 +66,13 @@ export default function Actions() {
               <tbody className="divide-y divide-slate-100">
                 {loading && actionQueue.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="px-4 py-8 text-center text-slate-500">
+                    <td colSpan={7} className="px-4 py-8 text-center text-slate-500">
                       Loading…
                     </td>
                   </tr>
                 ) : actionQueue.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="px-4 py-8 text-center text-slate-500">
+                    <td colSpan={7} className="px-4 py-8 text-center text-slate-500">
                       No action queue rows. Check your Redistribution settings and reload.
                     </td>
                   </tr>
@@ -77,6 +80,13 @@ export default function Actions() {
                   actionQueue.map((row) => (
                     <tr key={row.ticker} className="hover:bg-slate-50/80">
                       <td className="px-4 py-3 font-medium">{row.ticker}</td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`inline-flex rounded-full px-2.5 py-1 text-xs font-medium ${actionBadgeClass(row.action)}`}
+                        >
+                          {row.action ?? '—'}
+                        </span>
+                      </td>
                       <td className="px-4 py-3">
                         <span
                           className={`inline-flex rounded-full px-2.5 py-1 text-xs ${queueActionBadgeClass(row.recommended_action)}`}
