@@ -29,6 +29,7 @@ class GlobalSettings(BaseModel):
     max_position_weight_pct: float = 10.0
     min_position_weight_pct: float = 0.0
     rebalance_band_pct: float = 0.75
+    rebalance_step_pct: float = 25.0
     min_trade_dollars: float = 1000.0
     trim_hurdle_pct: Optional[float] = None
     max_new_buy_weight_pct: Optional[float] = None

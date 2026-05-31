@@ -38,6 +38,7 @@ DEFAULT_GLOBAL_SETTINGS: dict[str, Any] = {
     "max_position_weight_pct": 10.0,
     "min_position_weight_pct": 0.0,
     "rebalance_band_pct": 0.75,
+    "rebalance_step_pct": 25.0,
     "min_trade_dollars": 1000.0,
 }
 
@@ -601,6 +602,8 @@ def build_action_queue(
     df = compute_target_weights(df, settings)
 
     rebalance_band = safe_float(settings.get("rebalance_band_pct"), 0.75) / 100.0
+    rebalance_step = safe_float(settings.get("rebalance_step_pct"), 25.0) / 100.0
+    rebalance_step = min(max(rebalance_step, 0.0), 1.0)
     min_trade_dollars = safe_float(settings.get("min_trade_dollars"), 1000.0)
 
     df["current_eligible_weight"] = 0.0
@@ -613,8 +616,9 @@ def build_action_queue(
     df["dollar_trade_unconstrained"] = (
         df["target_eligible_value"] - df["eligible_redistribution_value"]
     )
+    df["dollar_trade_step"] = df["dollar_trade_unconstrained"] * rebalance_step
     df["shares_trade_unconstrained"] = df.apply(
-        lambda r: (r["dollar_trade_unconstrained"] / r["price"])
+        lambda r: (r["dollar_trade_step"] / r["price"])
         if safe_float(r["price"]) not in (None, 0)
         else None,
         axis=1,
@@ -695,10 +699,10 @@ def build_action_queue(
 
         if constrained_shares_trade > 0:
             action = "Add"
-            reason = "Below target redistribution weight"
+            reason = f"Below target redistribution weight; moving {rebalance_step * 100:.0f}% of gap"
         elif constrained_shares_trade < 0:
             action = "Trim"
-            reason = "Above target redistribution weight"
+            reason = f"Above target redistribution weight; moving {rebalance_step * 100:.0f}% of gap"
         else:
             action = "Hold"
             reason = "No action"
@@ -764,6 +768,7 @@ def build_action_queue(
         "action_count": int(
             (action_queue["recommended_action"].isin(["Add", "Trim"])).sum(),
         ),
+        "rebalance_step_pct": rebalance_step * 100,
     }
     return action_queue, summary
 

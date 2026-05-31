@@ -10,6 +10,7 @@ export default function Actions() {
 
   const actionQueue = view?.action_queue ?? []
   const queueSummary = view?.action_queue_summary ?? {}
+  const rebalanceStepPct = Number(queueSummary.rebalance_step_pct ?? 25)
 
   return (
     <div className="mx-auto max-w-[96rem] px-4 py-8 sm:px-6 lg:px-8">
@@ -114,7 +115,8 @@ export default function Actions() {
           </div>
           {lastUpdated && !loading && (
             <p className="border-t border-slate-100 bg-slate-50 px-4 py-2 text-xs text-slate-500">
-              Queue reflects saved participation · {lastUpdated.toLocaleTimeString()}
+              Queue reflects saved participation and moves {rebalanceStepPct.toFixed(0)}%
+              toward target weights · {lastUpdated.toLocaleTimeString()}
             </p>
           )}
         </div>
