@@ -7,6 +7,8 @@ const PORTFOLIO_COLUMNS = [
   { key: 'shares', label: 'Shares', format: 'num' },
   { key: 'price', label: 'Price', format: 'money' },
   { key: 'market_value', label: 'Total Value', format: 'money' },
+  { key: 'current_pe', label: 'Current P/E', format: 'multiple' },
+  { key: 'blended_future_pe', label: 'Blended Future P/E', format: 'multiple' },
   { key: 'bear_price_y3', label: 'Bear Price (Y3)', format: 'money' },
   { key: 'base_price_y3', label: 'Base Price (Y3)', format: 'money' },
   { key: 'bull_price_y3', label: 'Bull Price (Y3)', format: 'money' },
@@ -150,6 +152,11 @@ function Cell({ row, column }) {
 
   if (column.format === 'money') return formatMoney(value)
   if (column.format === 'num') return formatNum(value)
+  if (column.format === 'multiple') {
+    return value == null || Number.isNaN(Number(value))
+      ? '—'
+      : `${Number(value).toFixed(2)}x`
+  }
   if (column.format === 'cagr') return formatCagrDecimal(value)
 
   return value ?? '—'

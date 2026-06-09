@@ -218,6 +218,8 @@ def _build_summary_row(
         "bear_cagr_y3": bear_summary.get("cagr_y3"),
         "base_cagr_y3": base_summary.get("cagr_y3"),
         "bull_cagr_y3": bull_summary.get("cagr_y3"),
+        "current_pe": base_summary.get("current_pe"),
+        "blended_future_pe": base_summary.get("blended_future_pe"),
         "weighted_cagr_y3": weighted_cagr(
             bear_summary.get("cagr_y3"),
             base_summary.get("cagr_y3"),

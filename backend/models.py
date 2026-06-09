@@ -119,6 +119,8 @@ class PortfolioSummaryRow(BaseModel):
     bear_cagr_y3: Optional[float] = None
     base_cagr_y3: Optional[float] = None
     bull_cagr_y3: Optional[float] = None
+    current_pe: Optional[float] = None
+    blended_future_pe: Optional[float] = None
     weighted_cagr_y3: Optional[float] = None
     confidence: str = "Review Assumptions"
     action: str = "Needs Input"
