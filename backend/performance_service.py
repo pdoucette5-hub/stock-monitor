@@ -315,7 +315,6 @@ def build_portfolio_performance(
     for current_date in ordered_dates:
         total_market_value = 0.0
         total_cost_basis = 0.0
-        holdings: list[dict[str, Any]] = []
 
         for ticker in tickers:
             close = close_lookup[ticker].get(current_date)
@@ -333,21 +332,9 @@ def build_portfolio_performance(
                 continue
 
             market_value = shares * close
-            unrealized = market_value - cost_basis
 
             total_market_value += market_value
             total_cost_basis += cost_basis
-
-            holdings.append(
-                {
-                    "ticker": ticker,
-                    "shares": round(shares, 8),
-                    "close": round(close, 8),
-                    "market_value": round(market_value, 8),
-                    "cost_basis": round(cost_basis, 8),
-                    "unrealized_gain_loss": round(unrealized, 8),
-                }
-            )
 
         series.append(
             {
@@ -355,7 +342,6 @@ def build_portfolio_performance(
                 "market_value": round(total_market_value, 8),
                 "cost_basis": round(total_cost_basis, 8),
                 "unrealized_gain_loss": round(total_market_value - total_cost_basis, 8),
-                "holdings": holdings,
             }
         )
 
