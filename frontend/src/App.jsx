@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
 import Holdings from './pages/Holdings'
 import Watchlist from './pages/Watchlist'
 import Redistribution from './pages/Redistribution'
@@ -67,6 +67,7 @@ export default function App() {
           <Route path="/change-log" element={<ChangeLog />} />
           <Route path="/archived" element={<Archived />} />
           <Route path="/stock" element={<StockDetail />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
     </div>
