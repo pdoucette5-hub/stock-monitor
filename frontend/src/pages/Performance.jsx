@@ -4,6 +4,12 @@ import { fetchPortfolioPerformance, fetchPriceComparison } from '../lib/api'
 
 const RANGES = ['1m', '3m', '6m', '1y', '3y', '5y']
 const BENCHMARK_OPTIONS = ['', 'SPY', 'QQQ', 'ONEQ']
+const MANAGEMENT_MODES = [
+  { value: 'all', label: 'All positions' },
+  { value: 'managed', label: 'Managed' },
+  { value: 'track', label: 'Track only' },
+  { value: 'excluded', label: 'Excluded' },
+]
 
 function formatMoney(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return '—'
@@ -331,15 +337,17 @@ export default function Performance() {
   const [data, setData] = useState(null)
   const [comparisonData, setComparisonData] = useState({})
   const [lastUpdated, setLastUpdated] = useState(null)
+  const [managementMode, setManagementMode] = useState('all')
 
   async function loadPerformance(
     nextRange = range,
     nextAccounts = selectedAccounts,
+    nextMode = managementMode,
   ) {
     setLoading(true)
     setError(null)
     try {
-      const payload = await fetchPortfolioPerformance(nextRange, nextAccounts)
+      const payload = await fetchPortfolioPerformance(nextRange, nextAccounts, nextMode)
       setData(payload)
       setLastUpdated(new Date())
     } catch (err) {
@@ -389,7 +397,7 @@ export default function Performance() {
   useEffect(() => {
     loadPerformance(range, selectedAccounts)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [range, selectedAccounts])
+  }, [range, selectedAccounts, managementMode])
 
   useEffect(() => {
     loadComparison(range, benchmark, compareTickers)
@@ -456,7 +464,7 @@ export default function Performance() {
         description="Portfolio performance over time based on your transaction ledger and historical price data."
         loading={loading}
         onReload={() => loadPerformance(range, selectedAccounts)}
-        onUpdatePrices={() => loadPerformance(range, selectedAccounts)}
+        onUpdatePrices={() => loadPerformance(range, selectedAccounts, managementMode)}
       />
 
       {error && (
@@ -468,22 +476,41 @@ export default function Performance() {
         </div>
       )}
 
-      <div className="mb-6 flex flex-wrap gap-2">
-        {RANGES.map((value) => (
-          <button
-            key={value}
-            type="button"
-            onClick={() => setRange(value)}
-            className={[
-              'rounded-full px-3 py-1 text-sm font-medium transition',
-              range === value
-                ? 'bg-slate-900 text-white'
-                : 'bg-slate-100 text-slate-700 hover:bg-slate-200',
-            ].join(' ')}
-          >
-            {value.toUpperCase()}
-          </button>
-        ))}
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap gap-2">
+          {RANGES.map((value) => (
+            <button
+              key={value}
+              type="button"
+              onClick={() => setRange(value)}
+              className={[
+                'rounded-full px-3 py-1 text-sm font-medium transition',
+                range === value
+                  ? 'bg-slate-900 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200',
+              ].join(' ')}
+            >
+              {value.toUpperCase()}
+            </button>
+          ))}
+        </div>
+        <div className="flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
+          {MANAGEMENT_MODES.map((mode) => (
+            <button
+              key={mode.value}
+              type="button"
+              onClick={() => setManagementMode(mode.value)}
+              className={[
+                'rounded-md px-3 py-1.5 text-xs font-medium',
+                managementMode === mode.value
+                  ? 'bg-slate-900 text-white'
+                  : 'text-slate-600 hover:bg-slate-50',
+              ].join(' ')}
+            >
+              {mode.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {accounts.length > 0 && (

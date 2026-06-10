@@ -8,10 +8,11 @@ import Archived from './pages/Archived'
 import Performance from './pages/Performance'
 import ChangeLog from './pages/ChangeLog'
 import TransactionImport from './pages/TransactionImport'
+import Management from './pages/Management'
 
 function navClass({ isActive }) {
   return [
-    'rounded-md px-3 py-2 text-sm font-medium transition',
+    'rounded-md px-2 py-2 text-sm font-medium transition',
     isActive
       ? 'bg-slate-900 text-white'
       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
@@ -29,7 +30,7 @@ export default function App() {
               Portfolio, watchlist, and valuation workflow
             </p>
           </div>
-          <nav className="flex flex-wrap items-center gap-2">
+          <nav className="flex flex-wrap items-center justify-end gap-1">
             <NavLink to="/" end className={navClass}>
               Holdings
             </NavLink>
@@ -44,6 +45,9 @@ export default function App() {
             </NavLink>
             <NavLink to="/performance" className={navClass}>
               Performance
+            </NavLink>
+            <NavLink to="/management" className={navClass}>
+              Management
             </NavLink>
             <NavLink to="/change-log" className={navClass}>
               Change Log
@@ -68,6 +72,7 @@ export default function App() {
           <Route path="/redistribution" element={<Redistribution />} />
           <Route path="/actions" element={<Actions />} />
           <Route path="/performance" element={<Performance />} />
+          <Route path="/management" element={<Management />} />
           <Route path="/change-log" element={<ChangeLog />} />
           <Route path="/import" element={<TransactionImport />} />
           <Route path="/archived" element={<Archived />} />

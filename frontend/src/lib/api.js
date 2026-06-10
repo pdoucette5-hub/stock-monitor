@@ -125,6 +125,17 @@ export function fetchAccounts() {
   return request('/api/accounts')
 }
 
+export function fetchManagementSettings() {
+  return request('/api/management')
+}
+
+export function saveManagementSettings(updates) {
+  return request('/api/management', {
+    method: 'PUT',
+    body: JSON.stringify({ updates }),
+  })
+}
+
 export function importTransactions(files, accountMappings = {}, commit = false) {
   return request('/api/transactions/import', {
     method: 'POST',
@@ -187,8 +198,8 @@ export function fetchPriceHistory(ticker, range = '3y', forceRefresh = false) {
   return request(`/api/prices/history?${query.toString()}`)
 }
 
-export function fetchPortfolioPerformance(range = '3y', accounts = []) {
-  const query = new URLSearchParams({ range })
+export function fetchPortfolioPerformance(range = '3y', accounts = [], mode = 'all') {
+  const query = new URLSearchParams({ range, mode })
   const selectedAccounts = (accounts || [])
     .map((account) => String(account).trim())
     .filter(Boolean)

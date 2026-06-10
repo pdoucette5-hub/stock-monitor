@@ -307,6 +307,7 @@ def build_portfolio_views(
     tickers_config: dict[str, Any],
     scenario_inputs: dict[str, Any],
     settings: dict[str, Any],
+    management_shares: dict[str, dict[str, float]] | None = None,
     force_refresh: bool = False,
 ) -> dict[str, Any]:
     portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
@@ -361,6 +362,45 @@ def build_portfolio_views(
     ]
     for row in portfolio_summary_rows:
         row["shares"] = portfolio_shares_map.get(row["ticker"])
+        mode_shares = (management_shares or {}).get(row["ticker"], {})
+        managed_shares = min(
+            max(safe_float(mode_shares.get("managed"), row["shares"]) or 0.0, 0.0),
+            max(safe_float(row["shares"], 0.0) or 0.0, 0.0),
+        )
+        track_shares = max(safe_float(mode_shares.get("track"), 0.0) or 0.0, 0.0)
+        excluded_shares = max(
+            safe_float(mode_shares.get("excluded"), 0.0) or 0.0,
+            0.0,
+        )
+        row["managed_shares"] = managed_shares
+        row["track_shares"] = track_shares
+        row["excluded_shares"] = excluded_shares
+        row["management_mode"] = (
+            "managed"
+            if managed_shares > 0 and track_shares <= 0 and excluded_shares <= 0
+            else "track"
+            if track_shares > 0 and managed_shares <= 0 and excluded_shares <= 0
+            else "excluded"
+            if excluded_shares > 0 and managed_shares <= 0 and track_shares <= 0
+            else "mixed"
+        )
+
+        configured_eligible = safe_float(
+            row.get("eligible_redistribution_shares"),
+            row["shares"],
+        )
+        row["eligible_redistribution_shares"] = min(
+            max(configured_eligible or 0.0, 0.0),
+            managed_shares,
+        )
+        row["include_in_redistribution"] = bool(
+            row.get("include_in_redistribution", False) and managed_shares > 0,
+        )
+        row["locked_shares"] = max(
+            (safe_float(row["shares"], 0.0) or 0.0)
+            - row["eligible_redistribution_shares"],
+            0.0,
+        )
 
     watchlist_summary_rows = [
         row for row in summary_rows if row["ticker"] in watchlist

@@ -16,10 +16,19 @@ const SUB_TABS = [
   { id: 'watchlist', label: 'Watchlist' },
 ]
 
+const MANAGEMENT_FILTERS = [
+  { id: 'active', label: 'Managed + tracked' },
+  { id: 'managed', label: 'Managed' },
+  { id: 'track', label: 'Track only' },
+  { id: 'excluded', label: 'Excluded' },
+  { id: 'all', label: 'All' },
+]
+
 export default function Holdings() {
   const { view, loading, error, lastUpdated, load } = usePortfolioView()
   const [activeTab, setActiveTab] = useState('portfolio')
   const [showHidden, setShowHidden] = useState(false)
+  const [managementFilter, setManagementFilter] = useState('active')
   const [savingTicker, setSavingTicker] = useState(null)
   const [shareDrafts, setShareDrafts] = useState({})
   const [newTicker, setNewTicker] = useState('')
@@ -33,9 +42,22 @@ export default function Holdings() {
 
   const sourceRows = activeTab === 'portfolio' ? portfolioRows : watchlistRows
   const visibleRows = useMemo(() => {
-    if (showHidden) return sourceRows
-    return sourceRows.filter((row) => row.show_in_holdings !== false)
-  }, [sourceRows, showHidden])
+    let rows = showHidden
+      ? sourceRows
+      : sourceRows.filter((row) => row.show_in_holdings !== false)
+
+    if (activeTab !== 'portfolio' || managementFilter === 'all') return rows
+    if (managementFilter === 'active') {
+      return rows.filter((row) => row.management_mode !== 'excluded')
+    }
+    if (managementFilter === 'managed') {
+      return rows.filter((row) => Number(row.managed_shares || 0) > 0)
+    }
+    if (managementFilter === 'track') {
+      return rows.filter((row) => Number(row.track_shares || 0) > 0)
+    }
+    return rows.filter((row) => Number(row.excluded_shares || 0) > 0)
+  }, [activeTab, managementFilter, sourceRows, showHidden])
 
   const toggleVisibility = async (ticker, showInHoldings) => {
     setSavingTicker(ticker)
@@ -199,8 +221,34 @@ export default function Holdings() {
       }
     })
 
+    const managementColumn = {
+      key: 'management_mode',
+      label: 'Management',
+      render: (row) => {
+        const label = {
+          managed: 'Managed',
+          track: 'Track only',
+          excluded: 'Excluded',
+          mixed: 'Mixed',
+        }[row.management_mode] ?? 'Managed'
+        return (
+          <div>
+            <div className="font-medium text-slate-800">{label}</div>
+            <div className="text-xs text-slate-500">
+              {Number(row.managed_shares || 0).toLocaleString(undefined, {
+                maximumFractionDigits: 2,
+              })}{' '}
+              managed
+            </div>
+          </div>
+        )
+      },
+    }
+
     return [
-      ...withEditableShares,
+      ...withEditableShares.slice(0, 2),
+      managementColumn,
+      ...withEditableShares.slice(2),
       {
         key: 'row_actions',
         label: 'Actions',
@@ -337,15 +385,36 @@ export default function Holdings() {
           ))}
         </div>
 
-        <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
-          <input
-            type="checkbox"
-            checked={showHidden}
-            onChange={(e) => setShowHidden(e.target.checked)}
-            className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-500"
-          />
-          Show hidden tickers
-        </label>
+        <div className="flex flex-wrap items-center gap-3">
+          {activeTab === 'portfolio' && (
+            <div className="flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
+              {MANAGEMENT_FILTERS.map((filter) => (
+                <button
+                  key={filter.id}
+                  type="button"
+                  onClick={() => setManagementFilter(filter.id)}
+                  className={[
+                    'rounded-md px-3 py-1.5 text-xs font-medium',
+                    managementFilter === filter.id
+                      ? 'bg-slate-900 text-white'
+                      : 'text-slate-600 hover:bg-slate-50',
+                  ].join(' ')}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          )}
+          <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
+            <input
+              type="checkbox"
+              checked={showHidden}
+              onChange={(e) => setShowHidden(e.target.checked)}
+              className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-500"
+            />
+            Show hidden tickers
+          </label>
+        </div>
       </div>
 
       <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">

@@ -28,6 +28,7 @@ export default function Redistribution() {
         ticker: row.ticker,
         include: row.include_in_redistribution !== false,
         sharesOwned,
+        managedShares: Number(row.managed_shares ?? sharesOwned),
         eligibleShares,
         locked,
         cagr: row.weighted_cagr_y3,
@@ -46,9 +47,10 @@ export default function Redistribution() {
         const next = { ...row, ...patch }
 
         const sharesOwned = Number(next.sharesOwned ?? 0)
+        const managedShares = Number(next.managedShares ?? sharesOwned)
         const eligibleShares = Math.min(
           Math.max(Number(next.eligibleShares ?? 0), 0),
-          sharesOwned,
+          managedShares,
         )
 
         return {
@@ -82,8 +84,8 @@ export default function Redistribution() {
     setRows((current) =>
       current.map((row) => ({
         ...row,
-        eligibleShares: row.sharesOwned,
-        locked: 0,
+        eligibleShares: row.managedShares,
+        locked: Math.max(row.sharesOwned - row.managedShares, 0),
       })),
     )
   }
@@ -214,6 +216,7 @@ export default function Redistribution() {
                 <th className="px-6 py-4">Include</th>
                 <th className="px-6 py-4">Ticker</th>
                 <th className="px-6 py-4">Shares owned</th>
+                <th className="px-6 py-4">Managed shares</th>
                 <th className="px-6 py-4">Eligible shares</th>
                 <th className="px-6 py-4">Locked</th>
                 <th className="px-6 py-4">Weighted CAGR</th>
@@ -224,13 +227,13 @@ export default function Redistribution() {
             <tbody className="divide-y divide-slate-100">
               {loading ? (
                 <tr>
-                  <td colSpan={8} className="px-6 py-10 text-center text-slate-500">
+                  <td colSpan={9} className="px-6 py-10 text-center text-slate-500">
                     Loading…
                   </td>
                 </tr>
               ) : rows.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="px-6 py-10 text-center text-slate-500">
+                  <td colSpan={9} className="px-6 py-10 text-center text-slate-500">
                     No portfolio rows available.
                   </td>
                 </tr>
@@ -254,11 +257,14 @@ export default function Redistribution() {
                     <td className="px-6 py-3 tabular-nums">
                       {formatNumber(row.sharesOwned)}
                     </td>
+                    <td className="px-6 py-3 tabular-nums font-medium text-slate-800">
+                      {formatNumber(row.managedShares)}
+                    </td>
                     <td className="px-6 py-3">
                       <input
                         type="number"
                         min="0"
-                        max={row.sharesOwned}
+                        max={row.managedShares}
                         step="0.01"
                         value={row.eligibleShares}
                         onChange={(e) =>

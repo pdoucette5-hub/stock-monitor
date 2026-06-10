@@ -51,6 +51,7 @@ HOLDINGS_OVERRIDES_FILE = BASE_DIR / "cache" / "holdings_overrides.json"
 TICKERS_OVERRIDES_FILE = BASE_DIR / "cache" / "tickers_overrides.json"
 TRANSACTIONS_FILE = BASE_DIR / "cache" / "transactions.json"
 ACCOUNT_ALIASES_FILE = BASE_DIR / "cache" / "account_aliases.json"
+MANAGEMENT_MODES_FILE = BASE_DIR / "cache" / "management_modes.json"
 PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
@@ -67,6 +68,7 @@ HOLDINGS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 TICKERS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 TRANSACTIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
 ACCOUNT_ALIASES_FILE.parent.mkdir(parents=True, exist_ok=True)
+MANAGEMENT_MODES_FILE.parent.mkdir(parents=True, exist_ok=True)
 PORTFOLIO_EVENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="Stock Monitor API", version="0.1.0")
@@ -76,6 +78,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5174",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
     ],
@@ -151,6 +155,16 @@ class TransactionImportRequest(BaseModel):
     commit: bool = False
 
 
+class ManagementModeUpdate(BaseModel):
+    account: str
+    ticker: str | None = None
+    mode: str
+
+
+class ManagementModesUpdate(BaseModel):
+    updates: list[ManagementModeUpdate]
+
+
 VALID_TRANSACTION_TYPES = {
     "buy",
     "sell",
@@ -160,6 +174,9 @@ VALID_TRANSACTION_TYPES = {
     "transfer_out",
     "adjustment",
 }
+
+VALID_MANAGEMENT_MODES = {"managed", "track", "excluded"}
+UNASSIGNED_ACCOUNT = "Unassigned"
 
 
 SCENARIO_CHANGE_LABELS = {
@@ -388,6 +405,191 @@ def save_account_aliases(data: dict[str, str]) -> None:
         if str(key).strip() and str(value).strip()
     }
     save_json_file(ACCOUNT_ALIASES_FILE, cleaned)
+
+
+def load_management_modes() -> dict[str, Any]:
+    raw = load_json_file(
+        MANAGEMENT_MODES_FILE,
+        {"account_defaults": {}, "position_overrides": {}},
+    )
+    if not isinstance(raw, dict):
+        raw = {}
+
+    account_defaults = raw.get("account_defaults", {})
+    position_overrides = raw.get("position_overrides", {})
+
+    return {
+        "account_defaults": {
+            str(account).strip(): str(mode).strip().lower()
+            for account, mode in account_defaults.items()
+            if str(account).strip() and str(mode).strip().lower() in VALID_MANAGEMENT_MODES
+        }
+        if isinstance(account_defaults, dict)
+        else {},
+        "position_overrides": {
+            str(key).strip(): str(mode).strip().lower()
+            for key, mode in position_overrides.items()
+            if str(key).strip() and str(mode).strip().lower() in VALID_MANAGEMENT_MODES
+        }
+        if isinstance(position_overrides, dict)
+        else {},
+    }
+
+
+def save_management_modes(data: dict[str, Any]) -> None:
+    save_json_file(MANAGEMENT_MODES_FILE, data)
+
+
+def management_position_key(account: str, ticker: str) -> str:
+    return f"{str(account).strip().casefold()}|{normalize_ticker(ticker)}"
+
+
+def get_management_mode(
+    settings: dict[str, Any],
+    account: str,
+    ticker: str,
+) -> str:
+    override = settings["position_overrides"].get(
+        management_position_key(account, ticker),
+    )
+    if override in VALID_MANAGEMENT_MODES:
+        return override
+    return settings["account_defaults"].get(account, "managed")
+
+
+def build_management_snapshot() -> dict[str, Any]:
+    transactions = load_transactions()
+    settings = load_management_modes()
+    config = get_effective_tickers_config()
+    configured_shares = {
+        row["ticker"]: float(row.get("shares") or 0.0)
+        for row in normalize_portfolio(config.get("portfolio", []))
+    }
+
+    positions: list[dict[str, Any]] = []
+    transaction_shares_by_ticker: dict[str, float] = {}
+    accounts: set[str] = set()
+
+    for ticker, entries in transactions.items():
+        entries_by_account: dict[str, list[dict[str, Any]]] = {}
+        for entry in entries:
+            account = str(entry.get("account") or "").strip() or UNASSIGNED_ACCOUNT
+            entries_by_account.setdefault(account, []).append(entry)
+            accounts.add(account)
+
+        for account, account_entries in entries_by_account.items():
+            summary = compute_position_summary(account_entries)
+            shares = max(float(summary.get("current_shares") or 0.0), 0.0)
+            if shares <= 0:
+                continue
+            transaction_shares_by_ticker[ticker] = (
+                transaction_shares_by_ticker.get(ticker, 0.0) + shares
+            )
+            positions.append(
+                {
+                    "account": account,
+                    "ticker": ticker,
+                    "shares": shares,
+                    "mode": get_management_mode(settings, account, ticker),
+                    "source": "transactions",
+                },
+            )
+
+    for ticker, transaction_total in list(transaction_shares_by_ticker.items()):
+        configured_total = configured_shares.get(ticker)
+        if configured_total is None or transaction_total <= configured_total or transaction_total <= 0:
+            continue
+        scale = configured_total / transaction_total
+        for position in positions:
+            if position["ticker"] == ticker and position["source"] == "transactions":
+                position["shares"] = float(position["shares"]) * scale
+        transaction_shares_by_ticker[ticker] = configured_total
+
+    accounts.add(UNASSIGNED_ACCOUNT)
+    for ticker, total_shares in configured_shares.items():
+        residual = max(
+            total_shares - transaction_shares_by_ticker.get(ticker, 0.0),
+            0.0,
+        )
+        if residual > 0:
+            positions.append(
+                {
+                    "account": UNASSIGNED_ACCOUNT,
+                    "ticker": ticker,
+                    "shares": residual,
+                    "mode": get_management_mode(settings, UNASSIGNED_ACCOUNT, ticker),
+                    "source": "configured_residual",
+                },
+            )
+
+    shares_by_mode: dict[str, dict[str, float]] = {}
+    for position in positions:
+        ticker = position["ticker"]
+        mode = position["mode"]
+        bucket = shares_by_mode.setdefault(
+            ticker,
+            {"managed": 0.0, "track": 0.0, "excluded": 0.0},
+        )
+        bucket[mode] += float(position["shares"])
+
+    account_rows = [
+        {
+            "account": account,
+            "default_mode": settings["account_defaults"].get(account, "managed"),
+            "position_count": sum(1 for row in positions if row["account"] == account),
+        }
+        for account in sorted(accounts, key=str.casefold)
+    ]
+
+    return {
+        "accounts": account_rows,
+        "positions": sorted(
+            positions,
+            key=lambda row: (str(row["account"]).casefold(), row["ticker"]),
+        ),
+        "shares_by_mode": shares_by_mode,
+    }
+
+
+def filter_transactions_by_management_mode(
+    transactions: dict[str, list[dict[str, Any]]],
+    mode: str,
+) -> dict[str, list[dict[str, Any]]]:
+    if mode not in VALID_MANAGEMENT_MODES:
+        return transactions
+
+    settings = load_management_modes()
+    filtered: dict[str, list[dict[str, Any]]] = {}
+    for ticker, entries in transactions.items():
+        rows = []
+        for entry in entries:
+            account = str(entry.get("account") or "").strip() or UNASSIGNED_ACCOUNT
+            if get_management_mode(settings, account, ticker) == mode:
+                rows.append(entry)
+        if rows:
+            filtered[ticker] = rows
+    return filtered
+
+
+def apply_management_shares_to_config(
+    config: dict[str, Any],
+    shares_by_mode: dict[str, dict[str, float]],
+    mode: str,
+) -> dict[str, Any]:
+    if mode not in VALID_MANAGEMENT_MODES:
+        return config
+
+    portfolio = []
+    for item in normalize_portfolio(config.get("portfolio", [])):
+        ticker = item["ticker"]
+        shares = float(shares_by_mode.get(ticker, {}).get(mode, 0.0))
+        if shares > 0:
+            portfolio.append({"ticker": ticker, "shares": shares})
+
+    return {
+        "portfolio": portfolio,
+        "watchlist": config.get("watchlist", []) or [],
+    }
 
 
 def load_portfolio_events() -> list[dict[str, Any]]:
@@ -859,10 +1061,26 @@ def get_portfolio_events(
 def get_portfolio_performance(
     range: str = "3y",
     accounts: str = "",
+    mode: str = "all",
 ) -> dict[str, Any]:
     try:
         transactions = load_transactions()
         tickers_config = get_effective_tickers_config()
+        normalized_mode = str(mode or "all").strip().lower()
+        if normalized_mode != "all" and normalized_mode not in VALID_MANAGEMENT_MODES:
+            raise ValueError("Mode must be all, managed, track, or excluded")
+
+        if normalized_mode in VALID_MANAGEMENT_MODES:
+            management = build_management_snapshot()
+            transactions = filter_transactions_by_management_mode(
+                transactions,
+                normalized_mode,
+            )
+            tickers_config = apply_management_shares_to_config(
+                tickers_config,
+                management["shares_by_mode"],
+                normalized_mode,
+            )
         account_filter = [
             account.strip()
             for account in str(accounts).split(",")
@@ -1092,6 +1310,47 @@ def get_transaction_accounts() -> dict[str, Any]:
         "count": len(accounts),
         "accounts": accounts,
     }
+
+
+@app.get("/api/management")
+def get_management_settings() -> dict[str, Any]:
+    return build_management_snapshot()
+
+
+@app.put("/api/management")
+def update_management_settings(body: ManagementModesUpdate) -> dict[str, Any]:
+    settings = load_management_modes()
+
+    for update in body.updates:
+        account = str(update.account or "").strip()
+        ticker = normalize_ticker(update.ticker or "")
+        mode = str(update.mode or "").strip().lower()
+
+        if not account:
+            raise HTTPException(status_code=400, detail="Account is required")
+        if mode not in VALID_MANAGEMENT_MODES:
+            raise HTTPException(
+                status_code=400,
+                detail="Mode must be managed, track, or excluded",
+            )
+
+        if ticker:
+            key = management_position_key(account, ticker)
+            account_default = settings["account_defaults"].get(account, "managed")
+            if mode == account_default:
+                settings["position_overrides"].pop(key, None)
+            else:
+                settings["position_overrides"][key] = mode
+        else:
+            settings["account_defaults"][account] = mode
+
+    save_management_modes(settings)
+    append_portfolio_event(
+        "update_management_modes",
+        "",
+        {"updates": [update.model_dump(mode="json") for update in body.updates]},
+    )
+    return build_management_snapshot()
 
 
 @app.post("/api/transactions/import")
@@ -1432,6 +1691,7 @@ def update_portfolio_shares(
         get_effective_tickers_config(),
         load_scenario_inputs(),
         load_settings_dict(),
+        management_shares=build_management_snapshot()["shares_by_mode"],
         force_refresh=force_refresh,
     )
     return PortfolioViewResponse.model_validate(payload)
@@ -1500,6 +1760,7 @@ def update_portfolio_controls(
         tickers_config,
         scenario_inputs,
         load_settings_dict(),
+        management_shares=build_management_snapshot()["shares_by_mode"],
         force_refresh=force_refresh,
     )
     return PortfolioViewResponse.model_validate(payload)
@@ -1511,6 +1772,7 @@ def get_portfolio_view(force_refresh: bool = False) -> PortfolioViewResponse:
         get_effective_tickers_config(),
         load_scenario_inputs(),
         load_settings_dict(),
+        management_shares=build_management_snapshot()["shares_by_mode"],
         force_refresh=force_refresh,
     )
     return PortfolioViewResponse.model_validate(payload)

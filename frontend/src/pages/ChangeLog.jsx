@@ -54,6 +54,8 @@ function eventTitle(event) {
       return `${ticker}Transaction deleted`
     case 'import_transactions':
       return 'Transactions imported'
+    case 'update_management_modes':
+      return 'Portfolio management updated'
     default:
       return `${ticker}${event.type || 'Change recorded'}`
   }
@@ -86,6 +88,11 @@ function eventSummary(event) {
     const type = payload.transaction_type ? `${payload.transaction_type} ` : ''
     const shares = payload.shares !== undefined ? `${formatValue(payload.shares)} shares` : ''
     return `${type}${shares}`.trim() || 'Transaction record changed'
+  }
+
+  if (event.type === 'update_management_modes') {
+    const updates = Array.isArray(payload.updates) ? payload.updates : []
+    return `${updates.length} management setting${updates.length === 1 ? '' : 's'} changed`
   }
 
   return 'User change recorded'
