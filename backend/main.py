@@ -1259,5 +1259,12 @@ if static_dir.exists():
     @app.get("/{rest_of_path:path}")
     async def serve_spa(rest_of_path: str):
         if index_file.exists():
-            return FileResponse(str(index_file))
+            return FileResponse(
+                str(index_file),
+                headers={
+                    "Cache-Control": "no-store, no-cache, must-revalidate",
+                    "Pragma": "no-cache",
+                    "Expires": "0",
+                },
+            )
         raise HTTPException(status_code=404, detail="Frontend not built")
