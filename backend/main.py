@@ -863,6 +863,26 @@ def remove_ticker(ticker: str) -> PortfolioConfig:
     return PortfolioConfig.model_validate(get_effective_tickers_config())
 
 
+@app.get("/api/accounts")
+def get_transaction_accounts() -> dict[str, Any]:
+    transactions = load_transactions()
+    accounts_by_key: dict[str, str] = {}
+
+    for entries in transactions.values():
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            account = str(entry.get("account") or "").strip()
+            if account:
+                accounts_by_key.setdefault(account.casefold(), account)
+
+    accounts = sorted(accounts_by_key.values(), key=str.casefold)
+    return {
+        "count": len(accounts),
+        "accounts": accounts,
+    }
+
+
 @app.get("/api/transactions/{ticker}")
 def get_transactions_for_ticker(ticker: str) -> dict[str, Any]:
     normalized = normalize_ticker(ticker)

@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import {
   createTransaction,
   deleteTransaction,
+  fetchAccounts,
   fetchPortfolioScenarios,
   fetchPositionSummary,
   fetchPriceHistory,
@@ -272,6 +273,7 @@ export default function StockDetail() {
   const [priceRange, setPriceRange] = useState('3y')
   const [form, setForm] = useState(defaultFormState)
   const [transactions, setTransactions] = useState([])
+  const [accountOptions, setAccountOptions] = useState([])
   const [positionSummary, setPositionSummary] = useState(null)
   const [priceHistory, setPriceHistory] = useState([])
   const [transactionForm, setTransactionForm] = useState(emptyTransactionForm())
@@ -335,6 +337,23 @@ export default function StockDetail() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const loadAccounts = useCallback(async () => {
+    try {
+      const payload = await fetchAccounts()
+      const accounts = Array.isArray(payload?.accounts) ? payload.accounts : []
+      setAccountOptions(
+        [...new Set(accounts.map((account) => String(account).trim()).filter(Boolean))]
+          .sort((a, b) => a.localeCompare(b)),
+      )
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load accounts')
+    }
+  }, [])
+
+  useEffect(() => {
+    loadAccounts()
+  }, [loadAccounts])
 
   useEffect(() => {
     const queryTicker = searchParams.get('ticker')?.trim().toUpperCase()
@@ -603,6 +622,15 @@ export default function StockDetail() {
       } else {
         await createTransaction(selectedTicker, payload)
         setTransactionMessage('Transaction added.')
+      }
+
+      const savedAccount = String(payload.account || '').trim()
+      if (savedAccount) {
+        setAccountOptions((current) =>
+          current.some((account) => account.toLowerCase() === savedAccount.toLowerCase())
+            ? current
+            : [...current, savedAccount].sort((a, b) => a.localeCompare(b)),
+        )
       }
 
       resetTransactionForm()
@@ -995,11 +1023,18 @@ export default function StockDetail() {
                 <label className={labelClass}>Account</label>
                 <input
                   type="text"
+                  list="transaction-account-options"
                   value={transactionForm.account}
                   onChange={(e) => handleTransactionFieldChange('account', e.target.value)}
                   placeholder="e.g. Schwab IRA"
+                  autoComplete="off"
                   className={inputClass}
                 />
+                <datalist id="transaction-account-options">
+                  {accountOptions.map((account) => (
+                    <option key={account} value={account} />
+                  ))}
+                </datalist>
               </div>
 
               <div>
