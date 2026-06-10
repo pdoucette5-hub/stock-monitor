@@ -444,6 +444,10 @@ def management_position_key(account: str, ticker: str) -> str:
     return f"{str(account).strip().casefold()}|{normalize_ticker(ticker)}"
 
 
+def automatic_account_mode(account: str) -> str:
+    return "track" if str(account).strip() == UNASSIGNED_ACCOUNT else "managed"
+
+
 def get_management_mode(
     settings: dict[str, Any],
     account: str,
@@ -454,7 +458,19 @@ def get_management_mode(
     )
     if override in VALID_MANAGEMENT_MODES:
         return override
-    return settings["account_defaults"].get(account, "managed")
+    return settings["account_defaults"].get(account, automatic_account_mode(account))
+
+
+def get_management_mode_source(
+    settings: dict[str, Any],
+    account: str,
+    ticker: str,
+) -> str:
+    if management_position_key(account, ticker) in settings["position_overrides"]:
+        return "ticker_override"
+    if account in settings["account_defaults"]:
+        return "account_default"
+    return "automatic"
 
 
 def build_management_snapshot() -> dict[str, Any]:
@@ -491,6 +507,7 @@ def build_management_snapshot() -> dict[str, Any]:
                     "ticker": ticker,
                     "shares": shares,
                     "mode": get_management_mode(settings, account, ticker),
+                    "mode_source": get_management_mode_source(settings, account, ticker),
                     "source": "transactions",
                 },
             )
@@ -518,6 +535,11 @@ def build_management_snapshot() -> dict[str, Any]:
                     "ticker": ticker,
                     "shares": residual,
                     "mode": get_management_mode(settings, UNASSIGNED_ACCOUNT, ticker),
+                    "mode_source": get_management_mode_source(
+                        settings,
+                        UNASSIGNED_ACCOUNT,
+                        ticker,
+                    ),
                     "source": "configured_residual",
                 },
             )
@@ -535,7 +557,13 @@ def build_management_snapshot() -> dict[str, Any]:
     account_rows = [
         {
             "account": account,
-            "default_mode": settings["account_defaults"].get(account, "managed"),
+            "default_mode": settings["account_defaults"].get(
+                account,
+                automatic_account_mode(account),
+            ),
+            "default_source": (
+                "saved" if account in settings["account_defaults"] else "automatic"
+            ),
             "position_count": sum(1 for row in positions if row["account"] == account),
         }
         for account in sorted(accounts, key=str.casefold)
@@ -1336,7 +1364,10 @@ def update_management_settings(body: ManagementModesUpdate) -> dict[str, Any]:
 
         if ticker:
             key = management_position_key(account, ticker)
-            account_default = settings["account_defaults"].get(account, "managed")
+            account_default = settings["account_defaults"].get(
+                account,
+                automatic_account_mode(account),
+            )
             if mode == account_default:
                 settings["position_overrides"].pop(key, None)
             else:

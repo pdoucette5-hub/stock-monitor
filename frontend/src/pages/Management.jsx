@@ -66,8 +66,8 @@ export default function Management() {
       <div className="mb-6">
         <h1 className="text-2xl font-semibold text-slate-900">Portfolio Management</h1>
         <p className="mt-1 text-sm text-slate-600">
-          Managed positions drive redistribution and actions. Track-only positions remain visible
-          in holdings and performance. Excluded positions remain in the ledger.
+          Positions backed by imported transactions are managed automatically. Shares without
+          transactions start as track only, and you can promote them here.
         </p>
       </div>
 
@@ -120,7 +120,9 @@ export default function Management() {
                 <div>
                   <h2 className="text-lg font-semibold text-slate-900">{account.account}</h2>
                   <p className="mt-1 text-sm text-slate-500">
-                    The account default applies unless a ticker has its own override.
+                    {account.default_source === 'automatic'
+                      ? 'Automatic default based on whether the positions have transactions.'
+                      : 'The saved account default applies unless a ticker has its own override.'}
                   </p>
                 </div>
                 <label className="text-sm font-medium text-slate-700">
@@ -166,8 +168,13 @@ export default function Management() {
                           </td>
                           <td className="px-4 py-3 text-slate-500">
                             {position.source === 'configured_residual'
-                              ? 'Configured shares not assigned by transactions'
-                              : 'Transaction ledger'}
+                              ? 'No matching transactions; tracking automatically'
+                              : 'Imported transactions; managed automatically'}
+                            {position.mode_source === 'ticker_override' && (
+                              <div className="mt-1 text-xs font-medium text-blue-700">
+                                Ticker override
+                              </div>
+                            )}
                           </td>
                           <td className="px-4 py-3">
                             <select
