@@ -52,6 +52,8 @@ function eventTitle(event) {
       return `${ticker}Transaction updated`
     case 'delete_transaction':
       return `${ticker}Transaction deleted`
+    case 'import_transactions':
+      return 'Transactions imported'
     default:
       return `${ticker}${event.type || 'Change recorded'}`
   }
@@ -78,6 +80,9 @@ function eventSummary(event) {
   }
 
   if (event.type?.includes('transaction')) {
+    if (event.type === 'import_transactions') {
+      return `${formatValue(payload.imported)} imported; ${formatValue(payload.duplicates_skipped)} duplicates skipped`
+    }
     const type = payload.transaction_type ? `${payload.transaction_type} ` : ''
     const shares = payload.shares !== undefined ? `${formatValue(payload.shares)} shares` : ''
     return `${type}${shares}`.trim() || 'Transaction record changed'

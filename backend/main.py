@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import csv
+import hashlib
+import io
 import json
 import os
 import uuid
@@ -13,7 +16,7 @@ from fastapi import FastAPI, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from backend.logic import merge_global_settings
 from backend.models import (
@@ -47,6 +50,7 @@ GLOBAL_SETTINGS_FILE = BASE_DIR / "cache" / "global_settings.json"
 HOLDINGS_OVERRIDES_FILE = BASE_DIR / "cache" / "holdings_overrides.json"
 TICKERS_OVERRIDES_FILE = BASE_DIR / "cache" / "tickers_overrides.json"
 TRANSACTIONS_FILE = BASE_DIR / "cache" / "transactions.json"
+ACCOUNT_ALIASES_FILE = BASE_DIR / "cache" / "account_aliases.json"
 PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
@@ -62,6 +66,7 @@ GLOBAL_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
 HOLDINGS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 TICKERS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 TRANSACTIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
+ACCOUNT_ALIASES_FILE.parent.mkdir(parents=True, exist_ok=True)
 PORTFOLIO_EVENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(title="Stock Monitor API", version="0.1.0")
@@ -133,6 +138,17 @@ class ImportedPriceRow(BaseModel):
 
 class PriceImportRequest(BaseModel):
     rows: list[ImportedPriceRow]
+
+
+class TransactionImportFile(BaseModel):
+    name: str
+    content: str
+
+
+class TransactionImportRequest(BaseModel):
+    files: list[TransactionImportFile]
+    account_mappings: dict[str, str] = Field(default_factory=dict)
+    commit: bool = False
 
 
 VALID_TRANSACTION_TYPES = {
@@ -354,6 +370,26 @@ def save_transactions(data: dict[str, list[dict[str, Any]]]) -> None:
     save_json_file(TRANSACTIONS_FILE, cleaned)
 
 
+def load_account_aliases() -> dict[str, str]:
+    raw = load_json_file(ACCOUNT_ALIASES_FILE, {})
+    if not isinstance(raw, dict):
+        return {}
+    return {
+        str(key).strip(): str(value).strip()
+        for key, value in raw.items()
+        if str(key).strip() and str(value).strip()
+    }
+
+
+def save_account_aliases(data: dict[str, str]) -> None:
+    cleaned = {
+        str(key).strip(): str(value).strip()
+        for key, value in data.items()
+        if str(key).strip() and str(value).strip()
+    }
+    save_json_file(ACCOUNT_ALIASES_FILE, cleaned)
+
+
 def load_portfolio_events() -> list[dict[str, Any]]:
     raw = load_json_file(PORTFOLIO_EVENTS_FILE, [])
     if not isinstance(raw, list):
@@ -441,6 +477,181 @@ def build_change_set(
 
 def normalize_ticker(ticker: str) -> str:
     return str(ticker).strip().upper()
+
+
+def parse_import_float(value: Any, default: float = 0.0) -> float:
+    text = str(value or "").strip().replace("$", "").replace(",", "")
+    if not text:
+        return default
+    try:
+        return float(text)
+    except (TypeError, ValueError):
+        return default
+
+
+def normalize_import_date(value: Any) -> str:
+    text = str(value or "").strip()
+    for pattern in ("%m/%d/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(text, pattern).date().isoformat()
+        except ValueError:
+            continue
+    return ""
+
+
+def transaction_import_fingerprint(parts: list[Any]) -> str:
+    normalized = "|".join(str(part or "").strip().casefold() for part in parts)
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def parse_fidelity_transaction_files(
+    files: list[TransactionImportFile],
+    account_mappings: dict[str, str],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+    aliases = load_account_aliases()
+    aliases.update(
+        {
+            str(key).strip(): str(value).strip()
+            for key, value in account_mappings.items()
+            if str(key).strip() and str(value).strip()
+        },
+    )
+
+    rows: list[dict[str, Any]] = []
+    accounts: dict[str, dict[str, Any]] = {}
+    skipped: list[dict[str, Any]] = []
+
+    for uploaded in files:
+        reader = csv.reader(io.StringIO(uploaded.content.lstrip("\ufeff")))
+        raw_rows = list(reader)
+        header_index = next(
+            (
+                idx
+                for idx, row in enumerate(raw_rows)
+                if row and str(row[0]).strip() == "Run Date"
+            ),
+            None,
+        )
+
+        if header_index is None:
+            skipped.append(
+                {
+                    "file": uploaded.name,
+                    "reason": "Unsupported CSV: Run Date header was not found",
+                },
+            )
+            continue
+
+        header = [str(value).strip() for value in raw_rows[header_index]]
+        for row_number, raw_row in enumerate(raw_rows[header_index + 1 :], header_index + 2):
+            if not raw_row or not any(str(value).strip() for value in raw_row):
+                continue
+
+            padded = list(raw_row) + [""] * max(0, len(header) - len(raw_row))
+            record = dict(zip(header, padded))
+            action = str(record.get("Action") or "").strip()
+            run_date = str(record.get("Run Date") or "").strip()
+
+            if not action and not normalize_import_date(run_date):
+                continue
+
+            if action.startswith("YOU BOUGHT"):
+                tx_type = "buy"
+            elif action.startswith("YOU SOLD"):
+                tx_type = "sell"
+            else:
+                skipped.append(
+                    {
+                        "file": uploaded.name,
+                        "row": row_number,
+                        "reason": "Not a supported buy or sell transaction",
+                        "action": action,
+                    },
+                )
+                continue
+
+            ticker = normalize_ticker(record.get("Symbol") or "")
+            date = normalize_import_date(record.get("Run Date"))
+            shares = abs(parse_import_float(record.get("Quantity")))
+            price = abs(parse_import_float(record.get("Price ($)")))
+            fees = abs(parse_import_float(record.get("Commission ($)"))) + abs(
+                parse_import_float(record.get("Fees ($)")),
+            )
+            amount = parse_import_float(record.get("Amount ($)"))
+            account_name = str(record.get("Account") or "").strip()
+            account_number = str(record.get("Account Number") or "").strip()
+            account_key = account_number or account_name.casefold()
+            account = aliases.get(account_key) or account_name or account_number
+
+            if not ticker or not date or shares <= 0 or price <= 0 or not account_key:
+                skipped.append(
+                    {
+                        "file": uploaded.name,
+                        "row": row_number,
+                        "reason": "Missing ticker, date, shares, price, or account",
+                        "action": action,
+                    },
+                )
+                continue
+
+            accounts.setdefault(
+                account_key,
+                {
+                    "key": account_key,
+                    "source_name": account_name or "Unnamed account",
+                    "account_number_last4": account_number[-4:] if account_number else "",
+                    "nickname": account,
+                },
+            )
+
+            fingerprint = transaction_import_fingerprint(
+                [
+                    "fidelity",
+                    account_key,
+                    date,
+                    action,
+                    ticker,
+                    record.get("Price ($)"),
+                    record.get("Quantity"),
+                    record.get("Commission ($)"),
+                    record.get("Fees ($)"),
+                    record.get("Amount ($)"),
+                    record.get("Settlement Date"),
+                ],
+            )
+
+            rows.append(
+                {
+                    "ticker": ticker,
+                    "date": date,
+                    "type": tx_type,
+                    "shares": shares,
+                    "price_per_share": price,
+                    "fees": fees,
+                    "account": account,
+                    "notes": str(record.get("Description") or action).strip(),
+                    "source": "fidelity-csv",
+                    "source_file": uploaded.name,
+                    "source_account": account_name,
+                    "source_account_key": account_key,
+                    "source_amount": amount,
+                    "settlement_date": normalize_import_date(record.get("Settlement Date")),
+                    "import_fingerprint": fingerprint,
+                },
+            )
+
+    return rows, list(accounts.values()), skipped
+
+
+def existing_import_fingerprints(
+    transactions: dict[str, list[dict[str, Any]]],
+) -> set[str]:
+    return {
+        str(entry.get("import_fingerprint"))
+        for entries in transactions.values()
+        for entry in entries
+        if isinstance(entry, dict) and entry.get("import_fingerprint")
+    }
 
 
 def validate_transaction_payload(payload: TransactionCreate | TransactionUpdate) -> dict[str, Any]:
@@ -883,6 +1094,126 @@ def get_transaction_accounts() -> dict[str, Any]:
     }
 
 
+@app.post("/api/transactions/import")
+def import_transactions(body: TransactionImportRequest) -> dict[str, Any]:
+    if not body.files:
+        raise HTTPException(status_code=400, detail="Choose at least one CSV file")
+
+    parsed_rows, accounts, skipped = parse_fidelity_transaction_files(
+        body.files,
+        body.account_mappings,
+    )
+    transactions = load_transactions()
+    known_fingerprints = existing_import_fingerprints(transactions)
+    batch_fingerprints: set[str] = set()
+    preview_rows: list[dict[str, Any]] = []
+    importable_rows: list[dict[str, Any]] = []
+
+    for row in parsed_rows:
+        fingerprint = str(row.get("import_fingerprint") or "")
+        is_duplicate = fingerprint in known_fingerprints or fingerprint in batch_fingerprints
+        batch_fingerprints.add(fingerprint)
+
+        preview_rows.append(
+            {
+                "ticker": row["ticker"],
+                "date": row["date"],
+                "type": row["type"],
+                "shares": row["shares"],
+                "price_per_share": row["price_per_share"],
+                "fees": row["fees"],
+                "account": row["account"],
+                "source_account": row["source_account"],
+                "source_file": row["source_file"],
+                "status": (
+                    "duplicate"
+                    if is_duplicate
+                    else "imported"
+                    if body.commit
+                    else "ready"
+                ),
+            },
+        )
+
+        if not is_duplicate:
+            importable_rows.append(row)
+
+    if body.commit:
+        aliases = load_account_aliases()
+        for account in accounts:
+            key = str(account.get("key") or "").strip()
+            nickname = str(account.get("nickname") or "").strip()
+            if key and nickname:
+                aliases[key] = nickname
+        save_account_aliases(aliases)
+
+    if body.commit and importable_rows:
+        for row in importable_rows:
+            ticker = row["ticker"]
+            stored_row = {key: value for key, value in row.items() if key != "ticker"}
+            stored_row["id"] = uuid.uuid4().hex
+            transactions.setdefault(ticker, []).append(stored_row)
+
+        save_transactions(transactions)
+
+        effective_config = get_effective_tickers_config()
+        configured_tickers = {
+            normalize_ticker(row.get("ticker") or "")
+            for section in ("portfolio", "watchlist")
+            for row in effective_config.get(section, [])
+            if isinstance(row, dict)
+        }
+        missing_tickers = sorted(
+            {
+                normalize_ticker(row.get("ticker") or "")
+                for row in importable_rows
+                if normalize_ticker(row.get("ticker") or "") not in configured_tickers
+            },
+        )
+        if missing_tickers:
+            overrides = load_tickers_overrides()
+            tickers_map = overrides.setdefault("tickers", {})
+            for ticker in missing_tickers:
+                tickers_map[ticker] = {
+                    "list": "watchlist",
+                    "shares": None,
+                    "archived": False,
+                    "removed": False,
+                }
+            save_tickers_overrides(overrides)
+
+        append_portfolio_event(
+            "import_transactions",
+            "",
+            {
+                "imported": len(importable_rows),
+                "duplicates_skipped": len(parsed_rows) - len(importable_rows),
+                "files": [uploaded.name for uploaded in body.files],
+                "accounts": sorted(
+                    {
+                        str(row.get("account") or "").strip()
+                        for row in importable_rows
+                        if str(row.get("account") or "").strip()
+                    },
+                ),
+            },
+        )
+
+    return {
+        "status": "imported" if body.commit else "preview",
+        "summary": {
+            "parsed": len(parsed_rows),
+            "ready": len(importable_rows),
+            "duplicates": len(parsed_rows) - len(importable_rows),
+            "skipped": len(skipped),
+            "imported": len(importable_rows) if body.commit else 0,
+        },
+        "accounts": accounts,
+        "rows": preview_rows,
+        "skipped": skipped,
+    }
+
+
 @app.get("/api/transactions/{ticker}")
 def get_transactions_for_ticker(ticker: str) -> dict[str, Any]:
     normalized = normalize_ticker(ticker)
@@ -943,6 +1274,17 @@ def update_transaction_for_ticker(
         if str(entry.get("id")) == str(transaction_id):
             updated = validate_transaction_payload(body)
             updated["id"] = str(transaction_id)
+            for key in (
+                "source",
+                "source_file",
+                "source_account",
+                "source_account_key",
+                "source_amount",
+                "settlement_date",
+                "import_fingerprint",
+            ):
+                if key in entry:
+                    updated[key] = entry[key]
             entries[idx] = updated
             transactions[normalized] = entries
             save_transactions(transactions)

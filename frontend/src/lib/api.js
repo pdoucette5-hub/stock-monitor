@@ -125,6 +125,17 @@ export function fetchAccounts() {
   return request('/api/accounts')
 }
 
+export function importTransactions(files, accountMappings = {}, commit = false) {
+  return request('/api/transactions/import', {
+    method: 'POST',
+    body: JSON.stringify({
+      files,
+      account_mappings: accountMappings,
+      commit,
+    }),
+  })
+}
+
 export function saveStockScenario(ticker, payload) {
   const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
   return request(`/api/stock/${normalized}`, {
