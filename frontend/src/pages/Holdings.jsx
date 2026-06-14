@@ -24,6 +24,18 @@ const MANAGEMENT_FILTERS = [
   { id: 'all', label: 'All' },
 ]
 
+function sharesForManagementFilter(row, filter) {
+  const managed = Number(row.managed_shares || 0)
+  const tracked = Number(row.track_shares || 0)
+  const excluded = Number(row.excluded_shares || 0)
+
+  if (filter === 'managed') return managed
+  if (filter === 'track') return tracked
+  if (filter === 'excluded') return excluded
+  if (filter === 'active') return managed + tracked
+  return Number(row.shares || 0)
+}
+
 export default function Holdings() {
   const { view, loading, error, lastUpdated, load } = usePortfolioView()
   const [activeTab, setActiveTab] = useState('portfolio')
@@ -46,17 +58,20 @@ export default function Holdings() {
       ? sourceRows
       : sourceRows.filter((row) => row.show_in_holdings !== false)
 
-    if (activeTab !== 'portfolio' || managementFilter === 'all') return rows
-    if (managementFilter === 'active') {
-      return rows.filter((row) => row.management_mode !== 'excluded')
-    }
-    if (managementFilter === 'managed') {
-      return rows.filter((row) => Number(row.managed_shares || 0) > 0)
-    }
-    if (managementFilter === 'track') {
-      return rows.filter((row) => Number(row.track_shares || 0) > 0)
-    }
-    return rows.filter((row) => Number(row.excluded_shares || 0) > 0)
+    if (activeTab !== 'portfolio') return rows
+
+    return rows
+      .map((row) => {
+        const filteredShares = sharesForManagementFilter(row, managementFilter)
+        const price = Number(row.price)
+        return {
+          ...row,
+          total_shares: row.shares,
+          shares: filteredShares,
+          market_value: Number.isFinite(price) ? filteredShares * price : null,
+        }
+      })
+      .filter((row) => managementFilter === 'all' || Number(row.shares) > 0)
   }, [activeTab, managementFilter, sourceRows, showHidden])
 
   const toggleVisibility = async (ticker, showInHoldings) => {
@@ -185,14 +200,36 @@ export default function Holdings() {
       return baseColumns
     }
 
+    const filterLabel = {
+      active: 'Managed + Tracked',
+      managed: 'Managed',
+      track: 'Tracked',
+      excluded: 'Excluded',
+      all: 'Total',
+    }[managementFilter]
+
     const withEditableShares = baseColumns.map((column) => {
+      if (column.key === 'market_value') {
+        return {
+          ...column,
+          label: `${filterLabel} Value`,
+        }
+      }
       if (column.key !== 'shares') return column
 
       return {
         ...column,
+        label: `${filterLabel} Shares`,
         render: (row) => {
+          if (managementFilter !== 'all') {
+            return Number(row.shares || 0).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 4,
+            })
+          }
+
           const draftValue = shareDrafts[row.ticker]
-          const inputValue = draftValue ?? row.shares ?? ''
+          const inputValue = draftValue ?? row.total_shares ?? row.shares ?? ''
 
           return (
             <input
@@ -274,7 +311,7 @@ export default function Holdings() {
         ),
       },
     ]
-  }, [activeTab, shareDrafts, savingTicker])
+  }, [activeTab, managementFilter, shareDrafts, savingTicker])
 
   return (
     <div className="mx-auto w-[98vw] px-4 py-8">
