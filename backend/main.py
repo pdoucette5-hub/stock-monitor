@@ -180,6 +180,12 @@ class ManualAllocationUpdate(BaseModel):
     mode: str = "track"
 
 
+class AccountMergeRequest(BaseModel):
+    from_account: str
+    to_account: str
+    source_account_keys: list[str] = Field(default_factory=list)
+
+
 VALID_TRANSACTION_TYPES = {
     "buy",
     "sell",
@@ -502,6 +508,133 @@ def load_manual_allocations() -> list[dict[str, Any]]:
 
 def save_manual_allocations(rows: list[dict[str, Any]]) -> None:
     save_json_file(MANUAL_ALLOCATIONS_FILE, rows)
+
+
+def account_matches(
+    value: str | None,
+    from_account: str,
+    source_account_key: str | None = None,
+    source_account_keys: set[str] | None = None,
+) -> bool:
+    account = str(value or "").strip()
+    if account.casefold() == from_account.casefold():
+        return True
+
+    key = str(source_account_key or "").strip()
+    return bool(key and source_account_keys and key in source_account_keys)
+
+
+def merge_account_records(
+    from_account: str,
+    to_account: str,
+    source_account_keys: list[str] | None = None,
+) -> dict[str, Any]:
+    from_account = str(from_account or "").strip()
+    to_account = str(to_account or "").strip()
+    source_keys = {
+        str(key).strip()
+        for key in (source_account_keys or [])
+        if str(key).strip()
+    }
+
+    if not from_account or not to_account:
+        raise ValueError("Both source and target accounts are required")
+    if from_account.casefold() == to_account.casefold():
+        raise ValueError("Source and target accounts must be different")
+
+    aliases = load_account_aliases()
+    aliases[from_account.casefold()] = to_account
+    for key in source_keys:
+        aliases[key] = to_account
+    save_account_aliases(aliases)
+
+    transactions = load_transactions()
+    transaction_updates = 0
+    source_key_updates = 0
+    for entries in transactions.values():
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            source_key = str(entry.get("source_account_key") or "").strip()
+            if account_matches(
+                entry.get("account"),
+                from_account,
+                source_key,
+                source_keys,
+            ):
+                if entry.get("account") != to_account:
+                    entry["account"] = to_account
+                    transaction_updates += 1
+                if source_key in source_keys:
+                    source_key_updates += 1
+    if transaction_updates:
+        save_transactions(transactions)
+
+    allocations = load_manual_allocations()
+    allocation_updates = 0
+    for allocation in allocations:
+        if account_matches(allocation.get("account"), from_account):
+            allocation["account"] = to_account
+            allocation_updates += 1
+    if allocation_updates:
+        save_manual_allocations(allocations)
+
+    settings = load_management_modes()
+    account_defaults = settings.get("account_defaults", {})
+    if from_account in account_defaults:
+        account_defaults.setdefault(to_account, account_defaults[from_account])
+        account_defaults.pop(from_account, None)
+
+    position_overrides = settings.get("position_overrides", {})
+    updated_overrides: dict[str, str] = {}
+    mode_updates = 0
+    for key, mode in position_overrides.items():
+        account_part, sep, ticker_part = str(key).partition("|")
+        if sep and account_part.casefold() == from_account.casefold():
+            new_key = management_position_key(to_account, ticker_part)
+            updated_overrides.setdefault(new_key, mode)
+            mode_updates += 1
+        else:
+            updated_overrides[key] = mode
+    settings["account_defaults"] = account_defaults
+    settings["position_overrides"] = updated_overrides
+    if mode_updates or allocation_updates or transaction_updates:
+        save_management_modes(settings)
+
+    return {
+        "from_account": from_account,
+        "to_account": to_account,
+        "source_account_keys": sorted(source_keys),
+        "transactions_updated": transaction_updates,
+        "source_key_matches": source_key_updates,
+        "manual_allocations_updated": allocation_updates,
+        "management_settings_updated": mode_updates,
+    }
+
+
+def apply_account_aliases_to_transactions(
+    transactions: dict[str, list[dict[str, Any]]],
+    aliases: dict[str, str],
+) -> tuple[dict[str, list[dict[str, Any]]], int]:
+    updates = 0
+    for entries in transactions.values():
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+
+            source_key = str(entry.get("source_account_key") or "").strip()
+            account_name = str(entry.get("account") or "").strip()
+            source_name = str(entry.get("source_account") or "").strip()
+            alias = (
+                aliases.get(source_key)
+                or aliases.get(account_name.casefold())
+                or aliases.get(source_name.casefold())
+            )
+            if alias and entry.get("account") != alias:
+                entry["account"] = alias
+                updates += 1
+
+    return transactions, updates
 
 
 def management_position_key(account: str, ticker: str) -> str:
@@ -1567,6 +1700,39 @@ def update_manual_allocation(body: ManualAllocationUpdate) -> dict[str, Any]:
     return build_management_snapshot()
 
 
+@app.put("/api/accounts/merge")
+def merge_accounts(
+    body: AccountMergeRequest,
+    x_import_secret: str | None = Header(default=None),
+) -> dict[str, Any]:
+    if not PRICE_IMPORT_SECRET:
+        raise HTTPException(
+            status_code=500,
+            detail="PRICE_IMPORT_SECRET is not configured on the server",
+        )
+    if x_import_secret != PRICE_IMPORT_SECRET:
+        raise HTTPException(status_code=403, detail="Invalid import secret")
+
+    try:
+        result = merge_account_records(
+            body.from_account,
+            body.to_account,
+            body.source_account_keys,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    append_portfolio_event(
+        "merge_accounts",
+        "",
+        result,
+    )
+    return {
+        "status": "ok",
+        **result,
+    }
+
+
 @app.post("/api/transactions/import")
 def import_transactions(body: TransactionImportRequest) -> dict[str, Any]:
     if not body.files:
@@ -1619,6 +1785,12 @@ def import_transactions(body: TransactionImportRequest) -> dict[str, Any]:
             if key and nickname:
                 aliases[key] = nickname
         save_account_aliases(aliases)
+        transactions, alias_updates = apply_account_aliases_to_transactions(
+            transactions,
+            aliases,
+        )
+        if alias_updates:
+            save_transactions(transactions)
 
     if body.commit and importable_rows:
         for row in importable_rows:

@@ -58,6 +58,8 @@ function eventTitle(event) {
       return 'Portfolio management updated'
     case 'update_manual_allocation':
       return `${ticker}Account allocation updated`
+    case 'merge_accounts':
+      return 'Accounts merged'
     default:
       return `${ticker}${event.type || 'Change recorded'}`
   }
@@ -99,6 +101,10 @@ function eventSummary(event) {
 
   if (event.type === 'update_manual_allocation') {
     return `${formatValue(payload.shares)} shares assigned to ${payload.account || 'account'} as ${payload.mode || 'tracked'}`
+  }
+
+  if (event.type === 'merge_accounts') {
+    return `${payload.from_account || 'Source account'} -> ${payload.to_account || 'Target account'}; ${formatValue(payload.transactions_updated)} transactions updated`
   }
 
   return 'User change recorded'
