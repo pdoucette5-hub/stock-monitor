@@ -2,6 +2,12 @@ const API_BASE =
   import.meta.env.VITE_API_BASE ?? (import.meta.env.PROD ? '' : 'http://127.0.0.1:8000')
 const GET_CACHE_TTL_MS = 10 * 60 * 1000
 const getCache = new Map()
+let authToken = ''
+
+export function setAuthToken(token) {
+  authToken = token || ''
+  getCache.clear()
+}
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -18,6 +24,7 @@ async function request(path, options = {}) {
       response = await fetch(`${API_BASE}${path}`, {
         headers: {
           'Content-Type': 'application/json',
+          ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
           ...options.headers,
         },
         ...options,
@@ -42,6 +49,10 @@ async function request(path, options = {}) {
 
   if (response.status === 204) return null
   return response.json()
+}
+
+export function fetchAuthConfig() {
+  return request('/api/auth/config')
 }
 
 function cachedRequest(path, ttlMs = GET_CACHE_TTL_MS) {

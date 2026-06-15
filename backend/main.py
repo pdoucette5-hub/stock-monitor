@@ -14,10 +14,13 @@ from typing import Any
 
 import yaml
 import requests
-from fastapi import FastAPI, Header, HTTPException
+from fastapi import FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from google.auth.transport import requests as google_requests
+from google.oauth2 import id_token
 from pydantic import BaseModel, Field
 
 from backend.logic import merge_global_settings
@@ -59,6 +62,17 @@ PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 PRICE_IMPORT_SECRET = os.getenv("PRICE_IMPORT_SECRET", "")
+GOOGLE_AUTH_ENABLED = os.getenv("GOOGLE_AUTH_ENABLED", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+}
+GOOGLE_CLIENT_ID = os.getenv("GOOGLE_CLIENT_ID", "").strip()
+ALLOWED_USER_EMAILS = {
+    email.strip().casefold()
+    for email in os.getenv("ALLOWED_USER_EMAILS", "").split(",")
+    if email.strip()
+}
 STATE_GCS_BUCKET = os.getenv(
     "STOCK_MONITOR_STATE_GCS_BUCKET",
     os.getenv("PRICE_HISTORY_GCS_BUCKET", ""),
@@ -95,6 +109,55 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+PUBLIC_API_PATHS = {
+    "/api/health",
+    "/api/auth/config",
+    "/api/prices/import",
+    "/api/accounts/merge",
+}
+
+
+@app.middleware("http")
+async def require_google_auth(request: Request, call_next):
+    if (
+        not GOOGLE_AUTH_ENABLED
+        or request.method == "OPTIONS"
+        or not request.url.path.startswith("/api")
+        or request.url.path in PUBLIC_API_PATHS
+    ):
+        return await call_next(request)
+
+    if not GOOGLE_CLIENT_ID or not ALLOWED_USER_EMAILS:
+        return JSONResponse(
+            status_code=503,
+            content={"detail": "Google authentication is not fully configured"},
+        )
+
+    auth_header = request.headers.get("authorization", "")
+    scheme, _, token = auth_header.partition(" ")
+    if scheme.lower() != "bearer" or not token:
+        return JSONResponse(status_code=401, content={"detail": "Sign in required"})
+
+    try:
+        claims = id_token.verify_oauth2_token(
+            token,
+            google_requests.Request(),
+            GOOGLE_CLIENT_ID,
+        )
+    except ValueError:
+        return JSONResponse(status_code=401, content={"detail": "Invalid sign-in token"})
+
+    email = str(claims.get("email") or "").strip().casefold()
+    if not email or email not in ALLOWED_USER_EMAILS:
+        return JSONResponse(status_code=403, content={"detail": "Email is not allowed"})
+
+    request.state.user = {
+        "email": email,
+        "name": claims.get("name") or "",
+        "picture": claims.get("picture") or "",
+    }
+    return await call_next(request)
 
 
 class PortfolioSharesUpdate(BaseModel):
@@ -1255,6 +1318,14 @@ def serialize_ticker_scenario(raw: dict[str, Any]) -> TickerScenarioInputs:
 @app.get("/api/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/api/auth/config")
+def get_auth_config() -> dict[str, Any]:
+    return {
+        "enabled": GOOGLE_AUTH_ENABLED,
+        "client_id": GOOGLE_CLIENT_ID if GOOGLE_AUTH_ENABLED else "",
+    }
 
 
 @app.get("/api/tickers")
