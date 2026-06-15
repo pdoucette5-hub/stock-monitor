@@ -56,6 +56,8 @@ function eventTitle(event) {
       return 'Transactions imported'
     case 'update_management_modes':
       return 'Portfolio management updated'
+    case 'update_manual_allocation':
+      return `${ticker}Account allocation updated`
     default:
       return `${ticker}${event.type || 'Change recorded'}`
   }
@@ -93,6 +95,10 @@ function eventSummary(event) {
   if (event.type === 'update_management_modes') {
     const updates = Array.isArray(payload.updates) ? payload.updates : []
     return `${updates.length} management setting${updates.length === 1 ? '' : 's'} changed`
+  }
+
+  if (event.type === 'update_manual_allocation') {
+    return `${formatValue(payload.shares)} shares assigned to ${payload.account || 'account'} as ${payload.mode || 'tracked'}`
   }
 
   return 'User change recorded'

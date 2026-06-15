@@ -55,6 +55,7 @@ def _filter_transactions_by_accounts(
 def _account_summary(
     transactions_by_ticker: dict[str, list[dict[str, Any]]],
     selected_accounts: list[str] | None,
+    supplemental_positions: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     selected = _normalize_account_filter(selected_accounts)
     counts: dict[str, int] = {}
@@ -65,6 +66,11 @@ def _account_summary(
                 continue
             account = _transaction_account(entry)
             counts[account] = counts.get(account, 0) + 1
+
+    for position in supplemental_positions or []:
+        account = str(position.get("account") or "").strip()
+        if account:
+            counts.setdefault(account, 0)
 
     return [
         {
@@ -230,20 +236,35 @@ def build_portfolio_performance(
     tickers_config: dict[str, Any],
     range_key: str = "3y",
     accounts: list[str] | None = None,
+    supplemental_positions: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    account_rows = _account_summary(transactions_by_ticker, accounts)
+    account_rows = _account_summary(
+        transactions_by_ticker,
+        accounts,
+        supplemental_positions,
+    )
     filtered_transactions = _filter_transactions_by_accounts(
         transactions_by_ticker,
         accounts,
     )
     portfolio_positions = _portfolio_positions(tickers_config)
     account_filter_active = bool(_normalize_account_filter(accounts))
+    selected_accounts = _normalize_account_filter(accounts)
+    supplemental_shares: dict[str, float] = {}
+    for position in supplemental_positions or []:
+        account = str(position.get("account") or "").strip()
+        if account_filter_active and account.lower() not in selected_accounts:
+            continue
+        ticker = str(position.get("ticker") or "").strip().upper()
+        shares = max(_safe_float(position.get("shares"), 0.0), 0.0)
+        if ticker and shares > 0:
+            supplemental_shares[ticker] = supplemental_shares.get(ticker, 0.0) + shares
 
     if account_filter_active:
         tickers = [
             ticker
             for ticker in sorted(portfolio_positions)
-            if ticker in filtered_transactions
+            if ticker in filtered_transactions or supplemental_shares.get(ticker, 0.0) > 0
         ]
     else:
         tickers = sorted(
@@ -267,10 +288,29 @@ def build_portfolio_performance(
                 all_dates.add(str(point["date"]))
 
         transaction_rows = filtered_transactions.get(ticker, [])
+        supplemental = supplemental_shares.get(ticker, 0.0)
         if transaction_rows:
-            position_history_by_ticker[ticker] = _build_position_history(transaction_rows)
+            position_history = _build_position_history(transaction_rows)
+            for snapshot in position_history.values():
+                snapshot["shares"] = _safe_float(snapshot.get("shares"), 0.0) + supplemental
+            if supplemental > 0:
+                first_date = str(points[0]["date"])
+                position_history.setdefault(
+                    first_date,
+                    {
+                        "shares": supplemental,
+                        "cost_basis": 0.0,
+                        "realized_gain_loss": 0.0,
+                        "dividend_cash": 0.0,
+                    },
+                )
+            position_history_by_ticker[ticker] = position_history
         else:
-            shares = _safe_float(portfolio_positions.get(ticker), 0.0)
+            shares = (
+                supplemental
+                if account_filter_active
+                else _safe_float(portfolio_positions.get(ticker), 0.0)
+            )
             position_history_by_ticker[ticker] = {
                 str(points[0]["date"]): {
                     "shares": shares,

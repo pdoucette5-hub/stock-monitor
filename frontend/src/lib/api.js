@@ -1,5 +1,7 @@
 const API_BASE =
   import.meta.env.VITE_API_BASE ?? (import.meta.env.PROD ? '' : 'http://127.0.0.1:8000')
+const GET_CACHE_TTL_MS = 10 * 60 * 1000
+const getCache = new Map()
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -7,6 +9,9 @@ function sleep(ms) {
 
 async function request(path, options = {}) {
   let response
+  if (options.method && options.method !== 'GET') {
+    getCache.clear()
+  }
 
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
@@ -39,8 +44,22 @@ async function request(path, options = {}) {
   return response.json()
 }
 
+function cachedRequest(path, ttlMs = GET_CACHE_TTL_MS) {
+  const cached = getCache.get(path)
+  if (cached && Date.now() - cached.createdAt < ttlMs) {
+    return cached.promise
+  }
+
+  const promise = request(path).catch((error) => {
+    if (getCache.get(path)?.promise === promise) getCache.delete(path)
+    throw error
+  })
+  getCache.set(path, { createdAt: Date.now(), promise })
+  return promise
+}
+
 export function fetchPortfolioScenarios() {
-  return request('/api/portfolio')
+  return cachedRequest('/api/portfolio')
 }
 
 export function fetchPortfolioView(forceRefresh = false) {
@@ -69,7 +88,7 @@ export function fetchTickersConfig() {
 }
 
 export function fetchTickerRegistry() {
-  return request('/api/tickers')
+  return cachedRequest('/api/tickers')
 }
 
 export function syncSheetTickers() {
@@ -118,21 +137,33 @@ export function fetchGlobalSettings() {
 
 export function fetchStockScenario(ticker) {
   const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
-  return request(`/api/stock/${normalized}`)
+  return cachedRequest(`/api/stock/${normalized}`)
 }
 
 export function fetchAccounts() {
-  return request('/api/accounts')
+  return cachedRequest('/api/accounts')
 }
 
 export function fetchManagementSettings() {
-  return request('/api/management')
+  return cachedRequest('/api/management')
 }
 
 export function saveManagementSettings(updates) {
   return request('/api/management', {
     method: 'PUT',
     body: JSON.stringify({ updates }),
+  })
+}
+
+export function saveManualAllocation(ticker, account, shares, mode = 'track') {
+  return request('/api/management/allocation', {
+    method: 'PUT',
+    body: JSON.stringify({
+      ticker,
+      account,
+      shares,
+      mode,
+    }),
   })
 }
 
@@ -195,7 +226,8 @@ export function fetchPriceHistory(ticker, range = '3y', forceRefresh = false) {
     range,
     force_refresh: forceRefresh ? 'true' : 'false',
   })
-  return request(`/api/prices/history?${query.toString()}`)
+  const path = `/api/prices/history?${query.toString()}`
+  return forceRefresh ? request(path) : cachedRequest(path)
 }
 
 export function fetchPortfolioPerformance(range = '3y', accounts = [], mode = 'all') {
@@ -208,7 +240,7 @@ export function fetchPortfolioPerformance(range = '3y', accounts = [], mode = 'a
     query.set('accounts', selectedAccounts.join(','))
   }
 
-  return request(`/api/performance/portfolio?${query.toString()}`)
+  return cachedRequest(`/api/performance/portfolio?${query.toString()}`)
 }
 
 export function fetchPriceComparison(tickers, range = '3y', forceRefresh = false) {
@@ -222,7 +254,8 @@ export function fetchPriceComparison(tickers, range = '3y', forceRefresh = false
     force_refresh: forceRefresh ? 'true' : 'false',
   })
 
-  return request(`/api/prices/compare?${query.toString()}`)
+  const path = `/api/prices/compare?${query.toString()}`
+  return forceRefresh ? request(path) : cachedRequest(path)
 }
 
 export function fetchChangeLog({ ticker = '', limit = 250 } = {}) {

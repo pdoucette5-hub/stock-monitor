@@ -5,6 +5,8 @@ import hashlib
 import io
 import json
 import os
+import threading
+import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -52,6 +54,7 @@ TICKERS_OVERRIDES_FILE = BASE_DIR / "cache" / "tickers_overrides.json"
 TRANSACTIONS_FILE = BASE_DIR / "cache" / "transactions.json"
 ACCOUNT_ALIASES_FILE = BASE_DIR / "cache" / "account_aliases.json"
 MANAGEMENT_MODES_FILE = BASE_DIR / "cache" / "management_modes.json"
+MANUAL_ALLOCATIONS_FILE = BASE_DIR / "cache" / "manual_allocations.json"
 PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
@@ -69,7 +72,12 @@ TICKERS_OVERRIDES_FILE.parent.mkdir(parents=True, exist_ok=True)
 TRANSACTIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
 ACCOUNT_ALIASES_FILE.parent.mkdir(parents=True, exist_ok=True)
 MANAGEMENT_MODES_FILE.parent.mkdir(parents=True, exist_ok=True)
+MANUAL_ALLOCATIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
 PORTFOLIO_EVENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+RESPONSE_CACHE_TTL_SECONDS = int(os.getenv("STOCK_MONITOR_RESPONSE_CACHE_TTL_SECONDS", "600"))
+_response_cache: dict[str, tuple[float, Any]] = {}
+_response_cache_lock = threading.Lock()
 
 app = FastAPI(title="Stock Monitor API", version="0.1.0")
 
@@ -165,6 +173,13 @@ class ManagementModesUpdate(BaseModel):
     updates: list[ManagementModeUpdate]
 
 
+class ManualAllocationUpdate(BaseModel):
+    ticker: str
+    account: str
+    shares: float
+    mode: str = "track"
+
+
 VALID_TRANSACTION_TYPES = {
     "buy",
     "sell",
@@ -247,6 +262,8 @@ def save_json_file(path: Path, data: Any) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
+    invalidate_response_cache()
+
     if not STATE_GCS_BUCKET:
         return
 
@@ -260,6 +277,29 @@ def save_json_file(path: Path, data: Any) -> None:
         json.dumps(data, indent=2),
         content_type="application/json",
     )
+
+
+def invalidate_response_cache() -> None:
+    with _response_cache_lock:
+        _response_cache.clear()
+
+
+def get_cached_response(key: str) -> Any | None:
+    with _response_cache_lock:
+        cached = _response_cache.get(key)
+        if not cached:
+            return None
+        cached_at, payload = cached
+        if time.monotonic() - cached_at > RESPONSE_CACHE_TTL_SECONDS:
+            _response_cache.pop(key, None)
+            return None
+        return payload
+
+
+def set_cached_response(key: str, payload: Any) -> Any:
+    with _response_cache_lock:
+        _response_cache[key] = (time.monotonic(), payload)
+    return payload
 
 
 def load_scenario_inputs() -> dict[str, Any]:
@@ -440,6 +480,30 @@ def save_management_modes(data: dict[str, Any]) -> None:
     save_json_file(MANAGEMENT_MODES_FILE, data)
 
 
+def load_manual_allocations() -> list[dict[str, Any]]:
+    raw = load_json_file(MANUAL_ALLOCATIONS_FILE, [])
+    if not isinstance(raw, list):
+        return []
+
+    cleaned: list[dict[str, Any]] = []
+    for row in raw:
+        if not isinstance(row, dict):
+            continue
+        ticker = normalize_ticker(row.get("ticker", ""))
+        account = str(row.get("account") or "").strip()
+        try:
+            shares = float(row.get("shares") or 0.0)
+        except (TypeError, ValueError):
+            continue
+        if ticker and account and account != UNASSIGNED_ACCOUNT and shares > 0:
+            cleaned.append({"ticker": ticker, "account": account, "shares": shares})
+    return cleaned
+
+
+def save_manual_allocations(rows: list[dict[str, Any]]) -> None:
+    save_json_file(MANUAL_ALLOCATIONS_FILE, rows)
+
+
 def management_position_key(account: str, ticker: str) -> str:
     return f"{str(account).strip().casefold()}|{normalize_ticker(ticker)}"
 
@@ -476,6 +540,7 @@ def get_management_mode_source(
 def build_management_snapshot() -> dict[str, Any]:
     transactions = load_transactions()
     settings = load_management_modes()
+    manual_allocations = load_manual_allocations()
     config = get_effective_tickers_config()
     configured_shares = {
         row["ticker"]: float(row.get("shares") or 0.0)
@@ -522,18 +587,41 @@ def build_management_snapshot() -> dict[str, Any]:
                 position["shares"] = float(position["shares"]) * scale
         transaction_shares_by_ticker[ticker] = configured_total
 
+    allocations_by_ticker: dict[str, list[dict[str, Any]]] = {}
+    for allocation in manual_allocations:
+        allocations_by_ticker.setdefault(allocation["ticker"], []).append(allocation)
+
     accounts.add(UNASSIGNED_ACCOUNT)
     for ticker, total_shares in configured_shares.items():
         residual = max(
             total_shares - transaction_shares_by_ticker.get(ticker, 0.0),
             0.0,
         )
-        if residual > 0:
+        remaining = residual
+        for allocation in allocations_by_ticker.get(ticker, []):
+            allocated_shares = min(float(allocation["shares"]), remaining)
+            if allocated_shares <= 0:
+                continue
+            account = allocation["account"]
+            accounts.add(account)
+            positions.append(
+                {
+                    "account": account,
+                    "ticker": ticker,
+                    "shares": allocated_shares,
+                    "mode": get_management_mode(settings, account, ticker),
+                    "mode_source": get_management_mode_source(settings, account, ticker),
+                    "source": "manual_allocation",
+                },
+            )
+            remaining -= allocated_shares
+
+        if remaining > 0:
             positions.append(
                 {
                     "account": UNASSIGNED_ACCOUNT,
                     "ticker": ticker,
-                    "shares": residual,
+                    "shares": remaining,
                     "mode": get_management_mode(settings, UNASSIGNED_ACCOUNT, ticker),
                     "mode_source": get_management_mode_source(
                         settings,
@@ -576,6 +664,7 @@ def build_management_snapshot() -> dict[str, Any]:
             key=lambda row: (str(row["account"]).casefold(), row["ticker"]),
         ),
         "shares_by_mode": shares_by_mode,
+        "manual_allocations": manual_allocations,
     }
 
 
@@ -1092,14 +1181,22 @@ def get_portfolio_performance(
     mode: str = "all",
 ) -> dict[str, Any]:
     try:
+        cache_key = (
+            f"performance:{str(range).strip().lower()}:"
+            f"{str(accounts).strip().casefold()}:{str(mode).strip().lower()}"
+        )
+        cached = get_cached_response(cache_key)
+        if cached is not None:
+            return cached
+
         transactions = load_transactions()
         tickers_config = get_effective_tickers_config()
+        management = build_management_snapshot()
         normalized_mode = str(mode or "all").strip().lower()
         if normalized_mode != "all" and normalized_mode not in VALID_MANAGEMENT_MODES:
             raise ValueError("Mode must be all, managed, track, or excluded")
 
         if normalized_mode in VALID_MANAGEMENT_MODES:
-            management = build_management_snapshot()
             transactions = filter_transactions_by_management_mode(
                 transactions,
                 normalized_mode,
@@ -1114,12 +1211,22 @@ def get_portfolio_performance(
             for account in str(accounts).split(",")
             if account.strip()
         ]
-        return build_portfolio_performance(
+        payload = build_portfolio_performance(
             transactions_by_ticker=transactions,
             tickers_config=tickers_config,
             range_key=range,
             accounts=account_filter or None,
+            supplemental_positions=[
+                position
+                for position in management["positions"]
+                if position["source"] != "transactions"
+                and (
+                    normalized_mode == "all"
+                    or position["mode"] == normalized_mode
+                )
+            ],
         )
+        return set_cached_response(cache_key, payload)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
@@ -1145,6 +1252,7 @@ def import_price_history(
             [row.model_dump(mode="json") for row in body.rows],
             default_source="googlefinance",
         )
+        invalidate_response_cache()
         return {
             "status": "ok",
             **result,
@@ -1333,6 +1441,11 @@ def get_transaction_accounts() -> dict[str, Any]:
             if account:
                 accounts_by_key.setdefault(account.casefold(), account)
 
+    for allocation in load_manual_allocations():
+        account = str(allocation.get("account") or "").strip()
+        if account:
+            accounts_by_key.setdefault(account.casefold(), account)
+
     accounts = sorted(accounts_by_key.values(), key=str.casefold)
     return {
         "count": len(accounts),
@@ -1380,6 +1493,76 @@ def update_management_settings(body: ManagementModesUpdate) -> dict[str, Any]:
         "update_management_modes",
         "",
         {"updates": [update.model_dump(mode="json") for update in body.updates]},
+    )
+    return build_management_snapshot()
+
+
+@app.put("/api/management/allocation")
+def update_manual_allocation(body: ManualAllocationUpdate) -> dict[str, Any]:
+    ticker = normalize_ticker(body.ticker)
+    account = str(body.account or "").strip()
+    mode = str(body.mode or "").strip().lower()
+    shares = float(body.shares)
+
+    if not ticker:
+        raise HTTPException(status_code=400, detail="Ticker is required")
+    if not account or account == UNASSIGNED_ACCOUNT:
+        raise HTTPException(status_code=400, detail="Choose a named account")
+    if shares < 0:
+        raise HTTPException(status_code=400, detail="Shares must be non-negative")
+    if mode not in VALID_MANAGEMENT_MODES:
+        raise HTTPException(
+            status_code=400,
+            detail="Mode must be managed, track, or excluded",
+        )
+
+    snapshot = build_management_snapshot()
+    existing_allocations = load_manual_allocations()
+    existing_shares = sum(
+        float(row["shares"])
+        for row in snapshot["positions"]
+        if row["ticker"] == ticker
+        and row["account"].casefold() == account.casefold()
+        and row["source"] == "manual_allocation"
+    )
+    unassigned_shares = sum(
+        float(row["shares"])
+        for row in snapshot["positions"]
+        if row["ticker"] == ticker and row["account"] == UNASSIGNED_ACCOUNT
+    )
+    if shares > unassigned_shares + existing_shares + 1e-8:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                f"Only {unassigned_shares + existing_shares:.4f} residual "
+                f"{ticker} shares are available"
+            ),
+        )
+
+    allocations = [
+        row
+        for row in existing_allocations
+        if not (
+            row["ticker"] == ticker
+            and row["account"].casefold() == account.casefold()
+        )
+    ]
+    if shares > 0:
+        allocations.append({"ticker": ticker, "account": account, "shares": shares})
+    save_manual_allocations(allocations)
+
+    settings = load_management_modes()
+    settings["position_overrides"][management_position_key(account, ticker)] = mode
+    save_management_modes(settings)
+
+    append_portfolio_event(
+        "update_manual_allocation",
+        ticker,
+        {
+            "account": account,
+            "shares": shares,
+            "mode": mode,
+        },
     )
     return build_management_snapshot()
 
@@ -1725,6 +1908,7 @@ def update_portfolio_shares(
         management_shares=build_management_snapshot()["shares_by_mode"],
         force_refresh=force_refresh,
     )
+    set_cached_response("portfolio_view", payload)
     return PortfolioViewResponse.model_validate(payload)
 
 
@@ -1794,11 +1978,17 @@ def update_portfolio_controls(
         management_shares=build_management_snapshot()["shares_by_mode"],
         force_refresh=force_refresh,
     )
+    set_cached_response("portfolio_view", payload)
     return PortfolioViewResponse.model_validate(payload)
 
 
 @app.get("/api/portfolio/view", response_model=PortfolioViewResponse)
 def get_portfolio_view(force_refresh: bool = False) -> PortfolioViewResponse:
+    if not force_refresh:
+        cached = get_cached_response("portfolio_view")
+        if cached is not None:
+            return PortfolioViewResponse.model_validate(cached)
+
     payload = build_portfolio_views(
         get_effective_tickers_config(),
         load_scenario_inputs(),
@@ -1806,6 +1996,7 @@ def get_portfolio_view(force_refresh: bool = False) -> PortfolioViewResponse:
         management_shares=build_management_snapshot()["shares_by_mode"],
         force_refresh=force_refresh,
     )
+    set_cached_response("portfolio_view", payload)
     return PortfolioViewResponse.model_validate(payload)
 
 

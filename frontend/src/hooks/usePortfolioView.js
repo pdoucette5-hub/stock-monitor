@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { fetchPortfolioView } from '../lib/api'
 
-const CACHE_TTL_MS = 30 * 1000
+const CACHE_TTL_MS = 10 * 60 * 1000
 
 let cachedView = null
 let cachedAt = null
