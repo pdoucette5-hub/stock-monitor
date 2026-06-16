@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { fetchAuthConfig, setAuthToken } from '../lib/api'
+import { fetchAuthConfig, fetchAuthUser, setAuthToken } from '../lib/api'
 
 const GOOGLE_SCRIPT_SRC = 'https://accounts.google.com/gsi/client'
 
@@ -90,16 +90,27 @@ export function AuthProvider({ children }) {
 
         window.google.accounts.id.initialize({
           client_id: config.client_id,
-          callback: (response) => {
+          callback: async (response) => {
             const credential = response?.credential || ''
             const claims = decodeJwtPayload(credential)
             setToken(credential)
             setAuthToken(credential)
-            setUser({
-              email: claims?.email || '',
-              name: claims?.name || claims?.email || '',
-              picture: claims?.picture || '',
-            })
+            try {
+              const profile = await fetchAuthUser()
+              setUser({
+                email: profile?.email || claims?.email || '',
+                name: profile?.name || claims?.name || claims?.email || '',
+                picture: profile?.picture || claims?.picture || '',
+                role: profile?.role || 'full',
+              })
+            } catch {
+              setUser({
+                email: claims?.email || '',
+                name: claims?.name || claims?.email || '',
+                picture: claims?.picture || '',
+                role: 'limited',
+              })
+            }
           },
         })
 

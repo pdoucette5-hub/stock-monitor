@@ -19,6 +19,7 @@ import {
   formToApi,
 } from '../lib/scenarioForm'
 import { clearPortfolioViewCache } from '../hooks/usePortfolioView'
+import { useAuth } from '../auth/AuthContext'
 
 const SCENARIO_BLOCKS = [
   {
@@ -267,6 +268,8 @@ function PriceChart({ points }) {
 }
 
 export default function StockDetail() {
+  const { authEnabled, user } = useAuth()
+  const hasFullAccess = !authEnabled || user?.role !== 'limited'
   const [searchParams, setSearchParams] = useSearchParams()
   const [tickers, setTickers] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
@@ -339,6 +342,11 @@ export default function StockDetail() {
   }, [])
 
   const loadAccounts = useCallback(async () => {
+    if (!hasFullAccess) {
+      setAccountOptions([])
+      return
+    }
+
     try {
       const payload = await fetchAccounts()
       const accounts = Array.isArray(payload?.accounts) ? payload.accounts : []
@@ -349,7 +357,7 @@ export default function StockDetail() {
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load accounts')
     }
-  }, [])
+  }, [hasFullAccess])
 
   useEffect(() => {
     loadAccounts()
@@ -408,7 +416,7 @@ export default function StockDetail() {
   }, [])
 
   const loadTickerTransactions = useCallback(async (ticker) => {
-    if (!ticker) {
+    if (!ticker || !hasFullAccess) {
       setTransactions([])
       return
     }
@@ -424,10 +432,10 @@ export default function StockDetail() {
     } finally {
       setLoadingTransactions(false)
     }
-  }, [])
+  }, [hasFullAccess])
 
   const loadPosition = useCallback(async (ticker) => {
-    if (!ticker) {
+    if (!ticker || !hasFullAccess) {
       setPositionSummary(null)
       return
     }
@@ -441,7 +449,7 @@ export default function StockDetail() {
     } finally {
       setLoadingPosition(false)
     }
-  }, [])
+  }, [hasFullAccess])
 
   const loadPriceHistory = useCallback(async (ticker, range) => {
     if (!ticker) {
@@ -786,55 +794,57 @@ export default function StockDetail() {
             )}
           </section>
 
-          <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold text-slate-900">Position Summary</h2>
-              <p className="mt-1 text-sm text-slate-500">
-                Derived from the transaction ledger for this ticker.
-              </p>
-            </div>
+          {hasFullAccess && (
+            <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="mb-4">
+                <h2 className="text-lg font-semibold text-slate-900">Position Summary</h2>
+                <p className="mt-1 text-sm text-slate-500">
+                  Derived from the transaction ledger for this ticker.
+                </p>
+              </div>
 
-            {loadingPosition ? (
-              <p className="text-sm text-slate-500">Loading position summary…</p>
-            ) : (
-              <>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-                  <SummaryCard
-                    label="Current Shares"
-                    value={formatNumber(positionSummary?.current_shares, 4)}
-                  />
-                  <SummaryCard
-                    label="Cost Basis"
-                    value={formatMoney(positionSummary?.total_cost_basis)}
-                  />
-                  <SummaryCard
-                    label="Avg Cost / Share"
-                    value={formatMoney(positionSummary?.average_cost_per_share)}
-                  />
-                  <SummaryCard
-                    label="Realized Gain/Loss"
-                    value={formatMoney(positionSummary?.realized_gain_loss)}
-                  />
-                  <SummaryCard
-                    label="Dividend Cash"
-                    value={formatMoney(positionSummary?.dividend_cash)}
-                  />
-                </div>
+              {loadingPosition ? (
+                <p className="text-sm text-slate-500">Loading position summary…</p>
+              ) : (
+                <>
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                    <SummaryCard
+                      label="Current Shares"
+                      value={formatNumber(positionSummary?.current_shares, 4)}
+                    />
+                    <SummaryCard
+                      label="Cost Basis"
+                      value={formatMoney(positionSummary?.total_cost_basis)}
+                    />
+                    <SummaryCard
+                      label="Avg Cost / Share"
+                      value={formatMoney(positionSummary?.average_cost_per_share)}
+                    />
+                    <SummaryCard
+                      label="Realized Gain/Loss"
+                      value={formatMoney(positionSummary?.realized_gain_loss)}
+                    />
+                    <SummaryCard
+                      label="Dividend Cash"
+                      value={formatMoney(positionSummary?.dividend_cash)}
+                    />
+                  </div>
 
-                {Array.isArray(positionSummary?.warnings) &&
-                  positionSummary.warnings.length > 0 && (
-                    <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-                      <div className="font-medium">Warnings</div>
-                      <ul className="mt-2 list-disc space-y-1 pl-5">
-                        {positionSummary.warnings.map((warning, idx) => (
-                          <li key={`${warning}-${idx}`}>{warning}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-              </>
-            )}
-          </section>
+                  {Array.isArray(positionSummary?.warnings) &&
+                    positionSummary.warnings.length > 0 && (
+                      <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+                        <div className="font-medium">Warnings</div>
+                        <ul className="mt-2 list-disc space-y-1 pl-5">
+                          {positionSummary.warnings.map((warning, idx) => (
+                            <li key={`${warning}-${idx}`}>{warning}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                </>
+              )}
+            </section>
+          )}
 
           <form onSubmit={handleSave} className="space-y-6">
             <fieldset disabled={disableForm} className="space-y-6">
@@ -950,6 +960,7 @@ export default function StockDetail() {
             </div>
           </form>
 
+          {hasFullAccess && (
           <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="mb-5">
               <h2 className="text-lg font-semibold text-slate-900">Transactions</h2>
@@ -1138,6 +1149,7 @@ export default function StockDetail() {
               </table>
             </div>
           </section>
+          )}
         </div>
       )}
     </div>

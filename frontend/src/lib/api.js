@@ -55,6 +55,10 @@ export function fetchAuthConfig() {
   return request('/api/auth/config')
 }
 
+export function fetchAuthUser() {
+  return request('/api/auth/me')
+}
+
 function cachedRequest(path, ttlMs = GET_CACHE_TTL_MS) {
   const cached = getCache.get(path)
   if (cached && Date.now() - cached.createdAt < ttlMs) {

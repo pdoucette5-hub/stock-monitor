@@ -73,6 +73,12 @@ ALLOWED_USER_EMAILS = {
     for email in os.getenv("ALLOWED_USER_EMAILS", "").split(",")
     if email.strip()
 }
+LIMITED_USER_EMAILS = {
+    email.strip().casefold()
+    for email in os.getenv("LIMITED_USER_EMAILS", "").split(",")
+    if email.strip()
+}
+AUTHORIZED_USER_EMAILS = ALLOWED_USER_EMAILS | LIMITED_USER_EMAILS
 STATE_GCS_BUCKET = os.getenv(
     "STOCK_MONITOR_STATE_GCS_BUCKET",
     os.getenv("PRICE_HISTORY_GCS_BUCKET", ""),
@@ -117,6 +123,22 @@ PUBLIC_API_PATHS = {
     "/api/accounts/merge",
 }
 
+FULL_ACCESS_ONLY_EXACT_PATHS = {
+    "/api/accounts",
+    "/api/management",
+    "/api/management/allocation",
+    "/api/performance/portfolio",
+    "/api/portfolio/controls",
+    "/api/portfolio/shares",
+    "/api/sheets/tickers/sync",
+    "/api/tickers/portfolio",
+}
+
+FULL_ACCESS_ONLY_PREFIXES = (
+    "/api/position/",
+    "/api/transactions",
+)
+
 
 @app.middleware("http")
 async def require_google_auth(request: Request, call_next):
@@ -128,7 +150,7 @@ async def require_google_auth(request: Request, call_next):
     ):
         return await call_next(request)
 
-    if not GOOGLE_CLIENT_ID or not ALLOWED_USER_EMAILS:
+    if not GOOGLE_CLIENT_ID or not AUTHORIZED_USER_EMAILS:
         return JSONResponse(
             status_code=503,
             content={"detail": "Google authentication is not fully configured"},
@@ -149,14 +171,26 @@ async def require_google_auth(request: Request, call_next):
         return JSONResponse(status_code=401, content={"detail": "Invalid sign-in token"})
 
     email = str(claims.get("email") or "").strip().casefold()
-    if not email or email not in ALLOWED_USER_EMAILS:
+    if not email or email not in AUTHORIZED_USER_EMAILS:
         return JSONResponse(status_code=403, content={"detail": "Email is not allowed"})
 
+    role = "full" if email in ALLOWED_USER_EMAILS else "limited"
     request.state.user = {
         "email": email,
         "name": claims.get("name") or "",
         "picture": claims.get("picture") or "",
+        "role": role,
     }
+
+    if role != "full" and (
+        request.url.path in FULL_ACCESS_ONLY_EXACT_PATHS
+        or any(request.url.path.startswith(prefix) for prefix in FULL_ACCESS_ONLY_PREFIXES)
+    ):
+        return JSONResponse(
+            status_code=403,
+            content={"detail": "Private portfolio data is not available for this account"},
+        )
+
     return await call_next(request)
 
 
@@ -1315,6 +1349,130 @@ def serialize_ticker_scenario(raw: dict[str, Any]) -> TickerScenarioInputs:
     return TickerScenarioInputs.model_validate(raw)
 
 
+def current_user_role(request: Request | None) -> str:
+    if not request:
+        return "full"
+    user = getattr(request.state, "user", None)
+    if isinstance(user, dict):
+        return str(user.get("role") or "full")
+    return "full"
+
+
+def has_full_access(request: Request | None) -> bool:
+    return current_user_role(request) == "full"
+
+
+def redact_tickers_config_for_limited(payload: dict[str, Any]) -> dict[str, Any]:
+    redacted = json.loads(json.dumps(payload))
+
+    def redact_config(config: Any) -> Any:
+        if not isinstance(config, dict):
+            return config
+        portfolio = []
+        for row in config.get("portfolio", []) or []:
+            if isinstance(row, dict):
+                next_row = dict(row)
+                next_row["shares"] = None
+                portfolio.append(next_row)
+            else:
+                portfolio.append(row)
+        return {
+            **config,
+            "portfolio": portfolio,
+        }
+
+    for key in ("base", "effective"):
+        if key in redacted:
+            redacted[key] = redact_config(redacted[key])
+
+    overrides = redacted.get("overrides")
+    if isinstance(overrides, dict):
+        tickers = overrides.get("tickers")
+        if isinstance(tickers, dict):
+            for value in tickers.values():
+                if isinstance(value, dict):
+                    value["shares"] = None
+
+    if "portfolio" in redacted:
+        redacted = redact_config(redacted)
+
+    return redacted
+
+
+def redact_portfolio_view_for_limited(payload: Any) -> Any:
+    redacted = json.loads(json.dumps(payload))
+    sensitive_fields = {
+        "shares",
+        "market_value",
+        "total_value",
+        "managed_shares",
+        "track_shares",
+        "excluded_shares",
+        "eligible_redistribution_shares",
+        "locked_shares",
+        "dollar_trade",
+        "shares_trade",
+        "current_eligible_weight",
+        "target_weight_effective",
+    }
+
+    for section in ("portfolio", "watchlist", "action_queue"):
+        rows = redacted.get(section)
+        if not isinstance(rows, list):
+            continue
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            for field in sensitive_fields:
+                if field in row:
+                    row[field] = None
+
+    metrics = redacted.get("metrics")
+    if isinstance(metrics, dict):
+        for field in ("total_value", "portfolio_value", "market_value"):
+            if field in metrics:
+                metrics[field] = None
+
+    redacted["action_queue"] = []
+    redacted["action_queue_summary"] = {}
+    return redacted
+
+
+def redact_event_for_limited(event: dict[str, Any]) -> dict[str, Any]:
+    redacted = dict(event)
+    payload = redacted.get("payload")
+    if not isinstance(payload, dict):
+        return redacted
+
+    sensitive_keys = {
+        "account",
+        "accounts",
+        "date",
+        "files",
+        "from_account",
+        "shares",
+        "to_account",
+        "transaction_id",
+        "transaction_type",
+        "transactions_updated",
+    }
+    clean_payload = {
+        key: value
+        for key, value in payload.items()
+        if key not in sensitive_keys
+    }
+    if isinstance(clean_payload.get("changes"), list):
+        clean_payload["changes"] = [
+            change
+            for change in clean_payload["changes"]
+            if isinstance(change, dict)
+            and "share" not in str(change.get("field") or "").casefold()
+            and "share" not in str(change.get("label") or "").casefold()
+        ]
+    redacted["payload"] = clean_payload
+    return redacted
+
+
 @app.get("/api/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
@@ -1328,13 +1486,28 @@ def get_auth_config() -> dict[str, Any]:
     }
 
 
-@app.get("/api/tickers")
-def get_ticker_registry() -> dict[str, Any]:
+@app.get("/api/auth/me")
+def get_auth_user(request: Request) -> dict[str, Any]:
+    user = getattr(request.state, "user", None)
+    if not isinstance(user, dict):
+        return {"authenticated": False, "role": "full"}
     return {
+        "authenticated": True,
+        "email": user.get("email") or "",
+        "name": user.get("name") or "",
+        "picture": user.get("picture") or "",
+        "role": user.get("role") or "full",
+    }
+
+
+@app.get("/api/tickers")
+def get_ticker_registry(request: Request) -> dict[str, Any]:
+    payload = {
         "base": load_tickers_config(),
         "overrides": load_tickers_overrides(),
         "effective": get_effective_tickers_config(),
     }
+    return payload if has_full_access(request) else redact_tickers_config_for_limited(payload)
 
 
 @app.post("/api/sheets/tickers/sync")
@@ -1354,6 +1527,7 @@ def sync_tickers_to_sheet() -> dict[str, Any]:
 
 @app.get("/api/events")
 def get_portfolio_events(
+    request: Request,
     ticker: str | None = None,
     limit: int = 500,
 ) -> dict[str, Any]:
@@ -1371,6 +1545,8 @@ def get_portfolio_events(
 
     limit = max(1, min(int(limit), 5000))
     events = events[:limit]
+    if not has_full_access(request):
+        events = [redact_event_for_limited(event) for event in events]
 
     return {
         "count": len(events),
@@ -2226,10 +2402,14 @@ def update_portfolio_controls(
 
 
 @app.get("/api/portfolio/view", response_model=PortfolioViewResponse)
-def get_portfolio_view(force_refresh: bool = False) -> PortfolioViewResponse:
+def get_portfolio_view(request: Request, force_refresh: bool = False) -> PortfolioViewResponse:
     if not force_refresh:
         cached = get_cached_response("portfolio_view")
         if cached is not None:
+            if not has_full_access(request):
+                return PortfolioViewResponse.model_validate(
+                    redact_portfolio_view_for_limited(cached),
+                )
             return PortfolioViewResponse.model_validate(cached)
 
     payload = build_portfolio_views(
@@ -2240,6 +2420,8 @@ def get_portfolio_view(force_refresh: bool = False) -> PortfolioViewResponse:
         force_refresh=force_refresh,
     )
     set_cached_response("portfolio_view", payload)
+    if not has_full_access(request):
+        payload = redact_portfolio_view_for_limited(payload)
     return PortfolioViewResponse.model_validate(payload)
 
 
@@ -2265,8 +2447,11 @@ def replace_portfolio_scenarios(body: ScenarioInputsResponse) -> ScenarioInputsR
 
 
 @app.get("/api/config/tickers", response_model=PortfolioConfig)
-def get_tickers_config() -> PortfolioConfig:
-    return PortfolioConfig.model_validate(get_effective_tickers_config())
+def get_tickers_config(request: Request) -> PortfolioConfig:
+    payload = get_effective_tickers_config()
+    if not has_full_access(request):
+        payload = redact_tickers_config_for_limited(payload)
+    return PortfolioConfig.model_validate(payload)
 
 
 @app.get("/api/stock/{ticker}", response_model=StockScenarioResponse)

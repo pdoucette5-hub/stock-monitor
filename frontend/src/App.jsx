@@ -22,6 +22,8 @@ function navClass({ isActive }) {
 
 export default function App() {
   const { authEnabled, user, signOut } = useAuth()
+  const hasFullAccess = !authEnabled || user?.role !== 'limited'
+  const defaultPath = hasFullAccess ? '/' : '/watchlist'
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -34,33 +36,43 @@ export default function App() {
             </p>
           </div>
           <nav className="flex flex-wrap items-center justify-end gap-1">
-            <NavLink to="/" end className={navClass}>
-              Holdings
-            </NavLink>
+            {hasFullAccess && (
+              <NavLink to="/" end className={navClass}>
+                Holdings
+              </NavLink>
+            )}
             <NavLink to="/watchlist" className={navClass}>
               Watchlist
             </NavLink>
-            <NavLink to="/redistribution" className={navClass}>
-              Redistribution
-            </NavLink>
-            <NavLink to="/actions" className={navClass}>
-              Actions
-            </NavLink>
-            <NavLink to="/performance" className={navClass}>
-              Performance
-            </NavLink>
-            <NavLink to="/management" className={navClass}>
-              Management
-            </NavLink>
+            {hasFullAccess && (
+              <>
+                <NavLink to="/redistribution" className={navClass}>
+                  Redistribution
+                </NavLink>
+                <NavLink to="/actions" className={navClass}>
+                  Actions
+                </NavLink>
+                <NavLink to="/performance" className={navClass}>
+                  Performance
+                </NavLink>
+                <NavLink to="/management" className={navClass}>
+                  Management
+                </NavLink>
+              </>
+            )}
             <NavLink to="/change-log" className={navClass}>
               Change Log
             </NavLink>
-            <NavLink to="/import" className={navClass}>
-              Import
-            </NavLink>
-            <NavLink to="/archived" className={navClass}>
-              Archived
-            </NavLink>
+            {hasFullAccess && (
+              <>
+                <NavLink to="/import" className={navClass}>
+                  Import
+                </NavLink>
+                <NavLink to="/archived" className={navClass}>
+                  Archived
+                </NavLink>
+              </>
+            )}
             <NavLink to="/stock" className={navClass}>
               Stock Detail
             </NavLink>
@@ -80,17 +92,38 @@ export default function App() {
 
       <main>
         <Routes>
-          <Route path="/" element={<Holdings />} />
+          <Route
+            path="/"
+            element={hasFullAccess ? <Holdings /> : <Navigate to="/watchlist" replace />}
+          />
           <Route path="/watchlist" element={<Watchlist />} />
-          <Route path="/redistribution" element={<Redistribution />} />
-          <Route path="/actions" element={<Actions />} />
-          <Route path="/performance" element={<Performance />} />
-          <Route path="/management" element={<Management />} />
+          <Route
+            path="/redistribution"
+            element={hasFullAccess ? <Redistribution /> : <Navigate to={defaultPath} replace />}
+          />
+          <Route
+            path="/actions"
+            element={hasFullAccess ? <Actions /> : <Navigate to={defaultPath} replace />}
+          />
+          <Route
+            path="/performance"
+            element={hasFullAccess ? <Performance /> : <Navigate to={defaultPath} replace />}
+          />
+          <Route
+            path="/management"
+            element={hasFullAccess ? <Management /> : <Navigate to={defaultPath} replace />}
+          />
           <Route path="/change-log" element={<ChangeLog />} />
-          <Route path="/import" element={<TransactionImport />} />
-          <Route path="/archived" element={<Archived />} />
+          <Route
+            path="/import"
+            element={hasFullAccess ? <TransactionImport /> : <Navigate to={defaultPath} replace />}
+          />
+          <Route
+            path="/archived"
+            element={hasFullAccess ? <Archived /> : <Navigate to={defaultPath} replace />}
+          />
           <Route path="/stock" element={<StockDetail />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to={defaultPath} replace />} />
         </Routes>
       </main>
     </div>
