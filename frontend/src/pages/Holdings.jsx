@@ -10,6 +10,7 @@ import {
   savePortfolioShares,
   syncSheetTickers,
 } from '../lib/api'
+import { useAuth } from '../auth/AuthContext'
 
 const SUB_TABS = [
   { id: 'portfolio', label: 'Portfolio' },
@@ -37,6 +38,8 @@ function sharesForManagementFilter(row, filter) {
 }
 
 export default function Holdings() {
+  const { authEnabled, user } = useAuth()
+  const hasFullAccess = !authEnabled || user?.role !== 'limited'
   const { view, loading, error, lastUpdated, load } = usePortfolioView()
   const [activeTab, setActiveTab] = useState('portfolio')
   const [showHidden, setShowHidden] = useState(false)
@@ -48,6 +51,21 @@ export default function Holdings() {
   const [formError, setFormError] = useState(null)
   const [formMessage, setFormMessage] = useState(null)
   const [syncingTickers, setSyncingTickers] = useState(false)
+  const leadingColumn = hasFullAccess
+    ? {
+        header: 'Show',
+        render: (row) => (
+          <input
+            type="checkbox"
+            checked={row.show_in_holdings !== false}
+            disabled={savingTicker === row.ticker}
+            onChange={(e) => toggleVisibility(row.ticker, e.target.checked)}
+            title="Show this ticker in the holdings table"
+            className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-500"
+          />
+        ),
+      }
+    : undefined
 
   const portfolioRows = view?.portfolio ?? []
   const watchlistRows = view?.watchlist ?? []
@@ -58,7 +76,7 @@ export default function Holdings() {
       ? sourceRows
       : sourceRows.filter((row) => row.show_in_holdings !== false)
 
-    if (activeTab !== 'portfolio') return rows
+    if (activeTab !== 'portfolio' || !hasFullAccess) return rows
 
     return rows
       .map((row) => {
@@ -72,7 +90,7 @@ export default function Holdings() {
         }
       })
       .filter((row) => managementFilter === 'all' || Number(row.shares) > 0)
-  }, [activeTab, managementFilter, sourceRows, showHidden])
+  }, [activeTab, hasFullAccess, managementFilter, sourceRows, showHidden])
 
   const toggleVisibility = async (ticker, showInHoldings) => {
     setSavingTicker(ticker)
@@ -134,11 +152,15 @@ export default function Holdings() {
       await addPortfolioTicker(ticker, shares)
       setNewTicker('')
       setNewShares('')
-      try {
-        await syncSheetTickers()
-        setFormMessage(`Added ${ticker} to portfolio and synced Google Sheets.`)
-      } catch {
-        setFormMessage(`Added ${ticker} to portfolio. Sheet sync did not complete.`)
+      if (hasFullAccess) {
+        try {
+          await syncSheetTickers()
+          setFormMessage(`Added ${ticker} to portfolio and synced Google Sheets.`)
+        } catch {
+          setFormMessage(`Added ${ticker} to portfolio. Sheet sync did not complete.`)
+        }
+      } else {
+        setFormMessage(`Added ${ticker} to your portfolio.`)
       }
       await load(false)
     } catch (err) {
@@ -206,7 +228,7 @@ export default function Holdings() {
       track: 'Tracked',
       excluded: 'Excluded',
       all: 'Total',
-    }[managementFilter]
+    }[hasFullAccess ? managementFilter : 'all']
 
     const withEditableShares = baseColumns.map((column) => {
       if (column.key === 'market_value') {
@@ -221,7 +243,7 @@ export default function Holdings() {
         ...column,
         label: `${filterLabel} Shares`,
         render: (row) => {
-          if (managementFilter !== 'all') {
+          if (hasFullAccess && managementFilter !== 'all') {
             return Number(row.shares || 0).toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 4,
@@ -282,15 +304,12 @@ export default function Holdings() {
       },
     }
 
-    return [
-      ...withEditableShares.slice(0, 2),
-      managementColumn,
-      ...withEditableShares.slice(2),
-      {
-        key: 'row_actions',
-        label: 'Actions',
-        render: (row) => (
-          <div className="flex items-center gap-2">
+    const rowActionColumn = {
+      key: 'row_actions',
+      label: 'Actions',
+      render: (row) => (
+        <div className="flex items-center gap-2">
+          {hasFullAccess && (
             <button
               type="button"
               disabled={savingTicker === row.ticker}
@@ -299,19 +318,33 @@ export default function Holdings() {
             >
               Archive
             </button>
-            <button
-              type="button"
-              disabled={savingTicker === row.ticker}
-              onClick={() => handleRemove(row.ticker)}
-              className="rounded border border-red-300 px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-60"
-            >
-              Remove
-            </button>
-          </div>
-        ),
-      },
+          )}
+          <button
+            type="button"
+            disabled={savingTicker === row.ticker}
+            onClick={() => handleRemove(row.ticker)}
+            className="rounded border border-red-300 px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-60"
+          >
+            Remove
+          </button>
+        </div>
+      ),
+    }
+
+    if (!hasFullAccess) {
+      return [
+        ...withEditableShares,
+        rowActionColumn,
+      ]
+    }
+
+    return [
+      ...withEditableShares.slice(0, 2),
+      managementColumn,
+      ...withEditableShares.slice(2),
+      rowActionColumn,
     ]
-  }, [activeTab, managementFilter, shareDrafts, savingTicker])
+  }, [activeTab, hasFullAccess, managementFilter, shareDrafts, savingTicker])
 
   return (
     <div className="mx-auto w-[98vw] px-4 py-8">
@@ -321,7 +354,7 @@ export default function Holdings() {
         loading={loading}
         onReload={load}
         onUpdatePrices={load}
-        onSyncTickers={handleSyncTickers}
+        onSyncTickers={hasFullAccess ? handleSyncTickers : undefined}
         syncingTickers={syncingTickers}
       />
 
@@ -423,7 +456,7 @@ export default function Holdings() {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          {activeTab === 'portfolio' && (
+          {activeTab === 'portfolio' && hasFullAccess && (
             <div className="flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
               {MANAGEMENT_FILTERS.map((filter) => (
                 <button
@@ -465,19 +498,7 @@ export default function Holdings() {
               : 'No visible watchlist names.'
           }
           lastUpdated={lastUpdated}
-          leadingColumn={{
-            header: 'Show',
-            render: (row) => (
-              <input
-                type="checkbox"
-                checked={row.show_in_holdings !== false}
-                disabled={savingTicker === row.ticker}
-                onChange={(e) => toggleVisibility(row.ticker, e.target.checked)}
-                title="Show this ticker in the holdings table"
-                className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-500"
-              />
-            ),
-          }}
+          leadingColumn={leadingColumn}
         />
       </div>
     </div>

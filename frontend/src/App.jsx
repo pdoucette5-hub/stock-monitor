@@ -23,7 +23,7 @@ function navClass({ isActive }) {
 export default function App() {
   const { authEnabled, user, signOut } = useAuth()
   const hasFullAccess = !authEnabled || user?.role !== 'limited'
-  const defaultPath = hasFullAccess ? '/' : '/watchlist'
+  const defaultPath = '/'
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -36,11 +36,9 @@ export default function App() {
             </p>
           </div>
           <nav className="flex flex-wrap items-center justify-end gap-1">
-            {hasFullAccess && (
-              <NavLink to="/" end className={navClass}>
-                Holdings
-              </NavLink>
-            )}
+            <NavLink to="/" end className={navClass}>
+              Holdings
+            </NavLink>
             <NavLink to="/watchlist" className={navClass}>
               Watchlist
             </NavLink>
@@ -92,10 +90,7 @@ export default function App() {
 
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={hasFullAccess ? <Holdings /> : <Navigate to="/watchlist" replace />}
-          />
+          <Route path="/" element={<Holdings />} />
           <Route path="/watchlist" element={<Watchlist />} />
           <Route
             path="/redistribution"

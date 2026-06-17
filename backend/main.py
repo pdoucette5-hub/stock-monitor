@@ -129,9 +129,10 @@ FULL_ACCESS_ONLY_EXACT_PATHS = {
     "/api/management/allocation",
     "/api/performance/portfolio",
     "/api/portfolio/controls",
-    "/api/portfolio/shares",
     "/api/sheets/tickers/sync",
-    "/api/tickers/portfolio",
+    "/api/tickers/archive",
+    "/api/tickers/restore",
+    "/api/tickers/watchlist",
 }
 
 FULL_ACCESS_ONLY_PREFIXES = (
@@ -1362,6 +1363,99 @@ def has_full_access(request: Request | None) -> bool:
     return current_user_role(request) == "full"
 
 
+def current_user_email(request: Request | None) -> str:
+    if not request:
+        return ""
+    user = getattr(request.state, "user", None)
+    if isinstance(user, dict):
+        return str(user.get("email") or "").strip().casefold()
+    return ""
+
+
+def user_holdings_path(email: str) -> Path:
+    key = hashlib.sha256(email.encode("utf-8")).hexdigest()[:24]
+    return BASE_DIR / "cache" / f"user_holdings_{key}.json"
+
+
+def load_user_holdings(email: str) -> dict[str, float]:
+    if not email:
+        return {}
+
+    raw = load_json_file(user_holdings_path(email), {})
+    if not isinstance(raw, dict):
+        return {}
+
+    holdings: dict[str, float] = {}
+    for ticker, shares in raw.items():
+        normalized = normalize_ticker(str(ticker))
+        if not normalized:
+            continue
+        try:
+            value = float(shares)
+        except (TypeError, ValueError):
+            continue
+        if value > 0:
+            holdings[normalized] = value
+    return holdings
+
+
+def save_user_holdings(email: str, holdings: dict[str, float]) -> None:
+    if not email:
+        raise HTTPException(status_code=403, detail="Signed-in user is required")
+    cleaned: dict[str, float] = {}
+    for ticker, shares in holdings.items():
+        normalized = normalize_ticker(str(ticker))
+        if not normalized:
+            continue
+        try:
+            value = float(shares)
+        except (TypeError, ValueError):
+            continue
+        if value > 0:
+            cleaned[normalized] = value
+    save_json_file(user_holdings_path(email), dict(sorted(cleaned.items())))
+
+
+def shared_tracking_tickers() -> set[str]:
+    config = get_effective_tickers_config()
+    portfolio_tickers = {
+        row["ticker"]
+        for row in normalize_portfolio(config.get("portfolio", []))
+        if row.get("ticker")
+    }
+    watchlist_tickers = {
+        normalize_ticker(ticker)
+        for ticker in config.get("watchlist", []) or []
+        if normalize_ticker(str(ticker))
+    }
+    scenario_tickers = {
+        normalize_ticker(ticker)
+        for ticker in load_scenario_inputs()
+        if normalize_ticker(str(ticker))
+    }
+    return portfolio_tickers | watchlist_tickers | scenario_tickers
+
+
+def get_limited_tickers_config(request: Request) -> dict[str, Any]:
+    holdings = load_user_holdings(current_user_email(request))
+    portfolio = [
+        {"ticker": ticker, "shares": shares}
+        for ticker, shares in sorted(holdings.items())
+    ]
+    portfolio_tickers = set(holdings)
+    watchlist = sorted(shared_tracking_tickers() - portfolio_tickers)
+    return {
+        "portfolio": portfolio,
+        "watchlist": watchlist,
+    }
+
+
+def get_tickers_config_for_request(request: Request | None) -> dict[str, Any]:
+    if request is not None and not has_full_access(request):
+        return get_limited_tickers_config(request)
+    return get_effective_tickers_config()
+
+
 def redact_tickers_config_for_limited(payload: dict[str, Any]) -> dict[str, Any]:
     redacted = json.loads(json.dumps(payload))
 
@@ -1502,12 +1596,48 @@ def get_auth_user(request: Request) -> dict[str, Any]:
 
 @app.get("/api/tickers")
 def get_ticker_registry(request: Request) -> dict[str, Any]:
-    payload = {
+    if has_full_access(request):
+        return {
+            "base": load_tickers_config(),
+            "overrides": load_tickers_overrides(),
+            "effective": get_effective_tickers_config(),
+        }
+
+    redacted = redact_tickers_config_for_limited(
+        {
+            "base": load_tickers_config(),
+            "overrides": load_tickers_overrides(),
+            "effective": get_effective_tickers_config(),
+        },
+    )
+    redacted["effective"] = get_limited_tickers_config(request)
+    return redacted
+
+
+def build_portfolio_view_for_request(
+    request: Request,
+    force_refresh: bool = False,
+) -> dict[str, Any]:
+    return build_portfolio_views(
+        get_tickers_config_for_request(request),
+        load_scenario_inputs(),
+        load_settings_dict(),
+        management_shares=(
+            build_management_snapshot()["shares_by_mode"]
+            if has_full_access(request)
+            else None
+        ),
+        force_refresh=force_refresh,
+    )
+
+
+@app.get("/api/tickers/shared")
+def get_shared_ticker_registry() -> dict[str, Any]:
+    return {
         "base": load_tickers_config(),
         "overrides": load_tickers_overrides(),
         "effective": get_effective_tickers_config(),
     }
-    return payload if has_full_access(request) else redact_tickers_config_for_limited(payload)
 
 
 @app.post("/api/sheets/tickers/sync")
@@ -1654,12 +1784,21 @@ def get_price_import_status(tickers: str = "") -> dict[str, Any]:
 
 
 @app.put("/api/tickers/portfolio", response_model=PortfolioConfig)
-def add_portfolio_ticker(body: PortfolioTickerUpsert) -> PortfolioConfig:
+def add_portfolio_ticker(request: Request, body: PortfolioTickerUpsert) -> PortfolioConfig:
     ticker = normalize_ticker(body.ticker)
     if not ticker:
         raise HTTPException(status_code=400, detail="Ticker is required")
     if body.shares < 0:
         raise HTTPException(status_code=400, detail="Shares must be non-negative")
+
+    if not has_full_access(request):
+        holdings = load_user_holdings(current_user_email(request))
+        if body.shares > 0:
+            holdings[ticker] = float(body.shares)
+        else:
+            holdings.pop(ticker, None)
+        save_user_holdings(current_user_email(request), holdings)
+        return PortfolioConfig.model_validate(get_limited_tickers_config(request))
 
     overrides = load_tickers_overrides()
     tickers_map = overrides.setdefault("tickers", {})
@@ -1777,10 +1916,16 @@ def restore_ticker(body: RestoreTickerRequest) -> PortfolioConfig:
 
 
 @app.delete("/api/tickers/{ticker}", response_model=PortfolioConfig)
-def remove_ticker(ticker: str) -> PortfolioConfig:
+def remove_ticker(request: Request, ticker: str) -> PortfolioConfig:
     normalized = normalize_ticker(ticker)
     if not normalized:
         raise HTTPException(status_code=400, detail="Ticker is required")
+
+    if not has_full_access(request):
+        holdings = load_user_holdings(current_user_email(request))
+        holdings.pop(normalized, None)
+        save_user_holdings(current_user_email(request), holdings)
+        return PortfolioConfig.model_validate(get_limited_tickers_config(request))
 
     overrides = load_tickers_overrides()
     tickers_map = overrides.setdefault("tickers", {})
@@ -2288,12 +2433,25 @@ def get_price_comparison(
 
 @app.put("/api/portfolio/shares", response_model=PortfolioViewResponse)
 def update_portfolio_shares(
+    request: Request,
     body: PortfolioSharesUpdate,
     force_refresh: bool = False,
 ) -> PortfolioViewResponse:
     ticker = normalize_ticker(body.ticker)
     if body.shares < 0:
         raise HTTPException(status_code=400, detail="Shares must be non-negative")
+
+    if not has_full_access(request):
+        holdings = load_user_holdings(current_user_email(request))
+        if ticker not in holdings:
+            raise HTTPException(status_code=404, detail=f"{ticker} not found in your portfolio")
+        if body.shares > 0:
+            holdings[ticker] = float(body.shares)
+        else:
+            holdings.pop(ticker, None)
+        save_user_holdings(current_user_email(request), holdings)
+        payload = build_portfolio_view_for_request(request, force_refresh=force_refresh)
+        return PortfolioViewResponse.model_validate(payload)
 
     tickers_config = get_effective_tickers_config()
     portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
@@ -2403,25 +2561,14 @@ def update_portfolio_controls(
 
 @app.get("/api/portfolio/view", response_model=PortfolioViewResponse)
 def get_portfolio_view(request: Request, force_refresh: bool = False) -> PortfolioViewResponse:
-    if not force_refresh:
+    if has_full_access(request) and not force_refresh:
         cached = get_cached_response("portfolio_view")
         if cached is not None:
-            if not has_full_access(request):
-                return PortfolioViewResponse.model_validate(
-                    redact_portfolio_view_for_limited(cached),
-                )
             return PortfolioViewResponse.model_validate(cached)
 
-    payload = build_portfolio_views(
-        get_effective_tickers_config(),
-        load_scenario_inputs(),
-        load_settings_dict(),
-        management_shares=build_management_snapshot()["shares_by_mode"],
-        force_refresh=force_refresh,
-    )
-    set_cached_response("portfolio_view", payload)
-    if not has_full_access(request):
-        payload = redact_portfolio_view_for_limited(payload)
+    payload = build_portfolio_view_for_request(request, force_refresh=force_refresh)
+    if has_full_access(request):
+        set_cached_response("portfolio_view", payload)
     return PortfolioViewResponse.model_validate(payload)
 
 
@@ -2448,10 +2595,7 @@ def replace_portfolio_scenarios(body: ScenarioInputsResponse) -> ScenarioInputsR
 
 @app.get("/api/config/tickers", response_model=PortfolioConfig)
 def get_tickers_config(request: Request) -> PortfolioConfig:
-    payload = get_effective_tickers_config()
-    if not has_full_access(request):
-        payload = redact_tickers_config_for_limited(payload)
-    return PortfolioConfig.model_validate(payload)
+    return PortfolioConfig.model_validate(get_tickers_config_for_request(request))
 
 
 @app.get("/api/stock/{ticker}", response_model=StockScenarioResponse)
