@@ -269,18 +269,22 @@ def build_portfolio_performance(
         if ticker and shares > 0:
             supplemental_shares[ticker] = supplemental_shares.get(ticker, 0.0) + shares
 
+    transaction_tickers = set(filtered_transactions)
+    supplemental_tickers = {
+        ticker
+        for ticker, shares in supplemental_shares.items()
+        if shares > 0
+    }
+    configured_tickers = {
+        ticker
+        for ticker, shares in portfolio_positions.items()
+        if shares > 0
+    }
+
     if account_filter_active:
-        tickers = [
-            ticker
-            for ticker in sorted(portfolio_positions)
-            if ticker in filtered_transactions or supplemental_shares.get(ticker, 0.0) > 0
-        ]
+        tickers = sorted(transaction_tickers | supplemental_tickers)
     else:
-        tickers = sorted(
-            ticker
-            for ticker, shares in portfolio_positions.items()
-            if shares > 0 or ticker in filtered_transactions
-        )
+        tickers = sorted(configured_tickers | transaction_tickers | supplemental_tickers)
 
     history_by_ticker: dict[str, list[dict[str, Any]]] = {}
     position_history_by_ticker: dict[str, dict[str, dict[str, float]]] = {}

@@ -449,19 +449,17 @@ export default function Performance() {
 
   const handleToggleAccount = (account) => {
     setSelectedAccounts((current) => {
-      if (current.length === 0) {
-        return accounts
-          .map((row) => row.account)
-          .filter((name) => name && name !== account)
-      }
-
       if (current.includes(account)) {
         const next = current.filter((item) => item !== account)
-        return next.length === 0 ? current : next
+        return next
       }
 
       return [...current, account].sort()
     })
+  }
+
+  const handleOnlyAccount = (account) => {
+    setSelectedAccounts(account ? [account] : [])
   }
 
   const handleSelectAllAccounts = () => {
@@ -546,28 +544,37 @@ export default function Performance() {
 
           <div className="flex flex-wrap gap-2">
             {accounts.map((row) => {
-              const checked = !accountFilterActive || selectedAccounts.includes(row.account)
+              const checked = selectedAccounts.includes(row.account)
               return (
-                <label
+                <div
                   key={row.account}
                   className={[
-                    'inline-flex cursor-pointer items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition',
+                    'inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-medium transition',
                     checked
                       ? 'border-blue-200 bg-blue-50 text-blue-800'
                       : 'border-slate-200 bg-white text-slate-500',
                   ].join(' ')}
                 >
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={() => handleToggleAccount(row.account)}
-                    className="h-3.5 w-3.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  {row.account}
+                  <label className="inline-flex cursor-pointer items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={checked}
+                      onChange={() => handleToggleAccount(row.account)}
+                      className="h-3.5 w-3.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    {row.account}
+                  </label>
                   <span className="text-slate-400">
                     {Number(row.transaction_count ?? 0).toLocaleString()}
                   </span>
-                </label>
+                  <button
+                    type="button"
+                    onClick={() => handleOnlyAccount(row.account)}
+                    className="rounded-full border border-transparent px-1.5 py-0.5 text-[11px] font-semibold text-blue-700 hover:border-blue-200 hover:bg-white"
+                  >
+                    Only
+                  </button>
+                </div>
               )
             })}
           </div>
