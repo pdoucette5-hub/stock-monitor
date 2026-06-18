@@ -202,6 +202,15 @@ def _latest_snapshot_on_or_before(
     return snapshots[latest]
 
 
+def _empty_position_snapshot() -> dict[str, float]:
+    return {
+        "shares": 0.0,
+        "cost_basis": 0.0,
+        "realized_gain_loss": 0.0,
+        "dividend_cash": 0.0,
+    }
+
+
 def _portfolio_positions(tickers_config: dict[str, Any]) -> dict[str, float]:
     portfolio_items = tickers_config.get("portfolio", []) or []
     positions: dict[str, float] = {}
@@ -350,6 +359,12 @@ def build_portfolio_performance(
             if point.get("date") and point.get("close") is not None:
                 close_lookup[ticker][str(point["date"])] = _safe_float(point["close"], 0.0)
 
+    snapshot_items_by_ticker = {
+        ticker: sorted(snapshots.items())
+        for ticker, snapshots in position_history_by_ticker.items()
+    }
+    snapshot_index_by_ticker = {ticker: 0 for ticker in tickers}
+    current_snapshot_by_ticker = {ticker: _empty_position_snapshot() for ticker in tickers}
     series: list[dict[str, Any]] = []
 
     for current_date in ordered_dates:
@@ -357,14 +372,21 @@ def build_portfolio_performance(
         total_cost_basis = 0.0
 
         for ticker in tickers:
+            snapshot_items = snapshot_items_by_ticker.get(ticker, [])
+            snapshot_index = snapshot_index_by_ticker.get(ticker, 0)
+            while (
+                snapshot_index < len(snapshot_items)
+                and snapshot_items[snapshot_index][0] <= current_date
+            ):
+                current_snapshot_by_ticker[ticker] = snapshot_items[snapshot_index][1]
+                snapshot_index += 1
+            snapshot_index_by_ticker[ticker] = snapshot_index
+
             close = close_lookup[ticker].get(current_date)
             if close is None:
                 continue
 
-            snapshot = _latest_snapshot_on_or_before(
-                position_history_by_ticker.get(ticker, {}),
-                current_date,
-            )
+            snapshot = current_snapshot_by_ticker.get(ticker) or _empty_position_snapshot()
             shares = _safe_float(snapshot.get("shares"), 0.0)
             cost_basis = _safe_float(snapshot.get("cost_basis"), 0.0)
 

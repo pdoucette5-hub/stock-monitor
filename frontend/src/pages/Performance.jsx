@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import PageToolbar from '../components/PageToolbar'
 import { fetchPortfolioPerformance, fetchPriceComparison } from '../lib/api'
 
@@ -338,26 +338,33 @@ export default function Performance() {
   const [comparisonData, setComparisonData] = useState({})
   const [lastUpdated, setLastUpdated] = useState(null)
   const [managementMode, setManagementMode] = useState('all')
+  const performanceRequestIdRef = useRef(0)
 
   async function loadPerformance(
     nextRange = range,
     nextAccounts = selectedAccounts,
     nextMode = managementMode,
   ) {
+    const requestId = performanceRequestIdRef.current + 1
+    performanceRequestIdRef.current = requestId
     setLoading(true)
     setError(null)
     try {
       const payload = await fetchPortfolioPerformance(nextRange, nextAccounts, nextMode)
+      if (requestId !== performanceRequestIdRef.current) return
       setData(payload)
       setLastUpdated(new Date())
     } catch (err) {
+      if (requestId !== performanceRequestIdRef.current) return
       setError(
         err instanceof Error
           ? err.message
           : 'Failed to load portfolio performance',
       )
     } finally {
-      setLoading(false)
+      if (requestId === performanceRequestIdRef.current) {
+        setLoading(false)
+      }
     }
   }
 
@@ -395,7 +402,11 @@ export default function Performance() {
   }
 
   useEffect(() => {
-    loadPerformance(range, selectedAccounts)
+    const timer = window.setTimeout(() => {
+      loadPerformance(range, selectedAccounts, managementMode)
+    }, 250)
+
+    return () => window.clearTimeout(timer)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [range, selectedAccounts, managementMode])
 
