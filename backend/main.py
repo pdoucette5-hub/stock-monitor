@@ -808,16 +808,6 @@ def build_management_snapshot() -> dict[str, Any]:
                 },
             )
 
-    for ticker, transaction_total in list(transaction_shares_by_ticker.items()):
-        configured_total = configured_shares.get(ticker)
-        if configured_total is None or transaction_total <= configured_total or transaction_total <= 0:
-            continue
-        scale = configured_total / transaction_total
-        for position in positions:
-            if position["ticker"] == ticker and position["source"] == "transactions":
-                position["shares"] = float(position["shares"]) * scale
-        transaction_shares_by_ticker[ticker] = configured_total
-
     allocations_by_ticker: dict[str, list[dict[str, Any]]] = {}
     for allocation in manual_allocations:
         allocations_by_ticker.setdefault(allocation["ticker"], []).append(allocation)
