@@ -1428,11 +1428,25 @@ def shared_tracking_tickers() -> set[str]:
 
 def get_limited_tickers_config(request: Request) -> dict[str, Any]:
     holdings = load_user_holdings(current_user_email(request))
+    shared_config = get_effective_tickers_config()
+    shared_portfolio = normalize_portfolio(shared_config.get("portfolio", []))
     portfolio = [
+        {
+            "ticker": row["ticker"],
+            "shares": 0.0,
+        }
+        for row in sorted(shared_portfolio, key=lambda item: item["ticker"])
+        if row.get("ticker")
+    ]
+    shared_portfolio_tickers = {
+        row["ticker"] for row in shared_portfolio if row.get("ticker")
+    }
+    portfolio.extend(
         {"ticker": ticker, "shares": shares}
         for ticker, shares in sorted(holdings.items())
-    ]
-    portfolio_tickers = set(holdings)
+        if ticker not in shared_portfolio_tickers
+    )
+    portfolio_tickers = {row["ticker"] for row in portfolio}
     watchlist = sorted(shared_tracking_tickers() - portfolio_tickers)
     return {
         "portfolio": portfolio,

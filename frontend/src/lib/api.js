@@ -44,7 +44,15 @@ async function request(path, options = {}) {
 
   if (!response.ok) {
     const detail = await response.text()
-    throw new Error(detail || `Request failed: ${response.status}`)
+    try {
+      const payload = JSON.parse(detail)
+      throw new Error(payload?.detail || detail || `Request failed: ${response.status}`)
+    } catch (err) {
+      if (err instanceof SyntaxError) {
+        throw new Error(detail || `Request failed: ${response.status}`)
+      }
+      throw err
+    }
   }
 
   if (response.status === 204) return null

@@ -103,13 +103,12 @@ export function AuthProvider({ children }) {
                 picture: profile?.picture || claims?.picture || '',
                 role: profile?.role || 'full',
               })
-            } catch {
-              setUser({
-                email: claims?.email || '',
-                name: claims?.name || claims?.email || '',
-                picture: claims?.picture || '',
-                role: 'limited',
-              })
+              setError('')
+            } catch (err) {
+              setToken('')
+              setAuthToken('')
+              setUser(null)
+              setError(err instanceof Error ? err.message : 'Sign-in is not allowed')
             }
           },
         })
