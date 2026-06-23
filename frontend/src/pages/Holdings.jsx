@@ -11,6 +11,7 @@ import {
   syncSheetTickers,
 } from '../lib/api'
 import { useAuth } from '../auth/AuthContext'
+import { formatMoney } from '../lib/format'
 
 const SUB_TABS = [
   { id: 'portfolio', label: 'Portfolio' },
@@ -280,24 +281,20 @@ export default function Holdings() {
       }
     })
 
-    const managementColumn = {
-      key: 'management_mode',
-      label: 'Management',
+    const costBasisColumn = {
+      key: 'average_cost_per_share',
+      label: 'Avg Cost',
       render: (row) => {
-        const label = {
-          managed: 'Managed',
-          track: 'Track only',
-          excluded: 'Excluded',
-          mixed: 'Mixed',
-        }[row.management_mode] ?? 'Managed'
         return (
           <div>
-            <div className="font-medium text-slate-800">{label}</div>
+            <div className="font-medium text-slate-800">
+              {formatMoney(row.average_cost_per_share)}
+            </div>
             <div className="text-xs text-slate-500">
-              {Number(row.managed_shares || 0).toLocaleString(undefined, {
+              {Number(row.shares || 0).toLocaleString(undefined, {
                 maximumFractionDigits: 2,
               })}{' '}
-              managed
+              {filterLabel.toLowerCase()} shares
             </div>
           </div>
         )
@@ -340,7 +337,7 @@ export default function Holdings() {
 
     return [
       ...withEditableShares.slice(0, 2),
-      managementColumn,
+      costBasisColumn,
       ...withEditableShares.slice(2),
       rowActionColumn,
     ]

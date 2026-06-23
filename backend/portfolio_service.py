@@ -308,6 +308,7 @@ def build_portfolio_views(
     scenario_inputs: dict[str, Any],
     settings: dict[str, Any],
     management_shares: dict[str, dict[str, float]] | None = None,
+    position_summaries: dict[str, dict[str, Any]] | None = None,
     force_refresh: bool = False,
 ) -> dict[str, Any]:
     portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
@@ -375,6 +376,15 @@ def build_portfolio_views(
         row["managed_shares"] = managed_shares
         row["track_shares"] = track_shares
         row["excluded_shares"] = excluded_shares
+        position_summary = (position_summaries or {}).get(row["ticker"], {})
+        row["total_cost_basis"] = safe_float(
+            position_summary.get("total_cost_basis"),
+            None,
+        )
+        row["average_cost_per_share"] = safe_float(
+            position_summary.get("average_cost_per_share"),
+            None,
+        )
         row["management_mode"] = (
             "managed"
             if managed_shares > 0 and track_shares <= 0 and excluded_shares <= 0

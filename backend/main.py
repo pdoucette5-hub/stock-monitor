@@ -531,6 +531,13 @@ def save_transactions(data: dict[str, list[dict[str, Any]]]) -> None:
     save_json_file(TRANSACTIONS_FILE, cleaned)
 
 
+def build_position_summaries() -> dict[str, dict[str, Any]]:
+    return {
+        ticker: compute_position_summary(entries)
+        for ticker, entries in load_transactions().items()
+    }
+
+
 def load_account_aliases() -> dict[str, str]:
     raw = load_json_file(ACCOUNT_ALIASES_FILE, {})
     if not isinstance(raw, dict):
@@ -1508,6 +1515,8 @@ def redact_portfolio_view_for_limited(payload: Any) -> Any:
         "excluded_shares",
         "eligible_redistribution_shares",
         "locked_shares",
+        "total_cost_basis",
+        "average_cost_per_share",
         "dollar_trade",
         "shares_trade",
         "current_eligible_weight",
@@ -1622,6 +1631,11 @@ def build_portfolio_view_for_request(
     request: Request,
     force_refresh: bool = False,
 ) -> dict[str, Any]:
+    position_summaries = (
+        build_position_summaries()
+        if has_full_access(request)
+        else None
+    )
     return build_portfolio_views(
         get_tickers_config_for_request(request),
         load_scenario_inputs(),
@@ -1631,6 +1645,7 @@ def build_portfolio_view_for_request(
             if has_full_access(request)
             else None
         ),
+        position_summaries=position_summaries,
         force_refresh=force_refresh,
     )
 
@@ -2487,6 +2502,7 @@ def update_portfolio_shares(
         load_scenario_inputs(),
         load_settings_dict(),
         management_shares=build_management_snapshot()["shares_by_mode"],
+        position_summaries=build_position_summaries(),
         force_refresh=force_refresh,
     )
     set_cached_response("portfolio_view", payload)
@@ -2557,6 +2573,7 @@ def update_portfolio_controls(
         scenario_inputs,
         load_settings_dict(),
         management_shares=build_management_snapshot()["shares_by_mode"],
+        position_summaries=build_position_summaries(),
         force_refresh=force_refresh,
     )
     set_cached_response("portfolio_view", payload)
