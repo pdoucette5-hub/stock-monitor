@@ -317,6 +317,7 @@ def _compression_opportunity_score(
     earnings_growth: float | None,
     revenue_growth: float | None,
     price_return: float | None,
+    base_cagr: float | None,
     current_pe: float | None,
     prior_pe: float | None,
 ) -> float | None:
@@ -337,6 +338,12 @@ def _compression_opportunity_score(
 
     if current_pe is None or current_pe <= 0:
         quality_multiplier *= 0.7
+
+    cagr_value = safe_float(base_cagr)
+    if cagr_value is None:
+        quality_multiplier *= 0.65
+    else:
+        quality_multiplier *= min(1.75, max(0.25, cagr_value / 0.20))
 
     starting_multiple = prior_pe if prior_pe is not None else current_pe
     starting_multiple_penalty = 0.0
@@ -546,6 +553,11 @@ def build_portfolio_views(
         if current_pe is not None and multiple_change is not None and multiple_change > -1:
             prior_pe = current_pe / (1 + multiple_change)
 
+        base_cagr = safe_float(row.get("base_cagr_y3"))
+        cagr_gap = None
+        if base_cagr is not None and price_return_1y is not None:
+            cagr_gap = base_cagr - price_return_1y
+
         row["prior_price_1y"] = prior_price_1y
         row["prior_price_date_1y"] = prior_price_date_1y
         row["price_return_1y"] = price_return_1y
@@ -555,10 +567,12 @@ def build_portfolio_views(
         row["revenue_growth_source"] = revenue_growth_source
         row["multiple_change_1y"] = multiple_change
         row["prior_pe_1y"] = prior_pe
+        row["cagr_gap_1y"] = cagr_gap
         row["compression_opportunity_score"] = _compression_opportunity_score(
             earnings_growth,
             revenue_growth,
             price_return_1y,
+            base_cagr,
             current_pe,
             prior_pe,
         )

@@ -30,11 +30,17 @@ function explainRow(row) {
   if (row.earnings_growth_1y == null) {
     return 'Needs positive earnings or a saved Stock Detail base-case projection.'
   }
+  if (row.base_cagr_y3 == null) {
+    return 'Compression exists, but base-case CAGR is unavailable.'
+  }
+  if (row.base_cagr_y3 < 0.05) {
+    return 'Multiple compressed, but base-case CAGR is weak.'
+  }
   if (row.revenue_growth_1y != null && row.revenue_growth_1y < 0) {
     return 'Earnings outpaced price, but revenue declined.'
   }
   if (row.multiple_change_1y != null && row.multiple_change_1y < 0) {
-    return 'Earnings grew faster than price, compressing the multiple.'
+    return 'Multiple compressed while base-case CAGR remains attractive.'
   }
   return 'No meaningful compression signal.'
 }
@@ -59,7 +65,7 @@ export default function Compression() {
     <div className="mx-auto w-[98vw] px-4 py-8">
       <PageToolbar
         title="Compression"
-        description="Read-only scan using imported prices, available TTM fundamentals, and saved Stock Detail base-case projections when history is missing."
+        description="Read-only scan ranking price/earnings compression by saved Stock Detail base-case CAGR."
         loading={loading}
         onReload={load}
         onUpdatePrices={load}
@@ -88,19 +94,20 @@ export default function Compression() {
                 <th className="px-4 py-3 font-semibold text-slate-700">Prior P/E</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Revenue Growth</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Base CAGR</th>
+                <th className="px-4 py-3 font-semibold text-slate-700">CAGR Gap</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Read</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {loading && rows.length === 0 ? (
                 <tr>
-                  <td colSpan={10} className="px-4 py-12 text-center text-slate-500">
+                  <td colSpan={11} className="px-4 py-12 text-center text-slate-500">
                     Loading...
                   </td>
                 </tr>
               ) : rows.length === 0 ? (
                 <tr>
-                  <td colSpan={10} className="px-4 py-12 text-center text-slate-500">
+                  <td colSpan={11} className="px-4 py-12 text-center text-slate-500">
                     No visible portfolio rows.
                   </td>
                 </tr>
@@ -152,6 +159,9 @@ export default function Compression() {
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {formatCagrDecimal(row.base_cagr_y3)}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                      {formatPercent(row.cagr_gap_1y)}
                     </td>
                     <td className="min-w-64 px-4 py-3 text-slate-600">
                       {explainRow(row)}
