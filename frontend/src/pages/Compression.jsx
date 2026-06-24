@@ -41,7 +41,7 @@ function explainRow(row) {
 
 function sourceLabel(value) {
   if (value === 'actual') return 'actual TTM'
-  if (value === 'stock_detail_projection') return 'Stock Detail projection'
+  if (value === 'stock_detail_projection') return 'Stock Detail base case'
   return null
 }
 
