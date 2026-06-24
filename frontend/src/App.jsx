@@ -9,6 +9,7 @@ import Performance from './pages/Performance'
 import ChangeLog from './pages/ChangeLog'
 import TransactionImport from './pages/TransactionImport'
 import Management from './pages/Management'
+import Compression from './pages/Compression'
 import { useAuth } from './auth/AuthContext'
 
 function navClass({ isActive }) {
@@ -41,6 +42,9 @@ export default function App() {
             </NavLink>
             <NavLink to="/watchlist" className={navClass}>
               Watchlist
+            </NavLink>
+            <NavLink to="/compression" className={navClass}>
+              Compression
             </NavLink>
             {hasFullAccess && (
               <>
@@ -92,6 +96,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Holdings />} />
           <Route path="/watchlist" element={<Watchlist />} />
+          <Route path="/compression" element={<Compression />} />
           <Route
             path="/redistribution"
             element={hasFullAccess ? <Redistribution /> : <Navigate to={defaultPath} replace />}

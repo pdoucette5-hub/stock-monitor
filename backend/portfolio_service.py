@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import timedelta
 from typing import Any, Optional
 
 import pandas as pd
@@ -22,7 +23,7 @@ from backend.logic import (
     safe_float,
     weighted_cagr,
 )
-from backend.price_store import get_latest_price_for_ticker
+from backend.price_store import get_latest_price_for_ticker, load_price_history_store
 
 
 def _apply_price_store_fallback(market_row: dict[str, Any], ticker: str) -> dict[str, Any]:
@@ -210,6 +211,13 @@ def _build_summary_row(
     return {
         "ticker": ticker,
         "price": current_price,
+        "price_date": market_row.get("price_date"),
+        "ttm_revenue": market_row.get("ttm_revenue"),
+        "net_income_ttm": market_row.get("net_income_ttm"),
+        "prior_ttm_revenue": market_row.get("prior_ttm_revenue"),
+        "prior_net_income_ttm": market_row.get("prior_net_income_ttm"),
+        "revenue_growth_pct": market_row.get("revenue_growth_pct"),
+        "net_income_growth_pct": market_row.get("net_income_growth_pct"),
         "shares": shares,
         "market_value": market_value,
         "bear_price_y3": bear_summary.get("price_y3"),
@@ -236,6 +244,97 @@ def _build_summary_row(
         "eligible_redistribution_shares": eligible_shares,
         "locked_shares": max((owned_shares or 0.0) - (eligible_shares or 0.0), 0.0),
     }
+
+
+def _price_return_from_history(
+    ticker: str,
+    current_price: float | None,
+    price_history: dict[str, list[dict[str, Any]]] | None,
+) -> tuple[float | None, float | None, str | None]:
+    if current_price is None or not price_history:
+        return None, None, None
+
+    rows = price_history.get(ticker, [])
+    if len(rows) < 2:
+        return None, None, None
+
+    try:
+        latest_date = pd.to_datetime(rows[-1]["date"]).date()
+    except Exception:
+        return None, None, None
+
+    target_date = latest_date - timedelta(days=365)
+    try:
+        first_date = pd.to_datetime(rows[0]["date"]).date()
+    except Exception:
+        return None, None, None
+    if first_date > latest_date - timedelta(days=300):
+        return None, None, None
+
+    prior_row = rows[0]
+    for row in rows:
+        try:
+            row_date = pd.to_datetime(row.get("date")).date()
+        except Exception:
+            continue
+        if row_date <= target_date:
+            prior_row = row
+        else:
+            break
+
+    try:
+        prior_price = float(prior_row["close"])
+    except (KeyError, TypeError, ValueError):
+        return None, None, None
+
+    if prior_price <= 0:
+        return None, None, None
+
+    return (current_price / prior_price) - 1.0, prior_price, prior_row.get("date")
+
+
+def _positive_growth(current: Any, prior: Any) -> float | None:
+    current_value = safe_float(current)
+    prior_value = safe_float(prior)
+    if current_value is None or prior_value is None or current_value <= 0 or prior_value <= 0:
+        return None
+    return (current_value / prior_value) - 1.0
+
+
+def _compression_opportunity_score(
+    earnings_growth: float | None,
+    revenue_growth: float | None,
+    price_return: float | None,
+    current_pe: float | None,
+    prior_pe: float | None,
+) -> float | None:
+    if earnings_growth is None or price_return is None:
+        return None
+
+    raw_gap = earnings_growth - price_return
+    if raw_gap <= 0:
+        return raw_gap
+
+    quality_multiplier = 1.0
+    if revenue_growth is None:
+        quality_multiplier *= 0.8
+    elif revenue_growth < 0:
+        quality_multiplier *= 0.45
+    elif revenue_growth < 0.05:
+        quality_multiplier *= 0.75
+
+    if current_pe is None or current_pe <= 0:
+        quality_multiplier *= 0.7
+
+    starting_multiple = prior_pe if prior_pe is not None else current_pe
+    starting_multiple_penalty = 0.0
+    if starting_multiple is not None:
+        starting_multiple_penalty = min(
+            0.75,
+            max(0.0, (starting_multiple - 40.0) / 80.0),
+        )
+
+    return raw_gap * quality_multiplier * (1.0 - starting_multiple_penalty)
 
 
 def _sort_summary_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -309,6 +408,7 @@ def build_portfolio_views(
     settings: dict[str, Any],
     management_shares: dict[str, dict[str, float]] | None = None,
     position_summaries: dict[str, dict[str, Any]] | None = None,
+    price_history: dict[str, list[dict[str, Any]]] | None = None,
     force_refresh: bool = False,
 ) -> dict[str, Any]:
     portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
@@ -319,6 +419,7 @@ def build_portfolio_views(
 
     portfolio_shares_map = {row["ticker"]: row["shares"] for row in portfolio_rows}
     bottom_pinned_tickers = settings.get("bottom_pinned_tickers", [])
+    price_history = price_history if price_history is not None else load_price_history_store()
 
     market_df = get_live_market_data(
         all_tickers,
@@ -384,6 +485,46 @@ def build_portfolio_views(
         row["average_cost_per_share"] = safe_float(
             position_summary.get("average_cost_per_share"),
             None,
+        )
+        price_return_1y, prior_price_1y, prior_price_date_1y = _price_return_from_history(
+            row["ticker"],
+            safe_float(row.get("price")),
+            price_history,
+        )
+        earnings_growth = _positive_growth(
+            row.get("net_income_ttm"),
+            row.get("prior_net_income_ttm"),
+        )
+        revenue_growth = _positive_growth(
+            row.get("ttm_revenue"),
+            row.get("prior_ttm_revenue"),
+        )
+        multiple_change = None
+        if (
+            price_return_1y is not None
+            and earnings_growth is not None
+            and earnings_growth > -1
+        ):
+            multiple_change = ((1 + price_return_1y) / (1 + earnings_growth)) - 1
+
+        prior_pe = None
+        current_pe = safe_float(row.get("current_pe"))
+        if current_pe is not None and multiple_change is not None and multiple_change > -1:
+            prior_pe = current_pe / (1 + multiple_change)
+
+        row["prior_price_1y"] = prior_price_1y
+        row["prior_price_date_1y"] = prior_price_date_1y
+        row["price_return_1y"] = price_return_1y
+        row["earnings_growth_1y"] = earnings_growth
+        row["revenue_growth_1y"] = revenue_growth
+        row["multiple_change_1y"] = multiple_change
+        row["prior_pe_1y"] = prior_pe
+        row["compression_opportunity_score"] = _compression_opportunity_score(
+            earnings_growth,
+            revenue_growth,
+            price_return_1y,
+            current_pe,
+            prior_pe,
         )
         row["management_mode"] = (
             "managed"
