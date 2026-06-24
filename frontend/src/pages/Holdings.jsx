@@ -290,12 +290,6 @@ export default function Holdings() {
             <div className="font-medium text-slate-800">
               {formatMoney(row.average_cost_per_share)}
             </div>
-            <div className="text-xs text-slate-500">
-              {Number(row.shares || 0).toLocaleString(undefined, {
-                maximumFractionDigits: 2,
-              })}{' '}
-              {filterLabel.toLowerCase()} shares
-            </div>
           </div>
         )
       },
