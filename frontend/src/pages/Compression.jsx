@@ -13,6 +13,11 @@ function formatMultiple(value) {
   return `${Number(value).toFixed(1)}x`
 }
 
+function formatRatio(value) {
+  if (value == null || Number.isNaN(Number(value))) return '-'
+  return Number(value).toFixed(2)
+}
+
 function scoreClass(value) {
   if (value == null || Number.isNaN(Number(value))) {
     return 'bg-slate-100 text-slate-600'
@@ -38,6 +43,9 @@ function explainRow(row) {
   }
   if (row.revenue_growth_1y != null && row.revenue_growth_1y < 0) {
     return 'Earnings outpaced price, but revenue declined.'
+  }
+  if (row.absolute_pe_discount != null && row.absolute_pe_discount > 0.25) {
+    return 'Growth-adjusted P/E still looks attractive.'
   }
   if (row.multiple_change_1y != null && row.multiple_change_1y < 0) {
     return 'Multiple compressed while base-case CAGR remains attractive.'
@@ -65,7 +73,7 @@ export default function Compression() {
     <div className="mx-auto w-[98vw] px-4 py-8">
       <PageToolbar
         title="Compression"
-        description="Read-only scan ranking price/earnings compression by saved Stock Detail base-case CAGR."
+        description="Read-only scan ranking relative multiple compression and absolute growth-adjusted P/E."
         loading={loading}
         onReload={load}
         onUpdatePrices={load}
@@ -92,6 +100,7 @@ export default function Compression() {
                 <th className="px-4 py-3 font-semibold text-slate-700">Opportunity</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Current P/E</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Prior P/E</th>
+                <th className="px-4 py-3 font-semibold text-slate-700">Growth P/E</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Revenue Growth</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Base CAGR</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">CAGR Gap</th>
@@ -101,13 +110,13 @@ export default function Compression() {
             <tbody className="divide-y divide-slate-100">
               {loading && rows.length === 0 ? (
                 <tr>
-                  <td colSpan={11} className="px-4 py-12 text-center text-slate-500">
+                  <td colSpan={12} className="px-4 py-12 text-center text-slate-500">
                     Loading...
                   </td>
                 </tr>
               ) : rows.length === 0 ? (
                 <tr>
-                  <td colSpan={11} className="px-4 py-12 text-center text-slate-500">
+                  <td colSpan={12} className="px-4 py-12 text-center text-slate-500">
                     No visible portfolio rows.
                   </td>
                 </tr>
@@ -148,6 +157,12 @@ export default function Compression() {
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {formatMultiple(row.prior_pe_1y)}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                      {formatRatio(row.growth_adjusted_pe)}
+                      <div className="text-xs text-slate-500">
+                        {formatPercent(row.absolute_pe_discount)}
+                      </div>
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {formatPercent(row.revenue_growth_1y)}

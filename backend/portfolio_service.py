@@ -320,13 +320,12 @@ def _compression_opportunity_score(
     base_cagr: float | None,
     current_pe: float | None,
     prior_pe: float | None,
+    absolute_pe_discount: float | None,
 ) -> float | None:
     if earnings_growth is None or price_return is None:
         return None
 
     raw_gap = earnings_growth - price_return
-    if raw_gap <= 0:
-        return raw_gap
 
     quality_multiplier = 1.0
     if revenue_growth is None:
@@ -353,7 +352,48 @@ def _compression_opportunity_score(
             max(0.0, (starting_multiple - 40.0) / 80.0),
         )
 
-    return raw_gap * quality_multiplier * (1.0 - starting_multiple_penalty)
+    relative_compression_score = max(0.0, raw_gap) * quality_multiplier * (
+        1.0 - starting_multiple_penalty
+    )
+
+    absolute_discount = safe_float(absolute_pe_discount)
+    absolute_pe_score = 0.0
+    if absolute_discount is not None and absolute_discount > 0:
+        absolute_pe_score = absolute_discount * quality_multiplier * 0.45
+
+    if relative_compression_score <= 0 and absolute_pe_score <= 0:
+        return raw_gap
+
+    return relative_compression_score + absolute_pe_score
+
+
+def _absolute_pe_discount(
+    earnings_growth: float | None,
+    revenue_growth: float | None,
+    base_cagr: float | None,
+    current_pe: float | None,
+) -> tuple[float | None, float | None]:
+    current_pe_value = safe_float(current_pe)
+    if current_pe_value is None or current_pe_value <= 0:
+        return None, None
+
+    growth_candidates = [
+        value
+        for value in (
+            safe_float(earnings_growth),
+            safe_float(revenue_growth),
+            safe_float(base_cagr),
+        )
+        if value is not None and value > 0
+    ]
+    if not growth_candidates:
+        return None, None
+
+    growth_anchor = max(growth_candidates)
+    fair_growth_pe = min(75.0, max(8.0, growth_anchor * 100.0))
+    return (fair_growth_pe / current_pe_value) - 1.0, current_pe_value / (
+        growth_anchor * 100.0
+    )
 
 
 def _sort_summary_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -557,6 +597,12 @@ def build_portfolio_views(
         cagr_gap = None
         if base_cagr is not None and price_return_1y is not None:
             cagr_gap = base_cagr - price_return_1y
+        absolute_pe_discount, growth_adjusted_pe = _absolute_pe_discount(
+            earnings_growth,
+            revenue_growth,
+            base_cagr,
+            current_pe,
+        )
 
         row["prior_price_1y"] = prior_price_1y
         row["prior_price_date_1y"] = prior_price_date_1y
@@ -568,6 +614,8 @@ def build_portfolio_views(
         row["multiple_change_1y"] = multiple_change
         row["prior_pe_1y"] = prior_pe
         row["cagr_gap_1y"] = cagr_gap
+        row["absolute_pe_discount"] = absolute_pe_discount
+        row["growth_adjusted_pe"] = growth_adjusted_pe
         row["compression_opportunity_score"] = _compression_opportunity_score(
             earnings_growth,
             revenue_growth,
@@ -575,6 +623,7 @@ def build_portfolio_views(
             base_cagr,
             current_pe,
             prior_pe,
+            absolute_pe_discount,
         )
         row["management_mode"] = (
             "managed"
