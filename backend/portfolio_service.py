@@ -301,8 +301,9 @@ def _positive_growth(current: Any, prior: Any) -> float | None:
     return (current_value / prior_value) - 1.0
 
 
-def _first_growth_rate_decimal(state: dict[str, Any], scenario_name: str, key: str) -> float | None:
-    scenario = state.get(scenario_name)
+def _stock_detail_projection_growth(state: dict[str, Any], key: str) -> float | None:
+    # Match the one-year price return window with the base scenario's year-one growth.
+    scenario = state.get("base")
     if not isinstance(scenario, dict):
         return None
     values = scenario.get(key)
@@ -508,24 +509,26 @@ def build_portfolio_views(
         )
         earnings_growth_source = "actual"
         if earnings_growth is None:
-            earnings_growth = _first_growth_rate_decimal(
+            earnings_growth = _stock_detail_projection_growth(
                 state,
-                "base",
                 "net_income_growth_rates",
             )
-            earnings_growth_source = "base_assumption" if earnings_growth is not None else None
+            earnings_growth_source = (
+                "stock_detail_projection" if earnings_growth is not None else None
+            )
         revenue_growth = _positive_growth(
             row.get("ttm_revenue"),
             row.get("prior_ttm_revenue"),
         )
         revenue_growth_source = "actual"
         if revenue_growth is None:
-            revenue_growth = _first_growth_rate_decimal(
+            revenue_growth = _stock_detail_projection_growth(
                 state,
-                "base",
                 "rev_growth_rates",
             )
-            revenue_growth_source = "base_assumption" if revenue_growth is not None else None
+            revenue_growth_source = (
+                "stock_detail_projection" if revenue_growth is not None else None
+            )
         multiple_change = None
         if (
             price_return_1y is not None

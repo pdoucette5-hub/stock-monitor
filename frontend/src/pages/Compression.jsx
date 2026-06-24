@@ -28,7 +28,7 @@ function explainRow(row) {
     return 'Needs about one year of imported price history.'
   }
   if (row.earnings_growth_1y == null) {
-    return 'Needs positive earnings or a base net-income growth assumption.'
+    return 'Needs positive earnings or a Stock Detail net-income projection.'
   }
   if (row.revenue_growth_1y != null && row.revenue_growth_1y < 0) {
     return 'Earnings outpaced price, but revenue declined.'
@@ -41,7 +41,7 @@ function explainRow(row) {
 
 function sourceLabel(value) {
   if (value === 'actual') return 'actual TTM'
-  if (value === 'base_assumption') return 'base assumption'
+  if (value === 'stock_detail_projection') return 'Stock Detail projection'
   return null
 }
 
@@ -59,7 +59,7 @@ export default function Compression() {
     <div className="mx-auto w-[98vw] px-4 py-8">
       <PageToolbar
         title="Compression"
-        description="Read-only scan using imported prices, available TTM fundamentals, and base assumptions when history is missing."
+        description="Read-only scan using imported prices, available TTM fundamentals, and Stock Detail projections when history is missing."
         loading={loading}
         onReload={load}
         onUpdatePrices={load}
