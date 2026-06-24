@@ -301,6 +301,17 @@ def _positive_growth(current: Any, prior: Any) -> float | None:
     return (current_value / prior_value) - 1.0
 
 
+def _first_growth_rate_decimal(state: dict[str, Any], scenario_name: str, key: str) -> float | None:
+    scenario = state.get(scenario_name)
+    if not isinstance(scenario, dict):
+        return None
+    values = scenario.get(key)
+    if not isinstance(values, list) or not values:
+        return None
+    value = safe_float(values[0])
+    return None if value is None else value / 100.0
+
+
 def _compression_opportunity_score(
     earnings_growth: float | None,
     revenue_growth: float | None,
@@ -495,10 +506,26 @@ def build_portfolio_views(
             row.get("net_income_ttm"),
             row.get("prior_net_income_ttm"),
         )
+        earnings_growth_source = "actual"
+        if earnings_growth is None:
+            earnings_growth = _first_growth_rate_decimal(
+                state,
+                "base",
+                "net_income_growth_rates",
+            )
+            earnings_growth_source = "base_assumption" if earnings_growth is not None else None
         revenue_growth = _positive_growth(
             row.get("ttm_revenue"),
             row.get("prior_ttm_revenue"),
         )
+        revenue_growth_source = "actual"
+        if revenue_growth is None:
+            revenue_growth = _first_growth_rate_decimal(
+                state,
+                "base",
+                "rev_growth_rates",
+            )
+            revenue_growth_source = "base_assumption" if revenue_growth is not None else None
         multiple_change = None
         if (
             price_return_1y is not None
@@ -516,7 +543,9 @@ def build_portfolio_views(
         row["prior_price_date_1y"] = prior_price_date_1y
         row["price_return_1y"] = price_return_1y
         row["earnings_growth_1y"] = earnings_growth
+        row["earnings_growth_source"] = earnings_growth_source
         row["revenue_growth_1y"] = revenue_growth
+        row["revenue_growth_source"] = revenue_growth_source
         row["multiple_change_1y"] = multiple_change
         row["prior_pe_1y"] = prior_pe
         row["compression_opportunity_score"] = _compression_opportunity_score(

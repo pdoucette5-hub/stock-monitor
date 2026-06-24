@@ -24,8 +24,11 @@ function scoreClass(value) {
 }
 
 function explainRow(row) {
-  if (row.earnings_growth_1y == null || row.price_return_1y == null) {
-    return 'Needs positive current/prior earnings and one year of price history.'
+  if (row.price_return_1y == null) {
+    return 'Needs about one year of imported price history.'
+  }
+  if (row.earnings_growth_1y == null) {
+    return 'Needs positive earnings or a base net-income growth assumption.'
   }
   if (row.revenue_growth_1y != null && row.revenue_growth_1y < 0) {
     return 'Earnings outpaced price, but revenue declined.'
@@ -34,6 +37,12 @@ function explainRow(row) {
     return 'Earnings grew faster than price, compressing the multiple.'
   }
   return 'No meaningful compression signal.'
+}
+
+function sourceLabel(value) {
+  if (value === 'actual') return 'actual TTM'
+  if (value === 'base_assumption') return 'base assumption'
+  return null
 }
 
 export default function Compression() {
@@ -50,7 +59,7 @@ export default function Compression() {
     <div className="mx-auto w-[98vw] px-4 py-8">
       <PageToolbar
         title="Compression"
-        description="Price versus earnings decomposition for spotting possible unjustified multiple compression."
+        description="Read-only scan using imported prices, available TTM fundamentals, and base assumptions when history is missing."
         loading={loading}
         onReload={load}
         onUpdatePrices={load}
@@ -111,6 +120,11 @@ export default function Compression() {
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {formatPercent(row.earnings_growth_1y)}
+                      {sourceLabel(row.earnings_growth_source) && (
+                        <div className="text-xs text-slate-500">
+                          {sourceLabel(row.earnings_growth_source)}
+                        </div>
+                      )}
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {formatPercent(row.multiple_change_1y)}
@@ -130,6 +144,11 @@ export default function Compression() {
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {formatPercent(row.revenue_growth_1y)}
+                      {sourceLabel(row.revenue_growth_source) && (
+                        <div className="text-xs text-slate-500">
+                          {sourceLabel(row.revenue_growth_source)}
+                        </div>
+                      )}
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
                       {formatCagrDecimal(row.base_cagr_y3)}
