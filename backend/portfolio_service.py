@@ -440,11 +440,14 @@ def build_portfolio_views(
     ).copy()
 
     summary_rows: list[dict[str, Any]] = []
+    saved_scenario_states: dict[str, dict[str, Any]] = {}
     for ticker in all_tickers:
         row_match = market_df[market_df["ticker"] == ticker]
         market_row = row_match.iloc[0].to_dict() if not row_match.empty else {"ticker": ticker}
         market_row = _apply_price_store_fallback(market_row, ticker)
         raw_state = scenario_inputs.get(ticker)
+        if isinstance(raw_state, dict):
+            saved_scenario_states[ticker] = raw_state
         state = prepare_ticker_state(
             raw_state if isinstance(raw_state, dict) else None,
             market_row,
@@ -503,6 +506,7 @@ def build_portfolio_views(
             safe_float(row.get("price")),
             price_history,
         )
+        stock_detail_state = saved_scenario_states.get(row["ticker"], {})
         earnings_growth = _positive_growth(
             row.get("net_income_ttm"),
             row.get("prior_net_income_ttm"),
@@ -510,7 +514,7 @@ def build_portfolio_views(
         earnings_growth_source = "actual"
         if earnings_growth is None:
             earnings_growth = _stock_detail_projection_growth(
-                state,
+                stock_detail_state,
                 "net_income_growth_rates",
             )
             earnings_growth_source = (
@@ -523,7 +527,7 @@ def build_portfolio_views(
         revenue_growth_source = "actual"
         if revenue_growth is None:
             revenue_growth = _stock_detail_projection_growth(
-                state,
+                stock_detail_state,
                 "rev_growth_rates",
             )
             revenue_growth_source = (
