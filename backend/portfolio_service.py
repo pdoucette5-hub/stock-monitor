@@ -480,12 +480,12 @@ def build_portfolio_views(
     for ticker, position_summary in (position_summaries or {}).items():
         if ticker not in portfolio_shares_map:
             continue
+        if safe_float(position_summary.get("transaction_count"), 0.0) <= 0:
+            continue
         transaction_shares = safe_float(position_summary.get("current_shares"))
         if transaction_shares is None:
             continue
-        configured_shares = safe_float(portfolio_shares_map.get(ticker), 0.0) or 0.0
-        if transaction_shares > configured_shares:
-            portfolio_shares_map[ticker] = transaction_shares
+        portfolio_shares_map[ticker] = transaction_shares
     bottom_pinned_tickers = settings.get("bottom_pinned_tickers", [])
     price_history = price_history if price_history is not None else load_price_history_store()
 

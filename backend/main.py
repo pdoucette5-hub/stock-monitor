@@ -787,6 +787,11 @@ def build_management_snapshot() -> dict[str, Any]:
 
     positions: list[dict[str, Any]] = []
     transaction_shares_by_ticker: dict[str, float] = {}
+    transaction_backed_tickers = {
+        ticker
+        for ticker, entries in transactions.items()
+        if isinstance(entries, list) and entries
+    }
     accounts: set[str] = set()
 
     for ticker, entries in transactions.items():
@@ -821,6 +826,8 @@ def build_management_snapshot() -> dict[str, Any]:
 
     accounts.add(UNASSIGNED_ACCOUNT)
     for ticker, total_shares in configured_shares.items():
+        if ticker in transaction_backed_tickers:
+            continue
         residual = max(
             total_shares - transaction_shares_by_ticker.get(ticker, 0.0),
             0.0,
