@@ -631,6 +631,7 @@ export default function StockDetail() {
         await createTransaction(selectedTicker, payload)
         setTransactionMessage('Transaction added.')
       }
+      clearPortfolioViewCache()
 
       const savedAccount = String(payload.account || '').trim()
       if (savedAccount) {
@@ -665,6 +666,7 @@ export default function StockDetail() {
       if (transactionForm.id === transactionId) {
         resetTransactionForm()
       }
+      clearPortfolioViewCache()
       await loadTickerTransactions(selectedTicker)
       await loadPosition(selectedTicker)
     } catch (err) {
