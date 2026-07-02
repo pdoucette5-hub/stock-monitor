@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import PageToolbar from '../components/PageToolbar'
 import ValuationTable, { getValuationColumns } from '../components/ValuationTable'
-import { usePortfolioView } from '../hooks/usePortfolioView'
+import { clearPortfolioViewCache, usePortfolioView } from '../hooks/usePortfolioView'
 import {
   addPortfolioTicker,
   archiveTicker,
@@ -12,11 +12,6 @@ import {
 } from '../lib/api'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
-
-const SUB_TABS = [
-  { id: 'portfolio', label: 'Portfolio' },
-  { id: 'watchlist', label: 'Watchlist' },
-]
 
 const MANAGEMENT_FILTERS = [
   { id: 'active', label: 'Managed + tracked' },
@@ -42,7 +37,6 @@ export default function Holdings() {
   const { authEnabled, user } = useAuth()
   const hasFullAccess = !authEnabled || user?.role !== 'limited'
   const { view, loading, error, lastUpdated, load } = usePortfolioView()
-  const [activeTab, setActiveTab] = useState('portfolio')
   const [showHidden, setShowHidden] = useState(false)
   const [managementFilter, setManagementFilter] = useState('active')
   const [savingTicker, setSavingTicker] = useState(null)
@@ -69,15 +63,13 @@ export default function Holdings() {
     : undefined
 
   const portfolioRows = view?.portfolio ?? []
-  const watchlistRows = view?.watchlist ?? []
 
-  const sourceRows = activeTab === 'portfolio' ? portfolioRows : watchlistRows
   const visibleRows = useMemo(() => {
     let rows = showHidden
-      ? sourceRows
-      : sourceRows.filter((row) => row.show_in_holdings !== false)
+      ? portfolioRows
+      : portfolioRows.filter((row) => row.show_in_holdings !== false)
 
-    if (activeTab !== 'portfolio' || !hasFullAccess) return rows
+    if (!hasFullAccess) return rows
 
     return rows
       .map((row) => {
@@ -90,8 +82,13 @@ export default function Holdings() {
           market_value: Number.isFinite(price) ? filteredShares * price : null,
         }
       })
-      .filter((row) => managementFilter === 'all' || Number(row.shares) > 0)
-  }, [activeTab, hasFullAccess, managementFilter, sourceRows, showHidden])
+      .filter(
+        (row) =>
+          managementFilter === 'all' ||
+          Number(row.shares) > 0 ||
+          Number(row.total_shares || 0) <= 0,
+      )
+  }, [hasFullAccess, managementFilter, portfolioRows, showHidden])
 
   const toggleVisibility = async (ticker, showInHoldings) => {
     setSavingTicker(ticker)
@@ -99,7 +96,8 @@ export default function Holdings() {
     setFormMessage(null)
     try {
       await savePortfolioControls([{ ticker, show_in_holdings: showInHoldings }])
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to update visibility')
     } finally {
@@ -119,7 +117,8 @@ export default function Holdings() {
     setFormMessage(null)
     try {
       await savePortfolioShares(ticker, numeric)
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
       setShareDrafts((current) => {
         const next = { ...current }
         delete next[ticker]
@@ -138,14 +137,15 @@ export default function Holdings() {
     setFormMessage(null)
 
     const ticker = String(newTicker).trim().toUpperCase()
-    const shares = Number(newShares)
+    const sharesText = String(newShares).trim()
+    const shares = Number(sharesText)
 
     if (!ticker) {
       setFormError('Ticker is required.')
       return
     }
-    if (Number.isNaN(shares) || shares < 0) {
-      setFormError('Shares must be a non-negative number.')
+    if (!sharesText || Number.isNaN(shares) || shares < 0) {
+      setFormError('Shares are required and must be a non-negative number.')
       return
     }
 
@@ -163,7 +163,8 @@ export default function Holdings() {
       } else {
         setFormMessage(`Added ${ticker} to your portfolio.`)
       }
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to add portfolio ticker')
     }
@@ -176,7 +177,8 @@ export default function Holdings() {
     try {
       await archiveTicker(ticker)
       setFormMessage(`Archived ${ticker}.`)
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to archive ticker')
     } finally {
@@ -194,7 +196,8 @@ export default function Holdings() {
     try {
       await removeTicker(ticker)
       setFormMessage(`Removed ${ticker} from tracking.`)
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to remove ticker')
     } finally {
@@ -217,11 +220,7 @@ export default function Holdings() {
   }
 
   const columns = useMemo(() => {
-    const baseColumns = getValuationColumns(activeTab)
-
-    if (activeTab !== 'portfolio') {
-      return baseColumns
-    }
+    const baseColumns = getValuationColumns('portfolio')
 
     const filterLabel = {
       active: 'Managed + Tracked',
@@ -335,7 +334,7 @@ export default function Holdings() {
       ...withEditableShares.slice(2),
       rowActionColumn,
     ]
-  }, [activeTab, hasFullAccess, managementFilter, shareDrafts, savingTicker])
+  }, [hasFullAccess, managementFilter, shareDrafts, savingTicker])
 
   return (
     <div className="mx-auto w-[98vw] px-4 py-8">
@@ -376,78 +375,58 @@ export default function Holdings() {
         </div>
       )}
 
-      {activeTab === 'portfolio' && (
-        <form
-          onSubmit={handleAddPortfolio}
-          className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
-        >
-          <div className="mb-3">
-            <h2 className="text-sm font-semibold text-slate-900">Add portfolio holding</h2>
-            <p className="mt-1 text-xs text-slate-500">
-              Add a new stock directly from the UI.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-end gap-3">
-            <div>
-              <label className="mb-1 block text-xs font-medium text-slate-600">
-                Ticker
-              </label>
-              <input
-                type="text"
-                value={newTicker}
-                onChange={(e) => setNewTicker(e.target.value.toUpperCase())}
-                placeholder="e.g. CRM"
-                className="w-32 rounded border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block text-xs font-medium text-slate-600">
-                Shares
-              </label>
-              <input
-                type="number"
-                step="0.01"
-                min="0"
-                value={newShares}
-                onChange={(e) => setNewShares(e.target.value)}
-                placeholder="e.g. 25"
-                className="w-32 rounded border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
-            >
-              Add to portfolio
-            </button>
-          </div>
-        </form>
-      )}
-
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex gap-1 rounded-lg border border-slate-200 bg-white p-1 shadow-sm">
-          {SUB_TABS.map((tab) => (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setActiveTab(tab.id)}
-              className={[
-                'rounded-md px-4 py-2 text-sm font-medium transition',
-                activeTab === tab.id
-                  ? 'bg-slate-900 text-white'
-                  : 'text-slate-600 hover:bg-slate-50',
-              ].join(' ')}
-            >
-              {tab.label}
-            </button>
-          ))}
+      <form
+        onSubmit={handleAddPortfolio}
+        className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+      >
+        <div className="mb-3">
+          <h2 className="text-sm font-semibold text-slate-900">Add portfolio holding</h2>
+          <p className="mt-1 text-xs text-slate-500">
+            Add a new stock directly from the UI.
+          </p>
         </div>
 
+        <div className="flex flex-wrap items-end gap-3">
+          <div>
+            <label className="mb-1 block text-xs font-medium text-slate-600">
+              Ticker
+            </label>
+            <input
+              type="text"
+              value={newTicker}
+              onChange={(e) => setNewTicker(e.target.value.toUpperCase())}
+              placeholder="e.g. CRM"
+              className="w-32 rounded border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="mb-1 block text-xs font-medium text-slate-600">
+              Shares
+            </label>
+            <input
+              type="number"
+              step="0.01"
+              min="0"
+              value={newShares}
+              onChange={(e) => setNewShares(e.target.value)}
+              placeholder="e.g. 25"
+              className="w-32 rounded border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+          >
+            Add to portfolio
+          </button>
+        </div>
+      </form>
+
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap items-center gap-3">
-          {activeTab === 'portfolio' && hasFullAccess && (
+          {hasFullAccess && (
             <div className="flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
               {MANAGEMENT_FILTERS.map((filter) => (
                 <button
@@ -484,9 +463,7 @@ export default function Holdings() {
           columns={columns}
           loading={loading}
           emptyMessage={
-            activeTab === 'portfolio'
-              ? 'No visible portfolio positions. Enable Show on hidden rows or add positions in the form above.'
-              : 'No visible watchlist names.'
+            'No visible portfolio positions. Enable Show on hidden rows or add positions in the form above.'
           }
           lastUpdated={lastUpdated}
           leadingColumn={leadingColumn}

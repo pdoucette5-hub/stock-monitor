@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import PageToolbar from '../components/PageToolbar'
 import ValuationTable, { getValuationColumns } from '../components/ValuationTable'
-import { usePortfolioView } from '../hooks/usePortfolioView'
+import { clearPortfolioViewCache, usePortfolioView } from '../hooks/usePortfolioView'
 import {
   addPortfolioTicker,
   addWatchlistTicker,
@@ -34,7 +34,8 @@ export default function Watchlist() {
     setFormMessage(null)
     try {
       await savePortfolioControls([{ ticker, show_in_holdings: showInHoldings }])
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to update visibility')
     } finally {
@@ -62,7 +63,8 @@ export default function Watchlist() {
       } catch {
         setFormMessage(`Added ${ticker} to watchlist. Sheet sync did not complete.`)
       }
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to add watchlist ticker')
     }
@@ -95,7 +97,8 @@ export default function Watchlist() {
         delete next[ticker]
         return next
       })
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to move ticker to portfolio')
     } finally {
@@ -110,7 +113,8 @@ export default function Watchlist() {
     try {
       await archiveTicker(ticker)
       setFormMessage(`Archived ${ticker}.`)
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to archive ticker')
     } finally {
@@ -128,7 +132,8 @@ export default function Watchlist() {
     try {
       await removeTicker(ticker)
       setFormMessage(`Removed ${ticker} from tracking.`)
-      await load(false)
+      clearPortfolioViewCache()
+      await load(true)
     } catch (err) {
       setFormError(err instanceof Error ? err.message : 'Failed to remove ticker')
     } finally {
