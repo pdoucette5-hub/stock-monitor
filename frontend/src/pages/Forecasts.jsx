@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { fetchForecastScorecard } from '../lib/api'
+import { fetchForecastScorecard, refreshReportedFundamentals } from '../lib/api'
 import { formatCagrDecimal, formatMoney } from '../lib/format'
 
 function formatPercent(value) {
@@ -39,20 +39,47 @@ function StatusPill({ status }) {
   )
 }
 
+function sourceLabel(value) {
+  if (value === 'sec-companyfacts') return 'SEC'
+  if (value === 'mixed') return 'SEC + fallback'
+  if (value === 'stock-detail') return 'Stock Detail'
+  return '—'
+}
+
 export default function Forecasts() {
   const [payload, setPayload] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
   const [error, setError] = useState(null)
+  const [message, setMessage] = useState(null)
 
   const load = useCallback(async () => {
     setLoading(true)
     setError(null)
+    setMessage(null)
     try {
       setPayload(await fetchForecastScorecard())
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load forecasts')
     } finally {
       setLoading(false)
+    }
+  }, [])
+
+  const refreshActuals = useCallback(async () => {
+    setRefreshing(true)
+    setError(null)
+    setMessage(null)
+    try {
+      const result = await refreshReportedFundamentals()
+      const refreshed = result?.refreshed?.length ?? 0
+      const errors = result?.errors?.length ?? 0
+      setMessage(`Refreshed ${refreshed} SEC actuals${errors ? `; ${errors} tickers need review` : ''}.`)
+      setPayload(await fetchForecastScorecard())
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to refresh SEC actuals')
+    } finally {
+      setRefreshing(false)
     }
   }, [])
 
@@ -73,14 +100,24 @@ export default function Forecasts() {
             Scorecard for saved Stock Detail assumptions against actual fundamentals and price movement to date.
           </p>
         </div>
-        <button
-          type="button"
-          onClick={load}
-          disabled={loading}
-          className="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          Reload
-        </button>
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={load}
+            disabled={loading || refreshing}
+            className="rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            Reload
+          </button>
+          <button
+            type="button"
+            onClick={refreshActuals}
+            disabled={loading || refreshing}
+            className="rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {refreshing ? 'Refreshing...' : 'Refresh SEC actuals'}
+          </button>
+        </div>
       </header>
 
       {error && (
@@ -89,6 +126,15 @@ export default function Forecasts() {
           className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
         >
           {error}
+        </div>
+      )}
+
+      {message && (
+        <div
+          role="status"
+          className="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"
+        >
+          {message}
         </div>
       )}
 
@@ -126,6 +172,7 @@ export default function Forecasts() {
               <tr>
                 <th className="px-4 py-3 font-semibold text-slate-700">Ticker</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Saved</th>
+                <th className="px-4 py-3 font-semibold text-slate-700">Actuals Source</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Base Revenue</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Revenue Read</th>
                 <th className="px-4 py-3 font-semibold text-slate-700">Base Earnings</th>
@@ -137,13 +184,13 @@ export default function Forecasts() {
             <tbody className="divide-y divide-slate-100">
               {loading && rows.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="px-4 py-12 text-center text-slate-500">
+                  <td colSpan={9} className="px-4 py-12 text-center text-slate-500">
                     Loading...
                   </td>
                 </tr>
               ) : rows.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="px-4 py-12 text-center text-slate-500">
+                  <td colSpan={9} className="px-4 py-12 text-center text-slate-500">
                     No saved forecast snapshots yet. Save assumptions in Stock Detail to begin tracking.
                   </td>
                 </tr>
@@ -159,6 +206,15 @@ export default function Forecasts() {
                       {formatDate(row.snapshot_timestamp)}
                       <div className="text-xs text-slate-500">
                         {row.elapsed_days} days ago
+                      </div>
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                      {sourceLabel(row.actuals_source)}
+                      <div className="text-xs text-slate-500">
+                        {row.reported_period_end ? `period ${formatDate(row.reported_period_end)}` : 'manual fallback'}
+                      </div>
+                      <div className="text-xs text-slate-500">
+                        {row.reported_confidence || '—'}
                       </div>
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">

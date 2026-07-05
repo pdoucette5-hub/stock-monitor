@@ -296,3 +296,10 @@ export function fetchChangeLog({ ticker = '', limit = 250 } = {}) {
 export function fetchForecastScorecard() {
   return request('/api/forecasts')
 }
+
+export function refreshReportedFundamentals(tickers = []) {
+  return request('/api/fundamentals/reported/refresh', {
+    method: 'POST',
+    body: JSON.stringify({ tickers }),
+  })
+}

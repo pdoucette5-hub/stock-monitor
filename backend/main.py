@@ -61,6 +61,7 @@ MANAGEMENT_MODES_FILE = BASE_DIR / "cache" / "management_modes.json"
 MANUAL_ALLOCATIONS_FILE = BASE_DIR / "cache" / "manual_allocations.json"
 PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 ASSUMPTION_SNAPSHOTS_FILE = BASE_DIR / "cache" / "assumption_snapshots.json"
+REPORTED_FUNDAMENTALS_FILE = BASE_DIR / "cache" / "reported_fundamentals.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 PRICE_IMPORT_SECRET = os.getenv("PRICE_IMPORT_SECRET", "")
@@ -97,6 +98,7 @@ MANAGEMENT_MODES_FILE.parent.mkdir(parents=True, exist_ok=True)
 MANUAL_ALLOCATIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
 PORTFOLIO_EVENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
 ASSUMPTION_SNAPSHOTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+REPORTED_FUNDAMENTALS_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 RESPONSE_CACHE_TTL_SECONDS = int(os.getenv("STOCK_MONITOR_RESPONSE_CACHE_TTL_SECONDS", "600"))
 _response_cache: dict[str, tuple[float, Any]] = {}
@@ -304,6 +306,10 @@ class AccountMergeRequest(BaseModel):
     from_account: str
     to_account: str
     source_account_keys: list[str] = Field(default_factory=list)
+
+
+class FundamentalsRefreshRequest(BaseModel):
+    tickers: list[str] = Field(default_factory=list)
 
 
 VALID_TRANSACTION_TYPES = {
@@ -1007,6 +1013,260 @@ def save_assumption_snapshots(snapshots: list[dict[str, Any]]) -> None:
     save_json_file(ASSUMPTION_SNAPSHOTS_FILE, cleaned)
 
 
+def load_reported_fundamentals() -> dict[str, Any]:
+    return load_json_file(REPORTED_FUNDAMENTALS_FILE, {})
+
+
+def save_reported_fundamentals(data: dict[str, Any]) -> None:
+    cleaned = {
+        normalize_ticker(ticker): payload
+        for ticker, payload in data.items()
+        if normalize_ticker(ticker) and isinstance(payload, dict)
+    }
+    save_json_file(REPORTED_FUNDAMENTALS_FILE, dict(sorted(cleaned.items())))
+
+
+SEC_TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
+SEC_COMPANY_FACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
+SEC_HEADERS = {
+    "User-Agent": "stock-monitor/1.0 pdoucette5@gmail.com",
+    "Accept-Encoding": "gzip, deflate",
+}
+REVENUE_FACT_CANDIDATES = (
+    "RevenueFromContractWithCustomerExcludingAssessedTax",
+    "Revenues",
+    "SalesRevenueNet",
+    "SalesRevenueGoodsNet",
+    "SalesRevenueServicesNet",
+)
+NET_INCOME_FACT_CANDIDATES = (
+    "NetIncomeLoss",
+    "ProfitLoss",
+    "NetIncomeLossAvailableToCommonStockholdersBasic",
+)
+SHARES_FACT_CANDIDATES = (
+    "EntityCommonStockSharesOutstanding",
+    "CommonStocksIncludingAdditionalPaidInCapitalMember",
+)
+_sec_ticker_map_cache: dict[str, str] | None = None
+
+
+def _sec_get_json(url: str) -> Any:
+    response = requests.get(url, headers=SEC_HEADERS, timeout=30)
+    response.raise_for_status()
+    return response.json()
+
+
+def load_sec_ticker_map() -> dict[str, str]:
+    global _sec_ticker_map_cache
+    if _sec_ticker_map_cache is not None:
+        return _sec_ticker_map_cache
+
+    payload = _sec_get_json(SEC_TICKER_MAP_URL)
+    mapping: dict[str, str] = {}
+    if isinstance(payload, dict):
+        for item in payload.values():
+            if not isinstance(item, dict):
+                continue
+            ticker = normalize_ticker(item.get("ticker", ""))
+            cik = item.get("cik_str")
+            if ticker and cik is not None:
+                mapping[ticker] = str(cik).zfill(10)
+    _sec_ticker_map_cache = mapping
+    return mapping
+
+
+def _duration_days(fact: dict[str, Any]) -> int | None:
+    start = fact.get("start")
+    end = fact.get("end")
+    if not start or not end:
+        return None
+    try:
+        start_date = datetime.fromisoformat(str(start)).date()
+        end_date = datetime.fromisoformat(str(end)).date()
+    except ValueError:
+        return None
+    return (end_date - start_date).days
+
+
+def _fact_units(company_facts: dict[str, Any], concept: str, unit: str) -> list[dict[str, Any]]:
+    facts = company_facts.get("facts")
+    if not isinstance(facts, dict):
+        return []
+    matches: list[dict[str, Any]] = []
+    for namespace, namespace_facts in facts.items():
+        if not isinstance(namespace_facts, dict):
+            continue
+        concept_payload = namespace_facts.get(concept)
+        if not isinstance(concept_payload, dict):
+            continue
+        units = concept_payload.get("units")
+        if not isinstance(units, dict):
+            continue
+        rows = units.get(unit)
+        if isinstance(rows, list):
+            matches.extend({**row, "namespace": namespace} for row in rows if isinstance(row, dict))
+    return matches
+
+
+def _latest_quarterly_fact(
+    company_facts: dict[str, Any],
+    concepts: tuple[str, ...],
+    unit: str,
+) -> dict[str, Any] | None:
+    candidates: list[dict[str, Any]] = []
+    for concept in concepts:
+        for fact in _fact_units(company_facts, concept, unit):
+            if safe_float(fact.get("val")) is None:
+                continue
+            form = str(fact.get("form") or "")
+            if form not in {"10-Q", "10-K"}:
+                continue
+            duration = _duration_days(fact)
+            if duration is None or duration > 130:
+                continue
+            candidates.append({**fact, "concept": concept, "duration_days": duration})
+
+    if not candidates:
+        return None
+
+    candidates.sort(
+        key=lambda item: (
+            str(item.get("end") or ""),
+            str(item.get("filed") or ""),
+            str(item.get("concept") or ""),
+        ),
+        reverse=True,
+    )
+    return candidates[0]
+
+
+def _latest_instant_fact(
+    company_facts: dict[str, Any],
+    concepts: tuple[str, ...],
+    unit: str,
+) -> dict[str, Any] | None:
+    candidates: list[dict[str, Any]] = []
+    for concept in concepts:
+        for fact in _fact_units(company_facts, concept, unit):
+            if safe_float(fact.get("val")) is None:
+                continue
+            form = str(fact.get("form") or "")
+            if form not in {"10-Q", "10-K"}:
+                continue
+            candidates.append({**fact, "concept": concept})
+
+    if not candidates:
+        return None
+
+    candidates.sort(
+        key=lambda item: (
+            str(item.get("end") or ""),
+            str(item.get("filed") or ""),
+            str(item.get("concept") or ""),
+        ),
+        reverse=True,
+    )
+    return candidates[0]
+
+
+def fetch_sec_reported_fundamentals(ticker: str) -> dict[str, Any]:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        raise ValueError("Ticker is required")
+
+    cik = load_sec_ticker_map().get(normalized)
+    if not cik:
+        raise ValueError(f"No SEC CIK found for {normalized}")
+
+    company_facts = _sec_get_json(SEC_COMPANY_FACTS_URL.format(cik=cik))
+    revenue_fact = _latest_quarterly_fact(
+        company_facts,
+        REVENUE_FACT_CANDIDATES,
+        "USD",
+    )
+    net_income_fact = _latest_quarterly_fact(
+        company_facts,
+        NET_INCOME_FACT_CANDIDATES,
+        "USD",
+    )
+    shares_fact = _latest_instant_fact(
+        company_facts,
+        ("EntityCommonStockSharesOutstanding",),
+        "shares",
+    )
+
+    missing = []
+    if revenue_fact is None:
+        missing.append("quarterly revenue")
+    if net_income_fact is None:
+        missing.append("quarterly net income")
+    if shares_fact is None:
+        missing.append("shares outstanding")
+
+    period_end = None
+    filed_date = None
+    form = None
+    for fact in (revenue_fact, net_income_fact, shares_fact):
+        if not isinstance(fact, dict):
+            continue
+        period_end = max(filter(None, [period_end, fact.get("end")]), default=None)
+        filed_date = max(filter(None, [filed_date, fact.get("filed")]), default=None)
+        form = form or fact.get("form")
+
+    confidence = "high" if not missing else "partial"
+    return {
+        "ticker": normalized,
+        "cik": cik,
+        "source": "sec-companyfacts",
+        "source_url": SEC_COMPANY_FACTS_URL.format(cik=cik),
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "period_end": period_end,
+        "filed_date": filed_date,
+        "form": form,
+        "latest_quarter_revenue": safe_float(
+            revenue_fact.get("val") if isinstance(revenue_fact, dict) else None,
+        ),
+        "latest_quarter_net_income": safe_float(
+            net_income_fact.get("val") if isinstance(net_income_fact, dict) else None,
+        ),
+        "shares_outstanding": safe_float(
+            shares_fact.get("val") if isinstance(shares_fact, dict) else None,
+        ),
+        "revenue_concept": revenue_fact.get("concept") if isinstance(revenue_fact, dict) else None,
+        "net_income_concept": (
+            net_income_fact.get("concept") if isinstance(net_income_fact, dict) else None
+        ),
+        "shares_concept": shares_fact.get("concept") if isinstance(shares_fact, dict) else None,
+        "confidence": confidence,
+        "missing": missing,
+    }
+
+
+def refresh_reported_fundamentals(tickers: list[str]) -> dict[str, Any]:
+    stored = load_reported_fundamentals()
+    refreshed: list[dict[str, Any]] = []
+    errors: list[dict[str, str]] = []
+
+    for ticker in tickers:
+        normalized = normalize_ticker(ticker)
+        if not normalized:
+            continue
+        try:
+            payload = fetch_sec_reported_fundamentals(normalized)
+            stored[normalized] = payload
+            refreshed.append(payload)
+        except Exception as exc:
+            errors.append({"ticker": normalized, "error": str(exc)})
+
+    save_reported_fundamentals(stored)
+    return {
+        "refreshed": refreshed,
+        "errors": errors,
+        "fundamentals": stored,
+    }
+
+
 def _scenario_copy(state: dict[str, Any], scenario_name: str) -> dict[str, Any]:
     scenario = state.get(scenario_name)
     return json.loads(json.dumps(scenario)) if isinstance(scenario, dict) else {}
@@ -1114,6 +1374,7 @@ def build_forecast_scorecard() -> dict[str, Any]:
         position_summaries=build_position_summaries(),
         force_refresh=False,
     )
+    reported_fundamentals = load_reported_fundamentals()
     row_by_ticker = {
         row.get("ticker"): row
         for section in ("portfolio", "watchlist")
@@ -1134,6 +1395,30 @@ def build_forecast_scorecard() -> dict[str, Any]:
         if not isinstance(current_state, dict):
             current_state = {}
         current_row = row_by_ticker.get(ticker, {})
+        reported = reported_fundamentals.get(ticker)
+        if not isinstance(reported, dict):
+            reported = {}
+        reported_revenue = safe_float(reported.get("latest_quarter_revenue"))
+        reported_net_income = safe_float(reported.get("latest_quarter_net_income"))
+        reported_shares = safe_float(reported.get("shares_outstanding"))
+        current_revenue = (
+            reported_revenue
+            if reported_revenue is not None
+            else current_state.get("latest_quarter_revenue")
+        )
+        current_net_income = (
+            reported_net_income
+            if reported_net_income is not None
+            else current_state.get("latest_quarter_net_income")
+        )
+        current_shares = (
+            reported_shares
+            if reported_shares is not None
+            else current_state.get("shares_outstanding")
+        )
+        actuals_source = "sec-companyfacts" if reported else "stock-detail"
+        if reported and (reported_revenue is None or reported_net_income is None):
+            actuals_source = "mixed"
         try:
             snapshot_time = datetime.fromisoformat(str(snapshot.get("timestamp")))
             if snapshot_time.tzinfo is None:
@@ -1150,13 +1435,13 @@ def build_forecast_scorecard() -> dict[str, Any]:
         )
         revenue_score = _growth_error(
             snapshot.get("latest_quarter_revenue"),
-            current_state.get("latest_quarter_revenue"),
+            current_revenue,
             base_rev_assumption,
             elapsed_days,
         )
         earnings_score = _growth_error(
             snapshot.get("latest_quarter_net_income"),
-            current_state.get("latest_quarter_net_income"),
+            current_net_income,
             base_earnings_assumption,
             elapsed_days,
         )
@@ -1185,6 +1470,14 @@ def build_forecast_scorecard() -> dict[str, Any]:
                 "cagr_error_to_date": cagr_error,
                 "base_revenue_growth_y1": base_rev_assumption,
                 "base_earnings_growth_y1": base_earnings_assumption,
+                "actuals_source": actuals_source,
+                "reported_period_end": reported.get("period_end"),
+                "reported_filed_date": reported.get("filed_date"),
+                "reported_confidence": reported.get("confidence"),
+                "reported_missing": reported.get("missing", []),
+                "current_latest_quarter_revenue": safe_float(current_revenue),
+                "current_latest_quarter_net_income": safe_float(current_net_income),
+                "current_shares_outstanding": safe_float(current_shares),
                 "revenue_actual_growth": revenue_score["actual_growth"],
                 "revenue_expected_growth_to_date": revenue_score["expected_growth_to_date"],
                 "revenue_error": revenue_score["error"],
@@ -1957,6 +2250,44 @@ def get_forecast_scorecard(request: Request) -> dict[str, Any]:
     if not has_full_access(request):
         raise HTTPException(status_code=403, detail="Forecast scorecard is private")
     return build_forecast_scorecard()
+
+
+@app.get("/api/fundamentals/reported")
+def get_reported_fundamentals(request: Request) -> dict[str, Any]:
+    if not has_full_access(request):
+        raise HTTPException(status_code=403, detail="Reported fundamentals are private")
+    return {"fundamentals": load_reported_fundamentals()}
+
+
+@app.post("/api/fundamentals/reported/refresh")
+def refresh_reported_fundamentals_endpoint(
+    request: Request,
+    body: FundamentalsRefreshRequest,
+) -> dict[str, Any]:
+    if not has_full_access(request):
+        raise HTTPException(status_code=403, detail="Reported fundamentals are private")
+
+    tickers = [normalize_ticker(ticker) for ticker in body.tickers]
+    tickers = [ticker for ticker in tickers if ticker]
+    if not tickers:
+        config = get_effective_tickers_config()
+        portfolio = normalize_portfolio(config.get("portfolio", []))
+        tickers = sorted(
+            {
+                row["ticker"]
+                for row in portfolio
+                if row.get("ticker")
+            }
+            | {
+                normalize_ticker(ticker)
+                for ticker in config.get("watchlist", [])
+                if normalize_ticker(ticker)
+            },
+        )
+
+    payload = refresh_reported_fundamentals(tickers)
+    invalidate_response_cache()
+    return payload
 
 
 @app.get("/api/performance/portfolio")
