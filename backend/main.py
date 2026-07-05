@@ -140,6 +140,14 @@ FULL_ACCESS_ONLY_PREFIXES = (
     "/api/transactions",
 )
 
+FULL_ACCESS_ONLY_WRITE_EXACT_PATHS = {
+    "/api/portfolio",
+}
+
+FULL_ACCESS_ONLY_WRITE_PREFIXES = (
+    "/api/stock/",
+)
+
 
 @app.middleware("http")
 async def require_google_auth(request: Request, call_next):
@@ -183,9 +191,20 @@ async def require_google_auth(request: Request, call_next):
         "role": role,
     }
 
+    write_method = request.method.upper() not in {"GET", "HEAD"}
     if role != "full" and (
         request.url.path in FULL_ACCESS_ONLY_EXACT_PATHS
         or any(request.url.path.startswith(prefix) for prefix in FULL_ACCESS_ONLY_PREFIXES)
+        or (
+            write_method
+            and (
+                request.url.path in FULL_ACCESS_ONLY_WRITE_EXACT_PATHS
+                or any(
+                    request.url.path.startswith(prefix)
+                    for prefix in FULL_ACCESS_ONLY_WRITE_PREFIXES
+                )
+            )
+        )
     ):
         return JSONResponse(
             status_code=403,

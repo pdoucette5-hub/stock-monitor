@@ -484,9 +484,14 @@ export default function StockDetail() {
 
   const handleTickerChange = (event) => {
     const nextTicker = event.target.value
-    if (hasUnsavedChanges) {
-      persistScenario({ manual: false })
+    if (
+      hasUnsavedChanges &&
+      !window.confirm('Discard unsaved assumption changes?')
+    ) {
+      return
     }
+    setHasUnsavedChanges(false)
+    setAutosaveState('idle')
     setSelectedTicker(nextTicker)
     setSearchParams({ ticker: nextTicker }, { replace: true })
   }
@@ -495,7 +500,7 @@ export default function StockDetail() {
     setForm((prev) => ({ ...prev, [field]: value }))
     setSaveMessage(null)
     setHasUnsavedChanges(true)
-    setAutosaveState('pending')
+    setAutosaveState('idle')
   }
 
   const updateScenario = (scenarioKey, field, value) => {
@@ -505,16 +510,16 @@ export default function StockDetail() {
     }))
     setSaveMessage(null)
     setHasUnsavedChanges(true)
-    setAutosaveState('pending')
+    setAutosaveState('idle')
   }
 
-  const persistScenario = useCallback(async ({ manual = false } = {}) => {
+  const persistScenario = useCallback(async () => {
     if (!selectedTicker) return
 
     const payload = formToApi(form)
     const signature = JSON.stringify(payload)
 
-    if (!manual && signature === lastSavedPayloadRef.current) {
+    if (signature === lastSavedPayloadRef.current) {
       setHasUnsavedChanges(false)
       setAutosaveState('idle')
       return
@@ -523,12 +528,9 @@ export default function StockDetail() {
     const saveId = saveSequenceRef.current + 1
     saveSequenceRef.current = saveId
 
-    if (manual) {
-      setSaving(true)
-      setSaveMessage(null)
-    } else {
-      setAutosaveState('saving')
-    }
+    setSaving(true)
+    setAutosaveState('saving')
+    setSaveMessage(null)
 
     setError(null)
 
@@ -542,35 +544,21 @@ export default function StockDetail() {
       setIsNewTicker(false)
       clearPortfolioViewCache()
 
-      if (manual) {
-        await loadScenario(selectedTicker)
-        setSaveMessage(`Saved assumptions for ${selectedTicker}.`)
-      } else {
-        setAutosaveState('saved')
-        setSaveMessage(`Autosaved assumptions for ${selectedTicker}.`)
-      }
+      setAutosaveState('saved')
+      await loadScenario(selectedTicker)
+      setSaveMessage(`Saved assumptions for ${selectedTicker}.`)
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to save assumptions'
       setError(message)
-      if (!manual) setAutosaveState('error')
+      setAutosaveState('error')
     } finally {
-      if (manual) setSaving(false)
+      setSaving(false)
     }
   }, [form, loadScenario, selectedTicker])
 
-  useEffect(() => {
-    if (!selectedTicker || loadingForm || !hasUnsavedChanges) return
-
-    const timeout = window.setTimeout(() => {
-      persistScenario({ manual: false })
-    }, 900)
-
-    return () => window.clearTimeout(timeout)
-  }, [form, hasUnsavedChanges, loadingForm, persistScenario, selectedTicker])
-
   const handleSave = async (event) => {
     event.preventDefault()
-    persistScenario({ manual: true })
+    persistScenario()
   }
 
   const handleTransactionFieldChange = (field, value) => {
@@ -681,13 +669,13 @@ export default function StockDetail() {
   const pageSubtitle = useMemo(() => {
     if (loadingForm) return 'Loading assumptions…'
     if (isNewTicker) return 'No saved assumptions yet — defaults shown below.'
-    return 'Edit assumptions. Changes autosave after you pause typing.'
+    return 'Edit assumptions, then save when you are ready.'
   }, [loadingForm, isNewTicker])
 
   const autosaveLabel = useMemo(() => {
-    if (autosaveState === 'saving') return 'Autosaving…'
-    if (autosaveState === 'saved') return 'Autosaved'
-    if (autosaveState === 'error') return 'Autosave failed'
+    if (autosaveState === 'saving') return 'Saving…'
+    if (autosaveState === 'saved') return 'Saved'
+    if (autosaveState === 'error') return 'Save failed'
     if (hasUnsavedChanges) return 'Unsaved changes'
     return 'Saved'
   }, [autosaveState, hasUnsavedChanges])
