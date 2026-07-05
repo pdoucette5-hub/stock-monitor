@@ -303,3 +303,10 @@ export function refreshReportedFundamentals(tickers = []) {
     body: JSON.stringify({ tickers }),
   })
 }
+
+export function refreshEarningsCalendar(tickers = [], daysAhead = 180) {
+  return request('/api/earnings-calendar/refresh', {
+    method: 'POST',
+    body: JSON.stringify({ tickers, days_ahead: daysAhead }),
+  })
+}

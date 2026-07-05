@@ -8,7 +8,8 @@ import os
 import threading
 import time
 import uuid
-from datetime import datetime, timezone
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -62,6 +63,7 @@ MANUAL_ALLOCATIONS_FILE = BASE_DIR / "cache" / "manual_allocations.json"
 PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
 ASSUMPTION_SNAPSHOTS_FILE = BASE_DIR / "cache" / "assumption_snapshots.json"
 REPORTED_FUNDAMENTALS_FILE = BASE_DIR / "cache" / "reported_fundamentals.json"
+EARNINGS_CALENDAR_FILE = BASE_DIR / "cache" / "earnings_calendar.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 PRICE_IMPORT_SECRET = os.getenv("PRICE_IMPORT_SECRET", "")
@@ -99,6 +101,7 @@ MANUAL_ALLOCATIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
 PORTFOLIO_EVENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
 ASSUMPTION_SNAPSHOTS_FILE.parent.mkdir(parents=True, exist_ok=True)
 REPORTED_FUNDAMENTALS_FILE.parent.mkdir(parents=True, exist_ok=True)
+EARNINGS_CALENDAR_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 RESPONSE_CACHE_TTL_SECONDS = int(os.getenv("STOCK_MONITOR_RESPONSE_CACHE_TTL_SECONDS", "600"))
 _response_cache: dict[str, tuple[float, Any]] = {}
@@ -310,6 +313,11 @@ class AccountMergeRequest(BaseModel):
 
 class FundamentalsRefreshRequest(BaseModel):
     tickers: list[str] = Field(default_factory=list)
+
+
+class EarningsCalendarRefreshRequest(BaseModel):
+    tickers: list[str] = Field(default_factory=list)
+    days_ahead: int = 180
 
 
 VALID_TRANSACTION_TYPES = {
@@ -1026,11 +1034,31 @@ def save_reported_fundamentals(data: dict[str, Any]) -> None:
     save_json_file(REPORTED_FUNDAMENTALS_FILE, dict(sorted(cleaned.items())))
 
 
+def load_earnings_calendar() -> dict[str, Any]:
+    return load_json_file(EARNINGS_CALENDAR_FILE, {})
+
+
+def save_earnings_calendar(data: dict[str, Any]) -> None:
+    cleaned = {
+        normalize_ticker(ticker): payload
+        for ticker, payload in data.items()
+        if normalize_ticker(ticker) and isinstance(payload, dict)
+    }
+    save_json_file(EARNINGS_CALENDAR_FILE, dict(sorted(cleaned.items())))
+
+
 SEC_TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
 SEC_COMPANY_FACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
+NASDAQ_EARNINGS_URL = "https://api.nasdaq.com/api/calendar/earnings"
 SEC_HEADERS = {
     "User-Agent": "stock-monitor/1.0 pdoucette5@gmail.com",
     "Accept-Encoding": "gzip, deflate",
+}
+NASDAQ_HEADERS = {
+    "User-Agent": "Mozilla/5.0",
+    "Accept": "application/json, text/plain, */*",
+    "Origin": "https://www.nasdaq.com",
+    "Referer": "https://www.nasdaq.com/",
 }
 REVENUE_FACT_CANDIDATES = (
     "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -1267,6 +1295,148 @@ def refresh_reported_fundamentals(tickers: list[str]) -> dict[str, Any]:
     }
 
 
+def _parse_nasdaq_calendar_date(value: Any) -> str | None:
+    text = str(value or "").strip()
+    if not text:
+        return None
+    for fmt in ("%a, %b %d, %Y", "%b %d, %Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(text, fmt).date().isoformat()
+        except ValueError:
+            continue
+    return None
+
+
+def _nasdaq_earnings_for_date(day: datetime.date) -> list[dict[str, Any]]:
+    response = requests.get(
+        NASDAQ_EARNINGS_URL,
+        params={"date": day.isoformat()},
+        headers=NASDAQ_HEADERS,
+        timeout=20,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    data = payload.get("data") if isinstance(payload, dict) else None
+    if not isinstance(data, dict):
+        return []
+
+    rows = data.get("rows")
+    if not isinstance(rows, list):
+        return []
+
+    as_of = _parse_nasdaq_calendar_date(data.get("asOf")) or day.isoformat()
+    results: list[dict[str, Any]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        ticker = normalize_ticker(row.get("symbol", ""))
+        if not ticker:
+            continue
+        results.append(
+            {
+                "ticker": ticker,
+                "next_earnings_date": as_of,
+                "time": row.get("time"),
+                "source": "nasdaq-earnings-calendar",
+                "source_url": f"{NASDAQ_EARNINGS_URL}?date={as_of}",
+                "confidence": "scheduled",
+                "fiscal_quarter_ending": row.get("fiscalQuarterEnding"),
+                "eps_forecast": row.get("epsForecast"),
+                "estimate_count": row.get("noOfEsts"),
+                "last_year_report_date": row.get("lastYearRptDt"),
+                "last_year_eps": row.get("lastYearEPS"),
+                "company_name": row.get("name"),
+                "fetched_at": datetime.now(timezone.utc).isoformat(),
+            },
+        )
+    return results
+
+
+def _estimate_next_earnings_date(ticker: str, reported: dict[str, Any]) -> dict[str, Any] | None:
+    filed_date_text = reported.get("filed_date")
+    if not filed_date_text:
+        return None
+    try:
+        next_date = datetime.fromisoformat(str(filed_date_text)).date() + timedelta(days=91)
+    except ValueError:
+        return None
+
+    today = datetime.now(timezone.utc).date()
+    while next_date < today:
+        next_date += timedelta(days=91)
+
+    return {
+        "ticker": ticker,
+        "next_earnings_date": next_date.isoformat(),
+        "time": None,
+        "source": "sec-filing-cadence-estimate",
+        "source_url": reported.get("source_url"),
+        "confidence": "estimated",
+        "fiscal_quarter_ending": None,
+        "eps_forecast": None,
+        "estimate_count": None,
+        "last_year_report_date": None,
+        "last_year_eps": None,
+        "company_name": None,
+        "basis_filed_date": filed_date_text,
+        "basis_period_end": reported.get("period_end"),
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+
+def refresh_earnings_calendar(tickers: list[str], days_ahead: int = 180) -> dict[str, Any]:
+    requested = {normalize_ticker(ticker) for ticker in tickers if normalize_ticker(ticker)}
+    stored = load_earnings_calendar()
+    refreshed: list[dict[str, Any]] = []
+    errors: list[dict[str, str]] = []
+    if not requested:
+        return {"refreshed": [], "errors": [], "calendar": stored}
+
+    today = datetime.now(timezone.utc).date()
+    days = max(1, min(int(days_ahead or 180), 365))
+    dates = [today + timedelta(days=offset) for offset in range(days + 1)]
+    found: dict[str, dict[str, Any]] = {}
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {
+            executor.submit(_nasdaq_earnings_for_date, day): day
+            for day in dates
+        }
+        for future in as_completed(futures):
+            day = futures[future]
+            try:
+                rows = future.result()
+            except Exception as exc:
+                errors.append({"ticker": "*", "error": f"{day.isoformat()}: {exc}"})
+                continue
+            for row in rows:
+                ticker = row.get("ticker")
+                if ticker in requested and ticker not in found:
+                    found[ticker] = row
+            if requested.issubset(found.keys()):
+                break
+
+    reported_fundamentals = load_reported_fundamentals()
+    for ticker in sorted(requested):
+        payload = found.get(ticker)
+        if payload is None:
+            reported = reported_fundamentals.get(ticker)
+            if isinstance(reported, dict):
+                payload = _estimate_next_earnings_date(ticker, reported)
+        if payload is None:
+            errors.append({"ticker": ticker, "error": "No scheduled date or SEC estimate available"})
+            continue
+        stored[ticker] = payload
+        refreshed.append(payload)
+
+    save_earnings_calendar(stored)
+    return {
+        "refreshed": refreshed,
+        "errors": errors,
+        "calendar": stored,
+    }
+
+
 def _scenario_copy(state: dict[str, Any], scenario_name: str) -> dict[str, Any]:
     scenario = state.get(scenario_name)
     return json.loads(json.dumps(scenario)) if isinstance(scenario, dict) else {}
@@ -1372,6 +1542,7 @@ def build_forecast_scorecard() -> dict[str, Any]:
         load_settings_dict(),
         management_shares=build_management_snapshot()["shares_by_mode"],
         position_summaries=build_position_summaries(),
+        earnings_calendar=load_earnings_calendar(),
         force_refresh=False,
     )
     reported_fundamentals = load_reported_fundamentals()
@@ -2188,6 +2359,7 @@ def build_portfolio_view_for_request(
             else None
         ),
         position_summaries=position_summaries,
+        earnings_calendar=load_earnings_calendar(),
         force_refresh=force_refresh,
     )
 
@@ -2286,6 +2458,44 @@ def refresh_reported_fundamentals_endpoint(
         )
 
     payload = refresh_reported_fundamentals(tickers)
+    invalidate_response_cache()
+    return payload
+
+
+@app.get("/api/earnings-calendar")
+def get_earnings_calendar(request: Request) -> dict[str, Any]:
+    if not has_full_access(request):
+        raise HTTPException(status_code=403, detail="Earnings calendar is private")
+    return {"calendar": load_earnings_calendar()}
+
+
+@app.post("/api/earnings-calendar/refresh")
+def refresh_earnings_calendar_endpoint(
+    request: Request,
+    body: EarningsCalendarRefreshRequest,
+) -> dict[str, Any]:
+    if not has_full_access(request):
+        raise HTTPException(status_code=403, detail="Earnings calendar is private")
+
+    tickers = [normalize_ticker(ticker) for ticker in body.tickers]
+    tickers = [ticker for ticker in tickers if ticker]
+    if not tickers:
+        config = get_effective_tickers_config()
+        portfolio = normalize_portfolio(config.get("portfolio", []))
+        tickers = sorted(
+            {
+                row["ticker"]
+                for row in portfolio
+                if row.get("ticker")
+            }
+            | {
+                normalize_ticker(ticker)
+                for ticker in config.get("watchlist", [])
+                if normalize_ticker(ticker)
+            },
+        )
+
+    payload = refresh_earnings_calendar(tickers, days_ahead=body.days_ahead)
     invalidate_response_cache()
     return payload
 
@@ -3090,6 +3300,7 @@ def update_portfolio_shares(
         load_settings_dict(),
         management_shares=build_management_snapshot()["shares_by_mode"],
         position_summaries=build_position_summaries(),
+        earnings_calendar=load_earnings_calendar(),
         force_refresh=force_refresh,
     )
     set_cached_response("portfolio_view", payload)
@@ -3161,6 +3372,7 @@ def update_portfolio_controls(
         load_settings_dict(),
         management_shares=build_management_snapshot()["shares_by_mode"],
         position_summaries=build_position_summaries(),
+        earnings_calendar=load_earnings_calendar(),
         force_refresh=force_refresh,
     )
     set_cached_response("portfolio_view", payload)
@@ -3251,6 +3463,7 @@ def upsert_stock_scenario(ticker: str, body: TickerScenarioInputs) -> StockScena
                 load_settings_dict(),
                 management_shares=build_management_snapshot()["shares_by_mode"],
                 position_summaries=build_position_summaries(),
+                earnings_calendar=load_earnings_calendar(),
                 force_refresh=False,
             )
             snapshot_row = next(

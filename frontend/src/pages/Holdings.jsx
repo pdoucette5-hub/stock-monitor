@@ -6,6 +6,7 @@ import {
   addPortfolioTicker,
   archiveTicker,
   removeTicker,
+  refreshEarningsCalendar,
   savePortfolioControls,
   savePortfolioShares,
   syncSheetTickers,
@@ -33,6 +34,23 @@ function sharesForManagementFilter(row, filter) {
   return Number(row.shares || 0)
 }
 
+function formatDate(value) {
+  if (!value) return '—'
+  const date = new Date(`${value}T00:00:00`)
+  if (Number.isNaN(date.getTime())) return '—'
+  return date.toLocaleDateString(undefined, {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
+function earningsSourceLabel(value) {
+  if (value === 'nasdaq-earnings-calendar') return 'scheduled'
+  if (value === 'sec-filing-cadence-estimate') return 'estimated'
+  return 'unknown'
+}
+
 export default function Holdings() {
   const { authEnabled, user } = useAuth()
   const hasFullAccess = !authEnabled || user?.role !== 'limited'
@@ -46,6 +64,7 @@ export default function Holdings() {
   const [formError, setFormError] = useState(null)
   const [formMessage, setFormMessage] = useState(null)
   const [syncingTickers, setSyncingTickers] = useState(false)
+  const [refreshingEarnings, setRefreshingEarnings] = useState(false)
   const leadingColumn = hasFullAccess
     ? {
         header: 'Show',
@@ -219,6 +238,26 @@ export default function Holdings() {
     }
   }
 
+  const handleRefreshEarnings = async () => {
+    setRefreshingEarnings(true)
+    setFormError(null)
+    setFormMessage(null)
+    try {
+      const result = await refreshEarningsCalendar()
+      const refreshed = result?.refreshed?.length ?? 0
+      const errors = result?.errors?.filter((item) => item?.ticker !== '*')?.length ?? 0
+      setFormMessage(
+        `Refreshed earnings dates for ${refreshed} tickers${errors ? `; ${errors} need review` : ''}.`,
+      )
+      clearPortfolioViewCache()
+      await load(true)
+    } catch (err) {
+      setFormError(err instanceof Error ? err.message : 'Failed to refresh earnings dates')
+    } finally {
+      setRefreshingEarnings(false)
+    }
+  }
+
   const columns = useMemo(() => {
     const baseColumns = getValuationColumns('portfolio')
 
@@ -294,6 +333,31 @@ export default function Holdings() {
       },
     }
 
+    const earningsColumn = {
+      key: 'next_earnings_date',
+      label: 'Next Earnings',
+      render: (row) => (
+        <div>
+          <div className="font-medium text-slate-800">
+            {formatDate(row.next_earnings_date)}
+          </div>
+          {row.next_earnings_date && (
+            <div className="text-xs text-slate-500">
+              {earningsSourceLabel(row.next_earnings_source)}
+              {row.next_earnings_time && row.next_earnings_time !== 'time-not-supplied'
+                ? ` · ${row.next_earnings_time}`
+                : ''}
+            </div>
+          )}
+          {row.next_earnings_eps_forecast && (
+            <div className="text-xs text-slate-500">
+              EPS {row.next_earnings_eps_forecast}
+            </div>
+          )}
+        </div>
+      ),
+    }
+
     const rowActionColumn = {
       key: 'row_actions',
       label: 'Actions',
@@ -323,7 +387,9 @@ export default function Holdings() {
 
     if (!hasFullAccess) {
       return [
-        ...withEditableShares,
+        ...withEditableShares.slice(0, 1),
+        earningsColumn,
+        ...withEditableShares.slice(1),
         rowActionColumn,
       ]
     }
@@ -331,6 +397,7 @@ export default function Holdings() {
     return [
       ...withEditableShares.slice(0, 2),
       costBasisColumn,
+      earningsColumn,
       ...withEditableShares.slice(2),
       rowActionColumn,
     ]
@@ -444,6 +511,16 @@ export default function Holdings() {
                 </button>
               ))}
             </div>
+          )}
+          {hasFullAccess && (
+            <button
+              type="button"
+              onClick={handleRefreshEarnings}
+              disabled={refreshingEarnings}
+              className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {refreshingEarnings ? 'Refreshing earnings...' : 'Refresh earnings dates'}
+            </button>
           )}
           <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
             <input

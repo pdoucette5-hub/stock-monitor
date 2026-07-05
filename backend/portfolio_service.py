@@ -468,6 +468,7 @@ def build_portfolio_views(
     management_shares: dict[str, dict[str, float]] | None = None,
     position_summaries: dict[str, dict[str, Any]] | None = None,
     price_history: dict[str, list[dict[str, Any]]] | None = None,
+    earnings_calendar: dict[str, Any] | None = None,
     force_refresh: bool = False,
 ) -> dict[str, Any]:
     portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
@@ -548,6 +549,15 @@ def build_portfolio_views(
         row["managed_shares"] = managed_shares
         row["track_shares"] = track_shares
         row["excluded_shares"] = excluded_shares
+        earnings = (earnings_calendar or {}).get(row["ticker"], {})
+        if not isinstance(earnings, dict):
+            earnings = {}
+        row["next_earnings_date"] = earnings.get("next_earnings_date")
+        row["next_earnings_time"] = earnings.get("time")
+        row["next_earnings_source"] = earnings.get("source")
+        row["next_earnings_confidence"] = earnings.get("confidence")
+        row["next_earnings_fiscal_quarter"] = earnings.get("fiscal_quarter_ending")
+        row["next_earnings_eps_forecast"] = earnings.get("eps_forecast")
         position_summary = (position_summaries or {}).get(row["ticker"], {})
         row["total_cost_basis"] = safe_float(
             position_summary.get("total_cost_basis"),
