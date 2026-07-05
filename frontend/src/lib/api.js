@@ -292,3 +292,7 @@ export function fetchChangeLog({ ticker = '', limit = 250 } = {}) {
 
   return request(`/api/events?${query.toString()}`)
 }
+
+export function fetchForecastScorecard() {
+  return request('/api/forecasts')
+}

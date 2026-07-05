@@ -10,6 +10,7 @@ import ChangeLog from './pages/ChangeLog'
 import TransactionImport from './pages/TransactionImport'
 import Management from './pages/Management'
 import Compression from './pages/Compression'
+import Forecasts from './pages/Forecasts'
 import { useAuth } from './auth/AuthContext'
 
 function navClass({ isActive }) {
@@ -56,6 +57,9 @@ export default function App() {
                 </NavLink>
                 <NavLink to="/performance" className={navClass}>
                   Performance
+                </NavLink>
+                <NavLink to="/forecasts" className={navClass}>
+                  Forecasts
                 </NavLink>
                 <NavLink to="/management" className={navClass}>
                   Management
@@ -108,6 +112,10 @@ export default function App() {
           <Route
             path="/performance"
             element={hasFullAccess ? <Performance /> : <Navigate to={defaultPath} replace />}
+          />
+          <Route
+            path="/forecasts"
+            element={hasFullAccess ? <Forecasts /> : <Navigate to={defaultPath} replace />}
           />
           <Route
             path="/management"

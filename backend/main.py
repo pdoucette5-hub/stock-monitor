@@ -24,6 +24,7 @@ from google.oauth2 import id_token
 from pydantic import BaseModel, Field
 
 from backend.logic import merge_global_settings
+from backend.logic import safe_float
 from backend.models import (
     GlobalSettings,
     PortfolioConfig,
@@ -59,6 +60,7 @@ ACCOUNT_ALIASES_FILE = BASE_DIR / "cache" / "account_aliases.json"
 MANAGEMENT_MODES_FILE = BASE_DIR / "cache" / "management_modes.json"
 MANUAL_ALLOCATIONS_FILE = BASE_DIR / "cache" / "manual_allocations.json"
 PORTFOLIO_EVENTS_FILE = BASE_DIR / "cache" / "portfolio_events.json"
+ASSUMPTION_SNAPSHOTS_FILE = BASE_DIR / "cache" / "assumption_snapshots.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 PRICE_IMPORT_SECRET = os.getenv("PRICE_IMPORT_SECRET", "")
@@ -94,6 +96,7 @@ ACCOUNT_ALIASES_FILE.parent.mkdir(parents=True, exist_ok=True)
 MANAGEMENT_MODES_FILE.parent.mkdir(parents=True, exist_ok=True)
 MANUAL_ALLOCATIONS_FILE.parent.mkdir(parents=True, exist_ok=True)
 PORTFOLIO_EVENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+ASSUMPTION_SNAPSHOTS_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 RESPONSE_CACHE_TTL_SECONDS = int(os.getenv("STOCK_MONITOR_RESPONSE_CACHE_TTL_SECONDS", "600"))
 _response_cache: dict[str, tuple[float, Any]] = {}
@@ -992,6 +995,226 @@ def append_portfolio_event(
     save_portfolio_events(events)
 
 
+def load_assumption_snapshots() -> list[dict[str, Any]]:
+    raw = load_json_file(ASSUMPTION_SNAPSHOTS_FILE, [])
+    if not isinstance(raw, list):
+        return []
+    return [item for item in raw if isinstance(item, dict)]
+
+
+def save_assumption_snapshots(snapshots: list[dict[str, Any]]) -> None:
+    cleaned = [item for item in snapshots if isinstance(item, dict)][-10000:]
+    save_json_file(ASSUMPTION_SNAPSHOTS_FILE, cleaned)
+
+
+def _scenario_copy(state: dict[str, Any], scenario_name: str) -> dict[str, Any]:
+    scenario = state.get(scenario_name)
+    return json.loads(json.dumps(scenario)) if isinstance(scenario, dict) else {}
+
+
+def _first_growth_rate(state: dict[str, Any], scenario_name: str, field: str) -> float | None:
+    scenario = state.get(scenario_name)
+    if not isinstance(scenario, dict):
+        return None
+    values = scenario.get(field)
+    if not isinstance(values, list) or not values:
+        return None
+    value = safe_float(values[0])
+    return None if value is None else value / 100.0
+
+
+def _growth_error(
+    actual_start: Any,
+    actual_current: Any,
+    annual_assumption: float | None,
+    elapsed_days: int,
+) -> dict[str, Any]:
+    start = safe_float(actual_start)
+    current = safe_float(actual_current)
+    if start is None or current is None or start <= 0 or current <= 0:
+        return {
+            "actual_growth": None,
+            "expected_growth_to_date": None,
+            "error": None,
+            "status": "needs actuals",
+        }
+
+    actual_growth = (current / start) - 1.0
+    expected_growth = None
+    error = None
+    status = "baseline only"
+    if annual_assumption is not None and elapsed_days > 0:
+        expected_growth = ((1.0 + annual_assumption) ** (elapsed_days / 365.0)) - 1.0
+        error = actual_growth - expected_growth
+        if error > 0.05:
+            status = "ahead"
+        elif error < -0.05:
+            status = "behind"
+        else:
+            status = "tracking"
+
+    return {
+        "actual_growth": actual_growth,
+        "expected_growth_to_date": expected_growth,
+        "error": error,
+        "status": status,
+    }
+
+
+def append_assumption_snapshot(
+    ticker: str,
+    scenario: dict[str, Any],
+    row_context: dict[str, Any] | None,
+) -> None:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        return
+
+    context = row_context or {}
+    snapshots = load_assumption_snapshots()
+    snapshots.append(
+        {
+            "id": uuid.uuid4().hex,
+            "ticker": normalized,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "latest_quarter_revenue": safe_float(scenario.get("latest_quarter_revenue")),
+            "latest_quarter_net_income": safe_float(scenario.get("latest_quarter_net_income")),
+            "shares_outstanding": safe_float(scenario.get("shares_outstanding")),
+            "price": safe_float(context.get("price")),
+            "current_pe": safe_float(context.get("current_pe")),
+            "bear_cagr_y3": safe_float(context.get("bear_cagr_y3")),
+            "base_cagr_y3": safe_float(context.get("base_cagr_y3")),
+            "bull_cagr_y3": safe_float(context.get("bull_cagr_y3")),
+            "weighted_cagr_y3": safe_float(context.get("weighted_cagr_y3")),
+            "action": context.get("action"),
+            "action_rank": context.get("action_rank"),
+            "compression_opportunity_score": safe_float(
+                context.get("compression_opportunity_score"),
+            ),
+            "bear": _scenario_copy(scenario, "bear"),
+            "base": _scenario_copy(scenario, "base"),
+            "bull": _scenario_copy(scenario, "bull"),
+        },
+    )
+    save_assumption_snapshots(snapshots)
+
+
+def build_forecast_scorecard() -> dict[str, Any]:
+    snapshots = sorted(
+        load_assumption_snapshots(),
+        key=lambda item: str(item.get("timestamp") or ""),
+        reverse=True,
+    )
+    scenario_inputs = load_scenario_inputs()
+    portfolio_view = build_portfolio_views(
+        get_effective_tickers_config(),
+        scenario_inputs,
+        load_settings_dict(),
+        management_shares=build_management_snapshot()["shares_by_mode"],
+        position_summaries=build_position_summaries(),
+        force_refresh=False,
+    )
+    row_by_ticker = {
+        row.get("ticker"): row
+        for section in ("portfolio", "watchlist")
+        for row in portfolio_view.get(section, [])
+        if isinstance(row, dict) and row.get("ticker")
+    }
+
+    latest_by_ticker: dict[str, dict[str, Any]] = {}
+    for snapshot in snapshots:
+        ticker = normalize_ticker(snapshot.get("ticker", ""))
+        if ticker and ticker not in latest_by_ticker:
+            latest_by_ticker[ticker] = snapshot
+
+    rows: list[dict[str, Any]] = []
+    now = datetime.now(timezone.utc)
+    for ticker, snapshot in latest_by_ticker.items():
+        current_state = scenario_inputs.get(ticker, {})
+        if not isinstance(current_state, dict):
+            current_state = {}
+        current_row = row_by_ticker.get(ticker, {})
+        try:
+            snapshot_time = datetime.fromisoformat(str(snapshot.get("timestamp")))
+            if snapshot_time.tzinfo is None:
+                snapshot_time = snapshot_time.replace(tzinfo=timezone.utc)
+        except ValueError:
+            snapshot_time = now
+        elapsed_days = max(0, (now - snapshot_time).days)
+
+        base_rev_assumption = _first_growth_rate(snapshot, "base", "rev_growth_rates")
+        base_earnings_assumption = _first_growth_rate(
+            snapshot,
+            "base",
+            "net_income_growth_rates",
+        )
+        revenue_score = _growth_error(
+            snapshot.get("latest_quarter_revenue"),
+            current_state.get("latest_quarter_revenue"),
+            base_rev_assumption,
+            elapsed_days,
+        )
+        earnings_score = _growth_error(
+            snapshot.get("latest_quarter_net_income"),
+            current_state.get("latest_quarter_net_income"),
+            base_earnings_assumption,
+            elapsed_days,
+        )
+
+        start_price = safe_float(snapshot.get("price"))
+        current_price = safe_float(current_row.get("price"))
+        price_return = None
+        cagr_error = None
+        if start_price is not None and current_price is not None and start_price > 0:
+            price_return = (current_price / start_price) - 1.0
+            base_cagr = safe_float(snapshot.get("base_cagr_y3"))
+            if base_cagr is not None and elapsed_days > 0:
+                expected_price_return = ((1.0 + base_cagr) ** (elapsed_days / 365.0)) - 1.0
+                cagr_error = price_return - expected_price_return
+
+        rows.append(
+            {
+                "ticker": ticker,
+                "snapshot_id": snapshot.get("id"),
+                "snapshot_timestamp": snapshot.get("timestamp"),
+                "elapsed_days": elapsed_days,
+                "start_price": start_price,
+                "current_price": current_price,
+                "price_return": price_return,
+                "base_cagr_y3_at_snapshot": safe_float(snapshot.get("base_cagr_y3")),
+                "cagr_error_to_date": cagr_error,
+                "base_revenue_growth_y1": base_rev_assumption,
+                "base_earnings_growth_y1": base_earnings_assumption,
+                "revenue_actual_growth": revenue_score["actual_growth"],
+                "revenue_expected_growth_to_date": revenue_score["expected_growth_to_date"],
+                "revenue_error": revenue_score["error"],
+                "revenue_status": revenue_score["status"],
+                "earnings_actual_growth": earnings_score["actual_growth"],
+                "earnings_expected_growth_to_date": earnings_score[
+                    "expected_growth_to_date"
+                ],
+                "earnings_error": earnings_score["error"],
+                "earnings_status": earnings_score["status"],
+                "action_at_snapshot": snapshot.get("action"),
+                "action_rank_at_snapshot": snapshot.get("action_rank"),
+                "current_action": current_row.get("action"),
+                "current_base_cagr_y3": safe_float(current_row.get("base_cagr_y3")),
+            },
+        )
+
+    rows.sort(
+        key=lambda row: (
+            row.get("revenue_error") is None and row.get("earnings_error") is None,
+            str(row.get("ticker") or ""),
+        ),
+    )
+    return {
+        "rows": rows,
+        "snapshots": snapshots[:500],
+        "snapshot_count": len(snapshots),
+    }
+
+
 def values_are_equal(previous: Any, current: Any) -> bool:
     if previous is None and current in ("", None):
         return True
@@ -1727,6 +1950,13 @@ def get_portfolio_events(
         "count": len(events),
         "events": events,
     }
+
+
+@app.get("/api/forecasts")
+def get_forecast_scorecard(request: Request) -> dict[str, Any]:
+    if not has_full_access(request):
+        raise HTTPException(status_code=403, detail="Forecast scorecard is private")
+    return build_forecast_scorecard()
 
 
 @app.get("/api/performance/portfolio")
@@ -2683,6 +2913,27 @@ def upsert_stock_scenario(ticker: str, body: TickerScenarioInputs) -> StockScena
             normalized,
             {"changes": changes},
         )
+        try:
+            snapshot_view = build_portfolio_views(
+                get_effective_tickers_config(),
+                raw,
+                load_settings_dict(),
+                management_shares=build_management_snapshot()["shares_by_mode"],
+                position_summaries=build_position_summaries(),
+                force_refresh=False,
+            )
+            snapshot_row = next(
+                (
+                    row
+                    for section in ("portfolio", "watchlist")
+                    for row in snapshot_view.get(section, [])
+                    if isinstance(row, dict) and row.get("ticker") == normalized
+                ),
+                None,
+            )
+            append_assumption_snapshot(normalized, payload, snapshot_row)
+        except Exception:
+            pass
 
     return StockScenarioResponse(
         ticker=normalized,
