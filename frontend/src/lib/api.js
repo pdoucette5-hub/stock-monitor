@@ -304,6 +304,10 @@ export function refreshReportedFundamentals(tickers = []) {
   })
 }
 
+export function fetchReportedFundamentals() {
+  return request('/api/fundamentals/reported')
+}
+
 export function refreshEarningsCalendar(tickers = [], daysAhead = 180) {
   return request('/api/earnings-calendar/refresh', {
     method: 'POST',

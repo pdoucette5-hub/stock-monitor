@@ -7,9 +7,11 @@ import {
   fetchPortfolioScenarios,
   fetchPositionSummary,
   fetchPriceHistory,
+  fetchReportedFundamentals,
   fetchStockScenario,
   fetchTickerRegistry,
   fetchTransactions,
+  refreshReportedFundamentals,
   saveStockScenario,
   updateTransaction,
 } from '../lib/api'
@@ -99,6 +101,27 @@ function formatNumber(value, digits = 2) {
   return Number(value).toLocaleString(undefined, {
     minimumFractionDigits: digits,
     maximumFractionDigits: digits,
+  })
+}
+
+function formatBillions(value) {
+  if (value == null || Number.isNaN(Number(value))) return '—'
+  return `$${(Number(value) / 1_000_000_000).toFixed(2)}B`
+}
+
+function formatSharesBillions(value) {
+  if (value == null || Number.isNaN(Number(value))) return '—'
+  return `${(Number(value) / 1_000_000_000).toFixed(2)}B`
+}
+
+function formatDate(value) {
+  if (!value) return '—'
+  const date = new Date(`${value}T00:00:00`)
+  if (Number.isNaN(date.getTime())) return '—'
+  return date.toLocaleDateString(undefined, {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
   })
 }
 
@@ -279,13 +302,16 @@ export default function StockDetail() {
   const [accountOptions, setAccountOptions] = useState([])
   const [positionSummary, setPositionSummary] = useState(null)
   const [priceHistory, setPriceHistory] = useState([])
+  const [reportedFundamentals, setReportedFundamentals] = useState({})
   const [transactionForm, setTransactionForm] = useState(emptyTransactionForm())
   const [loadingTickers, setLoadingTickers] = useState(true)
   const [loadingForm, setLoadingForm] = useState(false)
   const [loadingTransactions, setLoadingTransactions] = useState(false)
   const [loadingPosition, setLoadingPosition] = useState(false)
   const [loadingPriceHistory, setLoadingPriceHistory] = useState(false)
+  const [loadingReported, setLoadingReported] = useState(false)
   const [saving, setSaving] = useState(false)
+  const [refreshingReported, setRefreshingReported] = useState(false)
   const [savingTransaction, setSavingTransaction] = useState(false)
   const [error, setError] = useState(null)
   const [saveMessage, setSaveMessage] = useState(null)
@@ -359,9 +385,27 @@ export default function StockDetail() {
     }
   }, [hasFullAccess])
 
+  const loadReportedFundamentals = useCallback(async () => {
+    if (!hasFullAccess) {
+      setReportedFundamentals({})
+      return
+    }
+
+    setLoadingReported(true)
+    try {
+      const payload = await fetchReportedFundamentals()
+      setReportedFundamentals(payload?.fundamentals ?? {})
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load reported fundamentals')
+    } finally {
+      setLoadingReported(false)
+    }
+  }, [hasFullAccess])
+
   useEffect(() => {
     loadAccounts()
-  }, [loadAccounts])
+    loadReportedFundamentals()
+  }, [loadAccounts, loadReportedFundamentals])
 
   useEffect(() => {
     const queryTicker = searchParams.get('ticker')?.trim().toUpperCase()
@@ -501,6 +545,33 @@ export default function StockDetail() {
     setSaveMessage(null)
     setHasUnsavedChanges(true)
     setAutosaveState('idle')
+  }
+
+  const refreshSelectedReportedFundamentals = async () => {
+    if (!selectedTicker) return
+    setRefreshingReported(true)
+    setError(null)
+    setSaveMessage(null)
+    try {
+      const result = await refreshReportedFundamentals([selectedTicker])
+      const refreshed = result?.refreshed?.length ?? 0
+      const tickerError = result?.errors?.find((item) => item?.ticker === selectedTicker)
+      if (tickerError) {
+        setError(tickerError.error || `Failed to refresh ${selectedTicker}`)
+      } else {
+        setSaveMessage(
+          refreshed
+            ? `Refreshed SEC actuals for ${selectedTicker}.`
+            : `No SEC actuals found for ${selectedTicker}.`,
+        )
+      }
+      await loadReportedFundamentals()
+      clearPortfolioViewCache()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to refresh SEC actuals')
+    } finally {
+      setRefreshingReported(false)
+    }
   }
 
   const updateScenario = (scenarioKey, field, value) => {
@@ -665,6 +736,17 @@ export default function StockDetail() {
   }
 
   const disableForm = loadingForm || saving || !selectedTicker
+  const selectedReported = selectedTicker ? reportedFundamentals[selectedTicker] : null
+  const actualsPreference =
+    form.actualsSourcePreference === 'reported' ? 'reported' : 'manual'
+  const reportedAvailable = Boolean(
+    selectedReported &&
+      (
+        selectedReported.latest_quarter_revenue != null ||
+        selectedReported.latest_quarter_net_income != null ||
+        selectedReported.shares_outstanding != null
+      ),
+  )
 
   const pageSubtitle = useMemo(() => {
     if (loadingForm) return 'Loading assumptions…'
@@ -838,6 +920,108 @@ export default function StockDetail() {
 
           <form onSubmit={handleSave} className="space-y-6">
             <fieldset disabled={disableForm} className="space-y-6">
+              <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <div>
+                    <h2 className="text-lg font-semibold text-slate-900">
+                      Actuals Source
+                    </h2>
+                    <p className="mt-1 text-sm text-slate-500">
+                      Choose which starting actuals valuation uses. Manual inputs are preserved.
+                    </p>
+                  </div>
+                  {hasFullAccess && (
+                    <button
+                      type="button"
+                      onClick={refreshSelectedReportedFundamentals}
+                      disabled={refreshingReported || !selectedTicker}
+                      className="rounded-md border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {refreshingReported ? 'Refreshing…' : 'Refresh SEC actuals'}
+                    </button>
+                  )}
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => updateBase('actualsSourcePreference', 'manual')}
+                    className={[
+                      'rounded-md px-3 py-2 text-sm font-medium',
+                      actualsPreference === 'manual'
+                        ? 'bg-slate-900 text-white'
+                        : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50',
+                    ].join(' ')}
+                  >
+                    Use manual inputs
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => updateBase('actualsSourcePreference', 'reported')}
+                    disabled={!reportedAvailable}
+                    title={reportedAvailable ? 'Use saved SEC reported actuals' : 'Refresh SEC actuals first'}
+                    className={[
+                      'rounded-md px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50',
+                      actualsPreference === 'reported'
+                        ? 'bg-slate-900 text-white'
+                        : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50',
+                    ].join(' ')}
+                  >
+                    Use pulled SEC actuals
+                  </button>
+                </div>
+
+                <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                    <div className="text-sm font-semibold text-slate-900">
+                      Manual Stock Detail
+                    </div>
+                    <dl className="mt-3 grid gap-2 text-sm text-slate-700">
+                      <div className="flex justify-between gap-4">
+                        <dt>Revenue</dt>
+                        <dd>{form.latestQuarterRevenueB === '' ? '—' : `$${Number(form.latestQuarterRevenueB).toFixed(2)}B`}</dd>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <dt>Net income</dt>
+                        <dd>{form.latestQuarterNetIncomeB === '' ? '—' : `$${Number(form.latestQuarterNetIncomeB).toFixed(2)}B`}</dd>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <dt>Shares</dt>
+                        <dd>{form.sharesOutstandingB === '' ? '—' : `${Number(form.sharesOutstandingB).toFixed(2)}B`}</dd>
+                      </div>
+                    </dl>
+                  </div>
+
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="text-sm font-semibold text-slate-900">
+                        Pulled SEC Actuals
+                      </div>
+                      <span className="rounded-full bg-white px-2 py-1 text-xs font-medium text-slate-600">
+                        {selectedReported?.confidence ?? (loadingReported ? 'loading' : 'not pulled')}
+                      </span>
+                    </div>
+                    <dl className="mt-3 grid gap-2 text-sm text-slate-700">
+                      <div className="flex justify-between gap-4">
+                        <dt>Revenue</dt>
+                        <dd>{formatBillions(selectedReported?.latest_quarter_revenue)}</dd>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <dt>Net income</dt>
+                        <dd>{formatBillions(selectedReported?.latest_quarter_net_income)}</dd>
+                      </div>
+                      <div className="flex justify-between gap-4">
+                        <dt>Shares</dt>
+                        <dd>{formatSharesBillions(selectedReported?.shares_outstanding)}</dd>
+                      </div>
+                    </dl>
+                    <div className="mt-3 text-xs text-slate-500">
+                      Period {formatDate(selectedReported?.period_end)} · filed {formatDate(selectedReported?.filed_date)}
+                    </div>
+                  </div>
+                </div>
+              </section>
+
               <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-slate-900">
                   Base Inputs

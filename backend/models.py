@@ -76,6 +76,7 @@ class TickerScenarioInputs(BaseModel):
     latest_quarter_revenue: Optional[float] = None
     latest_quarter_net_income: Optional[float] = None
     shares_outstanding: Optional[float] = None
+    actuals_source_preference: str = "manual"
     notes: str = ""
     redistribution_rules: RedistributionRules = Field(
         default_factory=RedistributionRules,

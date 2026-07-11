@@ -76,6 +76,7 @@ def normalize_watchlist(watchlist_raw: Any, portfolio_set: set[str]) -> list[str
 def prepare_ticker_state(
     state: Optional[dict[str, Any]],
     market_row: dict[str, Any],
+    reported_fundamentals: Optional[dict[str, Any]] = None,
 ) -> dict[str, Any]:
     fetched_ttm_revenue = safe_float(market_row.get("ttm_revenue"))
     fetched_ttm_net_income = safe_float(market_row.get("net_income_ttm"))
@@ -130,6 +131,29 @@ def prepare_ticker_state(
         state.get("redistribution_rules"),
     )
     state["display_rules"] = ensure_display_rules(state.get("display_rules"))
+    if state.get("actuals_source_preference") not in {"manual", "reported"}:
+        state["actuals_source_preference"] = "manual"
+
+    reported = reported_fundamentals if isinstance(reported_fundamentals, dict) else {}
+    if state["actuals_source_preference"] == "reported" and reported:
+        source_fields = {
+            "latest_quarter_revenue": safe_float(reported.get("latest_quarter_revenue")),
+            "latest_quarter_net_income": safe_float(
+                reported.get("latest_quarter_net_income"),
+            ),
+            "shares_outstanding": safe_float(reported.get("shares_outstanding")),
+        }
+        applied_fields = []
+        for field, value in source_fields.items():
+            if value is not None:
+                state[field] = value
+                applied_fields.append(field)
+        state["actuals_source_used"] = "reported" if applied_fields else "manual"
+        state["actuals_reported_fields_used"] = applied_fields
+        state["actuals_reported_period_end"] = reported.get("period_end")
+        state["actuals_reported_confidence"] = reported.get("confidence")
+    else:
+        state["actuals_source_used"] = "manual"
 
     for scenario_name in SCENARIO_NAMES:
         state[scenario_name] = ensure_scenario_defaults(
@@ -220,6 +244,11 @@ def _build_summary_row(
         "net_income_growth_pct": market_row.get("net_income_growth_pct"),
         "shares": shares,
         "market_value": market_value,
+        "actuals_source_preference": state.get("actuals_source_preference"),
+        "actuals_source_used": state.get("actuals_source_used"),
+        "actuals_reported_fields_used": state.get("actuals_reported_fields_used"),
+        "actuals_reported_period_end": state.get("actuals_reported_period_end"),
+        "actuals_reported_confidence": state.get("actuals_reported_confidence"),
         "bear_price_y3": bear_summary.get("price_y3"),
         "base_price_y3": base_summary.get("price_y3"),
         "bull_price_y3": bull_summary.get("price_y3"),
@@ -469,6 +498,7 @@ def build_portfolio_views(
     position_summaries: dict[str, dict[str, Any]] | None = None,
     price_history: dict[str, list[dict[str, Any]]] | None = None,
     earnings_calendar: dict[str, Any] | None = None,
+    reported_fundamentals: dict[str, Any] | None = None,
     force_refresh: bool = False,
 ) -> dict[str, Any]:
     portfolio_rows = normalize_portfolio(tickers_config.get("portfolio", []))
@@ -508,6 +538,7 @@ def build_portfolio_views(
         state = prepare_ticker_state(
             raw_state if isinstance(raw_state, dict) else None,
             market_row,
+            (reported_fundamentals or {}).get(ticker),
         )
         summary_rows.append(
             _build_summary_row(

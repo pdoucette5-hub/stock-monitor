@@ -338,6 +338,7 @@ SCENARIO_CHANGE_LABELS = {
     "latest_quarter_revenue": "Latest quarter revenue",
     "latest_quarter_net_income": "Latest quarter net income",
     "shares_outstanding": "Shares outstanding",
+    "actuals_source_preference": "Actuals source",
     "notes": "Notes",
     "bear.rev_growth_rates.0": "Bear revenue growth Y1",
     "bear.rev_growth_rates.1": "Bear revenue growth Y2",
@@ -1543,6 +1544,7 @@ def build_forecast_scorecard() -> dict[str, Any]:
         management_shares=build_management_snapshot()["shares_by_mode"],
         position_summaries=build_position_summaries(),
         earnings_calendar=load_earnings_calendar(),
+        reported_fundamentals=load_reported_fundamentals(),
         force_refresh=False,
     )
     reported_fundamentals = load_reported_fundamentals()
@@ -1572,24 +1574,31 @@ def build_forecast_scorecard() -> dict[str, Any]:
         reported_revenue = safe_float(reported.get("latest_quarter_revenue"))
         reported_net_income = safe_float(reported.get("latest_quarter_net_income"))
         reported_shares = safe_float(reported.get("shares_outstanding"))
-        current_revenue = (
-            reported_revenue
-            if reported_revenue is not None
-            else current_state.get("latest_quarter_revenue")
-        )
-        current_net_income = (
-            reported_net_income
-            if reported_net_income is not None
-            else current_state.get("latest_quarter_net_income")
-        )
-        current_shares = (
-            reported_shares
-            if reported_shares is not None
-            else current_state.get("shares_outstanding")
-        )
-        actuals_source = "sec-companyfacts" if reported else "stock-detail"
-        if reported and (reported_revenue is None or reported_net_income is None):
-            actuals_source = "mixed"
+        preference = current_state.get("actuals_source_preference")
+        if preference not in {"manual", "reported"}:
+            preference = "manual"
+        use_reported = preference == "reported" and bool(reported)
+        current_revenue = current_state.get("latest_quarter_revenue")
+        current_net_income = current_state.get("latest_quarter_net_income")
+        current_shares = current_state.get("shares_outstanding")
+        reported_fields_used = []
+        if use_reported:
+            if reported_revenue is not None:
+                current_revenue = reported_revenue
+                reported_fields_used.append("latest_quarter_revenue")
+            if reported_net_income is not None:
+                current_net_income = reported_net_income
+                reported_fields_used.append("latest_quarter_net_income")
+            if reported_shares is not None:
+                current_shares = reported_shares
+                reported_fields_used.append("shares_outstanding")
+        actuals_source = "stock-detail"
+        if use_reported and reported_fields_used:
+            actuals_source = (
+                "sec-companyfacts"
+                if len(reported_fields_used) >= 2
+                else "mixed"
+            )
         try:
             snapshot_time = datetime.fromisoformat(str(snapshot.get("timestamp")))
             if snapshot_time.tzinfo is None:
@@ -1641,7 +1650,9 @@ def build_forecast_scorecard() -> dict[str, Any]:
                 "cagr_error_to_date": cagr_error,
                 "base_revenue_growth_y1": base_rev_assumption,
                 "base_earnings_growth_y1": base_earnings_assumption,
+                "actuals_source_preference": preference,
                 "actuals_source": actuals_source,
+                "actuals_reported_fields_used": reported_fields_used,
                 "reported_period_end": reported.get("period_end"),
                 "reported_filed_date": reported.get("filed_date"),
                 "reported_confidence": reported.get("confidence"),
@@ -2360,6 +2371,7 @@ def build_portfolio_view_for_request(
         ),
         position_summaries=position_summaries,
         earnings_calendar=load_earnings_calendar(),
+        reported_fundamentals=load_reported_fundamentals(),
         force_refresh=force_refresh,
     )
 
@@ -3301,6 +3313,7 @@ def update_portfolio_shares(
         management_shares=build_management_snapshot()["shares_by_mode"],
         position_summaries=build_position_summaries(),
         earnings_calendar=load_earnings_calendar(),
+        reported_fundamentals=load_reported_fundamentals(),
         force_refresh=force_refresh,
     )
     set_cached_response("portfolio_view", payload)
@@ -3373,6 +3386,7 @@ def update_portfolio_controls(
         management_shares=build_management_snapshot()["shares_by_mode"],
         position_summaries=build_position_summaries(),
         earnings_calendar=load_earnings_calendar(),
+        reported_fundamentals=load_reported_fundamentals(),
         force_refresh=force_refresh,
     )
     set_cached_response("portfolio_view", payload)
@@ -3464,6 +3478,7 @@ def upsert_stock_scenario(ticker: str, body: TickerScenarioInputs) -> StockScena
                 management_shares=build_management_snapshot()["shares_by_mode"],
                 position_summaries=build_position_summaries(),
                 earnings_calendar=load_earnings_calendar(),
+                reported_fundamentals=load_reported_fundamentals(),
                 force_refresh=False,
             )
             snapshot_row = next(
