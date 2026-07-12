@@ -631,14 +631,14 @@ export default function StockDetail() {
       } else {
         setSaveMessage(
           refreshed
-            ? `Refreshed SEC actuals for ${selectedTicker}.`
-            : `No SEC actuals found for ${selectedTicker}.`,
+            ? `Refreshed online data for ${selectedTicker}.`
+            : `No online data found for ${selectedTicker}.`,
         )
       }
       await loadReportedFundamentals()
       clearPortfolioViewCache()
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to refresh SEC actuals')
+      setError(err instanceof Error ? err.message : 'Failed to refresh online data')
     } finally {
       setRefreshingReported(false)
     }
@@ -1008,7 +1008,7 @@ export default function StockDetail() {
                       disabled={refreshingReported || !selectedTicker}
                       className="rounded-md border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
                     >
-                      {refreshingReported ? 'Refreshing…' : 'Refresh SEC actuals'}
+                      {refreshingReported ? 'Refreshing…' : 'Refresh online data'}
                     </button>
                   )}
                 </div>
@@ -1030,7 +1030,7 @@ export default function StockDetail() {
                     type="button"
                     onClick={() => updateBase('actualsSourcePreference', 'reported')}
                     disabled={!reportedAvailable}
-                    title={reportedAvailable ? 'Use saved SEC reported actuals' : 'Refresh SEC actuals first'}
+                    title={reportedAvailable ? 'Use saved SEC reported actuals' : 'Refresh online data first'}
                     className={[
                       'rounded-md px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50',
                       actualsPreference === 'reported'

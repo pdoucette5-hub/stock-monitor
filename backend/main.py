@@ -5,6 +5,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import threading
 import time
 import uuid
@@ -1051,6 +1052,8 @@ def save_earnings_calendar(data: dict[str, Any]) -> None:
 SEC_TICKER_MAP_URL = "https://www.sec.gov/files/company_tickers.json"
 SEC_COMPANY_FACTS_URL = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
 NASDAQ_EARNINGS_URL = "https://api.nasdaq.com/api/calendar/earnings"
+NASDAQ_ANALYST_EARNINGS_URL = "https://api.nasdaq.com/api/analyst/{ticker}/earnings-forecast"
+STOCK_ANALYSIS_FORECAST_URL = "https://stockanalysis.com/stocks/{ticker}/forecast/"
 SEC_HEADERS = {
     "User-Agent": "stock-monitor/1.0 pdoucette5@gmail.com",
     "Accept-Encoding": "gzip, deflate",
@@ -1103,6 +1106,141 @@ def load_sec_ticker_map() -> dict[str, str]:
                 mapping[ticker] = str(cik).zfill(10)
     _sec_ticker_map_cache = mapping
     return mapping
+
+
+def _parse_compact_number(value: Any) -> float | None:
+    if value is None:
+        return None
+    if isinstance(value, (int, float)):
+        return safe_float(value)
+    text = str(value).strip().strip('"').strip("'")
+    if not text or text == "[PRO]" or text in {"null", "void 0", "undefined"}:
+        return None
+    multiplier = 1.0
+    suffix = text[-1:].upper()
+    if suffix in {"K", "M", "B", "T"}:
+        multiplier = {
+            "K": 1_000.0,
+            "M": 1_000_000.0,
+            "B": 1_000_000_000.0,
+            "T": 1_000_000_000_000.0,
+        }[suffix]
+        text = text[:-1]
+    text = text.replace("$", "").replace(",", "").replace("%", "")
+    parsed = safe_float(text)
+    return parsed * multiplier if parsed is not None else None
+
+
+def _first_regex_float(text: str, pattern: str) -> float | None:
+    match = re.search(pattern, text)
+    if not match:
+        return None
+    return _parse_compact_number(match.group(1))
+
+
+def _stockanalysis_metric(page: str, key: str) -> dict[str, float | None]:
+    pattern = (
+        rf"{re.escape(key)}:\{{"
+        r"last:([^,}]+),"
+        r"this:([^,}]+),"
+        r"growth:([^,}]+)"
+    )
+    match = re.search(pattern, page)
+    if not match:
+        return {"last": None, "this": None, "growth": None}
+    return {
+        "last": _parse_compact_number(match.group(1)),
+        "this": _parse_compact_number(match.group(2)),
+        "growth": _parse_compact_number(match.group(3)),
+    }
+
+
+def _timestamp_ms_to_iso(value: float | None) -> str | None:
+    if value is None:
+        return None
+    try:
+        return datetime.fromtimestamp(value / 1000, timezone.utc).isoformat()
+    except (OverflowError, OSError, ValueError):
+        return None
+
+
+def _nasdaq_yearly_eps_rows(ticker: str) -> list[dict[str, Any]]:
+    response = requests.get(
+        NASDAQ_ANALYST_EARNINGS_URL.format(ticker=ticker),
+        headers=NASDAQ_HEADERS,
+        timeout=20,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    data = payload.get("data") if isinstance(payload, dict) else None
+    forecast = data.get("yearlyForecast") if isinstance(data, dict) else None
+    rows = forecast.get("rows") if isinstance(forecast, dict) else None
+    return [row for row in rows if isinstance(row, dict)] if isinstance(rows, list) else []
+
+
+def fetch_online_projection(ticker: str) -> dict[str, Any]:
+    normalized = normalize_ticker(ticker)
+    if not normalized:
+        raise ValueError("Ticker is required")
+
+    stockanalysis_url = STOCK_ANALYSIS_FORECAST_URL.format(ticker=normalized.lower())
+    response = requests.get(
+        stockanalysis_url,
+        headers={"User-Agent": "Mozilla/5.0", "Accept": "text/html"},
+        timeout=20,
+    )
+    response.raise_for_status()
+    page = response.text
+
+    revenue_this = _stockanalysis_metric(page, "revenueThis")
+    revenue_next = _stockanalysis_metric(page, "revenueNext")
+    eps_this = _stockanalysis_metric(page, "epsThis")
+    eps_next = _stockanalysis_metric(page, "epsNext")
+    analyst_count = _first_regex_float(page, r"analysts:\[null,null,null,null,null,([^,\]]+)")
+    last_updated = _timestamp_ms_to_iso(_first_regex_float(page, r"lastUpdated:(\d+)"))
+    estimates_source = "stockanalysis"
+    source_match = re.search(r"estimatesSource:\"([^\"]+)\"", page)
+    if source_match:
+        estimates_source = f"stockanalysis-{source_match.group(1)}"
+
+    earnings_growth = [eps_this.get("growth"), eps_next.get("growth"), None]
+    eps_estimates = [eps_this.get("this"), eps_next.get("this"), None]
+    eps_estimate_counts = [analyst_count, None, None]
+
+    try:
+        nasdaq_rows = _nasdaq_yearly_eps_rows(normalized)
+    except Exception:
+        nasdaq_rows = []
+    previous_eps = eps_this.get("last")
+    for idx, row in enumerate(nasdaq_rows[:3]):
+        consensus_eps = _parse_compact_number(row.get("consensusEPSForecast"))
+        if consensus_eps is None:
+            continue
+        if idx < len(eps_estimates):
+            eps_estimates[idx] = eps_estimates[idx] if eps_estimates[idx] is not None else consensus_eps
+            eps_estimate_counts[idx] = _parse_compact_number(row.get("noOfEstimates"))
+        if idx < len(earnings_growth) and earnings_growth[idx] is None and previous_eps:
+            earnings_growth[idx] = ((consensus_eps / previous_eps) - 1.0) * 100.0
+        previous_eps = consensus_eps
+
+    return {
+        "source": estimates_source,
+        "source_url": stockanalysis_url,
+        "secondary_sources": [
+            {
+                "source": "nasdaq-analyst-earnings-forecast",
+                "source_url": NASDAQ_ANALYST_EARNINGS_URL.format(ticker=normalized),
+            },
+        ],
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "as_of": last_updated,
+        "revenue_growth": [revenue_this.get("growth"), revenue_next.get("growth"), None],
+        "earnings_growth": earnings_growth,
+        "revenue_estimates": [revenue_this.get("this"), revenue_next.get("this"), None],
+        "eps_estimates": eps_estimates,
+        "revenue_estimate_counts": [analyst_count, None, None],
+        "eps_estimate_counts": eps_estimate_counts,
+    }
 
 
 def _duration_days(fact: dict[str, Any]) -> int | None:
@@ -1244,7 +1382,7 @@ def fetch_sec_reported_fundamentals(ticker: str) -> dict[str, Any]:
         form = form or fact.get("form")
 
     confidence = "high" if not missing else "partial"
-    return {
+    payload = {
         "ticker": normalized,
         "cik": cik,
         "source": "sec-companyfacts",
@@ -1270,6 +1408,11 @@ def fetch_sec_reported_fundamentals(ticker: str) -> dict[str, Any]:
         "confidence": confidence,
         "missing": missing,
     }
+    try:
+        payload["online_projection"] = fetch_online_projection(normalized)
+    except Exception as exc:
+        payload["online_projection_error"] = str(exc)
+    return payload
 
 
 def refresh_reported_fundamentals(tickers: list[str]) -> dict[str, Any]:
