@@ -335,6 +335,16 @@ VALID_TRANSACTION_TYPES = {
 
 VALID_MANAGEMENT_MODES = {"managed", "track", "excluded"}
 UNASSIGNED_ACCOUNT = "Unassigned"
+MATTHEW_COMPENSATION_ACCOUNTS = {
+    "Paul ROTH IRA",
+    "Julianne ROTH IRA",
+    "Paul Rollover IRA",
+    "Julianne Rollover IRA",
+}
+MATTHEW_COMPENSATION_ACCOUNT_KEYS = {
+    account.casefold()
+    for account in MATTHEW_COMPENSATION_ACCOUNTS
+}
 
 
 SCENARIO_CHANGE_LABELS = {
@@ -2993,6 +3003,24 @@ def benchmark_close_on_or_after(
     return None
 
 
+def filter_transactions_by_accounts(
+    transactions: dict[str, list[dict[str, Any]]],
+    accounts: set[str],
+) -> dict[str, list[dict[str, Any]]]:
+    selected = {account.casefold() for account in accounts}
+    filtered: dict[str, list[dict[str, Any]]] = {}
+    for ticker, entries in transactions.items():
+        rows = [
+            entry
+            for entry in entries
+            if isinstance(entry, dict)
+            and str(entry.get("account") or "").strip().casefold() in selected
+        ]
+        if rows:
+            filtered[ticker] = rows
+    return filtered
+
+
 @app.get("/api/compensation")
 def get_compensation_tracker(
     range: str = "1y",
@@ -3002,25 +3030,22 @@ def get_compensation_tracker(
     try:
         normalized_benchmark = normalize_ticker(benchmark) or "SPY"
         payout_share = max(0.0, min(float(share_pct), 1.0))
-        transactions = filter_transactions_by_management_mode(
+        transactions = filter_transactions_by_accounts(
             load_transactions(),
-            "managed",
+            MATTHEW_COMPENSATION_ACCOUNTS,
         )
         management = build_management_snapshot()
-        tickers_config = apply_management_shares_to_config(
-            get_effective_tickers_config(),
-            management["shares_by_mode"],
-            "managed",
-        )
         performance = build_portfolio_performance(
             transactions_by_ticker=transactions,
-            tickers_config=tickers_config,
+            tickers_config=get_effective_tickers_config(),
             range_key=range,
+            accounts=sorted(MATTHEW_COMPENSATION_ACCOUNTS),
             supplemental_positions=[
                 position
                 for position in management["positions"]
                 if position["source"] != "transactions"
-                and position["mode"] == "managed"
+                and str(position.get("account") or "").strip().casefold()
+                in MATTHEW_COMPENSATION_ACCOUNT_KEYS
             ],
         )
         portfolio_series = performance.get("series")
@@ -3140,7 +3165,8 @@ def get_compensation_tracker(
         return {
             "range": range,
             "benchmark": normalized_benchmark,
-            "mode": "managed",
+            "mode": "matthew",
+            "accounts": sorted(MATTHEW_COMPENSATION_ACCOUNTS),
             "share_pct": payout_share,
             "start_date": start_portfolio_date,
             "end_date": end_portfolio_date,

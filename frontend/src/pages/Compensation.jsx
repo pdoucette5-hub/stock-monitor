@@ -73,7 +73,7 @@ export default function Compensation() {
 
   const positiveExcess = Number(data?.payout_base ?? 0) > 0
   const formula = useMemo(() => {
-    if (!data) return 'Managed portfolio gain above S&P 500 × 25%'
+    if (!data) return 'Matthew account gain above S&P 500 × 25%'
     return `${formatMoney(data.payout_base)} × ${formatPercent(data.share_pct)}`
   }, [data])
 
@@ -85,7 +85,7 @@ export default function Compensation() {
             Matthew
           </h1>
           <p className="mt-1 max-w-3xl text-sm text-slate-600">
-            Tracks Matthew&apos;s agreed payout: 25% of managed portfolio growth above S&amp;P 500 growth.
+            Tracks Matthew&apos;s agreed payout: 25% of the two Roth and two Rollover accounts&apos; growth above S&amp;P 500 growth.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -154,11 +154,11 @@ export default function Compensation() {
               <div>
                 <div className="font-medium text-slate-900">Benchmark Equivalent</div>
                 <div className="mt-1">
-                  Starting managed value plus each managed add/remove grown at S&amp;P 500 timing: {formatMoney(data?.benchmark_equivalent_value)}
+                  Starting Matthew account value plus each add/remove grown at S&amp;P 500 timing: {formatMoney(data?.benchmark_equivalent_value)}
                 </div>
               </div>
               <div>
-                <div className="font-medium text-slate-900">Managed Cash Flows</div>
+                <div className="font-medium text-slate-900">Matthew Account Cash Flows</div>
                 <div className="mt-1">
                   Net additions during window: {formatMoney(data?.net_cash_flows)}
                 </div>
@@ -166,7 +166,7 @@ export default function Compensation() {
               <div>
                 <div className="font-medium text-slate-900">Excess Gain</div>
                 <div className="mt-1">
-                  Managed ending value {formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)} - benchmark equivalent {formatMoney(data?.benchmark_equivalent_value)} = {formatMoney(data?.excess_gain)}
+                  Matthew account ending value {formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)} - benchmark equivalent {formatMoney(data?.benchmark_equivalent_value)} = {formatMoney(data?.excess_gain)}
                 </div>
               </div>
               <div>
