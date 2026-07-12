@@ -62,8 +62,8 @@ export default function App() {
                 <NavLink to="/forecasts" className={navClass}>
                   Forecasts
                 </NavLink>
-                <NavLink to="/compensation" className={navClass}>
-                  Compensation
+                <NavLink to="/matthew" className={navClass}>
+                  Matthew
                 </NavLink>
                 <NavLink to="/management" className={navClass}>
                   Management
@@ -122,8 +122,12 @@ export default function App() {
             element={hasFullAccess ? <Forecasts /> : <Navigate to={defaultPath} replace />}
           />
           <Route
-            path="/compensation"
+            path="/matthew"
             element={hasFullAccess ? <Compensation /> : <Navigate to={defaultPath} replace />}
+          />
+          <Route
+            path="/compensation"
+            element={<Navigate to="/matthew" replace />}
           />
           <Route
             path="/management"

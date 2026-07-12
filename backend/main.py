@@ -2968,14 +2968,25 @@ def get_compensation_tracker(
     try:
         normalized_benchmark = normalize_ticker(benchmark) or "SPY"
         payout_share = max(0.0, min(float(share_pct), 1.0))
+        transactions = filter_transactions_by_management_mode(
+            load_transactions(),
+            "managed",
+        )
+        management = build_management_snapshot()
+        tickers_config = apply_management_shares_to_config(
+            get_effective_tickers_config(),
+            management["shares_by_mode"],
+            "managed",
+        )
         performance = build_portfolio_performance(
-            transactions_by_ticker=load_transactions(),
-            tickers_config=get_effective_tickers_config(),
+            transactions_by_ticker=transactions,
+            tickers_config=tickers_config,
             range_key=range,
             supplemental_positions=[
                 position
-                for position in build_management_snapshot()["positions"]
+                for position in management["positions"]
                 if position["source"] != "transactions"
+                and position["mode"] == "managed"
             ],
         )
         portfolio_series = performance.get("series")
@@ -3022,6 +3033,7 @@ def get_compensation_tracker(
         return {
             "range": range,
             "benchmark": normalized_benchmark,
+            "mode": "managed",
             "share_pct": payout_share,
             "start_date": max(
                 str(start_portfolio.get("date") or ""),

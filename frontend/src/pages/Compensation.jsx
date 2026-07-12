@@ -57,7 +57,7 @@ export default function Compensation() {
         if (!cancelled) setData(payload)
       } catch (err) {
         if (!cancelled) {
-          setError(err instanceof Error ? err.message : 'Failed to load compensation')
+          setError(err instanceof Error ? err.message : 'Failed to load Matthew tracker')
           setData(null)
         }
       } finally {
@@ -73,7 +73,7 @@ export default function Compensation() {
 
   const positiveExcess = Number(data?.payout_base ?? 0) > 0
   const formula = useMemo(() => {
-    if (!data) return 'Portfolio gain above S&P 500 × 25%'
+    if (!data) return 'Managed portfolio gain above S&P 500 × 25%'
     return `${formatMoney(data.payout_base)} × ${formatPercent(data.share_pct)}`
   }, [data])
 
@@ -82,10 +82,10 @@ export default function Compensation() {
       <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
-            Compensation
+            Matthew
           </h1>
           <p className="mt-1 max-w-3xl text-sm text-slate-600">
-            Tracks the agreed payout: 25% of portfolio growth above S&amp;P 500 growth.
+            Tracks Matthew&apos;s agreed payout: 25% of managed portfolio growth above S&amp;P 500 growth.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -115,7 +115,7 @@ export default function Compensation() {
 
       {loading ? (
         <div className="rounded-xl border border-slate-200 bg-white p-8 text-center text-sm text-slate-500 shadow-sm">
-          Loading compensation...
+          Loading Matthew tracker...
         </div>
       ) : (
         <>
@@ -126,7 +126,7 @@ export default function Compensation() {
               detail={formula}
             />
             <MetricCard
-              label="Portfolio Return"
+              label="Managed Return"
               value={formatPercent(data?.portfolio_return)}
               detail={`${formatMoney(data?.portfolio_start_value)} to ${formatMoney(data?.portfolio_end_value)}`}
             />
@@ -154,13 +154,13 @@ export default function Compensation() {
               <div>
                 <div className="font-medium text-slate-900">Benchmark Equivalent</div>
                 <div className="mt-1">
-                  Starting portfolio value grown at S&amp;P 500 return: {formatMoney(data?.benchmark_equivalent_value)}
+                  Starting managed portfolio value grown at S&amp;P 500 return: {formatMoney(data?.benchmark_equivalent_value)}
                 </div>
               </div>
               <div>
                 <div className="font-medium text-slate-900">Excess Gain</div>
                 <div className="mt-1">
-                  {formatMoney(data?.portfolio_end_value)} - {formatMoney(data?.benchmark_equivalent_value)} = {formatMoney(data?.excess_gain)}
+                  Managed value {formatMoney(data?.portfolio_end_value)} - benchmark equivalent {formatMoney(data?.benchmark_equivalent_value)} = {formatMoney(data?.excess_gain)}
                 </div>
               </div>
               <div>
