@@ -133,7 +133,7 @@ export default function Compensation() {
             <MetricCard
               label="S&P 500 Gain"
               value={formatPercent(data?.benchmark_return)}
-              detail={`${formatMoney(data?.benchmark_gain)} on same cost basis`}
+              detail={`${formatMoney(data?.benchmark_gain)} from same cost-basis path`}
             />
             <MetricCard
               label="Excess Gain"
@@ -160,13 +160,13 @@ export default function Compensation() {
               <div>
                 <div className="font-medium text-slate-900">S&amp;P 500 Comparison</div>
                 <div className="mt-1">
-                  Cost basis {formatMoney(data?.cost_basis)} grown at {formatPercent(data?.benchmark_return)} = {formatMoney(data?.benchmark_equivalent_value)}
+                  Same cost-basis path invested in {data?.benchmark ?? 'SPY'} would be {formatMoney(data?.benchmark_equivalent_value)}
                 </div>
               </div>
               <div>
                 <div className="font-medium text-slate-900">Excess Gain</div>
                 <div className="mt-1">
-                  Actual gain {formatMoney(data?.actual_gain)} - S&amp;P gain {formatMoney(data?.benchmark_gain)} = {formatMoney(data?.excess_gain)}
+                  Matthew account value {formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)} - S&amp;P equivalent {formatMoney(data?.benchmark_equivalent_value)} = {formatMoney(data?.excess_gain)}
                 </div>
               </div>
               <div>

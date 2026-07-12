@@ -3003,6 +3003,17 @@ def benchmark_close_on_or_after(
     return None
 
 
+def benchmark_close_on_or_before(
+    benchmark_lookup: dict[str, float],
+    sorted_dates: list[str],
+    target_date: str,
+) -> float | None:
+    for point_date in reversed(sorted_dates):
+        if point_date <= target_date:
+            return benchmark_lookup.get(point_date)
+    return None
+
+
 def filter_transactions_by_accounts(
     transactions: dict[str, list[dict[str, Any]]],
     accounts: set[str],
@@ -3106,6 +3117,44 @@ def get_compensation_tracker(
 
         start_portfolio_date = str(start_portfolio.get("date") or start_date)
         end_portfolio_date = str(end_portfolio.get("date") or end_date)
+        benchmark_lookup = {
+            str(row.get("date") or ""): safe_float(row.get("close")) or 0.0
+            for row in window_benchmark
+            if row.get("date") and safe_float(row.get("close")) is not None
+        }
+        benchmark_dates_sorted = sorted(benchmark_lookup)
+        benchmark_shares = 0.0
+        prior_cost_basis = 0.0
+        benchmark_series: list[dict[str, Any]] = []
+        for row in window_portfolio:
+            row_date = str(row.get("date") or "")
+            if not row_date:
+                continue
+            close = benchmark_close_on_or_before(
+                benchmark_lookup,
+                benchmark_dates_sorted,
+                row_date,
+            )
+            if close is None or close <= 0:
+                continue
+            cost_basis = safe_float(row.get("cost_basis")) or 0.0
+            market_value = safe_float(row.get("market_value")) or 0.0
+            cost_delta = cost_basis - prior_cost_basis
+            if abs(cost_delta) > 1e-9:
+                benchmark_shares += cost_delta / close
+                prior_cost_basis = cost_basis
+            benchmark_value_for_date = benchmark_shares * close
+            benchmark_series.append(
+                {
+                    "date": row_date,
+                    "market_value": round(market_value, 8),
+                    "cost_basis": round(cost_basis, 8),
+                    "benchmark_value": round(benchmark_value_for_date, 8),
+                }
+            )
+        if len(benchmark_series) < 2:
+            raise ValueError("Need at least two benchmark-equivalent points")
+
         distributions = 0.0
         for ticker, entries in transactions.items():
             for tx in entries:
@@ -3119,12 +3168,13 @@ def get_compensation_tracker(
                     distributions += distribution
 
         actual_terminal_value = end_value + distributions
-        benchmark_return = (end_close / start_close) - 1.0
+        spy_window_return = (end_close / start_close) - 1.0
+        benchmark_value = benchmark_series[-1]["benchmark_value"]
         actual_gain = actual_terminal_value - end_cost_basis
-        benchmark_gain = end_cost_basis * benchmark_return
-        benchmark_value = end_cost_basis + benchmark_gain
-        excess_gain = actual_gain - benchmark_gain
+        benchmark_gain = benchmark_value - end_cost_basis
+        excess_gain = actual_terminal_value - benchmark_value
         portfolio_return = actual_gain / end_cost_basis
+        benchmark_return = benchmark_gain / end_cost_basis
         excess_return = portfolio_return - benchmark_return
         payout_base = max(excess_gain, 0.0)
         payout = payout_base * payout_share
@@ -3146,6 +3196,7 @@ def get_compensation_tracker(
             "actual_terminal_value": actual_terminal_value,
             "benchmark_start_price": start_close,
             "benchmark_end_price": end_close,
+            "spy_window_return": spy_window_return,
             "benchmark_return": benchmark_return,
             "benchmark_equivalent_value": benchmark_value,
             "benchmark_gain": benchmark_gain,
@@ -3153,6 +3204,7 @@ def get_compensation_tracker(
             "excess_gain": excess_gain,
             "payout_base": payout_base,
             "payout": payout,
+            "series": benchmark_series,
             "portfolio_series_points": len(window_portfolio),
             "benchmark_points": len(window_benchmark),
         }
