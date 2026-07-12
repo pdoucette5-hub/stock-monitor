@@ -73,7 +73,7 @@ export default function Compensation() {
 
   const positiveExcess = Number(data?.payout_base ?? 0) > 0
   const formula = useMemo(() => {
-    if (!data) return 'Matthew account gain above S&P 500 × 25%'
+    if (!data) return 'Excess gain above S&P 500 × 25%'
     return `${formatMoney(data.payout_base)} × ${formatPercent(data.share_pct)}`
   }, [data])
 
@@ -126,18 +126,18 @@ export default function Compensation() {
               detail={formula}
             />
             <MetricCard
-              label="Flow-Adjusted Return"
+              label="Actual Gain"
               value={formatPercent(data?.portfolio_return)}
-              detail={`${formatMoney(data?.portfolio_start_value)} with ${formatMoney(data?.net_cash_flows)} net flows to ${formatMoney(data?.portfolio_end_value)}`}
+              detail={`${formatMoney(data?.cost_basis)} cost basis to ${formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)}`}
             />
             <MetricCard
-              label="S&P 500 Return"
+              label="S&P 500 Gain"
               value={formatPercent(data?.benchmark_return)}
-              detail={`${data?.benchmark ?? 'SPY'} proxy`}
+              detail={`${formatMoney(data?.benchmark_gain)} on same cost basis`}
             />
             <MetricCard
-              label="Excess Return"
-              value={formatPercent(data?.excess_return)}
+              label="Excess Gain"
+              value={formatMoney(data?.excess_gain)}
               detail={positiveExcess ? 'eligible for payout' : 'no positive excess gain'}
             />
           </div>
@@ -152,21 +152,21 @@ export default function Compensation() {
                 </div>
               </div>
               <div>
-                <div className="font-medium text-slate-900">Benchmark Equivalent</div>
+                <div className="font-medium text-slate-900">Actual Gain</div>
                 <div className="mt-1">
-                  Starting Matthew account value plus each add/remove grown at S&amp;P 500 timing: {formatMoney(data?.benchmark_equivalent_value)}
+                  Matthew account value {formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)} - cost basis {formatMoney(data?.cost_basis)} = {formatMoney(data?.actual_gain)}
                 </div>
               </div>
               <div>
-                <div className="font-medium text-slate-900">Matthew Account Cash Flows</div>
+                <div className="font-medium text-slate-900">S&amp;P 500 Comparison</div>
                 <div className="mt-1">
-                  Net additions during window: {formatMoney(data?.net_cash_flows)}
+                  Cost basis {formatMoney(data?.cost_basis)} grown at {formatPercent(data?.benchmark_return)} = {formatMoney(data?.benchmark_equivalent_value)}
                 </div>
               </div>
               <div>
                 <div className="font-medium text-slate-900">Excess Gain</div>
                 <div className="mt-1">
-                  Matthew account ending value {formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)} - benchmark equivalent {formatMoney(data?.benchmark_equivalent_value)} = {formatMoney(data?.excess_gain)}
+                  Actual gain {formatMoney(data?.actual_gain)} - S&amp;P gain {formatMoney(data?.benchmark_gain)} = {formatMoney(data?.excess_gain)}
                 </div>
               </div>
               <div>

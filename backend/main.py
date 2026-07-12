@@ -3091,8 +3091,11 @@ def get_compensation_tracker(
         end_portfolio = window_portfolio[-1]
         start_value = safe_float(start_portfolio.get("market_value")) or 0.0
         end_value = safe_float(end_portfolio.get("market_value")) or 0.0
+        end_cost_basis = safe_float(end_portfolio.get("cost_basis")) or 0.0
         if start_value <= 0:
             raise ValueError("Starting portfolio value must be positive")
+        if end_cost_basis <= 0:
+            raise ValueError("Current cost basis must be positive")
 
         start_benchmark = window_benchmark[0]
         end_benchmark = window_benchmark[-1]
@@ -3103,17 +3106,6 @@ def get_compensation_tracker(
 
         start_portfolio_date = str(start_portfolio.get("date") or start_date)
         end_portfolio_date = str(end_portfolio.get("date") or end_date)
-        total_days = max(
-            (
-                datetime.fromisoformat(end_portfolio_date).date()
-                - datetime.fromisoformat(start_portfolio_date).date()
-            ).days,
-            1,
-        )
-        cash_flows: list[dict[str, Any]] = []
-        net_cash_flows = 0.0
-        weighted_cash_flows = 0.0
-        benchmark_flow_value = 0.0
         distributions = 0.0
         for ticker, entries in transactions.items():
             for tx in entries:
@@ -3122,42 +3114,17 @@ def get_compensation_tracker(
                 tx_date = str(tx.get("date") or "").strip()
                 if not tx_date or not (start_portfolio_date < tx_date <= end_portfolio_date):
                     continue
-                cash_flow, distribution = transaction_cash_flow_amount(tx)
-                if abs(cash_flow) > 1e-9:
-                    flow_close = benchmark_close_on_or_after(window_benchmark, tx_date)
-                    if flow_close is None:
-                        continue
-                    flow_days = max(
-                        (
-                            datetime.fromisoformat(end_portfolio_date).date()
-                            - datetime.fromisoformat(tx_date).date()
-                        ).days,
-                        0,
-                    )
-                    net_cash_flows += cash_flow
-                    weighted_cash_flows += cash_flow * (flow_days / total_days)
-                    benchmark_flow_value += cash_flow * (end_close / flow_close)
-                    cash_flows.append(
-                        {
-                            "date": tx_date,
-                            "ticker": ticker,
-                            "type": str(tx.get("type") or ""),
-                            "amount": round(cash_flow, 8),
-                        }
-                    )
+                _, distribution = transaction_cash_flow_amount(tx)
                 if distribution > 0:
                     distributions += distribution
 
         actual_terminal_value = end_value + distributions
         benchmark_return = (end_close / start_close) - 1.0
-        benchmark_value = (start_value * (1.0 + benchmark_return)) + benchmark_flow_value
-        excess_gain = actual_terminal_value - benchmark_value
-        denominator = start_value + weighted_cash_flows
-        portfolio_return = (
-            (actual_terminal_value - start_value - net_cash_flows) / denominator
-            if denominator > 0
-            else 0.0
-        )
+        actual_gain = actual_terminal_value - end_cost_basis
+        benchmark_gain = end_cost_basis * benchmark_return
+        benchmark_value = end_cost_basis + benchmark_gain
+        excess_gain = actual_gain - benchmark_gain
+        portfolio_return = actual_gain / end_cost_basis
         excess_return = portfolio_return - benchmark_return
         payout_base = max(excess_gain, 0.0)
         payout = payout_base * payout_share
@@ -3172,20 +3139,20 @@ def get_compensation_tracker(
             "end_date": end_portfolio_date,
             "portfolio_start_value": start_value,
             "portfolio_end_value": end_value,
+            "cost_basis": end_cost_basis,
             "portfolio_return": portfolio_return,
-            "net_cash_flows": net_cash_flows,
+            "actual_gain": actual_gain,
             "distributions": distributions,
             "actual_terminal_value": actual_terminal_value,
             "benchmark_start_price": start_close,
             "benchmark_end_price": end_close,
             "benchmark_return": benchmark_return,
             "benchmark_equivalent_value": benchmark_value,
-            "benchmark_flow_value": benchmark_flow_value,
+            "benchmark_gain": benchmark_gain,
             "excess_return": excess_return,
             "excess_gain": excess_gain,
             "payout_base": payout_base,
             "payout": payout,
-            "cash_flows": cash_flows,
             "portfolio_series_points": len(window_portfolio),
             "benchmark_points": len(window_benchmark),
         }
