@@ -1722,8 +1722,14 @@ def build_forecast_scorecard() -> dict[str, Any]:
         reverse=True,
     )
     scenario_inputs = load_scenario_inputs()
+    tickers_config = get_effective_tickers_config()
+    portfolio_tickers = {
+        row["ticker"]
+        for row in normalize_portfolio(tickers_config.get("portfolio", []))
+        if row.get("ticker")
+    }
     portfolio_view = build_portfolio_views(
-        get_effective_tickers_config(),
+        tickers_config,
         scenario_inputs,
         load_settings_dict(),
         management_shares=build_management_snapshot()["shares_by_mode"],
@@ -1735,20 +1741,24 @@ def build_forecast_scorecard() -> dict[str, Any]:
     reported_fundamentals = load_reported_fundamentals()
     row_by_ticker = {
         row.get("ticker"): row
-        for section in ("portfolio", "watchlist")
-        for row in portfolio_view.get(section, [])
+        for row in portfolio_view.get("portfolio", [])
         if isinstance(row, dict) and row.get("ticker")
     }
 
     latest_by_ticker: dict[str, dict[str, Any]] = {}
     for snapshot in snapshots:
         ticker = normalize_ticker(snapshot.get("ticker", ""))
-        if ticker and ticker not in latest_by_ticker:
+        if ticker and ticker in portfolio_tickers and ticker not in latest_by_ticker:
             latest_by_ticker[ticker] = snapshot
 
     for ticker, scenario in scenario_inputs.items():
         normalized = normalize_ticker(ticker)
-        if not normalized or normalized in latest_by_ticker or not isinstance(scenario, dict):
+        if (
+            not normalized
+            or normalized not in portfolio_tickers
+            or normalized in latest_by_ticker
+            or not isinstance(scenario, dict)
+        ):
             continue
         latest_by_ticker[normalized] = _current_assumption_snapshot(
             normalized,
@@ -2658,11 +2668,6 @@ def refresh_reported_fundamentals_endpoint(
                 for row in portfolio
                 if row.get("ticker")
             }
-            | {
-                normalize_ticker(ticker)
-                for ticker in config.get("watchlist", [])
-                if normalize_ticker(ticker)
-            },
         )
 
     payload = refresh_reported_fundamentals(tickers)

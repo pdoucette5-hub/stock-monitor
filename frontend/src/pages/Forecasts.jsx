@@ -196,7 +196,7 @@ export default function Forecasts() {
               ) : rows.length === 0 ? (
                 <tr>
                   <td colSpan={9} className="px-4 py-12 text-center text-slate-500">
-                    No Stock Detail assumptions yet. Save assumptions in Stock Detail to begin tracking.
+                    No holding assumptions yet. Save Stock Detail assumptions for portfolio holdings to begin tracking.
                   </td>
                 </tr>
               ) : (
