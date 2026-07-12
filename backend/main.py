@@ -1607,6 +1607,20 @@ def _first_growth_rate(state: dict[str, Any], scenario_name: str, field: str) ->
     return None if value is None else value / 100.0
 
 
+def _snapshot_change_summary(snapshot: dict[str, Any]) -> list[str]:
+    changes = snapshot.get("changes")
+    if not isinstance(changes, list):
+        return []
+    summary: list[str] = []
+    for change in changes[:4]:
+        if not isinstance(change, dict):
+            continue
+        label = str(change.get("label") or change.get("field") or "").strip()
+        if label:
+            summary.append(label)
+    return summary
+
+
 def _growth_error(
     actual_start: Any,
     actual_current: Any,
@@ -1649,6 +1663,8 @@ def append_assumption_snapshot(
     ticker: str,
     scenario: dict[str, Any],
     row_context: dict[str, Any] | None,
+    previous_scenario: dict[str, Any] | None = None,
+    changes: list[dict[str, Any]] | None = None,
 ) -> None:
     normalized = normalize_ticker(ticker)
     if not normalized:
@@ -1656,14 +1672,20 @@ def append_assumption_snapshot(
 
     context = row_context or {}
     snapshots = load_assumption_snapshots()
+    previous = previous_scenario if isinstance(previous_scenario, dict) else {}
     snapshots.append(
         {
             "id": uuid.uuid4().hex,
             "ticker": normalized,
             "timestamp": datetime.now(timezone.utc).isoformat(),
+            "revision_type": "update" if previous else "initial",
+            "changes": changes if isinstance(changes, list) else [],
             "latest_quarter_revenue": safe_float(scenario.get("latest_quarter_revenue")),
             "latest_quarter_net_income": safe_float(scenario.get("latest_quarter_net_income")),
             "shares_outstanding": safe_float(scenario.get("shares_outstanding")),
+            "previous_latest_quarter_revenue": safe_float(previous.get("latest_quarter_revenue")),
+            "previous_latest_quarter_net_income": safe_float(previous.get("latest_quarter_net_income")),
+            "previous_shares_outstanding": safe_float(previous.get("shares_outstanding")),
             "price": safe_float(context.get("price")),
             "current_pe": safe_float(context.get("current_pe")),
             "bear_cagr_y3": safe_float(context.get("bear_cagr_y3")),
@@ -1678,6 +1700,9 @@ def append_assumption_snapshot(
             "bear": _scenario_copy(scenario, "bear"),
             "base": _scenario_copy(scenario, "base"),
             "bull": _scenario_copy(scenario, "bull"),
+            "previous_bear": _scenario_copy(previous, "bear"),
+            "previous_base": _scenario_copy(previous, "base"),
+            "previous_bull": _scenario_copy(previous, "bull"),
         },
     )
     save_assumption_snapshots(snapshots)
@@ -1848,6 +1873,10 @@ def build_forecast_scorecard() -> dict[str, Any]:
                 "snapshot_id": snapshot.get("id"),
                 "snapshot_timestamp": snapshot.get("timestamp"),
                 "is_current_assumption": bool(snapshot.get("is_current_assumption")),
+                "revision_type": snapshot.get("revision_type") or (
+                    "current" if snapshot.get("is_current_assumption") else "saved"
+                ),
+                "change_summary": _snapshot_change_summary(snapshot),
                 "elapsed_days": elapsed_days,
                 "start_price": start_price,
                 "current_price": current_price,
@@ -1889,8 +1918,108 @@ def build_forecast_scorecard() -> dict[str, Any]:
             str(row.get("ticker") or ""),
         ),
     )
+
+    history_rows: list[dict[str, Any]] = []
+    for snapshot in snapshots:
+        ticker = normalize_ticker(snapshot.get("ticker", ""))
+        if not ticker or ticker not in portfolio_tickers:
+            continue
+        current_state = scenario_inputs.get(ticker, {})
+        if not isinstance(current_state, dict):
+            current_state = {}
+        current_row = row_by_ticker.get(ticker, {})
+        reported = reported_fundamentals.get(ticker)
+        if not isinstance(reported, dict):
+            reported = {}
+        preference = current_state.get("actuals_source_preference")
+        if preference not in {"manual", "reported"}:
+            preference = "manual"
+        current_revenue = current_state.get("latest_quarter_revenue")
+        current_net_income = current_state.get("latest_quarter_net_income")
+        if preference == "reported":
+            current_revenue = (
+                safe_float(reported.get("latest_quarter_revenue"))
+                if safe_float(reported.get("latest_quarter_revenue")) is not None
+                else current_revenue
+            )
+            current_net_income = (
+                safe_float(reported.get("latest_quarter_net_income"))
+                if safe_float(reported.get("latest_quarter_net_income")) is not None
+                else current_net_income
+            )
+        try:
+            snapshot_time = datetime.fromisoformat(str(snapshot.get("timestamp")))
+            if snapshot_time.tzinfo is None:
+                snapshot_time = snapshot_time.replace(tzinfo=timezone.utc)
+        except ValueError:
+            snapshot_time = now
+        elapsed_days = max(0, (now - snapshot_time).days)
+        base_rev_assumption = _first_growth_rate(snapshot, "base", "rev_growth_rates")
+        base_earnings_assumption = _first_growth_rate(
+            snapshot,
+            "base",
+            "net_income_growth_rates",
+        )
+        revenue_score = _growth_error(
+            snapshot.get("latest_quarter_revenue"),
+            current_revenue,
+            base_rev_assumption,
+            elapsed_days,
+        )
+        earnings_score = _growth_error(
+            snapshot.get("latest_quarter_net_income"),
+            current_net_income,
+            base_earnings_assumption,
+            elapsed_days,
+        )
+        start_price = safe_float(snapshot.get("price"))
+        current_price = safe_float(current_row.get("price"))
+        price_return = None
+        if start_price is not None and current_price is not None and start_price > 0:
+            price_return = (current_price / start_price) - 1.0
+        previous_base_rev = _first_growth_rate(snapshot, "previous_base", "rev_growth_rates")
+        previous_base_earnings = _first_growth_rate(
+            snapshot,
+            "previous_base",
+            "net_income_growth_rates",
+        )
+        history_rows.append(
+            {
+                "ticker": ticker,
+                "snapshot_id": snapshot.get("id"),
+                "snapshot_timestamp": snapshot.get("timestamp"),
+                "revision_type": snapshot.get("revision_type") or "saved",
+                "change_summary": _snapshot_change_summary(snapshot),
+                "elapsed_days": elapsed_days,
+                "base_revenue_growth_y1": base_rev_assumption,
+                "previous_base_revenue_growth_y1": previous_base_rev,
+                "base_earnings_growth_y1": base_earnings_assumption,
+                "previous_base_earnings_growth_y1": previous_base_earnings,
+                "base_cagr_y3_at_snapshot": safe_float(snapshot.get("base_cagr_y3")),
+                "action_at_snapshot": snapshot.get("action"),
+                "start_price": start_price,
+                "current_price": current_price,
+                "price_return": price_return,
+                "revenue_actual_growth": revenue_score["actual_growth"],
+                "revenue_expected_growth_to_date": revenue_score["expected_growth_to_date"],
+                "revenue_error": revenue_score["error"],
+                "revenue_status": revenue_score["status"],
+                "earnings_actual_growth": earnings_score["actual_growth"],
+                "earnings_expected_growth_to_date": earnings_score["expected_growth_to_date"],
+                "earnings_error": earnings_score["error"],
+                "earnings_status": earnings_score["status"],
+            },
+        )
+    history_rows.sort(
+        key=lambda row: (
+            str(row.get("ticker") or ""),
+            str(row.get("snapshot_timestamp") or ""),
+        ),
+        reverse=True,
+    )
     return {
         "rows": rows,
+        "history": history_rows[:500],
         "snapshots": snapshots[:500],
         "snapshot_count": len(snapshots),
     }
@@ -3691,7 +3820,13 @@ def upsert_stock_scenario(ticker: str, body: TickerScenarioInputs) -> StockScena
                 ),
                 None,
             )
-            append_assumption_snapshot(normalized, payload, snapshot_row)
+            append_assumption_snapshot(
+                normalized,
+                payload,
+                snapshot_row,
+                previous_scenario=existing if isinstance(existing, dict) else None,
+                changes=changes,
+            )
         except Exception:
             pass
 

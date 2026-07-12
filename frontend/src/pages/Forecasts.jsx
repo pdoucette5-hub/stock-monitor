@@ -51,6 +51,22 @@ function savedLabel(row) {
   return formatDate(row?.snapshot_timestamp)
 }
 
+function formatRevision(row) {
+  const summary = Array.isArray(row?.change_summary) ? row.change_summary : []
+  if (summary.length > 0) return summary.join(', ')
+  if (row?.revision_type === 'initial') return 'Initial baseline'
+  if (row?.revision_type === 'update') return 'Updated baseline'
+  return 'Saved baseline'
+}
+
+function formatAssumptionChange(previous, current) {
+  if (current == null || Number.isNaN(Number(current))) return '—'
+  if (previous == null || Number.isNaN(Number(previous))) return formatPercent(current)
+  const delta = Number(current) - Number(previous)
+  const sign = delta > 0 ? '+' : ''
+  return `${formatPercent(previous)} → ${formatPercent(current)} (${sign}${(delta * 100).toFixed(1)} pts)`
+}
+
 export default function Forecasts() {
   const [payload, setPayload] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -93,6 +109,7 @@ export default function Forecasts() {
   }, [load])
 
   const rows = useMemo(() => payload?.rows ?? [], [payload])
+  const historyRows = useMemo(() => payload?.history ?? [], [payload])
 
   return (
     <div className="mx-auto w-[98vw] px-4 py-8">
@@ -270,6 +287,103 @@ export default function Forecasts() {
           </table>
         </div>
       </div>
+
+      <section className="mt-8">
+        <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold text-slate-900">
+              Assumption Revision History
+            </h2>
+            <p className="mt-1 max-w-3xl text-sm text-slate-600">
+              Saved baselines for portfolio holdings. Each revision keeps its own starting actuals, price, CAGR, and action so later results can be judged against what you believed then.
+            </p>
+          </div>
+          <div className="text-sm text-slate-500">
+            {historyRows.length.toLocaleString()} saved baseline{historyRows.length === 1 ? '' : 's'}
+          </div>
+        </div>
+
+        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-slate-200 text-left text-sm">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="px-4 py-3 font-semibold text-slate-700">Ticker</th>
+                  <th className="px-4 py-3 font-semibold text-slate-700">Baseline</th>
+                  <th className="px-4 py-3 font-semibold text-slate-700">Revision</th>
+                  <th className="px-4 py-3 font-semibold text-slate-700">Revenue Assumption</th>
+                  <th className="px-4 py-3 font-semibold text-slate-700">Earnings Assumption</th>
+                  <th className="px-4 py-3 font-semibold text-slate-700">Actual Read</th>
+                  <th className="px-4 py-3 font-semibold text-slate-700">Price Path</th>
+                  <th className="px-4 py-3 font-semibold text-slate-700">Saved View</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {historyRows.length === 0 ? (
+                  <tr>
+                    <td colSpan={8} className="px-4 py-10 text-center text-slate-500">
+                      No saved assumption revisions yet. Save a holding in Stock Detail to create the first baseline.
+                    </td>
+                  </tr>
+                ) : (
+                  historyRows.map((row) => (
+                    <tr key={row.snapshot_id} className="hover:bg-slate-50/80">
+                      <td className="whitespace-nowrap px-4 py-3 font-medium text-blue-700">
+                        <Link to={`/stock?ticker=${encodeURIComponent(row.ticker)}`}>
+                          {row.ticker}
+                        </Link>
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                        {formatDate(row.snapshot_timestamp)}
+                        <div className="text-xs text-slate-500">
+                          {row.elapsed_days} days old
+                        </div>
+                      </td>
+                      <td className="max-w-xs px-4 py-3 text-slate-700">
+                        {formatRevision(row)}
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                        {formatAssumptionChange(
+                          row.previous_base_revenue_growth_y1,
+                          row.base_revenue_growth_y1,
+                        )}
+                        <div className="text-xs text-slate-500">base Y1 revenue</div>
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                        {formatAssumptionChange(
+                          row.previous_base_earnings_growth_y1,
+                          row.base_earnings_growth_y1,
+                        )}
+                        <div className="text-xs text-slate-500">base Y1 earnings</div>
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                        <div>
+                          Revenue <StatusPill status={row.revenue_status} />
+                        </div>
+                        <div className="mt-1">
+                          Earnings <StatusPill status={row.earnings_status} />
+                        </div>
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                        {formatPercent(row.price_return)}
+                        <div className="text-xs text-slate-500">
+                          {formatMoney(row.start_price)} to {formatMoney(row.current_price)}
+                        </div>
+                      </td>
+                      <td className="whitespace-nowrap px-4 py-3 text-slate-700">
+                        {row.action_at_snapshot || '—'}
+                        <div className="text-xs text-slate-500">
+                          base CAGR {formatCagrDecimal(row.base_cagr_y3_at_snapshot)}
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
