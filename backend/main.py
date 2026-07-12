@@ -46,6 +46,7 @@ from backend.price_store import (
     get_price_comparison_response,
     get_price_history_response,
     get_price_history_status,
+    get_price_points_for_ticker,
     upsert_price_rows,
 )
 from backend.sheets_service import push_tickers_to_sheet
@@ -136,6 +137,7 @@ FULL_ACCESS_ONLY_EXACT_PATHS = {
     "/api/accounts",
     "/api/management",
     "/api/management/allocation",
+    "/api/compensation",
     "/api/performance/portfolio",
     "/api/portfolio/controls",
     "/api/sheets/tickers/sync",
@@ -1415,10 +1417,49 @@ def fetch_sec_reported_fundamentals(ticker: str) -> dict[str, Any]:
     return payload
 
 
+def _within_one_percent(manual_value: Any, reported_value: Any) -> bool | None:
+    manual = safe_float(manual_value)
+    reported = safe_float(reported_value)
+    if manual is None or reported is None:
+        return None
+    if manual == 0 and reported == 0:
+        return True
+    denominator = max(abs(manual), abs(reported))
+    if denominator <= 0:
+        return None
+    return abs(manual - reported) / denominator <= 0.01
+
+
+def _reported_actuals_match_manual(
+    scenario: dict[str, Any],
+    reported: dict[str, Any],
+) -> bool:
+    required = (
+        _within_one_percent(
+            scenario.get("latest_quarter_revenue"),
+            reported.get("latest_quarter_revenue"),
+        ),
+        _within_one_percent(
+            scenario.get("latest_quarter_net_income"),
+            reported.get("latest_quarter_net_income"),
+        ),
+    )
+    if any(value is not True for value in required):
+        return False
+
+    shares_match = _within_one_percent(
+        scenario.get("shares_outstanding"),
+        reported.get("shares_outstanding"),
+    )
+    return shares_match is not False
+
+
 def refresh_reported_fundamentals(tickers: list[str]) -> dict[str, Any]:
     stored = load_reported_fundamentals()
+    scenario_inputs = load_scenario_inputs()
     refreshed: list[dict[str, Any]] = []
     errors: list[dict[str, str]] = []
+    auto_selected: list[dict[str, Any]] = []
 
     normalized_tickers = sorted(
         {
@@ -1438,12 +1479,29 @@ def refresh_reported_fundamentals(tickers: list[str]) -> dict[str, Any]:
                 payload = future.result()
                 stored[ticker] = payload
                 refreshed.append(payload)
+                scenario = scenario_inputs.get(ticker)
+                if isinstance(scenario, dict) and _reported_actuals_match_manual(
+                    scenario,
+                    payload,
+                ):
+                    if scenario.get("actuals_source_preference") != "reported":
+                        scenario["actuals_source_preference"] = "reported"
+                        auto_selected.append(
+                            {
+                                "ticker": ticker,
+                                "source": "reported",
+                                "reason": "manual and pulled actuals within 1%",
+                            },
+                        )
             except Exception as exc:
                 errors.append({"ticker": ticker, "error": str(exc)})
 
     save_reported_fundamentals(stored)
+    if auto_selected:
+        save_scenario_inputs(scenario_inputs)
     return {
         "refreshed": sorted(refreshed, key=lambda row: str(row.get("ticker") or "")),
+        "auto_selected_actuals": auto_selected,
         "errors": errors,
         "fundamentals": stored,
     }
@@ -2895,6 +2953,98 @@ def get_portfolio_performance(
             ],
         )
         return set_cached_response(cache_key, payload)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.get("/api/compensation")
+def get_compensation_tracker(
+    range: str = "1y",
+    benchmark: str = "SPY",
+    share_pct: float = 0.25,
+) -> dict[str, Any]:
+    try:
+        normalized_benchmark = normalize_ticker(benchmark) or "SPY"
+        payout_share = max(0.0, min(float(share_pct), 1.0))
+        performance = build_portfolio_performance(
+            transactions_by_ticker=load_transactions(),
+            tickers_config=get_effective_tickers_config(),
+            range_key=range,
+            supplemental_positions=[
+                position
+                for position in build_management_snapshot()["positions"]
+                if position["source"] != "transactions"
+            ],
+        )
+        portfolio_series = performance.get("series")
+        if not isinstance(portfolio_series, list):
+            portfolio_series = []
+        valid_portfolio = [
+            row
+            for row in portfolio_series
+            if isinstance(row, dict) and safe_float(row.get("market_value")) is not None
+        ]
+        benchmark_points = [
+            row
+            for row in get_price_points_for_ticker(normalized_benchmark, range_key=range)
+            if isinstance(row, dict) and safe_float(row.get("close")) is not None
+        ]
+
+        if len(valid_portfolio) < 2:
+            raise ValueError("Need at least two portfolio performance points")
+        if len(benchmark_points) < 2:
+            raise ValueError(f"Need at least two price points for {normalized_benchmark}")
+
+        start_portfolio = valid_portfolio[0]
+        end_portfolio = valid_portfolio[-1]
+        start_value = safe_float(start_portfolio.get("market_value")) or 0.0
+        end_value = safe_float(end_portfolio.get("market_value")) or 0.0
+        if start_value <= 0:
+            raise ValueError("Starting portfolio value must be positive")
+
+        start_benchmark = benchmark_points[0]
+        end_benchmark = benchmark_points[-1]
+        start_close = safe_float(start_benchmark.get("close")) or 0.0
+        end_close = safe_float(end_benchmark.get("close")) or 0.0
+        if start_close <= 0:
+            raise ValueError(f"Starting {normalized_benchmark} price must be positive")
+
+        portfolio_return = (end_value / start_value) - 1.0
+        benchmark_return = (end_close / start_close) - 1.0
+        excess_return = portfolio_return - benchmark_return
+        benchmark_value = start_value * (1.0 + benchmark_return)
+        excess_gain = end_value - benchmark_value
+        payout_base = max(excess_gain, 0.0)
+        payout = payout_base * payout_share
+
+        return {
+            "range": range,
+            "benchmark": normalized_benchmark,
+            "share_pct": payout_share,
+            "start_date": max(
+                str(start_portfolio.get("date") or ""),
+                str(start_benchmark.get("date") or ""),
+            ),
+            "end_date": min(
+                str(end_portfolio.get("date") or ""),
+                str(end_benchmark.get("date") or ""),
+            ),
+            "portfolio_start_value": start_value,
+            "portfolio_end_value": end_value,
+            "portfolio_return": portfolio_return,
+            "benchmark_start_price": start_close,
+            "benchmark_end_price": end_close,
+            "benchmark_return": benchmark_return,
+            "benchmark_equivalent_value": benchmark_value,
+            "excess_return": excess_return,
+            "excess_gain": excess_gain,
+            "payout_base": payout_base,
+            "payout": payout,
+            "portfolio_series_points": len(valid_portfolio),
+            "benchmark_points": len(benchmark_points),
+        }
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:

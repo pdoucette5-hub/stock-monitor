@@ -11,6 +11,7 @@ import TransactionImport from './pages/TransactionImport'
 import Management from './pages/Management'
 import Compression from './pages/Compression'
 import Forecasts from './pages/Forecasts'
+import Compensation from './pages/Compensation'
 import { useAuth } from './auth/AuthContext'
 
 function navClass({ isActive }) {
@@ -60,6 +61,9 @@ export default function App() {
                 </NavLink>
                 <NavLink to="/forecasts" className={navClass}>
                   Forecasts
+                </NavLink>
+                <NavLink to="/compensation" className={navClass}>
+                  Compensation
                 </NavLink>
                 <NavLink to="/management" className={navClass}>
                   Management
@@ -116,6 +120,10 @@ export default function App() {
           <Route
             path="/forecasts"
             element={hasFullAccess ? <Forecasts /> : <Navigate to={defaultPath} replace />}
+          />
+          <Route
+            path="/compensation"
+            element={hasFullAccess ? <Compensation /> : <Navigate to={defaultPath} replace />}
           />
           <Route
             path="/management"
