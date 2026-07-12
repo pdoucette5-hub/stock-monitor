@@ -1420,20 +1420,30 @@ def refresh_reported_fundamentals(tickers: list[str]) -> dict[str, Any]:
     refreshed: list[dict[str, Any]] = []
     errors: list[dict[str, str]] = []
 
-    for ticker in tickers:
-        normalized = normalize_ticker(ticker)
-        if not normalized:
-            continue
-        try:
-            payload = fetch_sec_reported_fundamentals(normalized)
-            stored[normalized] = payload
-            refreshed.append(payload)
-        except Exception as exc:
-            errors.append({"ticker": normalized, "error": str(exc)})
+    normalized_tickers = sorted(
+        {
+            normalize_ticker(ticker)
+            for ticker in tickers
+            if normalize_ticker(ticker)
+        },
+    )
+    with ThreadPoolExecutor(max_workers=6) as executor:
+        futures = {
+            executor.submit(fetch_sec_reported_fundamentals, ticker): ticker
+            for ticker in normalized_tickers
+        }
+        for future in as_completed(futures):
+            ticker = futures[future]
+            try:
+                payload = future.result()
+                stored[ticker] = payload
+                refreshed.append(payload)
+            except Exception as exc:
+                errors.append({"ticker": ticker, "error": str(exc)})
 
     save_reported_fundamentals(stored)
     return {
-        "refreshed": refreshed,
+        "refreshed": sorted(refreshed, key=lambda row: str(row.get("ticker") or "")),
         "errors": errors,
         "fundamentals": stored,
     }
@@ -1673,6 +1683,38 @@ def append_assumption_snapshot(
     save_assumption_snapshots(snapshots)
 
 
+def _current_assumption_snapshot(
+    ticker: str,
+    scenario: dict[str, Any],
+    row_context: dict[str, Any] | None,
+) -> dict[str, Any]:
+    context = row_context or {}
+    now = datetime.now(timezone.utc).isoformat()
+    return {
+        "id": f"current-{normalize_ticker(ticker)}",
+        "ticker": normalize_ticker(ticker),
+        "timestamp": now,
+        "latest_quarter_revenue": safe_float(scenario.get("latest_quarter_revenue")),
+        "latest_quarter_net_income": safe_float(scenario.get("latest_quarter_net_income")),
+        "shares_outstanding": safe_float(scenario.get("shares_outstanding")),
+        "price": safe_float(context.get("price")),
+        "current_pe": safe_float(context.get("current_pe")),
+        "bear_cagr_y3": safe_float(context.get("bear_cagr_y3")),
+        "base_cagr_y3": safe_float(context.get("base_cagr_y3")),
+        "bull_cagr_y3": safe_float(context.get("bull_cagr_y3")),
+        "weighted_cagr_y3": safe_float(context.get("weighted_cagr_y3")),
+        "action": context.get("action"),
+        "action_rank": context.get("action_rank"),
+        "compression_opportunity_score": safe_float(
+            context.get("compression_opportunity_score"),
+        ),
+        "bear": _scenario_copy(scenario, "bear"),
+        "base": _scenario_copy(scenario, "base"),
+        "bull": _scenario_copy(scenario, "bull"),
+        "is_current_assumption": True,
+    }
+
+
 def build_forecast_scorecard() -> dict[str, Any]:
     snapshots = sorted(
         load_assumption_snapshots(),
@@ -1703,6 +1745,16 @@ def build_forecast_scorecard() -> dict[str, Any]:
         ticker = normalize_ticker(snapshot.get("ticker", ""))
         if ticker and ticker not in latest_by_ticker:
             latest_by_ticker[ticker] = snapshot
+
+    for ticker, scenario in scenario_inputs.items():
+        normalized = normalize_ticker(ticker)
+        if not normalized or normalized in latest_by_ticker or not isinstance(scenario, dict):
+            continue
+        latest_by_ticker[normalized] = _current_assumption_snapshot(
+            normalized,
+            scenario,
+            row_by_ticker.get(normalized),
+        )
 
     rows: list[dict[str, Any]] = []
     now = datetime.now(timezone.utc)
@@ -1785,6 +1837,7 @@ def build_forecast_scorecard() -> dict[str, Any]:
                 "ticker": ticker,
                 "snapshot_id": snapshot.get("id"),
                 "snapshot_timestamp": snapshot.get("timestamp"),
+                "is_current_assumption": bool(snapshot.get("is_current_assumption")),
                 "elapsed_days": elapsed_days,
                 "start_price": start_price,
                 "current_price": current_price,

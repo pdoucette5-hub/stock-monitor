@@ -46,6 +46,11 @@ function sourceLabel(value) {
   return '—'
 }
 
+function savedLabel(row) {
+  if (row?.is_current_assumption) return 'Current'
+  return formatDate(row?.snapshot_timestamp)
+}
+
 export default function Forecasts() {
   const [payload, setPayload] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -74,10 +79,10 @@ export default function Forecasts() {
       const result = await refreshReportedFundamentals()
       const refreshed = result?.refreshed?.length ?? 0
       const errors = result?.errors?.length ?? 0
-      setMessage(`Refreshed ${refreshed} SEC actuals${errors ? `; ${errors} tickers need review` : ''}.`)
+      setMessage(`Refreshed ${refreshed} tickers${errors ? `; ${errors} tickers need review` : ''}.`)
       setPayload(await fetchForecastScorecard())
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to refresh SEC actuals')
+      setError(err instanceof Error ? err.message : 'Failed to refresh online data')
     } finally {
       setRefreshing(false)
     }
@@ -115,7 +120,7 @@ export default function Forecasts() {
             disabled={loading || refreshing}
             className="rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {refreshing ? 'Refreshing...' : 'Refresh SEC actuals'}
+            {refreshing ? 'Refreshing...' : 'Refresh online data'}
           </button>
         </div>
       </header>
@@ -191,7 +196,7 @@ export default function Forecasts() {
               ) : rows.length === 0 ? (
                 <tr>
                   <td colSpan={9} className="px-4 py-12 text-center text-slate-500">
-                    No saved forecast snapshots yet. Save assumptions in Stock Detail to begin tracking.
+                    No Stock Detail assumptions yet. Save assumptions in Stock Detail to begin tracking.
                   </td>
                 </tr>
               ) : (
@@ -203,9 +208,9 @@ export default function Forecasts() {
                       </Link>
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
-                      {formatDate(row.snapshot_timestamp)}
+                      {savedLabel(row)}
                       <div className="text-xs text-slate-500">
-                        {row.elapsed_days} days ago
+                        {row.is_current_assumption ? 'baseline starts now' : `${row.elapsed_days} days ago`}
                       </div>
                     </td>
                     <td className="whitespace-nowrap px-4 py-3 text-slate-700">
