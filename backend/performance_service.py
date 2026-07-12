@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
-from backend.price_store import get_price_points_for_ticker
+from backend.price_store import get_price_points_for_ticker, load_price_history_store
 from backend.transactions_service import compute_position_summary
 
 UNASSIGNED_ACCOUNT = "Unassigned"
@@ -289,9 +289,14 @@ def build_portfolio_performance(
     history_by_ticker: dict[str, list[dict[str, Any]]] = {}
     position_history_by_ticker: dict[str, dict[str, dict[str, float]]] = {}
     all_dates: set[str] = set()
+    price_store = load_price_history_store()
 
     for ticker in tickers:
-        points = get_price_points_for_ticker(ticker, range_key=range_key)
+        points = get_price_points_for_ticker(
+            ticker,
+            range_key=range_key,
+            store=price_store,
+        )
         if not points:
             continue
 

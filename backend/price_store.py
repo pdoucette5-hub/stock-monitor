@@ -229,8 +229,12 @@ def _filter_rows_for_range(rows: list[dict[str, Any]], range_key: str) -> list[d
     return [row for row in rows if _parse_date(row["date"]) >= cutoff]
 
 
-def get_price_points_for_ticker(ticker: str, range_key: str = "3y") -> list[dict[str, Any]]:
-    store = load_price_history_store()
+def get_price_points_for_ticker(
+    ticker: str,
+    range_key: str = "3y",
+    store: dict[str, list[dict[str, Any]]] | None = None,
+) -> list[dict[str, Any]]:
+    store = store if store is not None else load_price_history_store()
     rows = store.get(normalize_ticker(ticker), [])
     return _filter_rows_for_range(rows, range_key)
 
