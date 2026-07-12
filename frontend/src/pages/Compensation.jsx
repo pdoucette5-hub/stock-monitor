@@ -126,9 +126,9 @@ export default function Compensation() {
               detail={formula}
             />
             <MetricCard
-              label="Managed Return"
+              label="Flow-Adjusted Return"
               value={formatPercent(data?.portfolio_return)}
-              detail={`${formatMoney(data?.portfolio_start_value)} to ${formatMoney(data?.portfolio_end_value)}`}
+              detail={`${formatMoney(data?.portfolio_start_value)} with ${formatMoney(data?.net_cash_flows)} net flows to ${formatMoney(data?.portfolio_end_value)}`}
             />
             <MetricCard
               label="S&P 500 Return"
@@ -154,13 +154,19 @@ export default function Compensation() {
               <div>
                 <div className="font-medium text-slate-900">Benchmark Equivalent</div>
                 <div className="mt-1">
-                  Starting managed portfolio value grown at S&amp;P 500 return: {formatMoney(data?.benchmark_equivalent_value)}
+                  Starting managed value plus each managed add/remove grown at S&amp;P 500 timing: {formatMoney(data?.benchmark_equivalent_value)}
+                </div>
+              </div>
+              <div>
+                <div className="font-medium text-slate-900">Managed Cash Flows</div>
+                <div className="mt-1">
+                  Net additions during window: {formatMoney(data?.net_cash_flows)}
                 </div>
               </div>
               <div>
                 <div className="font-medium text-slate-900">Excess Gain</div>
                 <div className="mt-1">
-                  Managed value {formatMoney(data?.portfolio_end_value)} - benchmark equivalent {formatMoney(data?.benchmark_equivalent_value)} = {formatMoney(data?.excess_gain)}
+                  Managed ending value {formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)} - benchmark equivalent {formatMoney(data?.benchmark_equivalent_value)} = {formatMoney(data?.excess_gain)}
                 </div>
               </div>
               <div>

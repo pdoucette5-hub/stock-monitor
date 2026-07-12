@@ -2959,6 +2959,40 @@ def get_portfolio_performance(
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
+def transaction_cash_flow_amount(tx: dict[str, Any]) -> tuple[float, float]:
+    tx_type = str(tx.get("type", "")).strip().lower()
+    shares = safe_float(tx.get("shares")) or 0.0
+    price_per_share = safe_float(tx.get("price_per_share"))
+    fees = safe_float(tx.get("fees")) or 0.0
+
+    if tx_type in {"buy", "transfer_in", "adjustment"}:
+        if shares <= 0 or price_per_share is None:
+            return 0.0, 0.0
+        return (shares * price_per_share) + fees, 0.0
+
+    if tx_type in {"sell", "transfer_out"}:
+        if shares <= 0 or price_per_share is None:
+            return 0.0, 0.0
+        return -max((shares * price_per_share) - fees, 0.0), 0.0
+
+    if tx_type == "dividend":
+        return 0.0, max(price_per_share or 0.0, 0.0)
+
+    return 0.0, 0.0
+
+
+def benchmark_close_on_or_after(
+    benchmark_points: list[dict[str, Any]],
+    flow_date: str,
+) -> float | None:
+    for point in benchmark_points:
+        point_date = str(point.get("date") or "")
+        close = safe_float(point.get("close"))
+        if point_date >= flow_date and close is not None and close > 0:
+            return close
+    return None
+
+
 @app.get("/api/compensation")
 def get_compensation_tracker(
     range: str = "1y",
@@ -3008,25 +3042,98 @@ def get_compensation_tracker(
         if len(benchmark_points) < 2:
             raise ValueError(f"Need at least two price points for {normalized_benchmark}")
 
-        start_portfolio = valid_portfolio[0]
-        end_portfolio = valid_portfolio[-1]
+        portfolio_dates = [str(row.get("date") or "") for row in valid_portfolio]
+        benchmark_dates = [str(row.get("date") or "") for row in benchmark_points]
+        start_date = max(portfolio_dates[0], benchmark_dates[0])
+        end_date = min(portfolio_dates[-1], benchmark_dates[-1])
+        if start_date >= end_date:
+            raise ValueError("Need overlapping portfolio and benchmark history")
+
+        window_portfolio = [
+            row
+            for row in valid_portfolio
+            if start_date <= str(row.get("date") or "") <= end_date
+        ]
+        window_benchmark = [
+            row
+            for row in benchmark_points
+            if start_date <= str(row.get("date") or "") <= end_date
+        ]
+        if len(window_portfolio) < 2 or len(window_benchmark) < 2:
+            raise ValueError("Need at least two overlapping performance points")
+
+        start_portfolio = window_portfolio[0]
+        end_portfolio = window_portfolio[-1]
         start_value = safe_float(start_portfolio.get("market_value")) or 0.0
         end_value = safe_float(end_portfolio.get("market_value")) or 0.0
         if start_value <= 0:
             raise ValueError("Starting portfolio value must be positive")
 
-        start_benchmark = benchmark_points[0]
-        end_benchmark = benchmark_points[-1]
+        start_benchmark = window_benchmark[0]
+        end_benchmark = window_benchmark[-1]
         start_close = safe_float(start_benchmark.get("close")) or 0.0
         end_close = safe_float(end_benchmark.get("close")) or 0.0
         if start_close <= 0:
             raise ValueError(f"Starting {normalized_benchmark} price must be positive")
 
-        portfolio_return = (end_value / start_value) - 1.0
+        start_portfolio_date = str(start_portfolio.get("date") or start_date)
+        end_portfolio_date = str(end_portfolio.get("date") or end_date)
+        total_days = max(
+            (
+                datetime.fromisoformat(end_portfolio_date).date()
+                - datetime.fromisoformat(start_portfolio_date).date()
+            ).days,
+            1,
+        )
+        cash_flows: list[dict[str, Any]] = []
+        net_cash_flows = 0.0
+        weighted_cash_flows = 0.0
+        benchmark_flow_value = 0.0
+        distributions = 0.0
+        for ticker, entries in transactions.items():
+            for tx in entries:
+                if not isinstance(tx, dict):
+                    continue
+                tx_date = str(tx.get("date") or "").strip()
+                if not tx_date or not (start_portfolio_date < tx_date <= end_portfolio_date):
+                    continue
+                cash_flow, distribution = transaction_cash_flow_amount(tx)
+                if abs(cash_flow) > 1e-9:
+                    flow_close = benchmark_close_on_or_after(window_benchmark, tx_date)
+                    if flow_close is None:
+                        continue
+                    flow_days = max(
+                        (
+                            datetime.fromisoformat(end_portfolio_date).date()
+                            - datetime.fromisoformat(tx_date).date()
+                        ).days,
+                        0,
+                    )
+                    net_cash_flows += cash_flow
+                    weighted_cash_flows += cash_flow * (flow_days / total_days)
+                    benchmark_flow_value += cash_flow * (end_close / flow_close)
+                    cash_flows.append(
+                        {
+                            "date": tx_date,
+                            "ticker": ticker,
+                            "type": str(tx.get("type") or ""),
+                            "amount": round(cash_flow, 8),
+                        }
+                    )
+                if distribution > 0:
+                    distributions += distribution
+
+        actual_terminal_value = end_value + distributions
         benchmark_return = (end_close / start_close) - 1.0
+        benchmark_value = (start_value * (1.0 + benchmark_return)) + benchmark_flow_value
+        excess_gain = actual_terminal_value - benchmark_value
+        denominator = start_value + weighted_cash_flows
+        portfolio_return = (
+            (actual_terminal_value - start_value - net_cash_flows) / denominator
+            if denominator > 0
+            else 0.0
+        )
         excess_return = portfolio_return - benchmark_return
-        benchmark_value = start_value * (1.0 + benchmark_return)
-        excess_gain = end_value - benchmark_value
         payout_base = max(excess_gain, 0.0)
         payout = payout_base * payout_share
 
@@ -3035,27 +3142,26 @@ def get_compensation_tracker(
             "benchmark": normalized_benchmark,
             "mode": "managed",
             "share_pct": payout_share,
-            "start_date": max(
-                str(start_portfolio.get("date") or ""),
-                str(start_benchmark.get("date") or ""),
-            ),
-            "end_date": min(
-                str(end_portfolio.get("date") or ""),
-                str(end_benchmark.get("date") or ""),
-            ),
+            "start_date": start_portfolio_date,
+            "end_date": end_portfolio_date,
             "portfolio_start_value": start_value,
             "portfolio_end_value": end_value,
             "portfolio_return": portfolio_return,
+            "net_cash_flows": net_cash_flows,
+            "distributions": distributions,
+            "actual_terminal_value": actual_terminal_value,
             "benchmark_start_price": start_close,
             "benchmark_end_price": end_close,
             "benchmark_return": benchmark_return,
             "benchmark_equivalent_value": benchmark_value,
+            "benchmark_flow_value": benchmark_flow_value,
             "excess_return": excess_return,
             "excess_gain": excess_gain,
             "payout_base": payout_base,
             "payout": payout,
-            "portfolio_series_points": len(valid_portfolio),
-            "benchmark_points": len(benchmark_points),
+            "cash_flows": cash_flows,
+            "portfolio_series_points": len(window_portfolio),
+            "benchmark_points": len(window_benchmark),
         }
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
