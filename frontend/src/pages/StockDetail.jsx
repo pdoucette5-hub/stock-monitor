@@ -104,6 +104,11 @@ function formatNumber(value, digits = 2) {
   })
 }
 
+function formatPercent(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return '—'
+  return `${Number(value).toFixed(1)}%`
+}
+
 function formatBillions(value) {
   if (value == null || Number.isNaN(Number(value))) return '—'
   return `$${(Number(value) / 1_000_000_000).toFixed(2)}B`
@@ -134,6 +139,71 @@ function formatShortDate(dateString) {
     day: 'numeric',
     year: '2-digit',
   })
+}
+
+function pickFirstValue(...values) {
+  return values.find((value) => value !== null && value !== undefined && value !== '')
+}
+
+function getProjectionMetric(projection, metricKey) {
+  if (!projection || typeof projection !== 'object') return [null, null, null]
+
+  const direct = projection[metricKey]
+  const snake = projection[`${metricKey}_rates`]
+  const pct = projection[`${metricKey}_pct`]
+  const growth = projection[`${metricKey}_growth`]
+
+  if (Array.isArray(direct)) return direct
+  if (Array.isArray(snake)) return snake
+  if (Array.isArray(pct)) return pct
+  if (Array.isArray(growth)) return growth
+
+  const objectSource =
+    (direct && typeof direct === 'object' ? direct : null) ||
+    (growth && typeof growth === 'object' ? growth : null) ||
+    projection
+
+  const fieldPrefix = metricKey.replace(/_growth$/, '')
+  return [1, 2, 3].map((year) =>
+    pickFirstValue(
+      objectSource[`y${year}`],
+      objectSource[`year${year}`],
+      objectSource[`${metricKey}_y${year}`],
+      objectSource[`${metricKey}_year${year}`],
+      objectSource[`${fieldPrefix}_growth_y${year}`],
+      objectSource[`${fieldPrefix}_growth_year${year}`],
+    ),
+  )
+}
+
+function buildOnlineProjection(reported) {
+  if (!reported || typeof reported !== 'object') return null
+  const projection =
+    reported.online_projection ||
+    reported.online_projections ||
+    reported.analyst_projection ||
+    reported.consensus_projection ||
+    reported.projection ||
+    reported.projections
+
+  if (!projection || typeof projection !== 'object') return null
+
+  return {
+    source:
+      projection.source ||
+      projection.provider ||
+      reported.projection_source ||
+      reported.projections_source ||
+      'online',
+    asOf:
+      projection.as_of ||
+      projection.asOf ||
+      projection.updated_at ||
+      reported.projection_as_of ||
+      reported.projections_as_of,
+    revenueGrowth: getProjectionMetric(projection, 'revenue_growth'),
+    earningsGrowth: getProjectionMetric(projection, 'earnings_growth'),
+  }
 }
 
 function PriceChart({ points }) {
@@ -739,6 +809,7 @@ export default function StockDetail() {
   const selectedReported = selectedTicker ? reportedFundamentals[selectedTicker] : null
   const actualsPreference =
     form.actualsSourcePreference === 'reported' ? 'reported' : 'manual'
+  const onlineProjection = buildOnlineProjection(selectedReported)
   const reportedAvailable = Boolean(
     selectedReported &&
       (
@@ -1103,6 +1174,7 @@ export default function StockDetail() {
                   title={title}
                   headerClass={headerClass}
                   values={form[key]}
+                  onlineProjection={onlineProjection}
                   onChange={(field, value) => updateScenario(key, field, value)}
                 />
               ))}
@@ -1341,97 +1413,156 @@ function SummaryCard({ label, value }) {
   )
 }
 
-function ScenarioBlock({ scenarioKey, title, headerClass, values, onChange }) {
+function ScenarioBlock({ scenarioKey, title, headerClass, values, onlineProjection, onChange }) {
+  const projectionSource = onlineProjection?.source ?? 'not pulled'
+  const projectionAsOf = onlineProjection?.asOf
+  const hasProjection = Boolean(onlineProjection)
+
   return (
     <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
       <div className={`px-4 py-2.5 text-center text-sm font-bold tracking-wide ${headerClass}`}>
         {title} Scenario
       </div>
-      <div className="space-y-5 p-6">
-        <div>
-          <p className="text-sm font-semibold text-slate-800">
-            Revenue Growth (%)
-          </p>
-          <div className="mt-3 grid grid-cols-3 gap-3">
-            <GrowthYearInput
-              label="Year 1"
-              id={`${scenarioKey}-rev-y1`}
-              value={values.revGrowthY1}
-              onChange={(v) => onChange('revGrowthY1', v)}
-            />
-            <GrowthYearInput
-              label="Year 2"
-              id={`${scenarioKey}-rev-y2`}
-              value={values.revGrowthY2}
-              onChange={(v) => onChange('revGrowthY2', v)}
-            />
-            <GrowthYearInput
-              label="Year 3"
-              id={`${scenarioKey}-rev-y3`}
-              value={values.revGrowthY3}
-              onChange={(v) => onChange('revGrowthY3', v)}
-            />
+      <div className="grid gap-6 p-6 xl:grid-cols-[minmax(0,1.45fr)_minmax(280px,0.75fr)]">
+        <div className="space-y-5">
+          <div>
+            <p className="text-sm font-semibold text-slate-800">
+              Manual Revenue Growth (%)
+            </p>
+            <div className="mt-3 grid grid-cols-3 gap-3">
+              <GrowthYearInput
+                label="Year 1"
+                id={`${scenarioKey}-rev-y1`}
+                value={values.revGrowthY1}
+                onChange={(v) => onChange('revGrowthY1', v)}
+              />
+              <GrowthYearInput
+                label="Year 2"
+                id={`${scenarioKey}-rev-y2`}
+                value={values.revGrowthY2}
+                onChange={(v) => onChange('revGrowthY2', v)}
+              />
+              <GrowthYearInput
+                label="Year 3"
+                id={`${scenarioKey}-rev-y3`}
+                value={values.revGrowthY3}
+                onChange={(v) => onChange('revGrowthY3', v)}
+              />
+            </div>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold text-slate-800">
+              Manual Net Income Growth (%)
+            </p>
+            <div className="mt-3 grid grid-cols-3 gap-3">
+              <GrowthYearInput
+                label="Year 1"
+                id={`${scenarioKey}-ni-y1`}
+                value={values.netIncomeGrowthY1}
+                onChange={(v) => onChange('netIncomeGrowthY1', v)}
+              />
+              <GrowthYearInput
+                label="Year 2"
+                id={`${scenarioKey}-ni-y2`}
+                value={values.netIncomeGrowthY2}
+                onChange={(v) => onChange('netIncomeGrowthY2', v)}
+              />
+              <GrowthYearInput
+                label="Year 3"
+                id={`${scenarioKey}-ni-y3`}
+                value={values.netIncomeGrowthY3}
+                onChange={(v) => onChange('netIncomeGrowthY3', v)}
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label htmlFor={`${scenarioKey}-durable`} className={labelClass}>
+                Durable Growth View (%)
+              </label>
+              <input
+                id={`${scenarioKey}-durable`}
+                type="number"
+                step="0.01"
+                value={values.durableGrowthView}
+                onChange={(e) => onChange('durableGrowthView', e.target.value)}
+                className={inputClass}
+              />
+            </div>
+            <div>
+              <label htmlFor={`${scenarioKey}-weight`} className={labelClass}>
+                Weight on Growth View (%)
+              </label>
+              <input
+                id={`${scenarioKey}-weight`}
+                type="number"
+                step="1"
+                min="0"
+                max="100"
+                value={values.growthWeightPct}
+                onChange={(e) => onChange('growthWeightPct', e.target.value)}
+                className={inputClass}
+              />
+            </div>
           </div>
         </div>
 
-        <div>
-          <p className="text-sm font-semibold text-slate-800">
-            Net Income Growth (%)
-          </p>
-          <div className="mt-3 grid grid-cols-3 gap-3">
-            <GrowthYearInput
-              label="Year 1"
-              id={`${scenarioKey}-ni-y1`}
-              value={values.netIncomeGrowthY1}
-              onChange={(v) => onChange('netIncomeGrowthY1', v)}
-            />
-            <GrowthYearInput
-              label="Year 2"
-              id={`${scenarioKey}-ni-y2`}
-              value={values.netIncomeGrowthY2}
-              onChange={(v) => onChange('netIncomeGrowthY2', v)}
-            />
-            <GrowthYearInput
-              label="Year 3"
-              id={`${scenarioKey}-ni-y3`}
-              value={values.netIncomeGrowthY3}
-              onChange={(v) => onChange('netIncomeGrowthY3', v)}
-            />
+        <div className="border-t border-slate-200 pt-5 xl:border-l xl:border-t-0 xl:pl-6 xl:pt-0">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <p className="text-sm font-semibold text-slate-900">
+                Online Projection
+              </p>
+              <p className="mt-1 text-xs text-slate-500">
+                Read-only consensus benchmark.
+              </p>
+            </div>
+            <span className="rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-600">
+              {projectionSource}
+            </span>
           </div>
-        </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
-          <div>
-            <label htmlFor={`${scenarioKey}-durable`} className={labelClass}>
-              Durable Growth View (%)
-            </label>
-            <input
-              id={`${scenarioKey}-durable`}
-              type="number"
-              step="0.01"
-              value={values.durableGrowthView}
-              onChange={(e) => onChange('durableGrowthView', e.target.value)}
-              className={inputClass}
-            />
-          </div>
-          <div>
-            <label htmlFor={`${scenarioKey}-weight`} className={labelClass}>
-              Weight on Growth View (%)
-            </label>
-            <input
-              id={`${scenarioKey}-weight`}
-              type="number"
-              step="1"
-              min="0"
-              max="100"
-              value={values.growthWeightPct}
-              onChange={(e) => onChange('growthWeightPct', e.target.value)}
-              className={inputClass}
-            />
+          <ProjectionRows
+            title="Revenue Growth"
+            values={onlineProjection?.revenueGrowth}
+          />
+          <ProjectionRows
+            title="Earnings Growth"
+            values={onlineProjection?.earningsGrowth}
+          />
+
+          <div className="mt-4 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-500">
+            {hasProjection
+              ? `As of ${formatDate(projectionAsOf)}`
+              : 'No online projection has been saved for this ticker yet.'}
           </div>
         </div>
       </div>
     </section>
+  )
+}
+
+function ProjectionRows({ title, values = [] }) {
+  return (
+    <div className="mt-5">
+      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        {title}
+      </p>
+      <div className="mt-2 grid grid-cols-3 gap-2">
+        {[0, 1, 2].map((idx) => (
+          <div key={idx} className="rounded-md bg-slate-50 px-3 py-2">
+            <div className="text-[11px] font-medium text-slate-500">
+              Y{idx + 1}
+            </div>
+            <div className="mt-1 text-sm font-semibold text-slate-900">
+              {formatPercent(values[idx])}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
