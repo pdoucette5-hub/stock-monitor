@@ -3081,7 +3081,7 @@ def get_compensation_tracker(
         portfolio_dates = [str(row.get("date") or "") for row in valid_portfolio]
         benchmark_dates = [str(row.get("date") or "") for row in benchmark_points]
         start_date = max(portfolio_dates[0], benchmark_dates[0])
-        end_date = min(portfolio_dates[-1], benchmark_dates[-1])
+        end_date = portfolio_dates[-1]
         if start_date >= end_date:
             raise ValueError("Need overlapping portfolio and benchmark history")
 
@@ -3108,21 +3108,37 @@ def get_compensation_tracker(
         if end_cost_basis <= 0:
             raise ValueError("Current cost basis must be positive")
 
-        start_benchmark = window_benchmark[0]
-        end_benchmark = window_benchmark[-1]
-        start_close = safe_float(start_benchmark.get("close")) or 0.0
-        end_close = safe_float(end_benchmark.get("close")) or 0.0
-        if start_close <= 0:
-            raise ValueError(f"Starting {normalized_benchmark} price must be positive")
-
-        start_portfolio_date = str(start_portfolio.get("date") or start_date)
-        end_portfolio_date = str(end_portfolio.get("date") or end_date)
         benchmark_lookup = {
             str(row.get("date") or ""): safe_float(row.get("close")) or 0.0
             for row in window_benchmark
             if row.get("date") and safe_float(row.get("close")) is not None
         }
         benchmark_dates_sorted = sorted(benchmark_lookup)
+        start_portfolio_date = str(start_portfolio.get("date") or start_date)
+        end_portfolio_date = str(end_portfolio.get("date") or end_date)
+        start_close = benchmark_close_on_or_before(
+            benchmark_lookup,
+            benchmark_dates_sorted,
+            start_portfolio_date,
+        ) or 0.0
+        benchmark_as_of = next(
+            (
+                point_date
+                for point_date in reversed(benchmark_dates_sorted)
+                if point_date <= end_portfolio_date
+            ),
+            "",
+        )
+        end_close = benchmark_close_on_or_before(
+            benchmark_lookup,
+            benchmark_dates_sorted,
+            end_portfolio_date,
+        ) or 0.0
+        if start_close <= 0:
+            raise ValueError(f"Starting {normalized_benchmark} price must be positive")
+        if end_close <= 0:
+            raise ValueError(f"Ending {normalized_benchmark} price must be positive")
+
         benchmark_shares = 0.0
         prior_cost_basis = 0.0
         benchmark_series: list[dict[str, Any]] = []
@@ -3196,6 +3212,7 @@ def get_compensation_tracker(
             "actual_terminal_value": actual_terminal_value,
             "benchmark_start_price": start_close,
             "benchmark_end_price": end_close,
+            "benchmark_as_of": benchmark_as_of,
             "spy_window_return": spy_window_return,
             "benchmark_return": benchmark_return,
             "benchmark_equivalent_value": benchmark_value,

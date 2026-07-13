@@ -72,6 +72,10 @@ export default function Compensation() {
   }, [range])
 
   const positiveExcess = Number(data?.payout_base ?? 0) > 0
+  const benchmarkAsOf =
+    data?.benchmark_as_of && data?.benchmark_as_of !== data?.end_date
+      ? `, benchmark as of ${formatDate(data.benchmark_as_of)}`
+      : ''
   const formula = useMemo(() => {
     if (!data) return 'Excess gain above S&P 500 × 33%'
     return `${formatMoney(data.payout_base)} × ${formatPercent(data.share_pct)}`
@@ -160,7 +164,7 @@ export default function Compensation() {
               <div>
                 <div className="font-medium text-slate-900">S&amp;P 500 Comparison</div>
                 <div className="mt-1">
-                  Same cost-basis path invested in {data?.benchmark ?? 'SPY'} would be {formatMoney(data?.benchmark_equivalent_value)}
+                  Same cost-basis path invested in {data?.benchmark ?? 'SPY'} would be {formatMoney(data?.benchmark_equivalent_value)}{benchmarkAsOf}
                 </div>
               </div>
               <div>
