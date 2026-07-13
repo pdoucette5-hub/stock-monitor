@@ -53,7 +53,7 @@ export default function Compensation() {
       setLoading(true)
       setError(null)
       try {
-        const payload = await fetchCompensation(range, 'SPY', 0.25)
+        const payload = await fetchCompensation(range, 'SPY', 0.33)
         if (!cancelled) setData(payload)
       } catch (err) {
         if (!cancelled) {
@@ -73,7 +73,7 @@ export default function Compensation() {
 
   const positiveExcess = Number(data?.payout_base ?? 0) > 0
   const formula = useMemo(() => {
-    if (!data) return 'Excess gain above S&P 500 × 25%'
+    if (!data) return 'Excess gain above S&P 500 × 33%'
     return `${formatMoney(data.payout_base)} × ${formatPercent(data.share_pct)}`
   }, [data])
 
@@ -85,7 +85,7 @@ export default function Compensation() {
             Matthew
           </h1>
           <p className="mt-1 max-w-3xl text-sm text-slate-600">
-            Tracks Matthew&apos;s agreed payout: 25% of the two Roth and two Rollover accounts&apos; growth above S&amp;P 500 growth.
+            Tracks Matthew&apos;s agreed payout: 33% of the two Roth and two Rollover accounts&apos; growth above S&amp;P 500 growth.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -172,7 +172,7 @@ export default function Compensation() {
               <div>
                 <div className="font-medium text-slate-900">Payout Rule</div>
                 <div className="mt-1">
-                  25% of positive excess gain: {formatMoney(data?.payout)}
+                  33% of positive excess gain: {formatMoney(data?.payout)}
                 </div>
               </div>
             </div>

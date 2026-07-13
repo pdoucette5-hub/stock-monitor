@@ -266,7 +266,7 @@ export function fetchPortfolioPerformance(range = '3y', accounts = [], mode = 'a
   return cachedRequest(`/api/performance/portfolio?${query.toString()}`)
 }
 
-export function fetchCompensation(range = '1y', benchmark = 'SPY', sharePct = 0.25) {
+export function fetchCompensation(range = '1y', benchmark = 'SPY', sharePct = 0.33) {
   const query = new URLSearchParams({
     range,
     benchmark,

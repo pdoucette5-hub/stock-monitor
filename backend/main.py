@@ -3036,7 +3036,7 @@ def filter_transactions_by_accounts(
 def get_compensation_tracker(
     range: str = "1y",
     benchmark: str = "SPY",
-    share_pct: float = 0.25,
+    share_pct: float = 0.33,
 ) -> dict[str, Any]:
     try:
         normalized_benchmark = normalize_ticker(benchmark) or "SPY"
