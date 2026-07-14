@@ -4,6 +4,7 @@ import { fetchPortfolioPerformance, fetchPriceComparison } from '../lib/api'
 
 const RANGES = ['1m', '3m', '6m', '1y', '3y', '5y']
 const BENCHMARK_OPTIONS = ['', 'SPY', 'QQQ', 'ONEQ']
+const PERFORMANCE_STATE_KEY = 'stock-monitor.performance.filters.v1'
 const MANAGEMENT_MODES = [
   { value: 'all', label: 'All positions' },
   { value: 'managed', label: 'Managed' },
@@ -46,6 +47,51 @@ function MetricCard({ label, value }) {
       <div className="mt-2 text-xl font-semibold text-slate-900">{value}</div>
     </div>
   )
+}
+
+function normalizeTickerList(value) {
+  if (!Array.isArray(value)) return []
+  return value
+    .map((item) => String(item).trim().toUpperCase())
+    .filter(Boolean)
+    .filter((item, index, items) => items.indexOf(item) === index)
+}
+
+function normalizeAccountList(value) {
+  if (!Array.isArray(value)) return []
+  return value
+    .map((item) => String(item).trim())
+    .filter(Boolean)
+    .filter((item, index, items) => items.indexOf(item) === index)
+    .sort()
+}
+
+function loadSavedPerformanceState() {
+  if (typeof window === 'undefined') return {}
+
+  try {
+    const raw = window.localStorage.getItem(PERFORMANCE_STATE_KEY)
+    const saved = raw ? JSON.parse(raw) : {}
+    if (!saved || typeof saved !== 'object') return {}
+
+    const savedRange = RANGES.includes(saved.range) ? saved.range : undefined
+    const savedBenchmark = BENCHMARK_OPTIONS.includes(saved.benchmark)
+      ? saved.benchmark
+      : undefined
+    const savedMode = MANAGEMENT_MODES.some((mode) => mode.value === saved.managementMode)
+      ? saved.managementMode
+      : undefined
+
+    return {
+      range: savedRange,
+      benchmark: savedBenchmark,
+      compareTickers: normalizeTickerList(saved.compareTickers),
+      selectedAccounts: normalizeAccountList(saved.selectedAccounts),
+      managementMode: savedMode,
+    }
+  } catch {
+    return {}
+  }
 }
 
 function PerformanceChart({ series }) {
@@ -325,11 +371,12 @@ function ComparisonChart({ seriesByTicker }) {
 }
 
 export default function Performance() {
-  const [range, setRange] = useState('3y')
-  const [benchmark, setBenchmark] = useState('')
+  const savedState = useMemo(() => loadSavedPerformanceState(), [])
+  const [range, setRange] = useState(savedState.range ?? '3y')
+  const [benchmark, setBenchmark] = useState(savedState.benchmark ?? '')
   const [compareInput, setCompareInput] = useState('')
-  const [compareTickers, setCompareTickers] = useState([])
-  const [selectedAccounts, setSelectedAccounts] = useState([])
+  const [compareTickers, setCompareTickers] = useState(savedState.compareTickers ?? [])
+  const [selectedAccounts, setSelectedAccounts] = useState(savedState.selectedAccounts ?? [])
   const [loading, setLoading] = useState(true)
   const [loadingCompare, setLoadingCompare] = useState(false)
   const [error, setError] = useState(null)
@@ -337,7 +384,7 @@ export default function Performance() {
   const [data, setData] = useState(null)
   const [comparisonData, setComparisonData] = useState({})
   const [lastUpdated, setLastUpdated] = useState(null)
-  const [managementMode, setManagementMode] = useState('all')
+  const [managementMode, setManagementMode] = useState(savedState.managementMode ?? 'all')
   const performanceRequestIdRef = useRef(0)
 
   async function loadPerformance(
@@ -414,6 +461,23 @@ export default function Performance() {
     loadComparison(range, benchmark, compareTickers)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [range, benchmark, compareTickers])
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        PERFORMANCE_STATE_KEY,
+        JSON.stringify({
+          range,
+          benchmark,
+          compareTickers,
+          selectedAccounts,
+          managementMode,
+        }),
+      )
+    } catch {
+      // Keep the page usable when browser storage is unavailable.
+    }
+  }, [range, benchmark, compareTickers, selectedAccounts, managementMode])
 
   const latest = data?.latest ?? {}
   const series = data?.series ?? []
