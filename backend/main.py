@@ -3061,6 +3061,24 @@ def transaction_trade_amount(tx: dict[str, Any]) -> float:
     return (shares * price_per_share) + fees
 
 
+def transaction_sell_proceeds(tx: dict[str, Any]) -> float:
+    shares = safe_float(tx.get("shares")) or 0.0
+    price_per_share = safe_float(tx.get("price_per_share"))
+    fees = safe_float(tx.get("fees")) or 0.0
+    if shares <= 0 or price_per_share is None:
+        return 0.0
+    return max((shares * price_per_share) - fees, 0.0)
+
+
+def compensation_same_day_priority(tx: dict[str, Any]) -> int:
+    tx_type = str(tx.get("type") or "").strip().lower()
+    if tx_type in {"sell", "dividend", "transfer_out"}:
+        return 0
+    if tx_type in {"buy", "transfer_in", "adjustment"}:
+        return 1
+    return 2
+
+
 @app.get("/api/compensation")
 def get_compensation_tracker(
     range: str = "1y",
@@ -3171,6 +3189,7 @@ def get_compensation_tracker(
         invested_capital = start_value
         benchmark_shares = start_value / start_close
         available_cash = 0.0
+        bought_tickers: set[str] = set()
         transaction_rows = sorted_transaction_rows_with_ticker(transactions)
         transaction_index = 0
         benchmark_series: list[dict[str, Any]] = []
@@ -3189,10 +3208,20 @@ def get_compensation_tracker(
                 transaction_index < len(transaction_rows)
                 and str(transaction_rows[transaction_index].get("date") or "") <= row_date
             ):
-                tx = transaction_rows[transaction_index]
-                tx_date = str(tx.get("date") or "")
-                if start_portfolio_date <= tx_date <= end_portfolio_date:
+                tx_date = str(transaction_rows[transaction_index].get("date") or "")
+                same_day_rows: list[dict[str, Any]] = []
+                while (
+                    transaction_index < len(transaction_rows)
+                    and str(transaction_rows[transaction_index].get("date") or "") == tx_date
+                ):
+                    same_day_rows.append(transaction_rows[transaction_index])
+                    transaction_index += 1
+
+                for tx in sorted(same_day_rows, key=compensation_same_day_priority):
+                    if not (start_portfolio_date <= tx_date <= end_portfolio_date):
+                        continue
                     tx_type = str(tx.get("type") or "").strip().lower()
+                    tx_ticker = normalize_ticker(tx.get("ticker") or "")
                     tx_close = benchmark_close_on_or_before(
                         benchmark_lookup,
                         benchmark_dates_sorted,
@@ -3209,18 +3238,22 @@ def get_compensation_tracker(
                             invested_capital += new_capital
 
                     elif tx_type == "sell":
-                        fees = safe_float(tx.get("fees")) or 0.0
-                        proceeds = max(amount - (2 * fees), 0.0)
+                        proceeds = transaction_sell_proceeds(tx)
+                        if tx_ticker and tx_ticker not in bought_tickers:
+                            if proceeds > 1e-9 and tx_close and tx_close > 0:
+                                benchmark_shares += proceeds / tx_close
+                                invested_capital += proceeds
                         available_cash += proceeds
 
                     elif tx_type in {"transfer_in", "adjustment"}:
                         if amount > 1e-9 and tx_close and tx_close > 0:
                             benchmark_shares += amount / tx_close
                             invested_capital += amount
+                            if tx_ticker:
+                                bought_tickers.add(tx_ticker)
 
                     elif tx_type == "transfer_out":
-                        fees = safe_float(tx.get("fees")) or 0.0
-                        withdrawal = max(amount - (2 * fees), 0.0)
+                        withdrawal = transaction_sell_proceeds(tx)
                         if withdrawal > 1e-9 and tx_close and tx_close > 0:
                             benchmark_shares = max(
                                 benchmark_shares - (withdrawal / tx_close),
@@ -3228,7 +3261,8 @@ def get_compensation_tracker(
                             )
                             invested_capital = max(invested_capital - withdrawal, 0.0)
 
-                transaction_index += 1
+                    if tx_type == "buy" and tx_ticker and amount > 0:
+                        bought_tickers.add(tx_ticker)
 
             cost_basis = safe_float(row.get("cost_basis")) or 0.0
             market_value = safe_float(row.get("market_value")) or 0.0

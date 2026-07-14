@@ -271,14 +271,18 @@ export function fetchPortfolioPerformance(range = '3y', accounts = [], mode = 'a
   return forceRefresh ? request(path) : cachedRequest(path)
 }
 
-export function fetchCompensation(range = '1y', benchmark = 'SPY', sharePct = 0.33) {
+export function fetchCompensation(range = '1y', benchmark = 'SPY', sharePct = 0.33, forceRefresh = false) {
   const query = new URLSearchParams({
     range,
     benchmark,
     share_pct: String(sharePct),
   })
+  if (forceRefresh) {
+    query.set('_', String(Date.now()))
+  }
 
-  return cachedRequest(`/api/compensation?${query.toString()}`)
+  const path = `/api/compensation?${query.toString()}`
+  return forceRefresh ? request(path) : cachedRequest(path)
 }
 
 export function fetchPriceComparison(tickers, range = '3y', forceRefresh = false) {

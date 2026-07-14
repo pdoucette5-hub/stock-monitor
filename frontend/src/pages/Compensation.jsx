@@ -53,7 +53,7 @@ export default function Compensation() {
       setLoading(true)
       setError(null)
       try {
-        const payload = await fetchCompensation(range, 'SPY', 0.33)
+        const payload = await fetchCompensation(range, 'SPY', 0.33, true)
         if (!cancelled) setData(payload)
       } catch (err) {
         if (!cancelled) {
