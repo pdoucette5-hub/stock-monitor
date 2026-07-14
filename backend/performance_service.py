@@ -93,6 +93,100 @@ def _sorted_transaction_rows(entries: list[dict[str, Any]]) -> list[dict[str, An
     )
 
 
+def _capital_flow_priority(tx: dict[str, Any]) -> int:
+    tx_type = str(tx.get("type") or "").strip().lower()
+    if tx_type in {"sell", "dividend"}:
+        return 0
+    if tx_type in {"transfer_in", "adjustment"}:
+        return 1
+    if tx_type == "buy":
+        return 2
+    if tx_type == "transfer_out":
+        return 3
+    return 4
+
+
+def _sorted_transaction_rows_with_ticker(
+    transactions_by_ticker: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for ticker, entries in transactions_by_ticker.items():
+        for entry in entries:
+            if isinstance(entry, dict):
+                rows.append({**entry, "ticker": ticker})
+    return sorted(
+        rows,
+        key=lambda tx: (
+            str(tx.get("date") or ""),
+            _capital_flow_priority(tx),
+            str(tx.get("id") or ""),
+            str(tx.get("ticker") or ""),
+        ),
+    )
+
+
+def _transaction_gross_value(tx: dict[str, Any]) -> float:
+    shares = _safe_float(tx.get("shares"), 0.0)
+    price_per_share = tx.get("price_per_share")
+    price_per_share = (
+        None if price_per_share in (None, "") else _safe_float(price_per_share, 0.0)
+    )
+    if shares <= 0 or price_per_share is None:
+        return 0.0
+    return shares * price_per_share
+
+
+def _transaction_buy_cost(tx: dict[str, Any]) -> float:
+    gross = _transaction_gross_value(tx)
+    if gross <= 0:
+        return 0.0
+    return gross + _safe_float(tx.get("fees"), 0.0)
+
+
+def _transaction_sell_proceeds(tx: dict[str, Any]) -> float:
+    gross = _transaction_gross_value(tx)
+    if gross <= 0:
+        return 0.0
+    return max(gross - _safe_float(tx.get("fees"), 0.0), 0.0)
+
+
+def _transaction_dividend_cash(tx: dict[str, Any]) -> float:
+    return max(_safe_float(tx.get("price_per_share"), 0.0), 0.0)
+
+
+def _apply_transaction_to_capital_basis(
+    state: dict[str, float],
+    tx: dict[str, Any],
+) -> None:
+    tx_type = str(tx.get("type") or "").strip().lower()
+
+    if tx_type == "buy":
+        amount = _transaction_buy_cost(tx)
+        funded_by_cash = min(state["available_cash"], amount)
+        state["available_cash"] -= funded_by_cash
+        state["capital_basis"] += amount - funded_by_cash
+
+    elif tx_type == "sell":
+        state["available_cash"] += _transaction_sell_proceeds(tx)
+
+    elif tx_type == "dividend":
+        state["available_cash"] += _transaction_dividend_cash(tx)
+
+    elif tx_type in {"transfer_in", "adjustment"}:
+        state["capital_basis"] += _transaction_buy_cost(tx)
+
+    elif tx_type == "transfer_out":
+        withdrawal = _transaction_sell_proceeds(tx)
+        if withdrawal <= 0:
+            return
+        funded_by_cash = min(state["available_cash"], withdrawal)
+        state["available_cash"] -= funded_by_cash
+        state["capital_basis"] = max(
+            state["capital_basis"] - (withdrawal - funded_by_cash),
+            0.0,
+        )
+
+
 def _apply_transaction_to_position(
     position: dict[str, float],
     tx: dict[str, Any],
@@ -347,7 +441,9 @@ def build_portfolio_performance(
             "latest": {
                 "market_value": 0.0,
                 "cost_basis": 0.0,
+                "capital_basis": 0.0,
                 "unrealized_gain_loss": 0.0,
+                "capital_gain_loss": 0.0,
             },
             "positions": {
                 ticker: (
@@ -374,9 +470,25 @@ def build_portfolio_performance(
     }
     snapshot_index_by_ticker = {ticker: 0 for ticker in tickers}
     current_snapshot_by_ticker = {ticker: _empty_position_snapshot() for ticker in tickers}
+    capital_rows = _sorted_transaction_rows_with_ticker(filtered_transactions)
+    capital_index = 0
+    capital_state = {
+        "capital_basis": 0.0,
+        "available_cash": 0.0,
+    }
     series: list[dict[str, Any]] = []
 
     for current_date in ordered_dates:
+        while (
+            capital_index < len(capital_rows)
+            and str(capital_rows[capital_index].get("date") or "") <= current_date
+        ):
+            _apply_transaction_to_capital_basis(
+                capital_state,
+                capital_rows[capital_index],
+            )
+            capital_index += 1
+
         total_market_value = 0.0
         total_cost_basis = 0.0
 
@@ -407,19 +519,24 @@ def build_portfolio_performance(
             total_market_value += market_value
             total_cost_basis += cost_basis
 
+        capital_basis = capital_state["capital_basis"]
         series.append(
             {
                 "date": current_date,
                 "market_value": round(total_market_value, 8),
                 "cost_basis": round(total_cost_basis, 8),
+                "capital_basis": round(capital_basis, 8),
                 "unrealized_gain_loss": round(total_market_value - total_cost_basis, 8),
+                "capital_gain_loss": round(total_market_value - capital_basis, 8),
             }
         )
 
     latest = series[-1] if series else {
         "market_value": 0.0,
         "cost_basis": 0.0,
+        "capital_basis": 0.0,
         "unrealized_gain_loss": 0.0,
+        "capital_gain_loss": 0.0,
     }
 
     return {
@@ -429,7 +546,12 @@ def build_portfolio_performance(
         "latest": {
             "market_value": latest.get("market_value", 0.0),
             "cost_basis": latest.get("cost_basis", 0.0),
+            "capital_basis": latest.get("capital_basis", latest.get("cost_basis", 0.0)),
             "unrealized_gain_loss": latest.get("unrealized_gain_loss", 0.0),
+            "capital_gain_loss": latest.get(
+                "capital_gain_loss",
+                latest.get("unrealized_gain_loss", 0.0),
+            ),
         },
         "positions": {
             ticker: (

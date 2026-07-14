@@ -64,7 +64,7 @@ function PerformanceChart({ series }) {
   const values = []
   series.forEach((point) => {
     values.push(Number(point.market_value ?? 0))
-    values.push(Number(point.cost_basis ?? 0))
+    values.push(Number(point.capital_basis ?? point.cost_basis ?? 0))
   })
 
   const minValue = Math.min(...values)
@@ -90,7 +90,7 @@ function PerformanceChart({ series }) {
   const costPath = series
     .map(
       (point, idx) =>
-        `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.cost_basis ?? 0))}`,
+        `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.capital_basis ?? point.cost_basis ?? 0))}`,
     )
     .join(' ')
 
@@ -134,7 +134,7 @@ function PerformanceChart({ series }) {
         </div>
         <div className="flex items-center gap-2">
           <span className="inline-block h-0.5 w-6 bg-amber-500" />
-          Cost Basis
+          Capital Basis
         </div>
       </div>
 
@@ -583,10 +583,13 @@ export default function Performance() {
 
       <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <MetricCard label="Market Value" value={formatMoney(latest.market_value)} />
-        <MetricCard label="Cost Basis" value={formatMoney(latest.cost_basis)} />
         <MetricCard
-          label="Unrealized Gain/Loss"
-          value={formatMoney(latest.unrealized_gain_loss)}
+          label="Capital Basis"
+          value={formatMoney(latest.capital_basis ?? latest.cost_basis)}
+        />
+        <MetricCard
+          label="Gain/Loss"
+          value={formatMoney(latest.capital_gain_loss ?? latest.unrealized_gain_loss)}
         />
       </div>
 
