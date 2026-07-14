@@ -111,6 +111,15 @@ def _sorted_transaction_rows_with_ticker(
     )
 
 
+def _capital_basis_same_day_priority(tx: dict[str, Any]) -> int:
+    tx_type = str(tx.get("type") or "").strip().lower()
+    if tx_type in {"sell", "dividend", "transfer_out"}:
+        return 0
+    if tx_type in {"buy", "transfer_in", "adjustment"}:
+        return 1
+    return 2
+
+
 def _transaction_gross_value(tx: dict[str, Any]) -> float:
     shares = _safe_float(tx.get("shares"), 0.0)
     price_per_share = tx.get("price_per_share")
@@ -469,11 +478,17 @@ def build_portfolio_performance(
             capital_index < len(capital_rows)
             and str(capital_rows[capital_index].get("date") or "") <= current_date
         ):
-            _apply_transaction_to_capital_basis(
-                capital_state,
-                capital_rows[capital_index],
-            )
-            capital_index += 1
+            tx_date = str(capital_rows[capital_index].get("date") or "")
+            same_day_rows: list[dict[str, Any]] = []
+            while (
+                capital_index < len(capital_rows)
+                and str(capital_rows[capital_index].get("date") or "") == tx_date
+            ):
+                same_day_rows.append(capital_rows[capital_index])
+                capital_index += 1
+
+            for tx in sorted(same_day_rows, key=_capital_basis_same_day_priority):
+                _apply_transaction_to_capital_basis(capital_state, tx)
 
         total_market_value = 0.0
         total_cost_basis = 0.0
