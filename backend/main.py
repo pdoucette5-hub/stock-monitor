@@ -3032,6 +3032,33 @@ def filter_transactions_by_accounts(
     return filtered
 
 
+def sorted_transaction_rows_with_ticker(
+    transactions: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for ticker, entries in transactions.items():
+        for entry in entries:
+            if isinstance(entry, dict):
+                rows.append({**entry, "ticker": ticker})
+    return sorted(
+        rows,
+        key=lambda tx: (
+            str(tx.get("date") or ""),
+            str(tx.get("id") or ""),
+            str(tx.get("ticker") or ""),
+        ),
+    )
+
+
+def transaction_trade_amount(tx: dict[str, Any]) -> float:
+    shares = safe_float(tx.get("shares")) or 0.0
+    price_per_share = safe_float(tx.get("price_per_share"))
+    fees = safe_float(tx.get("fees")) or 0.0
+    if shares <= 0 or price_per_share is None:
+        return 0.0
+    return (shares * price_per_share) + fees
+
+
 @app.get("/api/compensation")
 def get_compensation_tracker(
     range: str = "1y",
@@ -3139,8 +3166,11 @@ def get_compensation_tracker(
         if end_close <= 0:
             raise ValueError(f"Ending {normalized_benchmark} price must be positive")
 
-        benchmark_shares = 0.0
-        prior_cost_basis = 0.0
+        invested_capital = start_value
+        benchmark_shares = start_value / start_close
+        available_cash = 0.0
+        transaction_rows = sorted_transaction_rows_with_ticker(transactions)
+        transaction_index = 0
         benchmark_series: list[dict[str, Any]] = []
         for row in window_portfolio:
             row_date = str(row.get("date") or "")
@@ -3153,12 +3183,53 @@ def get_compensation_tracker(
             )
             if close is None or close <= 0:
                 continue
+            while (
+                transaction_index < len(transaction_rows)
+                and str(transaction_rows[transaction_index].get("date") or "") <= row_date
+            ):
+                tx = transaction_rows[transaction_index]
+                tx_date = str(tx.get("date") or "")
+                if start_portfolio_date <= tx_date <= end_portfolio_date:
+                    tx_type = str(tx.get("type") or "").strip().lower()
+                    tx_close = benchmark_close_on_or_before(
+                        benchmark_lookup,
+                        benchmark_dates_sorted,
+                        tx_date,
+                    )
+                    amount = transaction_trade_amount(tx)
+
+                    if tx_type == "buy":
+                        funded_by_cash = min(available_cash, amount)
+                        available_cash -= funded_by_cash
+                        new_capital = amount - funded_by_cash
+                        if new_capital > 1e-9 and tx_close and tx_close > 0:
+                            benchmark_shares += new_capital / tx_close
+                            invested_capital += new_capital
+
+                    elif tx_type == "sell":
+                        fees = safe_float(tx.get("fees")) or 0.0
+                        proceeds = max(amount - (2 * fees), 0.0)
+                        available_cash += proceeds
+
+                    elif tx_type in {"transfer_in", "adjustment"}:
+                        if amount > 1e-9 and tx_close and tx_close > 0:
+                            benchmark_shares += amount / tx_close
+                            invested_capital += amount
+
+                    elif tx_type == "transfer_out":
+                        fees = safe_float(tx.get("fees")) or 0.0
+                        withdrawal = max(amount - (2 * fees), 0.0)
+                        if withdrawal > 1e-9 and tx_close and tx_close > 0:
+                            benchmark_shares = max(
+                                benchmark_shares - (withdrawal / tx_close),
+                                0.0,
+                            )
+                            invested_capital = max(invested_capital - withdrawal, 0.0)
+
+                transaction_index += 1
+
             cost_basis = safe_float(row.get("cost_basis")) or 0.0
             market_value = safe_float(row.get("market_value")) or 0.0
-            cost_delta = cost_basis - prior_cost_basis
-            if abs(cost_delta) > 1e-9:
-                benchmark_shares += cost_delta / close
-                prior_cost_basis = cost_basis
             benchmark_value_for_date = benchmark_shares * close
             benchmark_series.append(
                 {
@@ -3186,11 +3257,11 @@ def get_compensation_tracker(
         actual_terminal_value = end_value + distributions
         spy_window_return = (end_close / start_close) - 1.0
         benchmark_value = benchmark_series[-1]["benchmark_value"]
-        actual_gain = actual_terminal_value - end_cost_basis
-        benchmark_gain = benchmark_value - end_cost_basis
+        actual_gain = actual_terminal_value - invested_capital
+        benchmark_gain = benchmark_value - invested_capital
         excess_gain = actual_terminal_value - benchmark_value
-        portfolio_return = actual_gain / end_cost_basis
-        benchmark_return = benchmark_gain / end_cost_basis
+        portfolio_return = actual_gain / invested_capital if invested_capital > 0 else 0.0
+        benchmark_return = benchmark_gain / invested_capital if invested_capital > 0 else 0.0
         excess_return = portfolio_return - benchmark_return
         payout_base = max(excess_gain, 0.0)
         payout = payout_base * payout_share
@@ -3206,6 +3277,7 @@ def get_compensation_tracker(
             "portfolio_start_value": start_value,
             "portfolio_end_value": end_value,
             "cost_basis": end_cost_basis,
+            "invested_capital": invested_capital,
             "portfolio_return": portfolio_return,
             "actual_gain": actual_gain,
             "distributions": distributions,

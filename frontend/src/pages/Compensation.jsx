@@ -132,12 +132,12 @@ export default function Compensation() {
             <MetricCard
               label="Actual Gain"
               value={formatPercent(data?.portfolio_return)}
-              detail={`${formatMoney(data?.cost_basis)} cost basis to ${formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)}`}
+              detail={`${formatMoney(data?.invested_capital ?? data?.cost_basis)} capital base to ${formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)}`}
             />
             <MetricCard
               label="S&P 500 Gain"
               value={formatPercent(data?.benchmark_return)}
-              detail={`${formatMoney(data?.benchmark_gain)} from same cost-basis path`}
+              detail={`${formatMoney(data?.benchmark_gain)} from same capital path`}
             />
             <MetricCard
               label="Excess Gain"
@@ -158,13 +158,13 @@ export default function Compensation() {
               <div>
                 <div className="font-medium text-slate-900">Actual Gain</div>
                 <div className="mt-1">
-                  Matthew account value {formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)} - cost basis {formatMoney(data?.cost_basis)} = {formatMoney(data?.actual_gain)}
+                  Matthew account value {formatMoney(data?.actual_terminal_value ?? data?.portfolio_end_value)} - capital base {formatMoney(data?.invested_capital ?? data?.cost_basis)} = {formatMoney(data?.actual_gain)}
                 </div>
               </div>
               <div>
                 <div className="font-medium text-slate-900">S&amp;P 500 Comparison</div>
                 <div className="mt-1">
-                  Same cost-basis path invested in {data?.benchmark ?? 'SPY'} would be {formatMoney(data?.benchmark_equivalent_value)}{benchmarkAsOf}
+                  Same capital path invested in {data?.benchmark ?? 'SPY'} would be {formatMoney(data?.benchmark_equivalent_value)}{benchmarkAsOf}
                 </div>
               </div>
               <div>
