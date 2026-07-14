@@ -93,19 +93,6 @@ def _sorted_transaction_rows(entries: list[dict[str, Any]]) -> list[dict[str, An
     )
 
 
-def _capital_flow_priority(tx: dict[str, Any]) -> int:
-    tx_type = str(tx.get("type") or "").strip().lower()
-    if tx_type in {"sell", "dividend"}:
-        return 0
-    if tx_type in {"transfer_in", "adjustment"}:
-        return 1
-    if tx_type == "buy":
-        return 2
-    if tx_type == "transfer_out":
-        return 3
-    return 4
-
-
 def _sorted_transaction_rows_with_ticker(
     transactions_by_ticker: dict[str, list[dict[str, Any]]],
 ) -> list[dict[str, Any]]:
@@ -118,7 +105,6 @@ def _sorted_transaction_rows_with_ticker(
         rows,
         key=lambda tx: (
             str(tx.get("date") or ""),
-            _capital_flow_priority(tx),
             str(tx.get("id") or ""),
             str(tx.get("ticker") or ""),
         ),
