@@ -253,7 +253,7 @@ export function fetchPriceHistory(ticker, range = '3y', forceRefresh = false) {
   return forceRefresh ? request(path) : cachedRequest(path)
 }
 
-export function fetchPortfolioPerformance(range = '3y', accounts = [], mode = 'all') {
+export function fetchPortfolioPerformance(range = '3y', accounts = [], mode = 'all', forceRefresh = false) {
   const query = new URLSearchParams({ range, mode })
   const selectedAccounts = (accounts || [])
     .map((account) => String(account).trim())
@@ -262,8 +262,13 @@ export function fetchPortfolioPerformance(range = '3y', accounts = [], mode = 'a
   if (selectedAccounts.length > 0) {
     query.set('accounts', selectedAccounts.join(','))
   }
+  if (forceRefresh) {
+    query.set('force_refresh', 'true')
+    query.set('_', String(Date.now()))
+  }
 
-  return cachedRequest(`/api/performance/portfolio?${query.toString()}`)
+  const path = `/api/performance/portfolio?${query.toString()}`
+  return forceRefresh ? request(path) : cachedRequest(path)
 }
 
 export function fetchCompensation(range = '1y', benchmark = 'SPY', sharePct = 0.33) {

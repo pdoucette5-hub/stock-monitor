@@ -391,13 +391,19 @@ export default function Performance() {
     nextRange = range,
     nextAccounts = selectedAccounts,
     nextMode = managementMode,
+    forceRefresh = false,
   ) {
     const requestId = performanceRequestIdRef.current + 1
     performanceRequestIdRef.current = requestId
     setLoading(true)
     setError(null)
     try {
-      const payload = await fetchPortfolioPerformance(nextRange, nextAccounts, nextMode)
+      const payload = await fetchPortfolioPerformance(
+        nextRange,
+        nextAccounts,
+        nextMode,
+        forceRefresh,
+      )
       if (requestId !== performanceRequestIdRef.current) return
       setData(payload)
       setLastUpdated(new Date())
@@ -536,8 +542,8 @@ export default function Performance() {
         title="Performance"
         description="Portfolio performance over time based on your transaction ledger and historical price data."
         loading={loading}
-        onReload={() => loadPerformance(range, selectedAccounts)}
-        onUpdatePrices={() => loadPerformance(range, selectedAccounts, managementMode)}
+        onReload={() => loadPerformance(range, selectedAccounts, managementMode, true)}
+        onUpdatePrices={() => loadPerformance(range, selectedAccounts, managementMode, true)}
       />
 
       {error && (

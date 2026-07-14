@@ -2915,15 +2915,17 @@ def get_portfolio_performance(
     range: str = "3y",
     accounts: str = "",
     mode: str = "all",
+    force_refresh: bool = False,
 ) -> dict[str, Any]:
     try:
         cache_key = (
-            f"performance:{str(range).strip().lower()}:"
+            f"performance:v2:{str(range).strip().lower()}:"
             f"{str(accounts).strip().casefold()}:{str(mode).strip().lower()}"
         )
-        cached = get_cached_response(cache_key)
-        if cached is not None:
-            return cached
+        if not force_refresh:
+            cached = get_cached_response(cache_key)
+            if cached is not None:
+                return cached
 
         transactions = load_transactions()
         tickers_config = get_effective_tickers_config()
