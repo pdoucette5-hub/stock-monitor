@@ -150,25 +150,37 @@ def _transaction_dividend_cash(tx: dict[str, Any]) -> float:
 
 
 def _apply_transaction_to_capital_basis(
-    state: dict[str, float],
+    state: dict[str, Any],
     tx: dict[str, Any],
 ) -> None:
     tx_type = str(tx.get("type") or "").strip().lower()
+    ticker = str(tx.get("ticker") or "").strip().upper()
+    bought_tickers = state.setdefault("bought_tickers", set())
 
     if tx_type == "buy":
         amount = _transaction_buy_cost(tx)
         funded_by_cash = min(state["available_cash"], amount)
         state["available_cash"] -= funded_by_cash
         state["capital_basis"] += amount - funded_by_cash
+        if ticker and amount > 0:
+            bought_tickers.add(ticker)
 
     elif tx_type == "sell":
-        state["available_cash"] += _transaction_sell_proceeds(tx)
+        proceeds = _transaction_sell_proceeds(tx)
+        if proceeds <= 0:
+            return
+        if ticker and ticker not in bought_tickers:
+            state["capital_basis"] += proceeds
+        state["available_cash"] += proceeds
 
     elif tx_type == "dividend":
         state["available_cash"] += _transaction_dividend_cash(tx)
 
     elif tx_type in {"transfer_in", "adjustment"}:
-        state["capital_basis"] += _transaction_buy_cost(tx)
+        amount = _transaction_buy_cost(tx)
+        state["capital_basis"] += amount
+        if ticker and amount > 0:
+            bought_tickers.add(ticker)
 
     elif tx_type == "transfer_out":
         withdrawal = _transaction_sell_proceeds(tx)
@@ -470,6 +482,7 @@ def build_portfolio_performance(
     capital_state = {
         "capital_basis": 0.0,
         "available_cash": 0.0,
+        "bought_tickers": set(),
     }
     series: list[dict[str, Any]] = []
 
