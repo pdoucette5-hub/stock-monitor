@@ -149,28 +149,43 @@ def _transaction_dividend_cash(tx: dict[str, Any]) -> float:
     return max(_safe_float(tx.get("price_per_share"), 0.0), 0.0)
 
 
+def _latest_close_on_or_before(
+    rows: list[dict[str, Any]],
+    target_date: str,
+) -> float | None:
+    for row in reversed(rows):
+        row_date = str(row.get("date") or "")
+        close = _safe_float(row.get("close"), 0.0)
+        if row_date <= target_date and close > 0:
+            return close
+    return None
+
+
 def _apply_transaction_to_capital_basis(
     state: dict[str, Any],
     tx: dict[str, Any],
-) -> None:
+) -> float:
     tx_type = str(tx.get("type") or "").strip().lower()
     ticker = str(tx.get("ticker") or "").strip().upper()
     bought_tickers = state.setdefault("bought_tickers", set())
+    capital_delta = 0.0
 
     if tx_type == "buy":
         amount = _transaction_buy_cost(tx)
         funded_by_cash = min(state["available_cash"], amount)
         state["available_cash"] -= funded_by_cash
-        state["capital_basis"] += amount - funded_by_cash
+        capital_delta = amount - funded_by_cash
+        state["capital_basis"] += capital_delta
         if ticker and amount > 0:
             bought_tickers.add(ticker)
 
     elif tx_type == "sell":
         proceeds = _transaction_sell_proceeds(tx)
         if proceeds <= 0:
-            return
+            return 0.0
         if ticker and ticker not in bought_tickers:
-            state["capital_basis"] += proceeds
+            capital_delta = proceeds
+            state["capital_basis"] += capital_delta
         state["available_cash"] += proceeds
 
     elif tx_type == "dividend":
@@ -178,20 +193,24 @@ def _apply_transaction_to_capital_basis(
 
     elif tx_type in {"transfer_in", "adjustment"}:
         amount = _transaction_buy_cost(tx)
-        state["capital_basis"] += amount
+        capital_delta = amount
+        state["capital_basis"] += capital_delta
         if ticker and amount > 0:
             bought_tickers.add(ticker)
 
     elif tx_type == "transfer_out":
         withdrawal = _transaction_sell_proceeds(tx)
         if withdrawal <= 0:
-            return
+            return 0.0
         funded_by_cash = min(state["available_cash"], withdrawal)
         state["available_cash"] -= funded_by_cash
+        capital_delta = -(withdrawal - funded_by_cash)
         state["capital_basis"] = max(
-            state["capital_basis"] - (withdrawal - funded_by_cash),
+            state["capital_basis"] + capital_delta,
             0.0,
         )
+
+    return capital_delta
 
 
 def _apply_transaction_to_position(
@@ -470,6 +489,11 @@ def build_portfolio_performance(
         for point in points:
             if point.get("date") and point.get("close") is not None:
                 close_lookup[ticker][str(point["date"])] = _safe_float(point["close"], 0.0)
+    benchmark_ticker = "SPY"
+    benchmark_rows = sorted(
+        price_store.get(benchmark_ticker, []),
+        key=lambda row: str(row.get("date") or ""),
+    )
 
     snapshot_items_by_ticker = {
         ticker: sorted(snapshots.items())
@@ -484,6 +508,7 @@ def build_portfolio_performance(
         "available_cash": 0.0,
         "bought_tickers": set(),
     }
+    benchmark_shares = 0.0
     series: list[dict[str, Any]] = []
 
     for current_date in ordered_dates:
@@ -501,7 +526,13 @@ def build_portfolio_performance(
                 capital_index += 1
 
             for tx in sorted(same_day_rows, key=_capital_basis_same_day_priority):
-                _apply_transaction_to_capital_basis(capital_state, tx)
+                capital_delta = _apply_transaction_to_capital_basis(capital_state, tx)
+                benchmark_close = _latest_close_on_or_before(benchmark_rows, tx_date)
+                if benchmark_close and benchmark_close > 0 and abs(capital_delta) > 1e-9:
+                    benchmark_shares = max(
+                        benchmark_shares + (capital_delta / benchmark_close),
+                        0.0,
+                    )
 
         total_market_value = 0.0
         total_cost_basis = 0.0
@@ -534,12 +565,27 @@ def build_portfolio_performance(
             total_cost_basis += cost_basis
 
         capital_basis = capital_state["capital_basis"]
+        benchmark_close_for_date = _latest_close_on_or_before(
+            benchmark_rows,
+            current_date,
+        )
+        benchmark_value = (
+            benchmark_shares * benchmark_close_for_date
+            if benchmark_close_for_date and benchmark_close_for_date > 0
+            else None
+        )
         series.append(
             {
                 "date": current_date,
                 "market_value": round(total_market_value, 8),
                 "cost_basis": round(total_cost_basis, 8),
                 "capital_basis": round(capital_basis, 8),
+                "benchmark_ticker": benchmark_ticker,
+                "benchmark_value": (
+                    round(benchmark_value, 8)
+                    if benchmark_value is not None
+                    else None
+                ),
                 "unrealized_gain_loss": round(total_market_value - total_cost_basis, 8),
                 "capital_gain_loss": round(total_market_value - capital_basis, 8),
             }
@@ -549,18 +595,21 @@ def build_portfolio_performance(
         "market_value": 0.0,
         "cost_basis": 0.0,
         "capital_basis": 0.0,
+        "benchmark_value": None,
         "unrealized_gain_loss": 0.0,
         "capital_gain_loss": 0.0,
     }
 
     return {
         "range": range_key,
+        "benchmark": benchmark_ticker,
         "tickers": tickers,
         "series": series,
         "latest": {
             "market_value": latest.get("market_value", 0.0),
             "cost_basis": latest.get("cost_basis", 0.0),
             "capital_basis": latest.get("capital_basis", latest.get("cost_basis", 0.0)),
+            "benchmark_value": latest.get("benchmark_value"),
             "unrealized_gain_loss": latest.get("unrealized_gain_loss", 0.0),
             "capital_gain_loss": latest.get(
                 "capital_gain_loss",

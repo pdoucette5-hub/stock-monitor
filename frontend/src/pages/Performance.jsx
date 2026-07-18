@@ -111,6 +111,9 @@ function PerformanceChart({ series }) {
   series.forEach((point) => {
     values.push(Number(point.market_value ?? 0))
     values.push(Number(point.capital_basis ?? point.cost_basis ?? 0))
+    if (point.benchmark_value !== null && point.benchmark_value !== undefined) {
+      values.push(Number(point.benchmark_value ?? 0))
+    }
   })
 
   const minValue = Math.min(...values)
@@ -138,6 +141,15 @@ function PerformanceChart({ series }) {
       (point, idx) =>
         `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.capital_basis ?? point.cost_basis ?? 0))}`,
     )
+    .join(' ')
+  const benchmarkPoints = series.filter(
+    (point) => point.benchmark_value !== null && point.benchmark_value !== undefined,
+  )
+  const benchmarkPath = benchmarkPoints
+    .map((point, pathIdx) => {
+      const idx = series.indexOf(point)
+      return `${pathIdx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.benchmark_value ?? 0))}`
+    })
     .join(' ')
 
   const ticks = 4
@@ -182,6 +194,10 @@ function PerformanceChart({ series }) {
           <span className="inline-block h-0.5 w-6 bg-amber-500" />
           Capital Basis
         </div>
+        <div className="flex items-center gap-2">
+          <span className="inline-block h-0.5 w-6 bg-emerald-600" />
+          S&amp;P 500
+        </div>
       </div>
 
       <div className="overflow-x-auto">
@@ -213,6 +229,16 @@ function PerformanceChart({ series }) {
             strokeLinejoin="round"
             strokeLinecap="round"
           />
+          {benchmarkPath && (
+            <path
+              d={benchmarkPath}
+              fill="none"
+              stroke="#059669"
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+            />
+          )}
           <path
             d={marketPath}
             fill="none"
