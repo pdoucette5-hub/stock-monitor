@@ -3790,25 +3790,23 @@ def import_transactions(body: TransactionImportRequest) -> dict[str, Any]:
         save_transactions(transactions)
 
         effective_config = get_effective_tickers_config()
-        configured_tickers = {
-            normalize_ticker(row.get("ticker") or "")
-            for section in ("portfolio", "watchlist")
-            for row in effective_config.get(section, [])
-            if isinstance(row, dict)
+        portfolio_tickers = {
+            normalize_ticker(row.get("ticker") if isinstance(row, dict) else row)
+            for row in effective_config.get("portfolio", [])
         }
-        missing_tickers = sorted(
+        new_portfolio_tickers = sorted(
             {
                 normalize_ticker(row.get("ticker") or "")
                 for row in importable_rows
-                if normalize_ticker(row.get("ticker") or "") not in configured_tickers
+                if normalize_ticker(row.get("ticker") or "") not in portfolio_tickers
             },
         )
-        if missing_tickers:
+        if new_portfolio_tickers:
             overrides = load_tickers_overrides()
             tickers_map = overrides.setdefault("tickers", {})
-            for ticker in missing_tickers:
+            for ticker in new_portfolio_tickers:
                 tickers_map[ticker] = {
-                    "list": "watchlist",
+                    "list": "portfolio",
                     "shares": None,
                     "archived": False,
                     "removed": False,

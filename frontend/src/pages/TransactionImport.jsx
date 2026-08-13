@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { importTransactions } from '../lib/api'
+import { clearPortfolioViewCache } from '../hooks/usePortfolioView'
 
 function formatNumber(value, maximumFractionDigits = 3) {
   return Number(value || 0).toLocaleString(undefined, { maximumFractionDigits })
@@ -81,6 +82,7 @@ export default function TransactionImport() {
     try {
       const payload = await importTransactions(files, accountMappings, true)
       setPreview(payload)
+      clearPortfolioViewCache()
       setMessage(
         `Imported ${payload.summary.imported.toLocaleString()} transactions. ` +
           `${payload.summary.duplicates.toLocaleString()} duplicates were skipped.`,
