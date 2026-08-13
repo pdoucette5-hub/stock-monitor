@@ -588,6 +588,19 @@ def build_position_summaries() -> dict[str, dict[str, Any]]:
     }
 
 
+def transaction_backed_tickers_with_shares(
+    transactions: dict[str, list[dict[str, Any]]],
+) -> set[str]:
+    tickers: set[str] = set()
+    for ticker, entries in transactions.items():
+        if not entries:
+            continue
+        summary = compute_position_summary(entries)
+        if safe_float(summary.get("current_shares"), 0.0) > 0:
+            tickers.add(ticker)
+    return tickers
+
+
 def load_account_aliases() -> dict[str, str]:
     raw = load_json_file(ACCOUNT_ALIASES_FILE, {})
     if not isinstance(raw, dict):
@@ -3789,17 +3802,16 @@ def import_transactions(body: TransactionImportRequest) -> dict[str, Any]:
 
         save_transactions(transactions)
 
+    if body.commit:
         effective_config = get_effective_tickers_config()
         portfolio_tickers = {
             normalize_ticker(row.get("ticker") if isinstance(row, dict) else row)
             for row in effective_config.get("portfolio", [])
         }
         new_portfolio_tickers = sorted(
-            {
-                normalize_ticker(row.get("ticker") or "")
-                for row in importable_rows
-                if normalize_ticker(row.get("ticker") or "") not in portfolio_tickers
-            },
+            ticker
+            for ticker in transaction_backed_tickers_with_shares(transactions)
+            if ticker not in portfolio_tickers
         )
         if new_portfolio_tickers:
             overrides = load_tickers_overrides()
