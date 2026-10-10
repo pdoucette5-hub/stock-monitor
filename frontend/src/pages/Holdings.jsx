@@ -1,551 +1,166 @@
-import { useMemo, useState } from 'react'
+/* eslint-disable react-hooks/set-state-in-effect */
+import { useEffect, useMemo, useRef, useState } from 'react'
 import PageToolbar from '../components/PageToolbar'
-import ValuationTable, { getValuationColumns } from '../components/ValuationTable'
 import { clearPortfolioViewCache, usePortfolioView } from '../hooks/usePortfolioView'
 import {
-  addPortfolioTicker,
-  archiveTicker,
-  removeTicker,
-  refreshEarningsCalendar,
-  savePortfolioControls,
-  savePortfolioShares,
-  syncSheetTickers,
+  addPortfolioTicker, archiveTicker, fetchPriceHistory, fetchStockScenario,
+  refreshEarningsCalendar, removeTicker, savePortfolioControls, savePortfolioShares,
+  saveStockScenario, syncSheetTickers,
 } from '../lib/api'
+import { apiToForm, formToApi } from '../lib/scenarioForm'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
 
-const MANAGEMENT_FILTERS = [
-  { id: 'active', label: 'Managed + tracked' },
-  { id: 'managed', label: 'Managed' },
-  { id: 'track', label: 'Track only' },
-  { id: 'excluded', label: 'Excluded' },
-  { id: 'all', label: 'All' },
+const FILTERS = [
+  ['active', 'Managed + tracked'], ['managed', 'Managed'], ['track', 'Track only'],
+  ['excluded', 'Excluded'], ['all', 'All'],
 ]
+const RANGES = [['1m', '1M'], ['3m', '3M'], ['6m', '6M'], ['1y', '1Y'], ['3y', '3Y'], ['5y', '5Y']]
+const SCENARIOS = [
+  { id: 'bull', label: 'Bull', bar: 'bg-emerald-500', head: 'bg-emerald-50 text-emerald-800' },
+  { id: 'base', label: 'Base', bar: 'bg-blue-500', head: 'bg-blue-50 text-blue-800' },
+  { id: 'bear', label: 'Bear', bar: 'bg-amber-500', head: 'bg-amber-50 text-amber-800' },
+]
+const inputClass = 'w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20'
 
-function sharesForManagementFilter(row, filter) {
-  const managed = Number(row.managed_shares || 0)
-  const tracked = Number(row.track_shares || 0)
-  const excluded = Number(row.excluded_shares || 0)
-
-  if (filter === 'managed') return managed
-  if (filter === 'track') return tracked
-  if (filter === 'excluded') return excluded
-  if (filter === 'active') return managed + tracked
+function sharesFor(row, filter) {
+  if (filter === 'managed') return Number(row.managed_shares || 0)
+  if (filter === 'track') return Number(row.track_shares || 0)
+  if (filter === 'excluded') return Number(row.excluded_shares || 0)
+  if (filter === 'active') return Number(row.managed_shares || 0) + Number(row.track_shares || 0)
   return Number(row.shares || 0)
 }
-
-function formatDate(value) {
+function date(value) {
   if (!value) return '—'
-  const date = new Date(`${value}T00:00:00`)
-  if (Number.isNaN(date.getTime())) return '—'
-  return date.toLocaleDateString(undefined, {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
+  const parsed = new Date(`${value}T00:00:00`)
+  return Number.isNaN(parsed.getTime()) ? '—' : parsed.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+}
+function number(value, digits = 2) {
+  return value == null || Number.isNaN(Number(value)) ? '—' : Number(value).toLocaleString(undefined, { minimumFractionDigits: digits, maximumFractionDigits: digits })
+}
+function percent(value, digits = 1) {
+  if (value == null || Number.isNaN(Number(value))) return '—'
+  return `${Number(value) > 0 ? '+' : ''}${Number(value).toFixed(digits)}%`
+}
+function gain(points, currentPrice) {
+  const valid = (points || []).filter((point) => Number.isFinite(Number(point?.close)))
+  if (valid.length < 2) return null
+  const start = Number(valid[0].close)
+  const end = Number.isFinite(Number(currentPrice)) ? Number(currentPrice) : Number(valid.at(-1).close)
+  return start ? { amount: end - start, percent: ((end - start) / start) * 100 } : null
+}
+function gainForRow(row, points, range) {
+  const fromHistory = gain(points, row?.price)
+  if (fromHistory || range !== '1y' || row?.price_return_1y == null) return fromHistory
+  const returnDecimal = Number(row.price_return_1y)
+  const currentPrice = Number(row.price)
+  if (!Number.isFinite(returnDecimal) || !Number.isFinite(currentPrice) || returnDecimal <= -1) return null
+  const priorPrice = currentPrice / (1 + returnDecimal)
+  return { amount: currentPrice - priorPrice, percent: returnDecimal * 100 }
 }
 
-function earningsSourceLabel(value) {
-  if (value === 'nasdaq-earnings-calendar') return 'scheduled'
-  if (value === 'sec-filing-cadence-estimate') return 'estimated'
-  return 'unknown'
+function Sparkline({ points, positive }) {
+  const values = (points || []).map((point) => Number(point?.close)).filter(Number.isFinite)
+  if (values.length < 2) return <div className="h-9 rounded bg-slate-100/50" />
+  const [width, height] = [100, 34]
+  const min = Math.min(...values); const span = Math.max(...values) - min || 1
+  const path = values.map((value, index) => `${index ? 'L' : 'M'} ${(index / (values.length - 1)) * width} ${height - 2 - ((value - min) / span) * (height - 4)}`).join(' ')
+  return <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-9 w-full" aria-hidden="true"><path d={path} fill="none" stroke={positive ? '#10b981' : '#ef4444'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+}
+
+function Chart({ points, positive }) {
+  const valid = (points || []).filter((point) => Number.isFinite(Number(point?.close)))
+  if (valid.length < 2) return <div className="flex h-64 items-center justify-center text-sm text-slate-500">No price history for this window.</div>
+  const [width, height, px, py] = [900, 290, 18, 22]
+  const values = valid.map((point) => Number(point.close)); const min = Math.min(...values); const span = Math.max(...values) - min || 1
+  const x = (i) => px + (i / (valid.length - 1)) * (width - px * 2)
+  const y = (v) => height - py - ((v - min) / span) * (height - py * 2)
+  const line = values.map((v, i) => `${i ? 'L' : 'M'} ${x(i)} ${y(v)}`).join(' ')
+  const area = `${line} L ${x(values.length - 1)} ${height - py} L ${px} ${height - py} Z`
+  const color = positive ? '#059669' : '#dc2626'; const id = positive ? 'gain-fill' : 'loss-fill'
+  return <svg viewBox={`0 0 ${width} ${height}`} className="h-64 w-full" role="img" aria-label="Price history"><defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".28" /><stop offset="100%" stopColor={color} stopOpacity="0" /></linearGradient></defs>{[0, .5, 1].map((p) => <line key={p} x1={px} x2={width - px} y1={py + p * (height - py * 2)} y2={py + p * (height - py * 2)} stroke="#e2e8f0" strokeDasharray="5 7" />)}<path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" /><text x={px} y={height - 3} fontSize="11" fill="#64748b">{date(valid[0].date)}</text><text x={width - px} y={height - 3} textAnchor="end" fontSize="11" fill="#64748b">{date(valid.at(-1).date)}</text></svg>
+}
+
+function Metric({ label, value, large }) {
+  return <div className="rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3"><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{label}</div><div className={`mt-1 font-semibold text-slate-900 ${large ? 'text-xl' : 'text-base'}`}>{value}</div></div>
+}
+
+function GrowthRow({ label, values, onChange }) {
+  return <fieldset><legend className="text-xs font-medium text-slate-600">{label} (%)</legend><div className="mt-1 grid grid-cols-3 gap-2">{values.map((value, i) => <label key={i} className="text-[10px] font-semibold uppercase text-slate-400">Y{i + 1}<input aria-label={`${label} year ${i + 1}`} type="number" step="0.1" value={value} onChange={(event) => onChange(i, event.target.value)} className={`mt-1 ${inputClass}`} /></label>)}</div></fieldset>
+}
+
+function AssumptionsModal({ ticker, close, saved }) {
+  const [form, setForm] = useState(null); const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false); const [error, setError] = useState(null)
+  useEffect(() => {
+    let cancelled = false
+    fetchStockScenario(ticker).then((payload) => { if (!cancelled) setForm(apiToForm(payload?.scenario)) }).catch((err) => { if (!cancelled) setError(err.message) }).finally(() => { if (!cancelled) setLoading(false) })
+    return () => { cancelled = true }
+  }, [ticker])
+  useEffect(() => { const key = (event) => event.key === 'Escape' && close(); window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key) }, [close])
+  const update = (scenario, field, value) => setForm((current) => ({ ...current, [scenario]: { ...current[scenario], [field]: value } }))
+  const submit = async (event) => {
+    event.preventDefault(); setSaving(true); setError(null)
+    try { await saveStockScenario(ticker, formToApi(form)); clearPortfolioViewCache(); await saved(); close() }
+    catch (err) { setError(err.message || 'Failed to save assumptions') }
+    finally { setSaving(false) }
+  }
+  return <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" onMouseDown={(event) => event.target === event.currentTarget && close()}><div className="max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-2xl bg-white shadow-2xl"><header className="sticky top-0 z-10 flex justify-between border-b border-slate-200 bg-white/95 px-6 py-5 backdrop-blur"><div><div className="text-xs font-bold uppercase tracking-[.18em] text-blue-600">{ticker}</div><h2 className="mt-1 text-xl font-bold text-slate-950">Growth assumptions</h2><p className="mt-1 text-sm text-slate-500">Adjust revenue, earnings, and durable growth for each scenario.</p></div><button type="button" onClick={close} className="rounded-full p-2 text-2xl leading-none text-slate-500 hover:bg-slate-100">×</button></header>{loading ? <div className="p-12 text-center text-slate-500">Loading assumptions…</div> : form ? <form onSubmit={submit} className="p-6">{error && <div className="mb-5 rounded-lg bg-red-50 p-3 text-sm text-red-800">{error}</div>}<div className="grid gap-4 lg:grid-cols-3">{SCENARIOS.map((scenario) => { const v = form[scenario.id]; return <section key={scenario.id} className="overflow-hidden rounded-xl border border-slate-200"><div className={`border-b border-slate-200 px-4 py-3 text-sm font-bold ${scenario.head}`}>{scenario.label} scenario</div><div className="space-y-4 p-4"><GrowthRow label="Revenue growth" values={[v.revGrowthY1, v.revGrowthY2, v.revGrowthY3]} onChange={(i, value) => update(scenario.id, `revGrowthY${i + 1}`, value)} /><GrowthRow label="Net income growth" values={[v.netIncomeGrowthY1, v.netIncomeGrowthY2, v.netIncomeGrowthY3]} onChange={(i, value) => update(scenario.id, `netIncomeGrowthY${i + 1}`, value)} /><label className="block text-xs font-medium text-slate-600">Durable growth view (%)<input type="number" step=".1" value={v.durableGrowthView} onChange={(event) => update(scenario.id, 'durableGrowthView', event.target.value)} className={`mt-1 ${inputClass}`} /></label><label className="block text-xs font-medium text-slate-600">Growth-view weight (%)<input type="number" min="0" max="100" value={v.growthWeightPct} onChange={(event) => update(scenario.id, 'growthWeightPct', event.target.value)} className={`mt-1 ${inputClass}`} /></label></div></section> })}</div><footer className="mt-6 flex justify-end gap-3 border-t border-slate-200 pt-5"><button type="button" onClick={close} className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700">Cancel</button><button disabled={saving} className="rounded-lg bg-slate-950 px-5 py-2 text-sm font-semibold text-white disabled:opacity-60">{saving ? 'Saving…' : 'Save assumptions'}</button></footer></form> : <div className="p-12 text-center text-red-700">{error || 'Could not load assumptions.'}</div>}</div></div>
 }
 
 export default function Holdings() {
-  const { authEnabled, user } = useAuth()
-  const hasFullAccess = !authEnabled || user?.role !== 'limited'
+  const { authEnabled, user } = useAuth(); const full = !authEnabled || user?.role !== 'limited'
   const { view, loading, error, lastUpdated, load } = usePortfolioView()
-  const [showHidden, setShowHidden] = useState(false)
-  const [managementFilter, setManagementFilter] = useState('active')
-  const [savingTicker, setSavingTicker] = useState(null)
-  const [shareDrafts, setShareDrafts] = useState({})
-  const [newTicker, setNewTicker] = useState('')
-  const [newShares, setNewShares] = useState('')
-  const [formError, setFormError] = useState(null)
-  const [formMessage, setFormMessage] = useState(null)
-  const [syncingTickers, setSyncingTickers] = useState(false)
-  const [refreshingEarnings, setRefreshingEarnings] = useState(false)
-  const leadingColumn = hasFullAccess
-    ? {
-        header: 'Show',
-        render: (row) => (
-          <input
-            type="checkbox"
-            checked={row.show_in_holdings !== false}
-            disabled={savingTicker === row.ticker}
-            onChange={(e) => toggleVisibility(row.ticker, e.target.checked)}
-            title="Show this ticker in the holdings table"
-            className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-500"
-          />
-        ),
-      }
-    : undefined
+  const [filter, setFilter] = useState('active'); const [showHidden, setShowHidden] = useState(false)
+  const [ticker, setTicker] = useState(''); const [range, setRange] = useState('1y'); const [history, setHistory] = useState({})
+  const [loadingHistory, setLoadingHistory] = useState(false); const [modal, setModal] = useState(false)
+  const [addOpen, setAddOpen] = useState(false); const [menu, setMenu] = useState(false)
+  const [newTicker, setNewTicker] = useState(''); const [newShares, setNewShares] = useState(''); const [shareDraft, setShareDraft] = useState('')
+  const [savingTicker, setSavingTicker] = useState(null); const [formError, setFormError] = useState(null); const [message, setMessage] = useState(null)
+  const [syncing, setSyncing] = useState(false); const [refreshingEarnings, setRefreshingEarnings] = useState(false); const autoRefresh = useRef(false)
 
-  const portfolioRows = view?.portfolio ?? []
+  useEffect(() => {
+    if (!full || !view || autoRefresh.current) return
+    autoRefresh.current = true; const key = 'stock-monitor-earnings-last-refresh'; const last = Number(localStorage.getItem(key) || 0)
+    if (Date.now() - last < 3 * 86400000) return
+    setRefreshingEarnings(true); refreshEarningsCalendar([], 120).then(() => { localStorage.setItem(key, String(Date.now())); clearPortfolioViewCache(); return load(true) }).catch((err) => setFormError(err.message)).finally(() => setRefreshingEarnings(false))
+  }, [full, load, view])
 
-  const visibleRows = useMemo(() => {
-    let rows = showHidden
-      ? portfolioRows
-      : portfolioRows.filter((row) => row.show_in_holdings !== false)
+  const rows = useMemo(() => {
+    let source = showHidden ? (view?.portfolio || []) : (view?.portfolio || []).filter((row) => row.show_in_holdings !== false)
+    if (!full) return source
+    return source.map((row) => { const shares = sharesFor(row, filter); return { ...row, total_shares: row.shares, shares, market_value: Number.isFinite(Number(row.price)) ? shares * Number(row.price) : null } }).filter((row) => filter === 'all' || Number(row.shares) > 0 || Number(row.total_shares || 0) <= 0)
+  }, [filter, full, showHidden, view])
+  useEffect(() => { if (!rows.length) setTicker(''); else if (!rows.some((row) => row.ticker === ticker)) setTicker(rows[0].ticker) }, [rows, ticker])
+  useEffect(() => {
+    if (!rows.length) return; let cancelled = false; setLoadingHistory(true)
+    Promise.all(rows.map(async (row) => { try { const result = await fetchPriceHistory(row.ticker, range); return [row.ticker, result?.points || []] } catch { return [row.ticker, []] } })).then((entries) => { if (!cancelled) setHistory(Object.fromEntries(entries)) }).finally(() => { if (!cancelled) setLoadingHistory(false) })
+    return () => { cancelled = true }
+  }, [range, rows])
+  const selected = rows.find((row) => row.ticker === ticker); const points = history[ticker] || []; const selectedGain = gainForRow(selected, points, range)
+  useEffect(() => { setShareDraft(selected?.total_shares ?? selected?.shares ?? ''); setMenu(false) }, [selected])
+  const refresh = async () => { clearPortfolioViewCache(); await load(true) }
+  const guard = async (work, success) => { setSavingTicker(ticker); setFormError(null); try { await work(); await refresh(); if (success) setMessage(success) } catch (err) { setFormError(err.message) } finally { setSavingTicker(null) } }
+  const add = async (event) => { event.preventDefault(); const symbol = newTicker.trim().toUpperCase(); const shares = Number(newShares); if (!symbol || newShares === '' || !Number.isFinite(shares) || shares < 0) return setFormError('Enter a ticker and a non-negative share count.'); try { await addPortfolioTicker(symbol, shares); if (full) await syncSheetTickers().catch(() => null); setNewTicker(''); setNewShares(''); setAddOpen(false); await refresh(); setTicker(symbol); setMessage(`Added ${symbol} to the portfolio.`) } catch (err) { setFormError(err.message) } }
+  const saveShares = () => { const value = Number(shareDraft); if (Number.isFinite(value) && value >= 0) guard(() => savePortfolioShares(ticker, value), `Updated ${ticker} shares.`) }
+  const toggle = () => guard(() => savePortfolioControls([{ ticker, show_in_holdings: selected.show_in_holdings === false }]))
+  const archive = () => guard(() => archiveTicker(ticker), `Archived ${ticker}.`)
+  const remove = () => window.confirm(`Remove ${ticker} from tracking?`) && guard(() => removeTicker(ticker), `Removed ${ticker}.`)
+  const sync = async () => { setSyncing(true); try { const result = await syncSheetTickers(); setMessage(`Synced ${result.ticker_count ?? 0} tickers to Google Sheets.`) } catch (err) { setFormError(err.message) } finally { setSyncing(false) } }
+  const refreshEarnings = async () => { setRefreshingEarnings(true); try { const result = await refreshEarningsCalendar(); await refresh(); setMessage(`Refreshed earnings dates for ${result?.refreshed?.length ?? 0} tickers.`) } catch (err) { setFormError(err.message) } finally { setRefreshingEarnings(false) } }
 
-    if (!hasFullAccess) return rows
-
-    return rows
-      .map((row) => {
-        const filteredShares = sharesForManagementFilter(row, managementFilter)
-        const price = Number(row.price)
-        return {
-          ...row,
-          total_shares: row.shares,
-          shares: filteredShares,
-          market_value: Number.isFinite(price) ? filteredShares * price : null,
-        }
-      })
-      .filter(
-        (row) =>
-          managementFilter === 'all' ||
-          Number(row.shares) > 0 ||
-          Number(row.total_shares || 0) <= 0,
-      )
-  }, [hasFullAccess, managementFilter, portfolioRows, showHidden])
-
-  const toggleVisibility = async (ticker, showInHoldings) => {
-    setSavingTicker(ticker)
-    setFormError(null)
-    setFormMessage(null)
-    try {
-      await savePortfolioControls([{ ticker, show_in_holdings: showInHoldings }])
-      clearPortfolioViewCache()
-      await load(true)
-    } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'Failed to update visibility')
-    } finally {
-      setSavingTicker(null)
-    }
-  }
-
-  const saveShares = async (ticker) => {
-    const rawValue = shareDrafts[ticker]
-    if (rawValue === undefined) return
-
-    const numeric = Number(rawValue)
-    if (Number.isNaN(numeric) || numeric < 0) return
-
-    setSavingTicker(ticker)
-    setFormError(null)
-    setFormMessage(null)
-    try {
-      await savePortfolioShares(ticker, numeric)
-      clearPortfolioViewCache()
-      await load(true)
-      setShareDrafts((current) => {
-        const next = { ...current }
-        delete next[ticker]
-        return next
-      })
-    } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'Failed to save shares')
-    } finally {
-      setSavingTicker(null)
-    }
-  }
-
-  const handleAddPortfolio = async (event) => {
-    event.preventDefault()
-    setFormError(null)
-    setFormMessage(null)
-
-    const ticker = String(newTicker).trim().toUpperCase()
-    const sharesText = String(newShares).trim()
-    const shares = Number(sharesText)
-
-    if (!ticker) {
-      setFormError('Ticker is required.')
-      return
-    }
-    if (!sharesText || Number.isNaN(shares) || shares < 0) {
-      setFormError('Shares are required and must be a non-negative number.')
-      return
-    }
-
-    try {
-      await addPortfolioTicker(ticker, shares)
-      setNewTicker('')
-      setNewShares('')
-      if (hasFullAccess) {
-        try {
-          await syncSheetTickers()
-          setFormMessage(`Added ${ticker} to portfolio and synced Google Sheets.`)
-        } catch {
-          setFormMessage(`Added ${ticker} to portfolio. Sheet sync did not complete.`)
-        }
-      } else {
-        setFormMessage(`Added ${ticker} to your portfolio.`)
-      }
-      clearPortfolioViewCache()
-      await load(true)
-    } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'Failed to add portfolio ticker')
-    }
-  }
-
-  const handleArchive = async (ticker) => {
-    setSavingTicker(ticker)
-    setFormError(null)
-    setFormMessage(null)
-    try {
-      await archiveTicker(ticker)
-      setFormMessage(`Archived ${ticker}.`)
-      clearPortfolioViewCache()
-      await load(true)
-    } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'Failed to archive ticker')
-    } finally {
-      setSavingTicker(null)
-    }
-  }
-
-  const handleRemove = async (ticker) => {
-    const confirmed = window.confirm(`Remove ${ticker} from tracking?`)
-    if (!confirmed) return
-
-    setSavingTicker(ticker)
-    setFormError(null)
-    setFormMessage(null)
-    try {
-      await removeTicker(ticker)
-      setFormMessage(`Removed ${ticker} from tracking.`)
-      clearPortfolioViewCache()
-      await load(true)
-    } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'Failed to remove ticker')
-    } finally {
-      setSavingTicker(null)
-    }
-  }
-
-  const handleSyncTickers = async () => {
-    setSyncingTickers(true)
-    setFormError(null)
-    setFormMessage(null)
-    try {
-      const result = await syncSheetTickers()
-      setFormMessage(`Synced ${result.ticker_count ?? 0} tickers to Google Sheets.`)
-    } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'Failed to sync tickers')
-    } finally {
-      setSyncingTickers(false)
-    }
-  }
-
-  const handleRefreshEarnings = async () => {
-    setRefreshingEarnings(true)
-    setFormError(null)
-    setFormMessage(null)
-    try {
-      const result = await refreshEarningsCalendar()
-      const refreshed = result?.refreshed?.length ?? 0
-      const errors = result?.errors?.filter((item) => item?.ticker !== '*')?.length ?? 0
-      setFormMessage(
-        `Refreshed earnings dates for ${refreshed} tickers${errors ? `; ${errors} need review` : ''}.`,
-      )
-      clearPortfolioViewCache()
-      await load(true)
-    } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'Failed to refresh earnings dates')
-    } finally {
-      setRefreshingEarnings(false)
-    }
-  }
-
-  const columns = useMemo(() => {
-    const baseColumns = getValuationColumns('portfolio')
-
-    const filterLabel = {
-      active: 'Managed + Tracked',
-      managed: 'Managed',
-      track: 'Tracked',
-      excluded: 'Excluded',
-      all: 'Total',
-    }[hasFullAccess ? managementFilter : 'all']
-
-    const withEditableShares = baseColumns.map((column) => {
-      if (column.key === 'market_value') {
-        return {
-          ...column,
-          label: `${filterLabel} Value`,
-        }
-      }
-      if (column.key !== 'shares') return column
-
-      return {
-        ...column,
-        label: `${filterLabel} Shares`,
-        render: (row) => {
-          if (hasFullAccess && managementFilter !== 'all') {
-            return Number(row.shares || 0).toLocaleString(undefined, {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 4,
-            })
-          }
-
-          const draftValue = shareDrafts[row.ticker]
-          const inputValue = draftValue ?? row.total_shares ?? row.shares ?? ''
-
-          return (
-            <input
-              type="number"
-              step="0.01"
-              min="0"
-              value={inputValue}
-              disabled={savingTicker === row.ticker}
-              onChange={(e) =>
-                setShareDrafts((current) => ({
-                  ...current,
-                  [row.ticker]: e.target.value,
-                }))
-              }
-              onBlur={() => saveShares(row.ticker)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.currentTarget.blur()
-                }
-              }}
-              className="w-24 rounded border border-slate-300 px-2 py-1 text-sm text-slate-900 focus:border-slate-500 focus:outline-none"
-              title="Edit shares and click away to save"
-            />
-          )
-        },
-      }
-    })
-
-    const costBasisColumn = {
-      key: 'average_cost_per_share',
-      label: 'Avg Cost',
-      render: (row) => {
-        return (
-          <div>
-            <div className="font-medium text-slate-800">
-              {formatMoney(row.average_cost_per_share)}
-            </div>
-          </div>
-        )
-      },
-    }
-
-    const earningsColumn = {
-      key: 'next_earnings_date',
-      label: 'Next Earnings',
-      render: (row) => (
-        <div>
-          <div className="font-medium text-slate-800">
-            {formatDate(row.next_earnings_date)}
-          </div>
-          {row.next_earnings_date && (
-            <div className="text-xs text-slate-500">
-              {earningsSourceLabel(row.next_earnings_source)}
-              {row.next_earnings_time && row.next_earnings_time !== 'time-not-supplied'
-                ? ` · ${row.next_earnings_time}`
-                : ''}
-            </div>
-          )}
-          {row.next_earnings_eps_forecast && (
-            <div className="text-xs text-slate-500">
-              EPS {row.next_earnings_eps_forecast}
-            </div>
-          )}
-        </div>
-      ),
-    }
-
-    const rowActionColumn = {
-      key: 'row_actions',
-      label: 'Actions',
-      render: (row) => (
-        <div className="flex items-center gap-2">
-          {hasFullAccess && (
-            <button
-              type="button"
-              disabled={savingTicker === row.ticker}
-              onClick={() => handleArchive(row.ticker)}
-              className="rounded border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-60"
-            >
-              Archive
-            </button>
-          )}
-          <button
-            type="button"
-            disabled={savingTicker === row.ticker}
-            onClick={() => handleRemove(row.ticker)}
-            className="rounded border border-red-300 px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-60"
-          >
-            Remove
-          </button>
-        </div>
-      ),
-    }
-
-    if (!hasFullAccess) {
-      return [
-        ...withEditableShares.slice(0, 1),
-        earningsColumn,
-        ...withEditableShares.slice(1),
-        rowActionColumn,
-      ]
-    }
-
-    return [
-      ...withEditableShares.slice(0, 2),
-      costBasisColumn,
-      earningsColumn,
-      ...withEditableShares.slice(2),
-      rowActionColumn,
-    ]
-  }, [hasFullAccess, managementFilter, shareDrafts, savingTicker])
-
-  return (
-    <div className="mx-auto w-[98vw] px-4 py-8">
-      <PageToolbar
-        title="Holdings"
-        description="Valuation view for positions you choose to show. Hiding a ticker does not remove it from your config or action calculations."
-        loading={loading}
-        onReload={load}
-        onUpdatePrices={load}
-        onSyncTickers={hasFullAccess ? handleSyncTickers : undefined}
-        syncingTickers={syncingTickers}
-      />
-
-      {error && (
-        <div
-          role="alert"
-          className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
-        >
-          {error}
-        </div>
-      )}
-
-      {formError && (
-        <div
-          role="alert"
-          className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
-        >
-          {formError}
-        </div>
-      )}
-
-      {formMessage && (
-        <div
-          role="status"
-          className="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"
-        >
-          {formMessage}
-        </div>
-      )}
-
-      <form
-        onSubmit={handleAddPortfolio}
-        className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
-      >
-        <div className="mb-3">
-          <h2 className="text-sm font-semibold text-slate-900">Add portfolio holding</h2>
-          <p className="mt-1 text-xs text-slate-500">
-            Add a new stock directly from the UI.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap items-end gap-3">
-          <div>
-            <label className="mb-1 block text-xs font-medium text-slate-600">
-              Ticker
-            </label>
-            <input
-              type="text"
-              value={newTicker}
-              onChange={(e) => setNewTicker(e.target.value.toUpperCase())}
-              placeholder="e.g. CRM"
-              className="w-32 rounded border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none"
-            />
-          </div>
-
-          <div>
-            <label className="mb-1 block text-xs font-medium text-slate-600">
-              Shares
-            </label>
-            <input
-              type="number"
-              step="0.01"
-              min="0"
-              value={newShares}
-              onChange={(e) => setNewShares(e.target.value)}
-              placeholder="e.g. 25"
-              className="w-32 rounded border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="rounded bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
-          >
-            Add to portfolio
-          </button>
-        </div>
-      </form>
-
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-3">
-          {hasFullAccess && (
-            <div className="flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
-              {MANAGEMENT_FILTERS.map((filter) => (
-                <button
-                  key={filter.id}
-                  type="button"
-                  onClick={() => setManagementFilter(filter.id)}
-                  className={[
-                    'rounded-md px-3 py-1.5 text-xs font-medium',
-                    managementFilter === filter.id
-                      ? 'bg-slate-900 text-white'
-                      : 'text-slate-600 hover:bg-slate-50',
-                  ].join(' ')}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-          )}
-          {hasFullAccess && (
-            <button
-              type="button"
-              onClick={handleRefreshEarnings}
-              disabled={refreshingEarnings}
-              className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {refreshingEarnings ? 'Refreshing earnings...' : 'Refresh earnings dates'}
-            </button>
-          )}
-          <label className="flex cursor-pointer items-center gap-2 text-sm text-slate-600">
-            <input
-              type="checkbox"
-              checked={showHidden}
-              onChange={(e) => setShowHidden(e.target.checked)}
-              className="h-4 w-4 rounded border-slate-300 text-slate-900 focus:ring-slate-500"
-            />
-            Show hidden tickers
-          </label>
-        </div>
-      </div>
-
-      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-        <ValuationTable
-          rows={visibleRows}
-          columns={columns}
-          loading={loading}
-          emptyMessage={
-            'No visible portfolio positions. Enable Show on hidden rows or add positions in the form above.'
-          }
-          lastUpdated={lastUpdated}
-          leadingColumn={leadingColumn}
-        />
-      </div>
-    </div>
-  )
+  return <div className="mx-auto w-full max-w-[1600px] px-4 py-6 lg:px-6"><PageToolbar title="Holdings" description="Portfolio performance, valuation, and assumptions in one view." loading={loading} onReload={load} onUpdatePrices={load} onSyncTickers={full ? sync : undefined} syncingTickers={syncing} />
+    {(error || formError) && <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{formError || error}</div>}
+    {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
+    <div className="mb-4 flex flex-wrap items-center justify-between gap-3"><div className="flex flex-wrap items-center gap-2">{full && <div className="flex flex-wrap gap-1 rounded-xl border border-slate-200 bg-white p-1 shadow-sm">{FILTERS.map(([id, label]) => <button key={id} onClick={() => setFilter(id)} className={`rounded-lg px-3 py-1.5 text-xs font-semibold ${filter === id ? 'bg-slate-950 text-white' : 'text-slate-600 hover:bg-slate-100'}`}>{label}</button>)}</div>}<label className="flex items-center gap-2 px-2 text-xs font-medium text-slate-600"><input type="checkbox" checked={showHidden} onChange={(event) => setShowHidden(event.target.checked)} />Show hidden</label></div><div className="flex gap-2">{full && <button onClick={refreshEarnings} disabled={refreshingEarnings} className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700">{refreshingEarnings ? 'Refreshing…' : 'Refresh earnings'}</button>}<button onClick={() => setAddOpen((v) => !v)} className="rounded-lg bg-slate-950 px-4 py-2 text-xs font-semibold text-white">+ Add holding</button></div></div>
+    {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
+    <div className="grid min-h-[680px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[340px_minmax(0,1fr)]"><aside className="border-b border-slate-200 bg-slate-50/60 lg:border-b-0 lg:border-r"><div className="border-b border-slate-200 bg-white px-4 py-4"><div className="flex items-center justify-between gap-3"><div><h2 className="font-bold text-slate-950">Your stocks</h2><p className="text-xs text-slate-500">{rows.length} positions · current sort</p></div><RangeButtons value={range} set={setRange} compact /></div></div><div className="max-h-[760px] overflow-y-auto">{loading && !rows.length ? <Empty text="Loading holdings…" /> : !rows.length ? <Empty text="No holdings match this filter." /> : rows.map((row) => { const rowPoints = history[row.ticker] || []; const rowGain = gainForRow(row, rowPoints, range); const positive = (rowGain?.percent ?? 0) >= 0; const active = ticker === row.ticker; return <button key={row.ticker} onClick={() => setTicker(row.ticker)} className={`grid w-full grid-cols-[minmax(0,1fr)_74px_66px] items-center gap-3 border-b border-slate-200 px-4 py-3 text-left ${active ? 'bg-slate-950 text-white' : 'bg-white hover:bg-slate-50'}`}><div className="min-w-0"><div className="font-bold">{row.ticker}</div><div className={`truncate text-xs ${active ? 'text-slate-400' : 'text-slate-500'}`}>{formatMoney(row.market_value)} · {number(row.shares)} sh</div></div><Sparkline points={rowPoints} positive={positive} /><div className="text-right"><div className={`text-xs font-bold ${rowGain ? positive ? 'text-emerald-500' : 'text-red-500' : 'text-slate-500'}`}>{loadingHistory && !rowPoints.length && !rowGain ? '…' : percent(rowGain?.percent)}</div><div className={`text-[10px] ${active ? 'text-slate-400' : 'text-slate-500'}`}>{rowGain ? `${rowGain.amount >= 0 ? '+' : ''}${formatMoney(rowGain.amount)}` : '—'}</div></div></button> })}</div>{lastUpdated && <div className="border-t border-slate-200 px-4 py-3 text-[11px] text-slate-500">Updated {lastUpdated.toLocaleTimeString()} · action rank, then weighted CAGR</div>}</aside>
+      <main className="min-w-0">{!selected ? <Empty text="Select a holding to see details." /> : <><header className="border-b border-slate-200 px-5 py-5 sm:px-7"><div className="flex flex-wrap items-start justify-between gap-4"><div><div className="flex items-center gap-3"><h1 className="text-3xl font-black text-slate-950">{ticker}</h1><span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">{selected.action || 'Needs input'}</span></div><p className="mt-1 text-sm text-slate-500">{selected.management_mode || 'portfolio'} position · {number(selected.shares)} shares</p></div><div className="flex gap-2"><button onClick={() => setModal(true)} className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white">Edit growth assumptions</button><div className="relative"><button onClick={() => setMenu((v) => !v)} className="rounded-lg border border-slate-300 px-3 py-2 text-lg leading-none">…</button>{menu && <div className="absolute right-0 top-11 z-20 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl"><button onClick={toggle} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">{selected.show_in_holdings === false ? 'Show in holdings' : 'Hide from holdings'}</button>{full && <button onClick={archive} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">Archive ticker</button>}<button onClick={remove} className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50">Remove ticker</button></div>}</div></div></div><div className="mt-6 flex flex-wrap items-end justify-between gap-4"><div><div className="text-3xl font-bold text-slate-950">{formatMoney(selected.price)}</div><div className={`mt-1 text-sm font-bold ${selectedGain ? selectedGain.percent >= 0 ? 'text-emerald-600' : 'text-red-600' : 'text-slate-500'}`}>{percent(selectedGain?.percent, 2)} <span className="font-medium text-slate-500">over {RANGES.find(([id]) => id === range)?.[1]}</span></div></div><RangeButtons value={range} set={setRange} /></div></header><div className="px-4 pt-3 sm:px-7"><Chart points={points} positive={(selectedGain?.percent ?? 0) >= 0} /></div><div className="grid gap-4 px-5 pb-7 sm:px-7 xl:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)]"><section><div className="mb-3 flex items-center justify-between"><h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Position & valuation</h2>{full && <div className="flex gap-2"><input aria-label="Shares" type="number" min="0" step=".01" value={shareDraft} onChange={(e) => setShareDraft(e.target.value)} className="w-24 rounded-lg border border-slate-300 px-2 py-1.5 text-sm" /><button onClick={saveShares} disabled={savingTicker === ticker} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold">Save shares</button></div>}</div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3"><Metric label="Market value" value={formatMoney(selected.market_value)} large /><Metric label="Average cost" value={formatMoney(selected.average_cost_per_share)} /><Metric label="Current P/E" value={selected.current_pe == null ? '—' : `${number(selected.current_pe)}x`} /><Metric label="Bear target" value={formatMoney(selected.bear_price_y3)} /><Metric label="Base target" value={formatMoney(selected.base_price_y3)} /><Metric label="Bull target" value={formatMoney(selected.bull_price_y3)} /></div></section><section className="rounded-xl border border-slate-200 bg-slate-50/60 p-4"><div className="flex justify-between"><h2 className="text-sm font-bold text-slate-950">Three-year outlook</h2><button onClick={() => setModal(true)} className="text-xs font-semibold text-blue-700">Change</button></div><div className="mt-4 space-y-4">{SCENARIOS.map((scenario) => { const cagr = selected[`${scenario.id}_cagr_y3`]; const width = Math.max(4, Math.min(100, (Number(cagr || 0) * 100 + 20) * 2)); return <div key={scenario.id}><div className="mb-1 flex justify-between text-xs"><span className="font-semibold text-slate-600">{scenario.label}</span><span className="font-bold">{percent(cagr == null ? null : Number(cagr) * 100)}</span></div><div className="h-2 rounded-full bg-slate-200"><div className={`h-full rounded-full ${scenario.bar}`} style={{ width: `${width}%` }} /></div></div> })}</div><div className="mt-5 border-t border-slate-200 pt-4"><div className="text-[11px] font-semibold uppercase text-slate-500">Next earnings</div><div className="mt-1 font-semibold">{date(selected.next_earnings_date)}</div>{selected.next_earnings_eps_forecast && <div className="text-xs text-slate-500">EPS forecast {selected.next_earnings_eps_forecast}</div>}</div></section></div></>}</main></div>
+    {modal && selected && <AssumptionsModal ticker={ticker} close={() => setModal(false)} saved={refresh} />}
+  </div>
 }
+
+function RangeButtons({ value, set, compact = false }) {
+  return <div className="flex rounded-lg bg-slate-100 p-1">{RANGES.map(([id, label]) => <button key={id} onClick={() => set(id)} className={`rounded-md font-bold ${compact ? 'px-2 py-1 text-[10px]' : 'px-3 py-1.5 text-xs'} ${value === id ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'}`}>{label}</button>)}</div>
+}
+function Empty({ text }) { return <div className="flex min-h-40 items-center justify-center p-10 text-center text-sm text-slate-500">{text}</div> }
