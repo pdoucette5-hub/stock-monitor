@@ -1470,13 +1470,19 @@ def fetch_sec_reported_fundamentals(ticker: str) -> dict[str, Any]:
     if shares_fact is None:
         missing.append("shares outstanding")
 
-    period_end = None
+    period_end = next(
+        (
+            fact.get("end")
+            for fact in (revenue_fact, net_income_fact, shares_fact)
+            if isinstance(fact, dict) and fact.get("end")
+        ),
+        None,
+    )
     filed_date = None
     form = None
     for fact in (revenue_fact, net_income_fact, shares_fact):
         if not isinstance(fact, dict):
             continue
-        period_end = max(filter(None, [period_end, fact.get("end")]), default=None)
         filed_date = max(filter(None, [filed_date, fact.get("filed")]), default=None)
         form = form or fact.get("form")
 
