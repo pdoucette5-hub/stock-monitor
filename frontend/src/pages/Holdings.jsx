@@ -110,7 +110,7 @@ function AssumptionsModal({ ticker, close, saved }) {
 
 export default function Holdings() {
   const { authEnabled, user } = useAuth(); const full = !authEnabled || user?.role !== 'limited'
-  const { view, loading, error, lastUpdated, load } = usePortfolioView()
+  const { view, setView, loading, error, lastUpdated, load } = usePortfolioView()
   const [filter, setFilter] = useState('active'); const [showHidden, setShowHidden] = useState(false)
   const [ticker, setTicker] = useState(''); const [range, setRange] = useState('1y'); const [history, setHistory] = useState({})
   const [loadingHistory, setLoadingHistory] = useState(false); const [modal, setModal] = useState(false)
@@ -145,7 +145,24 @@ export default function Holdings() {
   const saveShares = () => { const value = Number(shareDraft); if (Number.isFinite(value) && value >= 0) guard(() => savePortfolioShares(ticker, value), `Updated ${ticker} shares.`) }
   const toggle = () => guard(() => savePortfolioControls([{ ticker, show_in_holdings: selected.show_in_holdings === false }]))
   const archive = () => guard(() => archiveTicker(ticker), `Archived ${ticker}.`)
-  const remove = () => window.confirm(`Remove ${ticker} from tracking?`) && guard(() => removeTicker(ticker), `Removed ${ticker}.`)
+  const remove = async () => {
+    const removedTicker = ticker
+    if (!window.confirm(`Remove ${removedTicker} from tracking?`)) return
+    const previousView = view
+    setMenu(false); setFormError(null); setSavingTicker(removedTicker)
+    setView((current) => current ? { ...current, portfolio: (current.portfolio || []).filter((row) => row.ticker !== removedTicker) } : current)
+    try {
+      await removeTicker(removedTicker)
+      clearPortfolioViewCache()
+      setMessage(`Removed ${removedTicker}.`)
+    } catch (err) {
+      setView(previousView)
+      setTicker(removedTicker)
+      setFormError(err.message)
+    } finally {
+      setSavingTicker(null)
+    }
+  }
   const sync = async () => { setSyncing(true); try { const result = await syncSheetTickers(); setMessage(`Synced ${result.ticker_count ?? 0} tickers to Google Sheets.`) } catch (err) { setFormError(err.message) } finally { setSyncing(false) } }
   const refreshEarnings = async () => { setRefreshingEarnings(true); try { const result = await refreshEarningsCalendar(); await refresh(); setMessage(`Refreshed earnings dates for ${result?.refreshed?.length ?? 0} tickers.`) } catch (err) { setFormError(err.message) } finally { setRefreshingEarnings(false) } }
 

@@ -16,7 +16,7 @@ from typing import Any
 
 import yaml
 import requests
-from fastapi import FastAPI, Header, HTTPException, Request
+from fastapi import BackgroundTasks, FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.responses import FileResponse
@@ -47,6 +47,7 @@ from backend.price_store import (
     get_price_history_response,
     get_price_history_status,
     get_price_points_for_ticker,
+    load_price_history_store,
     upsert_price_rows,
 )
 from backend.sheets_service import push_tickers_to_sheet
@@ -390,15 +391,12 @@ CONTROL_CHANGE_LABELS = {
 def load_json_file(path: Path, default_data: Any) -> Any:
     if STATE_GCS_BUCKET:
         try:
-            from google.cloud import storage
-
-            client = storage.Client()
+            client = get_state_storage_client()
             blob = client.bucket(STATE_GCS_BUCKET).blob(
                 f"{STATE_GCS_PREFIX.rstrip('/')}/{path.name}",
             )
-            if blob.exists():
-                data = json.loads(blob.download_as_text(encoding="utf-8"))
-                return data if isinstance(data, type(default_data)) else default_data
+            data = json.loads(blob.download_as_text(encoding="utf-8"))
+            return data if isinstance(data, type(default_data)) else default_data
         except Exception:
             pass
 
@@ -421,9 +419,7 @@ def save_json_file(path: Path, data: Any) -> None:
     if not STATE_GCS_BUCKET:
         return
 
-    from google.cloud import storage
-
-    client = storage.Client()
+    client = get_state_storage_client()
     blob = client.bucket(STATE_GCS_BUCKET).blob(
         f"{STATE_GCS_PREFIX.rstrip('/')}/{path.name}",
     )
@@ -431,6 +427,14 @@ def save_json_file(path: Path, data: Any) -> None:
         json.dumps(data, indent=2),
         content_type="application/json",
     )
+
+
+def get_state_storage_client() -> Any:
+    from google.cloud import storage
+
+    # Storage's authorized HTTP session serializes concurrent requests. A client
+    # per worker lets the independent state downloads actually run in parallel.
+    return storage.Client()
 
 
 def invalidate_response_cache() -> None:
@@ -581,10 +585,13 @@ def save_transactions(data: dict[str, list[dict[str, Any]]]) -> None:
     save_json_file(TRANSACTIONS_FILE, cleaned)
 
 
-def build_position_summaries() -> dict[str, dict[str, Any]]:
+def build_position_summaries(
+    transactions: dict[str, list[dict[str, Any]]] | None = None,
+) -> dict[str, dict[str, Any]]:
+    transactions = transactions if transactions is not None else load_transactions()
     return {
         ticker: compute_position_summary(entries)
-        for ticker, entries in load_transactions().items()
+        for ticker, entries in transactions.items()
     }
 
 
@@ -838,11 +845,18 @@ def get_management_mode_source(
     return "automatic"
 
 
-def build_management_snapshot() -> dict[str, Any]:
-    transactions = load_transactions()
-    settings = load_management_modes()
-    manual_allocations = load_manual_allocations()
-    config = get_effective_tickers_config()
+def build_management_snapshot(
+    transactions: dict[str, list[dict[str, Any]]] | None = None,
+    settings: dict[str, Any] | None = None,
+    manual_allocations: list[dict[str, Any]] | None = None,
+    config: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    transactions = transactions if transactions is not None else load_transactions()
+    settings = settings if settings is not None else load_management_modes()
+    manual_allocations = (
+        manual_allocations if manual_allocations is not None else load_manual_allocations()
+    )
+    config = config if config is not None else get_effective_tickers_config()
     configured_shares = {
         row["ticker"]: float(row.get("shares") or 0.0)
         for row in normalize_portfolio(config.get("portfolio", []))
@@ -2477,9 +2491,12 @@ def apply_holdings_overrides_to_config(
 
 def get_effective_tickers_config() -> dict[str, Any]:
     base = load_tickers_config()
-    tickers_overrides = load_tickers_overrides()
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        tickers_future = executor.submit(load_tickers_overrides)
+        holdings_future = executor.submit(load_holdings_overrides)
+        tickers_overrides = tickers_future.result()
+        holdings_overrides = holdings_future.result()
     with_ticker_overrides = apply_tickers_overrides_to_config(base, tickers_overrides)
-    holdings_overrides = load_holdings_overrides()
     return apply_holdings_overrides_to_config(with_ticker_overrides, holdings_overrides)
 
 
@@ -2771,23 +2788,48 @@ def build_portfolio_view_for_request(
     request: Request,
     force_refresh: bool = False,
 ) -> dict[str, Any]:
-    position_summaries = (
-        build_position_summaries()
-        if has_full_access(request)
-        else None
-    )
+    full_access = has_full_access(request)
+    loaders = {
+        "config": lambda: get_tickers_config_for_request(request),
+        "scenarios": load_scenario_inputs,
+        "settings": load_settings_dict,
+        "earnings": load_earnings_calendar,
+        "fundamentals": load_reported_fundamentals,
+        "price_history": load_price_history_store,
+    }
+    if full_access:
+        loaders.update(
+            {
+                "transactions": load_transactions,
+                "management_modes": load_management_modes,
+                "manual_allocations": load_manual_allocations,
+            },
+        )
+
+    with ThreadPoolExecutor(max_workers=len(loaders)) as executor:
+        futures = {key: executor.submit(loader) for key, loader in loaders.items()}
+        state = {key: future.result() for key, future in futures.items()}
+
+    position_summaries = None
+    management_shares = None
+    if full_access:
+        position_summaries = build_position_summaries(state["transactions"])
+        management_shares = build_management_snapshot(
+            transactions=state["transactions"],
+            settings=state["management_modes"],
+            manual_allocations=state["manual_allocations"],
+            config=state["config"],
+        )["shares_by_mode"]
+
     return build_portfolio_views(
-        get_tickers_config_for_request(request),
-        load_scenario_inputs(),
-        load_settings_dict(),
-        management_shares=(
-            build_management_snapshot()["shares_by_mode"]
-            if has_full_access(request)
-            else None
-        ),
+        state["config"],
+        state["scenarios"],
+        state["settings"],
+        management_shares=management_shares,
         position_summaries=position_summaries,
-        earnings_calendar=load_earnings_calendar(),
-        reported_fundamentals=load_reported_fundamentals(),
+        earnings_calendar=state["earnings"],
+        reported_fundamentals=state["fundamentals"],
+        price_history=state["price_history"],
         force_refresh=force_refresh,
     )
 
@@ -3525,7 +3567,11 @@ def restore_ticker(body: RestoreTickerRequest) -> PortfolioConfig:
 
 
 @app.delete("/api/tickers/{ticker}", response_model=PortfolioConfig)
-def remove_ticker(request: Request, ticker: str) -> PortfolioConfig:
+def remove_ticker(
+    request: Request,
+    ticker: str,
+    background_tasks: BackgroundTasks,
+) -> PortfolioConfig:
     normalized = normalize_ticker(ticker)
     if not normalized:
         raise HTTPException(status_code=400, detail="Ticker is required")
@@ -3536,7 +3582,11 @@ def remove_ticker(request: Request, ticker: str) -> PortfolioConfig:
         save_user_holdings(current_user_email(request), holdings)
         return PortfolioConfig.model_validate(get_limited_tickers_config(request))
 
-    overrides = load_tickers_overrides()
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        overrides_future = executor.submit(load_tickers_overrides)
+        holdings_future = executor.submit(load_holdings_overrides)
+        overrides = overrides_future.result()
+        holdings = holdings_future.result()
     tickers_map = overrides.setdefault("tickers", {})
     current = tickers_map.get(normalized, {})
 
@@ -3546,20 +3596,27 @@ def remove_ticker(request: Request, ticker: str) -> PortfolioConfig:
         "archived": False,
         "removed": True,
     }
-    save_tickers_overrides(overrides)
-
-    holdings = load_holdings_overrides()
-    if normalized in holdings:
+    holdings_changed = normalized in holdings
+    if holdings_changed:
         del holdings[normalized]
-        save_holdings_overrides(holdings)
 
-    append_portfolio_event(
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        writes = [executor.submit(save_tickers_overrides, overrides)]
+        if holdings_changed:
+            writes.append(executor.submit(save_holdings_overrides, holdings))
+        for write in writes:
+            write.result()
+
+    background_tasks.add_task(
+        append_portfolio_event,
         "remove_ticker",
         normalized,
         {},
     )
 
-    return PortfolioConfig.model_validate(get_effective_tickers_config())
+    effective = apply_tickers_overrides_to_config(load_tickers_config(), overrides)
+    effective = apply_holdings_overrides_to_config(effective, holdings)
+    return PortfolioConfig.model_validate(effective)
 
 
 @app.get("/api/accounts")
