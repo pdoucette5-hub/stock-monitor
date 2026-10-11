@@ -1156,6 +1156,7 @@ NASDAQ_HEADERS = {
     "Referer": "https://www.nasdaq.com/",
 }
 REVENUE_FACT_CANDIDATES = (
+    "RevenuesNetOfInterestExpense",
     "RevenueFromContractWithCustomerExcludingAssessedTax",
     "Revenues",
     "SalesRevenueNet",
@@ -1373,7 +1374,7 @@ def _latest_quarterly_fact(
     unit: str,
 ) -> dict[str, Any] | None:
     candidates: list[dict[str, Any]] = []
-    for concept in concepts:
+    for priority, concept in enumerate(reversed(concepts), start=1):
         for fact in _fact_units(company_facts, concept, unit):
             if safe_float(fact.get("val")) is None:
                 continue
@@ -1383,7 +1384,14 @@ def _latest_quarterly_fact(
             duration = _duration_days(fact)
             if duration is None or duration > 130:
                 continue
-            candidates.append({**fact, "concept": concept, "duration_days": duration})
+            candidates.append(
+                {
+                    **fact,
+                    "concept": concept,
+                    "concept_priority": priority,
+                    "duration_days": duration,
+                },
+            )
 
     if not candidates:
         return None
@@ -1391,8 +1399,8 @@ def _latest_quarterly_fact(
     candidates.sort(
         key=lambda item: (
             str(item.get("end") or ""),
+            int(item.get("concept_priority") or 0),
             str(item.get("filed") or ""),
-            str(item.get("concept") or ""),
         ),
         reverse=True,
     )
