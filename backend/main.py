@@ -3312,97 +3312,36 @@ def get_compensation_tracker(
         if end_close <= 0:
             raise ValueError(f"Ending {normalized_benchmark} price must be positive")
 
-        invested_capital = start_value
-        benchmark_shares = start_value / start_close
-        available_cash = 0.0
-        bought_tickers: set[str] = set()
-        transaction_rows = sorted_transaction_rows_with_ticker(transactions)
-        transaction_index = 0
+        # Performance already derives contributed capital from the complete
+        # transaction ledger, accounting for sale proceeds and dividends that
+        # are reinvested. Rebuilding that path from the selected window's
+        # opening market value changes the basis whenever the range changes.
         benchmark_series: list[dict[str, Any]] = []
         for row in window_portfolio:
             row_date = str(row.get("date") or "")
             if not row_date:
                 continue
-            close = benchmark_close_on_or_before(
-                benchmark_lookup,
-                benchmark_dates_sorted,
-                row_date,
-            )
-            if close is None or close <= 0:
+            capital_basis = safe_float(row.get("capital_basis"))
+            benchmark_value_for_date = safe_float(row.get("benchmark_value"))
+            if capital_basis is None or benchmark_value_for_date is None:
                 continue
-            while (
-                transaction_index < len(transaction_rows)
-                and str(transaction_rows[transaction_index].get("date") or "") <= row_date
-            ):
-                tx_date = str(transaction_rows[transaction_index].get("date") or "")
-                same_day_rows: list[dict[str, Any]] = []
-                while (
-                    transaction_index < len(transaction_rows)
-                    and str(transaction_rows[transaction_index].get("date") or "") == tx_date
-                ):
-                    same_day_rows.append(transaction_rows[transaction_index])
-                    transaction_index += 1
-
-                for tx in sorted(same_day_rows, key=compensation_same_day_priority):
-                    if not (start_portfolio_date <= tx_date <= end_portfolio_date):
-                        continue
-                    tx_type = str(tx.get("type") or "").strip().lower()
-                    tx_ticker = normalize_ticker(tx.get("ticker") or "")
-                    tx_close = benchmark_close_on_or_before(
-                        benchmark_lookup,
-                        benchmark_dates_sorted,
-                        tx_date,
-                    )
-                    amount = transaction_trade_amount(tx)
-
-                    if tx_type == "buy":
-                        funded_by_cash = min(available_cash, amount)
-                        available_cash -= funded_by_cash
-                        new_capital = amount - funded_by_cash
-                        if new_capital > 1e-9 and tx_close and tx_close > 0:
-                            benchmark_shares += new_capital / tx_close
-                            invested_capital += new_capital
-
-                    elif tx_type == "sell":
-                        proceeds = transaction_sell_proceeds(tx)
-                        if tx_ticker and tx_ticker not in bought_tickers:
-                            if proceeds > 1e-9 and tx_close and tx_close > 0:
-                                benchmark_shares += proceeds / tx_close
-                                invested_capital += proceeds
-                        available_cash += proceeds
-
-                    elif tx_type in {"transfer_in", "adjustment"}:
-                        if amount > 1e-9 and tx_close and tx_close > 0:
-                            benchmark_shares += amount / tx_close
-                            invested_capital += amount
-                            if tx_ticker:
-                                bought_tickers.add(tx_ticker)
-
-                    elif tx_type == "transfer_out":
-                        withdrawal = transaction_sell_proceeds(tx)
-                        if withdrawal > 1e-9 and tx_close and tx_close > 0:
-                            benchmark_shares = max(
-                                benchmark_shares - (withdrawal / tx_close),
-                                0.0,
-                            )
-                            invested_capital = max(invested_capital - withdrawal, 0.0)
-
-                    if tx_type == "buy" and tx_ticker and amount > 0:
-                        bought_tickers.add(tx_ticker)
-
             cost_basis = safe_float(row.get("cost_basis")) or 0.0
             market_value = safe_float(row.get("market_value")) or 0.0
-            benchmark_value_for_date = benchmark_shares * close
             benchmark_series.append(
                 {
                     "date": row_date,
                     "market_value": round(market_value, 8),
                     "cost_basis": round(cost_basis, 8),
+                    "capital_basis": round(capital_basis, 8),
                     "benchmark_value": round(benchmark_value_for_date, 8),
                 }
             )
         if len(benchmark_series) < 2:
             raise ValueError("Need at least two benchmark-equivalent points")
+
+        invested_capital = benchmark_series[-1]["capital_basis"]
+        if invested_capital <= 0:
+            raise ValueError("Current capital basis must be positive")
 
         distributions = 0.0
         for ticker, entries in transactions.items():
