@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 *,
 *::before,
@@ -15,6 +16,56 @@ body {
   margin: 0;
   min-height: 100vh;
 }
+
+html.dark {
+  color-scheme: dark;
+  background: #020617;
+}
+
+html.dark body {
+  background: #020617;
+}
+
+/* Shared surfaces use a small, centralized dark palette so every existing
+   workspace participates in the theme without duplicating classes per page. */
+.dark .bg-white { background-color: #0f172a; }
+.dark .bg-white\/95 { background-color: rgb(15 23 42 / 95%); }
+.dark .bg-slate-50 { background-color: #020617; }
+.dark .bg-slate-50\/50,
+.dark .bg-slate-50\/60,
+.dark .bg-slate-50\/70,
+.dark .bg-slate-50\/80 { background-color: rgb(15 23 42 / 72%); }
+.dark .bg-slate-100,
+.dark .bg-slate-100\/50 { background-color: #1e293b; }
+.dark .border-slate-100 { border-color: #1e293b; }
+.dark .border-slate-200,
+.dark .border-slate-300 { border-color: #334155; }
+.dark .text-slate-950,
+.dark .text-slate-900,
+.dark .text-slate-800 { color: #f8fafc; }
+.dark .text-slate-700,
+.dark .text-slate-600 { color: #cbd5e1; }
+.dark .text-slate-500,
+.dark .text-slate-400 { color: #94a3b8; }
+.dark .hover\:bg-slate-50:hover,
+.dark .hover\:bg-slate-100:hover { background-color: #1e293b; }
+.dark .hover\:text-slate-900:hover { color: #fff; }
+.dark .bg-blue-50 { background-color: #172554; }
+.dark .bg-emerald-50 { background-color: #052e2b; }
+.dark .bg-red-50 { background-color: #450a0a; }
+.dark .bg-amber-50 { background-color: #451a03; }
+.dark .text-blue-700,
+.dark .text-blue-800 { color: #93c5fd; }
+.dark .text-emerald-800,
+.dark .text-emerald-900 { color: #a7f3d0; }
+.dark .text-red-700,
+.dark .text-red-800 { color: #fecaca; }
+.dark input,
+.dark select,
+.dark textarea { background-color: #0f172a; color: #f8fafc; }
+.dark svg line[stroke="#e2e8f0"] { stroke: #334155; }
+.dark svg line[stroke="#f1f5f9"] { stroke: #1e293b; }
+.dark svg text[fill="#64748b"] { fill: #94a3b8; }
 
 #root {
   min-height: 100vh;
