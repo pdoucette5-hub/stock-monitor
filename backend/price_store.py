@@ -17,6 +17,8 @@ PRICE_HISTORY_GCS_BLOB = os.getenv(
 )
 
 RANGE_DAYS = {
+    "1d": 1,
+    "7d": 7,
     "1m": 31,
     "3m": 92,
     "6m": 183,
@@ -221,6 +223,11 @@ def _filter_rows_for_range(rows: list[dict[str, Any]], range_key: str) -> list[d
 
     if not rows:
         return []
+
+    # A one-day change needs the latest close and the prior trading close.
+    # Selecting by one calendar day would otherwise fail on Mondays/holidays.
+    if range_key == "1d":
+        return rows[-2:]
 
     latest_date = _parse_date(rows[-1]["date"])
     cutoff = latest_date - timedelta(days=RANGE_DAYS[range_key])
