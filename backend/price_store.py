@@ -305,9 +305,10 @@ def get_price_comparison_response(tickers: list[str], range_key: str = "3y") -> 
 
     results: dict[str, list[dict[str, Any]]] = {}
     common_dates: set[str] | None = None
+    store = load_price_history_store()
 
     for ticker in normalized_tickers:
-        points = get_price_points_for_ticker(ticker, range_key)
+        points = get_price_points_for_ticker(ticker, range_key, store=store)
         valid_points = [
             {
                 "date": str(point["date"]),
@@ -355,4 +356,5 @@ def get_price_comparison_response(tickers: list[str], range_key: str = "3y") -> 
         "range": range_key,
         "tickers": normalized_tickers,
         "series": normalized_series,
+        "price_series": results,
     }

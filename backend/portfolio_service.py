@@ -523,7 +523,7 @@ def build_portfolio_views(
     market_df = get_live_market_data(
         all_tickers,
         force_refresh=force_refresh,
-        max_age_hours=12,
+        max_age_hours=12 if force_refresh else 99999,
     ).copy()
 
     summary_rows: list[dict[str, Any]] = []

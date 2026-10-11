@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import PageToolbar from '../components/PageToolbar'
 import { clearPortfolioViewCache, usePortfolioView } from '../hooks/usePortfolioView'
 import {
-  addPortfolioTicker, archiveTicker, fetchPriceHistory, fetchStockScenario,
+  addPortfolioTicker, archiveTicker, fetchPriceComparison, fetchStockScenario,
   refreshEarningsCalendar, removeTicker, savePortfolioControls, savePortfolioShares,
   saveStockScenario, syncSheetTickers,
 } from '../lib/api'
@@ -123,7 +123,7 @@ export default function Holdings() {
     if (!full || !view || autoRefresh.current) return
     autoRefresh.current = true; const key = 'stock-monitor-earnings-last-refresh'; const last = Number(localStorage.getItem(key) || 0)
     if (Date.now() - last < 3 * 86400000) return
-    setRefreshingEarnings(true); refreshEarningsCalendar([], 120).then(() => { localStorage.setItem(key, String(Date.now())); clearPortfolioViewCache(); return load(true) }).catch((err) => setFormError(err.message)).finally(() => setRefreshingEarnings(false))
+    setRefreshingEarnings(true); refreshEarningsCalendar([], 120).then(() => { localStorage.setItem(key, String(Date.now())); clearPortfolioViewCache() }).catch((err) => setFormError(err.message)).finally(() => setRefreshingEarnings(false))
   }, [full, load, view])
 
   const rows = useMemo(() => {
@@ -134,7 +134,7 @@ export default function Holdings() {
   useEffect(() => { if (!rows.length) setTicker(''); else if (!rows.some((row) => row.ticker === ticker)) setTicker(rows[0].ticker) }, [rows, ticker])
   useEffect(() => {
     if (!rows.length) return; let cancelled = false; setLoadingHistory(true)
-    Promise.all(rows.map(async (row) => { try { const result = await fetchPriceHistory(row.ticker, range); return [row.ticker, result?.points || []] } catch { return [row.ticker, []] } })).then((entries) => { if (!cancelled) setHistory(Object.fromEntries(entries)) }).finally(() => { if (!cancelled) setLoadingHistory(false) })
+    fetchPriceComparison(rows.map((row) => row.ticker), range).then((result) => { if (!cancelled) setHistory(result?.price_series || result?.series || {}) }).catch(() => { if (!cancelled) setHistory({}) }).finally(() => { if (!cancelled) setLoadingHistory(false) })
     return () => { cancelled = true }
   }, [range, rows])
   const selected = rows.find((row) => row.ticker === ticker); const points = history[ticker] || []; const selectedGain = gainForRow(selected, points, range)
