@@ -1054,87 +1054,126 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
                   )}
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    onClick={() => selectActualsSource('manual')}
-                    disabled={saving}
-                    className={[
-                      'rounded-md px-3 py-2 text-sm font-medium',
-                      actualsPreference === 'manual'
-                        ? 'bg-slate-900 text-white'
-                        : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50',
-                    ].join(' ')}
-                  >
-                    Use manual inputs
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => selectActualsSource('reported')}
-                    disabled={!reportedAvailable || saving}
-                    title={reportedAvailable ? 'Use saved SEC reported actuals' : 'Refresh online data first'}
-                    className={[
-                      'rounded-md px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50',
-                      actualsPreference === 'reported'
-                        ? 'bg-slate-900 text-white'
-                        : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50',
-                    ].join(' ')}
-                  >
-                    Use pulled SEC actuals
-                  </button>
-                </div>
-
-                <div
-                  className={[
-                    'mt-4 rounded-lg border px-4 py-3 text-sm',
-                    actualsPreference === 'reported'
-                      ? 'border-blue-200 bg-blue-50 text-blue-900'
-                      : 'border-slate-200 bg-slate-50 text-slate-700',
-                  ].join(' ')}
-                >
-                  <span className="font-semibold">Valuation source: </span>
-                  {actualsPreference === 'reported'
-                    ? 'pulled SEC actuals (manual values remain as fallbacks for any missing SEC fields).'
-                    : 'manual inputs.'}
-                  {saving && <span className="ml-2">Saving…</span>}
-                </div>
-
                 <div className="mt-5 grid gap-4 lg:grid-cols-2">
-                  <div className={[
-                    'rounded-lg border bg-slate-50 p-4',
-                    actualsPreference === 'manual' ? 'border-blue-400 ring-1 ring-blue-300' : 'border-slate-200',
-                  ].join(' ')}>
-                    <div className="text-sm font-semibold text-slate-900">
-                      Manual Stock Detail
+                  <div
+                    role="radio"
+                    aria-checked={actualsPreference === 'manual'}
+                    tabIndex={0}
+                    onClick={() => selectActualsSource('manual')}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault()
+                        selectActualsSource('manual')
+                      }
+                    }}
+                    className={[
+                      'cursor-pointer rounded-lg border bg-slate-50 p-4 transition',
+                      actualsPreference === 'manual'
+                        ? 'border-blue-500 ring-2 ring-blue-300'
+                        : 'border-slate-200 hover:border-slate-400',
+                    ].join(' ')}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="text-sm font-semibold text-slate-900">
+                        Manual Stock Detail
+                      </div>
+                      <span className={[
+                        'rounded-full px-2 py-1 text-xs font-semibold',
+                        actualsPreference === 'manual'
+                          ? 'bg-blue-100 text-blue-800'
+                          : 'bg-white text-slate-500',
+                      ].join(' ')}>
+                        {actualsPreference === 'manual' ? 'Selected' : 'Select'}
+                      </span>
                     </div>
-                    <dl className="mt-3 grid gap-2 text-sm text-slate-700">
-                      <div className="flex justify-between gap-4">
-                        <dt>Revenue</dt>
-                        <dd>{form.latestQuarterRevenueB === '' ? '—' : `$${Number(form.latestQuarterRevenueB).toFixed(2)}B`}</dd>
+                    <p className="mt-1 text-xs text-slate-500">
+                      Editable values, preserved when SEC actuals are selected.
+                    </p>
+                    <div className="mt-4 grid gap-4">
+                      <div>
+                        <label htmlFor="latest-q-rev" className={labelClass}>
+                          Latest Quarter Revenue ($B)
+                        </label>
+                        <input
+                          id="latest-q-rev"
+                          type="number"
+                          step="0.01"
+                          value={form.latestQuarterRevenueB}
+                          onChange={(event) => updateBase('latestQuarterRevenueB', event.target.value)}
+                          className={inputClass}
+                          placeholder="e.g. 95.00"
+                        />
                       </div>
-                      <div className="flex justify-between gap-4">
-                        <dt>Net income</dt>
-                        <dd>{form.latestQuarterNetIncomeB === '' ? '—' : `$${Number(form.latestQuarterNetIncomeB).toFixed(2)}B`}</dd>
+                      <div>
+                        <label htmlFor="latest-q-ni" className={labelClass}>
+                          Latest Quarter Net Income ($B)
+                        </label>
+                        <input
+                          id="latest-q-ni"
+                          type="number"
+                          step="0.01"
+                          value={form.latestQuarterNetIncomeB}
+                          onChange={(event) => updateBase('latestQuarterNetIncomeB', event.target.value)}
+                          className={inputClass}
+                          placeholder="e.g. 24.00"
+                        />
                       </div>
-                      <div className="flex justify-between gap-4">
-                        <dt>Shares</dt>
-                        <dd>{form.sharesOutstandingB === '' ? '—' : `${Number(form.sharesOutstandingB).toFixed(2)}B`}</dd>
+                      <div>
+                        <label htmlFor="shares-out" className={labelClass}>
+                          Shares Outstanding (B)
+                        </label>
+                        <input
+                          id="shares-out"
+                          type="number"
+                          step="0.01"
+                          value={form.sharesOutstandingB}
+                          onChange={(event) => updateBase('sharesOutstandingB', event.target.value)}
+                          className={inputClass}
+                          placeholder="e.g. 15.00"
+                        />
                       </div>
-                    </dl>
+                    </div>
                   </div>
 
-                  <div className={[
-                    'rounded-lg border bg-slate-50 p-4',
-                    actualsPreference === 'reported' ? 'border-blue-400 ring-1 ring-blue-300' : 'border-slate-200',
-                  ].join(' ')}>
+                  <div
+                    role="radio"
+                    aria-checked={actualsPreference === 'reported'}
+                    aria-disabled={!reportedAvailable || saving}
+                    tabIndex={reportedAvailable ? 0 : -1}
+                    onClick={() => reportedAvailable && selectActualsSource('reported')}
+                    onKeyDown={(event) => {
+                      if (reportedAvailable && (event.key === 'Enter' || event.key === ' ')) {
+                        event.preventDefault()
+                        selectActualsSource('reported')
+                      }
+                    }}
+                    title={reportedAvailable ? 'Select pulled SEC actuals' : 'Refresh online data first'}
+                    className={[
+                      'rounded-lg border bg-slate-50 p-4 transition',
+                      reportedAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-60',
+                      actualsPreference === 'reported'
+                        ? 'border-blue-500 ring-2 ring-blue-300'
+                        : 'border-slate-200 hover:border-slate-400',
+                    ].join(' ')}
+                  >
                     <div className="flex items-center justify-between gap-3">
                       <div className="text-sm font-semibold text-slate-900">
                         Pulled SEC Actuals
                       </div>
-                      <span className="rounded-full bg-white px-2 py-1 text-xs font-medium text-slate-600">
-                        {selectedReported?.confidence ?? (loadingReported ? 'loading' : 'not pulled')}
+                      <span className={[
+                        'rounded-full px-2 py-1 text-xs font-semibold',
+                        actualsPreference === 'reported'
+                          ? 'bg-blue-100 text-blue-800'
+                          : 'bg-white text-slate-500',
+                      ].join(' ')}>
+                        {actualsPreference === 'reported'
+                          ? 'Selected'
+                          : selectedReported?.confidence ?? (loadingReported ? 'loading' : 'not pulled')}
                       </span>
                     </div>
+                    <p className="mt-1 text-xs text-slate-500">
+                      Read-only filing values; manual inputs fill any missing fields.
+                    </p>
                     <dl className="mt-3 grid gap-2 text-sm text-slate-700">
                       <div className="flex justify-between gap-4">
                         <dt>Revenue</dt>
@@ -1152,67 +1191,6 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
                     <div className="mt-3 text-xs text-slate-500">
                       Period {formatDate(selectedReported?.period_end)} · filed {formatDate(selectedReported?.filed_date)}
                     </div>
-                  </div>
-                </div>
-              </section>}
-
-              {showFinancials && <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h2 className="text-lg font-semibold text-slate-900">
-                  Base Inputs
-                </h2>
-                <p className="mt-1 text-sm text-slate-500">
-                  {actualsPreference === 'reported'
-                    ? 'Manual fallback values for SEC fields that are unavailable; enter values in billions.'
-                    : 'Latest-quarter starting point (stored as raw dollars/shares; enter values in billions).'}
-                </p>
-                <div className="mt-5 grid gap-5 sm:grid-cols-3">
-                  <div>
-                    <label htmlFor="latest-q-rev" className={labelClass}>
-                      Latest Quarter Revenue ($B)
-                    </label>
-                    <input
-                      id="latest-q-rev"
-                      type="number"
-                      step="0.01"
-                      value={form.latestQuarterRevenueB}
-                      onChange={(e) =>
-                        updateBase('latestQuarterRevenueB', e.target.value)
-                      }
-                      className={inputClass}
-                      placeholder="e.g. 95.00"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="latest-q-ni" className={labelClass}>
-                      Latest Quarter Net Income ($B)
-                    </label>
-                    <input
-                      id="latest-q-ni"
-                      type="number"
-                      step="0.01"
-                      value={form.latestQuarterNetIncomeB}
-                      onChange={(e) =>
-                        updateBase('latestQuarterNetIncomeB', e.target.value)
-                      }
-                      className={inputClass}
-                      placeholder="e.g. 24.00"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="shares-out" className={labelClass}>
-                      Shares Outstanding (B)
-                    </label>
-                    <input
-                      id="shares-out"
-                      type="number"
-                      step="0.01"
-                      value={form.sharesOutstandingB}
-                      onChange={(e) =>
-                        updateBase('sharesOutstandingB', e.target.value)
-                      }
-                      className={inputClass}
-                      placeholder="e.g. 15.00"
-                    />
                   </div>
                 </div>
 
