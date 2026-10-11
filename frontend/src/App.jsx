@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
+import { Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import Holdings from './pages/Holdings'
 import Watchlist from './pages/Watchlist'
 import Redistribution from './pages/Redistribution'
 import Actions from './pages/Actions'
-import StockDetail from './pages/StockDetail'
 import Archived from './pages/Archived'
 import Performance from './pages/Performance'
 import ChangeLog from './pages/ChangeLog'
@@ -28,6 +27,13 @@ function initialDarkMode() {
   const saved = localStorage.getItem('stock-monitor-theme')
   if (saved) return saved === 'dark'
   return true
+}
+
+function StockDetailRedirect() {
+  const location = useLocation()
+  const params = new URLSearchParams(location.search)
+  if (!params.has('tab')) params.set('tab', 'forecast')
+  return <Navigate to={`/?${params.toString()}`} replace />
 }
 
 export default function App() {
@@ -96,9 +102,6 @@ export default function App() {
                 </NavLink>
               </>
             )}
-            <NavLink to="/stock" className={navClass}>
-              Stock Detail
-            </NavLink>
             <button
               type="button"
               onClick={() => setDarkMode((current) => !current)}
@@ -165,7 +168,7 @@ export default function App() {
             path="/archived"
             element={hasFullAccess ? <Archived /> : <Navigate to={defaultPath} replace />}
           />
-          <Route path="/stock" element={<StockDetail />} />
+          <Route path="/stock" element={<StockDetailRedirect />} />
           <Route path="*" element={<Navigate to={defaultPath} replace />} />
         </Routes>
       </main>

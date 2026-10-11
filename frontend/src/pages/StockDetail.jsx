@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import {
@@ -360,9 +361,13 @@ function PriceChart({ points }) {
   )
 }
 
-export default function StockDetail() {
+export default function StockDetail({ embeddedTicker = '', embeddedSection = '' }) {
   const { authEnabled, user } = useAuth()
   const hasFullAccess = !authEnabled || user?.role !== 'limited'
+  const embedded = Boolean(embeddedTicker)
+  const showFinancials = !embedded || embeddedSection === 'financials'
+  const showForecast = !embedded || embeddedSection === 'forecast'
+  const showActivity = !embedded || embeddedSection === 'activity'
   const [searchParams, setSearchParams] = useSearchParams()
   const [tickers, setTickers] = useState([])
   const [selectedTicker, setSelectedTicker] = useState('')
@@ -396,6 +401,11 @@ export default function StockDetail() {
     let cancelled = false
 
     async function loadTickers() {
+      if (embedded) {
+        setSelectedTicker(String(embeddedTicker).trim().toUpperCase())
+        setLoadingTickers(false)
+        return
+      }
       setLoadingTickers(true)
       setError(null)
       try {
@@ -435,10 +445,10 @@ export default function StockDetail() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [embedded, embeddedTicker])
 
   const loadAccounts = useCallback(async () => {
-    if (!hasFullAccess) {
+    if (!hasFullAccess || (embedded && !showActivity)) {
       setAccountOptions([])
       return
     }
@@ -453,10 +463,10 @@ export default function StockDetail() {
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load accounts')
     }
-  }, [hasFullAccess])
+  }, [embedded, hasFullAccess, showActivity])
 
   const loadReportedFundamentals = useCallback(async () => {
-    if (!hasFullAccess) {
+    if (!hasFullAccess || (embedded && !showFinancials && !showForecast)) {
       setReportedFundamentals({})
       return
     }
@@ -470,7 +480,7 @@ export default function StockDetail() {
     } finally {
       setLoadingReported(false)
     }
-  }, [hasFullAccess])
+  }, [embedded, hasFullAccess, showFinancials, showForecast])
 
   useEffect(() => {
     loadAccounts()
@@ -478,6 +488,7 @@ export default function StockDetail() {
   }, [loadAccounts, loadReportedFundamentals])
 
   useEffect(() => {
+    if (embedded) return
     const queryTicker = searchParams.get('ticker')?.trim().toUpperCase()
     if (
       queryTicker &&
@@ -486,7 +497,7 @@ export default function StockDetail() {
     ) {
       setSelectedTicker(queryTicker)
     }
-  }, [searchParams, tickers, selectedTicker])
+  }, [embedded, searchParams, tickers, selectedTicker])
 
   const loadScenario = useCallback(async (ticker) => {
     if (!ticker) {
@@ -585,16 +596,18 @@ export default function StockDetail() {
 
   useEffect(() => {
     if (!selectedTicker) return
-    loadScenario(selectedTicker)
-    loadTickerTransactions(selectedTicker)
-    loadPosition(selectedTicker)
+    if (!embedded || showFinancials || showForecast) loadScenario(selectedTicker)
+    if (!embedded || showActivity) {
+      loadTickerTransactions(selectedTicker)
+      loadPosition(selectedTicker)
+    }
     setTransactionForm(emptyTransactionForm())
-  }, [selectedTicker, loadScenario, loadTickerTransactions, loadPosition])
+  }, [embedded, selectedTicker, showActivity, showFinancials, showForecast, loadScenario, loadTickerTransactions, loadPosition])
 
   useEffect(() => {
-    if (!selectedTicker) return
+    if (!selectedTicker || embedded) return
     loadPriceHistory(selectedTicker, priceRange)
-  }, [selectedTicker, priceRange, loadPriceHistory])
+  }, [embedded, selectedTicker, priceRange, loadPriceHistory])
 
   const handleTickerChange = (event) => {
     const nextTicker = event.target.value
@@ -834,13 +847,13 @@ export default function StockDetail() {
   }, [autosaveState, hasUnsavedChanges])
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-      <header className="mb-8">
+    <div className={embedded ? 'px-5 py-6 sm:px-7' : 'mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8'}>
+      {!embedded && <header className="mb-8">
         <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
           Stock Detail
         </h1>
         <p className="mt-1 text-sm text-slate-600">{pageSubtitle}</p>
-      </header>
+      </header>}
 
       {error && (
         <div
@@ -869,7 +882,7 @@ export default function StockDetail() {
         </div>
       )}
 
-      <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      {!embedded && <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <label htmlFor="ticker-select" className={labelClass}>
           Ticker
         </label>
@@ -895,13 +908,13 @@ export default function StockDetail() {
             Editing: <span className="font-semibold">{selectedTicker}</span>
           </p>
         )}
-      </div>
+      </div>}
 
       {!selectedTicker ? (
         <p className="text-sm text-slate-500">Select a ticker to edit assumptions.</p>
       ) : (
         <div className="space-y-6">
-          <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          {!embedded && <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <div>
                 <h2 className="text-lg font-semibold text-slate-900">Price History</h2>
@@ -935,9 +948,9 @@ export default function StockDetail() {
             ) : (
               <PriceChart points={priceHistory} />
             )}
-          </section>
+          </section>}
 
-          {hasFullAccess && (
+          {hasFullAccess && showActivity && (
             <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="mb-4">
                 <h2 className="text-lg font-semibold text-slate-900">Position Summary</h2>
@@ -991,7 +1004,7 @@ export default function StockDetail() {
 
           <form onSubmit={handleSave} className="space-y-6">
             <fieldset disabled={disableForm} className="space-y-6">
-              <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              {showFinancials && <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
                     <h2 className="text-lg font-semibold text-slate-900">
@@ -1091,9 +1104,9 @@ export default function StockDetail() {
                     </div>
                   </div>
                 </div>
-              </section>
+              </section>}
 
-              <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              {showFinancials && <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-slate-900">
                   Base Inputs
                 </h2>
@@ -1165,9 +1178,9 @@ export default function StockDetail() {
                     placeholder="Assumption notes…"
                   />
                 </div>
-              </section>
+              </section>}
 
-              {SCENARIO_BLOCKS.map(({ key, title, headerClass }) => (
+              {showForecast && SCENARIO_BLOCKS.map(({ key, title, headerClass }) => (
                 <ScenarioBlock
                   key={key}
                   scenarioKey={key}
@@ -1180,7 +1193,7 @@ export default function StockDetail() {
               ))}
             </fieldset>
 
-            <div className="flex flex-wrap items-center gap-4">
+            {(showFinancials || showForecast) && <div className="flex flex-wrap items-center gap-4">
               <button
                 type="submit"
                 disabled={disableForm}
@@ -1203,10 +1216,10 @@ export default function StockDetail() {
               {loadingForm && (
                 <span className="text-sm text-slate-500">Loading form…</span>
               )}
-            </div>
+            </div>}
           </form>
 
-          {hasFullAccess && (
+          {hasFullAccess && showActivity && (
           <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="mb-5">
               <h2 className="text-lg font-semibold text-slate-900">Transactions</h2>
