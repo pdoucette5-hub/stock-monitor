@@ -92,6 +92,9 @@ STATE_GCS_BUCKET = os.getenv(
     os.getenv("PRICE_HISTORY_GCS_BUCKET", ""),
 )
 STATE_GCS_PREFIX = os.getenv("STOCK_MONITOR_STATE_GCS_PREFIX", "stock-monitor/state")
+STATE_GCS_BUNDLE_BLOB = (
+    f"{STATE_GCS_PREFIX.rstrip('/')}/state_bundle.json"
+)
 
 SCENARIO_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
 GLOBAL_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -109,6 +112,8 @@ EARNINGS_CALENDAR_FILE.parent.mkdir(parents=True, exist_ok=True)
 RESPONSE_CACHE_TTL_SECONDS = int(os.getenv("STOCK_MONITOR_RESPONSE_CACHE_TTL_SECONDS", "600"))
 _response_cache: dict[str, tuple[float, Any]] = {}
 _response_cache_lock = threading.Lock()
+_state_bundle_cache: dict[str, Any] | None = None
+_state_bundle_lock = threading.RLock()
 
 app = FastAPI(title="Stock Monitor API", version="0.1.0")
 
@@ -391,6 +396,12 @@ CONTROL_CHANGE_LABELS = {
 def load_json_file(path: Path, default_data: Any) -> Any:
     if STATE_GCS_BUCKET:
         try:
+            bundle = load_state_bundle()
+            if bundle is not None:
+                data = bundle.get(path.name, default_data)
+                return data if isinstance(data, type(default_data)) else default_data
+
+            # Compatibility path for buckets not migrated to a bundle yet.
             client = get_state_storage_client()
             blob = client.bucket(STATE_GCS_BUCKET).blob(
                 f"{STATE_GCS_PREFIX.rstrip('/')}/{path.name}",
@@ -419,14 +430,7 @@ def save_json_file(path: Path, data: Any) -> None:
     if not STATE_GCS_BUCKET:
         return
 
-    client = get_state_storage_client()
-    blob = client.bucket(STATE_GCS_BUCKET).blob(
-        f"{STATE_GCS_PREFIX.rstrip('/')}/{path.name}",
-    )
-    blob.upload_from_string(
-        json.dumps(data, indent=2),
-        content_type="application/json",
-    )
+    save_state_bundle_value(path.name, data)
 
 
 def get_state_storage_client() -> Any:
@@ -435,6 +439,54 @@ def get_state_storage_client() -> Any:
     # Storage's authorized HTTP session serializes concurrent requests. A client
     # per worker lets the independent state downloads actually run in parallel.
     return storage.Client()
+
+
+def load_state_bundle(force: bool = False) -> dict[str, Any] | None:
+    global _state_bundle_cache
+    with _state_bundle_lock:
+        if _state_bundle_cache is not None and not force:
+            return _state_bundle_cache
+        try:
+            client = get_state_storage_client()
+            blob = client.bucket(STATE_GCS_BUCKET).blob(STATE_GCS_BUNDLE_BLOB)
+            payload = json.loads(blob.download_as_text(encoding="utf-8"))
+            if not isinstance(payload, dict):
+                return None
+            _state_bundle_cache = payload
+            return _state_bundle_cache
+        except Exception:
+            return None
+
+
+def save_state_bundle_value(name: str, data: Any) -> None:
+    global _state_bundle_cache
+    from google.api_core.exceptions import NotFound, PreconditionFailed
+
+    with _state_bundle_lock:
+        client = get_state_storage_client()
+        blob = client.bucket(STATE_GCS_BUCKET).blob(STATE_GCS_BUNDLE_BLOB)
+        for attempt in range(3):
+            try:
+                try:
+                    payload = json.loads(blob.download_as_text(encoding="utf-8"))
+                    generation = blob.generation
+                except NotFound:
+                    payload = {}
+                    generation = 0
+                if not isinstance(payload, dict):
+                    payload = {}
+                payload[name] = data
+                blob.upload_from_string(
+                    json.dumps(payload, indent=2),
+                    content_type="application/json",
+                    if_generation_match=generation,
+                )
+                _state_bundle_cache = payload
+                return
+            except PreconditionFailed:
+                if attempt == 2:
+                    raise
+                blob.reload()
 
 
 def invalidate_response_cache() -> None:
