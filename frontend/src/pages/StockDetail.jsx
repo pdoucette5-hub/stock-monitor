@@ -639,16 +639,28 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
       const result = await refreshReportedFundamentals([selectedTicker])
       const refreshed = result?.refreshed?.length ?? 0
       const tickerError = result?.errors?.find((item) => item?.ticker === selectedTicker)
+      const autoSelected = result?.auto_selected_actuals?.some(
+        (item) => item?.ticker === selectedTicker && item?.source === 'reported',
+      )
+      let confirmationMessage = null
       if (tickerError) {
         setError(tickerError.error || `Failed to refresh ${selectedTicker}`)
       } else {
-        setSaveMessage(
-          refreshed
+        confirmationMessage = autoSelected
+          ? `Refreshed online data. Valuation now uses pulled SEC actuals for ${selectedTicker}.`
+          : refreshed
             ? `Refreshed online data for ${selectedTicker}.`
-            : `No online data found for ${selectedTicker}.`,
-        )
+            : `No online data found for ${selectedTicker}.`
       }
       await loadReportedFundamentals()
+      if (autoSelected) {
+        if (hasUnsavedChanges) {
+          setForm((prev) => ({ ...prev, actualsSourcePreference: 'reported' }))
+        } else {
+          await loadScenario(selectedTicker)
+        }
+      }
+      if (confirmationMessage) setSaveMessage(confirmationMessage)
       clearPortfolioViewCache()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to refresh online data')
@@ -667,10 +679,10 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
     setAutosaveState('idle')
   }
 
-  const persistScenario = useCallback(async () => {
+  const persistScenario = useCallback(async (nextForm = form, successMessage = null) => {
     if (!selectedTicker) return
 
-    const payload = formToApi(form)
+    const payload = formToApi(nextForm)
     const signature = JSON.stringify(payload)
 
     if (signature === lastSavedPayloadRef.current) {
@@ -689,18 +701,19 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
     setError(null)
 
     try {
-      await saveStockScenario(selectedTicker, payload)
+      const result = await saveStockScenario(selectedTicker, payload)
 
       if (saveId !== saveSequenceRef.current) return
 
-      lastSavedPayloadRef.current = signature
+      const savedForm = apiToForm(result?.scenario ?? payload)
+      setForm(savedForm)
+      lastSavedPayloadRef.current = JSON.stringify(formToApi(savedForm))
       setHasUnsavedChanges(false)
       setIsNewTicker(false)
       clearPortfolioViewCache()
 
       setAutosaveState('saved')
-      await loadScenario(selectedTicker)
-      setSaveMessage(`Saved assumptions for ${selectedTicker}.`)
+      setSaveMessage(successMessage ?? `Saved assumptions for ${selectedTicker}.`)
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Failed to save assumptions'
       setError(message)
@@ -708,7 +721,22 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
     } finally {
       setSaving(false)
     }
-  }, [form, loadScenario, selectedTicker])
+  }, [form, selectedTicker])
+
+  const selectActualsSource = (preference) => {
+    if (preference === actualsPreference || saving) return
+    const nextForm = { ...form, actualsSourcePreference: preference }
+    setForm(nextForm)
+    setHasUnsavedChanges(true)
+    setAutosaveState('saving')
+    setSaveMessage(null)
+    persistScenario(
+      nextForm,
+      preference === 'reported'
+        ? `Valuation now uses pulled SEC actuals for ${selectedTicker}.`
+        : `Valuation now uses manual inputs for ${selectedTicker}.`,
+    )
+  }
 
   const handleSave = async (event) => {
     event.preventDefault()
@@ -1029,7 +1057,8 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
                 <div className="mt-5 flex flex-wrap gap-2">
                   <button
                     type="button"
-                    onClick={() => updateBase('actualsSourcePreference', 'manual')}
+                    onClick={() => selectActualsSource('manual')}
+                    disabled={saving}
                     className={[
                       'rounded-md px-3 py-2 text-sm font-medium',
                       actualsPreference === 'manual'
@@ -1041,8 +1070,8 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
                   </button>
                   <button
                     type="button"
-                    onClick={() => updateBase('actualsSourcePreference', 'reported')}
-                    disabled={!reportedAvailable}
+                    onClick={() => selectActualsSource('reported')}
+                    disabled={!reportedAvailable || saving}
                     title={reportedAvailable ? 'Use saved SEC reported actuals' : 'Refresh online data first'}
                     className={[
                       'rounded-md px-3 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50',
@@ -1055,8 +1084,26 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
                   </button>
                 </div>
 
+                <div
+                  className={[
+                    'mt-4 rounded-lg border px-4 py-3 text-sm',
+                    actualsPreference === 'reported'
+                      ? 'border-blue-200 bg-blue-50 text-blue-900'
+                      : 'border-slate-200 bg-slate-50 text-slate-700',
+                  ].join(' ')}
+                >
+                  <span className="font-semibold">Valuation source: </span>
+                  {actualsPreference === 'reported'
+                    ? 'pulled SEC actuals (manual values remain as fallbacks for any missing SEC fields).'
+                    : 'manual inputs.'}
+                  {saving && <span className="ml-2">Saving…</span>}
+                </div>
+
                 <div className="mt-5 grid gap-4 lg:grid-cols-2">
-                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                  <div className={[
+                    'rounded-lg border bg-slate-50 p-4',
+                    actualsPreference === 'manual' ? 'border-blue-400 ring-1 ring-blue-300' : 'border-slate-200',
+                  ].join(' ')}>
                     <div className="text-sm font-semibold text-slate-900">
                       Manual Stock Detail
                     </div>
@@ -1076,7 +1123,10 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
                     </dl>
                   </div>
 
-                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                  <div className={[
+                    'rounded-lg border bg-slate-50 p-4',
+                    actualsPreference === 'reported' ? 'border-blue-400 ring-1 ring-blue-300' : 'border-slate-200',
+                  ].join(' ')}>
                     <div className="flex items-center justify-between gap-3">
                       <div className="text-sm font-semibold text-slate-900">
                         Pulled SEC Actuals
@@ -1111,8 +1161,9 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
                   Base Inputs
                 </h2>
                 <p className="mt-1 text-sm text-slate-500">
-                  Latest-quarter starting point (stored as raw dollars/shares;
-                  enter values in billions).
+                  {actualsPreference === 'reported'
+                    ? 'Manual fallback values for SEC fields that are unavailable; enter values in billions.'
+                    : 'Latest-quarter starting point (stored as raw dollars/shares; enter values in billions).'}
                 </p>
                 <div className="mt-5 grid gap-5 sm:grid-cols-3">
                   <div>
