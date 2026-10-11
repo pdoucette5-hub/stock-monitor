@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import timedelta
+from datetime import date, timedelta
 from typing import Any, Optional
 
 import pandas as pd
@@ -26,11 +26,15 @@ from backend.logic import (
 from backend.price_store import get_latest_price_for_ticker, load_price_history_store
 
 
-def _apply_price_store_fallback(market_row: dict[str, Any], ticker: str) -> dict[str, Any]:
+def _apply_price_store_fallback(
+    market_row: dict[str, Any],
+    ticker: str,
+    price_history: dict[str, list[dict[str, Any]]] | None = None,
+) -> dict[str, Any]:
     if safe_float(market_row.get("price")) is not None:
         return market_row
 
-    latest_price = get_latest_price_for_ticker(ticker)
+    latest_price = get_latest_price_for_ticker(ticker, store=price_history)
     if not latest_price:
         return market_row
 
@@ -288,13 +292,13 @@ def _price_return_from_history(
         return None, None, None
 
     try:
-        latest_date = pd.to_datetime(rows[-1]["date"]).date()
+        latest_date = date.fromisoformat(str(rows[-1]["date"])[:10])
     except Exception:
         return None, None, None
 
     target_date = latest_date - timedelta(days=365)
     try:
-        first_date = pd.to_datetime(rows[0]["date"]).date()
+        first_date = date.fromisoformat(str(rows[0]["date"])[:10])
     except Exception:
         return None, None, None
     if first_date > latest_date - timedelta(days=300):
@@ -303,7 +307,7 @@ def _price_return_from_history(
     prior_row = rows[0]
     for row in rows:
         try:
-            row_date = pd.to_datetime(row.get("date")).date()
+            row_date = date.fromisoformat(str(row.get("date"))[:10])
         except Exception:
             continue
         if row_date <= target_date:
@@ -531,7 +535,7 @@ def build_portfolio_views(
     for ticker in all_tickers:
         row_match = market_df[market_df["ticker"] == ticker]
         market_row = row_match.iloc[0].to_dict() if not row_match.empty else {"ticker": ticker}
-        market_row = _apply_price_store_fallback(market_row, ticker)
+        market_row = _apply_price_store_fallback(market_row, ticker, price_history)
         raw_state = scenario_inputs.get(ticker)
         if isinstance(raw_state, dict):
             saved_scenario_states[ticker] = raw_state

@@ -2840,27 +2840,31 @@ def build_portfolio_view_for_request(
     request: Request,
     force_refresh: bool = False,
 ) -> dict[str, Any]:
+    request_started = time.monotonic()
     full_access = has_full_access(request)
-    loaders = {
-        "config": lambda: get_tickers_config_for_request(request),
-        "scenarios": load_scenario_inputs,
-        "settings": load_settings_dict,
-        "earnings": load_earnings_calendar,
-        "fundamentals": load_reported_fundamentals,
-        "price_history": load_price_history_store,
+    load_state_bundle()
+    bundle_loaded_at = time.monotonic()
+
+    # Initialize cloud credentials and load the state bundle before reading the
+    # separate price-history object. Concurrent first-use clients can contend on
+    # credential initialization in Cloud Run and turn two small downloads into a
+    # 20+ second wait.
+    state = {
+        "config": get_tickers_config_for_request(request),
+        "scenarios": load_scenario_inputs(),
+        "settings": load_settings_dict(),
+        "earnings": load_earnings_calendar(),
+        "fundamentals": load_reported_fundamentals(),
     }
     if full_access:
-        loaders.update(
-            {
-                "transactions": load_transactions,
-                "management_modes": load_management_modes,
-                "manual_allocations": load_manual_allocations,
-            },
+        state.update(
+            transactions=load_transactions(),
+            management_modes=load_management_modes(),
+            manual_allocations=load_manual_allocations(),
         )
-
-    with ThreadPoolExecutor(max_workers=len(loaders)) as executor:
-        futures = {key: executor.submit(loader) for key, loader in loaders.items()}
-        state = {key: future.result() for key, future in futures.items()}
+    state_loaded_at = time.monotonic()
+    state["price_history"] = load_price_history_store()
+    prices_loaded_at = time.monotonic()
 
     position_summaries = None
     management_shares = None
@@ -2873,7 +2877,7 @@ def build_portfolio_view_for_request(
             config=state["config"],
         )["shares_by_mode"]
 
-    return build_portfolio_views(
+    payload = build_portfolio_views(
         state["config"],
         state["scenarios"],
         state["settings"],
@@ -2884,6 +2888,21 @@ def build_portfolio_view_for_request(
         price_history=state["price_history"],
         force_refresh=force_refresh,
     )
+    finished_at = time.monotonic()
+    print(
+        "portfolio_view_timing",
+        json.dumps(
+            {
+                "bundle": round(bundle_loaded_at - request_started, 3),
+                "state": round(state_loaded_at - bundle_loaded_at, 3),
+                "prices": round(prices_loaded_at - state_loaded_at, 3),
+                "build": round(finished_at - prices_loaded_at, 3),
+                "total": round(finished_at - request_started, 3),
+            },
+        ),
+        flush=True,
+    )
+    return payload
 
 
 @app.get("/api/tickers/shared")

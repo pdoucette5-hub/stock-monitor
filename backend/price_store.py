@@ -60,8 +60,7 @@ def _load_price_history_raw() -> Any:
 
             client = storage.Client()
             blob = client.bucket(PRICE_HISTORY_GCS_BUCKET).blob(PRICE_HISTORY_GCS_BLOB)
-            if blob.exists():
-                return json.loads(blob.download_as_text(encoding="utf-8"))
+            return json.loads(blob.download_as_text(encoding="utf-8"))
         except Exception:
             pass
 
@@ -239,8 +238,11 @@ def get_price_points_for_ticker(
     return _filter_rows_for_range(rows, range_key)
 
 
-def get_latest_price_for_ticker(ticker: str) -> dict[str, Any] | None:
-    store = load_price_history_store()
+def get_latest_price_for_ticker(
+    ticker: str,
+    store: dict[str, list[dict[str, Any]]] | None = None,
+) -> dict[str, Any] | None:
+    store = store if store is not None else load_price_history_store()
     rows = store.get(normalize_ticker(ticker), [])
     for row in reversed(rows):
         try:
