@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 from datetime import date, timedelta
 from typing import Any, Optional
 
@@ -82,6 +83,11 @@ def prepare_ticker_state(
     market_row: dict[str, Any],
     reported_fundamentals: Optional[dict[str, Any]] = None,
 ) -> dict[str, Any]:
+    # Portfolio calculations enrich and overlay the saved scenario. Work on a
+    # copy so reported SEC actuals never replace the caller's manual fallback
+    # values in memory (notably in the stock-scenario save response).
+    state = deepcopy(state) if isinstance(state, dict) else None
+
     fetched_ttm_revenue = safe_float(market_row.get("ttm_revenue"))
     fetched_ttm_net_income = safe_float(market_row.get("net_income_ttm"))
     fetched_shares = safe_float(market_row.get("shares_outstanding"))
