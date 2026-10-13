@@ -3,10 +3,17 @@ const API_BASE =
 const GET_CACHE_TTL_MS = 10 * 60 * 1000
 const getCache = new Map()
 let authToken = ''
+let authExpiredHandler = null
 
 export function setAuthToken(token) {
   authToken = token || ''
   getCache.clear()
+}
+
+// Called when the server rejects the current sign-in (HTTP 401), so the app
+// can sign in again instead of showing empty data.
+export function onAuthExpired(handler) {
+  authExpiredHandler = handler
 }
 
 function sleep(ms) {
@@ -43,6 +50,9 @@ async function request(path, options = {}) {
   }
 
   if (!response.ok) {
+    if (response.status === 401 && authToken && authExpiredHandler) {
+      authExpiredHandler()
+    }
     const detail = await response.text()
     try {
       const payload = JSON.parse(detail)
