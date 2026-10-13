@@ -57,6 +57,21 @@ def _history_cache_path(ticker: str, range_key: str) -> Path:
     return PRICE_HISTORY_CACHE_DIR / f"{ticker.upper()}_{range_key.lower()}_history.json"
 
 
+def _cache_fetched_at(ticker: str) -> float | None:
+    """Unix time the cached market data for `ticker` was fetched, if known.
+
+    Rows served from the cache carry this as `cache_fetched_at`, so callers can
+    prefer a newer price (such as the imported sheet prices) over a cached quote
+    that may be months old.
+    """
+    try:
+        with open(_cache_path(ticker), "r") as f:
+            fetched_at = json.load(f).get("fetched_at")
+        return float(fetched_at) if fetched_at is not None else None
+    except Exception:
+        return None
+
+
 def _read_cache(ticker: str, max_age_hours: int):
     path = _cache_path(ticker)
     if not path.exists():
@@ -409,6 +424,7 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
             cached = _read_cache(ticker, max_age_hours=max_age_hours)
             if cached is not None:
                 cached["cache_source"] = "cache"
+                cached["cache_fetched_at"] = _cache_fetched_at(ticker)
                 rows.append(cached)
                 continue
 
@@ -427,6 +443,7 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
             if fallback is not None:
                 fallback["status"] = f"CACHE_FALLBACK: {e}"
                 fallback["cache_source"] = "cache-fallback"
+                fallback["cache_fetched_at"] = _cache_fetched_at(ticker)
                 for key, default in DEBUG_FIELDS.items():
                     fallback.setdefault(key, default)
                 rows.append(fallback)

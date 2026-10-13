@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from typing import Any, Optional
 
 import pandas as pd
@@ -27,16 +27,35 @@ from backend.logic import (
 from backend.price_store import get_latest_price_for_ticker, load_price_history_store
 
 
+def _price_store_is_newer(latest_price: dict[str, Any], cache_fetched_at: Any) -> bool:
+    """True when the imported price is from the same day as, or later than,
+    the cached market data. Normal page loads read cached quotes regardless of
+    age (only "Update prices" fetches live), and a fresh server starts with the
+    cache files shipped in the image, so a cached quote can be months old."""
+    fetched = safe_float(cache_fetched_at)
+    if fetched is None:
+        return True
+    cache_date = datetime.fromtimestamp(fetched, tz=timezone.utc).date().isoformat()
+    return str(latest_price.get("date") or "") >= cache_date
+
+
 def _apply_price_store_fallback(
     market_row: dict[str, Any],
     ticker: str,
     price_history: dict[str, list[dict[str, Any]]] | None = None,
 ) -> dict[str, Any]:
-    if safe_float(market_row.get("price")) is not None:
+    has_price = safe_float(market_row.get("price")) is not None
+    from_cache = market_row.get("cache_source") in {"cache", "cache-fallback"}
+    if has_price and not from_cache:
+        # A live quote fetched just now.
         return market_row
 
     latest_price = get_latest_price_for_ticker(ticker, store=price_history)
     if not latest_price:
+        return market_row
+
+    if has_price and not _price_store_is_newer(latest_price, market_row.get("cache_fetched_at")):
+        # The cached quote is newer than any imported price, so keep it.
         return market_row
 
     updated = dict(market_row)
