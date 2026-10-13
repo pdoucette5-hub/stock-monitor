@@ -296,10 +296,20 @@ def _get_ttm_financials(symbol: str):
 
 def _get_market_data_for_ticker(symbol: str):
     quote = _finnhub_get("quote", {"symbol": symbol})
-    profile = _finnhub_get("stock/profile2", {"symbol": symbol})
-    financials = _get_ttm_financials(symbol)
-
     price = safe_float(quote.get("c"))
+
+    secondary_errors = []
+    try:
+        profile = _finnhub_get("stock/profile2", {"symbol": symbol})
+    except Exception as exc:
+        profile = {}
+        secondary_errors.append(f"profile unavailable ({exc})")
+
+    try:
+        financials = _get_ttm_financials(symbol)
+    except Exception as exc:
+        financials = {}
+        secondary_errors.append(f"financials unavailable ({exc})")
 
     share_outstanding_millions = safe_float(profile.get("shareOutstanding"))
     shares_outstanding = (
@@ -326,7 +336,11 @@ def _get_market_data_for_ticker(symbol: str):
         if value is None:
             missing.append(name)
 
-    status = "OK" if not missing else f"PARTIAL: missing {', '.join(missing)}"
+    status_parts = []
+    if missing:
+        status_parts.append(f"missing {', '.join(missing)}")
+    status_parts.extend(secondary_errors)
+    status = "OK" if not status_parts else f"PARTIAL: {'; '.join(status_parts)}"
 
     return {
         "ticker": symbol,
@@ -400,7 +414,13 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
 
         try:
             row = _get_market_data_for_ticker(ticker)
-            _write_cache(ticker, row)
+            try:
+                _write_cache(ticker, row)
+            except OSError:
+                # A valid live response should still be returned when the local
+                # cache is temporarily read-only or unavailable.
+                row = dict(row)
+                row["status"] = f"{row['status']}; cache unavailable"
             rows.append(row)
         except Exception as e:
             fallback = _read_cache(ticker, max_age_hours=99999)

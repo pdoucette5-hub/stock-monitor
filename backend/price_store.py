@@ -114,6 +114,8 @@ def load_price_history_store() -> dict[str, list[dict[str, Any]]]:
                 close = float(row.get("close"))
             except Exception:
                 continue
+            if close <= 0:
+                continue
 
             valid_rows.append(
                 {
@@ -147,6 +149,8 @@ def save_price_history_store(data: dict[str, list[dict[str, Any]]]) -> None:
                 close = float(row.get("close"))
             except Exception:
                 continue
+            if close <= 0:
+                continue
 
             normalized_rows.append(
                 {
@@ -167,6 +171,7 @@ def upsert_price_rows(rows: list[dict[str, Any]], default_source: str = "googlef
     store = load_price_history_store()
     inserted = 0
     updated = 0
+    rejected = 0
     touched_tickers: set[str] = set()
 
     for raw in rows:
@@ -179,6 +184,9 @@ def upsert_price_rows(rows: list[dict[str, Any]], default_source: str = "googlef
 
         row_date = _normalize_date(raw.get("date"))
         close = _safe_float(raw.get("close"))
+        if close <= 0:
+            rejected += 1
+            continue
         source = str(raw.get("source") or default_source)
         fetched_at = str(raw.get("fetched_at") or _utc_now_iso())
 
@@ -212,6 +220,7 @@ def upsert_price_rows(rows: list[dict[str, Any]], default_source: str = "googlef
         "updated": updated,
         "tickers": sorted(touched_tickers),
         "row_count": inserted + updated,
+        "rejected": rejected,
     }
 
 

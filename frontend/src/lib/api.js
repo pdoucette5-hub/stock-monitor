@@ -300,6 +300,10 @@ export function fetchPriceComparison(tickers, range = '3y', forceRefresh = false
   return forceRefresh ? request(path) : cachedRequest(path)
 }
 
+export function refreshIntradayPrices() {
+  return request('/api/prices/intraday/refresh', { method: 'POST' })
+}
+
 export function fetchChangeLog({ ticker = '', limit = 250 } = {}) {
   const query = new URLSearchParams({
     limit: String(limit),

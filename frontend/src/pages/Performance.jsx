@@ -95,6 +95,8 @@ function loadSavedPerformanceState() {
 }
 
 function PerformanceChart({ series }) {
+  const [hover, setHover] = useState(null)
+
   if (!series || series.length === 0) {
     return (
       <div className="flex h-80 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-500">
@@ -163,6 +165,35 @@ function PerformanceChart({ series }) {
   const marketChange =
     Number(last.market_value ?? 0) - Number(first.market_value ?? 0)
   const positive = marketChange >= 0
+  const hoveredPoint = hover === null ? null : series[hover.index]
+  const hoveredX = hover === null ? null : xFor(hover.index)
+  const tooltipWidth = 196
+  const tooltipHeight = 94
+  const tooltipGap = 14
+  const tooltipX = hover === null
+    ? 0
+    : hover.x - tooltipWidth - tooltipGap >= padding
+      ? hover.x - tooltipWidth - tooltipGap
+      : Math.min(hover.x + tooltipGap, width - padding - tooltipWidth)
+  const tooltipY = hover === null
+    ? 0
+    : Math.min(
+        Math.max(hover.y - tooltipHeight / 2, padding),
+        height - padding - tooltipHeight,
+      )
+
+  const handlePointerMove = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const svgX = ((event.clientX - bounds.left) / bounds.width) * width
+    const svgY = ((event.clientY - bounds.top) / bounds.height) * height
+    const ratio = (svgX - padding) / (width - padding * 2)
+    const nextIndex = Math.round(ratio * (series.length - 1))
+    setHover({
+      index: Math.min(Math.max(nextIndex, 0), series.length - 1),
+      x: Math.min(Math.max(svgX, padding), width - padding),
+      y: Math.min(Math.max(svgY, padding), height - padding),
+    })
+  }
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -247,6 +278,76 @@ function PerformanceChart({ series }) {
             strokeLinejoin="round"
             strokeLinecap="round"
           />
+
+          <rect
+            x={padding}
+            y={padding}
+            width={width - padding * 2}
+            height={height - padding * 2}
+            fill="transparent"
+            onMouseMove={handlePointerMove}
+            onMouseLeave={() => setHover(null)}
+          />
+
+          {hoveredPoint && hoveredX !== null && (
+            <g pointerEvents="none">
+              <line
+                x1={hoveredX}
+                x2={hoveredX}
+                y1={padding}
+                y2={height - padding}
+                stroke="#94a3b8"
+                strokeDasharray="4 4"
+              />
+              <circle
+                cx={hoveredX}
+                cy={yFor(Number(hoveredPoint.market_value ?? 0))}
+                r="5"
+                fill="#2563eb"
+                stroke="white"
+                strokeWidth="2"
+              />
+              <circle
+                cx={hoveredX}
+                cy={yFor(Number(hoveredPoint.capital_basis ?? hoveredPoint.cost_basis ?? 0))}
+                r="5"
+                fill="#f59e0b"
+                stroke="white"
+                strokeWidth="2"
+              />
+              {hoveredPoint.benchmark_value !== null && hoveredPoint.benchmark_value !== undefined && (
+                <circle
+                  cx={hoveredX}
+                  cy={yFor(Number(hoveredPoint.benchmark_value))}
+                  r="5"
+                  fill="#059669"
+                  stroke="white"
+                  strokeWidth="2"
+                />
+              )}
+              <rect
+                x={tooltipX}
+                y={tooltipY}
+                width={tooltipWidth}
+                height={tooltipHeight}
+                rx="8"
+                fill="#0f172a"
+                opacity="0.94"
+              />
+              <text x={tooltipX + 12} y={tooltipY + 18} fontSize="12" fontWeight="600" fill="white">
+                {formatShortDate(hoveredPoint.date)}
+              </text>
+              <text x={tooltipX + 12} y={tooltipY + 38} fontSize="11" fill="#93c5fd">
+                Market: {formatMoney(hoveredPoint.market_value)}
+              </text>
+              <text x={tooltipX + 12} y={tooltipY + 56} fontSize="11" fill="#fcd34d">
+                Capital: {formatMoney(hoveredPoint.capital_basis ?? hoveredPoint.cost_basis)}
+              </text>
+              <text x={tooltipX + 12} y={tooltipY + 74} fontSize="11" fill="#6ee7b7">
+                S&amp;P 500: {formatMoney(hoveredPoint.benchmark_value)}
+              </text>
+            </g>
+          )}
 
           <text x={padding} y={height - 10} fontSize="11" fill="#64748b">
             {formatShortDate(first.date)}

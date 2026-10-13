@@ -12,7 +12,12 @@ SHEETS_TICKER_PUSH_SECRET = os.getenv("SHEETS_TICKER_PUSH_SECRET", "")
 
 GOOGLEFINANCE_SYMBOL_OVERRIDES = {
     "DELL": "NYSE:DELL",
+    "SPY": "NYSEARCA:SPY",
+    "SPCX": "NASDAQ:SPCX",
+    "VENU": "NYSEAMERICAN:VENU",
 }
+
+REQUIRED_PRICE_TICKERS = {"SPY"}
 
 
 def _normalize_ticker(value: Any) -> str:
@@ -50,12 +55,20 @@ def build_ticker_push_payload(tickers_config: dict[str, Any]) -> dict[str, Any]:
         if ticker and ticker not in portfolio_tickers:
             watchlist.append(ticker)
 
-    active_tickers = sorted(portfolio_tickers.union(watchlist))
+    active_tickers = sorted(
+        portfolio_tickers.union(watchlist).union(REQUIRED_PRICE_TICKERS),
+    )
     ticker_rows = [
         {
             "ticker": ticker,
             "googlefinance_symbol": _googlefinance_symbol(ticker),
-            "list": "portfolio" if ticker in portfolio_tickers else "watchlist",
+            "list": (
+                "portfolio"
+                if ticker in portfolio_tickers
+                else "watchlist"
+                if ticker in watchlist
+                else "benchmark"
+            ),
             "shares": next(
                 (row.get("shares") for row in portfolio_rows if row.get("ticker") == ticker),
                 None,

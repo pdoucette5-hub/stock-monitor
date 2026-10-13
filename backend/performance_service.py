@@ -509,6 +509,7 @@ def build_portfolio_performance(
         "bought_tickers": set(),
     }
     benchmark_shares = 0.0
+    latest_close_by_ticker: dict[str, float] = {}
     series: list[dict[str, Any]] = []
 
     for current_date in ordered_dates:
@@ -548,7 +549,10 @@ def build_portfolio_performance(
                 snapshot_index += 1
             snapshot_index_by_ticker[ticker] = snapshot_index
 
-            close = close_lookup[ticker].get(current_date)
+            close_for_date = close_lookup[ticker].get(current_date)
+            if close_for_date is not None and close_for_date > 0:
+                latest_close_by_ticker[ticker] = close_for_date
+            close = latest_close_by_ticker.get(ticker)
             if close is None:
                 continue
 

@@ -25,7 +25,7 @@ COPY cache/ ./cache/
 COPY --from=frontend-build /app/frontend/dist ./backend/static
 
 # Expose the port
-EXPOSE 8000
+EXPOSE 8080
 
 # Start the server
 CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8080}"]

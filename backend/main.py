@@ -27,6 +27,7 @@ from pydantic import BaseModel, Field
 
 from backend.logic import merge_global_settings
 from backend.logic import safe_float
+from backend.intraday_store import add_intraday_samples, latest_session_prices
 from backend.models import (
     GlobalSettings,
     PortfolioConfig,
@@ -70,6 +71,7 @@ EARNINGS_CALENDAR_FILE = BASE_DIR / "cache" / "earnings_calendar.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 PRICE_IMPORT_SECRET = os.getenv("PRICE_IMPORT_SECRET", "")
+INTRADAY_FINNHUB_API_KEY = os.getenv("INTRADAY_FINNHUB_API_KEY", "")
 GOOGLE_AUTH_ENABLED = os.getenv("GOOGLE_AUTH_ENABLED", "").strip().lower() in {
     "1",
     "true",
@@ -136,6 +138,7 @@ PUBLIC_API_PATHS = {
     "/api/health",
     "/api/auth/config",
     "/api/prices/import",
+    "/api/prices/intraday/sample",
     "/api/accounts/merge",
 }
 
@@ -145,6 +148,7 @@ FULL_ACCESS_ONLY_EXACT_PATHS = {
     "/api/management/allocation",
     "/api/compensation",
     "/api/performance/portfolio",
+    "/api/prices/intraday/refresh",
     "/api/portfolio/controls",
     "/api/sheets/tickers/sync",
     "/api/tickers/archive",
@@ -1128,7 +1132,19 @@ def save_reported_fundamentals(data: dict[str, Any]) -> None:
 
 
 def load_earnings_calendar() -> dict[str, Any]:
-    return load_json_file(EARNINGS_CALENDAR_FILE, {})
+    stored = load_json_file(EARNINGS_CALENDAR_FILE, {})
+    today = datetime.now(timezone.utc).date()
+    current = {}
+    for ticker, payload in stored.items():
+        if not isinstance(payload, dict):
+            continue
+        try:
+            earnings_date = datetime.fromisoformat(str(payload.get("next_earnings_date"))).date()
+        except (TypeError, ValueError):
+            continue
+        if earnings_date >= today:
+            current[ticker] = payload
+    return current
 
 
 def save_earnings_calendar(data: dict[str, Any]) -> None:
@@ -1726,10 +1742,11 @@ def refresh_earnings_calendar(tickers: list[str], days_ahead: int = 180) -> dict
                 continue
             for row in rows:
                 ticker = row.get("ticker")
-                if ticker in requested and ticker not in found:
+                if ticker in requested and (
+                    ticker not in found
+                    or row["next_earnings_date"] < found[ticker]["next_earnings_date"]
+                ):
                     found[ticker] = row
-            if requested.issubset(found.keys()):
-                break
 
     reported_fundamentals = load_reported_fundamentals()
     for ticker in sorted(requested):
@@ -2322,16 +2339,26 @@ def parse_fidelity_transaction_files(
             if not action and not normalize_import_date(run_date):
                 continue
 
-            if action.startswith("YOU BOUGHT"):
+            action_upper = action.upper()
+            if action_upper.startswith("YOU BOUGHT") or action_upper.startswith("REINVESTMENT"):
                 tx_type = "buy"
-            elif action.startswith("YOU SOLD"):
+            elif action_upper.startswith("YOU SOLD"):
                 tx_type = "sell"
+            elif any(
+                marker in action_upper
+                for marker in (
+                    "DIVIDEND RECEIVED",
+                    "LONG-TERM CAP GAIN",
+                    "SHORT-TERM CAP GAIN",
+                )
+            ):
+                tx_type = "dividend"
             else:
                 skipped.append(
                     {
                         "file": uploaded.name,
                         "row": row_number,
-                        "reason": "Not a supported buy or sell transaction",
+                        "reason": "Not a supported trade or distribution transaction",
                         "action": action,
                     },
                 )
@@ -2350,12 +2377,17 @@ def parse_fidelity_transaction_files(
             account_key = account_number or account_name.casefold()
             account = aliases.get(account_key) or account_name or account_number
 
-            if not ticker or not date or shares <= 0 or price <= 0 or not account_key:
+            valid_amounts = (
+                abs(amount) > 0
+                if tx_type == "dividend"
+                else shares > 0 and price > 0
+            )
+            if not ticker or not date or not valid_amounts or not account_key:
                 skipped.append(
                     {
                         "file": uploaded.name,
                         "row": row_number,
-                        "reason": "Missing ticker, date, shares, price, or account",
+                        "reason": "Missing ticker, date, transaction value, or account",
                         "action": action,
                     },
                 )
@@ -2392,8 +2424,8 @@ def parse_fidelity_transaction_files(
                     "ticker": ticker,
                     "date": date,
                     "type": tx_type,
-                    "shares": shares,
-                    "price_per_share": price,
+                    "shares": 0.0 if tx_type == "dividend" else shares,
+                    "price_per_share": abs(amount) if tx_type == "dividend" else price,
                     "fees": fees,
                     "account": account,
                     "notes": str(record.get("Description") or action).strip(),
@@ -3267,8 +3299,18 @@ def get_compensation_tracker(
 
         portfolio_dates = [str(row.get("date") or "") for row in valid_portfolio]
         benchmark_dates = [str(row.get("date") or "") for row in benchmark_points]
-        start_date = max(portfolio_dates[0], benchmark_dates[0])
-        end_date = portfolio_dates[-1]
+        first_positive_portfolio_date = next(
+            (
+                str(row.get("date") or "")
+                for row in valid_portfolio
+                if (safe_float(row.get("market_value")) or 0.0) > 0
+            ),
+            "",
+        )
+        if not first_positive_portfolio_date:
+            raise ValueError("Need a positive recorded portfolio value")
+        start_date = max(first_positive_portfolio_date, benchmark_dates[0])
+        end_date = min(portfolio_dates[-1], benchmark_dates[-1])
         if start_date >= end_date:
             raise ValueError("Need overlapping portfolio and benchmark history")
 
@@ -3433,8 +3475,37 @@ def import_price_history(
         raise HTTPException(status_code=403, detail="Invalid import secret")
 
     try:
+        import_rows = [row.model_dump(mode="json") for row in body.rows]
+        # GOOGLEFINANCE intermittently omits VENU. Keep the normal sheet feed for
+        # every other ticker, but recover missing VENU closes from Nasdaq.
+        try:
+            from datetime import date, timedelta
+            from backend.venu_price_fallback import fetch_venu_history, fetch_venu_latest_trade
+
+            status = get_price_history_status(["VENU"])["tickers"]["VENU"]
+            latest = status["latest_date"]
+            since = date.fromisoformat(latest) - timedelta(days=1) if latest else date.today() - timedelta(days=30)
+            sheet_dates = set()
+            for row in import_rows:
+                if str(row.get("ticker", "")).upper() != "VENU":
+                    continue
+                try:
+                    if float(row.get("close")) > 0:
+                        sheet_dates.add(str(row.get("date")))
+                except (TypeError, ValueError):
+                    continue
+            import_rows.extend(
+                row for row in fetch_venu_history(since)
+                if row["date"] not in sheet_dates
+            )
+            quote = fetch_venu_latest_trade()
+            if quote and quote["date"] not in sheet_dates:
+                import_rows.append(quote)
+        except (requests.RequestException, ValueError, KeyError) as exc:
+            print(f"VENU history fallback unavailable: {exc}")
+
         result = upsert_price_rows(
-            [row.model_dump(mode="json") for row in body.rows],
+            import_rows,
             default_source="googlefinance",
         )
         invalidate_response_cache()
@@ -4111,11 +4182,95 @@ def get_price_comparison(
     ]
 
     try:
+        if str(range).strip().lower() == "1d":
+            price_series = latest_session_prices(raw_tickers)
+            if any(len(points) >= 2 for points in price_series.values()):
+                daily_fallback = get_price_comparison_response(raw_tickers, range_key="1d").get(
+                    "price_series",
+                    {},
+                )
+                price_series = {
+                    ticker: (
+                        points
+                        if len(points) >= 2
+                        else daily_fallback.get(ticker, [])
+                    )
+                    for ticker, points in price_series.items()
+                }
+                return {
+                    "range": "1d",
+                    "resolution": "5",
+                    "tickers": raw_tickers,
+                    "series": price_series,
+                    "price_series": price_series,
+                }
         return get_price_comparison_response(raw_tickers, range_key=range)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/api/prices/intraday/sample")
+def sample_intraday_prices(
+    x_import_secret: str | None = Header(default=None),
+) -> dict[str, Any]:
+    if not PRICE_IMPORT_SECRET:
+        raise HTTPException(status_code=500, detail="PRICE_IMPORT_SECRET is not configured")
+    if x_import_secret != PRICE_IMPORT_SECRET:
+        raise HTTPException(status_code=403, detail="Invalid import secret")
+
+    shares_by_mode = build_management_snapshot()["shares_by_mode"]
+    tickers = sorted(
+        ticker
+        for ticker, shares in shares_by_mode.items()
+        if float(shares.get("managed", 0.0)) + float(shares.get("track", 0.0)) > 0
+    )
+    samples: list[dict[str, Any]] = []
+    errors: dict[str, str] = {}
+
+    def fetch_quote(ticker: str) -> dict[str, Any]:
+        if ticker == "VENU":
+            from backend.venu_price_fallback import fetch_venu_latest_trade
+
+            quote = fetch_venu_latest_trade()
+            if not quote:
+                raise ValueError("Nasdaq did not return a VENU trade")
+            timestamp = int(datetime.fromisoformat(str(quote["fetched_at"])).timestamp())
+            return {"ticker": ticker, "timestamp": timestamp, "close": float(quote["close"])}
+        if not INTRADAY_FINNHUB_API_KEY:
+            raise ValueError("INTRADAY_FINNHUB_API_KEY is not configured")
+        response = requests.get(
+            "https://finnhub.io/api/v1/quote",
+            params={"symbol": ticker, "token": INTRADAY_FINNHUB_API_KEY},
+            timeout=20,
+        )
+        response.raise_for_status()
+        quote = response.json()
+        return {
+            "ticker": ticker,
+            "timestamp": int(quote.get("t") or time.time()),
+            "close": safe_float(quote.get("c")) or 0.0,
+        }
+
+    with ThreadPoolExecutor(max_workers=min(8, max(1, len(tickers)))) as executor:
+        futures = {executor.submit(fetch_quote, ticker): ticker for ticker in tickers}
+        for future in as_completed(futures):
+            ticker = futures[future]
+            try:
+                sample = future.result()
+                if sample["close"] > 0:
+                    samples.append(sample)
+            except Exception as exc:
+                errors[ticker] = str(exc)
+
+    result = add_intraday_samples(samples)
+    return {"status": "ok", **result, "requested": len(tickers), "errors": errors}
+
+
+@app.post("/api/prices/intraday/refresh")
+def refresh_intraday_prices() -> dict[str, Any]:
+    return sample_intraday_prices(x_import_secret=PRICE_IMPORT_SECRET)
 
 
 @app.put("/api/portfolio/shares", response_model=PortfolioViewResponse)
