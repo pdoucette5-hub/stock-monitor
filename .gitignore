@@ -6,3 +6,6 @@ __pycache__/
 frontend/node_modules/
 frontend/dist/
 backend/static/
+
+# API snapshot output (contains portfolio data)
+snapshots/
