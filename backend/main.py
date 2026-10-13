@@ -10,11 +10,8 @@ from typing import Any
 import requests
 from fastapi import BackgroundTasks, FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from google.auth.transport import requests as google_requests
-from google.oauth2 import id_token
 
 from backend.logic import merge_global_settings
 from backend.logic import safe_float
@@ -45,8 +42,6 @@ from backend.price_store import (
 from backend.sheets_service import push_tickers_to_sheet
 from backend.transactions_service import compute_position_summary
 from backend.config import (
-    ALLOWED_USER_EMAILS,
-    AUTHORIZED_USER_EMAILS,
     BASE_DIR,
     CONTROL_CHANGE_LABELS,
     GOOGLE_AUTH_ENABLED,
@@ -111,7 +106,7 @@ from backend.transaction_import import (
     parse_fidelity_transaction_files,
     validate_transaction_payload,
 )
-from backend.auth import current_user_email, has_full_access
+from backend.auth import require_google_auth, current_user_email, has_full_access
 from backend.tickers_config import (
     apply_holdings_overrides_to_config,
     apply_tickers_overrides_to_config,
@@ -160,105 +155,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-PUBLIC_API_PATHS = {
-    "/api/health",
-    "/api/auth/config",
-    "/api/prices/import",
-    "/api/prices/intraday/sample",
-    "/api/accounts/merge",
-}
-
-FULL_ACCESS_ONLY_EXACT_PATHS = {
-    "/api/accounts",
-    "/api/management",
-    "/api/management/allocation",
-    "/api/compensation",
-    "/api/performance/portfolio",
-    "/api/prices/intraday/refresh",
-    "/api/portfolio/controls",
-    "/api/sheets/tickers/sync",
-    "/api/tickers/archive",
-    "/api/tickers/restore",
-    "/api/tickers/watchlist",
-}
-
-FULL_ACCESS_ONLY_PREFIXES = (
-    "/api/position/",
-    "/api/transactions",
-)
-
-FULL_ACCESS_ONLY_WRITE_EXACT_PATHS = {
-    "/api/portfolio",
-}
-
-FULL_ACCESS_ONLY_WRITE_PREFIXES = (
-    "/api/stock/",
-)
-
-
-@app.middleware("http")
-async def require_google_auth(request: Request, call_next):
-    if (
-        not GOOGLE_AUTH_ENABLED
-        or request.method == "OPTIONS"
-        or not request.url.path.startswith("/api")
-        or request.url.path in PUBLIC_API_PATHS
-    ):
-        return await call_next(request)
-
-    if not GOOGLE_CLIENT_ID or not AUTHORIZED_USER_EMAILS:
-        return JSONResponse(
-            status_code=503,
-            content={"detail": "Google authentication is not fully configured"},
-        )
-
-    auth_header = request.headers.get("authorization", "")
-    scheme, _, token = auth_header.partition(" ")
-    if scheme.lower() != "bearer" or not token:
-        return JSONResponse(status_code=401, content={"detail": "Sign in required"})
-
-    try:
-        claims = id_token.verify_oauth2_token(
-            token,
-            google_requests.Request(),
-            GOOGLE_CLIENT_ID,
-        )
-    except ValueError:
-        return JSONResponse(status_code=401, content={"detail": "Invalid sign-in token"})
-
-    email = str(claims.get("email") or "").strip().casefold()
-    if not email or email not in AUTHORIZED_USER_EMAILS:
-        return JSONResponse(status_code=403, content={"detail": "Email is not allowed"})
-
-    role = "full" if email in ALLOWED_USER_EMAILS else "limited"
-    request.state.user = {
-        "email": email,
-        "name": claims.get("name") or "",
-        "picture": claims.get("picture") or "",
-        "role": role,
-    }
-
-    write_method = request.method.upper() not in {"GET", "HEAD"}
-    if role != "full" and (
-        request.url.path in FULL_ACCESS_ONLY_EXACT_PATHS
-        or any(request.url.path.startswith(prefix) for prefix in FULL_ACCESS_ONLY_PREFIXES)
-        or (
-            write_method
-            and (
-                request.url.path in FULL_ACCESS_ONLY_WRITE_EXACT_PATHS
-                or any(
-                    request.url.path.startswith(prefix)
-                    for prefix in FULL_ACCESS_ONLY_WRITE_PREFIXES
-                )
-            )
-        )
-    ):
-        return JSONResponse(
-            status_code=403,
-            content={"detail": "Private portfolio data is not available for this account"},
-        )
-
-    return await call_next(request)
+# Registered after CORS, exactly as the decorator was before, so the
+# middleware order is unchanged.
+app.middleware("http")(require_google_auth)
 
 
 @app.get("/api/health")
