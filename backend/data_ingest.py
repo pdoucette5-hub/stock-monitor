@@ -1,6 +1,7 @@
 import os
 import time
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
 
@@ -407,6 +408,8 @@ def _empty_row(ticker: str, status: str, cache_source: str = "none") -> dict:
 # every load; "Update prices" (force_refresh) always retries. Their price falls
 # back to the imported sheet prices.
 FAILED_FETCH_RETRY_SECONDS = 6 * 3600
+# Live fetches run together on a normal page load (see get_live_market_data).
+LIVE_FETCH_WORKERS = 6
 _failed_fetches: dict[str, tuple[float, str]] = {}
 
 
@@ -423,24 +426,7 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
             ]
         )
 
-    rows = []
-
-    for ticker in tickers:
-        ticker = str(ticker).strip().upper()
-
-        if not force_refresh:
-            cached = _read_cache(ticker, max_age_hours=max_age_hours)
-            if cached is not None:
-                cached["cache_source"] = "cache"
-                cached["cache_fetched_at"] = _cache_fetched_at(ticker)
-                rows.append(cached)
-                continue
-
-            failed = _failed_fetches.get(ticker)
-            if failed and time.time() - failed[0] < FAILED_FETCH_RETRY_SECONDS:
-                rows.append(_empty_row(ticker, failed[1], cache_source="none"))
-                continue
-
+    def fetch_live(ticker):
         try:
             row = _get_market_data_for_ticker(ticker)
             try:
@@ -451,7 +437,7 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
                 row = dict(row)
                 row["status"] = f"{row['status']}; cache unavailable"
             _failed_fetches.pop(ticker, None)
-            rows.append(row)
+            return row
         except Exception as e:
             fallback = _read_cache(ticker, max_age_hours=99999)
             if fallback is not None:
@@ -460,12 +446,46 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
                 fallback["cache_fetched_at"] = _cache_fetched_at(ticker)
                 for key, default in DEBUG_FIELDS.items():
                     fallback.setdefault(key, default)
-                rows.append(fallback)
-            else:
-                status = f"ERROR: {e}"
-                _failed_fetches[ticker] = (time.time(), status)
-                rows.append(_empty_row(ticker, status, cache_source="none"))
+                return fallback
+            status = f"ERROR: {e}"
+            _failed_fetches[ticker] = (time.time(), status)
+            return _empty_row(ticker, status, cache_source="none")
 
+    rows_by_index = {}
+    to_fetch = []
+
+    for index, ticker in enumerate(tickers):
+        ticker = str(ticker).strip().upper()
+
+        if not force_refresh:
+            cached = _read_cache(ticker, max_age_hours=max_age_hours)
+            if cached is not None:
+                cached["cache_source"] = "cache"
+                cached["cache_fetched_at"] = _cache_fetched_at(ticker)
+                rows_by_index[index] = cached
+                continue
+
+            failed = _failed_fetches.get(ticker)
+            if failed and time.time() - failed[0] < FAILED_FETCH_RETRY_SECONDS:
+                rows_by_index[index] = _empty_row(ticker, failed[1], cache_source="none")
+                continue
+
+        to_fetch.append((index, ticker))
+
+    if force_refresh or len(to_fetch) <= 1:
+        # "Update prices" fetches every ticker; keep that sequential so it
+        # stays within Finnhub's per-minute rate limit.
+        for index, ticker in to_fetch:
+            rows_by_index[index] = fetch_live(ticker)
+    else:
+        # A normal page load only fetches the few tickers with no cached data;
+        # fetch them together so a fresh server does not wait on each in turn.
+        with ThreadPoolExecutor(max_workers=min(LIVE_FETCH_WORKERS, len(to_fetch))) as pool:
+            futures = {pool.submit(fetch_live, ticker): index for index, ticker in to_fetch}
+            for future in as_completed(futures):
+                rows_by_index[futures[future]] = future.result()
+
+    rows = [rows_by_index[index] for index in sorted(rows_by_index)]
     return pd.DataFrame(rows)
 
 
