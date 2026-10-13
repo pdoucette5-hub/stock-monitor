@@ -9,6 +9,7 @@ import {
   saveStockScenario, syncSheetTickers, refreshIntradayPrices,
 } from '../lib/api'
 import { apiToForm, formToApi } from '../lib/scenarioForm'
+import { gainForRow, summarizeHoldings } from '../lib/holdingsGain'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
 
@@ -52,23 +53,6 @@ function percent(value, digits = 1) {
   if (value == null || Number.isNaN(Number(value))) return '—'
   return `${Number(value) > 0 ? '+' : ''}${Number(value).toFixed(digits)}%`
 }
-function gain(points, currentPrice) {
-  const valid = (points || []).filter((point) => Number.isFinite(Number(point?.close)))
-  if (valid.length < 2) return null
-  const start = Number(valid[0].close)
-  const end = Number.isFinite(Number(currentPrice)) ? Number(currentPrice) : Number(valid.at(-1).close)
-  return start ? { amount: end - start, percent: ((end - start) / start) * 100 } : null
-}
-function gainForRow(row, points, range) {
-  const fromHistory = gain(points, row?.price)
-  if (fromHistory || range !== '1y' || row?.price_return_1y == null) return fromHistory
-  const returnDecimal = Number(row.price_return_1y)
-  const currentPrice = Number(row.price)
-  if (!Number.isFinite(returnDecimal) || !Number.isFinite(currentPrice) || returnDecimal <= -1) return null
-  const priorPrice = currentPrice / (1 + returnDecimal)
-  return { amount: currentPrice - priorPrice, percent: returnDecimal * 100 }
-}
-
 function Sparkline({ points, positive }) {
   const values = (points || []).map((point) => Number(point?.close)).filter(Number.isFinite)
   if (values.length < 2) return <div className="h-9 rounded bg-slate-100/50" />
@@ -247,6 +231,7 @@ export default function Holdings() {
   }
 
   return <div className="mx-auto w-full max-w-[1600px] px-4 py-3 lg:px-6"><header className="mb-3 flex flex-wrap items-center justify-between gap-3"><h1 className="text-2xl font-bold tracking-tight text-slate-950">Holdings</h1><div className="flex items-center gap-2"><button type="button" onClick={updatePrices} disabled={loading || loadingHistory} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60">{loading || loadingHistory ? 'Updating…' : 'Update prices'}</button><button onClick={() => setAddOpen((v) => !v)} className="rounded-lg bg-slate-950 px-4 py-2 text-xs font-semibold text-white">+ Add holding</button><div className="relative"><button type="button" aria-label="More holdings actions" aria-expanded={maintenanceMenu} onClick={() => setMaintenanceMenu((v) => !v)} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-lg leading-none text-slate-700">…</button>{maintenanceMenu && <div className="absolute right-0 top-11 z-30 w-52 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl">{full && <button type="button" onClick={() => { setMaintenanceMenu(false); sync() }} disabled={syncing} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{syncing ? 'Syncing sheet…' : 'Sync Google Sheet'}</button>}{full && <button type="button" onClick={() => { setMaintenanceMenu(false); refreshEarnings() }} disabled={refreshingEarnings} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{refreshingEarnings ? 'Refreshing earnings…' : 'Refresh earnings'}</button>}</div>}</div></div></header>
+    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={history} range={range} filter={filter} loadingHistory={loadingHistory} />}
     {(error || formError) && <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{formError || error}</div>}
     {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
     {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
@@ -254,6 +239,21 @@ export default function Holdings() {
       <main className="min-w-0">{!selected ? <Empty text="Select a holding to see details." /> : <><header className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3 sm:px-7"><div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1"><h1 className="text-2xl font-black text-slate-950">{ticker}</h1><span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">{selected.action || 'Needs input'}</span><span className="text-xl font-bold text-slate-950">{formatMoney(selected.price)}</span><span className={`text-sm font-bold ${selectedGain ? selectedGain.percent >= 0 ? 'text-emerald-600' : 'text-red-600' : 'text-slate-500'}`}>{percent(selectedGain?.percent, 2)} <span className="font-medium text-slate-500">· {number(selected.shares)} shares</span></span></div><div className="flex gap-2"><button onClick={() => setModal(true)} className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white">Edit assumptions</button><div className="relative"><button onClick={() => setMenu((v) => !v)} className="rounded-lg border border-slate-300 px-3 py-2 text-lg leading-none">…</button>{menu && <div className="absolute right-0 top-11 z-20 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl"><button onClick={toggle} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">{selected.show_in_holdings === false ? 'Show in holdings' : 'Hide from holdings'}</button>{full && <button onClick={archive} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">Archive ticker</button>}<button onClick={remove} className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50">Remove ticker</button></div>}</div></div></header><DetailTabs value={detailTab} set={selectDetailTab} full={full} />{detailTab === 'overview' ? <><div className="flex flex-wrap items-center justify-between gap-2 px-4 pt-3 sm:px-7"><span className="text-xs font-semibold text-slate-500">Price history</span><RangeButtons value={range} set={setRange} /></div><div className="px-4 sm:px-7"><Chart points={points} positive={(selectedGain?.percent ?? 0) >= 0} /></div><div className="grid gap-4 px-5 pb-7 sm:px-7 xl:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)]"><section><div className="mb-3 flex items-center justify-between"><h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Position & valuation</h2>{full && <div className="flex gap-2"><input aria-label="Shares" type="number" min="0" step=".01" value={shareDraft} onChange={(e) => setShareDraft(e.target.value)} className="w-24 rounded-lg border border-slate-300 px-2 py-1.5 text-sm" /><button onClick={saveShares} disabled={savingTicker === ticker} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold">Save shares</button></div>}</div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3"><Metric label="Market value" value={formatMoney(selected.market_value)} large /><Metric label="Average cost" value={formatMoney(selected.average_cost_per_share)} /><Metric label="Current P/E" value={selected.current_pe == null ? '—' : `${number(selected.current_pe)}x`} /><Metric label="Bear target" value={formatMoney(selected.bear_price_y3)} /><Metric label="Base target" value={formatMoney(selected.base_price_y3)} /><Metric label="Bull target" value={formatMoney(selected.bull_price_y3)} /></div></section><section className="rounded-xl border border-slate-200 bg-slate-50/60 p-4"><div className="flex justify-between"><h2 className="text-sm font-bold text-slate-950">Three-year outlook</h2><button onClick={() => setModal(true)} className="text-xs font-semibold text-blue-700">Change</button></div><div className="mt-4 space-y-4">{SCENARIOS.map((scenario) => { const cagr = selected[`${scenario.id}_cagr_y3`]; const width = Math.max(4, Math.min(100, (Number(cagr || 0) * 100 + 20) * 2)); return <div key={scenario.id}><div className="mb-1 flex justify-between text-xs"><span className="font-semibold text-slate-600">{scenario.label}</span><span className="font-bold">{percent(cagr == null ? null : Number(cagr) * 100)}</span></div><div className="h-2 rounded-full bg-slate-200"><div className={`h-full rounded-full ${scenario.bar}`} style={{ width: `${width}%` }} /></div></div> })}</div><div className="mt-5 border-t border-slate-200 pt-4"><div className="text-[11px] font-semibold uppercase text-slate-500">Next earnings</div><div className="mt-1 font-semibold">{date(selected.next_earnings_date)}</div>{selected.next_earnings_eps_forecast && <div className="text-xs text-slate-500">EPS forecast {selected.next_earnings_eps_forecast}</div>}</div></section></div></> : <StockDetail key={ticker} embeddedTicker={ticker} embeddedSection={detailTab} />}</>}</main></div>
     {modal && selected && <AssumptionsModal ticker={ticker} close={() => setModal(false)} saved={refresh} />}
   </div>
+}
+
+// Total value of the listed positions and their gain or loss over the selected
+// period. Follows the period buttons and the holdings filter.
+function HoldingsSummary({ rows, history, range, filter, loadingHistory }) {
+  const summary = useMemo(() => summarizeHoldings(rows, history, range), [rows, history, range])
+  const rangeLabel = Object.fromEntries(RANGES)[range] || range
+  const filterLabel = Object.fromEntries(FILTERS)[filter] || 'All'
+  const pending = loadingHistory && !summary.priced
+  const tone = summary.change == null ? 'text-slate-500' : summary.change >= 0 ? 'text-emerald-600' : 'text-red-600'
+  return <section aria-label="Holdings summary" className="mb-3 flex flex-wrap items-end gap-x-10 gap-y-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
+    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(summary.totalValue)}</div></div>
+    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{pending ? '…' : summary.change == null ? '—' : `${summary.change >= 0 ? '+' : ''}${formatMoney(summary.change)}`}<span className="ml-2 text-base font-bold">{pending ? '' : percent(summary.percent, 2)}</span></div></div>
+    <div className="pb-1 text-xs text-slate-500"><div>{filterLabel} · {summary.positions} positions · change in value of the shares held now</div>{!pending && summary.missing.length > 0 && <div>No {rangeLabel} price history for {summary.missing.join(', ')}, so {summary.missing.length === 1 ? 'it is' : 'they are'} not in the gain / loss.</div>}</div>
+  </section>
 }
 
 function RangeButtons({ value, set, compact = false }) {
