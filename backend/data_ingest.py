@@ -402,6 +402,14 @@ def _empty_row(ticker: str, status: str, cache_source: str = "none") -> dict:
     return row
 
 
+# Tickers whose live fetch failed and that have no cached data. Normal page
+# loads skip them for a while instead of retrying (and waiting on Finnhub) on
+# every load; "Update prices" (force_refresh) always retries. Their price falls
+# back to the imported sheet prices.
+FAILED_FETCH_RETRY_SECONDS = 6 * 3600
+_failed_fetches: dict[str, tuple[float, str]] = {}
+
+
 def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
     if not FINNHUB_API_KEY:
         return pd.DataFrame(
@@ -428,6 +436,11 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
                 rows.append(cached)
                 continue
 
+            failed = _failed_fetches.get(ticker)
+            if failed and time.time() - failed[0] < FAILED_FETCH_RETRY_SECONDS:
+                rows.append(_empty_row(ticker, failed[1], cache_source="none"))
+                continue
+
         try:
             row = _get_market_data_for_ticker(ticker)
             try:
@@ -437,6 +450,7 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
                 # cache is temporarily read-only or unavailable.
                 row = dict(row)
                 row["status"] = f"{row['status']}; cache unavailable"
+            _failed_fetches.pop(ticker, None)
             rows.append(row)
         except Exception as e:
             fallback = _read_cache(ticker, max_age_hours=99999)
@@ -448,7 +462,9 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
                     fallback.setdefault(key, default)
                 rows.append(fallback)
             else:
-                rows.append(_empty_row(ticker, f"ERROR: {e}", cache_source="none"))
+                status = f"ERROR: {e}"
+                _failed_fetches[ticker] = (time.time(), status)
+                rows.append(_empty_row(ticker, status, cache_source="none"))
 
     return pd.DataFrame(rows)
 

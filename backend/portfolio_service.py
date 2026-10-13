@@ -789,6 +789,14 @@ def build_portfolio_views(
             "market_sources": dict(
                 Counter(str(v) for v in market_df.get("cache_source", pd.Series(dtype=str)).tolist())
             ),
+            "unpriced_tickers": sorted(
+                str(t)
+                for t, src in zip(
+                    market_df.get("ticker", pd.Series(dtype=str)).tolist(),
+                    market_df.get("cache_source", pd.Series(dtype=str)).tolist(),
+                )
+                if src == "none"
+            ),
             "slowest_tickers": {
                 t: round(sec, 3)
                 for t, sec in sorted(ticker_seconds.items(), key=lambda kv: -kv[1])[:5]
