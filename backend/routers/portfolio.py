@@ -8,6 +8,7 @@ from typing import Any
 
 from fastapi import APIRouter, HTTPException, Request
 
+from backend import portfolio_service
 from backend.auth import current_user_email, has_full_access
 from backend.config import CONTROL_CHANGE_LABELS, SCENARIO_CHANGE_LABELS
 from backend.forecast_service import append_assumption_snapshot, build_change_set
@@ -95,14 +96,17 @@ def build_portfolio_view_for_request(
 
     position_summaries = None
     management_shares = None
+    positions_done_at = management_done_at = prices_loaded_at
     if full_access:
         position_summaries = build_position_summaries(state["transactions"])
+        positions_done_at = time.monotonic()
         management_shares = build_management_snapshot(
             transactions=state["transactions"],
             settings=state["management_modes"],
             manual_allocations=state["manual_allocations"],
             config=state["config"],
         )["shares_by_mode"]
+        management_done_at = time.monotonic()
 
     payload = build_portfolio_views(
         state["config"],
@@ -125,6 +129,12 @@ def build_portfolio_view_for_request(
                 "prices": round(prices_loaded_at - state_loaded_at, 3),
                 "build": round(finished_at - prices_loaded_at, 3),
                 "total": round(finished_at - request_started, 3),
+                "detail": {
+                    "positions": round(positions_done_at - prices_loaded_at, 3),
+                    "management": round(management_done_at - positions_done_at, 3),
+                    "transactions": len(state.get("transactions") or []),
+                    **portfolio_service.LAST_BUILD_TIMING,
+                },
             },
         ),
         flush=True,

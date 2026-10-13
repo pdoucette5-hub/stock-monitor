@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import time
+from collections import Counter
 from copy import deepcopy
 from datetime import date, datetime, timedelta, timezone
 from typing import Any, Optional
@@ -519,6 +521,11 @@ def apply_portfolio_controls(
     return scenario_inputs
 
 
+# Timing breakdown of the most recent build_portfolio_views call, logged by the
+# portfolio view endpoint to diagnose slow Holdings loads.
+LAST_BUILD_TIMING: dict[str, Any] = {}
+
+
 def build_portfolio_views(
     tickers_config: dict[str, Any],
     scenario_inputs: dict[str, Any],
@@ -549,15 +556,19 @@ def build_portfolio_views(
     bottom_pinned_tickers = settings.get("bottom_pinned_tickers", [])
     price_history = price_history if price_history is not None else load_price_history_store()
 
+    timing_started = time.perf_counter()
     market_df = get_live_market_data(
         all_tickers,
         force_refresh=force_refresh,
         max_age_hours=12 if force_refresh else 99999,
     ).copy()
+    market_done = time.perf_counter()
 
     summary_rows: list[dict[str, Any]] = []
     saved_scenario_states: dict[str, dict[str, Any]] = {}
+    ticker_seconds: dict[str, float] = {}
     for ticker in all_tickers:
+        ticker_started = time.perf_counter()
         row_match = market_df[market_df["ticker"] == ticker]
         market_row = row_match.iloc[0].to_dict() if not row_match.empty else {"ticker": ticker}
         market_row = _apply_price_store_fallback(market_row, ticker, price_history)
@@ -579,6 +590,8 @@ def build_portfolio_views(
                 bottom_pinned_tickers,
             ),
         )
+        ticker_seconds[ticker] = time.perf_counter() - ticker_started
+    tickers_done = time.perf_counter()
 
     summary_df = pd.DataFrame(summary_rows)
 
@@ -764,6 +777,24 @@ def build_portfolio_views(
         }
         for row in failed_df.to_dict(orient="records")
     ]
+
+    finished = time.perf_counter()
+    LAST_BUILD_TIMING.clear()
+    LAST_BUILD_TIMING.update(
+        {
+            "market": round(market_done - timing_started, 3),
+            "tickers": round(tickers_done - market_done, 3),
+            "rest": round(finished - tickers_done, 3),
+            "ticker_count": len(all_tickers),
+            "market_sources": dict(
+                Counter(str(v) for v in market_df.get("cache_source", pd.Series(dtype=str)).tolist())
+            ),
+            "slowest_tickers": {
+                t: round(sec, 3)
+                for t, sec in sorted(ticker_seconds.items(), key=lambda kv: -kv[1])[:5]
+            },
+        }
+    )
 
     return {
         "portfolio": portfolio_sorted,
