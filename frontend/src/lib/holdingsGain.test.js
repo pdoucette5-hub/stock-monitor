@@ -67,3 +67,39 @@ test('no positions with history gives no gain rather than zero', () => {
   assert.equal(s.change, null)
   assert.equal(s.percent, null)
 })
+
+import { periodGainFromPerformance, PERFORMANCE_MODES_FOR_FILTER } from './holdingsGain.js'
+
+const day = (date, market_value, capital_basis) => ({ date, market_value, capital_basis, capital_gain_loss: market_value - capital_basis })
+
+test('period gain is the change in capital gain, so money added is not counted', () => {
+  // Start: $1,000 invested, worth $1,200. During the year $5,000 more is added.
+  // End: $6,000 invested, worth $6,600. Gain over the period: 600 - 200 = 400.
+  const g = periodGainFromPerformance([{ series: [day('2025-10-14', 1200, 1000), day('2026-10-14', 6600, 6000)] }])
+  assert.equal(g.change, 400)
+  assert.equal(g.percent, (400 / (1200 + 5000)) * 100)
+  assert.equal(g.startDate, '2025-10-14')
+})
+
+test('shares bought after a price fall are not charged for the fall', () => {
+  // Nothing held at the start; bought $10,000 during the year; now worth $11,000.
+  const g = periodGainFromPerformance([{ series: [day('2025-10-14', 0, 0), day('2026-03-01', 10000, 10000), day('2026-10-14', 11000, 10000)] }])
+  assert.equal(g.change, 1000)
+  assert.equal(g.percent, 10)
+})
+
+test('managed and tracked results are added together', () => {
+  const managed = { series: [day('2025-10-14', 1000, 800), day('2026-10-14', 1100, 800)] }
+  const track = { series: [day('2025-10-14', 500, 500), day('2026-10-14', 450, 500)] }
+  const g = periodGainFromPerformance([managed, track])
+  assert.equal(g.change, 100 - 50)
+  assert.equal(g.percent, (50 / 1500) * 100)
+  assert.deepEqual(PERFORMANCE_MODES_FOR_FILTER.active, ['managed', 'track'])
+})
+
+test('unsorted series and missing data are handled', () => {
+  const g = periodGainFromPerformance([{ series: [day('2026-10-14', 900, 1000), day('2025-10-14', 1000, 1000)] }, { series: [] }, null])
+  assert.equal(g.change, -100)
+  assert.equal(g.percent, -10)
+  assert.equal(periodGainFromPerformance([]).change, null)
+})

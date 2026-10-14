@@ -56,3 +56,48 @@ export function summarizeHoldings(rows, history, range) {
     missing,
   }
 }
+
+// Holdings filter -> performance modes whose results are added together.
+export const PERFORMANCE_MODES_FOR_FILTER = {
+  active: ['managed', 'track'],
+  managed: ['managed'],
+  track: ['track'],
+  excluded: ['excluded'],
+  all: ['all'],
+}
+
+// Gain or loss over a period from one or more /api/performance/portfolio
+// responses (one per mode), based on the transaction ledger: the change in
+// capital gain (market value minus money put in) between the first and last
+// day of the period. Money added or withdrawn during the period is therefore
+// not counted as gain, and shares bought part-way through only count from
+// when they were bought. The percentage is relative to the value at the start
+// plus any net money added during the period.
+export function periodGainFromPerformance(payloads) {
+  let change = 0
+  let startValue = 0
+  let netAdded = 0
+  let used = 0
+  let startDate = null
+  let endDate = null
+  for (const payload of payloads || []) {
+    const series = [...(payload?.series || [])]
+      .filter((point) => point?.date)
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+    if (series.length < 2) continue
+    const first = series[0]
+    const last = series.at(-1)
+    const firstGain = Number(first.capital_gain_loss ?? Number(first.market_value) - Number(first.capital_basis))
+    const lastGain = Number(last.capital_gain_loss ?? Number(last.market_value) - Number(last.capital_basis))
+    if (!Number.isFinite(firstGain) || !Number.isFinite(lastGain)) continue
+    used += 1
+    change += lastGain - firstGain
+    startValue += Number(first.market_value) || 0
+    netAdded += (Number(last.capital_basis) || 0) - (Number(first.capital_basis) || 0)
+    startDate = !startDate || first.date < startDate ? first.date : startDate
+    endDate = !endDate || last.date > endDate ? last.date : endDate
+  }
+  if (!used) return { change: null, percent: null, startDate: null, endDate: null }
+  const base = startValue + Math.max(netAdded, 0)
+  return { change, percent: base > 0 ? (change / base) * 100 : null, startDate, endDate }
+}

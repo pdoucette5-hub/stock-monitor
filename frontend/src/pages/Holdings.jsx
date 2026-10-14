@@ -4,12 +4,12 @@ import { useSearchParams } from 'react-router-dom'
 import StockDetail from './StockDetail'
 import { clearPortfolioViewCache, usePortfolioView } from '../hooks/usePortfolioView'
 import {
-  addPortfolioTicker, archiveTicker, fetchPriceComparison, fetchStockScenario,
+  addPortfolioTicker, archiveTicker, fetchPortfolioPerformance, fetchPriceComparison, fetchStockScenario,
   refreshEarningsCalendar, removeTicker, savePortfolioControls, savePortfolioShares,
   saveStockScenario, syncSheetTickers, refreshIntradayPrices,
 } from '../lib/api'
 import { apiToForm, formToApi } from '../lib/scenarioForm'
-import { gainForRow, summarizeHoldings } from '../lib/holdingsGain'
+import { gainForRow, PERFORMANCE_MODES_FOR_FILTER, periodGainFromPerformance, summarizeHoldings } from '../lib/holdingsGain'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
 
@@ -235,7 +235,7 @@ export default function Holdings() {
   }
 
   return <div className="mx-auto w-full max-w-[1600px] px-4 py-3 lg:px-6"><header className="mb-3 flex flex-wrap items-center justify-between gap-3"><h1 className="text-2xl font-bold tracking-tight text-slate-950">Holdings</h1><div className="flex items-center gap-2"><button type="button" onClick={updatePrices} disabled={loading || loadingHistory} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60">{loading || loadingHistory ? 'Updating…' : 'Update prices'}</button><button onClick={() => setAddOpen((v) => !v)} className="rounded-lg bg-slate-950 px-4 py-2 text-xs font-semibold text-white">+ Add holding</button><div className="relative"><button type="button" aria-label="More holdings actions" aria-expanded={maintenanceMenu} onClick={() => setMaintenanceMenu((v) => !v)} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-lg leading-none text-slate-700">…</button>{maintenanceMenu && <div className="absolute right-0 top-11 z-30 w-52 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl">{full && <button type="button" onClick={() => { setMaintenanceMenu(false); sync() }} disabled={syncing} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{syncing ? 'Syncing sheet…' : 'Sync Google Sheet'}</button>}{full && <button type="button" onClick={() => { setMaintenanceMenu(false); refreshEarnings() }} disabled={refreshingEarnings} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{refreshingEarnings ? 'Refreshing earnings…' : 'Refresh earnings'}</button>}</div>}</div></div></header>
-    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={history} range={range} filter={filter} loadingHistory={loadingHistory} />}
+    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={history} range={range} filter={filter} view={view} />}
     {(error || formError) && <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{formError || error}</div>}
     {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
     {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
@@ -246,17 +246,34 @@ export default function Holdings() {
 }
 
 // Total value of the listed positions and their gain or loss over the selected
-// period. Follows the period buttons and the holdings filter.
-function HoldingsSummary({ rows, history, range, filter, loadingHistory }) {
-  const summary = useMemo(() => summarizeHoldings(rows, history, range), [rows, history, range])
+// period. The gain comes from the transaction ledger (the same calculation as
+// the Performance tab), so money added or withdrawn and shares bought part-way
+// through the period are handled correctly. Follows the period buttons and the
+// holdings filter.
+function HoldingsSummary({ rows, history, range, filter, view }) {
+  const totalValue = useMemo(() => summarizeHoldings(rows, history, range).totalValue, [rows, history, range])
+  const [period, setPeriod] = useState({ key: '', loading: true, error: null, gain: null })
+  const modes = PERFORMANCE_MODES_FOR_FILTER[filter]
+  const key = `${range}|${filter}`
+  useEffect(() => {
+    if (!modes) return undefined
+    let cancelled = false
+    setPeriod({ key, loading: true, error: null, gain: null })
+    Promise.all(modes.map((mode) => fetchPortfolioPerformance(range, [], mode)))
+      .then((payloads) => { if (!cancelled) setPeriod({ key, loading: false, error: null, gain: periodGainFromPerformance(payloads) }) })
+      .catch((err) => { if (!cancelled) setPeriod({ key, loading: false, error: err.message, gain: null }) })
+    return () => { cancelled = true }
+    // view: reload after holdings change (e.g. a share edit or import)
+  }, [key, range, view]) // eslint-disable-line react-hooks/exhaustive-deps
   const rangeLabel = Object.fromEntries(RANGES)[range] || range
   const filterLabel = Object.fromEntries(FILTERS)[filter] || 'All'
-  const pending = loadingHistory && !summary.priced
-  const tone = summary.change == null ? 'text-slate-500' : summary.change >= 0 ? 'text-emerald-600' : 'text-red-600'
+  const current = period.key === key ? period : { loading: true, gain: null }
+  const change = current.gain?.change ?? null
+  const tone = change == null ? 'text-slate-500' : change >= 0 ? 'text-emerald-600' : 'text-red-600'
   return <section aria-label="Holdings summary" className="mb-3 flex flex-wrap items-end gap-x-10 gap-y-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
-    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(summary.totalValue)}</div></div>
-    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{pending ? '…' : summary.change == null ? '—' : `${summary.change >= 0 ? '+' : ''}${formatMoney(summary.change)}`}<span className="ml-2 text-base font-bold">{pending ? '' : percent(summary.percent, 2)}</span></div></div>
-    <div className="pb-1 text-xs text-slate-500"><div>{filterLabel} · {summary.positions} positions · change in value of the shares held now</div>{!pending && summary.missing.length > 0 && <div>No {rangeLabel} price history for {summary.missing.join(', ')}, so {summary.missing.length === 1 ? 'it is' : 'they are'} not in the gain / loss.</div>}</div>
+    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div></div>
+    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : current.loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 text-base font-bold">{modes && !current.loading ? percent(current.gain?.percent, 2) : ''}</span></div></div>
+    <div className="pb-1 text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div><div>{!modes ? 'Gain / loss is not available for hidden holdings.' : current.error ? `Gain / loss unavailable: ${current.error}` : `From your transactions${current.gain?.startDate ? ` since ${date(current.gain.startDate)}` : ''}; money added or withdrawn is not counted as gain.`}</div></div>
   </section>
 }
 
