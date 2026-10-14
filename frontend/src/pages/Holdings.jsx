@@ -191,7 +191,11 @@ export default function Holdings() {
     setSearchParams(next, { replace: true })
   }
   useEffect(() => { setShareDraft(selected?.total_shares ?? selected?.shares ?? ''); setMenu(false) }, [selected])
-  const refresh = async () => { clearPortfolioViewCache(); await load(true) }
+  // Reload holdings after a save. The server drops its cached view on every
+  // save, so a normal load returns the change in about a second; a forced
+  // load would also re-fetch live quotes for every ticker (like "Update
+  // prices"), which took ~40s and made saves look like they did nothing.
+  const refresh = async () => { clearPortfolioViewCache(); await load(false) }
   const guard = async (work, success) => { setSavingTicker(ticker); setFormError(null); try { await work(); await refresh(); if (success) setMessage(success) } catch (err) { setFormError(err.message) } finally { setSavingTicker(null) } }
   const add = async (event) => { event.preventDefault(); const symbol = newTicker.trim().toUpperCase(); const shares = Number(newShares); if (!symbol || newShares === '' || !Number.isFinite(shares) || shares < 0) return setFormError('Enter a ticker and a non-negative share count.'); try { await addPortfolioTicker(symbol, shares); if (full) await syncSheetTickers().catch(() => null); setNewTicker(''); setNewShares(''); setAddOpen(false); await refresh(); setTicker(symbol); setMessage(`Added ${symbol} to the portfolio.`) } catch (err) { setFormError(err.message) } }
   const saveShares = () => { const value = Number(shareDraft); if (Number.isFinite(value) && value >= 0) guard(() => savePortfolioShares(ticker, value), `Updated ${ticker} shares.`) }
