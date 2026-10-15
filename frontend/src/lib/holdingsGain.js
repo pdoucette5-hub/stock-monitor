@@ -5,9 +5,11 @@
 // close when there is no current price). `amount` is per share.
 export function gain(points, currentPrice) {
   const valid = (points || []).filter((point) => Number.isFinite(Number(point?.close)))
-  if (valid.length < 2) return null
+  const hasPrice = currentPrice != null && currentPrice !== '' && Number.isFinite(Number(currentPrice))
+  // Need a starting close plus either a later close or the current price.
+  if (valid.length < 2 && !(valid.length === 1 && hasPrice)) return null
   const start = Number(valid[0].close)
-  const end = Number.isFinite(Number(currentPrice)) ? Number(currentPrice) : Number(valid.at(-1).close)
+  const end = hasPrice ? Number(currentPrice) : Number(valid.at(-1).close)
   return start ? { amount: end - start, percent: ((end - start) / start) * 100, start, end } : null
 }
 
@@ -130,29 +132,31 @@ function pointKey(point) {
 
 const END_KEY = '~'
 
-// For Today, intraday samples start whenever sampling started, so start from
-// the previous trading day's close instead. `dailyHistory` is a daily price
-// series per ticker (e.g. the 7D range). Only applied when every point in a
-// ticker's series is from the same day (intraday samples).
-export function withPreviousClose(history, dailyHistory) {
+// Series used for Today's gain: the previous trading day's close (from a
+// daily series such as the 7D range), followed by any intraday samples taken
+// today. Samples from an earlier day are ignored, so stale intraday data can
+// never become the starting point. `today` is the local date (YYYY-MM-DD).
+export function withPreviousClose(history, dailyHistory, today) {
   const result = {}
-  for (const [ticker, points] of Object.entries(history || {})) {
-    const valid = (points || []).filter((point) => Number.isFinite(Number(point?.close)) && point?.date)
-    const days = new Set(valid.map((point) => String(point.date).slice(0, 10)))
-    if (valid.length && days.size === 1) {
-      const day = [...days][0]
-      const prior = (dailyHistory?.[ticker] || [])
-        .filter((point) => Number.isFinite(Number(point?.close)) && String(point?.date || '').slice(0, 10) < day)
-        .sort((a, b) => (String(a.date) < String(b.date) ? -1 : 1))
-        .at(-1)
-      if (prior) {
-        result[ticker] = [{ date: String(prior.date).slice(0, 10), close: Number(prior.close), previous_close: true }, ...valid]
-        continue
-      }
+  const tickers = new Set([...Object.keys(history || {}), ...Object.keys(dailyHistory || {})])
+  for (const ticker of tickers) {
+    const prior = (dailyHistory?.[ticker] || [])
+      .filter((point) => Number.isFinite(Number(point?.close)) && String(point?.date || '').slice(0, 10) < today)
+      .sort((a, b) => (String(a.date) < String(b.date) ? -1 : 1))
+      .at(-1)
+    if (!prior) {
+      result[ticker] = history?.[ticker] || []
+      continue
     }
-    result[ticker] = points
+    const todays = (history?.[ticker] || []).filter((point) => Number.isFinite(Number(point?.close)) && String(point?.date || '').slice(0, 10) === today)
+    result[ticker] = [{ date: String(prior.date).slice(0, 10), close: Number(prior.close), previous_close: true }, ...todays]
   }
   return result
+}
+
+export function localDate(now = new Date()) {
+  const pad = (value) => String(value).padStart(2, '0')
+  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`
 }
 
 // The earliest date in the history, used to ask for the trades in the period.

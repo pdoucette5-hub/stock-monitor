@@ -94,14 +94,20 @@ def add_intraday_samples(samples: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def latest_session_prices(tickers: list[str]) -> dict[str, list[dict[str, Any]]]:
+    """Intraday samples from the most recent session in the store.
+
+    A ticker whose samples are all from an earlier day gets an empty list (so
+    callers fall back to daily closes) instead of an old day's samples being
+    shown as today.
+    """
     store = load_intraday_prices()
+    session_date = max(
+        (str(row.get("date") or "") for rows in store.values() for row in rows),
+        default="",
+    )
     result: dict[str, list[dict[str, Any]]] = {}
     for ticker in tickers:
         normalized = str(ticker).strip().upper()
         rows = store.get(normalized, [])
-        if not rows:
-            result[normalized] = []
-            continue
-        latest_date = max(str(row.get("date") or "") for row in rows)
-        result[normalized] = [row for row in rows if str(row.get("date") or "") == latest_date]
+        result[normalized] = [row for row in rows if session_date and str(row.get("date") or "") == session_date]
     return result

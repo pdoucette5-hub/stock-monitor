@@ -9,7 +9,7 @@ import {
   saveStockScenario, syncSheetTickers, refreshIntradayPrices,
 } from '../lib/api'
 import { apiToForm, formToApi } from '../lib/scenarioForm'
-import { gainForRow, historyStartDate, PERFORMANCE_MODES_FOR_FILTER, periodGainFromHoldings, summarizeHoldings, withPreviousClose } from '../lib/holdingsGain'
+import { gainForRow, historyStartDate, PERFORMANCE_MODES_FOR_FILTER, periodGainFromHoldings, localDate, summarizeHoldings, withPreviousClose } from '../lib/holdingsGain'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
 
@@ -182,7 +182,7 @@ export default function Holdings() {
     fetchPriceComparison(rows.map((row) => row.ticker), '7d').then((result) => { if (!cancelled) setDailyHistory(result?.price_series || result?.series || {}) }).catch(() => { if (!cancelled) setDailyHistory({}) })
     return () => { cancelled = true }
   }, [range, rows])
-  const gainHistory = useMemo(() => range === '1d' ? withPreviousClose(history, dailyHistory) : history, [range, history, dailyHistory])
+  const gainHistory = useMemo(() => range === '1d' ? withPreviousClose(history, dailyHistory, localDate()) : history, [range, history, dailyHistory])
   const selected = rows.find((row) => row.ticker === ticker); const points = history[ticker] || []; const selectedGain = gainForRow(selected, gainHistory[ticker] || points, range)
   const selectTicker = (nextTicker) => {
     setTicker(nextTicker)

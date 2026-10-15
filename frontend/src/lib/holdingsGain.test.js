@@ -156,7 +156,7 @@ test('trades on or before the first day are already in the starting shares', () 
 test('Today starts from the previous close and counts trades made today', () => {
   const intraday = [{ date: '2026-10-15', timestamp: 1000, close: 102 }, { date: '2026-10-15', timestamp: 2000, close: 104 }]
   const daily = { A: [...days([95, 100], 13), { date: '2026-10-15', close: 104 }] }
-  const history = wpc({ A: intraday }, daily)
+  const history = wpc({ A: intraday }, daily, '2026-10-15')
   assert.equal(history.A[0].close, 100)
   assert.equal(history.A[0].date, '2026-10-14')
   const rows = [{ ticker: 'A', shares: 15, price: 105 }]
@@ -170,4 +170,17 @@ test('positions without price history are reported, not guessed', () => {
   const r = pgh([{ ticker: 'A', shares: 1, price: 2 }, { ticker: 'FUND', shares: 5, price: 10 }], { A: days([1, 2]) }, {})
   assert.deepEqual(r.missing, ['FUND'])
   near(r.change, 1, 'change')
+})
+
+test('Today ignores intraday samples from an earlier day', () => {
+  // Intraday sampling stopped on Oct 13; today is Oct 15. Start must be Oct 14's close.
+  const stale = [{ date: '2026-10-13', timestamp: 1, close: 936.7 }, { date: '2026-10-13', timestamp: 2, close: 940 }]
+  const daily = { MU: days([989.04, 953.19, 914.13, 911.5], 12) }
+  const history = wpc({ MU: stale }, daily, '2026-10-15')
+  assert.deepEqual(history.MU.map((p) => p.close), [914.13])
+  const g = gainForRow({ price: 911.5 }, history.MU, '1d')
+  near(g.amount, 911.5 - 914.13, 'per-share change')
+  near(g.percent, (911.5 / 914.13 - 1) * 100, 'percent')
+  const r = pgh([{ ticker: 'MU', shares: 68.16, price: 911.5 }], history, {})
+  near(r.change, 68.16 * (911.5 - 914.13), 'position change')
 })
