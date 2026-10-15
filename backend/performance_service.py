@@ -569,6 +569,11 @@ def build_portfolio_performance(
             total_cost_basis += cost_basis
 
         capital_basis = capital_state["capital_basis"]
+        # Cash from sales and dividends that has not been reinvested yet. It is
+        # still part of the portfolio, so it counts towards the gain: selling a
+        # stock is not a loss, and a dividend is a gain. "market_value" stays the
+        # value of the holdings only.
+        cash = max(capital_state["available_cash"], 0.0)
         benchmark_close_for_date = _latest_close_on_or_before(
             benchmark_rows,
             current_date,
@@ -584,6 +589,7 @@ def build_portfolio_performance(
                 "market_value": round(total_market_value, 8),
                 "cost_basis": round(total_cost_basis, 8),
                 "capital_basis": round(capital_basis, 8),
+                "cash": round(cash, 8),
                 "benchmark_ticker": benchmark_ticker,
                 "benchmark_value": (
                     round(benchmark_value, 8)
@@ -591,7 +597,7 @@ def build_portfolio_performance(
                     else None
                 ),
                 "unrealized_gain_loss": round(total_market_value - total_cost_basis, 8),
-                "capital_gain_loss": round(total_market_value - capital_basis, 8),
+                "capital_gain_loss": round(total_market_value + cash - capital_basis, 8),
             }
         )
 

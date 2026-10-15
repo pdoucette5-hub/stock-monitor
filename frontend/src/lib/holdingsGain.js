@@ -71,7 +71,9 @@ export const PERFORMANCE_MODES_FOR_FILTER = {
 // capital gain (market value minus money put in) between the first and last
 // day of the period. Money added or withdrawn during the period is therefore
 // not counted as gain, and shares bought part-way through only count from
-// when they were bought. The percentage is relative to the value at the start
+// when they were bought. Cash from sales and dividends counts as part of the
+// portfolio until it is reinvested, so selling one stock to buy another is
+// neutral and dividends count as gain. The percentage is relative to the value at the start
 // plus any net money added during the period.
 export function periodGainFromPerformance(payloads) {
   let change = 0
@@ -92,7 +94,7 @@ export function periodGainFromPerformance(payloads) {
     if (!Number.isFinite(firstGain) || !Number.isFinite(lastGain)) continue
     used += 1
     change += lastGain - firstGain
-    startValue += Number(first.market_value) || 0
+    startValue += (Number(first.market_value) || 0) + (Number(first.cash) || 0)
     netAdded += (Number(last.capital_basis) || 0) - (Number(first.capital_basis) || 0)
     startDate = !startDate || first.date < startDate ? first.date : startDate
     endDate = !endDate || last.date > endDate ? last.date : endDate
