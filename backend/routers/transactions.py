@@ -356,7 +356,8 @@ SHARE_CHANGING_TYPES = {"buy", "sell", "transfer_in", "transfer_out", "adjustmen
 
 # Money market funds that hold an account's uninvested cash. Buying or selling
 # them just moves cash around; their dividends are interest on the cash.
-CASH_TICKERS = {"SPAXX", "FDRXX", "FZFXX", "SPRXX", "FCASH", "CORE", "USD", "CASH"}
+# (Not "USD": that is ProShares Ultra Semiconductors, a real holding.)
+CASH_TICKERS = {"SPAXX", "FDRXX", "FZFXX", "SPRXX", "FCASH", "CORE"}
 
 
 def _cash_amount(entry: dict[str, Any]) -> float:

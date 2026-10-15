@@ -161,6 +161,23 @@ def _latest_close_on_or_before(
     return None
 
 
+def _account_cash(state: dict[str, Any], tx: dict[str, Any]) -> float:
+    key = "" if state.get("pool_cash") else _tx_account(tx)
+    return state.setdefault("cash_by_account", {}).get(key, 0.0)
+
+
+def _set_account_cash(state: dict[str, Any], tx: dict[str, Any], value: float) -> None:
+    # Cash belongs to one account: a sale in one account cannot pay for a buy
+    # in another, so each account keeps its own balance.
+    balances = state.setdefault("cash_by_account", {})
+    balances["" if state.get("pool_cash") else _tx_account(tx)] = value
+    state["available_cash"] = sum(balances.values())
+
+
+def _tx_account(tx: dict[str, Any]) -> str:
+    return str(tx.get("account") or "").strip().casefold()
+
+
 def _apply_transaction_to_capital_basis(
     state: dict[str, Any],
     tx: dict[str, Any],
@@ -172,8 +189,9 @@ def _apply_transaction_to_capital_basis(
 
     if tx_type == "buy":
         amount = _transaction_buy_cost(tx)
-        funded_by_cash = min(state["available_cash"], amount)
-        state["available_cash"] -= funded_by_cash
+        cash = _account_cash(state, tx)
+        funded_by_cash = min(cash, amount)
+        _set_account_cash(state, tx, cash - funded_by_cash)
         capital_delta = amount - funded_by_cash
         state["capital_basis"] += capital_delta
         if ticker and amount > 0:
@@ -186,10 +204,10 @@ def _apply_transaction_to_capital_basis(
         if ticker and ticker not in bought_tickers:
             capital_delta = proceeds
             state["capital_basis"] += capital_delta
-        state["available_cash"] += proceeds
+        _set_account_cash(state, tx, _account_cash(state, tx) + proceeds)
 
     elif tx_type == "dividend":
-        state["available_cash"] += _transaction_dividend_cash(tx)
+        _set_account_cash(state, tx, _account_cash(state, tx) + _transaction_dividend_cash(tx))
 
     elif tx_type in {"transfer_in", "adjustment"}:
         amount = _transaction_buy_cost(tx)
@@ -202,8 +220,9 @@ def _apply_transaction_to_capital_basis(
         withdrawal = _transaction_sell_proceeds(tx)
         if withdrawal <= 0:
             return 0.0
-        funded_by_cash = min(state["available_cash"], withdrawal)
-        state["available_cash"] -= funded_by_cash
+        cash = _account_cash(state, tx)
+        funded_by_cash = min(cash, withdrawal)
+        _set_account_cash(state, tx, cash - funded_by_cash)
         capital_delta = -(withdrawal - funded_by_cash)
         state["capital_basis"] = max(
             state["capital_basis"] + capital_delta,
@@ -366,7 +385,14 @@ def build_portfolio_performance(
     range_key: str = "3y",
     accounts: list[str] | None = None,
     supplemental_positions: list[dict[str, Any]] | None = None,
+    pool_cash_across_accounts: bool = False,
 ) -> dict[str, Any]:
+    """Daily portfolio value, capital basis, cash and gain for the accounts.
+
+    pool_cash_across_accounts keeps the older behaviour (one cash pool for all
+    accounts); the Matthew compensation tracker still uses it so its payout is
+    unchanged until that is agreed.
+    """
     account_rows = _account_summary(
         transactions_by_ticker,
         accounts,
@@ -506,6 +532,8 @@ def build_portfolio_performance(
     capital_state = {
         "capital_basis": 0.0,
         "available_cash": 0.0,
+        "cash_by_account": {},
+        "pool_cash": pool_cash_across_accounts,
         "bought_tickers": set(),
     }
     benchmark_shares = 0.0

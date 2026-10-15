@@ -315,7 +315,8 @@ function HoldingsSummary({ rows, history, range, filter, view }) {
 }
 
 // Money market funds and cash entries: counted as cash, not as stocks.
-const NON_SECURITIES = new Set(['USD', 'CASH', 'SPAXX', 'FDRXX', 'FZFXX', 'SPRXX', 'FCASH', 'CORE'])
+// (Not USD: that is ProShares Ultra Semiconductors, a real holding.)
+const NON_SECURITIES = new Set(['SPAXX', 'FDRXX', 'FZFXX', 'SPRXX', 'FCASH', 'CORE'])
 const SHARE_TRADES = new Set(['buy', 'sell', 'transfer_in', 'transfer_out', 'adjustment'])
 
 function RangeButtons({ value, set, compact = false }) {

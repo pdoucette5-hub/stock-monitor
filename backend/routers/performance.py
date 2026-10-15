@@ -219,6 +219,7 @@ def get_compensation_tracker(
             tickers_config=get_effective_tickers_config(),
             range_key=range,
             accounts=sorted(MATTHEW_COMPENSATION_ACCOUNTS),
+            pool_cash_across_accounts=True,
             supplemental_positions=[
                 position
                 for position in management["positions"]

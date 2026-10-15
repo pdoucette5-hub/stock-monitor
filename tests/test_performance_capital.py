@@ -95,6 +95,18 @@ class CapitalTests(unittest.TestCase):
         self.assertEqual(s["2026-07-01"]["capital_basis"], 30000)
         self.assertAlmostEqual(s["2026-07-01"]["capital_gain_loss"], 0.0)
 
+    def test_cash_stays_in_its_account(self):
+        # Sell in the TOD account; a buy in an IRA is new money, and the TOD
+        # cash stays part of the portfolio value.
+        store = flat_prices("AAA", "BBB")
+        sell = tx("a2", "2026-07-01", "sell", 100, 100, "AAA"); sell["account"] = "Individual - TOD"
+        buy_a = tx("a1", "2026-06-01", "buy", 100, 100, "AAA"); buy_a["account"] = "Individual - TOD"
+        buy_b = tx("b1", "2026-07-02", "buy", 100, 100, "BBB"); buy_b["account"] = "Roth IRA"
+        s = series_for({"AAA": [buy_a, sell], "BBB": [buy_b]}, store, {"BBB": 100})
+        self.assertEqual(s["2026-07-15"]["cash"], 10000)
+        self.assertEqual(s["2026-07-15"]["capital_basis"], 20000)
+        self.assertAlmostEqual(s["2026-07-15"]["capital_gain_loss"], 0.0)
+
     def test_price_moves_are_gain(self):
         store = flat_prices("AAA", overrides={("AAA", "2026-07-01"): 90.0})
         s = series_for({"AAA": [tx("a1", "2026-06-01", "buy", 100, 100, "AAA")]}, store, {"AAA": 100})
