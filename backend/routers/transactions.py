@@ -354,14 +354,76 @@ def import_transactions(body: TransactionImportRequest) -> dict[str, Any]:
 # Transaction types that change how many shares are held.
 SHARE_CHANGING_TYPES = {"buy", "sell", "transfer_in", "transfer_out", "adjustment"}
 
+# Money market funds that hold an account's uninvested cash. Buying or selling
+# them just moves cash around; their dividends are interest on the cash.
+CASH_TICKERS = {"SPAXX", "FDRXX", "FZFXX", "SPRXX", "FCASH", "CORE", "USD", "CASH"}
+
+
+def _cash_amount(entry: dict[str, Any]) -> float:
+    """Cash into (+) or out of (-) the account for one transaction."""
+    tx_type = str(entry.get("type", "")).strip().lower()
+    source_amount = entry.get("source_amount")
+    try:
+        if source_amount not in (None, "") and tx_type in {"buy", "sell", "dividend"}:
+            return float(source_amount)
+    except (TypeError, ValueError):
+        pass
+    try:
+        shares = abs(float(entry.get("shares") or 0))
+        price = float(entry.get("price_per_share") or 0)
+        fees = float(entry.get("fees") or 0)
+    except (TypeError, ValueError):
+        return 0.0
+    if tx_type == "buy":
+        return -(shares * price + fees)
+    if tx_type == "sell":
+        return shares * price - fees
+    if tx_type == "dividend":
+        return abs(price)
+    return 0.0
+
+
+def _cash_event_order(entry: dict[str, Any]) -> tuple[str, int]:
+    # Within a day, money comes in (sales, dividends) before it is spent.
+    return (str(entry.get("date") or "")[:10], 1 if _cash_amount(entry) < 0 else 0)
+
+
+def cash_balances_through(transactions: dict[str, list[dict[str, Any]]], through: str) -> dict[str, float]:
+    """Uninvested cash per account at the end of `through`, from the ledger.
+
+    Sale proceeds and dividends add cash; buys spend it. A buy costing more
+    than the cash on hand was paid with new money, so the balance never goes
+    below zero. Moves in and out of the money market fund are ignored (they
+    are the cash).
+    """
+    events = []
+    for ticker, entries in transactions.items():
+        is_cash_fund = normalize_ticker(ticker) in CASH_TICKERS
+        for entry in entries:
+            tx_type = str(entry.get("type", "")).strip().lower()
+            date = str(entry.get("date") or "")[:10]
+            if not date or date > through or tx_type not in {"buy", "sell", "dividend"}:
+                continue
+            if is_cash_fund and tx_type != "dividend":
+                continue
+            events.append(entry)
+    balances: dict[str, float] = {}
+    for entry in sorted(events, key=_cash_event_order):
+        account = str(entry.get("account") or "").strip() or UNASSIGNED_ACCOUNT
+        balances[account] = max(balances.get(account, 0.0) + _cash_amount(entry), 0.0)
+    return {account: round(balance, 2) for account, balance in balances.items() if balance > 0.004}
+
 
 @router.get("/api/transactions/window")
 def get_transactions_window(since: str, modes: str = "all") -> dict[str, Any]:
-    """Share-changing trades on or after `since`, for every ticker.
+    """Trades, dividends and cash for the Holdings summary.
 
-    Used by the Holdings summary to work out how many shares were held on each
-    day of the selected period. `modes` is a comma-separated list of
-    management modes (managed, track, excluded) or "all".
+    - trades: share-changing trades and dividends on or after `since`, per
+      ticker, each with its account and cash amount (money market fund
+      activity is left out of trades; its dividends are reported as interest).
+    - cash_start: uninvested cash per account at the end of `since`.
+    `modes` is a comma-separated list of management modes (managed, track,
+    excluded) or "all".
     """
     try:
         since_date = datetime.date.fromisoformat(str(since).strip()[:10]).isoformat()
@@ -379,28 +441,47 @@ def get_transactions_window(since: str, modes: str = "all") -> dict[str, Any]:
             for ticker, entries in filter_transactions_by_management_mode(transactions, mode).items():
                 selected.setdefault(ticker, []).extend(entries)
         transactions = selected
-
-    trades: dict[str, list[dict[str, Any]]] = {}
+    # Drop duplicates (a transaction can only match one mode, but be safe).
+    deduped: dict[str, list[dict[str, Any]]] = {}
     for ticker, entries in transactions.items():
         seen: set[str] = set()
         for entry in entries:
+            key = str(entry.get("id") or id(entry))
+            if key not in seen:
+                seen.add(key)
+                deduped.setdefault(normalize_ticker(ticker), []).append(entry)
+    transactions = deduped
+
+    trades: dict[str, list[dict[str, Any]]] = {}
+    for ticker, entries in transactions.items():
+        is_cash_fund = ticker in CASH_TICKERS
+        for entry in entries:
             tx_type = str(entry.get("type", "")).strip().lower()
             tx_date = str(entry.get("date") or "")[:10]
-            if tx_type not in SHARE_CHANGING_TYPES or tx_date < since_date:
+            if tx_date < since_date:
                 continue
-            key = str(entry.get("id") or id(entry))
-            if key in seen:
+            if tx_type == "dividend":
+                kind = "interest" if is_cash_fund else "dividend"
+            elif tx_type in SHARE_CHANGING_TYPES and not is_cash_fund:
+                kind = tx_type
+            else:
                 continue
-            seen.add(key)
-            trades.setdefault(normalize_ticker(ticker), []).append({
+            trades.setdefault(ticker, []).append({
                 "date": tx_date,
-                "type": tx_type,
+                "type": kind,
                 "shares": entry.get("shares"),
                 "price_per_share": entry.get("price_per_share"),
+                "account": str(entry.get("account") or "").strip() or UNASSIGNED_ACCOUNT,
+                "cash": round(_cash_amount(entry), 2),
             })
     for entries in trades.values():
         entries.sort(key=lambda row: row["date"])
-    return {"since": since_date, "trades": trades}
+    return {
+        "since": since_date,
+        "trades": trades,
+        "cash_start": cash_balances_through(transactions, since_date),
+        "cash_tickers": sorted(CASH_TICKERS),
+    }
 
 
 @router.get("/api/transactions/{ticker}")

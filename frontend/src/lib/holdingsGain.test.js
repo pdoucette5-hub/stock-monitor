@@ -1,7 +1,7 @@
 // Run with:  node --test frontend/src/lib/holdingsGain.test.js
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { gainForRow, summarizeHoldings, periodGainFromHoldings as pgh, withPreviousClose as wpc } from './holdingsGain.js'
+import { gainForRow, summarizeHoldings, periodGainFromHoldings as pgh, withPreviousClose as wpc, cashActivity, combinedPeriodGain } from './holdingsGain.js'
 
 const pts = (...closes) => closes.map((close, i) => ({ date: `2026-10-0${i + 1}`, close }))
 
@@ -206,4 +206,29 @@ test('a position sold during the period counts while held, and its sale funds th
   near(r.change, -100, 'total')
   // start 1000; sold 800 then bought 1000 -> 200 new money at peak
   near(r.percent, -100 / 1200 * 100, 'percent')
+})
+
+test('cash: sale proceeds wait as cash, buys spend it, extra is new money, dividends are gain', () => {
+  const trades = {
+    A: [{ date: '2026-10-02', type: 'sell', cash: 1000, account: 'Roth' }],
+    B: [{ date: '2026-10-03', type: 'buy', cash: -1500, account: 'Roth' }],
+    NVDA: [{ date: '2026-10-04', type: 'dividend', cash: 25, account: 'Roth' }],
+    SPAXX: [{ date: '2026-10-05', type: 'interest', cash: 3, account: 'IRA' }],
+    OLD: [{ date: '2026-10-01', type: 'buy', cash: -999, account: 'Roth' }], // on the start date: already counted
+  }
+  const c = cashActivity(trades, { Roth: 200, IRA: 10 }, '2026-10-01')
+  near(c.start, 210, 'start'); near(c.dividends, 28, 'dividends')
+  near(c.newMoney, 300, 'new money') // 200 + 1000 - 1500 = -300
+  near(c.end, 0 + 25 + 13, 'end cash')
+  const g = combinedPeriodGain({ change: 100, startValue: 5000 }, c)
+  near(g.change, 128, 'price + dividends')
+  near(g.percent, 128 / (5000 + 210 + 300) * 100, 'percent')
+})
+
+test('selling and holding the cash is neutral; the cash stays in the base', () => {
+  const rows = [{ ticker: 'A', shares: 0, price: 100 }]
+  const trades = { A: [{ date: '2026-10-02', type: 'sell', shares: 10, price_per_share: 100, cash: 1000, account: 'X' }] }
+  const stocks = pgh(rows, { A: days([100, 100, 100]) }, trades)
+  const g = combinedPeriodGain(stocks, cashActivity(trades, {}, '2026-10-01'))
+  near(g.change, 0, 'change'); near(g.newMoney, 0, 'no new money'); near(g.cashEnd, 1000, 'cash')
 })

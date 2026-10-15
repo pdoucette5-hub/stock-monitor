@@ -9,7 +9,7 @@ import {
   saveStockScenario, syncSheetTickers, refreshIntradayPrices,
 } from '../lib/api'
 import { apiToForm, formToApi } from '../lib/scenarioForm'
-import { gainForRow, historyStartDate, PERFORMANCE_MODES_FOR_FILTER, periodGainFromHoldings, localDate, summarizeHoldings, withPreviousClose } from '../lib/holdingsGain'
+import { cashActivity, combinedPeriodGain, gainForRow, historyStartDate, PERFORMANCE_MODES_FOR_FILTER, periodGainFromHoldings, localDate, summarizeHoldings, withPreviousClose } from '../lib/holdingsGain'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
 
@@ -259,30 +259,31 @@ export default function Holdings() {
 // transaction history, so buying and selling is never counted as gain. Follows
 // the period buttons and the holdings filter.
 function HoldingsSummary({ rows, history, range, filter, view }) {
-  const totalValue = useMemo(() => summarizeHoldings(rows, history, range).totalValue, [rows, history, range])
+  const stockRows = useMemo(() => rows.filter((row) => !NON_SECURITIES.has(row.ticker)), [rows])
+  const stockValue = useMemo(() => summarizeHoldings(stockRows, history, range).totalValue, [stockRows, history, range])
   const modes = PERFORMANCE_MODES_FOR_FILTER[filter]
   const since = useMemo(() => historyStartDate(history), [history])
   const rowTickers = useMemo(() => rows.map((row) => row.ticker).join(','), [rows])
-  const [state, setState] = useState({ key: '', loading: true, error: null, trades: null, soldHistory: {} })
+  const [state, setState] = useState({ key: '', loading: true, error: null, trades: null, cashStart: {}, soldHistory: {} })
   const key = `${since}|${filter}|${range}|${rowTickers}`
   useEffect(() => {
     if (!modes || !since) return undefined
     let cancelled = false
-    setState({ key, loading: true, error: null, trades: null, soldHistory: {} })
+    setState({ key, loading: true, error: null, trades: null, cashStart: {}, soldHistory: {} })
     ;(async () => {
       const result = await fetchTransactionsWindow(since, modes)
       const trades = result?.trades || {}
       // Positions sold during the period still count while they were held.
       const held = new Set(rowTickers.split(','))
-      const sold = Object.keys(trades).filter((ticker) => !held.has(ticker) && !NON_SECURITIES.has(ticker) && trades[ticker].length)
+      const sold = Object.keys(trades).filter((ticker) => !held.has(ticker) && !NON_SECURITIES.has(ticker) && trades[ticker].some((trade) => SHARE_TRADES.has(trade.type)))
       let soldHistory = {}
       if (sold.length) {
         const prices = await fetchPriceComparison(sold, range === '1d' ? '7d' : range).catch(() => null)
         soldHistory = prices?.price_series || prices?.series || {}
         if (range === '1d') soldHistory = withPreviousClose(soldHistory, soldHistory, localDate())
       }
-      if (!cancelled) setState({ key, loading: false, error: null, trades, soldHistory })
-    })().catch((err) => { if (!cancelled) setState({ key, loading: false, error: err.message, trades: null, soldHistory: {} }) })
+      if (!cancelled) setState({ key, loading: false, error: null, trades, cashStart: result?.cash_start || {}, soldHistory })
+    })().catch((err) => { if (!cancelled) setState({ key, loading: false, error: err.message, trades: null, cashStart: {}, soldHistory: {} }) })
     return () => { cancelled = true }
     // view: reload after holdings change (e.g. a share edit or import)
   }, [key, view]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -290,8 +291,11 @@ function HoldingsSummary({ rows, history, range, filter, view }) {
   const result = useMemo(() => {
     if (!ready) return null
     const soldRows = Object.keys(state.soldHistory).map((ticker) => ({ ticker, shares: 0, price: null }))
-    return periodGainFromHoldings([...rows, ...soldRows], { ...state.soldHistory, ...history }, state.trades)
-  }, [ready, rows, history, state.trades, state.soldHistory])
+    const stocks = periodGainFromHoldings([...stockRows, ...soldRows], { ...state.soldHistory, ...history }, state.trades)
+    return combinedPeriodGain(stocks, cashActivity(state.trades, state.cashStart, stocks?.startDate || since))
+  }, [ready, stockRows, history, state.trades, state.cashStart, state.soldHistory, since])
+  const cash = result?.cashEnd ?? null
+  const totalValue = stockValue + (cash || 0)
   const rangeLabel = Object.fromEntries(RANGES)[range] || range
   const filterLabel = Object.fromEntries(FILTERS)[filter] || 'All'
   const loading = Boolean(modes) && (!since || (state.key === key ? state.loading : true))
@@ -302,16 +306,17 @@ function HoldingsSummary({ rows, history, range, filter, view }) {
   const soldCount = Object.keys(state.soldHistory || {}).length
   const note = !modes ? 'Gain / loss is not available for hidden holdings.'
     : error ? `Gain / loss unavailable: ${error}`
-    : `Shares held each day × that day's price move${result?.startDate ? `, from ${range === '1d' ? 'the previous close' : date(result.startDate)}` : ''}${soldCount ? `, including ${soldCount} position${soldCount === 1 ? '' : 's'} sold in the period` : ''}. Buying and selling are not counted as gain; % is of the money invested (starting value plus any new money added).${missing.length ? ` No price history: ${missing.join(', ')}.` : ''}`
+    : `Price moves on the shares held each day${result?.dividends ? ` (${formatMoney(result.priceChange)}) plus dividends and interest (${formatMoney(result.dividends)})` : ' plus dividends'}${result?.startDate ? `, from ${range === '1d' ? 'the previous close' : date(result.startDate)}` : ''}${soldCount ? `, including ${soldCount} position${soldCount === 1 ? '' : 's'} sold in the period` : ''}. Buying and selling are not gain; new money added (${formatMoney(result?.newMoney || 0)}) is not gain. Cash is from your transactions.${missing.length ? ` No price history: ${missing.join(', ')}.` : ''}`
   return <section aria-label="Holdings summary" className="mb-3 flex flex-wrap items-end gap-x-10 gap-y-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
-    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div></div>
+    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div>{cash != null && <div className="text-[11px] text-slate-500">incl. {formatMoney(cash)} cash</div>}</div>
     <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
     <div className="max-w-3xl pb-1 text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div><div>{note}</div></div>
   </section>
 }
 
-// Ticker symbols in the transaction history that are cash, not securities.
-const NON_SECURITIES = new Set(['USD', 'CASH', 'SPAXX', 'FDRXX', 'CORE'])
+// Money market funds and cash entries: counted as cash, not as stocks.
+const NON_SECURITIES = new Set(['USD', 'CASH', 'SPAXX', 'FDRXX', 'FZFXX', 'SPRXX', 'FCASH', 'CORE'])
+const SHARE_TRADES = new Set(['buy', 'sell', 'transfer_in', 'transfer_out', 'adjustment'])
 
 function RangeButtons({ value, set, compact = false }) {
   return <div className={`flex rounded-lg bg-slate-100 p-1 ${compact ? 'w-full justify-between' : ''}`}>{RANGES.map(([id, label]) => <button key={id} onClick={() => set(id)} className={`rounded-md font-bold ${compact ? 'px-1.5 py-1 text-[10px]' : 'px-3 py-1.5 text-xs'} ${value === id ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'}`}>{label}</button>)}</div>

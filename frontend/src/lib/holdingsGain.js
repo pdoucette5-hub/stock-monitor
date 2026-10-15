@@ -295,10 +295,65 @@ export function periodGainFromHoldings(rows, history, trades) {
     change,
     percent: invested > 0 ? (change / invested) * 100 : null,
     invested,
+    startValue,
     startDate: firstKey.slice(0, 10),
     endDate: keys.filter((key) => key !== END_KEY).at(-1)?.slice(0, 10) || null,
     priced: tickers.length,
     missing,
     byTicker,
+  }
+}
+
+// Cash and dividends over a period, from /api/transactions/window.
+//
+// Uninvested cash is part of the portfolio: sale proceeds and dividends add
+// to it, buys spend it, and a buy costing more than the account's cash was
+// paid with new money from outside. Dividends (and interest on the money
+// market fund) count as gain. Returns the cash at the start and end, the
+// dividends received, and the new money added during the period.
+export function cashActivity(trades, cashStart, startDate) {
+  const balances = { ...(cashStart || {}) }
+  const start = Object.values(balances).reduce((sum, value) => sum + (Number(value) || 0), 0)
+  const events = []
+  for (const entries of Object.values(trades || {})) {
+    for (const trade of entries || []) {
+      const date = String(trade?.date || '').slice(0, 10)
+      const cash = Number(trade?.cash)
+      if (!date || date <= startDate || !Number.isFinite(cash) || cash === 0) continue
+      events.push({ date, cash, account: trade.account || '', income: trade.type === 'dividend' || trade.type === 'interest' })
+    }
+  }
+  // Within a day, money comes in before it is spent.
+  events.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : (a.cash < 0) - (b.cash < 0)))
+  let dividends = 0
+  let newMoney = 0
+  for (const event of events) {
+    if (event.income) dividends += event.cash
+    const balance = (Number(balances[event.account]) || 0) + event.cash
+    if (balance < 0) newMoney -= balance
+    balances[event.account] = Math.max(balance, 0)
+  }
+  const end = Object.values(balances).reduce((sum, value) => sum + (Number(value) || 0), 0)
+  return { start, end, dividends, newMoney }
+}
+
+// Whole-portfolio gain for the period: price moves on the shares held each
+// day (from periodGainFromHoldings) plus dividends. The percentage is that
+// gain divided by the money at work: stocks and cash at the start plus new
+// money added from outside during the period.
+export function combinedPeriodGain(stocks, cash) {
+  if (!stocks || stocks.change == null) return stocks
+  const change = stocks.change + (cash?.dividends || 0)
+  const invested = (stocks.startValue || 0) + (cash?.start || 0) + (cash?.newMoney || 0)
+  return {
+    ...stocks,
+    priceChange: stocks.change,
+    dividends: cash?.dividends || 0,
+    change,
+    percent: invested > 0 ? (change / invested) * 100 : null,
+    invested,
+    cashStart: cash?.start || 0,
+    cashEnd: cash?.end || 0,
+    newMoney: cash?.newMoney || 0,
   }
 }

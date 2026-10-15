@@ -12,6 +12,13 @@ const MANAGEMENT_MODES = [
   { value: 'excluded', label: 'Excluded' },
 ]
 
+
+// Stocks plus uninvested cash (sale proceeds and dividends not yet reinvested),
+// so the gap to the capital line is the gain shown on the Gain/Loss card.
+function portfolioValue(point) {
+  return Number(point?.market_value ?? 0) + Number(point?.cash ?? 0)
+}
+
 function formatMoney(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return '—'
   return Number(value).toLocaleString(undefined, {
@@ -111,7 +118,7 @@ function PerformanceChart({ series }) {
 
   const values = []
   series.forEach((point) => {
-    values.push(Number(point.market_value ?? 0))
+    values.push(portfolioValue(point))
     values.push(Number(point.capital_basis ?? point.cost_basis ?? 0))
     if (point.benchmark_value !== null && point.benchmark_value !== undefined) {
       values.push(Number(point.benchmark_value ?? 0))
@@ -134,7 +141,7 @@ function PerformanceChart({ series }) {
   const marketPath = series
     .map(
       (point, idx) =>
-        `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(Number(point.market_value ?? 0))}`,
+        `${idx === 0 ? 'M' : 'L'} ${xFor(idx)} ${yFor(portfolioValue(point))}`,
     )
     .join(' ')
 
@@ -162,8 +169,9 @@ function PerformanceChart({ series }) {
 
   const first = series[0]
   const last = series[series.length - 1]
-  const marketChange =
-    Number(last.market_value ?? 0) - Number(first.market_value ?? 0)
+  // Change in gain over the range: price moves and dividends, not new money.
+  const gainOf = (point) => Number(point.capital_gain_loss ?? (portfolioValue(point) - Number(point.capital_basis ?? point.cost_basis ?? 0)))
+  const marketChange = gainOf(last) - gainOf(first)
   const positive = marketChange >= 0
   const hoveredPoint = hover === null ? null : series[hover.index]
   const hoveredX = hover === null ? null : xFor(hover.index)
@@ -203,7 +211,7 @@ function PerformanceChart({ series }) {
             Portfolio Value Over Time
           </div>
           <div className="text-lg font-semibold text-slate-900">
-            {formatMoney(last.market_value)}
+            {formatMoney(portfolioValue(last))}
           </div>
         </div>
         <div
@@ -212,14 +220,14 @@ function PerformanceChart({ series }) {
           }`}
         >
           {positive ? '+' : ''}
-          {formatMoney(marketChange)}
+          {formatMoney(marketChange)} gain
         </div>
       </div>
 
       <div className="mb-3 flex items-center gap-4 text-xs text-slate-600">
         <div className="flex items-center gap-2">
           <span className="inline-block h-0.5 w-6 bg-blue-600" />
-          Market Value
+          Value (incl. cash)
         </div>
         <div className="flex items-center gap-2">
           <span className="inline-block h-0.5 w-6 bg-amber-500" />
@@ -301,7 +309,7 @@ function PerformanceChart({ series }) {
               />
               <circle
                 cx={hoveredX}
-                cy={yFor(Number(hoveredPoint.market_value ?? 0))}
+                cy={yFor(portfolioValue(hoveredPoint))}
                 r="5"
                 fill="#2563eb"
                 stroke="white"
@@ -338,7 +346,7 @@ function PerformanceChart({ series }) {
                 {formatShortDate(hoveredPoint.date)}
               </text>
               <text x={tooltipX + 12} y={tooltipY + 38} fontSize="11" fill="#93c5fd">
-                Market: {formatMoney(hoveredPoint.market_value)}
+                Value: {formatMoney(portfolioValue(hoveredPoint))}
               </text>
               <text x={tooltipX + 12} y={tooltipY + 56} fontSize="11" fill="#fcd34d">
                 Capital: {formatMoney(hoveredPoint.capital_basis ?? hoveredPoint.cost_basis)}
@@ -779,7 +787,7 @@ export default function Performance() {
       )}
 
       <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <MetricCard label="Market Value" value={formatMoney(latest.market_value)} />
+        <MetricCard label="Value (incl. cash)" value={formatMoney(portfolioValue(latest))} />
         <MetricCard
           label="Capital Basis"
           value={formatMoney(latest.capital_basis ?? latest.cost_basis)}
