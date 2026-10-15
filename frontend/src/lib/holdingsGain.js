@@ -118,10 +118,11 @@ export function periodGainFromPerformance(payloads) {
 // added or withdrawn) are never counted as gain. Dividends are not included:
 // this is the change in the value of the shares.
 //
-// The dollar figure is the sum of those gains. The percentage is the
-// value-weighted average return of the holdings for each step, chained over
-// the period (a time-weighted return), so money moving in or out does not
-// distort it.
+// The dollar figure is the sum of those gains. The percentage is that gain
+// divided by the money at work: the value at the start plus the most extra
+// money put in during the period. Positions sold
+// during the period are included (pass them with shares 0) for the time they
+// were held.
 // ---------------------------------------------------------------------------
 
 function pointKey(point) {
@@ -197,7 +198,7 @@ export function periodGainFromHoldings(rows, history, trades) {
       .map((point) => ({ key: pointKey(point), close: Number(point.close) }))
       .sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0))
     if (!points.length) {
-      if (sharesNow > 0) missing.push(ticker)
+      if (sharesNow > 0 || tickerTrades.length) missing.push(ticker)
       continue
     }
     const price = Number(row.price)
@@ -215,6 +216,7 @@ export function periodGainFromHoldings(rows, history, trades) {
   }
 
   const steps = keys.slice(1).map(() => ({ gain: 0, base: 0 }))
+  let startValue = 0
   const byTicker = {}
   for (const item of tickers) {
     // Closing price at each key, carrying the last close forward.
@@ -242,6 +244,9 @@ export function periodGainFromHoldings(rows, history, trades) {
       for (const trade of tradesByStep[i]) shares -= trade.delta
       held[i] = Math.max(shares, 0)
     }
+    // Value at the start of the period (or when this ticker's prices begin).
+    const firstPriced = closes.findIndex((close) => close != null)
+    if (firstPriced >= 0) startValue += held[firstPriced] * closes[firstPriced]
     let tickerGain = 0
     for (let i = 0; i < steps.length; i += 1) {
       const start = closes[i]
@@ -261,16 +266,35 @@ export function periodGainFromHoldings(rows, history, trades) {
     byTicker[item.ticker] = tickerGain
   }
 
-  let change = 0
-  let growth = 1
-  for (const step of steps) {
-    change += step.gain
-    if (step.base > 0) growth *= 1 + step.gain / step.base
+  // Percent = gain / money at work: the value held at the start plus the most
+  // extra money that was put in at any point in the period (buys minus sale
+  // proceeds, running total, sales on a day counted before that day's buys).
+  // Selling one stock to buy another adds nothing, and the result always has
+  // the same sign as the dollar gain.
+  const change = steps.reduce((sum, step) => sum + step.gain, 0)
+  const flows = []
+  for (const item of tickers) {
+    for (const trade of item.trades) {
+      const date = String(trade?.date || '').slice(0, 10)
+      const delta = signedShares(trade)
+      const price = Number(trade?.price_per_share)
+      if (!delta || !(date > keys[0].slice(0, 10)) || !Number.isFinite(price) || price <= 0) continue
+      flows.push({ date, amount: delta * price })
+    }
   }
+  flows.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : a.amount - b.amount))
+  let running = 0
+  let peak = 0
+  for (const flow of flows) {
+    running += flow.amount
+    peak = Math.max(peak, running)
+  }
+  const invested = startValue + peak
   const firstKey = keys[0]
   return {
     change,
-    percent: (growth - 1) * 100,
+    percent: invested > 0 ? (change / invested) * 100 : null,
+    invested,
     startDate: firstKey.slice(0, 10),
     endDate: keys.filter((key) => key !== END_KEY).at(-1)?.slice(0, 10) || null,
     priced: tickers.length,

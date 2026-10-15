@@ -116,8 +116,7 @@ test('no trades: shares x price change, percent is value-weighted', () => {
   // A: 10 x (105-100) + 10 x (110-105) = 100; B: 30 x (90-100) = -300
   near(r.change, -200, 'change')
   near(r.byTicker.A, 100, 'A'); near(r.byTicker.B, -300, 'B')
-  // day 1: +50 -150 on 4000 = -2.5%; step 2: +50 -150 on 1050+2850=3900
-  near(r.percent, ((1 - 100 / 4000) * (1 - 100 / 3900) - 1) * 100, 'percent')
+  near(r.percent, -200 / 4000 * 100, 'percent of starting value')
 })
 
 test('selling one stock and buying another is not a gain or loss', () => {
@@ -183,4 +182,28 @@ test('Today ignores intraday samples from an earlier day', () => {
   near(g.percent, (911.5 / 914.13 - 1) * 100, 'percent')
   const r = pgh([{ ticker: 'MU', shares: 68.16, price: 911.5 }], history, {})
   near(r.change, 68.16 * (911.5 - 914.13), 'position change')
+})
+
+test('percent has the same sign as the dollars and uses money at work', () => {
+  // Small loss on a small early position, big gain after adding money.
+  const rows = [{ ticker: 'A', shares: 100, price: 150 }]
+  const history = { A: days([100, 50, 100]) }
+  const trades = { A: [{ date: '2026-10-02', type: 'buy', shares: 90, price_per_share: 50 }] }
+  const r = pgh(rows, history, trades)
+  // 10 sh: 100->50 = -500; 90 bought at 50, all 100 sh 50->150 = 10000; total 9500
+  near(r.change, 9500, 'change')
+  near(r.percent, 9500 / (1000 + 4500) * 100, 'percent') // start value 1000 + 4500 new money
+  assert.ok(r.percent > 0)
+})
+
+test('a position sold during the period counts while held, and its sale funds the next buy', () => {
+  const rows = [{ ticker: 'B', shares: 10, price: 110 }, { ticker: 'SOLD', shares: 0, price: null }]
+  const history = { SOLD: days([100, 80, 80]), B: days([100, 100, 100]) }
+  const trades = { SOLD: [{ date: '2026-10-02', type: 'sell', shares: 10, price_per_share: 80 }], B: [{ date: '2026-10-02', type: 'buy', shares: 10, price_per_share: 100 }] }
+  const r = pgh(rows, history, trades)
+  near(r.byTicker.SOLD, -200, 'loss while held')
+  near(r.byTicker.B, 100, 'gain on B')
+  near(r.change, -100, 'total')
+  // start 1000; sold 800 then bought 1000 -> 200 new money at peak
+  near(r.percent, -100 / 1200 * 100, 'percent')
 })

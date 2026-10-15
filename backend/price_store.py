@@ -23,6 +23,7 @@ RANGE_DAYS = {
     "3m": 92,
     "6m": 183,
     "1y": 366,
+    "ytd": 366,
     "3y": 365 * 3 + 1,
     "5y": 365 * 5 + 2,
 }
@@ -239,6 +240,11 @@ def _filter_rows_for_range(rows: list[dict[str, Any]], range_key: str) -> list[d
         return rows[-2:]
 
     latest_date = _parse_date(rows[-1]["date"])
+    # Year to date starts from the last close of the previous year.
+    if range_key == "ytd":
+        prior = [row for row in rows if _parse_date(row["date"]).year < latest_date.year]
+        cutoff = _parse_date(prior[-1]["date"]) if prior else latest_date.replace(month=1, day=1)
+        return [row for row in rows if _parse_date(row["date"]) >= cutoff]
     cutoff = latest_date - timedelta(days=RANGE_DAYS[range_key])
 
     return [row for row in rows if _parse_date(row["date"]) >= cutoff]

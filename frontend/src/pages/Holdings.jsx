@@ -17,7 +17,7 @@ const FILTERS = [
   ['active', 'Managed + tracked'], ['managed', 'Managed'], ['track', 'Track only'],
   ['excluded', 'Excluded'], ['all', 'All'], ['hidden', 'Hidden'],
 ]
-const RANGES = [['1d', 'Today'], ['7d', '7D'], ['1m', '1M'], ['3m', '3M'], ['6m', '6M'], ['1y', '1Y'], ['3y', '3Y'], ['5y', '5Y']]
+const RANGES = [['1d', 'Today'], ['7d', '7D'], ['1m', '1M'], ['3m', '3M'], ['6m', '6M'], ['ytd', 'YTD'], ['1y', '1Y'], ['3y', '3Y'], ['5y', '5Y']]
 const DETAIL_TABS = [['overview', 'Overview'], ['forecast', 'Forecast'], ['financials', 'Financials'], ['activity', 'Activity']]
 const SCENARIOS = [
   { id: 'bull', label: 'Bull', bar: 'bg-emerald-500', head: 'bg-emerald-50 text-emerald-800' },
@@ -262,36 +262,56 @@ function HoldingsSummary({ rows, history, range, filter, view }) {
   const totalValue = useMemo(() => summarizeHoldings(rows, history, range).totalValue, [rows, history, range])
   const modes = PERFORMANCE_MODES_FOR_FILTER[filter]
   const since = useMemo(() => historyStartDate(history), [history])
-  const [tradeState, setTradeState] = useState({ key: '', loading: true, error: null, trades: null })
-  const key = `${since}|${filter}`
+  const rowTickers = useMemo(() => rows.map((row) => row.ticker).join(','), [rows])
+  const [state, setState] = useState({ key: '', loading: true, error: null, trades: null, soldHistory: {} })
+  const key = `${since}|${filter}|${range}|${rowTickers}`
   useEffect(() => {
     if (!modes || !since) return undefined
     let cancelled = false
-    setTradeState({ key, loading: true, error: null, trades: null })
-    fetchTransactionsWindow(since, modes)
-      .then((result) => { if (!cancelled) setTradeState({ key, loading: false, error: null, trades: result?.trades || {} }) })
-      .catch((err) => { if (!cancelled) setTradeState({ key, loading: false, error: err.message, trades: null }) })
+    setState({ key, loading: true, error: null, trades: null, soldHistory: {} })
+    ;(async () => {
+      const result = await fetchTransactionsWindow(since, modes)
+      const trades = result?.trades || {}
+      // Positions sold during the period still count while they were held.
+      const held = new Set(rowTickers.split(','))
+      const sold = Object.keys(trades).filter((ticker) => !held.has(ticker) && !NON_SECURITIES.has(ticker) && trades[ticker].length)
+      let soldHistory = {}
+      if (sold.length) {
+        const prices = await fetchPriceComparison(sold, range === '1d' ? '7d' : range).catch(() => null)
+        soldHistory = prices?.price_series || prices?.series || {}
+        if (range === '1d') soldHistory = withPreviousClose(soldHistory, soldHistory, localDate())
+      }
+      if (!cancelled) setState({ key, loading: false, error: null, trades, soldHistory })
+    })().catch((err) => { if (!cancelled) setState({ key, loading: false, error: err.message, trades: null, soldHistory: {} }) })
     return () => { cancelled = true }
     // view: reload after holdings change (e.g. a share edit or import)
   }, [key, view]) // eslint-disable-line react-hooks/exhaustive-deps
-  const ready = Boolean(modes && since && tradeState.key === key && !tradeState.loading && tradeState.trades)
-  const result = useMemo(() => ready ? periodGainFromHoldings(rows, history, tradeState.trades) : null, [ready, rows, history, tradeState.trades])
+  const ready = Boolean(modes && since && state.key === key && !state.loading && state.trades)
+  const result = useMemo(() => {
+    if (!ready) return null
+    const soldRows = Object.keys(state.soldHistory).map((ticker) => ({ ticker, shares: 0, price: null }))
+    return periodGainFromHoldings([...rows, ...soldRows], { ...state.soldHistory, ...history }, state.trades)
+  }, [ready, rows, history, state.trades, state.soldHistory])
   const rangeLabel = Object.fromEntries(RANGES)[range] || range
   const filterLabel = Object.fromEntries(FILTERS)[filter] || 'All'
-  const loading = Boolean(modes) && (!since || (tradeState.key === key ? tradeState.loading : true))
-  const error = tradeState.key === key ? tradeState.error : null
+  const loading = Boolean(modes) && (!since || (state.key === key ? state.loading : true))
+  const error = state.key === key ? state.error : null
   const change = result?.change ?? null
   const tone = change == null ? 'text-slate-500' : change >= 0 ? 'text-emerald-600' : 'text-red-600'
   const missing = result?.missing || []
+  const soldCount = Object.keys(state.soldHistory || {}).length
   const note = !modes ? 'Gain / loss is not available for hidden holdings.'
     : error ? `Gain / loss unavailable: ${error}`
-    : `Shares held each day × that day's price move${result?.startDate ? `, from ${range === '1d' ? 'the previous close' : date(result.startDate)}` : ''}. Buying and selling are not counted as gain.${missing.length ? ` No price history: ${missing.join(', ')}.` : ''}`
+    : `Shares held each day × that day's price move${result?.startDate ? `, from ${range === '1d' ? 'the previous close' : date(result.startDate)}` : ''}${soldCount ? `, including ${soldCount} position${soldCount === 1 ? '' : 's'} sold in the period` : ''}. Buying and selling are not counted as gain; % is of the money invested (starting value plus any new money added).${missing.length ? ` No price history: ${missing.join(', ')}.` : ''}`
   return <section aria-label="Holdings summary" className="mb-3 flex flex-wrap items-end gap-x-10 gap-y-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
     <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div></div>
     <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
-    <div className="pb-1 text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div><div>{note}</div></div>
+    <div className="max-w-3xl pb-1 text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div><div>{note}</div></div>
   </section>
 }
+
+// Ticker symbols in the transaction history that are cash, not securities.
+const NON_SECURITIES = new Set(['USD', 'CASH', 'SPAXX', 'FDRXX', 'CORE'])
 
 function RangeButtons({ value, set, compact = false }) {
   return <div className={`flex rounded-lg bg-slate-100 p-1 ${compact ? 'w-full justify-between' : ''}`}>{RANGES.map(([id, label]) => <button key={id} onClick={() => set(id)} className={`rounded-md font-bold ${compact ? 'px-1.5 py-1 text-[10px]' : 'px-3 py-1.5 text-xs'} ${value === id ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'}`}>{label}</button>)}</div>
