@@ -29,7 +29,13 @@ EARNINGS_CALENDAR_FILE = BASE_DIR / "cache" / "earnings_calendar.json"
 TICKERS_FILE = BASE_DIR / "config" / "tickers.yaml"
 
 PRICE_IMPORT_SECRET = os.getenv("PRICE_IMPORT_SECRET", "")
-INTRADAY_FINNHUB_API_KEY = os.getenv("INTRADAY_FINNHUB_API_KEY", "")
+# A separate key can be used for intraday sampling; without one, the main
+# Finnhub key is used (the live service only has FINNHUB_API_KEY set, so
+# sampling failed for every ticker except VENU from Oct 13).
+INTRADAY_FINNHUB_API_KEY = (
+    os.getenv("INTRADAY_FINNHUB_API_KEY", "").strip()
+    or os.getenv("FINNHUB_API_KEY", "").strip()
+)
 GOOGLE_AUTH_ENABLED = os.getenv("GOOGLE_AUTH_ENABLED", "").strip().lower() in {
     "1",
     "true",
