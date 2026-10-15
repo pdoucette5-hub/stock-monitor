@@ -4,12 +4,12 @@ import { useSearchParams } from 'react-router-dom'
 import StockDetail from './StockDetail'
 import { clearPortfolioViewCache, usePortfolioView } from '../hooks/usePortfolioView'
 import {
-  addPortfolioTicker, archiveTicker, fetchPortfolioPerformance, fetchPriceComparison, fetchStockScenario,
+  addPortfolioTicker, archiveTicker, fetchPriceComparison, fetchStockScenario, fetchTransactionsWindow,
   refreshEarningsCalendar, removeTicker, savePortfolioControls, savePortfolioShares,
   saveStockScenario, syncSheetTickers, refreshIntradayPrices,
 } from '../lib/api'
 import { apiToForm, formToApi } from '../lib/scenarioForm'
-import { gainForRow, PERFORMANCE_MODES_FOR_FILTER, periodGainFromPerformance, summarizeHoldings } from '../lib/holdingsGain'
+import { gainForRow, historyStartDate, PERFORMANCE_MODES_FOR_FILTER, periodGainFromHoldings, summarizeHoldings, withPreviousClose } from '../lib/holdingsGain'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
 
@@ -175,7 +175,15 @@ export default function Holdings() {
     fetchPriceComparison(rows.map((row) => row.ticker), range).then((result) => { if (!cancelled) setHistory(result?.price_series || result?.series || {}) }).catch(() => { if (!cancelled) setHistory({}) }).finally(() => { if (!cancelled) setLoadingHistory(false) })
     return () => { cancelled = true }
   }, [range, rows])
-  const selected = rows.find((row) => row.ticker === ticker); const points = history[ticker] || []; const selectedGain = gainForRow(selected, points, range)
+  // For Today, gains start from the previous close rather than the first intraday sample.
+  const [dailyHistory, setDailyHistory] = useState({})
+  useEffect(() => {
+    if (range !== '1d' || !rows.length) return; let cancelled = false
+    fetchPriceComparison(rows.map((row) => row.ticker), '7d').then((result) => { if (!cancelled) setDailyHistory(result?.price_series || result?.series || {}) }).catch(() => { if (!cancelled) setDailyHistory({}) })
+    return () => { cancelled = true }
+  }, [range, rows])
+  const gainHistory = useMemo(() => range === '1d' ? withPreviousClose(history, dailyHistory) : history, [range, history, dailyHistory])
+  const selected = rows.find((row) => row.ticker === ticker); const points = history[ticker] || []; const selectedGain = gainForRow(selected, gainHistory[ticker] || points, range)
   const selectTicker = (nextTicker) => {
     setTicker(nextTicker)
     const next = new URLSearchParams(searchParams)
@@ -235,45 +243,53 @@ export default function Holdings() {
   }
 
   return <div className="mx-auto w-full max-w-[1600px] px-4 py-3 lg:px-6"><header className="mb-3 flex flex-wrap items-center justify-between gap-3"><h1 className="text-2xl font-bold tracking-tight text-slate-950">Holdings</h1><div className="flex items-center gap-2"><button type="button" onClick={updatePrices} disabled={loading || loadingHistory} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60">{loading || loadingHistory ? 'Updating…' : 'Update prices'}</button><button onClick={() => setAddOpen((v) => !v)} className="rounded-lg bg-slate-950 px-4 py-2 text-xs font-semibold text-white">+ Add holding</button><div className="relative"><button type="button" aria-label="More holdings actions" aria-expanded={maintenanceMenu} onClick={() => setMaintenanceMenu((v) => !v)} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-lg leading-none text-slate-700">…</button>{maintenanceMenu && <div className="absolute right-0 top-11 z-30 w-52 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl">{full && <button type="button" onClick={() => { setMaintenanceMenu(false); sync() }} disabled={syncing} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{syncing ? 'Syncing sheet…' : 'Sync Google Sheet'}</button>}{full && <button type="button" onClick={() => { setMaintenanceMenu(false); refreshEarnings() }} disabled={refreshingEarnings} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{refreshingEarnings ? 'Refreshing earnings…' : 'Refresh earnings'}</button>}</div>}</div></div></header>
-    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={history} range={range} filter={filter} view={view} />}
+    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={gainHistory} range={range} filter={filter} view={view} />}
     {(error || formError) && <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{formError || error}</div>}
     {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
     {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
-    <div className="grid min-h-[680px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[340px_minmax(0,1fr)]"><aside className="border-b border-slate-200 bg-slate-50/60 lg:border-b-0 lg:border-r"><div className="flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3"><div><h2 className="font-bold text-slate-950">Your stocks</h2><p className="text-xs text-slate-500">{rows.length} positions</p></div>{full && <select aria-label="Filter holdings" value={filter} onChange={(event) => setFilter(event.target.value)} className="max-w-40 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs font-semibold text-slate-700">{FILTERS.map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>}</div><div className="max-h-[760px] overflow-y-auto">{loading && !rows.length ? <Empty text="Loading holdings…" /> : !rows.length ? <Empty text="No holdings match this filter." /> : rows.map((row) => { const rowPoints = history[row.ticker] || []; const rowGain = gainForRow(row, rowPoints, range); const positive = (rowGain?.percent ?? 0) >= 0; const active = ticker === row.ticker; return <button key={row.ticker} onClick={() => selectTicker(row.ticker)} className={`grid w-full grid-cols-[minmax(0,1fr)_74px_66px] items-center gap-3 border-b border-slate-200 px-4 py-3 text-left ${active ? 'bg-slate-950 text-white' : 'bg-white hover:bg-slate-50'}`}><div className="min-w-0"><div className="font-bold">{row.ticker}</div><div className={`truncate text-xs ${active ? 'text-slate-400' : 'text-slate-500'}`}>{formatMoney(row.market_value)} · {number(row.shares)} sh</div></div><Sparkline points={rowPoints} positive={positive} /><div className="text-right"><div className={`text-xs font-bold ${rowGain ? positive ? 'text-emerald-500' : 'text-red-500' : 'text-slate-500'}`}>{loadingHistory && !rowPoints.length && !rowGain ? '…' : percent(rowGain?.percent)}</div><div className={`text-[10px] ${active ? 'text-slate-400' : 'text-slate-500'}`}>{rowGain ? `${rowGain.amount >= 0 ? '+' : ''}${formatMoney(rowGain.amount)}` : '—'}</div></div></button> })}</div>{lastUpdated && <div className="border-t border-slate-200 px-4 py-2 text-[11px] text-slate-500">Updated {lastUpdated.toLocaleTimeString()}</div>}</aside>
+    <div className="grid min-h-[680px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[340px_minmax(0,1fr)]"><aside className="border-b border-slate-200 bg-slate-50/60 lg:border-b-0 lg:border-r"><div className="flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3"><div><h2 className="font-bold text-slate-950">Your stocks</h2><p className="text-xs text-slate-500">{rows.length} positions</p></div>{full && <select aria-label="Filter holdings" value={filter} onChange={(event) => setFilter(event.target.value)} className="max-w-40 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs font-semibold text-slate-700">{FILTERS.map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>}</div><div className="max-h-[760px] overflow-y-auto">{loading && !rows.length ? <Empty text="Loading holdings…" /> : !rows.length ? <Empty text="No holdings match this filter." /> : rows.map((row) => { const rowPoints = history[row.ticker] || []; const rowGain = gainForRow(row, gainHistory[row.ticker] || rowPoints, range); const positive = (rowGain?.percent ?? 0) >= 0; const active = ticker === row.ticker; return <button key={row.ticker} onClick={() => selectTicker(row.ticker)} className={`grid w-full grid-cols-[minmax(0,1fr)_74px_66px] items-center gap-3 border-b border-slate-200 px-4 py-3 text-left ${active ? 'bg-slate-950 text-white' : 'bg-white hover:bg-slate-50'}`}><div className="min-w-0"><div className="font-bold">{row.ticker}</div><div className={`truncate text-xs ${active ? 'text-slate-400' : 'text-slate-500'}`}>{formatMoney(row.market_value)} · {number(row.shares)} sh</div></div><Sparkline points={rowPoints} positive={positive} /><div className="text-right"><div className={`text-xs font-bold ${rowGain ? positive ? 'text-emerald-500' : 'text-red-500' : 'text-slate-500'}`}>{loadingHistory && !rowPoints.length && !rowGain ? '…' : percent(rowGain?.percent)}</div><div className={`text-[10px] ${active ? 'text-slate-400' : 'text-slate-500'}`}>{rowGain ? `${rowGain.amount >= 0 ? '+' : ''}${formatMoney(rowGain.amount)}` : '—'}</div></div></button> })}</div>{lastUpdated && <div className="border-t border-slate-200 px-4 py-2 text-[11px] text-slate-500">Updated {lastUpdated.toLocaleTimeString()}</div>}</aside>
       <main className="min-w-0">{!selected ? <Empty text="Select a holding to see details." /> : <><header className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3 sm:px-7"><div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1"><h1 className="text-2xl font-black text-slate-950">{ticker}</h1><span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">{selected.action || 'Needs input'}</span><span className="text-xl font-bold text-slate-950">{formatMoney(selected.price)}</span><span className={`text-sm font-bold ${selectedGain ? selectedGain.percent >= 0 ? 'text-emerald-600' : 'text-red-600' : 'text-slate-500'}`}>{percent(selectedGain?.percent, 2)} <span className="font-medium text-slate-500">· {number(selected.shares)} shares</span></span></div><div className="flex gap-2"><button onClick={() => setModal(true)} className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white">Edit assumptions</button><div className="relative"><button onClick={() => setMenu((v) => !v)} className="rounded-lg border border-slate-300 px-3 py-2 text-lg leading-none">…</button>{menu && <div className="absolute right-0 top-11 z-20 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl"><button onClick={toggle} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">{selected.show_in_holdings === false ? 'Show in holdings' : 'Hide from holdings'}</button>{full && <button onClick={archive} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">Archive ticker</button>}<button onClick={remove} className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50">Remove ticker</button></div>}</div></div></header><DetailTabs value={detailTab} set={selectDetailTab} full={full} />{detailTab === 'overview' ? <><div className="flex flex-wrap items-center justify-between gap-2 px-4 pt-3 sm:px-7"><span className="text-xs font-semibold text-slate-500">Price history</span><RangeButtons value={range} set={setRange} /></div><div className="px-4 sm:px-7"><Chart points={points} positive={(selectedGain?.percent ?? 0) >= 0} /></div><div className="grid gap-4 px-5 pb-7 sm:px-7 xl:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)]"><section><div className="mb-3 flex items-center justify-between"><h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Position & valuation</h2>{full && <div className="flex gap-2"><input aria-label="Shares" type="number" min="0" step=".01" value={shareDraft} onChange={(e) => setShareDraft(e.target.value)} className="w-24 rounded-lg border border-slate-300 px-2 py-1.5 text-sm" /><button onClick={saveShares} disabled={savingTicker === ticker} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold">Save shares</button></div>}</div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3"><Metric label="Market value" value={formatMoney(selected.market_value)} large /><Metric label="Average cost" value={formatMoney(selected.average_cost_per_share)} /><Metric label="Current P/E" value={selected.current_pe == null ? '—' : `${number(selected.current_pe)}x`} /><Metric label="Bear target" value={formatMoney(selected.bear_price_y3)} /><Metric label="Base target" value={formatMoney(selected.base_price_y3)} /><Metric label="Bull target" value={formatMoney(selected.bull_price_y3)} /></div></section><section className="rounded-xl border border-slate-200 bg-slate-50/60 p-4"><div className="flex justify-between"><h2 className="text-sm font-bold text-slate-950">Three-year outlook</h2><button onClick={() => setModal(true)} className="text-xs font-semibold text-blue-700">Change</button></div><div className="mt-4 space-y-4">{SCENARIOS.map((scenario) => { const cagr = selected[`${scenario.id}_cagr_y3`]; const width = Math.max(4, Math.min(100, (Number(cagr || 0) * 100 + 20) * 2)); return <div key={scenario.id}><div className="mb-1 flex justify-between text-xs"><span className="font-semibold text-slate-600">{scenario.label}</span><span className="font-bold">{percent(cagr == null ? null : Number(cagr) * 100)}</span></div><div className="h-2 rounded-full bg-slate-200"><div className={`h-full rounded-full ${scenario.bar}`} style={{ width: `${width}%` }} /></div></div> })}</div><div className="mt-5 border-t border-slate-200 pt-4"><div className="text-[11px] font-semibold uppercase text-slate-500">Next earnings</div><div className="mt-1 font-semibold">{date(selected.next_earnings_date)}</div>{selected.next_earnings_eps_forecast && <div className="text-xs text-slate-500">EPS forecast {selected.next_earnings_eps_forecast}</div>}</div></section></div></> : <StockDetail key={ticker} embeddedTicker={ticker} embeddedSection={detailTab} />}</>}</main></div>
     {modal && selected && <AssumptionsModal ticker={ticker} close={() => setModal(false)} saved={refresh} />}
   </div>
 }
 
 // Total value of the listed positions and their gain or loss over the selected
-// period. The gain comes from the transaction ledger (the same calculation as
-// the Performance tab), so money added or withdrawn and shares bought part-way
-// through the period are handled correctly. Follows the period buttons and the
-// holdings filter.
+// period: for each stock and day, the shares held that day times that day's
+// price move (see periodGainFromHoldings). Trades in the period come from the
+// transaction history, so buying and selling is never counted as gain. Follows
+// the period buttons and the holdings filter.
 function HoldingsSummary({ rows, history, range, filter, view }) {
   const totalValue = useMemo(() => summarizeHoldings(rows, history, range).totalValue, [rows, history, range])
-  const [period, setPeriod] = useState({ key: '', loading: true, error: null, gain: null })
   const modes = PERFORMANCE_MODES_FOR_FILTER[filter]
-  const key = `${range}|${filter}`
+  const since = useMemo(() => historyStartDate(history), [history])
+  const [tradeState, setTradeState] = useState({ key: '', loading: true, error: null, trades: null })
+  const key = `${since}|${filter}`
   useEffect(() => {
-    if (!modes) return undefined
+    if (!modes || !since) return undefined
     let cancelled = false
-    setPeriod({ key, loading: true, error: null, gain: null })
-    Promise.all(modes.map((mode) => fetchPortfolioPerformance(range, [], mode)))
-      .then((payloads) => { if (!cancelled) setPeriod({ key, loading: false, error: null, gain: periodGainFromPerformance(payloads) }) })
-      .catch((err) => { if (!cancelled) setPeriod({ key, loading: false, error: err.message, gain: null }) })
+    setTradeState({ key, loading: true, error: null, trades: null })
+    fetchTransactionsWindow(since, modes)
+      .then((result) => { if (!cancelled) setTradeState({ key, loading: false, error: null, trades: result?.trades || {} }) })
+      .catch((err) => { if (!cancelled) setTradeState({ key, loading: false, error: err.message, trades: null }) })
     return () => { cancelled = true }
     // view: reload after holdings change (e.g. a share edit or import)
-  }, [key, range, view]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [key, view]) // eslint-disable-line react-hooks/exhaustive-deps
+  const ready = Boolean(modes && since && tradeState.key === key && !tradeState.loading && tradeState.trades)
+  const result = useMemo(() => ready ? periodGainFromHoldings(rows, history, tradeState.trades) : null, [ready, rows, history, tradeState.trades])
   const rangeLabel = Object.fromEntries(RANGES)[range] || range
   const filterLabel = Object.fromEntries(FILTERS)[filter] || 'All'
-  const current = period.key === key ? period : { loading: true, gain: null }
-  const change = current.gain?.change ?? null
+  const loading = Boolean(modes) && (!since || (tradeState.key === key ? tradeState.loading : true))
+  const error = tradeState.key === key ? tradeState.error : null
+  const change = result?.change ?? null
   const tone = change == null ? 'text-slate-500' : change >= 0 ? 'text-emerald-600' : 'text-red-600'
+  const missing = result?.missing || []
+  const note = !modes ? 'Gain / loss is not available for hidden holdings.'
+    : error ? `Gain / loss unavailable: ${error}`
+    : `Shares held each day × that day's price move${result?.startDate ? `, from ${range === '1d' ? 'the previous close' : date(result.startDate)}` : ''}. Buying and selling are not counted as gain.${missing.length ? ` No price history: ${missing.join(', ')}.` : ''}`
   return <section aria-label="Holdings summary" className="mb-3 flex flex-wrap items-end gap-x-10 gap-y-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
     <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div></div>
-    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : current.loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 text-base font-bold">{modes && !current.loading ? percent(current.gain?.percent, 2) : ''}</span></div></div>
-    <div className="pb-1 text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div><div>{!modes ? 'Gain / loss is not available for hidden holdings.' : current.error ? `Gain / loss unavailable: ${current.error}` : `From your transactions${current.gain?.startDate ? ` since ${date(current.gain.startDate)}` : ''}; money added or withdrawn is not counted as gain.`}</div></div>
+    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
+    <div className="pb-1 text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div><div>{note}</div></div>
   </section>
 }
 

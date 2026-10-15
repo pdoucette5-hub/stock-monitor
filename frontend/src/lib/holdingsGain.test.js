@@ -1,7 +1,7 @@
 // Run with:  node --test frontend/src/lib/holdingsGain.test.js
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { gainForRow, summarizeHoldings } from './holdingsGain.js'
+import { gainForRow, summarizeHoldings, periodGainFromHoldings as pgh, withPreviousClose as wpc } from './holdingsGain.js'
 
 const pts = (...closes) => closes.map((close, i) => ({ date: `2026-10-0${i + 1}`, close }))
 
@@ -102,4 +102,72 @@ test('unsorted series and missing data are handled', () => {
   assert.equal(g.change, -100)
   assert.equal(g.percent, -10)
   assert.equal(periodGainFromPerformance([]).change, null)
+})
+
+// ---- periodGainFromHoldings: shares held each day x that day's price move ----
+
+const days = (closes, start = 1) => closes.map((close, i) => ({ date: `2026-10-${String(start + i).padStart(2, '0')}`, close }))
+const near = (a, b, msg) => assert.ok(Math.abs(a - b) < 1e-6, `${msg}: ${a} vs ${b}`)
+
+test('no trades: shares x price change, percent is value-weighted', () => {
+  const rows = [{ ticker: 'A', shares: 10, price: 110 }, { ticker: 'B', shares: 30, price: 90 }]
+  const history = { A: days([100, 105]), B: days([100, 95]) }
+  const r = pgh(rows, history, {})
+  // A: 10 x (105-100) + 10 x (110-105) = 100; B: 30 x (90-100) = -300
+  near(r.change, -200, 'change')
+  near(r.byTicker.A, 100, 'A'); near(r.byTicker.B, -300, 'B')
+  // day 1: +50 -150 on 4000 = -2.5%; step 2: +50 -150 on 1050+2850=3900
+  near(r.percent, ((1 - 100 / 4000) * (1 - 100 / 3900) - 1) * 100, 'percent')
+})
+
+test('selling one stock and buying another is not a gain or loss', () => {
+  // Hold 100 A, sell all on day 2 at 100, buy 100 B on day 2 at 100; prices flat.
+  const rows = [{ ticker: 'A', shares: 0, price: 100 }, { ticker: 'B', shares: 100, price: 100 }]
+  const history = { A: days([100, 100, 100]), B: days([100, 100, 100]) }
+  const trades = { A: [{ date: '2026-10-02', type: 'sell', shares: 100, price_per_share: 100 }], B: [{ date: '2026-10-02', type: 'buy', shares: 100, price_per_share: 100 }] }
+  const r = pgh(rows, history, trades)
+  near(r.change, 0, 'change'); near(r.percent, 0, 'percent')
+})
+
+test('a stock sold mid-period only counts while held', () => {
+  const rows = [{ ticker: 'A', shares: 0, price: 150 }]
+  const history = { A: days([100, 110, 150]) }
+  const trades = { A: [{ date: '2026-10-02', type: 'sell', shares: 10, price_per_share: 110 }] }
+  const r = pgh(rows, history, trades)
+  near(r.change, 100, 'gain up to the sale only') // 10 x (110 - 100); the later rise is not ours
+  near(r.percent, 10, 'percent')
+})
+
+test('a stock bought mid-period counts from the price paid; new money is not gain', () => {
+  const rows = [{ ticker: 'A', shares: 20, price: 120 }]
+  const history = { A: days([100, 110, 120]) }
+  const trades = { A: [{ date: '2026-10-02', type: 'buy', shares: 10, price_per_share: 105 }] }
+  const r = pgh(rows, history, trades)
+  // 10 held: 10 x 20 = 200; 10 bought at 105: 10 x (120 - 105) = 150
+  near(r.change, 350, 'change')
+})
+
+test('trades on or before the first day are already in the starting shares', () => {
+  const rows = [{ ticker: 'A', shares: 10, price: 110 }]
+  const r = pgh(rows, { A: days([100, 110]) }, { A: [{ date: '2026-10-01', type: 'buy', shares: 10, price_per_share: 90 }] })
+  near(r.change, 100, 'change')
+})
+
+test('Today starts from the previous close and counts trades made today', () => {
+  const intraday = [{ date: '2026-10-15', timestamp: 1000, close: 102 }, { date: '2026-10-15', timestamp: 2000, close: 104 }]
+  const daily = { A: [...days([95, 100], 13), { date: '2026-10-15', close: 104 }] }
+  const history = wpc({ A: intraday }, daily)
+  assert.equal(history.A[0].close, 100)
+  assert.equal(history.A[0].date, '2026-10-14')
+  const rows = [{ ticker: 'A', shares: 15, price: 105 }]
+  const trades = { A: [{ date: '2026-10-15', type: 'buy', shares: 5, price_per_share: 103 }] }
+  const r = pgh(rows, history, trades)
+  // 10 held from 100 -> 105 = 50; 5 bought at 103 -> 105 = 10
+  near(r.change, 60, 'change')
+})
+
+test('positions without price history are reported, not guessed', () => {
+  const r = pgh([{ ticker: 'A', shares: 1, price: 2 }, { ticker: 'FUND', shares: 5, price: 10 }], { A: days([1, 2]) }, {})
+  assert.deepEqual(r.missing, ['FUND'])
+  near(r.change, 1, 'change')
 })

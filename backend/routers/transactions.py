@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import datetime
 import uuid
 from typing import Any
 
@@ -14,6 +15,7 @@ from backend.config import (
 )
 from backend.management_service import (
     apply_account_aliases_to_transactions,
+    filter_transactions_by_management_mode,
     automatic_account_mode,
     build_management_snapshot,
     management_position_key,
@@ -347,6 +349,58 @@ def import_transactions(body: TransactionImportRequest) -> dict[str, Any]:
         "rows": preview_rows,
         "skipped": skipped,
     }
+
+
+# Transaction types that change how many shares are held.
+SHARE_CHANGING_TYPES = {"buy", "sell", "transfer_in", "transfer_out", "adjustment"}
+
+
+@router.get("/api/transactions/window")
+def get_transactions_window(since: str, modes: str = "all") -> dict[str, Any]:
+    """Share-changing trades on or after `since`, for every ticker.
+
+    Used by the Holdings summary to work out how many shares were held on each
+    day of the selected period. `modes` is a comma-separated list of
+    management modes (managed, track, excluded) or "all".
+    """
+    try:
+        since_date = datetime.date.fromisoformat(str(since).strip()[:10]).isoformat()
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail="since must be a date (YYYY-MM-DD)") from exc
+    requested = [mode.strip().lower() for mode in str(modes or "all").split(",") if mode.strip()]
+    for mode in requested:
+        if mode != "all" and mode not in VALID_MANAGEMENT_MODES:
+            raise HTTPException(status_code=400, detail="Mode must be all, managed, track, or excluded")
+
+    transactions = load_transactions()
+    if requested and "all" not in requested:
+        selected: dict[str, list[dict[str, Any]]] = {}
+        for mode in requested:
+            for ticker, entries in filter_transactions_by_management_mode(transactions, mode).items():
+                selected.setdefault(ticker, []).extend(entries)
+        transactions = selected
+
+    trades: dict[str, list[dict[str, Any]]] = {}
+    for ticker, entries in transactions.items():
+        seen: set[str] = set()
+        for entry in entries:
+            tx_type = str(entry.get("type", "")).strip().lower()
+            tx_date = str(entry.get("date") or "")[:10]
+            if tx_type not in SHARE_CHANGING_TYPES or tx_date < since_date:
+                continue
+            key = str(entry.get("id") or id(entry))
+            if key in seen:
+                continue
+            seen.add(key)
+            trades.setdefault(normalize_ticker(ticker), []).append({
+                "date": tx_date,
+                "type": tx_type,
+                "shares": entry.get("shares"),
+                "price_per_share": entry.get("price_per_share"),
+            })
+    for entries in trades.values():
+        entries.sort(key=lambda row: row["date"])
+    return {"since": since_date, "trades": trades}
 
 
 @router.get("/api/transactions/{ticker}")

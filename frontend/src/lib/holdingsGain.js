@@ -103,3 +103,174 @@ export function periodGainFromPerformance(payloads) {
   const base = startValue + Math.max(netAdded, 0)
   return { change, percent: base > 0 ? (change / base) * 100 : null, startDate, endDate }
 }
+
+// ---------------------------------------------------------------------------
+// Gain or loss of the holdings over a period, day by day.
+//
+// For every stock and every step in its price history (each day, or each
+// sample for Today) the gain is the shares held at that point times the price
+// move to the next point. The shares held at each point are worked out from
+// today's share count by undoing the trades made after that point, so a stock
+// sold mid-period only counts while it was held, and a stock bought
+// mid-period only counts from the price paid. Trades themselves (and so money
+// added or withdrawn) are never counted as gain. Dividends are not included:
+// this is the change in the value of the shares.
+//
+// The dollar figure is the sum of those gains. The percentage is the
+// value-weighted average return of the holdings for each step, chained over
+// the period (a time-weighted return), so money moving in or out does not
+// distort it.
+// ---------------------------------------------------------------------------
+
+function pointKey(point) {
+  const date = String(point?.date || '').slice(0, 10)
+  const ts = Number(point?.timestamp)
+  return Number.isFinite(ts) && ts > 0 ? `${date}T${String(Math.trunc(ts)).padStart(12, '0')}` : date
+}
+
+const END_KEY = '~'
+
+// For Today, intraday samples start whenever sampling started, so start from
+// the previous trading day's close instead. `dailyHistory` is a daily price
+// series per ticker (e.g. the 7D range). Only applied when every point in a
+// ticker's series is from the same day (intraday samples).
+export function withPreviousClose(history, dailyHistory) {
+  const result = {}
+  for (const [ticker, points] of Object.entries(history || {})) {
+    const valid = (points || []).filter((point) => Number.isFinite(Number(point?.close)) && point?.date)
+    const days = new Set(valid.map((point) => String(point.date).slice(0, 10)))
+    if (valid.length && days.size === 1) {
+      const day = [...days][0]
+      const prior = (dailyHistory?.[ticker] || [])
+        .filter((point) => Number.isFinite(Number(point?.close)) && String(point?.date || '').slice(0, 10) < day)
+        .sort((a, b) => (String(a.date) < String(b.date) ? -1 : 1))
+        .at(-1)
+      if (prior) {
+        result[ticker] = [{ date: String(prior.date).slice(0, 10), close: Number(prior.close), previous_close: true }, ...valid]
+        continue
+      }
+    }
+    result[ticker] = points
+  }
+  return result
+}
+
+// The earliest date in the history, used to ask for the trades in the period.
+export function historyStartDate(history) {
+  let start = null
+  for (const points of Object.values(history || {})) {
+    for (const point of points || []) {
+      const date = String(point?.date || '').slice(0, 10)
+      if (date && (!start || date < start)) start = date
+    }
+  }
+  return start
+}
+
+function signedShares(trade) {
+  const shares = Math.abs(Number(trade?.shares) || 0)
+  const type = String(trade?.type || '').toLowerCase()
+  if (type === 'sell' || type === 'transfer_out') return -shares
+  if (type === 'buy' || type === 'transfer_in' || type === 'adjustment') return shares
+  return 0
+}
+
+// rows: holdings with `ticker`, `shares` (held now) and `price` (current).
+// history: { ticker: [{ date, close, timestamp? }] } for the period.
+// trades: { ticker: [{ date, type, shares, price_per_share }] } on or after the
+//   period's first date (from /api/transactions/window).
+export function periodGainFromHoldings(rows, history, trades) {
+  const tickers = []
+  const allKeys = new Set()
+  const missing = []
+  for (const row of rows || []) {
+    const ticker = row?.ticker
+    const sharesNow = Number(row?.shares)
+    const tickerTrades = trades?.[ticker] || []
+    if (!ticker || ((!Number.isFinite(sharesNow) || sharesNow <= 0) && !tickerTrades.length)) continue
+    const points = (history?.[ticker] || [])
+      .filter((point) => Number.isFinite(Number(point?.close)) && Number(point.close) > 0 && point?.date)
+      .map((point) => ({ key: pointKey(point), close: Number(point.close) }))
+      .sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0))
+    if (!points.length) {
+      if (sharesNow > 0) missing.push(ticker)
+      continue
+    }
+    const price = Number(row.price)
+    if (Number.isFinite(price) && price > 0) points.push({ key: END_KEY, close: price })
+    if (points.length < 2) {
+      if (sharesNow > 0) missing.push(ticker)
+      continue
+    }
+    points.forEach((point) => allKeys.add(point.key))
+    tickers.push({ ticker, sharesNow: Number.isFinite(sharesNow) ? Math.max(sharesNow, 0) : 0, points, trades: tickerTrades })
+  }
+  const keys = [...allKeys].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
+  if (keys.length < 2 || !tickers.length) {
+    return { change: null, percent: null, startDate: null, endDate: null, priced: 0, missing }
+  }
+
+  const steps = keys.slice(1).map(() => ({ gain: 0, base: 0 }))
+  const byTicker = {}
+  for (const item of tickers) {
+    // Closing price at each key, carrying the last close forward.
+    const closes = []
+    let j = -1
+    for (const key of keys) {
+      while (j + 1 < item.points.length && item.points[j + 1].key <= key) j += 1
+      closes.push(j >= 0 ? item.points[j].close : null)
+    }
+    // Trades go in the step that ends on or after their date. Trades dated on
+    // or before the first point happened before the period started.
+    const tradesByStep = keys.slice(1).map(() => [])
+    for (const trade of item.trades) {
+      const date = String(trade?.date || '').slice(0, 10)
+      const delta = signedShares(trade)
+      if (!date || !delta) continue
+      const step = keys.findIndex((key, index) => index > 0 && keys[index - 1] < date && date <= key)
+      if (step > 0) tradesByStep[step - 1].push({ delta, price: Number(trade?.price_per_share) })
+    }
+    // Shares held at each key: today's shares minus later trades.
+    const held = new Array(keys.length).fill(0)
+    let shares = item.sharesNow
+    held[keys.length - 1] = shares
+    for (let i = keys.length - 2; i >= 0; i -= 1) {
+      for (const trade of tradesByStep[i]) shares -= trade.delta
+      held[i] = Math.max(shares, 0)
+    }
+    let tickerGain = 0
+    for (let i = 0; i < steps.length; i += 1) {
+      const start = closes[i]
+      const end = closes[i + 1]
+      if (start == null || end == null) continue
+      let gain = held[i] * (end - start)
+      let base = held[i] * start
+      for (const trade of tradesByStep[i]) {
+        const paid = Number.isFinite(trade.price) && trade.price > 0 ? trade.price : end
+        gain += trade.delta * (end - paid)
+        if (trade.delta > 0) base += trade.delta * paid
+      }
+      steps[i].gain += gain
+      steps[i].base += base
+      tickerGain += gain
+    }
+    byTicker[item.ticker] = tickerGain
+  }
+
+  let change = 0
+  let growth = 1
+  for (const step of steps) {
+    change += step.gain
+    if (step.base > 0) growth *= 1 + step.gain / step.base
+  }
+  const firstKey = keys[0]
+  return {
+    change,
+    percent: (growth - 1) * 100,
+    startDate: firstKey.slice(0, 10),
+    endDate: keys.filter((key) => key !== END_KEY).at(-1)?.slice(0, 10) || null,
+    priced: tickers.length,
+    missing,
+    byTicker,
+  }
+}

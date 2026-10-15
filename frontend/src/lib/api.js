@@ -219,6 +219,13 @@ export function saveStockScenario(ticker, payload) {
   })
 }
 
+// Share-changing trades on or after `since` (YYYY-MM-DD) for every ticker,
+// limited to the given management modes ('all', or any of managed/track/excluded).
+export function fetchTransactionsWindow(since, modes = ['all']) {
+  const query = new URLSearchParams({ since, modes: (modes || ['all']).join(',') })
+  return request(`/api/transactions/window?${query.toString()}`)
+}
+
 export function fetchTransactions(ticker) {
   const normalized = encodeURIComponent(String(ticker).trim().toUpperCase())
   return request(`/api/transactions/${normalized}`)
