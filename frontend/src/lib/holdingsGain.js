@@ -216,6 +216,8 @@ export function periodGainFromHoldings(rows, history, trades) {
   }
 
   const steps = keys.slice(1).map(() => ({ gain: 0, base: 0 }))
+  // Value of the shares held at each key, for the summary chart.
+  const values = new Array(keys.length).fill(0)
   let startValue = 0
   const byTicker = {}
   for (const item of tickers) {
@@ -267,6 +269,7 @@ export function periodGainFromHoldings(rows, history, trades) {
       tickerGain += gain
     }
     byTicker[item.ticker] = tickerGain
+    closes.forEach((close, index) => { if (close != null) values[index] += held[index] * close })
   }
 
   // Percent = gain / money at work: the value held at the start plus the most
@@ -298,7 +301,7 @@ export function periodGainFromHoldings(rows, history, trades) {
   let gainSoFar = 0
   const series = keys.map((key, index) => {
     if (index > 0) gainSoFar += steps[index - 1].gain
-    return { key, gain: gainSoFar }
+    return { key, gain: gainSoFar, value: values[index] }
   })
   return {
     change,
@@ -338,6 +341,8 @@ export function cashActivity(trades, cashStart, startDate) {
   let dividends = 0
   let newMoney = 0
   const income = []
+  // Total cash after each day's events, for the summary chart.
+  const cashByDate = []
   for (const event of events) {
     if (event.income) {
       dividends += event.cash
@@ -346,9 +351,12 @@ export function cashActivity(trades, cashStart, startDate) {
     const balance = (Number(balances[event.account]) || 0) + event.cash
     if (balance < 0) newMoney -= balance
     balances[event.account] = Math.max(balance, 0)
+    const total = Object.values(balances).reduce((sum, value) => sum + (Number(value) || 0), 0)
+    if (cashByDate.at(-1)?.date === event.date) cashByDate.at(-1).total = total
+    else cashByDate.push({ date: event.date, total })
   }
   const end = Object.values(balances).reduce((sum, value) => sum + (Number(value) || 0), 0)
-  return { start, end, dividends, newMoney, income }
+  return { start, end, dividends, newMoney, income, cashByDate }
 }
 
 // Whole-portfolio gain for the period: price moves on the shares held each
@@ -369,26 +377,35 @@ export function combinedPeriodGain(stocks, cash) {
     cashStart: cash?.start || 0,
     cashEnd: cash?.end || 0,
     newMoney: cash?.newMoney || 0,
-    series: gainSeries(stocks.series, cash?.income),
+    series: gainSeries(stocks.series, cash),
   }
 }
 
-// The gain at each point of the period: price moves so far plus dividends
-// received so far. The last point includes every dividend, so it equals the
-// headline gain.
-function gainSeries(points, income) {
+// The gain and the value (shares plus cash) at each point of the period.
+// Gain: price moves so far plus dividends received so far. Value: the shares
+// held times that day's price, plus the cash on hand that day. The last point
+// includes every dividend and the final cash, so it matches the headline gain
+// and the total value.
+function gainSeries(points, cash) {
   if (!points?.length) return []
-  const events = [...(income || [])].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
-  let index = 0
+  const income = [...(cash?.income || [])].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+  const cashByDate = cash?.cashByDate || []
+  let incomeIndex = 0
   let received = 0
+  let cashIndex = 0
+  let cashNow = cash?.start || 0
   return points.map((point, position) => {
     const last = position === points.length - 1
     const date = point.key === END_KEY ? null : point.key.slice(0, 10)
-    while (index < events.length && (last || events[index].date <= date)) {
-      received += events[index].cash
-      index += 1
+    while (incomeIndex < income.length && (last || income[incomeIndex].date <= date)) {
+      received += income[incomeIndex].cash
+      incomeIndex += 1
     }
-    return { key: point.key, gain: point.gain + received }
+    while (cashIndex < cashByDate.length && (last || cashByDate[cashIndex].date <= date)) {
+      cashNow = cashByDate[cashIndex].total
+      cashIndex += 1
+    }
+    return { key: point.key, gain: point.gain + received, value: (point.value || 0) + cashNow }
   })
 }
 

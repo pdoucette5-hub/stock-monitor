@@ -277,3 +277,12 @@ test('gain series ends at the headline gain, with dividends added on their dates
   assert.deepEqual(g.series.map((point) => point.gain), [0, 15, 25, 35])
   assert.equal(g.series.at(-1).gain, g.change)
 })
+
+test('value series is shares held times price plus cash, ending at today', () => {
+  const rows = [{ ticker: 'AAA', shares: 10, price: 13 }]
+  const history = { AAA: [{ date: '2026-01-02', close: 10 }, { date: '2026-01-03', close: 11 }, { date: '2026-01-04', close: 12 }] }
+  const trades = { AAA: [{ date: '2026-01-03', type: 'dividend', shares: 0, account: 'IRA', cash: 5 }] }
+  const stocks = pgh(rows, history, trades)
+  const g = combinedPeriodGain(stocks, cashActivity(trades, { IRA: 20 }, stocks.startDate))
+  assert.deepEqual(g.series.map((point) => point.value), [120, 135, 145, 155])
+})

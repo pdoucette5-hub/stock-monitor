@@ -65,7 +65,7 @@ function Sparkline({ points, positive }) {
   return <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-9 w-full" aria-hidden="true"><path d={path} fill="none" stroke={positive ? '#10b981' : '#ef4444'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
-function Chart({ points, positive, signed = false, fill = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.' }) {
+function Chart({ points, positive, signed = false, compact = false, fill = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.' }) {
   const [hoveredIndex, setHoveredIndex] = useState(null)
   // fill: draw at the container's actual size, so the chart uses all the
   // space it is given instead of keeping a fixed shape.
@@ -108,7 +108,7 @@ function Chart({ points, positive, signed = false, fill = false, heightClass = '
   const onPointerMove = (event) => { const rect = event.currentTarget.getBoundingClientRect(); const ratio = (event.clientX - rect.left) / rect.width; setHoveredIndex(Math.max(0, Math.min(valid.length - 1, Math.round(ratio * (valid.length - 1))))) }
   const svg = <svg viewBox={`0 0 ${width} ${height}`} className={`${fill ? 'h-full' : heightClass} w-full touch-none select-none`} role="img" aria-label={label}>
     <defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".28" /><stop offset="100%" stopColor={color} stopOpacity="0" /></linearGradient></defs>
-    {yTicks.map((tick) => <g key={tick.y}><line x1={left} x2={width - right} y1={tick.y} y2={tick.y} stroke="#e2e8f0" strokeDasharray="4 6" /><text x={left - 9} y={tick.y + 4} textAnchor="end" fontSize="11" fill="#64748b">{signed ? compactMoney(tick.value) : formatMoney(tick.value)}</text></g>)}
+    {yTicks.map((tick) => <g key={tick.y}><line x1={left} x2={width - right} y1={tick.y} y2={tick.y} stroke="#e2e8f0" strokeDasharray="4 6" /><text x={left - 9} y={tick.y + 4} textAnchor="end" fontSize="11" fill="#64748b">{signed || compact ? compactMoney(tick.value) : formatMoney(tick.value)}</text></g>)}
     {xTicks.map((index, tickIndex) => <g key={`${valid[index].timestamp || valid[index].date}-${index}`}><line x1={x(index)} x2={x(index)} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={x(index)} y={height - 10} textAnchor={tickIndex === 0 ? 'start' : tickIndex === xTicks.length - 1 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{axisDate(valid[index])}</text></g>)}
     {signed && min < 0 && max > 0 && <line x1={left} x2={width - right} y1={y(0)} y2={y(0)} stroke="#94a3b8" />}
     <path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
@@ -314,9 +314,9 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view }) {
     return combinedPeriodGain(stocks, cashActivity(state.trades, state.cashStart, stocks?.startDate || since))
   }, [ready, stockRows, history, state.trades, state.cashStart, state.soldHistory, since])
   const chartPoints = useMemo(() => (result?.series || []).map((point) => {
-    if (point.key === '~') return { date: localDate(), timestamp: range === '1d' ? state.loadedAt : null, close: point.gain }
+    if (point.key === '~') return { date: localDate(), timestamp: range === '1d' ? state.loadedAt : null, close: point.value }
     const [day, stamp] = point.key.split('T')
-    return { date: day, timestamp: stamp ? Number(stamp) : null, close: point.gain }
+    return { date: day, timestamp: stamp ? Number(stamp) : null, close: point.value }
   }), [result, range, state.loadedAt])
   const cash = result?.cashEnd ?? null
   const totalValue = stockValue + (cash || 0)
@@ -335,7 +335,7 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view }) {
       <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 whitespace-nowrap text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
       <div className="text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div>{note && <div>{note}</div>}</div>
     </div>
-    <div className="min-w-0">{loading ? <div className="flex h-64 items-center justify-center text-sm text-slate-500">Loading…</div> : <Chart points={chartPoints} positive={(change ?? 0) >= 0} signed fill heightClass="h-64" label="Gain over the period" empty="No gain history for this period." />}</div>
+    <div className="min-w-0">{loading ? <div className="flex h-64 items-center justify-center text-sm text-slate-500">Loading…</div> : <Chart points={chartPoints} positive={(change ?? 0) >= 0} compact fill heightClass="h-64" label="Portfolio value over the period" empty="No price history for this period." />}</div>
     </div>
   </section>
 }
