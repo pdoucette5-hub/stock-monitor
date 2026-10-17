@@ -7,7 +7,11 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.config import UNASSIGNED_ACCOUNT, VALID_MANAGEMENT_MODES
+from backend.config import (
+    MATTHEW_COMPENSATION_ACCOUNT_KEYS,
+    UNASSIGNED_ACCOUNT,
+    VALID_MANAGEMENT_MODES,
+)
 from backend.logic import safe_float
 from backend.portfolio_service import normalize_portfolio
 from backend.state_store import (
@@ -180,7 +184,13 @@ def management_position_key(account: str, ticker: str) -> str:
 
 
 def automatic_account_mode(account: str) -> str:
-    return "track" if str(account).strip() == UNASSIGNED_ACCOUNT else "managed"
+    """Default mode for an account with no account default set.
+
+    Only the two IRAs and two Roth IRAs (the accounts Matthew manages) are
+    managed; every other account (the Individual TOD account, 401(k)s,
+    unassigned shares) is tracked. Per-position overrides still win.
+    """
+    return "managed" if str(account).strip().casefold() in MATTHEW_COMPENSATION_ACCOUNT_KEYS else "track"
 
 
 def get_management_mode(
