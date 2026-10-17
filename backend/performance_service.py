@@ -596,6 +596,7 @@ def build_portfolio_performance(
     dividend_index = 0
     previous_value_by_ticker: dict[str, float] = {}
     period_gain = 0.0
+    new_money = 0.0
 
     for current_date in ordered_dates:
         while (
@@ -613,6 +614,14 @@ def build_portfolio_performance(
 
             for tx in sorted(same_day_rows, key=_capital_basis_same_day_priority):
                 capital_delta = _apply_transaction_to_capital_basis(capital_state, tx)
+                # New money from outside during the range: buys the account's
+                # cash could not cover (the same rule as the Holdings summary).
+                if (
+                    series
+                    and capital_delta > 0
+                    and str(tx.get("type") or "").strip().lower() == "buy"
+                ):
+                    new_money += capital_delta
                 benchmark_close = _latest_close_on_or_before(benchmark_rows, tx_date)
                 if benchmark_close and benchmark_close > 0 and abs(capital_delta) > 1e-9:
                     benchmark_shares = max(
@@ -703,6 +712,7 @@ def build_portfolio_performance(
                 "unrealized_gain_loss": round(total_market_value - total_cost_basis, 8),
                 "capital_gain_loss": round(total_market_value + cash - capital_basis, 8),
                 "period_gain": round(period_gain, 8),
+                "new_money": round(new_money, 8),
             }
         )
 

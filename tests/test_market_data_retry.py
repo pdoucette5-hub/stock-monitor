@@ -14,6 +14,11 @@ from backend import data_ingest
 class FailedFetchRetryTests(unittest.TestCase):
     def setUp(self):
         data_ingest._failed_fetches.clear()
+        # Keep tests from reading or writing the saved list.
+        data_ingest._failed_fetches_loaded = True
+        saver = mock.patch.object(data_ingest, "_save_failed_fetches")
+        self.saved = saver.start()
+        self.addCleanup(saver.stop)
         self.calls = []
         patches = [
             mock.patch.object(data_ingest, "FINNHUB_API_KEY", "test-key"),
@@ -73,6 +78,30 @@ class FailedFetchRetryTests(unittest.TestCase):
         self.assertEqual(list(df["ticker"]), ["CWGIX", "ORCL"])
 
 
+class SavedFailuresTests(unittest.TestCase):
+    def test_failures_are_saved_and_reloaded(self):
+        data_ingest._failed_fetches.clear()
+        data_ingest._failed_fetches_loaded = False
+        store = {}
+        with mock.patch("backend.state_store.load_json_file", side_effect=lambda path, default: dict(store)), \
+             mock.patch("backend.state_store.save_json_file", side_effect=lambda path, data: store.update(data)):
+            data_ingest._load_failed_fetches()
+            data_ingest._failed_fetches["ACRNX"] = (1.0, "ERROR: no data")
+            data_ingest._save_failed_fetches()
+            data_ingest._failed_fetches.clear()
+            data_ingest._failed_fetches_loaded = False
+            data_ingest._load_failed_fetches()
+        self.assertEqual(data_ingest._failed_fetches["ACRNX"], (1.0, "ERROR: no data"))
+        data_ingest._failed_fetches.clear()
+
+    def test_money_market_is_not_fetched(self):
+        with mock.patch.object(data_ingest, "FINNHUB_API_KEY", "k"), \
+             mock.patch.object(data_ingest, "_get_market_data_for_ticker", side_effect=AssertionError("fetched")):
+            data_ingest._failed_fetches_loaded = True
+            frame = data_ingest.get_live_market_data(["SPAXX"])
+        self.assertEqual(frame.iloc[0]["ticker"], "SPAXX")
+
+
 class ParallelFetchTests(unittest.TestCase):
     """A normal load fetches uncached tickers together; Update prices does not."""
 
@@ -80,6 +109,11 @@ class ParallelFetchTests(unittest.TestCase):
 
     def setUp(self):
         data_ingest._failed_fetches.clear()
+        # Keep tests from reading or writing the saved list.
+        data_ingest._failed_fetches_loaded = True
+        saver = mock.patch.object(data_ingest, "_save_failed_fetches")
+        self.saved = saver.start()
+        self.addCleanup(saver.stop)
         self.active = 0
         self.max_active = 0
         self.order = []

@@ -411,6 +411,42 @@ FAILED_FETCH_RETRY_SECONDS = 6 * 3600
 # Live fetches run together on a normal page load (see get_live_market_data).
 LIVE_FETCH_WORKERS = 6
 _failed_fetches: dict[str, tuple[float, str]] = {}
+# The list is also saved with the app's state, so a freshly started server
+# (after a deploy, or after being idle) does not retry the same unpriceable
+# funds and wait on Finnhub for each of them.
+FAILED_FETCH_FILE = CACHE_DIR / "failed_market_fetches.json"
+_failed_fetches_loaded = False
+
+
+def _cash_tickers() -> set[str]:
+    from backend.config import CASH_TICKERS
+
+    return CASH_TICKERS
+
+
+def _load_failed_fetches() -> None:
+    global _failed_fetches_loaded
+    if _failed_fetches_loaded:
+        return
+    _failed_fetches_loaded = True
+    try:
+        from backend.state_store import load_json_file
+
+        saved = load_json_file(FAILED_FETCH_FILE, {})
+        for ticker, value in saved.items():
+            if isinstance(value, list) and len(value) == 2 and ticker not in _failed_fetches:
+                _failed_fetches[str(ticker)] = (float(value[0]), str(value[1]))
+    except Exception:
+        pass
+
+
+def _save_failed_fetches() -> None:
+    try:
+        from backend.state_store import save_json_file
+
+        save_json_file(FAILED_FETCH_FILE, {ticker: [stamp, status] for ticker, (stamp, status) in _failed_fetches.items()})
+    except Exception:
+        pass
 
 
 def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
@@ -436,7 +472,8 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
                 # cache is temporarily read-only or unavailable.
                 row = dict(row)
                 row["status"] = f"{row['status']}; cache unavailable"
-            _failed_fetches.pop(ticker, None)
+            if _failed_fetches.pop(ticker, None) is not None:
+                changed["failed"] = True
             return row
         except Exception as e:
             fallback = _read_cache(ticker, max_age_hours=99999)
@@ -449,13 +486,21 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
                 return fallback
             status = f"ERROR: {e}"
             _failed_fetches[ticker] = (time.time(), status)
+            changed["failed"] = True
             return _empty_row(ticker, status, cache_source="none")
 
+    _load_failed_fetches()
+    changed = {"failed": False}
     rows_by_index = {}
     to_fetch = []
 
     for index, ticker in enumerate(tickers):
         ticker = str(ticker).strip().upper()
+
+        # Money market funds (the account's cash) have no stock quote.
+        if ticker in _cash_tickers():
+            rows_by_index[index] = _empty_row(ticker, "Cash (money market fund)", cache_source="none")
+            continue
 
         if not force_refresh:
             cached = _read_cache(ticker, max_age_hours=max_age_hours)
@@ -485,6 +530,8 @@ def get_live_market_data(tickers, force_refresh=False, max_age_hours=12):
             for future in as_completed(futures):
                 rows_by_index[futures[future]] = future.result()
 
+    if changed["failed"]:
+        _save_failed_fetches()
     rows = [rows_by_index[index] for index in sorted(rows_by_index)]
     return pd.DataFrame(rows)
 

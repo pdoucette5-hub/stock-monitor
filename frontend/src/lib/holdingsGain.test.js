@@ -259,3 +259,11 @@ test('trade gain uses the actual amount, including fees, when available', () => 
   const r = pgh(rows, { A: days([100, 100]) }, trades)
   near(r.change, 10 * 110 - 1000.11, 'gain net of the fee')
 })
+
+test('Performance percent: first-day value and cash plus new money from outside', () => {
+  const series = [
+    { date: '2026-01-01', market_value: 1000, cash: 100, capital_basis: 1000, period_gain: 0, new_money: 0 },
+    { date: '2026-10-16', market_value: 2000, cash: 0, capital_basis: 1700, period_gain: 300, new_money: 400 },
+  ]
+  near(periodGainFromSeries(series).percent, 300 / (1100 + 400) * 100, 'percent')
+})

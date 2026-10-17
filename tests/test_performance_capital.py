@@ -157,6 +157,13 @@ class CapitalTests(unittest.TestCase):
         # 10 x (110-100) + 10 x (110-105) + 7 dividend
         self.assertAlmostEqual(s["2026-08-31"]["period_gain"], 157.0)
 
+    def test_new_money_counts_only_buys_beyond_cash(self):
+        store = flat_prices("AAA", "BBB")
+        s = series_for({"AAA": [tx("a1", "2026-06-01", "buy", 10, 100, "AAA"), tx("a2", "2026-07-01", "sell", 10, 100, "AAA")],
+                        "BBB": [tx("b1", "2026-07-02", "buy", 15, 100, "BBB")]}, store, {"BBB": 15})
+        # 1,500 bought with 1,000 of sale proceeds: 500 of new money.
+        self.assertAlmostEqual(s["2026-08-31"]["new_money"] - s["2026-06-01"]["new_money"], 500.0)
+
     def test_price_moves_are_gain(self):
         store = flat_prices("AAA", overrides={("AAA", "2026-07-01"): 90.0})
         s = series_for({"AAA": [tx("a1", "2026-06-01", "buy", 100, 100, "AAA")]}, store, {"AAA": 100})

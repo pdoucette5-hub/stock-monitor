@@ -244,9 +244,9 @@ export function periodGainFromHoldings(rows, history, trades) {
       for (const trade of tradesByStep[i]) shares -= trade.delta
       held[i] = Math.max(shares, 0)
     }
-    // Value at the start of the period (or when this ticker's prices begin).
-    const firstPriced = closes.findIndex((close) => close != null)
-    if (firstPriced >= 0) startValue += held[firstPriced] * closes[firstPriced]
+    // Value on the first day of the period. A stock whose prices only begin
+    // later is left out, like its gain before then (matches Performance).
+    if (closes[0] != null) startValue += held[0] * closes[0]
     let tickerGain = 0
     for (let i = 0; i < steps.length; i += 1) {
       const start = closes[i]
@@ -383,6 +383,11 @@ export function periodGainFromSeries(series) {
   const change = last.period_gain != null && first.period_gain != null
     ? Number(last.period_gain) - Number(first.period_gain)
     : gainOf(last) - gainOf(first)
-  const invested = seriesValue(first) + Math.max(capital(last) - capital(first), 0)
+  // Same rule as the Holdings summary: value and cash on the first day plus
+  // new money from outside (buys the account's cash could not cover).
+  const newMoney = last.new_money != null && first.new_money != null
+    ? Number(last.new_money) - Number(first.new_money)
+    : Math.max(capital(last) - capital(first), 0)
+  const invested = seriesValue(first) + newMoney
   return { change, percent: invested > 0 ? (change / invested) * 100 : null, startDate: first.date }
 }
