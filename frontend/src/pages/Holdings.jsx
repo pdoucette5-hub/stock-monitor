@@ -53,6 +53,9 @@ function percent(value, digits = 1) {
   if (value == null || Number.isNaN(Number(value))) return '—'
   return `${Number(value) > 0 ? '+' : ''}${Number(value).toFixed(digits)}%`
 }
+function compactMoney(value) {
+  return Number(value).toLocaleString(undefined, { style: 'currency', currency: 'USD', notation: 'compact', maximumFractionDigits: 1 })
+}
 function Sparkline({ points, positive }) {
   const values = (points || []).map((point) => Number(point?.close)).filter(Number.isFinite)
   if (values.length < 2) return <div className="h-9 rounded bg-slate-100/50" />
@@ -62,19 +65,20 @@ function Sparkline({ points, positive }) {
   return <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-9 w-full" aria-hidden="true"><path d={path} fill="none" stroke={positive ? '#10b981' : '#ef4444'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
-function Chart({ points, positive }) {
+function Chart({ points, positive, signed = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.' }) {
   const [hoveredIndex, setHoveredIndex] = useState(null)
   const valid = (points || []).filter((point) => Number.isFinite(Number(point?.close)))
-  if (valid.length < 2) return <div className="flex h-64 items-center justify-center text-sm text-slate-500">No price history for this window.</div>
+  if (valid.length < 2) return <div className={`flex ${heightClass} items-center justify-center text-sm text-slate-500`}>{empty}</div>
   const [width, height, left, right, top, bottom] = [900, 310, 66, 18, 16, 40]
   const plotWidth = width - left - right; const plotHeight = height - top - bottom
   const values = valid.map((point) => Number(point.close)); const rawMin = Math.min(...values); const rawMax = Math.max(...values); const rawSpan = rawMax - rawMin || Math.max(rawMax * .05, 1)
-  const min = Math.max(0, rawMin - rawSpan * .06); const max = rawMax + rawSpan * .06; const span = max - min
+  const min = signed ? rawMin - rawSpan * .06 : Math.max(0, rawMin - rawSpan * .06); const max = rawMax + rawSpan * .06; const span = max - min
   const x = (i) => left + (i / (valid.length - 1)) * plotWidth
   const y = (v) => top + ((max - v) / span) * plotHeight
   const line = values.map((v, i) => `${i ? 'L' : 'M'} ${x(i)} ${y(v)}`).join(' ')
-  const area = `${line} L ${x(values.length - 1)} ${top + plotHeight} L ${left} ${top + plotHeight} Z`
-  const color = positive ? '#059669' : '#dc2626'; const id = positive ? 'gain-fill' : 'loss-fill'
+  const base = signed ? y(Math.min(Math.max(0, min), max)) : top + plotHeight
+  const area = `${line} L ${x(values.length - 1)} ${base} L ${left} ${base} Z`
+  const color = positive ? '#059669' : '#dc2626'; const id = `${signed ? 'signed-' : ''}${positive ? 'gain-fill' : 'loss-fill'}`
   const yTicks = Array.from({ length: 5 }, (_, i) => ({ value: max - (span * i) / 4, y: top + (plotHeight * i) / 4 }))
   const xTickCount = Math.min(7, valid.length); const xTicks = Array.from({ length: xTickCount }, (_, i) => Math.round((i * (valid.length - 1)) / (xTickCount - 1)))
   const intraday = valid.some((point) => point?.timestamp != null)
@@ -89,12 +93,13 @@ function Chart({ points, positive }) {
   const hoverX = hover ? x(hoveredIndex) : 0; const hoverY = hover ? y(Number(hover.close)) : 0
   const tooltipX = hoverX > width - 160 ? hoverX - 146 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64, hoverY - 58))
   const onPointerMove = (event) => { const rect = event.currentTarget.getBoundingClientRect(); const ratio = (event.clientX - rect.left) / rect.width; setHoveredIndex(Math.max(0, Math.min(valid.length - 1, Math.round(ratio * (valid.length - 1))))) }
-  return <svg viewBox={`0 0 ${width} ${height}`} className="h-72 w-full touch-none select-none" role="img" aria-label="Interactive price history chart">
+  return <svg viewBox={`0 0 ${width} ${height}`} className={`${heightClass} w-full touch-none select-none`} role="img" aria-label={label}>
     <defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".28" /><stop offset="100%" stopColor={color} stopOpacity="0" /></linearGradient></defs>
-    {yTicks.map((tick) => <g key={tick.y}><line x1={left} x2={width - right} y1={tick.y} y2={tick.y} stroke="#e2e8f0" strokeDasharray="4 6" /><text x={left - 9} y={tick.y + 4} textAnchor="end" fontSize="11" fill="#64748b">{formatMoney(tick.value)}</text></g>)}
+    {yTicks.map((tick) => <g key={tick.y}><line x1={left} x2={width - right} y1={tick.y} y2={tick.y} stroke="#e2e8f0" strokeDasharray="4 6" /><text x={left - 9} y={tick.y + 4} textAnchor="end" fontSize="11" fill="#64748b">{signed ? compactMoney(tick.value) : formatMoney(tick.value)}</text></g>)}
     {xTicks.map((index, tickIndex) => <g key={`${valid[index].timestamp || valid[index].date}-${index}`}><line x1={x(index)} x2={x(index)} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={x(index)} y={height - 10} textAnchor={tickIndex === 0 ? 'start' : tickIndex === xTicks.length - 1 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{axisDate(valid[index])}</text></g>)}
+    {signed && min < 0 && max > 0 && <line x1={left} x2={width - right} y1={y(0)} y2={y(0)} stroke="#94a3b8" />}
     <path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
-    {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height="50" rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{formatMoney(hover.close)}</text><text x={tooltipX + 10} y={tooltipY + 38} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
+    {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height="50" rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text><text x={tooltipX + 10} y={tooltipY + 38} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
     <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="transparent" onPointerMove={onPointerMove} onPointerLeave={() => setHoveredIndex(null)} />
   </svg>
 }
@@ -282,7 +287,7 @@ function HoldingsSummary({ rows, history, range, filter, view }) {
         soldHistory = prices?.price_series || prices?.series || {}
         if (range === '1d') soldHistory = withPreviousClose(soldHistory, soldHistory, localDate())
       }
-      if (!cancelled) setState({ key, loading: false, error: null, trades, cashStart: result?.cash_start || {}, soldHistory })
+      if (!cancelled) setState({ key, loading: false, error: null, trades, cashStart: result?.cash_start || {}, soldHistory, loadedAt: Date.now() / 1000 })
     })().catch((err) => { if (!cancelled) setState({ key, loading: false, error: err.message, trades: null, cashStart: {}, soldHistory: {} }) })
     return () => { cancelled = true }
     // view: reload after holdings change (e.g. a share edit or import)
@@ -294,6 +299,11 @@ function HoldingsSummary({ rows, history, range, filter, view }) {
     const stocks = periodGainFromHoldings([...stockRows, ...soldRows], { ...state.soldHistory, ...history }, state.trades)
     return combinedPeriodGain(stocks, cashActivity(state.trades, state.cashStart, stocks?.startDate || since))
   }, [ready, stockRows, history, state.trades, state.cashStart, state.soldHistory, since])
+  const chartPoints = useMemo(() => (result?.series || []).map((point) => {
+    if (point.key === '~') return { date: localDate(), timestamp: range === '1d' ? state.loadedAt : null, close: point.gain }
+    const [day, stamp] = point.key.split('T')
+    return { date: day, timestamp: stamp ? Number(stamp) : null, close: point.gain }
+  }), [result, range, state.loadedAt])
   const cash = result?.cashEnd ?? null
   const totalValue = stockValue + (cash || 0)
   const rangeLabel = Object.fromEntries(RANGES)[range] || range
@@ -302,15 +312,14 @@ function HoldingsSummary({ rows, history, range, filter, view }) {
   const error = state.key === key ? state.error : null
   const change = result?.change ?? null
   const tone = change == null ? 'text-slate-500' : change >= 0 ? 'text-emerald-600' : 'text-red-600'
-  const missing = result?.missing || []
-  const soldCount = Object.keys(state.soldHistory || {}).length
-  const note = !modes ? 'Gain / loss is not available for hidden holdings.'
-    : error ? `Gain / loss unavailable: ${error}`
-    : `Price moves on the shares held each day${result?.dividends ? ` (${formatMoney(result.priceChange)}) plus dividends and interest (${formatMoney(result.dividends)})` : ' plus dividends'}${result?.startDate ? `, from ${range === '1d' ? 'the previous close' : date(result.startDate)}` : ''}${soldCount ? `, including ${soldCount} position${soldCount === 1 ? '' : 's'} sold in the period` : ''}. Buying and selling are not gain; new money added (${formatMoney(result?.newMoney || 0)}) is not gain. Cash is from your transactions.${missing.length ? ` No price history: ${missing.join(', ')}.` : ''}`
-  return <section aria-label="Holdings summary" className="mb-3 flex flex-wrap items-end gap-x-10 gap-y-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
-    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div>{cash != null && <div className="text-[11px] text-slate-500">incl. {formatMoney(cash)} cash</div>}</div>
-    <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
-    <div className="max-w-3xl pb-1 text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div><div>{note}</div></div>
+  const note = !modes ? 'Gain / loss is not available for hidden holdings.' : error ? `Gain / loss unavailable: ${error}` : null
+  return <section aria-label="Holdings summary" className="mb-3 grid gap-x-8 gap-y-4 rounded-2xl border border-slate-200 bg-white px-5 py-5 shadow-sm md:grid-cols-[260px_minmax(0,1fr)]">
+    <div className="flex flex-col justify-center gap-5">
+      <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div>{cash != null && <div className="text-[11px] text-slate-500">incl. {formatMoney(cash)} cash</div>}</div>
+      <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
+      <div className="text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div>{note && <div>{note}</div>}</div>
+    </div>
+    <div className="min-w-0">{loading ? <div className="flex h-56 items-center justify-center text-sm text-slate-500">Loading…</div> : <Chart points={chartPoints} positive={(change ?? 0) >= 0} signed heightClass="h-56" label="Gain over the period" empty="No gain history for this period." />}</div>
   </section>
 }
 

@@ -294,6 +294,12 @@ export function periodGainFromHoldings(rows, history, trades) {
   }
   const invested = startValue + peak
   const firstKey = keys[0]
+  // Running total of the gain at each key, for the summary chart.
+  let gainSoFar = 0
+  const series = keys.map((key, index) => {
+    if (index > 0) gainSoFar += steps[index - 1].gain
+    return { key, gain: gainSoFar }
+  })
   return {
     change,
     percent: invested > 0 ? (change / invested) * 100 : null,
@@ -304,6 +310,7 @@ export function periodGainFromHoldings(rows, history, trades) {
     priced: tickers.length,
     missing,
     byTicker,
+    series,
   }
 }
 
@@ -330,14 +337,18 @@ export function cashActivity(trades, cashStart, startDate) {
   events.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : (a.cash < 0) - (b.cash < 0)))
   let dividends = 0
   let newMoney = 0
+  const income = []
   for (const event of events) {
-    if (event.income) dividends += event.cash
+    if (event.income) {
+      dividends += event.cash
+      income.push({ date: event.date, cash: event.cash })
+    }
     const balance = (Number(balances[event.account]) || 0) + event.cash
     if (balance < 0) newMoney -= balance
     balances[event.account] = Math.max(balance, 0)
   }
   const end = Object.values(balances).reduce((sum, value) => sum + (Number(value) || 0), 0)
-  return { start, end, dividends, newMoney }
+  return { start, end, dividends, newMoney, income }
 }
 
 // Whole-portfolio gain for the period: price moves on the shares held each
@@ -358,7 +369,27 @@ export function combinedPeriodGain(stocks, cash) {
     cashStart: cash?.start || 0,
     cashEnd: cash?.end || 0,
     newMoney: cash?.newMoney || 0,
+    series: gainSeries(stocks.series, cash?.income),
   }
+}
+
+// The gain at each point of the period: price moves so far plus dividends
+// received so far. The last point includes every dividend, so it equals the
+// headline gain.
+function gainSeries(points, income) {
+  if (!points?.length) return []
+  const events = [...(income || [])].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+  let index = 0
+  let received = 0
+  return points.map((point, position) => {
+    const last = position === points.length - 1
+    const date = point.key === END_KEY ? null : point.key.slice(0, 10)
+    while (index < events.length && (last || events[index].date <= date)) {
+      received += events[index].cash
+      index += 1
+    }
+    return { key: point.key, gain: point.gain + received }
+  })
 }
 
 // Stocks plus uninvested cash for one Performance series point.
