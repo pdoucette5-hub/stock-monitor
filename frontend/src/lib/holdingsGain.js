@@ -234,7 +234,7 @@ export function periodGainFromHoldings(rows, history, trades) {
       const delta = signedShares(trade)
       if (!date || !delta) continue
       const step = keys.findIndex((key, index) => index > 0 && keys[index - 1] < date && date <= key)
-      if (step > 0) tradesByStep[step - 1].push({ delta, price: Number(trade?.price_per_share) })
+      if (step > 0) tradesByStep[step - 1].push({ delta, price: Number(trade?.price_per_share), cash: trade?.cash == null || trade.cash === '' ? null : Number(trade.cash) })
     }
     // Shares held at each key: today's shares minus later trades.
     const held = new Array(keys.length).fill(0)
@@ -255,9 +255,12 @@ export function periodGainFromHoldings(rows, history, trades) {
       let gain = held[i] * (end - start)
       let base = held[i] * start
       for (const trade of tradesByStep[i]) {
-        const paid = Number.isFinite(trade.price) && trade.price > 0 ? trade.price : end
-        gain += trade.delta * (end - paid)
-        if (trade.delta > 0) base += trade.delta * paid
+        // What the trade actually cost (or brought in), from Fidelity's amount
+        // including fees when available; otherwise shares x price.
+        const perShare = Number.isFinite(trade.price) && trade.price > 0 ? trade.price : end
+        const amount = Number.isFinite(trade.cash) && trade.cash !== 0 ? -trade.cash : trade.delta * perShare
+        gain += trade.delta * end - amount
+        if (trade.delta > 0) base += amount
       }
       steps[i].gain += gain
       steps[i].base += base

@@ -252,3 +252,10 @@ test('Performance range gain prefers the server day-by-day figure', () => {
   ]
   near(periodGainFromSeries(series).change, 120, 'uses period_gain, not the jump in overall gain')
 })
+
+test('trade gain uses the actual amount, including fees, when available', () => {
+  const rows = [{ ticker: 'A', shares: 10, price: 110 }]
+  const trades = { A: [{ date: '2026-10-02', type: 'buy', shares: 10, price_per_share: 100, cash: -1000.11 }] }
+  const r = pgh(rows, { A: days([100, 100]) }, trades)
+  near(r.change, 10 * 110 - 1000.11, 'gain net of the fee')
+})
