@@ -559,6 +559,43 @@ def build_portfolio_performance(
     benchmark_shares = 0.0
     latest_close_by_ticker: dict[str, float] = {}
     series: list[dict[str, Any]] = []
+    # Day-by-day gain for the range, the same rule as the Holdings summary:
+    # each day, each stock's change in value minus what was paid for (or
+    # received from) its trades that day, plus dividends. A stock only counts
+    # from its first priced day in the range, so a holding whose price history
+    # starts mid-range is not counted as a gain when its price first appears.
+    trade_cash: dict[tuple[str, str], float] = {}
+    transfer_shares: dict[tuple[str, str], float] = {}
+    dividends_by_date: dict[str, float] = {}
+    for tx_row in capital_rows:
+        tx_ticker = str(tx_row.get("ticker") or "").strip().upper()
+        tx_date = str(tx_row.get("date") or "")
+        tx_kind = str(tx_row.get("type") or "").strip().lower()
+        if tx_kind == "dividend":
+            dividends_by_date[tx_date] = dividends_by_date.get(tx_date, 0.0) + _transaction_dividend_cash(tx_row)
+        elif tx_kind == "buy":
+            amount = _cash_amount(tx_row)
+            trade_cash[(tx_ticker, tx_date)] = trade_cash.get((tx_ticker, tx_date), 0.0) + (amount if amount is not None else _transaction_buy_cost(tx_row))
+        elif tx_kind == "sell":
+            amount = _cash_amount(tx_row)
+            trade_cash[(tx_ticker, tx_date)] = trade_cash.get((tx_ticker, tx_date), 0.0) - (amount if amount is not None else _transaction_sell_proceeds(tx_row))
+        elif tx_kind in {"transfer_in", "adjustment", "transfer_out"}:
+            moved = abs(_safe_float(tx_row.get("shares"), 0.0)) * (-1 if tx_kind == "transfer_out" else 1)
+            transfer_shares[(tx_ticker, tx_date)] = transfer_shares.get((tx_ticker, tx_date), 0.0) + moved
+    # Trades and dividends dated on a day with no price are applied on the
+    # next priced day.
+    events_by_ticker: dict[str, list[tuple[str, float, float]]] = {}
+    for (ev_ticker, ev_date), amount in trade_cash.items():
+        events_by_ticker.setdefault(ev_ticker, []).append((ev_date, amount, 0.0))
+    for (ev_ticker, ev_date), moved in transfer_shares.items():
+        events_by_ticker.setdefault(ev_ticker, []).append((ev_date, 0.0, moved))
+    for events in events_by_ticker.values():
+        events.sort()
+    event_index_by_ticker: dict[str, int] = {}
+    dividend_dates = sorted(dividends_by_date)
+    dividend_index = 0
+    previous_value_by_ticker: dict[str, float] = {}
+    period_gain = 0.0
 
     for current_date in ordered_dates:
         while (
@@ -608,6 +645,19 @@ def build_portfolio_performance(
             shares = _safe_float(snapshot.get("shares"), 0.0)
             cost_basis = _safe_float(snapshot.get("cost_basis"), 0.0)
 
+            value_today = max(shares, 0.0) * close
+            paid_today = 0.0
+            events = events_by_ticker.get(ticker, [])
+            event_index = event_index_by_ticker.get(ticker, 0)
+            while event_index < len(events) and events[event_index][0] <= current_date:
+                paid_today += events[event_index][1] + events[event_index][2] * close
+                event_index += 1
+            event_index_by_ticker[ticker] = event_index
+            previous_value = previous_value_by_ticker.get(ticker)
+            if previous_value is not None:
+                period_gain += value_today - previous_value - paid_today
+            previous_value_by_ticker[ticker] = value_today
+
             if shares <= 0:
                 continue
 
@@ -616,6 +666,12 @@ def build_portfolio_performance(
             total_market_value += market_value
             total_cost_basis += cost_basis
 
+        received = 0.0
+        while dividend_index < len(dividend_dates) and dividend_dates[dividend_index] <= current_date:
+            received += dividends_by_date[dividend_dates[dividend_index]]
+            dividend_index += 1
+        if series:
+            period_gain += received
         capital_basis = capital_state["capital_basis"]
         # Cash from sales and dividends that has not been reinvested yet. It is
         # still part of the portfolio, so it counts towards the gain: selling a
@@ -646,6 +702,7 @@ def build_portfolio_performance(
                 ),
                 "unrealized_gain_loss": round(total_market_value - total_cost_basis, 8),
                 "capital_gain_loss": round(total_market_value + cash - capital_basis, 8),
+                "period_gain": round(period_gain, 8),
             }
         )
 

@@ -174,7 +174,7 @@ function PerformanceChart({ series }) {
   const last = series[series.length - 1]
   // Change in gain over the range: price moves and dividends, not new money.
   const gainOf = (point) => Number(point.capital_gain_loss ?? (portfolioValue(point) - Number(point.capital_basis ?? point.cost_basis ?? 0)))
-  const marketChange = gainOf(last) - gainOf(first)
+  const marketChange = periodGainFromSeries(series)?.change ?? (gainOf(last) - gainOf(first))
   const positive = marketChange >= 0
   const hoveredPoint = hover === null ? null : series[hover.index]
   const hoveredX = hover === null ? null : xFor(hover.index)

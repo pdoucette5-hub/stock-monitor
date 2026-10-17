@@ -374,7 +374,12 @@ export function periodGainFromSeries(series) {
   const last = points[points.length - 1]
   const capital = (point) => Number(point.capital_basis ?? point.cost_basis ?? 0)
   const gainOf = (point) => Number(point.capital_gain_loss ?? (seriesValue(point) - capital(point)))
-  const change = gainOf(last) - gainOf(first)
+  // period_gain is the server's day-by-day gain (price moves on the shares held
+  // each day, trades excluded, plus dividends); fall back to the change in
+  // overall gain for older responses.
+  const change = last.period_gain != null && first.period_gain != null
+    ? Number(last.period_gain) - Number(first.period_gain)
+    : gainOf(last) - gainOf(first)
   const invested = seriesValue(first) + Math.max(capital(last) - capital(first), 0)
   return { change, percent: invested > 0 ? (change / invested) * 100 : null, startDate: first.date }
 }

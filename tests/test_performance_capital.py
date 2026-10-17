@@ -139,6 +139,24 @@ class CapitalTests(unittest.TestCase):
         self.assertAlmostEqual(p["latest"]["cash"], 400.0)
         self.assertAlmostEqual(p["latest"]["cash"], p["series"][-1]["cash"])
 
+    def test_period_gain_ignores_late_price_history(self):
+        # BBB was bought before its price history starts; when prices appear
+        # mid-range its whole value must not count as gain.
+        store = flat_prices("AAA", "BBB", overrides={("AAA", "2026-08-03"): 110.0})
+        store["BBB"] = [r for r in store["BBB"] if r["date"] >= "2026-07-01"]
+        s = series_for({"AAA": [tx("a1", "2026-06-01", "buy", 10, 100, "AAA")],
+                        "BBB": [tx("b1", "2026-06-01", "buy", 50, 100, "BBB")]}, store, {"AAA": 10, "BBB": 50})
+        last = s["2026-08-31"]
+        self.assertAlmostEqual(last["period_gain"], 100.0)  # AAA +10 x 10 only
+        self.assertGreater(last["period_gain"] - s["2026-06-01"]["period_gain"], 99)
+
+    def test_period_gain_trades_and_dividends(self):
+        store = flat_prices("AAA", overrides={("AAA", "2026-07-01"): 110.0})
+        div = {"id": "d", "date": "2026-07-04", "type": "dividend", "shares": 0, "price_per_share": 7.0, "account": "Rollover IRA", "ticker": "AAA"}  # a Saturday
+        s = series_for({"AAA": [tx("a1", "2026-06-01", "buy", 10, 100, "AAA"), tx("a2", "2026-07-01", "buy", 10, 105, "AAA"), div]}, store, {"AAA": 20})
+        # 10 x (110-100) + 10 x (110-105) + 7 dividend
+        self.assertAlmostEqual(s["2026-08-31"]["period_gain"], 157.0)
+
     def test_price_moves_are_gain(self):
         store = flat_prices("AAA", overrides={("AAA", "2026-07-01"): 90.0})
         s = series_for({"AAA": [tx("a1", "2026-06-01", "buy", 100, 100, "AAA")]}, store, {"AAA": 100})

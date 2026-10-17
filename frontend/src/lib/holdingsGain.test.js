@@ -244,3 +244,11 @@ test('Performance range gain: change in (value + cash - capital), new money not 
   near(g.percent, 275 / (1000 + 500) * 100, 'percent')
   assert.equal(periodGainFromSeries(series.slice(0, 1)), null)
 })
+
+test('Performance range gain prefers the server day-by-day figure', () => {
+  const series = [
+    { date: '2026-01-01', market_value: 1000, cash: 0, capital_basis: 1000, capital_gain_loss: -500, period_gain: 0 },
+    { date: '2026-10-16', market_value: 5000, cash: 0, capital_basis: 1000, capital_gain_loss: 4000, period_gain: 120 },
+  ]
+  near(periodGainFromSeries(series).change, 120, 'uses period_gain, not the jump in overall gain')
+})
