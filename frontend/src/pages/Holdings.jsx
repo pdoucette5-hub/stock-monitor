@@ -65,11 +65,24 @@ function Sparkline({ points, positive }) {
   return <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-9 w-full" aria-hidden="true"><path d={path} fill="none" stroke={positive ? '#10b981' : '#ef4444'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
-function Chart({ points, positive, signed = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.' }) {
+function Chart({ points, positive, signed = false, fill = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.' }) {
   const [hoveredIndex, setHoveredIndex] = useState(null)
+  // fill: draw at the container's actual size, so the chart uses all the
+  // space it is given instead of keeping a fixed shape.
+  const boxRef = useRef(null)
+  const [box, setBox] = useState(null)
   const valid = (points || []).filter((point) => Number.isFinite(Number(point?.close)))
-  if (valid.length < 2) return <div className={`flex ${heightClass} items-center justify-center text-sm text-slate-500`}>{empty}</div>
-  const [width, height, left, right, top, bottom] = [900, 310, 66, 18, 16, 40]
+  const hasData = valid.length >= 2
+  useEffect(() => {
+    const element = boxRef.current
+    if (!fill || !element) return undefined
+    const observer = new ResizeObserver(([entry]) => setBox({ width: entry.contentRect.width, height: entry.contentRect.height }))
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [fill, hasData])
+  if (!hasData) return <div className={`flex ${heightClass} items-center justify-center text-sm text-slate-500`}>{empty}</div>
+  if (fill && !box?.width) return <div ref={boxRef} className={`${heightClass} w-full`} />
+  const [width, height, left, right, top, bottom] = fill ? [Math.round(box.width), Math.round(box.height), 56, 8, 10, 26] : [900, 310, 66, 18, 16, 40]
   const plotWidth = width - left - right; const plotHeight = height - top - bottom
   const values = valid.map((point) => Number(point.close)); const rawMin = Math.min(...values); const rawMax = Math.max(...values); const rawSpan = rawMax - rawMin || Math.max(rawMax * .05, 1)
   const min = signed ? rawMin - rawSpan * .06 : Math.max(0, rawMin - rawSpan * .06); const max = rawMax + rawSpan * .06; const span = max - min
@@ -93,7 +106,7 @@ function Chart({ points, positive, signed = false, heightClass = 'h-72', label =
   const hoverX = hover ? x(hoveredIndex) : 0; const hoverY = hover ? y(Number(hover.close)) : 0
   const tooltipX = hoverX > width - 160 ? hoverX - 146 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64, hoverY - 58))
   const onPointerMove = (event) => { const rect = event.currentTarget.getBoundingClientRect(); const ratio = (event.clientX - rect.left) / rect.width; setHoveredIndex(Math.max(0, Math.min(valid.length - 1, Math.round(ratio * (valid.length - 1))))) }
-  return <svg viewBox={`0 0 ${width} ${height}`} className={`${heightClass} w-full touch-none select-none`} role="img" aria-label={label}>
+  const svg = <svg viewBox={`0 0 ${width} ${height}`} className={`${fill ? 'h-full' : heightClass} w-full touch-none select-none`} role="img" aria-label={label}>
     <defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".28" /><stop offset="100%" stopColor={color} stopOpacity="0" /></linearGradient></defs>
     {yTicks.map((tick) => <g key={tick.y}><line x1={left} x2={width - right} y1={tick.y} y2={tick.y} stroke="#e2e8f0" strokeDasharray="4 6" /><text x={left - 9} y={tick.y + 4} textAnchor="end" fontSize="11" fill="#64748b">{signed ? compactMoney(tick.value) : formatMoney(tick.value)}</text></g>)}
     {xTicks.map((index, tickIndex) => <g key={`${valid[index].timestamp || valid[index].date}-${index}`}><line x1={x(index)} x2={x(index)} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={x(index)} y={height - 10} textAnchor={tickIndex === 0 ? 'start' : tickIndex === xTicks.length - 1 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{axisDate(valid[index])}</text></g>)}
@@ -102,6 +115,7 @@ function Chart({ points, positive, signed = false, heightClass = 'h-72', label =
     {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height="50" rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text><text x={tooltipX + 10} y={tooltipY + 38} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
     <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="transparent" onPointerMove={onPointerMove} onPointerLeave={() => setHoveredIndex(null)} />
   </svg>
+  return fill ? <div ref={boxRef} className={`${heightClass} w-full`}>{svg}</div> : svg
 }
 
 function Metric({ label, value, large }) {
@@ -313,13 +327,16 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view }) {
   const change = result?.change ?? null
   const tone = change == null ? 'text-slate-500' : change >= 0 ? 'text-emerald-600' : 'text-red-600'
   const note = !modes ? 'Gain / loss is not available for hidden holdings.' : error ? `Gain / loss unavailable: ${error}` : null
-  return <section aria-label="Holdings summary" className="mb-3 grid gap-x-8 gap-y-4 rounded-2xl border border-slate-200 bg-white px-5 py-5 shadow-sm md:grid-cols-[260px_minmax(0,1fr)]">
+  return <section aria-label="Holdings summary" className="mb-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
+    <div className="mb-3 flex overflow-x-auto"><RangeButtons value={range} set={setRange} /></div>
+    <div className="grid gap-x-6 gap-y-4 md:grid-cols-[230px_minmax(0,1fr)]">
     <div className="flex flex-col justify-center gap-5">
       <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div>{cash != null && <div className="text-[11px] text-slate-500">incl. {formatMoney(cash)} cash</div>}</div>
-      <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
+      <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 whitespace-nowrap text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
       <div className="text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div>{note && <div>{note}</div>}</div>
     </div>
-    <div className="min-w-0"><div className="mb-2 flex justify-end"><RangeButtons value={range} set={setRange} /></div>{loading ? <div className="flex h-56 items-center justify-center text-sm text-slate-500">Loading…</div> : <Chart points={chartPoints} positive={(change ?? 0) >= 0} signed heightClass="h-56" label="Gain over the period" empty="No gain history for this period." />}</div>
+    <div className="min-w-0">{loading ? <div className="flex h-64 items-center justify-center text-sm text-slate-500">Loading…</div> : <Chart points={chartPoints} positive={(change ?? 0) >= 0} signed fill heightClass="h-64" label="Gain over the period" empty="No gain history for this period." />}</div>
+    </div>
   </section>
 }
 
