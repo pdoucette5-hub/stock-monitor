@@ -665,6 +665,7 @@ def build_portfolio_performance(
         "series": series,
         "latest": {
             "market_value": latest.get("market_value", 0.0),
+            "cash": latest.get("cash", 0.0),
             "cost_basis": latest.get("cost_basis", 0.0),
             "capital_basis": latest.get("capital_basis", latest.get("cost_basis", 0.0)),
             "benchmark_value": latest.get("benchmark_value"),

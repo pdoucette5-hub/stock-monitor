@@ -37,6 +37,17 @@ def tx(id_, date, type_, shares, price, ticker):
     return {"id": id_, "date": date, "type": type_, "shares": shares, "price_per_share": price, "account": "Rollover IRA", "ticker": ticker}
 
 
+def payload_for(transactions, store, holdings):
+    store_ref[0] = store
+    with mock.patch.object(performance_service, "load_price_history_store", return_value=store), \
+         mock.patch.object(performance_service, "get_price_points_for_ticker", side_effect=lambda t, range_key="3y", store=None: [dict(r) for r in store_ref[0].get(t, [])]):
+        return performance_service.build_portfolio_performance(
+            transactions_by_ticker=transactions,
+            tickers_config={"portfolio": [{"ticker": t, "shares": s} for t, s in holdings.items()], "watchlist": []},
+            range_key="3y",
+        )
+
+
 def series_for(transactions, store, holdings):
     def points(ticker, range_key="3y", store=None):
         return [dict(row) for row in (store or {}).get(ticker, [])]
@@ -121,6 +132,12 @@ class CapitalTests(unittest.TestCase):
         buy = tx("a1", "2026-06-01", "buy", 10, 100, "AAA"); buy["source_amount"] = -1000.5
         s = series_for({"AAA": [buy]}, store, {"AAA": 10})
         self.assertAlmostEqual(s["2026-06-30"]["capital_basis"], 1000.5)
+
+    def test_latest_includes_cash(self):
+        store = flat_prices("AAA")
+        p = payload_for({"AAA": [tx("a1", "2026-06-01", "buy", 10, 100, "AAA"), tx("a2", "2026-07-01", "sell", 4, 100, "AAA")]}, store, {"AAA": 6})
+        self.assertAlmostEqual(p["latest"]["cash"], 400.0)
+        self.assertAlmostEqual(p["latest"]["cash"], p["series"][-1]["cash"])
 
     def test_price_moves_are_gain(self):
         store = flat_prices("AAA", overrides={("AAA", "2026-07-01"): 90.0})
