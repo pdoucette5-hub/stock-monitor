@@ -95,6 +95,11 @@ MATTHEW_COMPENSATION_ACCOUNTS = {
     "Paul Rollover IRA",
     "Julianne Rollover IRA",
 }
+# Money market funds that hold an account's uninvested cash. Moving money in
+# or out of them is not a trade; their dividends are interest on the cash.
+# (Not "USD": that is ProShares Ultra Semiconductors, a real holding.)
+CASH_TICKERS = {"SPAXX", "FDRXX", "FZFXX", "SPRXX", "FCASH", "CORE"}
+
 MATTHEW_COMPENSATION_ACCOUNT_KEYS = {
     account.casefold()
     for account in MATTHEW_COMPENSATION_ACCOUNTS

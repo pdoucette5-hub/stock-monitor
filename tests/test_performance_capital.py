@@ -107,6 +107,21 @@ class CapitalTests(unittest.TestCase):
         self.assertEqual(s["2026-07-15"]["capital_basis"], 20000)
         self.assertAlmostEqual(s["2026-07-15"]["capital_gain_loss"], 0.0)
 
+    def test_money_market_reinvestment_is_cash_not_a_purchase(self):
+        # Interest paid into SPAXX and "bought" with itself stays as cash.
+        store = flat_prices("AAA")
+        div = {"id": "s1", "date": "2026-07-01", "type": "dividend", "shares": 0, "price_per_share": 3.0, "account": "Rollover IRA", "ticker": "SPAXX"}
+        reinvest = {"id": "s2", "date": "2026-07-01", "type": "buy", "shares": 3, "price_per_share": 1.0, "account": "Rollover IRA", "ticker": "SPAXX"}
+        s = series_for({"AAA": [tx("a1", "2026-06-01", "buy", 10, 100, "AAA")], "SPAXX": [div, reinvest]}, store, {"AAA": 10})
+        self.assertAlmostEqual(s["2026-07-15"]["cash"], 3.0)
+        self.assertAlmostEqual(s["2026-07-15"]["capital_gain_loss"], 3.0)
+
+    def test_uses_fidelity_amount_when_present(self):
+        store = flat_prices("AAA")
+        buy = tx("a1", "2026-06-01", "buy", 10, 100, "AAA"); buy["source_amount"] = -1000.5
+        s = series_for({"AAA": [buy]}, store, {"AAA": 10})
+        self.assertAlmostEqual(s["2026-06-30"]["capital_basis"], 1000.5)
+
     def test_price_moves_are_gain(self):
         store = flat_prices("AAA", overrides={("AAA", "2026-07-01"): 90.0})
         s = series_for({"AAA": [tx("a1", "2026-06-01", "buy", 100, 100, "AAA")]}, store, {"AAA": 100})

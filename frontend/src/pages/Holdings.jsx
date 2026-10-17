@@ -130,7 +130,7 @@ export default function Holdings() {
   const { authEnabled, user } = useAuth(); const full = !authEnabled || user?.role !== 'limited'
   const [searchParams, setSearchParams] = useSearchParams()
   const { view, setView, loading, error, lastUpdated, load } = usePortfolioView()
-  const [filter, setFilter] = useState('active')
+  const [filter, setFilter] = useState('managed')
   const [ticker, setTicker] = useState(''); const [range, setRange] = useState('1y'); const [history, setHistory] = useState({})
   const [loadingHistory, setLoadingHistory] = useState(false); const [modal, setModal] = useState(false)
   const [addOpen, setAddOpen] = useState(false); const [menu, setMenu] = useState(false); const [maintenanceMenu, setMaintenanceMenu] = useState(false)

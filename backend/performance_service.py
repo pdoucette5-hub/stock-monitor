@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
+from backend.config import CASH_TICKERS
 from backend.price_store import get_price_points_for_ticker, load_price_history_store
 from backend.transactions_service import compute_position_summary
 
@@ -178,17 +179,34 @@ def _tx_account(tx: dict[str, Any]) -> str:
     return str(tx.get("account") or "").strip().casefold()
 
 
+def _cash_amount(tx: dict[str, Any]) -> float | None:
+    """Fidelity's actual dollar amount for a trade, when the import has it."""
+    value = tx.get("source_amount")
+    try:
+        return abs(float(value)) if value not in (None, "") else None
+    except (TypeError, ValueError):
+        return None
+
+
 def _apply_transaction_to_capital_basis(
     state: dict[str, Any],
     tx: dict[str, Any],
 ) -> float:
     tx_type = str(tx.get("type") or "").strip().lower()
     ticker = str(tx.get("ticker") or "").strip().upper()
+    per_account = not state.get("pool_cash")
+    # The money market fund is the cash itself: buying or selling it moves no
+    # money in or out (the Holdings summary treats it the same way). Kept as
+    # before for the Matthew tracker (pooled cash).
+    if per_account and ticker in CASH_TICKERS and tx_type != "dividend":
+        return 0.0
     bought_tickers = state.setdefault("bought_tickers", set())
     capital_delta = 0.0
 
     if tx_type == "buy":
         amount = _transaction_buy_cost(tx)
+        if per_account and _cash_amount(tx) is not None:
+            amount = _cash_amount(tx)
         cash = _account_cash(state, tx)
         funded_by_cash = min(cash, amount)
         _set_account_cash(state, tx, cash - funded_by_cash)
@@ -199,6 +217,8 @@ def _apply_transaction_to_capital_basis(
 
     elif tx_type == "sell":
         proceeds = _transaction_sell_proceeds(tx)
+        if per_account and _cash_amount(tx) is not None:
+            proceeds = _cash_amount(tx)
         if proceeds <= 0:
             return 0.0
         if ticker and ticker not in bought_tickers:

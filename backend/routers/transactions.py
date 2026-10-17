@@ -9,6 +9,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Header
 
 from backend.config import (
+    CASH_TICKERS,
     PRICE_IMPORT_SECRET,
     UNASSIGNED_ACCOUNT,
     VALID_MANAGEMENT_MODES,
@@ -354,10 +355,7 @@ def import_transactions(body: TransactionImportRequest) -> dict[str, Any]:
 # Transaction types that change how many shares are held.
 SHARE_CHANGING_TYPES = {"buy", "sell", "transfer_in", "transfer_out", "adjustment"}
 
-# Money market funds that hold an account's uninvested cash. Buying or selling
-# them just moves cash around; their dividends are interest on the cash.
-# (Not "USD": that is ProShares Ultra Semiconductors, a real holding.)
-CASH_TICKERS = {"SPAXX", "FDRXX", "FZFXX", "SPRXX", "FCASH", "CORE"}
+
 
 
 def _cash_amount(entry: dict[str, Any]) -> float:
