@@ -1,7 +1,7 @@
 // Run with:  node --test frontend/src/lib/holdingsGain.test.js
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { gainForRow, summarizeHoldings, periodGainFromHoldings as pgh, withPreviousClose as wpc, cashActivity, combinedPeriodGain } from './holdingsGain.js'
+import { gainForRow, summarizeHoldings, periodGainFromHoldings as pgh, withPreviousClose as wpc, cashActivity, combinedPeriodGain, periodGainFromSeries } from './holdingsGain.js'
 
 const pts = (...closes) => closes.map((close, i) => ({ date: `2026-10-0${i + 1}`, close }))
 
@@ -231,4 +231,16 @@ test('selling and holding the cash is neutral; the cash stays in the base', () =
   const stocks = pgh(rows, { A: days([100, 100, 100]) }, trades)
   const g = combinedPeriodGain(stocks, cashActivity(trades, {}, '2026-10-01'))
   near(g.change, 0, 'change'); near(g.newMoney, 0, 'no new money'); near(g.cashEnd, 1000, 'cash')
+})
+
+test('Performance range gain: change in (value + cash - capital), new money not gain', () => {
+  const series = [
+    { date: '2026-01-01', market_value: 1000, cash: 0, capital_basis: 1000, capital_gain_loss: 0 },
+    { date: '2026-06-01', market_value: 1600, cash: 50, capital_basis: 1500, capital_gain_loss: 150 }, // +500 new money
+    { date: '2026-10-16', market_value: 1700, cash: 75, capital_basis: 1500, capital_gain_loss: 275 },
+  ]
+  const g = periodGainFromSeries(series)
+  near(g.change, 275, 'change')
+  near(g.percent, 275 / (1000 + 500) * 100, 'percent')
+  assert.equal(periodGainFromSeries(series.slice(0, 1)), null)
 })

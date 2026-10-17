@@ -357,3 +357,24 @@ export function combinedPeriodGain(stocks, cash) {
     newMoney: cash?.newMoney || 0,
   }
 }
+
+// Stocks plus uninvested cash for one Performance series point.
+export function seriesValue(point) {
+  return Number(point?.market_value ?? 0) + Number(point?.cash ?? 0)
+}
+
+// Gain over the selected range, by the same rule as the Holdings summary:
+// change in (value + cash - money put in) between the first and last day, i.e.
+// price moves and dividends; new money is not gain. Percent is of the value
+// and cash at the start plus any new money added during the range.
+export function periodGainFromSeries(series) {
+  const points = (series || []).filter((point) => point && point.date)
+  if (points.length < 2) return null
+  const first = points[0]
+  const last = points[points.length - 1]
+  const capital = (point) => Number(point.capital_basis ?? point.cost_basis ?? 0)
+  const gainOf = (point) => Number(point.capital_gain_loss ?? (seriesValue(point) - capital(point)))
+  const change = gainOf(last) - gainOf(first)
+  const invested = seriesValue(first) + Math.max(capital(last) - capital(first), 0)
+  return { change, percent: invested > 0 ? (change / invested) * 100 : null, startDate: first.date }
+}

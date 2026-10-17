@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import PageToolbar from '../components/PageToolbar'
 import { fetchPortfolioPerformance, fetchPriceComparison } from '../lib/api'
+import { periodGainFromSeries } from '../lib/holdingsGain'
 
-const RANGES = ['1m', '3m', '6m', '1y', '3y', '5y']
+const RANGES = ['7d', '1m', '3m', '6m', 'ytd', '1y', '3y', '5y']
 const BENCHMARK_OPTIONS = ['', 'SPY', 'QQQ', 'ONEQ']
 const PERFORMANCE_STATE_KEY = 'stock-monitor.performance.filters.v1'
 const MANAGEMENT_MODES = [
@@ -45,16 +46,18 @@ function displayTickerLabel(ticker) {
   return ticker
 }
 
-function MetricCard({ label, value }) {
+function MetricCard({ label, value, detail, tone = 'text-slate-900' }) {
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
       <div className="text-xs font-medium uppercase tracking-wide text-slate-500">
         {label}
       </div>
-      <div className="mt-2 text-xl font-semibold text-slate-900">{value}</div>
+      <div className={`mt-2 text-xl font-semibold ${tone}`}>{value}</div>
+      {detail && <div className="mt-1 text-xs text-slate-500">{detail}</div>}
     </div>
   )
 }
+
 
 function normalizeTickerList(value) {
   if (!Array.isArray(value)) return []
@@ -621,6 +624,7 @@ export default function Performance() {
   }, [range, benchmark, compareTickers, selectedAccounts, managementMode])
 
   const latest = data?.latest ?? {}
+  const rangeGain = periodGainFromSeries(data?.series)
   const series = data?.series ?? []
   const positions = data?.positions ?? {}
   const accounts = data?.accounts ?? []
@@ -793,8 +797,10 @@ export default function Performance() {
           value={formatMoney(latest.capital_basis ?? latest.cost_basis)}
         />
         <MetricCard
-          label="Gain/Loss"
-          value={formatMoney(latest.capital_gain_loss ?? latest.unrealized_gain_loss)}
+          label={`Gain/Loss · ${range.toUpperCase()}`}
+          value={rangeGain ? `${rangeGain.change >= 0 ? '+' : ''}${formatMoney(rangeGain.change)}${rangeGain.percent == null ? '' : ` (${rangeGain.percent >= 0 ? '+' : ''}${rangeGain.percent.toFixed(2)}%)`}` : '—'}
+          tone={!rangeGain ? 'text-slate-900' : rangeGain.change >= 0 ? 'text-emerald-600' : 'text-red-600'}
+          detail={`All-time: ${formatMoney(latest.capital_gain_loss ?? latest.unrealized_gain_loss)} (value + cash − money put in)`}
         />
       </div>
 
