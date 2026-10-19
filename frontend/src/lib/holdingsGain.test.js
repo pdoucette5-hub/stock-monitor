@@ -286,3 +286,21 @@ test('value series is shares held times price plus cash, ending at today', () =>
   const g = combinedPeriodGain(stocks, cashActivity(trades, { IRA: 20 }, stocks.startDate))
   assert.deepEqual(g.series.map((point) => point.value), [120, 135, 145, 155])
 })
+
+test('Today: every stock counts in the start value, even when its daily history is a day behind or missing', () => {
+  const today = '2026-10-19'
+  const intraday = (close) => [{ date: today, timestamp: 1792400000, close }, { date: today, timestamp: 1792403600, close: close + 1 }]
+  const history = { AAA: intraday(100), BBB: intraday(50), CCC: intraday(20) }
+  const daily = {
+    AAA: [{ date: '2026-10-15', close: 99 }], // a day behind
+    BBB: [{ date: '2026-10-15', close: 48 }, { date: '2026-10-16', close: 49 }],
+  }
+  const merged = wpc(history, daily, today)
+  assert.equal(merged.AAA[0].date, '2026-10-16')
+  assert.equal(merged.BBB[0].date, '2026-10-16')
+  assert.deepEqual(merged.CCC[0], { date: '2026-10-16', close: 20, previous_close: true })
+  const rows = [{ ticker: 'AAA', shares: 10, price: 101 }, { ticker: 'BBB', shares: 10, price: 51 }, { ticker: 'CCC', shares: 10, price: 21 }]
+  const result = pgh(rows, merged, {})
+  assert.equal(result.startValue, 990 + 490 + 200)
+  assert.equal(result.change, 20 + 20 + 10)
+})

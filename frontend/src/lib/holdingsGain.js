@@ -140,17 +140,33 @@ const END_KEY = '~'
 export function withPreviousClose(history, dailyHistory, today) {
   const result = {}
   const tickers = new Set([...Object.keys(history || {}), ...Object.keys(dailyHistory || {})])
+  const priors = {}
   for (const ticker of tickers) {
-    const prior = (dailyHistory?.[ticker] || [])
+    priors[ticker] = (dailyHistory?.[ticker] || [])
       .filter((point) => Number.isFinite(Number(point?.close)) && String(point?.date || '').slice(0, 10) < today)
       .sort((a, b) => (String(a.date) < String(b.date) ? -1 : 1))
       .at(-1)
+  }
+  // Every previous close is the start of Today, so they all share one date
+  // (the latest). Otherwise a stock whose daily history is a day behind
+  // would start the period on its own, and the start value would hold only
+  // that stock.
+  const startDate = Object.values(priors).reduce((latest, prior) => {
+    const date = String(prior?.date || '').slice(0, 10)
+    return date > latest ? date : latest
+  }, '')
+  for (const ticker of tickers) {
+    const prior = priors[ticker]
+    const todays = (history?.[ticker] || []).filter((point) => Number.isFinite(Number(point?.close)) && String(point?.date || '').slice(0, 10) === today)
     if (!prior) {
-      result[ticker] = history?.[ticker] || []
+      // No daily close: start from its first price today, still at the start
+      // of the period, so it is part of the start value.
+      result[ticker] = startDate && todays.length
+        ? [{ date: startDate, close: Number(todays[0].close), previous_close: true }, ...todays]
+        : history?.[ticker] || []
       continue
     }
-    const todays = (history?.[ticker] || []).filter((point) => Number.isFinite(Number(point?.close)) && String(point?.date || '').slice(0, 10) === today)
-    result[ticker] = [{ date: String(prior.date).slice(0, 10), close: Number(prior.close), previous_close: true }, ...todays]
+    result[ticker] = [{ date: startDate, close: Number(prior.close), previous_close: true }, ...todays]
   }
   return result
 }
