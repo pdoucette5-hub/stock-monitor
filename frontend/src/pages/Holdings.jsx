@@ -71,20 +71,13 @@ function compactLabels(values) {
   }
   return values.map((value) => formatMoney(value))
 }
-// Ticks on round clock times between the first and last timestamped points,
-// placed between the samples they fall between.
-function roundTimeTicks(points) {
-  const timed = points.map((point, index) => ({ index, time: Number(point?.timestamp) })).filter((item) => Number.isFinite(item.time) && item.time > 0)
-  if (timed.length < 2) return null
-  const first = timed[0].time; const last = timed.at(-1).time
+// Ticks on round clock times between two timestamps (seconds): every 5,
+// 10, 15 or 30 minutes or every few hours, whichever gives at most six.
+function roundTimeTicks(first, last) {
   const step = [5, 10, 15, 30, 60, 120, 180, 240].map((minutes) => minutes * 60).find((seconds) => (last - first) / seconds <= 6) || 360 * 60
   const ticks = []
-  let k = 0
   for (let time = Math.ceil(first / step) * step; time <= last; time += step) {
-    while (k < timed.length - 2 && timed[k + 1].time < time) k += 1
-    const a = timed[k]; const b = timed[k + 1]
-    const pos = b.time === a.time ? a.index : a.index + ((time - a.time) / (b.time - a.time)) * (b.index - a.index)
-    ticks.push({ pos, label: new Date(time * 1000).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }), key: `time-${time}` })
+    ticks.push({ time, label: new Date(time * 1000).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }), key: `time-${time}` })
   }
   return ticks
 }
@@ -117,18 +110,31 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   }, [fill, hasData])
   if (!hasData) return <div className={`flex ${heightClass} items-center justify-center text-sm text-slate-500`}>{empty}</div>
   if (fill && !box?.width) return <div ref={boxRef} className={`${heightClass} w-full`} />
-  const [width, height, left, right, top, bottom] = fill ? [Math.round(box.width), Math.round(box.height), 56, 8, 10, 26] : [900, 310, 66, 18, 16, 40]
-  const plotWidth = width - left - right; const plotHeight = height - top - bottom
+  const [width, height, right, top, bottom] = fill ? [Math.round(box.width), Math.round(box.height), 8, 10, 26] : [900, 310, 18, 16, 40]
+  const plotHeight = height - top - bottom
   const values = valid.map((point) => Number(point.close)); const rawMin = Math.min(...values); const rawMax = Math.max(...values); const rawSpan = rawMax - rawMin || Math.max(rawMax * .05, 1)
   const min = signed ? rawMin - rawSpan * .06 : Math.max(0, rawMin - rawSpan * .06); const max = rawMax + rawSpan * .06; const span = max - min
-  const x = (i) => left + (i / (valid.length - 1)) * plotWidth
+  const yTicks = Array.from({ length: 5 }, (_, i) => ({ value: max - (span * i) / 4, y: top + (plotHeight * i) / 4 }))
+  const yLabels = signed || compact ? compactLabels(yTicks.map((tick) => tick.value)) : yTicks.map((tick) => formatMoney(tick.value))
+  // Leave room for the longest value label.
+  const left = fill ? Math.max(44, Math.ceil(Math.max(...yLabels.map((text) => text.length)) * 6.6) + 14) : 66
+  const plotWidth = width - left - right
+  // Intraday charts are spaced by time, so an extra sample (from Update
+  // prices) does not stretch part of the day. A labelled point without a
+  // time (the previous close) sits 15 minutes before the first sample.
+  const intraday = valid.some((point) => point?.timestamp != null)
+  const stamps = valid.map((point) => Number(point?.timestamp) > 0 ? Number(point.timestamp) : null)
+  const firstStamp = stamps.find((stamp) => stamp != null)
+  const times = intraday ? stamps.map((stamp, index) => stamp ?? (index < stamps.indexOf(firstStamp) ? firstStamp - 15 * 60 : null)) : null
+  const timeScale = Boolean(times && times.every((time) => time != null) && times.at(-1) > times[0])
+  const xTime = (time) => left + ((time - times[0]) / (times.at(-1) - times[0])) * plotWidth
+  const xs = valid.map((_, i) => timeScale ? xTime(times[i]) : left + (i / (valid.length - 1)) * plotWidth)
+  const x = (i) => xs[i]
   const y = (v) => top + ((max - v) / span) * plotHeight
   const line = values.map((v, i) => `${i ? 'L' : 'M'} ${x(i)} ${y(v)}`).join(' ')
   const base = signed ? y(Math.min(Math.max(0, min), max)) : top + plotHeight
-  const area = `${line} L ${x(values.length - 1)} ${base} L ${left} ${base} Z`
+  const area = `${line} L ${x(values.length - 1)} ${base} L ${x(0)} ${base} Z`
   const color = positive ? '#059669' : '#dc2626'; const id = `${signed ? 'signed-' : ''}${positive ? 'gain-fill' : 'loss-fill'}`
-  const yTicks = Array.from({ length: 5 }, (_, i) => ({ value: max - (span * i) / 4, y: top + (plotHeight * i) / 4 }))
-  const intraday = valid.some((point) => point?.timestamp != null)
   const firstYear = String(valid[0].date).slice(0, 4); const lastYear = String(valid.at(-1).date).slice(0, 4); const showYears = firstYear !== lastYear
   const axisDate = (point) => point?.label ? point.label : intraday
     ? pointDate(point).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })
@@ -138,22 +144,27 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     : date(point.date)
   // Intraday: ticks on round times (every 15 minutes, half hour, hour, ...)
   // plus any labelled point such as the previous close. Daily: evenly spaced.
-  const timeTicks = intraday ? roundTimeTicks(valid) : null
-  const xTicks = timeTicks
+  const xTicks = timeScale
     ? [
-        ...valid.flatMap((point, index) => point?.label ? [{ pos: index, label: point.label, key: `label-${index}` }] : []),
-        ...timeTicks,
-      ].filter((tick, index, all) => tick.key.startsWith('label') || !all.some((other) => other.key.startsWith('label') && Math.abs(x(other.pos) - x(tick.pos)) < 70))
-    : Array.from({ length: Math.min(7, valid.length) }, (_, i) => Math.round((i * (valid.length - 1)) / (Math.min(7, valid.length) - 1))).map((index) => ({ pos: index, label: axisDate(valid[index]), key: `${valid[index].timestamp || valid[index].date}-${index}` }))
-  const yLabels = signed || compact ? compactLabels(yTicks.map((tick) => tick.value)) : yTicks.map((tick) => formatMoney(tick.value))
+        ...valid.flatMap((point, index) => point?.label ? [{ px: x(index), label: point.label, key: `label-${index}` }] : []),
+        ...roundTimeTicks(times[0], times.at(-1)).map((tick) => ({ ...tick, px: xTime(tick.time) })),
+      ].filter((tick, index, all) => tick.key.startsWith('label') || !all.some((other) => other.key.startsWith('label') && Math.abs(other.px - tick.px) < 70))
+    : Array.from({ length: Math.min(7, valid.length) }, (_, i) => Math.round((i * (valid.length - 1)) / (Math.min(7, valid.length) - 1))).map((index) => ({ px: x(index), label: axisDate(valid[index]), key: `${valid[index].timestamp || valid[index].date}-${index}` }))
   const hover = hoveredIndex == null ? null : valid[hoveredIndex]
   const hoverX = hover ? x(hoveredIndex) : 0; const hoverY = hover ? y(Number(hover.close)) : 0
   const tooltipX = hoverX > width - 160 ? hoverX - 146 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64, hoverY - 58))
-  const onPointerMove = (event) => { const rect = event.currentTarget.getBoundingClientRect(); const ratio = (event.clientX - rect.left) / rect.width; setHoveredIndex(Math.max(0, Math.min(valid.length - 1, Math.round(ratio * (valid.length - 1))))) }
+  // Hover picks the point nearest the pointer along the x axis.
+  const onPointerMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    const pointerX = left + ((event.clientX - rect.left) / rect.width) * plotWidth
+    let nearest = 0
+    for (let i = 1; i < xs.length; i += 1) if (Math.abs(xs[i] - pointerX) < Math.abs(xs[nearest] - pointerX)) nearest = i
+    setHoveredIndex(nearest)
+  }
   const svg = <svg viewBox={`0 0 ${width} ${height}`} className={`${fill ? 'h-full' : heightClass} w-full touch-none select-none`} role="img" aria-label={label}>
     <defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".28" /><stop offset="100%" stopColor={color} stopOpacity="0" /></linearGradient></defs>
     {yTicks.map((tick, tickIndex) => <g key={tick.y}><line x1={left} x2={width - right} y1={tick.y} y2={tick.y} stroke="#e2e8f0" strokeDasharray="4 6" /><text x={left - 9} y={tick.y + 4} textAnchor="end" fontSize="11" fill="#64748b">{yLabels[tickIndex]}</text></g>)}
-    {xTicks.map((tick) => <g key={tick.key}><line x1={x(tick.pos)} x2={x(tick.pos)} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={x(tick.pos)} y={height - 10} textAnchor={tick.pos === 0 ? 'start' : x(tick.pos) > width - right - 40 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{tick.label}</text></g>)}
+    {xTicks.map((tick) => <g key={tick.key}><line x1={tick.px} x2={tick.px} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={tick.px} y={height - 10} textAnchor={tick.px <= left + 1 ? 'start' : tick.px > width - right - 40 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{tick.label}</text></g>)}
     {signed && min < 0 && max > 0 && <line x1={left} x2={width - right} y1={y(0)} y2={y(0)} stroke="#94a3b8" />}
     <path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
     {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height="50" rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text><text x={tooltipX + 10} y={tooltipY + 38} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
@@ -390,7 +401,13 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpd
     return combinedPeriodGain(stocks, cashActivity(state.trades, state.cashStart, stocks?.startDate || since))
   }, [ready, stockRows, history, state.trades, state.cashStart, state.soldHistory, since])
   const chartPoints = useMemo(() => (result?.series || []).map((point) => {
-    if (point.key === '~') return { date: localDate(), timestamp: range === '1d' ? state.loadedAt : null, close: point.value }
+    if (point.key === '~') {
+      // "Now" is when the page loaded, but no later than just after the last
+      // sample, so the chart does not stretch flat into the evening.
+      const lastStamp = Math.max(0, ...(result?.series || []).map((item) => Number(item.key.split('T')[1]) || 0))
+      const now = range === '1d' ? (lastStamp ? Math.min(state.loadedAt || lastStamp + 60, lastStamp + 15 * 60) : state.loadedAt) : null
+      return { date: localDate(), timestamp: now, close: point.value }
+    }
     const [day, stamp] = point.key.split('T')
     return { date: day, timestamp: stamp ? Number(stamp) : null, close: point.value, label: range === '1d' && !stamp ? 'Prev close' : undefined }
   }), [result, range, state.loadedAt])
