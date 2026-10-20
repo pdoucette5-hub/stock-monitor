@@ -62,6 +62,25 @@ function usMarketOpen(now = new Date()) {
   const minutes = Number(parts.hour) * 60 + Number(parts.minute)
   return minutes >= 9 * 60 + 30 && minutes <= 16 * 60 + 5
 }
+// Each sampling round prices every stock within a minute or so, one stock at
+// a time, so the summary gets a point per stock per round. Keep only the last
+// point of each round (the value once every stock has its new price);
+// otherwise the chart climbs in near-vertical steps with flat lines between.
+function oneRoundPerPoint(points) {
+  const kept = []
+  let roundStart = null
+  for (const point of points) {
+    const time = Number(point?.timestamp)
+    const last = kept.at(-1)
+    if (Number.isFinite(time) && time > 0 && roundStart != null && !point.label && !last?.label && time - roundStart < 120) {
+      kept[kept.length - 1] = point
+      continue
+    }
+    kept.push(point)
+    roundStart = Number.isFinite(time) && time > 0 ? time : null
+  }
+  return kept
+}
 // Short money labels with just enough decimals that no two are the same
 // ($1M, $1M -> $1.00M, $1.01M).
 function compactLabels(values) {
@@ -400,7 +419,7 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpd
     const stocks = periodGainFromHoldings([...stockRows, ...soldRows], { ...state.soldHistory, ...history }, state.trades)
     return combinedPeriodGain(stocks, cashActivity(state.trades, state.cashStart, stocks?.startDate || since))
   }, [ready, stockRows, history, state.trades, state.cashStart, state.soldHistory, since])
-  const chartPoints = useMemo(() => (result?.series || []).map((point) => {
+  const chartPoints = useMemo(() => oneRoundPerPoint((result?.series || []).map((point) => {
     if (point.key === '~') {
       // "Now" is when the page loaded, but no later than just after the last
       // sample, so the chart does not stretch flat into the evening.
@@ -410,7 +429,7 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpd
     }
     const [day, stamp] = point.key.split('T')
     return { date: day, timestamp: stamp ? Number(stamp) : null, close: point.value, label: range === '1d' && !stamp ? 'Prev close' : undefined }
-  }), [result, range, state.loadedAt])
+  })), [result, range, state.loadedAt])
   const cash = result?.cashEnd ?? null
   const totalValue = stockValue + (cash || 0)
   const rangeLabel = Object.fromEntries(RANGES)[range] || range

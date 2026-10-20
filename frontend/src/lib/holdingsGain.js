@@ -151,10 +151,11 @@ export function withPreviousClose(history, dailyHistory, today) {
   // (the latest). Otherwise a stock whose daily history is a day behind
   // would start the period on its own, and the start value would hold only
   // that stock.
+  // With no previous close at all, the day before today stands in for it.
   const startDate = Object.values(priors).reduce((latest, prior) => {
     const date = String(prior?.date || '').slice(0, 10)
     return date > latest ? date : latest
-  }, '')
+  }, '') || dayBefore(today)
   for (const ticker of tickers) {
     const prior = priors[ticker]
     const todays = (history?.[ticker] || []).filter((point) => Number.isFinite(Number(point?.close)) && String(point?.date || '').slice(0, 10) === today)
@@ -169,6 +170,12 @@ export function withPreviousClose(history, dailyHistory, today) {
     result[ticker] = [{ date: startDate, close: Number(prior.close), previous_close: true }, ...todays]
   }
   return result
+}
+
+function dayBefore(isoDate) {
+  const day = new Date(`${isoDate}T12:00:00`)
+  day.setDate(day.getDate() - 1)
+  return localDate(day)
 }
 
 export function localDate(now = new Date()) {

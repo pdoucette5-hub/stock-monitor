@@ -5,6 +5,7 @@ import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,14 +94,29 @@ def add_intraday_samples(samples: list[dict[str, Any]]) -> dict[str, Any]:
     return {"sample_count": added, "ticker_count": len({row.get("ticker") for row in samples})}
 
 
+MARKET_TZ = ZoneInfo("America/New_York")
+
+
+def _in_regular_session(timestamp: int) -> bool:
+    """9:30 to 4:00 New York time. VENU's Nasdaq price includes pre-market
+    and after-hours trades; the other quotes do not, so those are left out to
+    keep Today to the regular session for every stock."""
+    local = datetime.fromtimestamp(int(timestamp), tz=MARKET_TZ)
+    minutes = local.hour * 60 + local.minute
+    return 9 * 60 + 30 <= minutes <= 16 * 60
+
+
 def latest_session_prices(tickers: list[str]) -> dict[str, list[dict[str, Any]]]:
     """Intraday samples from the most recent session in the store.
 
     A ticker whose samples are all from an earlier day gets an empty list (so
     callers fall back to daily closes) instead of an old day's samples being
-    shown as today.
+    shown as today. Only samples from the regular session are used.
     """
-    store = load_intraday_prices()
+    store = {
+        ticker: [row for row in rows if _in_regular_session(row["timestamp"])]
+        for ticker, rows in load_intraday_prices().items()
+    }
     session_date = max(
         (str(row.get("date") or "") for rows in store.values() for row in rows),
         default="",

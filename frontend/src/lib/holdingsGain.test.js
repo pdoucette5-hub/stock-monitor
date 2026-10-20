@@ -304,3 +304,17 @@ test('Today: every stock counts in the start value, even when its daily history 
   assert.equal(result.startValue, 990 + 490 + 200)
   assert.equal(result.change, 20 + 20 + 10)
 })
+
+test('Today with no previous closes at all: every stock still starts together', () => {
+  const today = '2026-10-20'
+  const history = {
+    AAA: [{ date: today, timestamp: 1792503000, close: 10 }, { date: today, timestamp: 1792506600, close: 11 }],
+    BBB: [{ date: today, timestamp: 1792503005, close: 20 }, { date: today, timestamp: 1792506605, close: 22 }],
+  }
+  const merged = wpc(history, {}, today)
+  assert.equal(merged.AAA[0].date, '2026-10-19')
+  assert.equal(merged.BBB[0].date, '2026-10-19')
+  const result = pgh([{ ticker: 'AAA', shares: 1, price: 11 }, { ticker: 'BBB', shares: 1, price: 22 }], merged, {})
+  assert.equal(result.startValue, 30)
+  assert.equal(result.change, 3)
+})
