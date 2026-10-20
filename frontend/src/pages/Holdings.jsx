@@ -53,6 +53,15 @@ function percent(value, digits = 1) {
   if (value == null || Number.isNaN(Number(value))) return '—'
   return `${Number(value) > 0 ? '+' : ''}${Number(value).toFixed(digits)}%`
 }
+const LIVE_REFRESH_MS = 5 * 60 * 1000
+// Regular US trading hours, 9:30 to 4:00 New York time on weekdays (with a
+// few minutes after the close to pick up the closing price).
+function usMarketOpen(now = new Date()) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(now).map((part) => [part.type, part.value]))
+  if (parts.weekday === 'Sat' || parts.weekday === 'Sun') return false
+  const minutes = Number(parts.hour) * 60 + Number(parts.minute)
+  return minutes >= 9 * 60 + 30 && minutes <= 16 * 60 + 5
+}
 function compactMoney(value) {
   return Number(value).toLocaleString(undefined, { style: 'currency', currency: 'USD', notation: 'compact', maximumFractionDigits: 1 })
 }
@@ -96,10 +105,10 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   const xTickCount = Math.min(7, valid.length); const xTicks = Array.from({ length: xTickCount }, (_, i) => Math.round((i * (valid.length - 1)) / (xTickCount - 1)))
   const intraday = valid.some((point) => point?.timestamp != null)
   const firstYear = String(valid[0].date).slice(0, 4); const lastYear = String(valid.at(-1).date).slice(0, 4); const showYears = firstYear !== lastYear
-  const axisDate = (point) => intraday
+  const axisDate = (point) => point?.label ? point.label : intraday
     ? pointDate(point).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })
     : pointDate(point).toLocaleDateString(undefined, { month: 'short', day: showYears ? undefined : 'numeric', year: showYears ? '2-digit' : undefined })
-  const tooltipDate = (point) => intraday
+  const tooltipDate = (point) => point?.label ? point.label : intraday
     ? pointDate(point).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
     : date(point.date)
   const hover = hoveredIndex == null ? null : valid[hoveredIndex]
@@ -151,6 +160,7 @@ export default function Holdings() {
   const { view, setView, loading, error, lastUpdated, load } = usePortfolioView()
   const [filter, setFilter] = useState('managed')
   const [ticker, setTicker] = useState(''); const [range, setRange] = useState('1y'); const [history, setHistory] = useState({})
+  const [livePrices, setLivePrices] = useState({}); const [liveUpdatedAt, setLiveUpdatedAt] = useState(null)
   const [loadingHistory, setLoadingHistory] = useState(false); const [modal, setModal] = useState(false)
   const [addOpen, setAddOpen] = useState(false); const [menu, setMenu] = useState(false); const [maintenanceMenu, setMaintenanceMenu] = useState(false)
   const [newTicker, setNewTicker] = useState(''); const [newShares, setNewShares] = useState(''); const [shareDraft, setShareDraft] = useState('')
@@ -175,6 +185,8 @@ export default function Holdings() {
     let source = filter === 'hidden'
       ? (view?.portfolio || []).filter((row) => row.show_in_holdings === false)
       : (view?.portfolio || []).filter((row) => row.show_in_holdings !== false)
+    // Today: the latest intraday sample is the current price (see the auto refresh below).
+    if (range === '1d') source = source.map((row) => livePrices[row.ticker] ? { ...row, price: livePrices[row.ticker], market_value: Number.isFinite(Number(row.shares)) ? Number(row.shares) * livePrices[row.ticker] : row.market_value } : row)
     const requestedTicker = searchParams.get('ticker')?.trim().toUpperCase()
     const requestedWatchlistRow = (view?.watchlist || []).find((row) => row.ticker === requestedTicker)
     if (requestedWatchlistRow && !source.some((row) => row.ticker === requestedTicker)) {
@@ -182,25 +194,54 @@ export default function Holdings() {
     }
     if (!full) return source
     return source.map((row) => { const shares = sharesFor(row, filter); return { ...row, total_shares: row.shares, shares, market_value: Number.isFinite(Number(row.price)) ? shares * Number(row.price) : null } }).filter((row) => filter === 'all' || Number(row.shares) > 0 || Number(row.total_shares || 0) <= 0)
-  }, [filter, full, searchParams, view])
+  }, [filter, full, searchParams, view, range, livePrices])
   useEffect(() => {
     if (!rows.length) return setTicker('')
     if (rows.some((row) => row.ticker === ticker)) return
     const requestedTicker = searchParams.get('ticker')?.trim().toUpperCase()
     setTicker(rows.some((row) => row.ticker === requestedTicker) ? requestedTicker : rows[0].ticker)
   }, [rows, searchParams, ticker])
+  // Reload price history only when the tickers change, not when a live price
+  // update gives the rows new prices (that would bring back cached history).
+  const tickerList = useMemo(() => rows.map((row) => row.ticker).join(','), [rows])
   useEffect(() => {
-    if (!rows.length) return; let cancelled = false; setLoadingHistory(true)
-    fetchPriceComparison(rows.map((row) => row.ticker), range).then((result) => { if (!cancelled) setHistory(result?.price_series || result?.series || {}) }).catch(() => { if (!cancelled) setHistory({}) }).finally(() => { if (!cancelled) setLoadingHistory(false) })
+    if (!tickerList) return; let cancelled = false; setLoadingHistory(true)
+    fetchPriceComparison(tickerList.split(','), range).then((result) => { if (!cancelled) setHistory(result?.price_series || result?.series || {}) }).catch(() => { if (!cancelled) setHistory({}) }).finally(() => { if (!cancelled) setLoadingHistory(false) })
     return () => { cancelled = true }
-  }, [range, rows])
+  }, [range, tickerList])
   // For Today, gains start from the previous close rather than the first intraday sample.
   const [dailyHistory, setDailyHistory] = useState({})
   useEffect(() => {
-    if (range !== '1d' || !rows.length) return; let cancelled = false
-    fetchPriceComparison(rows.map((row) => row.ticker), '7d').then((result) => { if (!cancelled) setDailyHistory(result?.price_series || result?.series || {}) }).catch(() => { if (!cancelled) setDailyHistory({}) })
+    if (range !== '1d' || !tickerList) return; let cancelled = false
+    fetchPriceComparison(tickerList.split(','), '7d').then((result) => { if (!cancelled) setDailyHistory(result?.price_series || result?.series || {}) }).catch(() => { if (!cancelled) setDailyHistory({}) })
     return () => { cancelled = true }
-  }, [range, rows])
+  }, [range, tickerList])
+  // Today: while the US market is open and the page is visible, take a new
+  // price sample every 5 minutes and reload today's prices, so the summary
+  // and charts keep up. The latest sample becomes each stock's price.
+  useEffect(() => {
+    if (range !== '1d' || !full || !tickerList) return undefined
+    let cancelled = false
+    const update = async () => {
+      if (document.hidden || !usMarketOpen()) return
+      try {
+        await refreshIntradayPrices()
+        const result = await fetchPriceComparison(tickerList.split(','), '1d', true)
+        if (cancelled) return
+        const series = result?.price_series || result?.series || {}
+        const latest = {}
+        for (const [symbol, points] of Object.entries(series)) {
+          const last = (points || []).filter((point) => point?.timestamp != null && Number(point.close) > 0).at(-1)
+          if (last) latest[symbol] = Number(last.close)
+        }
+        setHistory(series); setLivePrices(latest); setLiveUpdatedAt(new Date())
+      } catch {
+        // Keep showing the last good prices; the next update tries again.
+      }
+    }
+    const timer = setInterval(update, LIVE_REFRESH_MS)
+    return () => { cancelled = true; clearInterval(timer) }
+  }, [range, full, tickerList])
   const gainHistory = useMemo(() => range === '1d' ? withPreviousClose(history, dailyHistory, localDate()) : history, [range, history, dailyHistory])
   const selected = rows.find((row) => row.ticker === ticker); const points = history[ticker] || []; const selectedGain = gainForRow(selected, gainHistory[ticker] || points, range)
   const selectTicker = (nextTicker) => {
@@ -249,7 +290,7 @@ export default function Holdings() {
   const sync = async () => { setSyncing(true); try { const result = await syncSheetTickers(); setMessage(`Synced ${result.ticker_count ?? 0} tickers to Google Sheets.`) } catch (err) { setFormError(err.message) } finally { setSyncing(false) } }
   const refreshEarnings = async () => { setRefreshingEarnings(true); try { const result = await refreshEarningsCalendar(); await refresh(); setMessage(`Refreshed earnings dates for ${result?.refreshed?.length ?? 0} tickers.`) } catch (err) { setFormError(err.message) } finally { setRefreshingEarnings(false) } }
   const updatePrices = async () => {
-    setFormError(null); setLoadingHistory(true); clearPortfolioViewCache()
+    setFormError(null); setLoadingHistory(true); clearPortfolioViewCache(); setLivePrices({}); setLiveUpdatedAt(null)
     try {
       if (range === '1d') await refreshIntradayPrices()
       const [, result] = await Promise.all([
@@ -262,7 +303,7 @@ export default function Holdings() {
   }
 
   return <div className="mx-auto w-full max-w-[1600px] px-4 py-3 lg:px-6"><header className="mb-3 flex flex-wrap items-center justify-between gap-3"><h1 className="text-2xl font-bold tracking-tight text-slate-950">Holdings</h1><div className="flex items-center gap-2"><button type="button" onClick={updatePrices} disabled={loading || loadingHistory} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60">{loading || loadingHistory ? 'Updating…' : 'Update prices'}</button><button onClick={() => setAddOpen((v) => !v)} className="rounded-lg bg-slate-950 px-4 py-2 text-xs font-semibold text-white">+ Add holding</button><div className="relative"><button type="button" aria-label="More holdings actions" aria-expanded={maintenanceMenu} onClick={() => setMaintenanceMenu((v) => !v)} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-lg leading-none text-slate-700">…</button>{maintenanceMenu && <div className="absolute right-0 top-11 z-30 w-52 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl">{full && <button type="button" onClick={() => { setMaintenanceMenu(false); sync() }} disabled={syncing} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{syncing ? 'Syncing sheet…' : 'Sync Google Sheet'}</button>}{full && <button type="button" onClick={() => { setMaintenanceMenu(false); refreshEarnings() }} disabled={refreshingEarnings} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{refreshingEarnings ? 'Refreshing earnings…' : 'Refresh earnings'}</button>}</div>}</div></div></header>
-    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={gainHistory} range={range} setRange={setRange} filter={filter} view={view} />}
+    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={gainHistory} range={range} setRange={setRange} filter={filter} view={view} liveUpdatedAt={range === '1d' ? liveUpdatedAt : null} />}
     {(error || formError) && <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{formError || error}</div>}
     {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
     {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
@@ -277,7 +318,7 @@ export default function Holdings() {
 // price move (see periodGainFromHoldings). Trades in the period come from the
 // transaction history, so buying and selling is never counted as gain. Follows
 // the period buttons and the holdings filter.
-function HoldingsSummary({ rows, history, range, setRange, filter, view }) {
+function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpdatedAt }) {
   const stockRows = useMemo(() => rows.filter((row) => !NON_SECURITIES.has(row.ticker)), [rows])
   const stockValue = useMemo(() => summarizeHoldings(stockRows, history, range).totalValue, [stockRows, history, range])
   const modes = PERFORMANCE_MODES_FOR_FILTER[filter]
@@ -316,7 +357,7 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view }) {
   const chartPoints = useMemo(() => (result?.series || []).map((point) => {
     if (point.key === '~') return { date: localDate(), timestamp: range === '1d' ? state.loadedAt : null, close: point.value }
     const [day, stamp] = point.key.split('T')
-    return { date: day, timestamp: stamp ? Number(stamp) : null, close: point.value }
+    return { date: day, timestamp: stamp ? Number(stamp) : null, close: point.value, label: range === '1d' && !stamp ? 'Prev close' : undefined }
   }), [result, range, state.loadedAt])
   const cash = result?.cashEnd ?? null
   const totalValue = stockValue + (cash || 0)
@@ -333,7 +374,7 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view }) {
     <div className="flex flex-col justify-center gap-5">
       <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div>{cash != null && <div className="text-[11px] text-slate-500">incl. {formatMoney(cash)} cash</div>}</div>
       <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 whitespace-nowrap text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
-      <div className="text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div>{note && <div>{note}</div>}</div>
+      <div className="text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div>{liveUpdatedAt && <div>Live · updated {liveUpdatedAt.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}</div>}{note && <div>{note}</div>}</div>
     </div>
     <div className="min-w-0">{loading ? <div className="flex h-64 items-center justify-center text-sm text-slate-500">Loading…</div> : <Chart points={chartPoints} positive={(change ?? 0) >= 0} compact fill heightClass="h-64" label="Portfolio value over the period" empty="No price history for this period." />}</div>
     </div>
