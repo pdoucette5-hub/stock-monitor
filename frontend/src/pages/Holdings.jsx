@@ -62,8 +62,34 @@ function usMarketOpen(now = new Date()) {
   const minutes = Number(parts.hour) * 60 + Number(parts.minute)
   return minutes >= 9 * 60 + 30 && minutes <= 16 * 60 + 5
 }
-function compactMoney(value) {
-  return Number(value).toLocaleString(undefined, { style: 'currency', currency: 'USD', notation: 'compact', maximumFractionDigits: 1 })
+// Short money labels with just enough decimals that no two are the same
+// ($1M, $1M -> $1.00M, $1.01M).
+function compactLabels(values) {
+  for (let digits = 1; digits <= 3; digits += 1) {
+    const labels = values.map((value) => compactMoney(value, digits))
+    if (new Set(labels).size === labels.length) return labels
+  }
+  return values.map((value) => formatMoney(value))
+}
+// Ticks on round clock times between the first and last timestamped points,
+// placed between the samples they fall between.
+function roundTimeTicks(points) {
+  const timed = points.map((point, index) => ({ index, time: Number(point?.timestamp) })).filter((item) => Number.isFinite(item.time) && item.time > 0)
+  if (timed.length < 2) return null
+  const first = timed[0].time; const last = timed.at(-1).time
+  const step = [5, 10, 15, 30, 60, 120, 180, 240].map((minutes) => minutes * 60).find((seconds) => (last - first) / seconds <= 6) || 360 * 60
+  const ticks = []
+  let k = 0
+  for (let time = Math.ceil(first / step) * step; time <= last; time += step) {
+    while (k < timed.length - 2 && timed[k + 1].time < time) k += 1
+    const a = timed[k]; const b = timed[k + 1]
+    const pos = b.time === a.time ? a.index : a.index + ((time - a.time) / (b.time - a.time)) * (b.index - a.index)
+    ticks.push({ pos, label: new Date(time * 1000).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' }), key: `time-${time}` })
+  }
+  return ticks
+}
+function compactMoney(value, digits = 1) {
+  return Number(value).toLocaleString(undefined, { style: 'currency', currency: 'USD', notation: 'compact', minimumFractionDigits: digits > 1 ? digits : 0, maximumFractionDigits: digits })
 }
 function Sparkline({ points, positive }) {
   const values = (points || []).map((point) => Number(point?.close)).filter(Number.isFinite)
@@ -102,7 +128,6 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   const area = `${line} L ${x(values.length - 1)} ${base} L ${left} ${base} Z`
   const color = positive ? '#059669' : '#dc2626'; const id = `${signed ? 'signed-' : ''}${positive ? 'gain-fill' : 'loss-fill'}`
   const yTicks = Array.from({ length: 5 }, (_, i) => ({ value: max - (span * i) / 4, y: top + (plotHeight * i) / 4 }))
-  const xTickCount = Math.min(7, valid.length); const xTicks = Array.from({ length: xTickCount }, (_, i) => Math.round((i * (valid.length - 1)) / (xTickCount - 1)))
   const intraday = valid.some((point) => point?.timestamp != null)
   const firstYear = String(valid[0].date).slice(0, 4); const lastYear = String(valid.at(-1).date).slice(0, 4); const showYears = firstYear !== lastYear
   const axisDate = (point) => point?.label ? point.label : intraday
@@ -111,14 +136,24 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   const tooltipDate = (point) => point?.label ? point.label : intraday
     ? pointDate(point).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
     : date(point.date)
+  // Intraday: ticks on round times (every 15 minutes, half hour, hour, ...)
+  // plus any labelled point such as the previous close. Daily: evenly spaced.
+  const timeTicks = intraday ? roundTimeTicks(valid) : null
+  const xTicks = timeTicks
+    ? [
+        ...valid.flatMap((point, index) => point?.label ? [{ pos: index, label: point.label, key: `label-${index}` }] : []),
+        ...timeTicks,
+      ].filter((tick, index, all) => tick.key.startsWith('label') || !all.some((other) => other.key.startsWith('label') && Math.abs(x(other.pos) - x(tick.pos)) < 70))
+    : Array.from({ length: Math.min(7, valid.length) }, (_, i) => Math.round((i * (valid.length - 1)) / (Math.min(7, valid.length) - 1))).map((index) => ({ pos: index, label: axisDate(valid[index]), key: `${valid[index].timestamp || valid[index].date}-${index}` }))
+  const yLabels = signed || compact ? compactLabels(yTicks.map((tick) => tick.value)) : yTicks.map((tick) => formatMoney(tick.value))
   const hover = hoveredIndex == null ? null : valid[hoveredIndex]
   const hoverX = hover ? x(hoveredIndex) : 0; const hoverY = hover ? y(Number(hover.close)) : 0
   const tooltipX = hoverX > width - 160 ? hoverX - 146 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64, hoverY - 58))
   const onPointerMove = (event) => { const rect = event.currentTarget.getBoundingClientRect(); const ratio = (event.clientX - rect.left) / rect.width; setHoveredIndex(Math.max(0, Math.min(valid.length - 1, Math.round(ratio * (valid.length - 1))))) }
   const svg = <svg viewBox={`0 0 ${width} ${height}`} className={`${fill ? 'h-full' : heightClass} w-full touch-none select-none`} role="img" aria-label={label}>
     <defs><linearGradient id={id} x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity=".28" /><stop offset="100%" stopColor={color} stopOpacity="0" /></linearGradient></defs>
-    {yTicks.map((tick) => <g key={tick.y}><line x1={left} x2={width - right} y1={tick.y} y2={tick.y} stroke="#e2e8f0" strokeDasharray="4 6" /><text x={left - 9} y={tick.y + 4} textAnchor="end" fontSize="11" fill="#64748b">{signed || compact ? compactMoney(tick.value) : formatMoney(tick.value)}</text></g>)}
-    {xTicks.map((index, tickIndex) => <g key={`${valid[index].timestamp || valid[index].date}-${index}`}><line x1={x(index)} x2={x(index)} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={x(index)} y={height - 10} textAnchor={tickIndex === 0 ? 'start' : tickIndex === xTicks.length - 1 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{axisDate(valid[index])}</text></g>)}
+    {yTicks.map((tick, tickIndex) => <g key={tick.y}><line x1={left} x2={width - right} y1={tick.y} y2={tick.y} stroke="#e2e8f0" strokeDasharray="4 6" /><text x={left - 9} y={tick.y + 4} textAnchor="end" fontSize="11" fill="#64748b">{yLabels[tickIndex]}</text></g>)}
+    {xTicks.map((tick) => <g key={tick.key}><line x1={x(tick.pos)} x2={x(tick.pos)} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={x(tick.pos)} y={height - 10} textAnchor={tick.pos === 0 ? 'start' : x(tick.pos) > width - right - 40 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{tick.label}</text></g>)}
     {signed && min < 0 && max > 0 && <line x1={left} x2={width - right} y1={y(0)} y2={y(0)} stroke="#94a3b8" />}
     <path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
     {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height="50" rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text><text x={tooltipX + 10} y={tooltipY + 38} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
