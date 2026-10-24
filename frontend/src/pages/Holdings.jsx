@@ -9,7 +9,7 @@ import {
   saveStockScenario, syncSheetTickers, refreshIntradayPrices,
 } from '../lib/api'
 import { apiToForm, formToApi } from '../lib/scenarioForm'
-import { cashActivity, combinedPeriodGain, gainForRow, historyStartDate, PERFORMANCE_MODES_FOR_FILTER, periodGainFromHoldings, localDate, summarizeHoldings, withPreviousClose } from '../lib/holdingsGain'
+import { cashActivity, combinedPeriodGain, gainForRow, historyStartDate, latestSessionDate, PERFORMANCE_MODES_FOR_FILTER, periodGainFromHoldings, localDate, summarizeHoldings, withPreviousClose } from '../lib/holdingsGain'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
 
@@ -307,7 +307,9 @@ export default function Holdings() {
     const timer = setInterval(update, LIVE_REFRESH_MS)
     return () => { cancelled = true; clearInterval(timer) }
   }, [range, full, tickerList])
-  const gainHistory = useMemo(() => range === '1d' ? withPreviousClose(history, dailyHistory, localDate()) : history, [range, history, dailyHistory])
+  // Today on a weekend or holiday shows the last trading day.
+  const sessionDay = useMemo(() => range === '1d' ? latestSessionDate(history) : null, [range, history])
+  const gainHistory = useMemo(() => range === '1d' ? withPreviousClose(history, dailyHistory, sessionDay) : history, [range, history, dailyHistory, sessionDay])
   const selected = rows.find((row) => row.ticker === ticker); const points = history[ticker] || []; const selectedGain = gainForRow(selected, gainHistory[ticker] || points, range)
   const selectTicker = (nextTicker) => {
     setTicker(nextTicker)
@@ -368,7 +370,7 @@ export default function Holdings() {
   }
 
   return <div className="mx-auto w-full max-w-[1600px] px-4 py-3 lg:px-6"><header className="mb-3 flex flex-wrap items-center justify-between gap-3"><h1 className="text-2xl font-bold tracking-tight text-slate-950">Holdings</h1><div className="flex items-center gap-2"><button type="button" onClick={updatePrices} disabled={loading || loadingHistory} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60">{loading || loadingHistory ? 'Updating…' : 'Update prices'}</button><button onClick={() => setAddOpen((v) => !v)} className="rounded-lg bg-slate-950 px-4 py-2 text-xs font-semibold text-white">+ Add holding</button><div className="relative"><button type="button" aria-label="More holdings actions" aria-expanded={maintenanceMenu} onClick={() => setMaintenanceMenu((v) => !v)} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-lg leading-none text-slate-700">…</button>{maintenanceMenu && <div className="absolute right-0 top-11 z-30 w-52 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl">{full && <button type="button" onClick={() => { setMaintenanceMenu(false); sync() }} disabled={syncing} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{syncing ? 'Syncing sheet…' : 'Sync Google Sheet'}</button>}{full && <button type="button" onClick={() => { setMaintenanceMenu(false); refreshEarnings() }} disabled={refreshingEarnings} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{refreshingEarnings ? 'Refreshing earnings…' : 'Refresh earnings'}</button>}</div>}</div></div></header>
-    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={gainHistory} range={range} setRange={setRange} filter={filter} view={view} liveUpdatedAt={range === '1d' ? liveUpdatedAt : null} />}
+    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={gainHistory} range={range} setRange={setRange} filter={filter} view={view} liveUpdatedAt={range === '1d' ? liveUpdatedAt : null} sessionDay={sessionDay} />}
     {(error || formError) && <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{formError || error}</div>}
     {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
     {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
@@ -383,7 +385,7 @@ export default function Holdings() {
 // price move (see periodGainFromHoldings). Trades in the period come from the
 // transaction history, so buying and selling is never counted as gain. Follows
 // the period buttons and the holdings filter.
-function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpdatedAt }) {
+function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpdatedAt, sessionDay }) {
   const stockRows = useMemo(() => rows.filter((row) => !NON_SECURITIES.has(row.ticker)), [rows])
   const stockValue = useMemo(() => summarizeHoldings(stockRows, history, range).totalValue, [stockRows, history, range])
   const modes = PERFORMANCE_MODES_FOR_FILTER[filter]
@@ -405,7 +407,7 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpd
       if (sold.length) {
         const prices = await fetchPriceComparison(sold, range === '1d' ? '7d' : range).catch(() => null)
         soldHistory = prices?.price_series || prices?.series || {}
-        if (range === '1d') soldHistory = withPreviousClose(soldHistory, soldHistory, localDate())
+        if (range === '1d') soldHistory = withPreviousClose(soldHistory, soldHistory, sessionDay || localDate())
       }
       if (!cancelled) setState({ key, loading: false, error: null, trades, cashStart: result?.cash_start || {}, soldHistory, loadedAt: Date.now() / 1000 })
     })().catch((err) => { if (!cancelled) setState({ key, loading: false, error: err.message, trades: null, cashStart: {}, soldHistory: {} }) })
@@ -425,14 +427,17 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpd
       // sample, so the chart does not stretch flat into the evening.
       const lastStamp = Math.max(0, ...(result?.series || []).map((item) => Number(item.key.split('T')[1]) || 0))
       const now = range === '1d' ? (lastStamp ? Math.min(state.loadedAt || lastStamp + 60, lastStamp + 15 * 60) : state.loadedAt) : null
-      return { date: localDate(), timestamp: now, close: point.value }
+      return { date: sessionDay || localDate(), timestamp: now, close: point.value }
     }
     const [day, stamp] = point.key.split('T')
     return { date: day, timestamp: stamp ? Number(stamp) : null, close: point.value, label: range === '1d' && !stamp ? 'Prev close' : undefined }
-  })), [result, range, state.loadedAt])
+  })), [result, range, state.loadedAt, sessionDay])
   const cash = result?.cashEnd ?? null
   const totalValue = stockValue + (cash || 0)
-  const rangeLabel = Object.fromEntries(RANGES)[range] || range
+  // Today on a weekend or holiday is the last trading day; name it.
+  const rangeLabel = range === '1d' && sessionDay && sessionDay !== localDate()
+    ? new Date(`${sessionDay}T12:00:00`).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })
+    : Object.fromEntries(RANGES)[range] || range
   const filterLabel = Object.fromEntries(FILTERS)[filter] || 'All'
   const loading = Boolean(modes) && (!since || (state.key === key ? state.loading : true))
   const error = state.key === key ? state.error : null

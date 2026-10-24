@@ -68,7 +68,7 @@ test('no positions with history gives no gain rather than zero', () => {
   assert.equal(s.percent, null)
 })
 
-import { periodGainFromPerformance, PERFORMANCE_MODES_FOR_FILTER } from './holdingsGain.js'
+import { periodGainFromPerformance, PERFORMANCE_MODES_FOR_FILTER, latestSessionDate } from './holdingsGain.js'
 
 const day = (date, market_value, capital_basis) => ({ date, market_value, capital_basis, capital_gain_loss: market_value - capital_basis })
 
@@ -317,4 +317,29 @@ test('Today with no previous closes at all: every stock still starts together', 
   const result = pgh([{ ticker: 'AAA', shares: 1, price: 11 }, { ticker: 'BBB', shares: 1, price: 22 }], merged, {})
   assert.equal(result.startValue, 30)
   assert.equal(result.change, 3)
+})
+
+test('a stock whose history starts a day earlier does not shrink the start value', () => {
+  const history = {
+    VENU: [{ date: '2026-09-22', close: 1 }, { date: '2026-09-23', close: 1 }, { date: '2026-10-23', close: 1 }],
+    AAA: [{ date: '2026-09-23', close: 100 }, { date: '2026-10-23', close: 90 }],
+    NEW: [{ date: '2026-10-10', close: 50 }, { date: '2026-10-23', close: 55 }],
+  }
+  const rows = [{ ticker: 'VENU', shares: 1000, price: 1 }, { ticker: 'AAA', shares: 100, price: 90 }, { ticker: 'NEW', shares: 10, price: 55 }]
+  const result = pgh(rows, history, {})
+  // AAA counts from the start; NEW (prices begin weeks later) still does not.
+  assert.equal(result.startValue, 1000 + 10000)
+  assert.equal(result.change, -1000 + 50)
+})
+
+test('Today on a weekend shows the last trading day against the day before it', () => {
+  const saturday = '2026-10-24'
+  const intraday = { AAA: [{ date: '2026-10-23', timestamp: 1792690200, close: 101 }, { date: '2026-10-23', timestamp: 1792693800, close: 103 }] }
+  const daily = { AAA: [{ date: '2026-10-21', close: 98 }, { date: '2026-10-22', close: 100 }, { date: '2026-10-23', close: 103 }, { date: '2026-10-24', close: 103 }] }
+  const session = latestSessionDate(intraday, saturday)
+  assert.equal(session, '2026-10-23')
+  const merged = wpc(intraday, daily, session)
+  assert.deepEqual(merged.AAA.map((point) => point.close), [100, 101, 103])
+  const result = pgh([{ ticker: 'AAA', shares: 10, price: 103 }], merged, {})
+  assert.equal(result.change, 30)
 })

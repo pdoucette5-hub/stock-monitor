@@ -172,15 +172,34 @@ export function withPreviousClose(history, dailyHistory, today) {
   return result
 }
 
-function dayBefore(isoDate) {
+function addDays(isoDate, days) {
   const day = new Date(`${isoDate}T12:00:00`)
-  day.setDate(day.getDate() - 1)
+  if (Number.isNaN(day.getTime())) return isoDate
+  day.setDate(day.getDate() + days)
   return localDate(day)
+}
+
+function dayBefore(isoDate) {
+  return addDays(isoDate, -1)
 }
 
 export function localDate(now = new Date()) {
   const pad = (value) => String(value).padStart(2, '0')
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`
+}
+
+// The trading day Today shows: the latest date in the history, up to today.
+// On a weekend or holiday that is the last day the market was open, so Today
+// shows that day's gain instead of nothing.
+export function latestSessionDate(history, today = localDate()) {
+  let latest = null
+  for (const points of Object.values(history || {})) {
+    for (const point of points || []) {
+      const date = String(point?.date || '').slice(0, 10)
+      if (date && date <= today && (!latest || date > latest)) latest = date
+    }
+  }
+  return latest || today
 }
 
 // The earliest date in the history, used to ask for the trades in the period.
@@ -234,6 +253,7 @@ export function periodGainFromHoldings(rows, history, trades) {
     tickers.push({ ticker, sharesNow: Number.isFinite(sharesNow) ? Math.max(sharesNow, 0) : 0, points, trades: tickerTrades })
   }
   const keys = [...allKeys].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
+  const startWindowEnd = addDays(keys[0]?.slice(0, 10) || '', 4)
   if (keys.length < 2 || !tickers.length) {
     return { change: null, percent: null, startDate: null, endDate: null, priced: 0, missing }
   }
@@ -244,12 +264,17 @@ export function periodGainFromHoldings(rows, history, trades) {
   let startValue = 0
   const byTicker = {}
   for (const item of tickers) {
-    // Closing price at each key, carrying the last close forward.
+    // Closing price at each key, carrying the last close forward. Stocks'
+    // histories can start a day or two apart (each is cut back from its own
+    // latest price), so a stock whose prices begin within a few days of the
+    // period's start counts as held from the start at its first price. That
+    // adds no gain; without it the start value holds only the earliest stock.
+    const startsWithPeriod = item.points[0].key.slice(0, 10) <= startWindowEnd
     const closes = []
     let j = -1
     for (const key of keys) {
       while (j + 1 < item.points.length && item.points[j + 1].key <= key) j += 1
-      closes.push(j >= 0 ? item.points[j].close : null)
+      closes.push(j >= 0 ? item.points[j].close : startsWithPeriod ? item.points[0].close : null)
     }
     // Trades go in the step that ends on or after their date. Trades dated on
     // or before the first point happened before the period started.
