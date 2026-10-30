@@ -145,6 +145,28 @@ def append_assumption_snapshot(
     save_assumption_snapshots(snapshots)
 
 
+def forecast_history(ticker: str) -> list[dict[str, Any]]:
+    """A ticker's saved forecasts, oldest first: when each was made, the
+    price then, and its bear/base/bull 3-year CAGRs. Used to draw each
+    forecast's projected price paths on the stock chart."""
+    normalized = normalize_ticker(ticker)
+    history = []
+    for snapshot in load_assumption_snapshots():
+        if normalize_ticker(snapshot.get("ticker")) != normalized:
+            continue
+        price = safe_float(snapshot.get("price"))
+        cagrs = {name: safe_float(snapshot.get(f"{name}_cagr_y3")) for name in ("bear", "base", "bull")}
+        if not price or price <= 0 or any(value is None for value in cagrs.values()):
+            continue
+        history.append({
+            "id": snapshot.get("id"),
+            "timestamp": snapshot.get("timestamp"),
+            "price": price,
+            **{f"{name}_cagr_y3": value for name, value in cagrs.items()},
+        })
+    return sorted(history, key=lambda item: str(item.get("timestamp") or ""))
+
+
 def _current_assumption_snapshot(
     ticker: str,
     scenario: dict[str, Any],

@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import StockDetail from './StockDetail'
 import { clearPortfolioViewCache, usePortfolioView } from '../hooks/usePortfolioView'
 import {
-  addPortfolioTicker, archiveTicker, fetchPriceComparison, fetchStockScenario, fetchTransactionsWindow,
+  addPortfolioTicker, archiveTicker, fetchForecastHistory, fetchPriceComparison, fetchStockScenario, fetchTransactionsWindow,
   refreshEarningsCalendar, removeTicker, savePortfolioControls, savePortfolioShares,
   saveStockScenario, syncSheetTickers, refreshIntradayPrices,
 } from '../lib/api'
@@ -20,9 +20,9 @@ const FILTERS = [
 const RANGES = [['1d', 'Today'], ['7d', '7D'], ['1m', '1M'], ['3m', '3M'], ['6m', '6M'], ['ytd', 'YTD'], ['1y', '1Y'], ['3y', '3Y'], ['5y', '5Y']]
 const DETAIL_TABS = [['overview', 'Overview'], ['forecast', 'Forecast'], ['financials', 'Financials'], ['activity', 'Activity']]
 const SCENARIOS = [
-  { id: 'bull', label: 'Bull', bar: 'bg-emerald-500', head: 'bg-emerald-50 text-emerald-800' },
-  { id: 'base', label: 'Base', bar: 'bg-blue-500', head: 'bg-blue-50 text-blue-800' },
-  { id: 'bear', label: 'Bear', bar: 'bg-amber-500', head: 'bg-amber-50 text-amber-800' },
+  { id: 'bull', label: 'Bull', bar: 'bg-emerald-500', head: 'bg-emerald-50 text-emerald-800', line: '#10b981' },
+  { id: 'base', label: 'Base', bar: 'bg-blue-500', head: 'bg-blue-50 text-blue-800', line: '#3b82f6' },
+  { id: 'bear', label: 'Bear', bar: 'bg-amber-500', head: 'bg-amber-50 text-amber-800', line: '#f59e0b' },
 ]
 const inputClass = 'w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20'
 
@@ -54,6 +54,7 @@ function percent(value, digits = 1) {
   return `${Number(value) > 0 ? '+' : ''}${Number(value).toFixed(digits)}%`
 }
 const LIVE_REFRESH_MS = 5 * 60 * 1000
+const YEAR_SECONDS = 365.25 * 24 * 3600
 // Regular US trading hours, 9:30 to 4:00 New York time on weekdays (with a
 // few minutes after the close to pick up the closing price).
 function usMarketOpen(now = new Date()) {
@@ -112,7 +113,7 @@ function Sparkline({ points, positive }) {
   return <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-9 w-full" aria-hidden="true"><path d={path} fill="none" stroke={positive ? '#10b981' : '#ef4444'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
-function Chart({ points, positive, signed = false, compact = false, fill = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.' }) {
+function Chart({ points, positive, signed = false, compact = false, fill = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.', projections = null, projectUntil = null, logScale = false }) {
   const [hoveredIndex, setHoveredIndex] = useState(null)
   // fill: draw at the container's actual size, so the chart uses all the
   // space it is given instead of keeping a fixed shape.
@@ -131,25 +132,46 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   if (fill && !box?.width) return <div ref={boxRef} className={`${heightClass} w-full`} />
   const [width, height, right, top, bottom] = fill ? [Math.round(box.width), Math.round(box.height), 8, 10, 26] : [900, 310, 18, 16, 40]
   const plotHeight = height - top - bottom
-  const values = valid.map((point) => Number(point.close)); const rawMin = Math.min(...values); const rawMax = Math.max(...values); const rawSpan = rawMax - rawMin || Math.max(rawMax * .05, 1)
-  const min = signed ? rawMin - rawSpan * .06 : Math.max(0, rawMin - rawSpan * .06); const max = rawMax + rawSpan * .06; const span = max - min
-  const yTicks = Array.from({ length: 5 }, (_, i) => ({ value: max - (span * i) / 4, y: top + (plotHeight * i) / 4 }))
+  const values = valid.map((point) => Number(point.close))
+  // Times along the x axis. Intraday charts are spaced by time, so an extra
+  // sample (from Update prices) does not stretch part of the day; a labelled
+  // point without a time (the previous close) sits 15 minutes before the
+  // first sample. Daily charts with forecast lines are spaced by date too,
+  // so the axis can run on into the future.
+  const intraday = valid.some((point) => point?.timestamp != null)
+  const stamps = valid.map((point) => Number(point?.timestamp) > 0 ? Number(point.timestamp) : null)
+  const firstStamp = stamps.find((stamp) => stamp != null)
+  const showProjections = !intraday && Boolean(projections?.length) && Number.isFinite(projectUntil)
+  const times = intraday
+    ? stamps.map((stamp, index) => stamp ?? (index < stamps.indexOf(firstStamp) ? firstStamp - 15 * 60 : null))
+    : showProjections ? valid.map((point) => Date.parse(`${String(point.date).slice(0, 10)}T00:00:00`) / 1000) : null
+  const domainStart = times?.[0]
+  const domainEnd = times ? Math.max(times.at(-1), showProjections ? projectUntil : 0) : null
+  const timeScale = Boolean(times && times.every((time) => Number.isFinite(time)) && domainEnd > domainStart)
+  // Forecast lines: each compounds from its start price at its CAGR, drawn
+  // from where the chart (or the forecast) starts to the chosen horizon, and
+  // no further than the forecast's own three years.
+  const projectionLines = showProjections && timeScale ? projections.map((projection) => {
+    const from = Math.max(projection.start, domainStart)
+    const to = Math.min(projectUntil, projection.start + 3 * YEAR_SECONDS)
+    if (!(to > from)) return null
+    const samples = Array.from({ length: 61 }, (_, i) => from + ((to - from) * i) / 60)
+    return { ...projection, points: samples.map((time) => ({ time, value: projection.price * (1 + projection.cagr) ** ((time - projection.start) / YEAR_SECONDS) })).filter((point) => point.value > 0) }
+  }).filter(Boolean) : []
+  const allValues = [...values, ...projectionLines.flatMap((line) => line.points.map((point) => point.value))]
+  const rawMin = Math.min(...allValues); const rawMax = Math.max(...allValues); const rawSpan = rawMax - rawMin || Math.max(rawMax * .05, 1)
+  const useLog = logScale && !signed && rawMin > 0
+  const min = useLog ? rawMin / 1.08 : signed ? rawMin - rawSpan * .06 : Math.max(0, rawMin - rawSpan * .06)
+  const max = useLog ? rawMax * 1.08 : rawMax + rawSpan * .06; const span = max - min
+  const yTicks = Array.from({ length: 5 }, (_, i) => ({ value: useLog ? max * (min / max) ** (i / 4) : max - (span * i) / 4, y: top + (plotHeight * i) / 4 }))
   const yLabels = signed || compact ? compactLabels(yTicks.map((tick) => tick.value)) : yTicks.map((tick) => formatMoney(tick.value))
   // Leave room for the longest value label.
   const left = fill ? Math.max(44, Math.ceil(Math.max(...yLabels.map((text) => text.length)) * 6.6) + 14) : 66
   const plotWidth = width - left - right
-  // Intraday charts are spaced by time, so an extra sample (from Update
-  // prices) does not stretch part of the day. A labelled point without a
-  // time (the previous close) sits 15 minutes before the first sample.
-  const intraday = valid.some((point) => point?.timestamp != null)
-  const stamps = valid.map((point) => Number(point?.timestamp) > 0 ? Number(point.timestamp) : null)
-  const firstStamp = stamps.find((stamp) => stamp != null)
-  const times = intraday ? stamps.map((stamp, index) => stamp ?? (index < stamps.indexOf(firstStamp) ? firstStamp - 15 * 60 : null)) : null
-  const timeScale = Boolean(times && times.every((time) => time != null) && times.at(-1) > times[0])
-  const xTime = (time) => left + ((time - times[0]) / (times.at(-1) - times[0])) * plotWidth
+  const xTime = (time) => left + ((time - domainStart) / (domainEnd - domainStart)) * plotWidth
   const xs = valid.map((_, i) => timeScale ? xTime(times[i]) : left + (i / (valid.length - 1)) * plotWidth)
   const x = (i) => xs[i]
-  const y = (v) => top + ((max - v) / span) * plotHeight
+  const y = (v) => useLog ? top + (Math.log(max / v) / Math.log(max / min)) * plotHeight : top + ((max - v) / span) * plotHeight
   const line = values.map((v, i) => `${i ? 'L' : 'M'} ${x(i)} ${y(v)}`).join(' ')
   const base = signed ? y(Math.min(Math.max(0, min), max)) : top + plotHeight
   const area = `${line} L ${x(values.length - 1)} ${base} L ${x(0)} ${base} Z`
@@ -163,10 +185,12 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     : date(point.date)
   // Intraday: ticks on round times (every 15 minutes, half hour, hour, ...)
   // plus any labelled point such as the previous close. Daily: evenly spaced.
-  const xTicks = timeScale
+  const xTicks = timeScale && !intraday
+    ? Array.from({ length: 6 }, (_, i) => domainStart + ((domainEnd - domainStart) * i) / 5).map((time) => ({ px: xTime(time), key: `date-${time}`, label: new Date(time * 1000).toLocaleDateString(undefined, { month: 'short', year: '2-digit' }) }))
+    : timeScale
     ? [
         ...valid.flatMap((point, index) => point?.label ? [{ px: x(index), label: point.label, key: `label-${index}` }] : []),
-        ...roundTimeTicks(times[0], times.at(-1)).map((tick) => ({ ...tick, px: xTime(tick.time) })),
+        ...roundTimeTicks(domainStart, domainEnd).map((tick) => ({ ...tick, px: xTime(tick.time) })),
       ].filter((tick, index, all) => tick.key.startsWith('label') || !all.some((other) => other.key.startsWith('label') && Math.abs(other.px - tick.px) < 70))
     : Array.from({ length: Math.min(7, valid.length) }, (_, i) => Math.round((i * (valid.length - 1)) / (Math.min(7, valid.length) - 1))).map((index) => ({ px: x(index), label: axisDate(valid[index]), key: `${valid[index].timestamp || valid[index].date}-${index}` }))
   const hover = hoveredIndex == null ? null : valid[hoveredIndex]
@@ -186,6 +210,8 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     {xTicks.map((tick) => <g key={tick.key}><line x1={tick.px} x2={tick.px} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={tick.px} y={height - 10} textAnchor={tick.px <= left + 1 ? 'start' : tick.px > width - right - 40 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{tick.label}</text></g>)}
     {signed && min < 0 && max > 0 && <line x1={left} x2={width - right} y1={y(0)} y2={y(0)} stroke="#94a3b8" />}
     <path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+    {projectionLines.map((projection) => <g key={projection.id}><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="2" strokeDasharray="6 5" /><text x={Math.min(xTime(projection.points.at(-1).time) - 4, width - right - 4)} y={y(projection.points.at(-1).value) - 6} textAnchor="end" fontSize="11" fontWeight="600" fill={projection.color}>{projection.label} {formatMoney(projection.points.at(-1).value)}</text></g>)}
+    {projectionLines.length > 0 && <line x1={x(valid.length - 1)} x2={x(valid.length - 1)} y1={top} y2={top + plotHeight} stroke="#94a3b8" strokeDasharray="2 4" />}
     {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height="50" rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text><text x={tooltipX + 10} y={tooltipY + 38} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
     <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="transparent" onPointerMove={onPointerMove} onPointerLeave={() => setHoveredIndex(null)} />
   </svg>
@@ -233,6 +259,19 @@ export default function Holdings() {
   const [syncing, setSyncing] = useState(false); const [refreshingEarnings, setRefreshingEarnings] = useState(false); const autoRefresh = useRef(false)
   const requestedTab = searchParams.get('tab')
   const [detailTab, setDetailTab] = useState(DETAIL_TABS.some(([id]) => id === requestedTab) ? requestedTab : 'overview')
+  // Forecast lines on the stock chart: on/off, how far ahead, which saved
+  // forecast to draw (or the current one), and log scale. The choices are
+  // remembered in this browser.
+  const [forecastPrefs, setForecastPrefs] = useState(() => {
+    try { return { on: false, years: 1, log: false, ...JSON.parse(localStorage.getItem(FORECAST_PREFS_KEY) || '{}') } } catch { return { on: false, years: 1, log: false } }
+  })
+  const updateForecastPrefs = (change) => setForecastPrefs((current) => {
+    const next = { ...current, ...change }
+    try { localStorage.setItem(FORECAST_PREFS_KEY, JSON.stringify({ on: next.on, years: next.years, log: next.log })) } catch { /* not saved; still works */ }
+    return next
+  })
+  const [forecastHistory, setForecastHistory] = useState({ ticker: '', forecasts: [] })
+  const [forecastId, setForecastId] = useState('current')
 
   useEffect(() => {
     const nextTab = DETAIL_TABS.some(([id]) => id === requestedTab) && (full || requestedTab !== 'activity') ? requestedTab : 'overview'
@@ -326,6 +365,26 @@ export default function Holdings() {
     setSearchParams(next, { replace: true })
   }
   useEffect(() => { setShareDraft(selected?.total_shares ?? selected?.shares ?? ''); setMenu(false) }, [selected])
+  useEffect(() => {
+    if (!forecastPrefs.on || !full || !ticker) return undefined
+    let cancelled = false
+    fetchForecastHistory(ticker)
+      .then((result) => { if (!cancelled) setForecastHistory({ ticker, forecasts: result?.forecasts || [] }) })
+      .catch(() => { if (!cancelled) setForecastHistory({ ticker, forecasts: [] }) })
+    return () => { cancelled = true }
+  }, [forecastPrefs.on, full, ticker])
+  const savedForecasts = forecastHistory.ticker === ticker ? forecastHistory.forecasts : []
+  // The current forecast starts at the latest price on the chart; a saved one
+  // starts on the day it was saved, at the price then.
+  const lastPointTime = points.length ? Date.parse(`${String(points.at(-1).date).slice(0, 10)}T00:00:00`) / 1000 : null
+  const chosenForecast = forecastId === 'current' ? null : savedForecasts.find((item) => item.id === forecastId)
+  const forecastStart = chosenForecast
+    ? { start: Date.parse(chosenForecast.timestamp) / 1000, price: chosenForecast.price, cagrs: chosenForecast }
+    : selected && lastPointTime ? { start: lastPointTime, price: Number(selected.price), cagrs: selected } : null
+  const projections = forecastPrefs.on && range !== '1d' && forecastStart && Number(forecastStart.price) > 0
+    ? SCENARIOS.map((scenario) => ({ id: scenario.id, label: scenario.label, color: scenario.line, start: forecastStart.start, price: Number(forecastStart.price), cagr: Number(forecastStart.cagrs[`${scenario.id}_cagr_y3`]) })).filter((item) => Number.isFinite(item.cagr))
+    : null
+  const projectUntil = lastPointTime ? lastPointTime + forecastPrefs.years * YEAR_SECONDS : null
   // Reload holdings after a save. The server drops its cached view on every
   // save, so a normal load returns the change in about a second; a forced
   // load would also re-fetch live quotes for every ticker (like "Update
@@ -375,7 +434,7 @@ export default function Holdings() {
     {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
     {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
     <div className="grid min-h-[680px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[340px_minmax(0,1fr)]"><aside className="border-b border-slate-200 bg-slate-50/60 lg:border-b-0 lg:border-r"><div className="flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3"><div><h2 className="font-bold text-slate-950">Your stocks</h2><p className="text-xs text-slate-500">{rows.length} positions</p></div>{full && <select aria-label="Filter holdings" value={filter} onChange={(event) => setFilter(event.target.value)} className="max-w-40 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs font-semibold text-slate-700">{FILTERS.map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>}</div><div className="max-h-[760px] overflow-y-auto">{loading && !rows.length ? <Empty text="Loading holdings…" /> : !rows.length ? <Empty text="No holdings match this filter." /> : rows.map((row) => { const rowPoints = history[row.ticker] || []; const rowGain = gainForRow(row, gainHistory[row.ticker] || rowPoints, range); const positive = (rowGain?.percent ?? 0) >= 0; const active = ticker === row.ticker; return <button key={row.ticker} onClick={() => selectTicker(row.ticker)} className={`grid w-full grid-cols-[minmax(0,1fr)_74px_66px] items-center gap-3 border-b border-slate-200 px-4 py-3 text-left ${active ? 'bg-slate-950 text-white' : 'bg-white hover:bg-slate-50'}`}><div className="min-w-0"><div className="font-bold">{row.ticker}</div><div className={`truncate text-xs ${active ? 'text-slate-400' : 'text-slate-500'}`}>{formatMoney(row.market_value)} · {number(row.shares)} sh</div></div><Sparkline points={rowPoints} positive={positive} /><div className="text-right"><div className={`text-xs font-bold ${rowGain ? positive ? 'text-emerald-500' : 'text-red-500' : 'text-slate-500'}`}>{loadingHistory && !rowPoints.length && !rowGain ? '…' : percent(rowGain?.percent)}</div><div className={`text-[10px] ${active ? 'text-slate-400' : 'text-slate-500'}`}>{rowGain ? `${rowGain.amount >= 0 ? '+' : ''}${formatMoney(rowGain.amount)}` : '—'}</div></div></button> })}</div>{lastUpdated && <div className="border-t border-slate-200 px-4 py-2 text-[11px] text-slate-500">Updated {lastUpdated.toLocaleTimeString()}</div>}</aside>
-      <main className="min-w-0">{!selected ? <Empty text="Select a holding to see details." /> : <><header className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3 sm:px-7"><div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1"><h1 className="text-2xl font-black text-slate-950">{ticker}</h1><span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">{selected.action || 'Needs input'}</span><span className="text-xl font-bold text-slate-950">{formatMoney(selected.price)}</span><span className={`text-sm font-bold ${selectedGain ? selectedGain.percent >= 0 ? 'text-emerald-600' : 'text-red-600' : 'text-slate-500'}`}>{percent(selectedGain?.percent, 2)} <span className="font-medium text-slate-500">· {number(selected.shares)} shares</span></span></div><div className="flex gap-2"><button onClick={() => setModal(true)} className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white">Edit assumptions</button><div className="relative"><button onClick={() => setMenu((v) => !v)} className="rounded-lg border border-slate-300 px-3 py-2 text-lg leading-none">…</button>{menu && <div className="absolute right-0 top-11 z-20 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl"><button onClick={toggle} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">{selected.show_in_holdings === false ? 'Show in holdings' : 'Hide from holdings'}</button>{full && <button onClick={archive} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">Archive ticker</button>}<button onClick={remove} className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50">Remove ticker</button></div>}</div></div></header><DetailTabs value={detailTab} set={selectDetailTab} full={full} />{detailTab === 'overview' ? <><div className="flex flex-wrap items-center justify-between gap-2 px-4 pt-3 sm:px-7"><span className="text-xs font-semibold text-slate-500">Price history · {Object.fromEntries(RANGES)[range] || range}</span>{!full && <RangeButtons value={range} set={setRange} />}</div><div className="px-4 sm:px-7"><Chart points={points} positive={(selectedGain?.percent ?? 0) >= 0} /></div><div className="grid gap-4 px-5 pb-7 sm:px-7 xl:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)]"><section><div className="mb-3 flex items-center justify-between"><h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Position & valuation</h2>{full && <div className="flex gap-2"><input aria-label="Shares" type="number" min="0" step=".01" value={shareDraft} onChange={(e) => setShareDraft(e.target.value)} className="w-24 rounded-lg border border-slate-300 px-2 py-1.5 text-sm" /><button onClick={saveShares} disabled={savingTicker === ticker} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold">Save shares</button></div>}</div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3"><Metric label="Market value" value={formatMoney(selected.market_value)} large /><Metric label="Average cost" value={formatMoney(selected.average_cost_per_share)} /><Metric label="Current P/E" value={selected.current_pe == null ? '—' : `${number(selected.current_pe)}x`} /><Metric label="Bear target" value={formatMoney(selected.bear_price_y3)} /><Metric label="Base target" value={formatMoney(selected.base_price_y3)} /><Metric label="Bull target" value={formatMoney(selected.bull_price_y3)} /></div></section><section className="rounded-xl border border-slate-200 bg-slate-50/60 p-4"><div className="flex justify-between"><div><h2 className="text-sm font-bold text-slate-950">Three-year outlook</h2><p className="text-[11px] text-slate-500">Annual return (CAGR) to each year-3 target</p></div><button onClick={() => setModal(true)} className="text-xs font-semibold text-blue-700">Change</button></div><div className="mt-4 space-y-4">{SCENARIOS.map((scenario) => { const cagr = selected[`${scenario.id}_cagr_y3`]; const width = Math.max(4, Math.min(100, (Number(cagr || 0) * 100 + 20) * 2)); return <div key={scenario.id}><div className="mb-1 flex justify-between text-xs"><span className="font-semibold text-slate-600">{scenario.label}</span><span><span className="font-bold">{cagr == null ? '—' : `${percent(Number(cagr) * 100)}/yr`}</span>{selected[`${scenario.id}_price_y3`] != null && <span className="ml-1 text-slate-500">to {formatMoney(selected[`${scenario.id}_price_y3`])}</span>}</span></div><div className="h-2 rounded-full bg-slate-200"><div className={`h-full rounded-full ${scenario.bar}`} style={{ width: `${width}%` }} /></div></div> })}</div><div className="mt-5 border-t border-slate-200 pt-4"><div className="text-[11px] font-semibold uppercase text-slate-500">Next earnings</div><div className="mt-1 font-semibold">{date(selected.next_earnings_date)}</div>{selected.next_earnings_eps_forecast && <div className="text-xs text-slate-500">EPS forecast {selected.next_earnings_eps_forecast}</div>}</div></section></div></> : <StockDetail key={ticker} embeddedTicker={ticker} embeddedSection={detailTab} />}</>}</main></div>
+      <main className="min-w-0">{!selected ? <Empty text="Select a holding to see details." /> : <><header className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3 sm:px-7"><div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1"><h1 className="text-2xl font-black text-slate-950">{ticker}</h1><span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">{selected.action || 'Needs input'}</span><span className="text-xl font-bold text-slate-950">{formatMoney(selected.price)}</span><span className={`text-sm font-bold ${selectedGain ? selectedGain.percent >= 0 ? 'text-emerald-600' : 'text-red-600' : 'text-slate-500'}`}>{percent(selectedGain?.percent, 2)} <span className="font-medium text-slate-500">· {number(selected.shares)} shares</span></span></div><div className="flex gap-2"><button onClick={() => setModal(true)} className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white">Edit assumptions</button><div className="relative"><button onClick={() => setMenu((v) => !v)} className="rounded-lg border border-slate-300 px-3 py-2 text-lg leading-none">…</button>{menu && <div className="absolute right-0 top-11 z-20 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl"><button onClick={toggle} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">{selected.show_in_holdings === false ? 'Show in holdings' : 'Hide from holdings'}</button>{full && <button onClick={archive} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">Archive ticker</button>}<button onClick={remove} className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50">Remove ticker</button></div>}</div></div></header><DetailTabs value={detailTab} set={selectDetailTab} full={full} />{detailTab === 'overview' ? <><div className="flex flex-wrap items-center justify-between gap-2 px-4 pt-3 sm:px-7"><span className="text-xs font-semibold text-slate-500">Price history · {Object.fromEntries(RANGES)[range] || range}</span>{range !== '1d' && <ForecastControls prefs={forecastPrefs} update={updateForecastPrefs} forecasts={savedForecasts} forecastId={chosenForecast ? forecastId : 'current'} setForecastId={setForecastId} />}{!full && <RangeButtons value={range} set={setRange} />}</div><div className="px-4 sm:px-7"><Chart points={points} positive={(selectedGain?.percent ?? 0) >= 0} projections={projections} projectUntil={projectUntil} logScale={forecastPrefs.log} /></div><div className="grid gap-4 px-5 pb-7 sm:px-7 xl:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)]"><section><div className="mb-3 flex items-center justify-between"><h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Position & valuation</h2>{full && <div className="flex gap-2"><input aria-label="Shares" type="number" min="0" step=".01" value={shareDraft} onChange={(e) => setShareDraft(e.target.value)} className="w-24 rounded-lg border border-slate-300 px-2 py-1.5 text-sm" /><button onClick={saveShares} disabled={savingTicker === ticker} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold">Save shares</button></div>}</div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3"><Metric label="Market value" value={formatMoney(selected.market_value)} large /><Metric label="Average cost" value={formatMoney(selected.average_cost_per_share)} /><Metric label="Current P/E" value={selected.current_pe == null ? '—' : `${number(selected.current_pe)}x`} /><Metric label="Bear target" value={formatMoney(selected.bear_price_y3)} /><Metric label="Base target" value={formatMoney(selected.base_price_y3)} /><Metric label="Bull target" value={formatMoney(selected.bull_price_y3)} /></div></section><section className="rounded-xl border border-slate-200 bg-slate-50/60 p-4"><div className="flex justify-between"><div><h2 className="text-sm font-bold text-slate-950">Three-year outlook</h2><p className="text-[11px] text-slate-500">Annual return (CAGR) to each year-3 target</p></div><button onClick={() => setModal(true)} className="text-xs font-semibold text-blue-700">Change</button></div><div className="mt-4 space-y-4">{SCENARIOS.map((scenario) => { const cagr = selected[`${scenario.id}_cagr_y3`]; const width = Math.max(4, Math.min(100, (Number(cagr || 0) * 100 + 20) * 2)); return <div key={scenario.id}><div className="mb-1 flex justify-between text-xs"><span className="font-semibold text-slate-600">{scenario.label}</span><span><span className="font-bold">{cagr == null ? '—' : `${percent(Number(cagr) * 100)}/yr`}</span>{selected[`${scenario.id}_price_y3`] != null && <span className="ml-1 text-slate-500">to {formatMoney(selected[`${scenario.id}_price_y3`])}</span>}</span></div><div className="h-2 rounded-full bg-slate-200"><div className={`h-full rounded-full ${scenario.bar}`} style={{ width: `${width}%` }} /></div></div> })}</div><div className="mt-5 border-t border-slate-200 pt-4"><div className="text-[11px] font-semibold uppercase text-slate-500">Next earnings</div><div className="mt-1 font-semibold">{date(selected.next_earnings_date)}</div>{selected.next_earnings_eps_forecast && <div className="text-xs text-slate-500">EPS forecast {selected.next_earnings_eps_forecast}</div>}</div></section></div></> : <StockDetail key={ticker} embeddedTicker={ticker} embeddedSection={detailTab} />}</>}</main></div>
     {modal && selected && <AssumptionsModal ticker={ticker} close={() => setModal(false)} saved={refresh} />}
   </div>
 }
@@ -461,6 +520,23 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpd
 // (Not USD: that is ProShares Ultra Semiconductors, a real holding.)
 const NON_SECURITIES = new Set(['SPAXX', 'FDRXX', 'FZFXX', 'SPRXX', 'FCASH', 'CORE'])
 const SHARE_TRADES = new Set(['buy', 'sell', 'transfer_in', 'transfer_out', 'adjustment'])
+
+const FORECAST_PREFS_KEY = 'stock-monitor.holdings.forecast.v1'
+
+function ForecastControls({ prefs, update, forecasts, forecastId, setForecastId }) {
+  const chip = (active) => `rounded-md px-2 py-1 text-[11px] font-bold ${active ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'}`
+  return <div className="flex flex-wrap items-center gap-2 text-xs">
+    <label className="flex items-center gap-1.5 font-semibold text-slate-600"><input type="checkbox" checked={prefs.on} onChange={(event) => update({ on: event.target.checked })} />Forecast</label>
+    {prefs.on && <>
+      <div className="flex rounded-lg bg-slate-100 p-0.5">{[1, 2, 3].map((years) => <button key={years} onClick={() => update({ years })} className={chip(prefs.years === years)}>{years}Y</button>)}</div>
+      <select aria-label="Forecast to show" value={forecastId} onChange={(event) => setForecastId(event.target.value)} className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-[11px] font-semibold text-slate-700">
+        <option value="current">Current forecast</option>
+        {[...forecasts].reverse().map((item) => <option key={item.id} value={item.id}>Saved {new Date(item.timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</option>)}
+      </select>
+      <label className="flex items-center gap-1.5 font-semibold text-slate-600"><input type="checkbox" checked={prefs.log} onChange={(event) => update({ log: event.target.checked })} />Log scale</label>
+    </>}
+  </div>
+}
 
 function RangeButtons({ value, set, compact = false }) {
   return <div className={`flex rounded-lg bg-slate-100 p-1 ${compact ? 'w-full justify-between' : ''}`}>{RANGES.map(([id, label]) => <button key={id} onClick={() => set(id)} className={`rounded-md font-bold ${compact ? 'px-1.5 py-1 text-[10px]' : 'px-3 py-1.5 text-xs'} ${value === id ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'}`}>{label}</button>)}</div>

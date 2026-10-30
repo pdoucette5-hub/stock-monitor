@@ -7,7 +7,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Request
 
 from backend.auth import has_full_access
-from backend.forecast_service import build_forecast_scorecard
+from backend.forecast_service import build_forecast_scorecard, forecast_history
 from backend.fundamentals_service import (
     refresh_earnings_calendar,
     refresh_reported_fundamentals,
@@ -64,6 +64,13 @@ def get_forecast_scorecard(request: Request) -> dict[str, Any]:
     if not has_full_access(request):
         raise HTTPException(status_code=403, detail="Forecast scorecard is private")
     return build_forecast_scorecard()
+
+
+@router.get("/api/forecasts/{ticker}/history")
+def get_forecast_history(ticker: str, request: Request) -> dict[str, Any]:
+    if not has_full_access(request):
+        raise HTTPException(status_code=403, detail="Forecast history is private")
+    return {"ticker": normalize_ticker(ticker), "forecasts": forecast_history(ticker)}
 
 
 @router.get("/api/fundamentals/reported")
