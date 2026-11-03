@@ -101,6 +101,17 @@ function roundTimeTicks(first, last) {
   }
   return ticks
 }
+// A forecast line's end label: the scenario and its end value, plus the
+// implied annual rate for lines that are not a single CAGR (the portfolio).
+function projectionLabel(projection, compact) {
+  const end = projection.points.at(-1)
+  const money = compact ? compactMoney(end.value, 2) : formatMoney(end.value)
+  const years = (end.time - projection.start) / YEAR_SECONDS
+  const start = projection.points[0].time === projection.start ? projection.points[0].value : null
+  const rate = projection.showRate && start > 0 && years > 0 ? (end.value / start) ** (1 / years) - 1 : null
+  return `${projection.label} ${money}${rate == null ? '' : ` · ${rate >= 0 ? '+' : ''}${(rate * 100).toFixed(0)}%/yr`}`
+}
+
 function compactMoney(value, digits = 1) {
   return Number(value).toLocaleString(undefined, { style: 'currency', currency: 'USD', notation: 'compact', minimumFractionDigits: digits > 1 ? digits : 0, maximumFractionDigits: digits })
 }
@@ -157,7 +168,8 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     const to = Math.min(projection.end ?? projectUntil, projectUntil, projection.start + 3 * YEAR_SECONDS)
     if (!(to > from)) return null
     const samples = Array.from({ length: 61 }, (_, i) => from + ((to - from) * i) / 60)
-    return { ...projection, points: samples.map((time) => ({ time, value: projection.price * (1 + projection.cagr) ** ((time - projection.start) / YEAR_SECONDS) })).filter((point) => point.value > 0) }
+    const valueAt = projection.valueAt || ((years) => projection.price * (1 + projection.cagr) ** years)
+    return { ...projection, points: samples.map((time) => ({ time, value: valueAt((time - projection.start) / YEAR_SECONDS) })).filter((point) => point.value > 0) }
   }).filter(Boolean) : []
   const allValues = [...values, ...projectionLines.flatMap((line) => line.points.map((point) => point.value))]
   const rawMin = Math.min(...allValues); const rawMax = Math.max(...allValues); const rawSpan = rawMax - rawMin || Math.max(rawMax * .05, 1)
@@ -211,7 +223,7 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     {xTicks.map((tick) => <g key={tick.key}><line x1={tick.px} x2={tick.px} y1={top} y2={top + plotHeight} stroke="#f1f5f9" /><text x={tick.px} y={height - 10} textAnchor={tick.px <= left + 1 ? 'start' : tick.px > width - right - 40 ? 'end' : 'middle'} fontSize="11" fill="#64748b">{tick.label}</text></g>)}
     {signed && min < 0 && max > 0 && <line x1={left} x2={width - right} y1={y(0)} y2={y(0)} stroke="#94a3b8" />}
     <path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
-    {projectionLines.map((projection) => projection.past ? <g key={projection.id} opacity=".8"><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="1.75" strokeDasharray="3 3" /><circle cx={xTime(projection.points[0].time)} cy={y(projection.points[0].value)} r="2.5" fill={projection.color} /></g> : <g key={projection.id}><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="2" strokeDasharray="6 5" /><text x={Math.min(xTime(projection.points.at(-1).time) - 4, width - right - 4)} y={y(projection.points.at(-1).value) - 6} textAnchor="end" fontSize="11" fontWeight="600" fill={projection.color}>{projection.label} {formatMoney(projection.points.at(-1).value)}</text></g>)}
+    {projectionLines.map((projection) => projection.past ? <g key={projection.id} opacity=".8"><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="1.75" strokeDasharray="3 3" /><circle cx={xTime(projection.points[0].time)} cy={y(projection.points[0].value)} r="2.5" fill={projection.color} /></g> : <g key={projection.id}><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="2" strokeDasharray="6 5" /><text x={Math.min(xTime(projection.points.at(-1).time) - 4, width - right - 4)} y={y(projection.points.at(-1).value) - 6} textAnchor="end" fontSize="11" fontWeight="600" fill={projection.color}>{projectionLabel(projection, compact)}</text></g>)}
     {projectionLines.some((projection) => !projection.past) && <line x1={x(valid.length - 1)} x2={x(valid.length - 1)} y1={top} y2={top + plotHeight} stroke="#94a3b8" strokeDasharray="2 4" />}
     {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height="50" rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text><text x={tooltipX + 10} y={tooltipY + 38} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
     <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="transparent" onPointerMove={onPointerMove} onPointerLeave={() => setHoveredIndex(null)} />
@@ -438,7 +450,7 @@ export default function Holdings() {
   }
 
   return <div className="mx-auto w-full max-w-[1600px] px-4 py-3 lg:px-6"><header className="mb-3 flex flex-wrap items-center justify-between gap-3"><h1 className="text-2xl font-bold tracking-tight text-slate-950">Holdings</h1><div className="flex items-center gap-2"><button type="button" onClick={updatePrices} disabled={loading || loadingHistory} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60">{loading || loadingHistory ? 'Updating…' : 'Update prices'}</button><button onClick={() => setAddOpen((v) => !v)} className="rounded-lg bg-slate-950 px-4 py-2 text-xs font-semibold text-white">+ Add holding</button><div className="relative"><button type="button" aria-label="More holdings actions" aria-expanded={maintenanceMenu} onClick={() => setMaintenanceMenu((v) => !v)} className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-lg leading-none text-slate-700">…</button>{maintenanceMenu && <div className="absolute right-0 top-11 z-30 w-52 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl">{full && <button type="button" onClick={() => { setMaintenanceMenu(false); sync() }} disabled={syncing} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{syncing ? 'Syncing sheet…' : 'Sync Google Sheet'}</button>}{full && <button type="button" onClick={() => { setMaintenanceMenu(false); refreshEarnings() }} disabled={refreshingEarnings} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50 disabled:opacity-60">{refreshingEarnings ? 'Refreshing earnings…' : 'Refresh earnings'}</button>}</div>}</div></div></header>
-    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={gainHistory} range={range} setRange={setRange} filter={filter} view={view} liveUpdatedAt={range === '1d' ? liveUpdatedAt : null} sessionDay={sessionDay} />}
+    {full && rows.length > 0 && <HoldingsSummary rows={rows} history={gainHistory} range={range} setRange={setRange} filter={filter} view={view} liveUpdatedAt={range === '1d' ? liveUpdatedAt : null} sessionDay={sessionDay} forecastPrefs={forecastPrefs} updateForecastPrefs={updateForecastPrefs} />}
     {(error || formError) && <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{formError || error}</div>}
     {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
     {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
@@ -453,7 +465,7 @@ export default function Holdings() {
 // price move (see periodGainFromHoldings). Trades in the period come from the
 // transaction history, so buying and selling is never counted as gain. Follows
 // the period buttons and the holdings filter.
-function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpdatedAt, sessionDay }) {
+function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpdatedAt, sessionDay, forecastPrefs, updateForecastPrefs }) {
   const stockRows = useMemo(() => rows.filter((row) => !NON_SECURITIES.has(row.ticker)), [rows])
   const stockValue = useMemo(() => summarizeHoldings(stockRows, history, range).totalValue, [stockRows, history, range])
   const modes = PERFORMANCE_MODES_FOR_FILTER[filter]
@@ -502,6 +514,24 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpd
   })), [result, range, state.loadedAt, sessionDay])
   const cash = result?.cashEnd ?? null
   const totalValue = stockValue + (cash || 0)
+  // Forecast lines for the total: each holding's value compounds at its own
+  // scenario CAGR and they are added up, so larger positions weigh more.
+  // Cash and holdings without a forecast stay flat.
+  const lastPoint = chartPoints.at(-1)
+  const projections = useMemo(() => {
+    if (!forecastPrefs.on || range === '1d' || !lastPoint) return null
+    const start = Date.parse(`${String(lastPoint.date).slice(0, 10)}T00:00:00`) / 1000
+    const total = Number(lastPoint.close)
+    if (!(total > 0) || !Number.isFinite(start)) return null
+    return SCENARIOS.map((scenario) => {
+      const growing = stockRows
+        .map((row) => ({ value: Number(row.shares) > 0 ? Number(row.market_value) : 0, cagr: Number(row[`${scenario.id}_cagr_y3`]) }))
+        .filter((item) => item.value > 0 && Number.isFinite(item.cagr) && item.cagr > -1)
+      const flat = total - growing.reduce((sum, item) => sum + item.value, 0)
+      return { id: `total-${scenario.id}`, label: scenario.label, color: scenario.line, start, showRate: true, valueAt: (years) => flat + growing.reduce((sum, item) => sum + item.value * (1 + item.cagr) ** years, 0) }
+    })
+  }, [forecastPrefs.on, range, lastPoint, stockRows])
+  const projectUntil = projections ? projections[0].start + forecastPrefs.years * YEAR_SECONDS : null
   // Today on a weekend or holiday is the last trading day; name it.
   const rangeLabel = range === '1d' && sessionDay && sessionDay !== localDate()
     ? new Date(`${sessionDay}T12:00:00`).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' })
@@ -513,14 +543,14 @@ function HoldingsSummary({ rows, history, range, setRange, filter, view, liveUpd
   const tone = change == null ? 'text-slate-500' : change >= 0 ? 'text-emerald-600' : 'text-red-600'
   const note = !modes ? 'Gain / loss is not available for hidden holdings.' : error ? `Gain / loss unavailable: ${error}` : null
   return <section aria-label="Holdings summary" className="mb-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
-    <div className="mb-3 flex overflow-x-auto"><RangeButtons value={range} set={setRange} /></div>
+    <div className="mb-3 flex flex-wrap items-center justify-between gap-2"><div className="flex overflow-x-auto"><RangeButtons value={range} set={setRange} /></div>{range !== '1d' && <ForecastControls prefs={forecastPrefs} update={updateForecastPrefs} />}</div>
     <div className="grid gap-x-6 gap-y-4 md:grid-cols-[230px_minmax(0,1fr)]">
     <div className="flex flex-col justify-center gap-5">
       <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Total value</div><div className="text-2xl font-black text-slate-950">{formatMoney(totalValue)}</div>{cash != null && <div className="text-[11px] text-slate-500">incl. {formatMoney(cash)} cash</div>}</div>
       <div><div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Gain / loss · {rangeLabel}</div><div className={`text-2xl font-black ${tone}`}>{!modes ? '—' : loading ? '…' : change == null ? '—' : `${change >= 0 ? '+' : ''}${formatMoney(change)}`}<span className="ml-2 whitespace-nowrap text-base font-bold">{modes && !loading && result ? percent(result.percent, 2) : ''}</span></div></div>
       <div className="text-xs text-slate-500"><div>{filterLabel} · {rows.length} positions</div>{liveUpdatedAt && <div>Live · updated {liveUpdatedAt.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}</div>}{note && <div>{note}</div>}</div>
     </div>
-    <div className="min-w-0">{loading ? <div className="flex h-64 items-center justify-center text-sm text-slate-500">Loading…</div> : <Chart points={chartPoints} positive={(change ?? 0) >= 0} compact fill heightClass="h-64" label="Portfolio value over the period" empty="No price history for this period." />}</div>
+    <div className="min-w-0">{loading ? <div className="flex h-64 items-center justify-center text-sm text-slate-500">Loading…</div> : <Chart points={chartPoints} positive={(change ?? 0) >= 0} compact fill heightClass="h-64" label="Portfolio value over the period" empty="No price history for this period." projections={projections} projectUntil={projectUntil} logScale={forecastPrefs.log} />}</div>
     </div>
   </section>
 }
