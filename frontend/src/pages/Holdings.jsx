@@ -264,7 +264,7 @@ export default function Holdings() {
   // forecast to draw (or the current one), and log scale. The choices are
   // remembered in this browser.
   const [forecastPrefs, setForecastPrefs] = useState(() => {
-    try { return { on: false, years: 1, log: false, ...JSON.parse(localStorage.getItem(FORECAST_PREFS_KEY) || '{}') } } catch { return { on: false, years: 1, log: false } }
+    try { return { on: true, years: 1, log: false, ...JSON.parse(localStorage.getItem(FORECAST_PREFS_KEY) || '{}') } } catch { return { on: true, years: 1, log: false } }
   })
   const updateForecastPrefs = (change) => setForecastPrefs((current) => {
     const next = { ...current, ...change }
