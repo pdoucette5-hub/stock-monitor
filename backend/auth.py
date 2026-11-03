@@ -51,6 +51,7 @@ PUBLIC_API_PATHS = {
     "/api/auth/config",
     "/api/prices/import",
     "/api/prices/intraday/sample",
+    "/api/forecasts/quarterly-snapshot",
     "/api/accounts/merge",
 }
 

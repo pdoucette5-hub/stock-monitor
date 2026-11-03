@@ -4,10 +4,11 @@ from __future__ import annotations
 
 from typing import Any
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, Header, HTTPException, Request
 
 from backend.auth import has_full_access
-from backend.forecast_service import build_forecast_scorecard, forecast_history
+from backend.config import PRICE_IMPORT_SECRET
+from backend.forecast_service import build_forecast_scorecard, forecast_history, record_quarterly_forecasts
 from backend.fundamentals_service import (
     refresh_earnings_calendar,
     refresh_reported_fundamentals,
@@ -64,6 +65,16 @@ def get_forecast_scorecard(request: Request) -> dict[str, Any]:
     if not has_full_access(request):
         raise HTTPException(status_code=403, detail="Forecast scorecard is private")
     return build_forecast_scorecard()
+
+
+@router.post("/api/forecasts/quarterly-snapshot")
+def save_quarterly_forecasts(x_import_secret: str | None = Header(default=None)) -> dict[str, Any]:
+    """Cloud Scheduler: save every ticker's forecast at the start of a quarter."""
+    if not PRICE_IMPORT_SECRET:
+        raise HTTPException(status_code=500, detail="PRICE_IMPORT_SECRET is not configured")
+    if x_import_secret != PRICE_IMPORT_SECRET:
+        raise HTTPException(status_code=403, detail="Invalid import secret")
+    return record_quarterly_forecasts()
 
 
 @router.get("/api/forecasts/{ticker}/history")

@@ -9,6 +9,7 @@ import json
 import uuid
 from datetime import datetime, timezone
 from typing import Any
+from zoneinfo import ZoneInfo
 
 from backend.logic import safe_float
 from backend.management_service import (
@@ -107,15 +108,30 @@ def append_assumption_snapshot(
     if not normalized:
         return
 
-    context = row_context or {}
     snapshots = load_assumption_snapshots()
-    previous = previous_scenario if isinstance(previous_scenario, dict) else {}
     snapshots.append(
+        _snapshot_entry(normalized, scenario, row_context, previous_scenario, changes),
+    )
+    save_assumption_snapshots(snapshots)
+
+
+def _snapshot_entry(
+    normalized: str,
+    scenario: dict[str, Any],
+    row_context: dict[str, Any] | None,
+    previous_scenario: dict[str, Any] | None = None,
+    changes: list[dict[str, Any]] | None = None,
+    revision_type: str | None = None,
+    now: datetime | None = None,
+) -> dict[str, Any]:
+    context = row_context or {}
+    previous = previous_scenario if isinstance(previous_scenario, dict) else {}
+    return (
         {
             "id": uuid.uuid4().hex,
             "ticker": normalized,
-            "timestamp": datetime.now(timezone.utc).isoformat(),
-            "revision_type": "update" if previous else "initial",
+            "timestamp": (now or datetime.now(timezone.utc)).isoformat(),
+            "revision_type": revision_type or ("update" if previous else "initial"),
             "changes": changes if isinstance(changes, list) else [],
             "latest_quarter_revenue": safe_float(scenario.get("latest_quarter_revenue")),
             "latest_quarter_net_income": safe_float(scenario.get("latest_quarter_net_income")),
@@ -140,9 +156,72 @@ def append_assumption_snapshot(
             "previous_bear": _scenario_copy(previous, "bear"),
             "previous_base": _scenario_copy(previous, "base"),
             "previous_bull": _scenario_copy(previous, "bull"),
-        },
+        }
     )
-    save_assumption_snapshots(snapshots)
+
+
+QUARTERLY_REVISION = "quarterly"
+MARKET_TZ = ZoneInfo("America/New_York")
+
+
+def _quarter_key(when: datetime) -> str:
+    local = when.astimezone(MARKET_TZ)
+    return f"{local.year}-Q{(local.month - 1) // 3 + 1}"
+
+
+def record_quarterly_forecasts(now: datetime | None = None) -> dict[str, Any]:
+    """Save each portfolio and watchlist ticker's current forecast once per
+    calendar quarter, so the stock chart can show the forecast in effect at
+    the start of every quarter even when no one saved one. Run on the first
+    weekdays of a quarter; tickers already saved this quarter (by this job)
+    are skipped, so repeat runs are harmless. These snapshots are not
+    assumption changes, so the forecast scorecard ignores them."""
+    now = now or datetime.now(timezone.utc)
+    if now.astimezone(MARKET_TZ).weekday() >= 5:
+        return {"status": "skipped", "reason": "weekend", "saved": []}
+    quarter = _quarter_key(now)
+    snapshots = load_assumption_snapshots()
+    done = {
+        normalize_ticker(item.get("ticker"))
+        for item in snapshots
+        if item.get("revision_type") == QUARTERLY_REVISION
+        and _parse_time(item.get("timestamp")) is not None
+        and _quarter_key(_parse_time(item.get("timestamp"))) == quarter
+    }
+    scenario_inputs = load_scenario_inputs()
+    view = build_portfolio_views(
+        get_effective_tickers_config(),
+        scenario_inputs,
+        load_settings_dict(),
+        management_shares=build_management_snapshot()["shares_by_mode"],
+        position_summaries=build_position_summaries(),
+        earnings_calendar=load_earnings_calendar(),
+        reported_fundamentals=load_reported_fundamentals(),
+        force_refresh=False,
+    )
+    saved = []
+    for section in ("portfolio", "watchlist"):
+        for row in view.get(section, []):
+            ticker = normalize_ticker(row.get("ticker")) if isinstance(row, dict) else ""
+            scenario = scenario_inputs.get(ticker)
+            if not ticker or ticker in done or not isinstance(scenario, dict):
+                continue
+            if safe_float(row.get("price")) is None or safe_float(row.get("base_cagr_y3")) is None:
+                continue
+            snapshots.append(_snapshot_entry(ticker, scenario, row, revision_type=QUARTERLY_REVISION, now=now))
+            done.add(ticker)
+            saved.append(ticker)
+    if saved:
+        save_assumption_snapshots(snapshots)
+    return {"status": "ok", "quarter": quarter, "saved": saved}
+
+
+def _parse_time(value: Any) -> datetime | None:
+    try:
+        parsed = datetime.fromisoformat(str(value))
+    except ValueError:
+        return None
+    return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
 
 
 def forecast_history(ticker: str) -> list[dict[str, Any]]:
@@ -200,8 +279,10 @@ def _current_assumption_snapshot(
 
 
 def build_forecast_scorecard() -> dict[str, Any]:
+    # Quarterly snapshots record the forecast for the chart; they are not
+    # assumption changes, so they do not reset the scorecard's baseline.
     snapshots = sorted(
-        load_assumption_snapshots(),
+        [item for item in load_assumption_snapshots() if item.get("revision_type") != QUARTERLY_REVISION],
         key=lambda item: str(item.get("timestamp") or ""),
         reverse=True,
     )
