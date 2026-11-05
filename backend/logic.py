@@ -289,7 +289,7 @@ def get_scenario_defaults(
             "rev_growth_rates": [bull_rev_growth] * FORECAST_YEARS,
             "net_income_growth_rates": [bull_net_income_growth] * FORECAST_YEARS,
             "durable_growth_view": 20.00,
-            "growth_weight_pct": 75.00,
+            "growth_weight_pct": 60.00,
         },
         "base": {
             "rev_growth_rates": [base_rev_growth] * FORECAST_YEARS,
@@ -301,7 +301,7 @@ def get_scenario_defaults(
             "rev_growth_rates": [bear_rev_growth] * FORECAST_YEARS,
             "net_income_growth_rates": [bear_net_income_growth] * FORECAST_YEARS,
             "durable_growth_view": 5.00,
-            "growth_weight_pct": 35.00,
+            "growth_weight_pct": 60.00,
         },
     }
 

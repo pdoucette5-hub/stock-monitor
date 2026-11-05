@@ -1209,6 +1209,23 @@ export default function StockDetail({ embeddedTicker = '', embeddedSection = '' 
                 </div>
               </section>}
 
+              {showForecast && <div className="max-w-xs">
+                <label htmlFor="growth-weight" className={labelClass}>
+                  Weight on Growth View (%)
+                </label>
+                <input
+                  id="growth-weight"
+                  type="number"
+                  step="1"
+                  min="0"
+                  max="100"
+                  value={form.growthWeightPct}
+                  onChange={(e) => updateBase('growthWeightPct', e.target.value)}
+                  className={inputClass}
+                />
+                <p className="mt-1 text-xs text-slate-500">Applies to all three scenarios. The exit P/E is this share of the growth-view P/E plus the rest at today's P/E.</p>
+              </div>}
+
               {showForecast && SCENARIO_BLOCKS.map(({ key, title, headerClass }) => (
                 <ScenarioBlock
                   key={key}
@@ -1530,21 +1547,6 @@ function ScenarioBlock({ scenarioKey, title, headerClass, values, onlineProjecti
                 step="0.01"
                 value={values.durableGrowthView}
                 onChange={(e) => onChange('durableGrowthView', e.target.value)}
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label htmlFor={`${scenarioKey}-weight`} className={labelClass}>
-                Weight on Growth View (%)
-              </label>
-              <input
-                id={`${scenarioKey}-weight`}
-                type="number"
-                step="1"
-                min="0"
-                max="100"
-                value={values.growthWeightPct}
-                onChange={(e) => onChange('growthWeightPct', e.target.value)}
                 className={inputClass}
               />
             </div>

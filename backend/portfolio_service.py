@@ -206,6 +206,11 @@ def _build_summary_row(
     growth_pe_table = settings.get("growth_pe_table", DEFAULT_GROWTH_PE_TABLE)
     current_price = safe_float(market_row.get("price"))
 
+    # One growth-view weight for all three scenarios (the base scenario's), so
+    # each scenario's exit P/E differs only by its durable growth view. With
+    # separate weights, an expensive stock's bull case (leaning hardest on a
+    # lower table P/E) could come out below its bear case.
+    shared_growth_weight = state["base"]["growth_weight_pct"]
     scenario_summaries: dict[str, dict[str, Any]] = {}
     for scenario_name in SCENARIO_NAMES:
         scenario = state[scenario_name]
@@ -217,7 +222,7 @@ def _build_summary_row(
             rev_growth_rates=scenario["rev_growth_rates"],
             net_income_growth_rates=scenario["net_income_growth_rates"],
             durable_growth_view=scenario["durable_growth_view"],
-            growth_weight_pct=scenario["growth_weight_pct"],
+            growth_weight_pct=shared_growth_weight,
             growth_pe_table=growth_pe_table,
         )
         scenario_summaries[scenario_name] = scenario_summary or {}

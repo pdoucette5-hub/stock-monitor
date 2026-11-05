@@ -27,7 +27,7 @@ export function defaultScenarioAssumptions(kind) {
       rev_growth_rates: [9.6, 9.6, 9.6],
       net_income_growth_rates: [12, 12, 12],
       durable_growth_view: 20,
-      growth_weight_pct: 75,
+      growth_weight_pct: 60,
     },
     base: {
       rev_growth_rates: [8, 8, 8],
@@ -39,7 +39,7 @@ export function defaultScenarioAssumptions(kind) {
       rev_growth_rates: [6.4, 6.4, 6.4],
       net_income_growth_rates: [8, 8, 8],
       durable_growth_view: 5,
-      growth_weight_pct: 35,
+      growth_weight_pct: 60,
     },
   }
   return structuredClone(presets[kind] ?? presets.base)
@@ -52,6 +52,7 @@ export function defaultFormState() {
     sharesOutstandingB: '',
     actualsSourcePreference: 'manual',
     notes: '',
+    growthWeightPct: 60,
     bull: defaultScenarioAssumptions('bull'),
     base: defaultScenarioAssumptions('base'),
     bear: defaultScenarioAssumptions('bear'),
@@ -69,7 +70,6 @@ function scenarioToFormSlice(scenario) {
     netIncomeGrowthY2: ni[1] ?? '',
     netIncomeGrowthY3: ni[2] ?? '',
     durableGrowthView: scenario?.durable_growth_view ?? '',
-    growthWeightPct: scenario?.growth_weight_pct ?? '',
   }
 }
 
@@ -82,6 +82,8 @@ export function apiToForm(scenario) {
     sharesOutstandingB: dollarsToBillions(scenario.shares_outstanding),
     actualsSourcePreference: scenario.actuals_source_preference ?? 'manual',
     notes: scenario.notes ?? '',
+    // One weight on the growth view for all three scenarios (the base one's).
+    growthWeightPct: scenario.base?.growth_weight_pct ?? 60,
     bull: scenarioToFormSlice(scenario.bull),
     base: scenarioToFormSlice(scenario.base),
     bear: scenarioToFormSlice(scenario.bear),
@@ -93,7 +95,7 @@ export function apiToForm(scenario) {
   }
 }
 
-function formSliceToScenario(slice) {
+function formSliceToScenario(slice, growthWeightPct) {
   return {
     rev_growth_rates: [
       parseNumber(slice.revGrowthY1, 0),
@@ -106,7 +108,7 @@ function formSliceToScenario(slice) {
       parseNumber(slice.netIncomeGrowthY3, 0),
     ],
     durable_growth_view: parseNumber(slice.durableGrowthView, 0),
-    growth_weight_pct: parseNumber(slice.growthWeightPct, 0),
+    growth_weight_pct: growthWeightPct,
   }
 }
 
@@ -119,6 +121,7 @@ export function formToApi(form) {
     show_in_holdings: true,
   }
 
+  const growthWeight = Math.min(100, Math.max(0, parseNumber(form.growthWeightPct, 60)))
   const payload = {
     latest_quarter_revenue: billionsToDollars(form.latestQuarterRevenueB),
     latest_quarter_net_income: billionsToDollars(form.latestQuarterNetIncomeB),
@@ -128,9 +131,9 @@ export function formToApi(form) {
     notes: form.notes ?? '',
     redistribution_rules,
     display_rules,
-    bull: formSliceToScenario(form.bull),
-    base: formSliceToScenario(form.base),
-    bear: formSliceToScenario(form.bear),
+    bull: formSliceToScenario(form.bull, growthWeight),
+    base: formSliceToScenario(form.base, growthWeight),
+    bear: formSliceToScenario(form.bear, growthWeight),
   }
 
   if (form._meta?.trade_rules != null) {
