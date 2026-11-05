@@ -487,10 +487,14 @@ def apply_portfolio_controls(
 ) -> dict[str, Any]:
     for item in updates:
         ticker = str(item.get("ticker", "")).strip().upper()
-        if not ticker or ticker not in scenario_inputs or not isinstance(
-            scenario_inputs[ticker],
-            dict,
-        ):
+        if not ticker:
+            continue
+        # Held tickers nobody has saved assumptions for (cash funds like
+        # SPAXX) still show as rows built from defaults. Give them an entry so
+        # the control sticks; missing scenario fields fill from defaults later.
+        if ticker not in scenario_inputs and ticker in portfolio_shares_map:
+            scenario_inputs[ticker] = {}
+        if not isinstance(scenario_inputs.get(ticker), dict):
             continue
 
         state = scenario_inputs[ticker]
