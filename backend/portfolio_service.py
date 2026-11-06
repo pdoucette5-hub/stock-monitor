@@ -26,6 +26,7 @@ from backend.logic import (
     safe_float,
     weighted_cagr,
 )
+from backend.intraday_store import latest_session_prices
 from backend.price_store import get_latest_price_for_ticker, load_price_history_store
 
 
@@ -63,12 +64,60 @@ def _apply_price_store_fallback(
     updated = dict(market_row)
     updated["price"] = latest_price["price"]
     updated["price_date"] = latest_price.get("date")
+    updated["price_fetched_at"] = latest_price.get("fetched_at") or ""
     updated["cache_source"] = latest_price.get("source") or "local-store"
 
     status = str(updated.get("status") or "")
     if not status or status.startswith("ERROR") or "price" in status.lower():
         updated["status"] = "OK: price from imported sheet data"
 
+    return updated
+
+
+# GOOGLEFINANCE quotes in the sheet run up to about 20 minutes behind.
+GOOGLEFINANCE_DELAY_SECONDS = 20 * 60
+
+
+def _price_as_of(market_row: dict[str, Any]) -> Optional[float]:
+    """Roughly when the row's price was the market price, as a Unix time."""
+    if market_row.get("cache_source") == "googlefinance":
+        try:
+            fetched = datetime.fromisoformat(str(market_row.get("price_fetched_at") or ""))
+        except ValueError:
+            return None
+        if fetched.tzinfo is None:
+            fetched = fetched.replace(tzinfo=timezone.utc)
+        return fetched.timestamp() - GOOGLEFINANCE_DELAY_SECONDS
+    if market_row.get("cache_source") in {"cache", "cache-fallback"}:
+        fetched = safe_float(market_row.get("cache_fetched_at"))
+        return fetched if fetched is not None and fetched == fetched else None
+    return None
+
+
+def _apply_intraday_quote(
+    market_row: dict[str, Any],
+    samples: list[dict[str, Any]] | None,
+) -> dict[str, Any]:
+    """Use the latest 15-minute quote when it is newer than the row's price.
+
+    The sheet feed can leave a ticker's price unchanged for half an hour
+    during the session, while the intraday job samples every 15 minutes.
+    Live quotes from "Update prices" are kept as they are.
+    """
+    if not samples or market_row.get("cache_source") == "live":
+        return market_row
+    latest = samples[-1]
+    has_price = safe_float(market_row.get("price")) is not None
+    if has_price:
+        as_of = _price_as_of(market_row)
+        if as_of is None or latest["timestamp"] <= as_of:
+            return market_row
+        if str(latest.get("date") or "") < str(market_row.get("price_date") or ""):
+            return market_row
+    updated = dict(market_row)
+    updated["price"] = latest["close"]
+    updated["price_date"] = latest.get("date")
+    updated["cache_source"] = "intraday"
     return updated
 
 
@@ -564,6 +613,11 @@ def build_portfolio_views(
         portfolio_shares_map[ticker] = transaction_shares
     bottom_pinned_tickers = settings.get("bottom_pinned_tickers", [])
     price_history = price_history if price_history is not None else load_price_history_store()
+    try:
+        intraday_samples = latest_session_prices(all_tickers)
+    except Exception as exc:  # The daily prices are still usable without it.
+        print(f"Intraday quotes unavailable: {exc}")
+        intraday_samples = {}
 
     timing_started = time.perf_counter()
     market_df = get_live_market_data(
@@ -581,6 +635,7 @@ def build_portfolio_views(
         row_match = market_df[market_df["ticker"] == ticker]
         market_row = row_match.iloc[0].to_dict() if not row_match.empty else {"ticker": ticker}
         market_row = _apply_price_store_fallback(market_row, ticker, price_history)
+        market_row = _apply_intraday_quote(market_row, intraday_samples.get(ticker))
         raw_state = scenario_inputs.get(ticker)
         if isinstance(raw_state, dict):
             saved_scenario_states[ticker] = raw_state

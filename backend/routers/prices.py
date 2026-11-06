@@ -209,6 +209,8 @@ def sample_intraday_prices(
                 errors[ticker] = str(exc)
 
     result = add_intraday_samples(samples)
+    # Holdings prices use the newest sample, so drop the cached view.
+    invalidate_response_cache()
     return {"status": "ok", **result, "requested": len(tickers), "errors": errors}
 
 
