@@ -33,6 +33,16 @@ function sharesFor(row, filter) {
   if (filter === 'active') return Number(row.managed_shares || 0) + Number(row.track_shares || 0)
   return Number(row.shares || 0)
 }
+// Average cost for the accounts in the filter, from each account's own
+// ledger (row.cost_by_mode). "All" and "Hidden" keep the all-accounts figure.
+const FILTER_MODES = { managed: ['managed'], track: ['track'], excluded: ['excluded'], active: ['managed', 'track'] }
+function averageCostFor(row, filter) {
+  const modes = FILTER_MODES[filter]
+  if (!modes || !row?.cost_by_mode) return row?.average_cost_per_share ?? null
+  const cost = modes.reduce((sum, mode) => sum + Number(row.cost_by_mode[mode]?.cost || 0), 0)
+  const shares = modes.reduce((sum, mode) => sum + Number(row.cost_by_mode[mode]?.shares || 0), 0)
+  return shares > 0 ? cost / shares : null
+}
 function date(value) {
   if (!value) return '—'
   const parsed = new Date(`${value}T00:00:00`)
@@ -309,7 +319,7 @@ export default function Holdings() {
       source = [{ ...requestedWatchlistRow, management_mode: 'watchlist' }, ...source]
     }
     if (!full) return source
-    return source.map((row) => { const shares = sharesFor(row, filter); return { ...row, total_shares: row.shares, shares, market_value: Number.isFinite(Number(row.price)) ? shares * Number(row.price) : null } }).filter((row) => filter === 'all' || Number(row.shares) > 0 || Number(row.total_shares || 0) <= 0)
+    return source.map((row) => { const shares = sharesFor(row, filter); return { ...row, total_shares: row.shares, shares, average_cost_per_share: averageCostFor(row, filter), market_value: Number.isFinite(Number(row.price)) ? shares * Number(row.price) : null } }).filter((row) => filter === 'all' || Number(row.shares) > 0 || Number(row.total_shares || 0) <= 0)
   }, [filter, full, searchParams, view, range, livePrices])
   useEffect(() => {
     if (!rows.length) return setTicker('')

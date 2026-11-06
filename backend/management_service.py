@@ -267,6 +267,7 @@ def build_management_snapshot(
                     "mode": get_management_mode(settings, account, ticker),
                     "mode_source": get_management_mode_source(settings, account, ticker),
                     "source": "transactions",
+                    "cost_basis": max(float(summary.get("total_cost_basis") or 0.0), 0.0),
                 },
             )
 
@@ -326,6 +327,14 @@ def build_management_snapshot(
             {"managed": 0.0, "track": 0.0, "excluded": 0.0},
         )
         bucket[mode] += float(position["shares"])
+        # Cost basis per mode, from each account's own ledger. Shares without
+        # transactions (manual or configured) have no known cost, so the
+        # matching share count is kept separately for the average.
+        if position.get("cost_basis") is not None:
+            bucket[f"{mode}_cost"] = bucket.get(f"{mode}_cost", 0.0) + float(position["cost_basis"])
+            bucket[f"{mode}_cost_shares"] = (
+                bucket.get(f"{mode}_cost_shares", 0.0) + float(position["shares"])
+            )
 
     account_rows = [
         {

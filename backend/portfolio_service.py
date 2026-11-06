@@ -686,6 +686,13 @@ def build_portfolio_views(
         row["managed_shares"] = managed_shares
         row["track_shares"] = track_shares
         row["excluded_shares"] = excluded_shares
+        row["cost_by_mode"] = {
+            mode: {
+                "cost": safe_float(mode_shares.get(f"{mode}_cost"), 0.0) or 0.0,
+                "shares": safe_float(mode_shares.get(f"{mode}_cost_shares"), 0.0) or 0.0,
+            }
+            for mode in ("managed", "track", "excluded")
+        }
         earnings = (earnings_calendar or {}).get(row["ticker"], {})
         if not isinstance(earnings, dict):
             earnings = {}
