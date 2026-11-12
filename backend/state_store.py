@@ -277,6 +277,10 @@ def load_transactions() -> dict[str, list[dict[str, Any]]]:
         if not normalized or not isinstance(entries, list):
             continue
         cleaned[normalized] = [entry for entry in entries if isinstance(entry, dict)]
+    # Trades imported twice (once combined, once split) count only once.
+    from backend.ledger_cleanup import remove_split_duplicates
+
+    remove_split_duplicates(cleaned)
     return cleaned
 
 
