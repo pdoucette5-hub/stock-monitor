@@ -341,6 +341,10 @@ export function fetchForecastHistory(ticker) {
   return cachedRequest(`/api/forecasts/${encodeURIComponent(String(ticker).trim().toUpperCase())}/history`)
 }
 
+export function fetchEpsHistory(ticker) {
+  return cachedRequest(`/api/fundamentals/${encodeURIComponent(String(ticker).trim().toUpperCase())}/eps-history`)
+}
+
 export function refreshReportedFundamentals(tickers = []) {
   return request('/api/fundamentals/reported/refresh', {
     method: 'POST',

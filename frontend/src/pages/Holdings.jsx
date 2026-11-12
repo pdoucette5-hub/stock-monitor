@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import StockDetail from './StockDetail'
 import { clearPortfolioViewCache, usePortfolioView } from '../hooks/usePortfolioView'
 import {
-  addPortfolioTicker, archiveTicker, fetchForecastHistory, fetchPriceComparison, fetchStockScenario, fetchTransactionsWindow,
+  addPortfolioTicker, archiveTicker, fetchEpsHistory, fetchForecastHistory, fetchPriceComparison, fetchStockScenario, fetchTransactionsWindow,
   refreshEarningsCalendar, removeTicker, savePortfolioControls, savePortfolioShares,
   saveStockScenario, syncSheetTickers, refreshIntradayPrices,
 } from '../lib/api'
@@ -12,6 +12,7 @@ import { apiToForm, formToApi } from '../lib/scenarioForm'
 import { cashActivity, combinedPeriodGain, gainForRow, historyStartDate, latestSessionDate, PERFORMANCE_MODES_FOR_FILTER, periodGainFromHoldings, localDate, summarizeHoldings, withPreviousClose } from '../lib/holdingsGain'
 import { useAuth } from '../auth/AuthContext'
 import { formatMoney } from '../lib/format'
+import { withEarnings } from '../lib/earningsOverlay'
 
 const FILTERS = [
   ['active', 'Managed + tracked'], ['managed', 'Managed'], ['track', 'Track only'],
@@ -134,7 +135,7 @@ function Sparkline({ points, positive }) {
   return <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-9 w-full" aria-hidden="true"><path d={path} fill="none" stroke={positive ? '#10b981' : '#ef4444'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
-function Chart({ points, positive, signed = false, compact = false, fill = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.', projections = null, projectUntil = null, logScale = false }) {
+function Chart({ points, positive, signed = false, compact = false, fill = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.', projections = null, projectUntil = null, logScale = false, showEarnings = false, showPe = false }) {
   const [hoveredIndex, setHoveredIndex] = useState(null)
   // fill: draw at the container's actual size, so the chart uses all the
   // space it is given instead of keeping a fixed shape.
@@ -151,7 +152,11 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   }, [fill, hasData])
   if (!hasData) return <div className={`flex ${heightClass} items-center justify-center text-sm text-slate-500`}>{empty}</div>
   if (fill && !box?.width) return <div ref={boxRef} className={`${heightClass} w-full`} />
-  const [width, height, right, top, bottom] = fill ? [Math.round(box.width), Math.round(box.height), 8, 10, 26] : [900, 310, 18, 16, 40]
+  const earningsValues = showEarnings ? valid.map((point) => Number(point?.earnings) > 0 ? Number(point.earnings) : null) : []
+  const peValues = showPe ? valid.map((point) => Number(point?.pe) > 0 ? Number(point.pe) : null) : []
+  const hasEarnings = earningsValues.some((value) => value != null)
+  const hasPe = peValues.some((value) => value != null)
+  const [width, height, right, top, bottom] = fill ? [Math.round(box.width), Math.round(box.height), 8, 10, 26] : [900, 310, hasPe ? 52 : 18, 16, 40]
   const plotHeight = height - top - bottom
   const values = valid.map((point) => Number(point.close))
   // Times along the x axis. Intraday charts are spaced by time, so an extra
@@ -181,7 +186,7 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     const valueAt = projection.valueAt || ((years) => projection.price * (1 + projection.cagr) ** years)
     return { ...projection, points: samples.map((time) => ({ time, value: valueAt((time - projection.start) / YEAR_SECONDS) })).filter((point) => point.value > 0) }
   }).filter(Boolean) : []
-  const allValues = [...values, ...projectionLines.flatMap((line) => line.points.map((point) => point.value))]
+  const allValues = [...values, ...projectionLines.flatMap((line) => line.points.map((point) => point.value)), ...earningsValues.filter((value) => value != null)]
   const rawMin = Math.min(...allValues); const rawMax = Math.max(...allValues); const rawSpan = rawMax - rawMin || Math.max(rawMax * .05, 1)
   const useLog = logScale && !signed && rawMin > 0
   const min = useLog ? rawMin / 1.08 : signed ? rawMin - rawSpan * .06 : Math.max(0, rawMin - rawSpan * .06)
@@ -196,6 +201,13 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   const x = (i) => xs[i]
   const y = (v) => useLog ? top + (Math.log(max / v) / Math.log(max / min)) * plotHeight : top + ((max - v) / span) * plotHeight
   const line = values.map((v, i) => `${i ? 'L' : 'M'} ${x(i)} ${y(v)}`).join(' ')
+  // A path that breaks wherever the value is missing (loss-making stretches).
+  const gappedPath = (series, toY) => series.map((v, i) => v == null ? '' : `${i && series[i - 1] != null ? 'L' : 'M'} ${x(i)} ${toY(v)}`).join(' ')
+  const peKnown = peValues.filter((value) => value != null)
+  const peLow = hasPe ? Math.min(...peKnown) : 0; const peHigh = hasPe ? Math.max(...peKnown) : 1
+  const pePad = (peHigh - peLow) * .06 || Math.max(peHigh * .05, 1)
+  const peMin = Math.max(0, peLow - pePad); const peMax = peHigh + pePad
+  const yPe = (v) => top + ((peMax - v) / (peMax - peMin)) * plotHeight
   const base = signed ? y(Math.min(Math.max(0, min), max)) : top + plotHeight
   const area = `${line} L ${x(values.length - 1)} ${base} L ${x(0)} ${base} Z`
   const color = positive ? '#059669' : '#dc2626'; const id = `${signed ? 'signed-' : ''}${positive ? 'gain-fill' : 'loss-fill'}`
@@ -218,7 +230,11 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     : Array.from({ length: Math.min(7, valid.length) }, (_, i) => Math.round((i * (valid.length - 1)) / (Math.min(7, valid.length) - 1))).map((index) => ({ px: x(index), label: axisDate(valid[index]), key: `${valid[index].timestamp || valid[index].date}-${index}` }))
   const hover = hoveredIndex == null ? null : valid[hoveredIndex]
   const hoverX = hover ? x(hoveredIndex) : 0; const hoverY = hover ? y(Number(hover.close)) : 0
-  const tooltipX = hoverX > width - 160 ? hoverX - 146 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64, hoverY - 58))
+  const hoverExtras = hover ? [
+    hasEarnings && earningsValues[hoveredIndex] != null && { key: 'earnings', color: '#fbbf24', text: `Earnings line ${formatMoney(earningsValues[hoveredIndex])}` },
+    hasPe && peValues[hoveredIndex] != null && { key: 'pe', color: '#c4b5fd', text: `P/E ${peValues[hoveredIndex].toFixed(1)}x · EPS ${formatMoney(hover.eps)}` },
+  ].filter(Boolean) : []
+  const tooltipX = hoverX > width - 180 ? hoverX - 146 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64 - hoverExtras.length * 15, hoverY - 58))
   // Hover picks the point nearest the pointer along the x axis.
   const onPointerMove = (event) => {
     const rect = event.currentTarget.getBoundingClientRect()
@@ -234,8 +250,10 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     {signed && min < 0 && max > 0 && <line x1={left} x2={width - right} y1={y(0)} y2={y(0)} stroke="#94a3b8" />}
     <path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
     {projectionLines.map((projection) => projection.past ? <g key={projection.id} opacity=".8"><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="1.75" strokeDasharray="3 3" /><circle cx={xTime(projection.points[0].time)} cy={y(projection.points[0].value)} r="2.5" fill={projection.color} /></g> : <g key={projection.id}><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="2" strokeDasharray="6 5" /><text x={Math.min(xTime(projection.points.at(-1).time) - 4, width - right - 4)} y={y(projection.points.at(-1).value) - 6} textAnchor="end" fontSize="11" fontWeight="600" fill={projection.color}>{projectionLabel(projection, compact)}</text></g>)}
+    {hasEarnings && <path d={gappedPath(earningsValues, y)} fill="none" stroke={EARNINGS_COLOR} strokeWidth="2" strokeLinejoin="round" />}
+    {hasPe && <><path d={gappedPath(peValues, yPe)} fill="none" stroke={PE_COLOR} strokeWidth="1.5" strokeLinejoin="round" opacity=".85" />{yTicks.map((tick, i) => <text key={`pe-${tick.y}`} x={width - right + 6} y={tick.y + 4} fontSize="11" fill={PE_COLOR}>{`${Math.round(peMax - ((peMax - peMin) * i) / 4)}x`}</text>)}</>}
     {projectionLines.some((projection) => !projection.past) && <line x1={x(valid.length - 1)} x2={x(valid.length - 1)} y1={top} y2={top + plotHeight} stroke="#94a3b8" strokeDasharray="2 4" />}
-    {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height="50" rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text><text x={tooltipX + 10} y={tooltipY + 38} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
+    {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height={50 + hoverExtras.length * 15} rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text>{hoverExtras.map((extra, i) => <text key={extra.key} x={tooltipX + 10} y={tooltipY + 36 + i * 15} fontSize="10" fill={extra.color}>{extra.text}</text>)}<text x={tooltipX + 10} y={tooltipY + 38 + hoverExtras.length * 15} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
     <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="transparent" onPointerMove={onPointerMove} onPointerLeave={() => setHoveredIndex(null)} />
   </svg>
   return fill ? <div ref={boxRef} className={`${heightClass} w-full`}>{svg}</div> : svg
@@ -286,11 +304,11 @@ export default function Holdings() {
   // forecast to draw (or the current one), and log scale. The choices are
   // remembered in this browser.
   const [forecastPrefs, setForecastPrefs] = useState(() => {
-    try { return { on: true, log: false, ...JSON.parse(localStorage.getItem(FORECAST_PREFS_KEY) || '{}') } } catch { return { on: true, log: false } }
+    try { return { on: true, log: false, earnings: true, pe: true, ...JSON.parse(localStorage.getItem(FORECAST_PREFS_KEY) || '{}') } } catch { return { on: true, log: false, earnings: true, pe: true } }
   })
   const updateForecastPrefs = (change) => setForecastPrefs((current) => {
     const next = { ...current, ...change }
-    try { localStorage.setItem(FORECAST_PREFS_KEY, JSON.stringify({ on: next.on, log: next.log })) } catch { /* not saved; still works */ }
+    try { localStorage.setItem(FORECAST_PREFS_KEY, JSON.stringify({ on: next.on, log: next.log, earnings: next.earnings, pe: next.pe })) } catch { /* not saved; still works */ }
     return next
   })
   const [forecastHistory, setForecastHistory] = useState({ ticker: '', forecasts: [] })
@@ -396,6 +414,20 @@ export default function Holdings() {
     return () => { cancelled = true }
   }, [forecastPrefs.on, full, ticker])
   const savedForecasts = forecastHistory.ticker === ticker ? forecastHistory.forecasts : []
+  // Trailing EPS after each quarterly report, for the earnings and P/E lines.
+  const [epsHistory, setEpsHistory] = useState({ ticker: '', history: [] })
+  const showEarnings = range !== '1d' && (forecastPrefs.earnings || forecastPrefs.pe)
+  useEffect(() => {
+    if (!showEarnings || !ticker) return undefined
+    let cancelled = false
+    fetchEpsHistory(ticker)
+      .then((result) => { if (!cancelled) setEpsHistory({ ticker, history: result?.history || [] }) })
+      .catch(() => { if (!cancelled) setEpsHistory({ ticker, history: [] }) })
+    return () => { cancelled = true }
+  }, [showEarnings, ticker])
+  const chartPoints = useMemo(() => showEarnings && epsHistory.ticker === ticker
+    ? withEarnings(points, epsHistory.history).points
+    : points, [showEarnings, epsHistory, ticker, points])
   // The current forecast runs from the latest price on the chart to the
   // chosen horizon. Each past quarter gets the forecast in effect when it
   // began (the latest one saved by its first trading day), drawn from that
@@ -465,7 +497,7 @@ export default function Holdings() {
     {message && <div role="status" className="mb-4 flex justify-between rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"><span>{message}</span><button onClick={() => setMessage(null)}>×</button></div>}
     {addOpen && <form onSubmit={add} className="mb-4 flex flex-wrap items-end gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><label className="text-xs font-medium text-slate-600">Ticker<input autoFocus value={newTicker} onChange={(e) => setNewTicker(e.target.value.toUpperCase())} className={`mt-1 block w-32 ${inputClass}`} /></label><label className="text-xs font-medium text-slate-600">Shares<input type="number" min="0" step=".01" value={newShares} onChange={(e) => setNewShares(e.target.value)} className={`mt-1 block w-32 ${inputClass}`} /></label><button className="rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white">Add</button><button type="button" onClick={() => setAddOpen(false)} className="rounded-lg border border-slate-300 px-4 py-2 text-sm">Cancel</button></form>}
     <div className="grid min-h-[680px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[340px_minmax(0,1fr)]"><aside className="border-b border-slate-200 bg-slate-50/60 lg:border-b-0 lg:border-r"><div className="flex items-center justify-between gap-3 border-b border-slate-200 bg-white px-4 py-3"><div><h2 className="font-bold text-slate-950">Your stocks</h2><p className="text-xs text-slate-500">{rows.length} positions</p></div>{full && <select aria-label="Filter holdings" value={filter} onChange={(event) => setFilter(event.target.value)} className="max-w-40 rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs font-semibold text-slate-700">{FILTERS.map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>}</div><div>{loading && !rows.length ? <Empty text="Loading holdings…" /> : !rows.length ? <Empty text="No holdings match this filter." /> : rows.map((row) => { const rowPoints = history[row.ticker] || []; const rowGain = gainForRow(row, gainHistory[row.ticker] || rowPoints, range); const positive = (rowGain?.percent ?? 0) >= 0; const active = ticker === row.ticker; return <button key={row.ticker} onClick={() => selectTicker(row.ticker)} className={`grid w-full grid-cols-[minmax(0,1fr)_74px_66px] items-center gap-3 border-b border-slate-200 px-4 py-3 text-left ${active ? 'bg-slate-950 text-white' : 'bg-white hover:bg-slate-50'}`}><div className="min-w-0"><div className="flex items-baseline gap-2"><span className="font-bold">{row.ticker}</span>{Number.isFinite(Number(row.base_cagr_y3)) && row.base_cagr_y3 != null && <span title="Base forecast, annual return to the year-3 target" className={`text-[11px] font-semibold ${active ? 'text-blue-300' : 'text-blue-600'}`}>{percent(Number(row.base_cagr_y3) * 100, 0)}/yr</span>}</div><div className={`truncate text-xs ${active ? 'text-slate-400' : 'text-slate-500'}`}>{formatMoney(row.market_value)} · {number(row.shares)} sh</div></div><Sparkline points={rowPoints} positive={positive} /><div className="text-right"><div className={`text-xs font-bold ${rowGain ? positive ? 'text-emerald-500' : 'text-red-500' : 'text-slate-500'}`}>{loadingHistory && !rowPoints.length && !rowGain ? '…' : percent(rowGain?.percent)}</div><div className={`text-[10px] ${active ? 'text-slate-400' : 'text-slate-500'}`}>{rowGain ? `${rowGain.amount >= 0 ? '+' : ''}${formatMoney(rowGain.amount)}` : '—'}</div></div></button> })}</div>{lastUpdated && <div className="border-t border-slate-200 px-4 py-2 text-[11px] text-slate-500">Updated {lastUpdated.toLocaleTimeString()}</div>}</aside>
-      <main className="min-w-0">{!selected ? <Empty text="Select a holding to see details." /> : <><header className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3 sm:px-7"><div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1"><h1 className="text-2xl font-black text-slate-950">{ticker}</h1><span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">{selected.action || 'Needs input'}</span><span className="text-xl font-bold text-slate-950">{formatMoney(selected.price)}</span><span className={`text-sm font-bold ${selectedGain ? selectedGain.percent >= 0 ? 'text-emerald-600' : 'text-red-600' : 'text-slate-500'}`}>{percent(selectedGain?.percent, 2)} <span className="font-medium text-slate-500">· {number(selected.shares)} shares</span></span></div><div className="flex gap-2"><button onClick={() => setModal(true)} className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white">Edit assumptions</button><div className="relative"><button onClick={() => setMenu((v) => !v)} className="rounded-lg border border-slate-300 px-3 py-2 text-lg leading-none">…</button>{menu && <div className="absolute right-0 top-11 z-20 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl"><button onClick={toggle} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">{selected.show_in_holdings === false ? 'Show in holdings' : 'Hide from holdings'}</button>{full && <button onClick={archive} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">Archive ticker</button>}<button onClick={remove} className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50">Remove ticker</button></div>}</div></div></header><DetailTabs value={detailTab} set={selectDetailTab} full={full} />{detailTab === 'overview' ? <><div className="flex flex-wrap items-center justify-between gap-2 px-4 pt-3 sm:px-7"><span className="text-xs font-semibold text-slate-500">Price history · {Object.fromEntries(RANGES)[range] || range}</span>{!full && <div className="flex flex-wrap items-center gap-2">{range !== '1d' && <ForecastControls prefs={forecastPrefs} update={updateForecastPrefs} />}<RangeButtons value={range} set={setRange} /></div>}</div><div className="px-4 sm:px-7"><Chart points={points} positive={(selectedGain?.percent ?? 0) >= 0} projections={projections} projectUntil={projectUntil} logScale={forecastPrefs.log} /></div><div className="grid gap-4 px-5 pb-7 sm:px-7 xl:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)]"><section><div className="mb-3 flex items-center justify-between"><h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Position & valuation</h2>{full && <div className="flex gap-2"><input aria-label="Shares" type="number" min="0" step=".01" value={shareDraft} onChange={(e) => setShareDraft(e.target.value)} className="w-24 rounded-lg border border-slate-300 px-2 py-1.5 text-sm" /><button onClick={saveShares} disabled={savingTicker === ticker} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold">Save shares</button></div>}</div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3"><Metric label="Market value" value={formatMoney(selected.market_value)} large /><Metric label="Average cost" value={formatMoney(selected.average_cost_per_share)} /><Metric label="Current P/E" value={selected.current_pe == null ? '—' : `${number(selected.current_pe)}x`} /><Metric label="Bear target" value={formatMoney(selected.bear_price_y3)} /><Metric label="Base target" value={formatMoney(selected.base_price_y3)} /><Metric label="Bull target" value={formatMoney(selected.bull_price_y3)} /></div></section><section className="rounded-xl border border-slate-200 bg-slate-50/60 p-4"><div className="flex justify-between"><div><h2 className="text-sm font-bold text-slate-950">Three-year outlook</h2><p className="text-[11px] text-slate-500">Annual return (CAGR) to each year-3 target</p></div><button onClick={() => setModal(true)} className="text-xs font-semibold text-blue-700">Change</button></div><div className="mt-4 space-y-4">{SCENARIOS.map((scenario) => { const cagr = selected[`${scenario.id}_cagr_y3`]; const width = Math.max(4, Math.min(100, (Number(cagr || 0) * 100 + 20) * 2)); return <div key={scenario.id}><div className="mb-1 flex justify-between text-xs"><span className="font-semibold text-slate-600">{scenario.label}</span><span><span className="font-bold">{cagr == null ? '—' : `${percent(Number(cagr) * 100)}/yr`}</span>{selected[`${scenario.id}_price_y3`] != null && <span className="ml-1 text-slate-500">to {formatMoney(selected[`${scenario.id}_price_y3`])}</span>}</span></div><div className="h-2 rounded-full bg-slate-200"><div className={`h-full rounded-full ${scenario.bar}`} style={{ width: `${width}%` }} /></div></div> })}</div><div className="mt-5 border-t border-slate-200 pt-4"><div className="text-[11px] font-semibold uppercase text-slate-500">Next earnings</div><div className="mt-1 font-semibold">{date(selected.next_earnings_date)}</div>{selected.next_earnings_eps_forecast && <div className="text-xs text-slate-500">EPS forecast {selected.next_earnings_eps_forecast}</div>}</div></section></div></> : <StockDetail key={ticker} embeddedTicker={ticker} embeddedSection={detailTab} />}</>}</main></div>
+      <main className="min-w-0">{!selected ? <Empty text="Select a holding to see details." /> : <><header className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3 sm:px-7"><div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1"><h1 className="text-2xl font-black text-slate-950">{ticker}</h1><span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-700">{selected.action || 'Needs input'}</span><span className="text-xl font-bold text-slate-950">{formatMoney(selected.price)}</span><span className={`text-sm font-bold ${selectedGain ? selectedGain.percent >= 0 ? 'text-emerald-600' : 'text-red-600' : 'text-slate-500'}`}>{percent(selectedGain?.percent, 2)} <span className="font-medium text-slate-500">· {number(selected.shares)} shares</span></span></div><div className="flex gap-2"><button onClick={() => setModal(true)} className="rounded-lg bg-blue-600 px-3 py-2 text-xs font-semibold text-white">Edit assumptions</button><div className="relative"><button onClick={() => setMenu((v) => !v)} className="rounded-lg border border-slate-300 px-3 py-2 text-lg leading-none">…</button>{menu && <div className="absolute right-0 top-11 z-20 w-48 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl"><button onClick={toggle} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">{selected.show_in_holdings === false ? 'Show in holdings' : 'Hide from holdings'}</button>{full && <button onClick={archive} className="block w-full px-4 py-2 text-left text-sm hover:bg-slate-50">Archive ticker</button>}<button onClick={remove} className="block w-full px-4 py-2 text-left text-sm text-red-700 hover:bg-red-50">Remove ticker</button></div>}</div></div></header><DetailTabs value={detailTab} set={selectDetailTab} full={full} />{detailTab === 'overview' ? <><div className="flex flex-wrap items-center justify-between gap-2 px-4 pt-3 sm:px-7"><span className="text-xs font-semibold text-slate-500">Price history · {Object.fromEntries(RANGES)[range] || range}</span><div className="flex flex-wrap items-center gap-3">{range !== '1d' && <EarningsControls prefs={forecastPrefs} update={updateForecastPrefs} />}{!full && <>{range !== '1d' && <ForecastControls prefs={forecastPrefs} update={updateForecastPrefs} />}<RangeButtons value={range} set={setRange} /></>}</div></div><div className="px-4 sm:px-7"><Chart points={chartPoints} positive={(selectedGain?.percent ?? 0) >= 0} projections={projections} projectUntil={projectUntil} logScale={forecastPrefs.log} showEarnings={forecastPrefs.earnings} showPe={forecastPrefs.pe} /></div><div className="grid gap-4 px-5 pb-7 sm:px-7 xl:grid-cols-[minmax(0,1.35fr)_minmax(300px,.65fr)]"><section><div className="mb-3 flex items-center justify-between"><h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Position & valuation</h2>{full && <div className="flex gap-2"><input aria-label="Shares" type="number" min="0" step=".01" value={shareDraft} onChange={(e) => setShareDraft(e.target.value)} className="w-24 rounded-lg border border-slate-300 px-2 py-1.5 text-sm" /><button onClick={saveShares} disabled={savingTicker === ticker} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold">Save shares</button></div>}</div><div className="grid grid-cols-2 gap-3 sm:grid-cols-3"><Metric label="Market value" value={formatMoney(selected.market_value)} large /><Metric label="Average cost" value={formatMoney(selected.average_cost_per_share)} /><Metric label="Current P/E" value={selected.current_pe == null ? '—' : `${number(selected.current_pe)}x`} /><Metric label="Bear target" value={formatMoney(selected.bear_price_y3)} /><Metric label="Base target" value={formatMoney(selected.base_price_y3)} /><Metric label="Bull target" value={formatMoney(selected.bull_price_y3)} /></div></section><section className="rounded-xl border border-slate-200 bg-slate-50/60 p-4"><div className="flex justify-between"><div><h2 className="text-sm font-bold text-slate-950">Three-year outlook</h2><p className="text-[11px] text-slate-500">Annual return (CAGR) to each year-3 target</p></div><button onClick={() => setModal(true)} className="text-xs font-semibold text-blue-700">Change</button></div><div className="mt-4 space-y-4">{SCENARIOS.map((scenario) => { const cagr = selected[`${scenario.id}_cagr_y3`]; const width = Math.max(4, Math.min(100, (Number(cagr || 0) * 100 + 20) * 2)); return <div key={scenario.id}><div className="mb-1 flex justify-between text-xs"><span className="font-semibold text-slate-600">{scenario.label}</span><span><span className="font-bold">{cagr == null ? '—' : `${percent(Number(cagr) * 100)}/yr`}</span>{selected[`${scenario.id}_price_y3`] != null && <span className="ml-1 text-slate-500">to {formatMoney(selected[`${scenario.id}_price_y3`])}</span>}</span></div><div className="h-2 rounded-full bg-slate-200"><div className={`h-full rounded-full ${scenario.bar}`} style={{ width: `${width}%` }} /></div></div> })}</div><div className="mt-5 border-t border-slate-200 pt-4"><div className="text-[11px] font-semibold uppercase text-slate-500">Next earnings</div><div className="mt-1 font-semibold">{date(selected.next_earnings_date)}</div>{selected.next_earnings_eps_forecast && <div className="text-xs text-slate-500">EPS forecast {selected.next_earnings_eps_forecast}</div>}</div></section></div></> : <StockDetail key={ticker} embeddedTicker={ticker} embeddedSection={detailTab} />}</>}</main></div>
     {modal && selected && <AssumptionsModal ticker={ticker} close={() => setModal(false)} saved={refresh} />}
   </div>
 }
@@ -571,6 +603,8 @@ const NON_SECURITIES = new Set(['SPAXX', 'FDRXX', 'FZFXX', 'SPRXX', 'FCASH', 'CO
 const SHARE_TRADES = new Set(['buy', 'sell', 'transfer_in', 'transfer_out', 'adjustment'])
 
 const FORECAST_PREFS_KEY = 'stock-monitor.holdings.forecast.v1'
+const EARNINGS_COLOR = '#d97706'
+const PE_COLOR = '#7c3aed'
 
 // The first chart point of each calendar quarter that starts inside the
 // chart, with the next quarter's start (seconds) as where its lines end.
@@ -605,12 +639,17 @@ function forecastHorizon(points) {
 
 // Forecast on/off and log scale; the time window (range buttons) sets how
 // far back and ahead the charts go.
+function EarningsControls({ prefs, update }) {
+  return <div className="flex flex-wrap items-center gap-3 text-xs">
+      <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Trailing EPS times the P/E on the chart's first day. Price above the line means the P/E has risen since then."><input type="checkbox" checked={prefs.earnings} onChange={(event) => update({ earnings: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: EARNINGS_COLOR }} />Earnings</label>
+      <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Price over trailing EPS, on the right-hand axis"><input type="checkbox" checked={prefs.pe} onChange={(event) => update({ pe: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: PE_COLOR }} />P/E</label>
+  </div>
+}
+
 function ForecastControls({ prefs, update }) {
   return <div className="flex flex-wrap items-center gap-3 text-xs">
     <label className="flex items-center gap-1.5 font-semibold text-slate-600"><input type="checkbox" checked={prefs.on} onChange={(event) => update({ on: event.target.checked })} />Forecast</label>
-    {prefs.on && <>
-      <label className="flex items-center gap-1.5 font-semibold text-slate-600"><input type="checkbox" checked={prefs.log} onChange={(event) => update({ log: event.target.checked })} />Log scale</label>
-    </>}
+    <label className="flex items-center gap-1.5 font-semibold text-slate-600"><input type="checkbox" checked={prefs.log} onChange={(event) => update({ log: event.target.checked })} />Log scale</label>
   </div>
 }
 

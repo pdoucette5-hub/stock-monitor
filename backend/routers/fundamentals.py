@@ -10,6 +10,7 @@ from backend.auth import has_full_access
 from backend.config import PRICE_IMPORT_SECRET
 from backend.forecast_service import build_forecast_scorecard, forecast_history, record_quarterly_forecasts
 from backend.fundamentals_service import (
+    get_ttm_eps_history,
     refresh_earnings_calendar,
     refresh_reported_fundamentals,
 )
@@ -82,6 +83,17 @@ def get_forecast_history(ticker: str, request: Request) -> dict[str, Any]:
     if not has_full_access(request):
         raise HTTPException(status_code=403, detail="Forecast history is private")
     return {"ticker": normalize_ticker(ticker), "forecasts": forecast_history(ticker)}
+
+
+@router.get("/api/fundamentals/{ticker}/eps-history")
+def get_eps_history(ticker: str) -> dict[str, Any]:
+    """Trailing-twelve-month EPS after each quarterly report (public SEC data)."""
+    try:
+        return get_ttm_eps_history(ticker)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except Exception as exc:  # SEC unavailable: the chart just leaves the lines off.
+        raise HTTPException(status_code=502, detail=f"SEC data unavailable: {exc}") from exc
 
 
 @router.get("/api/fundamentals/reported")
