@@ -156,6 +156,12 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   const peValues = showPe ? valid.map((point) => Number(point?.pe) > 0 ? Number(point.pe) : null) : []
   const hasEarnings = earningsValues.some((value) => value != null)
   const hasPe = peValues.some((value) => value != null)
+  // P/E shares the price axis, scaled so the first day's P/E sits on the
+  // first day's price: all three lines start together, and the P/E line
+  // ending above or below that start shows the multiple rising or falling.
+  const peAnchor = valid.findIndex((point, i) => peValues[i] != null && Number(point.close) > 0)
+  const peScale = hasPe && peAnchor >= 0 ? Number(valid[peAnchor].close) / peValues[peAnchor] : null
+  const peScaled = peScale ? peValues.map((value) => value == null ? null : value * peScale) : []
   const [width, height, right, top, bottom] = fill ? [Math.round(box.width), Math.round(box.height), 8, 10, 26] : [900, 310, hasPe ? 52 : 18, 16, 40]
   const plotHeight = height - top - bottom
   const values = valid.map((point) => Number(point.close))
@@ -186,7 +192,7 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     const valueAt = projection.valueAt || ((years) => projection.price * (1 + projection.cagr) ** years)
     return { ...projection, points: samples.map((time) => ({ time, value: valueAt((time - projection.start) / YEAR_SECONDS) })).filter((point) => point.value > 0) }
   }).filter(Boolean) : []
-  const allValues = [...values, ...projectionLines.flatMap((line) => line.points.map((point) => point.value)), ...earningsValues.filter((value) => value != null)]
+  const allValues = [...values, ...projectionLines.flatMap((line) => line.points.map((point) => point.value)), ...earningsValues.filter((value) => value != null), ...peScaled.filter((value) => value != null)]
   const rawMin = Math.min(...allValues); const rawMax = Math.max(...allValues); const rawSpan = rawMax - rawMin || Math.max(rawMax * .05, 1)
   const useLog = logScale && !signed && rawMin > 0
   const min = useLog ? rawMin / 1.08 : signed ? rawMin - rawSpan * .06 : Math.max(0, rawMin - rawSpan * .06)
@@ -203,11 +209,7 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   const line = values.map((v, i) => `${i ? 'L' : 'M'} ${x(i)} ${y(v)}`).join(' ')
   // A path that breaks wherever the value is missing (loss-making stretches).
   const gappedPath = (series, toY) => series.map((v, i) => v == null ? '' : `${i && series[i - 1] != null ? 'L' : 'M'} ${x(i)} ${toY(v)}`).join(' ')
-  const peKnown = peValues.filter((value) => value != null)
-  const peLow = hasPe ? Math.min(...peKnown) : 0; const peHigh = hasPe ? Math.max(...peKnown) : 1
-  const pePad = (peHigh - peLow) * .06 || Math.max(peHigh * .05, 1)
-  const peMin = Math.max(0, peLow - pePad); const peMax = peHigh + pePad
-  const yPe = (v) => top + ((peMax - v) / (peMax - peMin)) * plotHeight
+  const peLabel = (value) => { const pe = value / peScale; return `${pe >= 10 ? Math.round(pe) : pe.toFixed(1)}x` }
   const base = signed ? y(Math.min(Math.max(0, min), max)) : top + plotHeight
   const area = `${line} L ${x(values.length - 1)} ${base} L ${x(0)} ${base} Z`
   const color = positive ? '#059669' : '#dc2626'; const id = `${signed ? 'signed-' : ''}${positive ? 'gain-fill' : 'loss-fill'}`
@@ -251,7 +253,7 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     <path d={area} fill={`url(#${id})`} /><path d={line} fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
     {projectionLines.map((projection) => projection.past ? <g key={projection.id} opacity=".8"><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="1.75" strokeDasharray="3 3" /><circle cx={xTime(projection.points[0].time)} cy={y(projection.points[0].value)} r="2.5" fill={projection.color} /></g> : <g key={projection.id}><path d={projection.points.map((point, i) => `${i ? 'L' : 'M'} ${xTime(point.time)} ${y(point.value)}`).join(' ')} fill="none" stroke={projection.color} strokeWidth="2" strokeDasharray="6 5" /><text x={Math.min(xTime(projection.points.at(-1).time) - 4, width - right - 4)} y={y(projection.points.at(-1).value) - 6} textAnchor="end" fontSize="11" fontWeight="600" fill={projection.color}>{projectionLabel(projection, compact)}</text></g>)}
     {hasEarnings && <path d={gappedPath(earningsValues, y)} fill="none" stroke={EARNINGS_COLOR} strokeWidth="2" strokeLinejoin="round" />}
-    {hasPe && <><path d={gappedPath(peValues, yPe)} fill="none" stroke={PE_COLOR} strokeWidth="1.5" strokeLinejoin="round" opacity=".85" />{yTicks.map((tick, i) => <text key={`pe-${tick.y}`} x={width - right + 6} y={tick.y + 4} fontSize="11" fill={PE_COLOR}>{`${Math.round(peMax - ((peMax - peMin) * i) / 4)}x`}</text>)}</>}
+    {peScale && <><path d={gappedPath(peScaled, y)} fill="none" stroke={PE_COLOR} strokeWidth="1.5" strokeLinejoin="round" opacity=".85" />{yTicks.map((tick) => <text key={`pe-${tick.y}`} x={width - right + 6} y={tick.y + 4} fontSize="11" fill={PE_COLOR}>{peLabel(tick.value)}</text>)}</>}
     {projectionLines.some((projection) => !projection.past) && <line x1={x(valid.length - 1)} x2={x(valid.length - 1)} y1={top} y2={top + plotHeight} stroke="#94a3b8" strokeDasharray="2 4" />}
     {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height={50 + hoverExtras.length * 15} rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text>{hoverExtras.map((extra, i) => <text key={extra.key} x={tooltipX + 10} y={tooltipY + 36 + i * 15} fontSize="10" fill={extra.color}>{extra.text}</text>)}<text x={tooltipX + 10} y={tooltipY + 38 + hoverExtras.length * 15} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
     <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="transparent" onPointerMove={onPointerMove} onPointerLeave={() => setHoveredIndex(null)} />
@@ -642,7 +644,7 @@ function forecastHorizon(points) {
 function EarningsControls({ prefs, update }) {
   return <div className="flex flex-wrap items-center gap-3 text-xs">
       <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Trailing EPS times the P/E on the chart's first day. Price above the line means the P/E has risen since then."><input type="checkbox" checked={prefs.earnings} onChange={(event) => update({ earnings: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: EARNINGS_COLOR }} />Earnings</label>
-      <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Price over trailing EPS, on the right-hand axis"><input type="checkbox" checked={prefs.pe} onChange={(event) => update({ pe: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: PE_COLOR }} />P/E</label>
+      <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Price over trailing EPS (right-hand axis), started at the price on the chart's first day. Ending above that start means the P/E has risen."><input type="checkbox" checked={prefs.pe} onChange={(event) => update({ pe: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: PE_COLOR }} />P/E</label>
   </div>
 }
 
