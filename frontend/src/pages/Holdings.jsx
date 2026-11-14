@@ -240,7 +240,7 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   const hoverX = hover ? x(hoveredIndex) : 0; const hoverY = hover ? y(Number(hover.close)) : 0
   const hoverExtras = hover ? [
     hasEarnings && hover.quarter_eps != null && { key: 'earnings', color: '#fbbf24', text: `Quarter EPS ${formatMoney(hover.quarter_eps)}${hover.quarter_end ? ` · ${quarterLabel(hover.quarter_end)}` : ''}` },
-    hasPe && peValues[hoveredIndex] != null && { key: 'pe', color: '#c4b5fd', text: `P/E ${peValues[hoveredIndex].toFixed(1)}x · TTM EPS ${formatMoney(hover.eps)}` },
+    hasPe && peValues[hoveredIndex] != null && { key: 'pe', color: '#c4b5fd', text: `P/E ${peValues[hoveredIndex].toFixed(1)}x · quarter EPS × 4 ${formatMoney(hover.eps)}` },
   ].filter(Boolean) : []
   const tooltipWidth = hoverExtras.length ? 230 : 136; const tooltipX = hoverX > width - tooltipWidth - 44 ? hoverX - tooltipWidth - 10 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64 - hoverExtras.length * 15, hoverY - 58))
   // Hover picks the point nearest the pointer along the x axis.
@@ -650,7 +650,7 @@ function forecastHorizon(points) {
 function EarningsControls({ prefs, update }) {
   return <div className="flex flex-wrap items-center gap-3 text-xs">
       <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Each quarter's EPS (from SEC filings, from the day it was filed), scaled to start at the price on the chart's first day. Price above the line means the stock has risen faster than quarterly earnings."><input type="checkbox" checked={prefs.earnings} onChange={(event) => update({ earnings: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: EARNINGS_COLOR }} />Earnings</label>
-      <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Price over trailing EPS (right-hand axis), started at the price on the chart's first day. Ending above that start means the P/E has risen."><input type="checkbox" checked={prefs.pe} onChange={(event) => update({ pe: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: PE_COLOR }} />P/E</label>
+      <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Price over the latest quarter's EPS times 4 (right-hand axis), started at the price on the chart's first day. Ending above that start means the P/E has risen."><input type="checkbox" checked={prefs.pe} onChange={(event) => update({ pe: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: PE_COLOR }} />P/E</label>
   </div>
 }
 

@@ -20,18 +20,18 @@ test('earnings line follows each quarter\'s EPS, starting at the price', () => {
   assert.deepEqual(out.map((p) => p.quarter_end), ['2025-09-30', '2025-12-31', '2025-12-31'])
 })
 
-test('P/E uses trailing four-quarter EPS', () => {
+test('P/E uses the latest quarter\'s EPS annualized (x 4)', () => {
   const { points: out } = withEarnings(points, history)
-  assert.deepEqual(out.map((p) => p.pe), [20, 20, 25])
+  assert.deepEqual(out.map((p) => p.pe), [20, 20, 25]) // 100/5, 120/6, 150/6
   assert.deepEqual(out.map((p) => p.eps), [5, 6, 6])
 })
 
-test('a quarter without a trailing figure keeps the last P/E basis', () => {
+test('P/E follows the quarter even without a trailing figure', () => {
   const { points: out } = withEarnings(points, [
     { filed: '2025-11-01', quarter_eps: 1, ttm_eps: 4 },
     { filed: '2026-02-02', quarter_eps: 2, ttm_eps: null },
   ])
-  assert.deepEqual(out.map((p) => p.pe), [25, 30, 37.5])
+  assert.deepEqual(out.map((p) => p.pe), [25, 15, 18.75]) // 100/4, 120/8, 150/8
   assert.deepEqual(out.map((p) => p.earnings), [100, 200, 200])
 })
 
@@ -53,6 +53,7 @@ test('loss-making quarters leave gaps', () => {
 test('older responses with only trailing EPS still work', () => {
   const { points: out } = withEarnings(points, [{ filed: '2025-11-01', ttm_eps: 5 }, { filed: '2026-02-02', ttm_eps: 6 }])
   assert.deepEqual(out.map((p) => p.earnings), [100, 120, 120])
+  assert.deepEqual(out.map((p) => p.pe), [20, 20, 25])
 })
 
 test('no history leaves points alone', () => {
