@@ -135,6 +135,12 @@ function Sparkline({ points, positive }) {
   return <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-9 w-full" aria-hidden="true"><path d={path} fill="none" stroke={positive ? '#10b981' : '#ef4444'} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
 }
 
+// "Q ended Sep 30, 2026" for a quarter's period end date.
+function quarterLabel(periodEnd) {
+  const parsed = new Date(`${periodEnd}T00:00:00`)
+  return Number.isNaN(parsed.getTime()) ? '' : `Q ended ${parsed.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}`
+}
+
 function Chart({ points, positive, signed = false, compact = false, fill = false, heightClass = 'h-72', label = 'Interactive price history chart', empty = 'No price history for this window.', projections = null, projectUntil = null, logScale = false, showEarnings = false, showPe = false }) {
   const [hoveredIndex, setHoveredIndex] = useState(null)
   // fill: draw at the container's actual size, so the chart uses all the
@@ -233,10 +239,10 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
   const hover = hoveredIndex == null ? null : valid[hoveredIndex]
   const hoverX = hover ? x(hoveredIndex) : 0; const hoverY = hover ? y(Number(hover.close)) : 0
   const hoverExtras = hover ? [
-    hasEarnings && earningsValues[hoveredIndex] != null && { key: 'earnings', color: '#fbbf24', text: `Earnings line ${formatMoney(earningsValues[hoveredIndex])}` },
-    hasPe && peValues[hoveredIndex] != null && { key: 'pe', color: '#c4b5fd', text: `P/E ${peValues[hoveredIndex].toFixed(1)}x · EPS ${formatMoney(hover.eps)}` },
+    hasEarnings && hover.quarter_eps != null && { key: 'earnings', color: '#fbbf24', text: `Quarter EPS ${formatMoney(hover.quarter_eps)}${hover.quarter_end ? ` · ${quarterLabel(hover.quarter_end)}` : ''}` },
+    hasPe && peValues[hoveredIndex] != null && { key: 'pe', color: '#c4b5fd', text: `P/E ${peValues[hoveredIndex].toFixed(1)}x · TTM EPS ${formatMoney(hover.eps)}` },
   ].filter(Boolean) : []
-  const tooltipX = hoverX > width - 180 ? hoverX - 146 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64 - hoverExtras.length * 15, hoverY - 58))
+  const tooltipWidth = hoverExtras.length ? 230 : 136; const tooltipX = hoverX > width - tooltipWidth - 44 ? hoverX - tooltipWidth - 10 : hoverX + 10; const tooltipY = Math.max(8, Math.min(height - 64 - hoverExtras.length * 15, hoverY - 58))
   // Hover picks the point nearest the pointer along the x axis.
   const onPointerMove = (event) => {
     const rect = event.currentTarget.getBoundingClientRect()
@@ -255,7 +261,7 @@ function Chart({ points, positive, signed = false, compact = false, fill = false
     {hasEarnings && <path d={gappedPath(earningsValues, y)} fill="none" stroke={EARNINGS_COLOR} strokeWidth="2" strokeLinejoin="round" />}
     {peScale && <><path d={gappedPath(peScaled, y)} fill="none" stroke={PE_COLOR} strokeWidth="1.5" strokeLinejoin="round" opacity=".85" />{yTicks.map((tick) => <text key={`pe-${tick.y}`} x={width - right + 6} y={tick.y + 4} fontSize="11" fill={PE_COLOR}>{peLabel(tick.value)}</text>)}</>}
     {projectionLines.some((projection) => !projection.past) && <line x1={x(valid.length - 1)} x2={x(valid.length - 1)} y1={top} y2={top + plotHeight} stroke="#94a3b8" strokeDasharray="2 4" />}
-    {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width="136" height={50 + hoverExtras.length * 15} rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text>{hoverExtras.map((extra, i) => <text key={extra.key} x={tooltipX + 10} y={tooltipY + 36 + i * 15} fontSize="10" fill={extra.color}>{extra.text}</text>)}<text x={tooltipX + 10} y={tooltipY + 38 + hoverExtras.length * 15} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
+    {hover && <g pointerEvents="none"><line x1={hoverX} x2={hoverX} y1={top} y2={top + plotHeight} stroke="#475569" strokeWidth="1" strokeDasharray="4 4" /><circle cx={hoverX} cy={hoverY} r="5" fill="white" stroke={color} strokeWidth="3" /><rect x={tooltipX} y={tooltipY} width={tooltipWidth} height={50 + hoverExtras.length * 15} rx="8" fill="#0f172a" opacity=".96" /><text x={tooltipX + 10} y={tooltipY + 20} fontSize="12" fontWeight="700" fill="white">{signed && Number(hover.close) >= 0 ? '+' : ''}{formatMoney(hover.close)}</text>{hoverExtras.map((extra, i) => <text key={extra.key} x={tooltipX + 10} y={tooltipY + 36 + i * 15} fontSize="10" fill={extra.color}>{extra.text}</text>)}<text x={tooltipX + 10} y={tooltipY + 38 + hoverExtras.length * 15} fontSize="10" fill="#cbd5e1">{tooltipDate(hover)}</text></g>}
     <rect x={left} y={top} width={plotWidth} height={plotHeight} fill="transparent" onPointerMove={onPointerMove} onPointerLeave={() => setHoveredIndex(null)} />
   </svg>
   return fill ? <div ref={boxRef} className={`${heightClass} w-full`}>{svg}</div> : svg
@@ -643,7 +649,7 @@ function forecastHorizon(points) {
 // far back and ahead the charts go.
 function EarningsControls({ prefs, update }) {
   return <div className="flex flex-wrap items-center gap-3 text-xs">
-      <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Trailing EPS times the P/E on the chart's first day. Price above the line means the P/E has risen since then."><input type="checkbox" checked={prefs.earnings} onChange={(event) => update({ earnings: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: EARNINGS_COLOR }} />Earnings</label>
+      <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Each quarter's EPS (from SEC filings, from the day it was filed), scaled to start at the price on the chart's first day. Price above the line means the stock has risen faster than quarterly earnings."><input type="checkbox" checked={prefs.earnings} onChange={(event) => update({ earnings: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: EARNINGS_COLOR }} />Earnings</label>
       <label className="flex items-center gap-1.5 font-semibold text-slate-600" title="Price over trailing EPS (right-hand axis), started at the price on the chart's first day. Ending above that start means the P/E has risen."><input type="checkbox" checked={prefs.pe} onChange={(event) => update({ pe: event.target.checked })} /><span className="inline-block h-0.5 w-3 rounded" style={{ background: PE_COLOR }} />P/E</label>
   </div>
 }

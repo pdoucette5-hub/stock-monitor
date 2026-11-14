@@ -702,11 +702,12 @@ def _known_date(quarter: dict[str, Any]) -> str:
 
 
 def build_ttm_eps_history(company_facts: dict[str, Any]) -> list[dict[str, Any]]:
-    """Trailing four-quarter EPS after each quarterly report.
+    """EPS after each quarterly report.
 
     Each entry: period_end, filed (the first filing that reported the
-    quarter, i.e. when the market knew it) and ttm_eps, adjusted to today's
-    share basis. Fourth quarters are the fiscal year less the nine months
+    quarter, i.e. when the market knew it), quarter_eps (that quarter alone)
+    and ttm_eps (the trailing four quarters, or None when a quarter is
+    missing), adjusted to today's share basis. Fourth quarters are the fiscal year less the nine months
     before it (or less the three reported quarters).
     """
     facts: list[dict[str, Any]] = []
@@ -770,16 +771,21 @@ def build_ttm_eps_history(company_facts: dict[str, Any]) -> list[dict[str, Any]]
 
     ordered = sorted(quarters.values(), key=lambda q: q["end"])
     history: list[dict[str, Any]] = []
-    for index in range(3, len(ordered)):
-        window = ordered[index - 3:index + 1]
-        first_end = _parse_day(window[0]["end"])
-        last_end = _parse_day(window[-1]["end"])
-        if first_end is None or last_end is None or not 250 <= (last_end - first_end).days <= 300:
-            continue  # a missing quarter in between
+    for index, quarter in enumerate(ordered):
+        # Trailing four quarters, when the four before and including this one
+        # are all there (no missing quarter in between).
+        ttm_eps = None
+        if index >= 3:
+            window = ordered[index - 3:index + 1]
+            first_end = _parse_day(window[0]["end"])
+            last_end = _parse_day(window[-1]["end"])
+            if first_end is not None and last_end is not None and 250 <= (last_end - first_end).days <= 300:
+                ttm_eps = round(sum(q["eps"] for q in window), 4)
         history.append({
-            "period_end": window[-1]["end"],
-            "filed": _known_date(window[-1]),
-            "ttm_eps": round(sum(q["eps"] for q in window), 4),
+            "period_end": quarter["end"],
+            "filed": _known_date(quarter),
+            "quarter_eps": round(quarter["eps"], 4),
+            "ttm_eps": ttm_eps,
         })
     return history
 
